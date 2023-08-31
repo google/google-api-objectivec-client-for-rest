@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Workload Manager API (workloadmanager/v1)
+// Description:
+//   Workload Manager is a service that provides tooling for enterprise
+//   workloads to automate the deployment and validation of your workloads
+//   against best practices and recommendations.
 // Documentation:
 //   https://cloud.google.com/workload-manager/docs
 
@@ -32,6 +36,8 @@
 @class GTLRWorkloadManager_Rule;
 @class GTLRWorkloadManager_SapDiscovery;
 @class GTLRWorkloadManager_SapDiscoveryComponent;
+@class GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties;
+@class GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties;
 @class GTLRWorkloadManager_SapDiscoveryMetadata;
 @class GTLRWorkloadManager_SapDiscoveryResource;
 @class GTLRWorkloadManager_SapValidation;
@@ -39,8 +45,9 @@
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
 @class GTLRWorkloadManager_ScannedResource;
 @class GTLRWorkloadManager_SqlserverValidation;
+@class GTLRWorkloadManager_SqlserverValidationDetails;
+@class GTLRWorkloadManager_SqlserverValidationDetails_Fields;
 @class GTLRWorkloadManager_SqlserverValidationValidationDetail;
-@class GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
 @class GTLRWorkloadManager_ViolationDetails;
@@ -136,32 +143,152 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Del
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties.applicationType
+
+/**
+ *  Unspecified application type
+ *
+ *  Value: "APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_ApplicationTypeUnspecified;
+/**
+ *  SAP Netweaver
+ *
+ *  Value: "NETWEAVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_Netweaver;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties.databaseType
+
+/**
+ *  Unspecified database type.
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified;
+/**
+ *  IBM DB2
+ *
+ *  Value: "DB2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Db2;
+/**
+ *  SAP HANA
+ *
+ *  Value: "HANA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Hana;
+/**
+ *  SAP MAX_DB
+ *
+ *  Value: "MAX_DB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryResource.resourceKind
+
+/**
+ *  This is a compute address.
+ *
+ *  Value: "RESOURCE_KIND_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindAddress;
+/**
+ *  This is a compute backend service.
+ *
+ *  Value: "RESOURCE_KIND_BACKEND_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindBackendService;
+/**
+ *  This is a compute disk.
+ *
+ *  Value: "RESOURCE_KIND_DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindDisk;
+/**
+ *  This is a filestore instance.
+ *
+ *  Value: "RESOURCE_KIND_FILESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindFilestore;
+/**
+ *  This is a compute forwarding rule.
+ *
+ *  Value: "RESOURCE_KIND_FORWARDING_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindForwardingRule;
+/**
+ *  This is a compute health check.
+ *
+ *  Value: "RESOURCE_KIND_HEALTH_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindHealthCheck;
+/**
+ *  This is a compute instance.
+ *
+ *  Value: "RESOURCE_KIND_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstance;
+/**
+ *  This is a compute instance group.
+ *
+ *  Value: "RESOURCE_KIND_INSTANCE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstanceGroup;
+/**
+ *  This is a compute network.
+ *
+ *  Value: "RESOURCE_KIND_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindNetwork;
+/**
+ *  This is a public accessible IP Address.
+ *
+ *  Value: "RESOURCE_KIND_PUBLIC_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindPublicAddress;
+/**
+ *  This is a compute subnetwork.
+ *
+ *  Value: "RESOURCE_KIND_SUBNETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindSubnetwork;
+/**
+ *  Unspecified resource kind.
+ *
+ *  Value: "RESOURCE_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
 
 /**
  *  This is a compute resource.
  *
- *  Value: "COMPUTE"
+ *  Value: "RESOURCE_TYPE_COMPUTE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Compute;
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeCompute;
 /**
  *  This is a network resource.
  *
- *  Value: "NETWORK"
+ *  Value: "RESOURCE_TYPE_NETWORK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Network;
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeNetwork;
+/**
+ *  This a storage resource.
+ *
+ *  Value: "RESOURCE_TYPE_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeStorage;
 /**
  *  Undefined resource type.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeUnspecified;
-/**
- *  This a storage resource.
- *
- *  Value: "STORAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Storage;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
@@ -207,49 +334,55 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 
 /**
- *  The BUFFER_POOL_EXTENSION table
+ *  The BUFFER_POOL_EXTENSION table.
  *
  *  Value: "DB_BUFFER_POOL_EXTENSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension;
 /**
- *  The CXPACKET_WAITS table
+ *  The CXPACKET_WAITS table.
  *
  *  Value: "DB_CXPACKET_WAITS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits;
 /**
- *  The LOG_DISK_SEPARATION table
+ *  The LOG_DISK_SEPARATION table.
  *
  *  Value: "DB_LOG_DISK_SEPARATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation;
 /**
- *  The MAX_PARALLELISM table
+ *  The MAX_PARALLELISM table.
  *
  *  Value: "DB_MAX_PARALLELISM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism;
 /**
- *  The MAX_SERVER_MEMORY table
+ *  The MAX_SERVER_MEMORY table.
  *
  *  Value: "DB_MAX_SERVER_MEMORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory;
 /**
- *  The TRANSACTION_LOG_HANDLING table
+ *  The TRANSACTION_LOG_HANDLING table.
  *
  *  Value: "DB_TRANSACTION_LOG_HANDLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling;
 /**
- *  The VIRTUAL_LOG_FILE_COUNT table
+ *  The VIRTUAL_LOG_FILE_COUNT table.
  *
  *  Value: "DB_VIRTUAL_LOG_FILE_COUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount;
 /**
- *  The Sqlserver system named OS
+ *  The INSTANCE_METRICS table.
+ *
+ *  Value: "INSTANCE_METRICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics;
+/**
+ *  The Sqlserver system named OS.
  *
  *  Value: "OS"
  */
@@ -1016,11 +1149,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SapDiscoveryComponent : GTLRObject
 
-/** The component is a SAP application. */
-@property(nonatomic, copy, nullable) NSString *applicationType;
+/** Optional. The component is a SAP application. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties *applicationProperties;
 
-/** The component is a SAP database. */
-@property(nonatomic, copy, nullable) NSString *databaseType;
+/** Optional. The component is a SAP database. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties *databaseProperties;
 
 /** Pantheon Project in which the resources reside. */
 @property(nonatomic, copy, nullable) NSString *hostProject;
@@ -1033,6 +1166,66 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  for customers.
  */
 @property(nonatomic, copy, nullable) NSString *sid;
+
+@end
+
+
+/**
+ *  A set of properties describing an SAP Application layer.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties : GTLRObject
+
+/**
+ *  Required. Type of the application. Netweaver, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_ApplicationTypeUnspecified
+ *        Unspecified application type (Value: "APPLICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_Netweaver
+ *        SAP Netweaver (Value: "NETWEAVER")
+ */
+@property(nonatomic, copy, nullable) NSString *applicationType;
+
+/** Required. Resource URI of the recognized ASCS host of the application. */
+@property(nonatomic, copy, nullable) NSString *ascsUri;
+
+/**
+ *  Optional. Resource URI of the recognized shared NFS of the application. May
+ *  be empty if the application server has only a single node.
+ */
+@property(nonatomic, copy, nullable) NSString *nfsUri;
+
+@end
+
+
+/**
+ *  A set of properties describing an SAP Database layer.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties : GTLRObject
+
+/**
+ *  Required. Type of the database. HANA, DB2, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified
+ *        Unspecified database type. (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Db2
+ *        IBM DB2 (Value: "DB2")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Hana
+ *        SAP HANA (Value: "HANA")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb
+ *        SAP MAX_DB (Value: "MAX_DB")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseType;
+
+/** Required. URI of the recognized primary instance of the database. */
+@property(nonatomic, copy, nullable) NSString *primaryInstanceUri;
+
+/**
+ *  Optional. URI of the recognized shared NFS of the database. May be empty if
+ *  the database has only a single node.
+ */
+@property(nonatomic, copy, nullable) NSString *sharedNfsUri;
 
 @end
 
@@ -1067,21 +1260,53 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** A list of resource URIs related to this resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedResources;
 
-/** ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc. */
+/**
+ *  Required. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindAddress
+ *        This is a compute address. (Value: "RESOURCE_KIND_ADDRESS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindBackendService
+ *        This is a compute backend service. (Value:
+ *        "RESOURCE_KIND_BACKEND_SERVICE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindDisk
+ *        This is a compute disk. (Value: "RESOURCE_KIND_DISK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindFilestore
+ *        This is a filestore instance. (Value: "RESOURCE_KIND_FILESTORE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindForwardingRule
+ *        This is a compute forwarding rule. (Value:
+ *        "RESOURCE_KIND_FORWARDING_RULE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindHealthCheck
+ *        This is a compute health check. (Value: "RESOURCE_KIND_HEALTH_CHECK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstance
+ *        This is a compute instance. (Value: "RESOURCE_KIND_INSTANCE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstanceGroup
+ *        This is a compute instance group. (Value:
+ *        "RESOURCE_KIND_INSTANCE_GROUP")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindNetwork
+ *        This is a compute network. (Value: "RESOURCE_KIND_NETWORK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindPublicAddress
+ *        This is a public accessible IP Address. (Value:
+ *        "RESOURCE_KIND_PUBLIC_ADDRESS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindSubnetwork
+ *        This is a compute subnetwork. (Value: "RESOURCE_KIND_SUBNETWORK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindUnspecified
+ *        Unspecified resource kind. (Value: "RESOURCE_KIND_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *resourceKind;
 
 /**
- *  The type of this resource.
+ *  Required. The type of this resource.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Compute
- *        This is a compute resource. (Value: "COMPUTE")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Network
- *        This is a network resource. (Value: "NETWORK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeCompute
+ *        This is a compute resource. (Value: "RESOURCE_TYPE_COMPUTE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeNetwork
+ *        This is a network resource. (Value: "RESOURCE_TYPE_NETWORK")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeStorage
+ *        This a storage resource. (Value: "RESOURCE_TYPE_STORAGE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeUnspecified
  *        Undefined resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Storage
- *        This a storage resource. (Value: "STORAGE")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -1170,9 +1395,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** The agent version collected this data point */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
+/**
+ *  Required. The instance_name of the instance that the Insight data comes
+ *  from. According to https://linter.aip.dev/122/name-suffix: field names
+ *  should not use the _name suffix unless the field would be ambiguous without
+ *  it.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Required. The project_id of the cloud project that the Insight data comes
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /** A list of SqlServer validation metrics data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SqlserverValidationValidationDetail *> *validationDetails;
 
+@end
+
+
+/**
+ *  Message containing collected data names and values.
+ */
+@interface GTLRWorkloadManager_SqlserverValidationDetails : GTLRObject
+
+/** Required. Collected data is in format. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverValidationDetails_Fields *fields;
+
+@end
+
+
+/**
+ *  Required. Collected data is in format.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_SqlserverValidationDetails_Fields : GTLRObject
 @end
 
 
@@ -1181,47 +1443,39 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SqlserverValidationValidationDetail : GTLRObject
 
-/** pairs of metrics data: column name & column value. */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields *fields;
+/**
+ *  Required. Details wraps map that represents collected data names and values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SqlserverValidationDetails *> *details;
 
 /**
  *  The Sqlserver system that the validation data is from.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension
- *        The BUFFER_POOL_EXTENSION table (Value: "DB_BUFFER_POOL_EXTENSION")
+ *        The BUFFER_POOL_EXTENSION table. (Value: "DB_BUFFER_POOL_EXTENSION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits
- *        The CXPACKET_WAITS table (Value: "DB_CXPACKET_WAITS")
+ *        The CXPACKET_WAITS table. (Value: "DB_CXPACKET_WAITS")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation
- *        The LOG_DISK_SEPARATION table (Value: "DB_LOG_DISK_SEPARATION")
+ *        The LOG_DISK_SEPARATION table. (Value: "DB_LOG_DISK_SEPARATION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism
- *        The MAX_PARALLELISM table (Value: "DB_MAX_PARALLELISM")
+ *        The MAX_PARALLELISM table. (Value: "DB_MAX_PARALLELISM")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory
- *        The MAX_SERVER_MEMORY table (Value: "DB_MAX_SERVER_MEMORY")
+ *        The MAX_SERVER_MEMORY table. (Value: "DB_MAX_SERVER_MEMORY")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling
- *        The TRANSACTION_LOG_HANDLING table (Value:
+ *        The TRANSACTION_LOG_HANDLING table. (Value:
  *        "DB_TRANSACTION_LOG_HANDLING")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount
- *        The VIRTUAL_LOG_FILE_COUNT table (Value: "DB_VIRTUAL_LOG_FILE_COUNT")
+ *        The VIRTUAL_LOG_FILE_COUNT table. (Value: "DB_VIRTUAL_LOG_FILE_COUNT")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics
+ *        The INSTANCE_METRICS table. (Value: "INSTANCE_METRICS")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os
- *        The Sqlserver system named OS (Value: "OS")
+ *        The Sqlserver system named OS. (Value: "OS")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified
  *        Unspecified type. (Value: "SQLSERVER_VALIDATION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-@end
-
-
-/**
- *  pairs of metrics data: column name & column value.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields : GTLRObject
 @end
 
 

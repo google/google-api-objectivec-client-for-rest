@@ -62,6 +62,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Advisorynotifications"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Aiplatform",
+            targets: ["GoogleAPIClientForREST_Aiplatform"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AIPlatformNotebooks",
             targets: ["GoogleAPIClientForREST_AIPlatformNotebooks"]
         ),
@@ -260,10 +264,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudDataplex",
             targets: ["GoogleAPIClientForREST_CloudDataplex"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_CloudDebugger",
-            targets: ["GoogleAPIClientForREST_CloudDebugger"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudDeploy",
@@ -618,10 +618,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GamesConfiguration"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_GameServices",
-            targets: ["GoogleAPIClientForREST_GameServices"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_GamesManagement",
             targets: ["GoogleAPIClientForREST_GamesManagement"]
         ),
@@ -718,6 +714,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ManufacturerCenter"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MapsPlaces",
+            targets: ["GoogleAPIClientForREST_MapsPlaces"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MigrationCenterAPI",
             targets: ["GoogleAPIClientForREST_MigrationCenterAPI"]
         ),
@@ -804,6 +804,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Playdeveloperreporting",
             targets: ["GoogleAPIClientForREST_Playdeveloperreporting"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_PlayGrouping",
+            targets: ["GoogleAPIClientForREST_PlayGrouping"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PlayIntegrity",
@@ -1165,6 +1169,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Aiplatform",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Aiplatform",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_AIPlatformNotebooks",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AIPlatformNotebooks",
@@ -1462,12 +1472,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudDataplex",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudDataplex",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_CloudDebugger",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/CloudDebugger",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1999,12 +2003,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_GameServices",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/GameServices",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_GamesManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GamesManagement",
@@ -2149,6 +2147,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_MapsPlaces",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/MapsPlaces",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_MigrationCenterAPI",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/MigrationCenterAPI",
@@ -2278,6 +2282,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playdeveloperreporting",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Playdeveloperreporting",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PlayGrouping",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/PlayGrouping",
             publicHeadersPath: "Public"
         ),
         .target(

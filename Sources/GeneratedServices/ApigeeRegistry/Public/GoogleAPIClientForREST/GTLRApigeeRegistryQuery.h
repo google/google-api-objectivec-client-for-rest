@@ -1113,8 +1113,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsTagRevision : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the deployment to be tagged, including the revision
- *  ID.
+ *  Required. The name of the deployment to be tagged, including the revision ID
+ *  is optional. If a revision is not specified, it will tag the latest
+ *  revision.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1126,7 +1127,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TagApiDeploymentRevisionRequest to
  *    include in the query.
  *  @param name Required. The name of the deployment to be tagged, including the
- *    revision ID.
+ *    revision ID is optional. If a revision is not specified, it will tag the
+ *    latest revision.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsTagRevision
  */
@@ -2916,7 +2918,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsTagRevision : GTLRApigeeRegistryQuery
 
-/** Required. The name of the spec to be tagged, including the revision ID. */
+/**
+ *  Required. The name of the spec to be tagged, including the revision ID is
+ *  optional. If a revision is not specified, it will tag the latest revision.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2927,7 +2932,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TagApiSpecRevisionRequest to include
  *    in the query.
  *  @param name Required. The name of the spec to be tagged, including the
- *    revision ID.
+ *    revision ID is optional. If a revision is not specified, it will tag the
+ *    latest revision.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsTagRevision
  */
@@ -3796,14 +3802,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: apigeeregistry.projects.locations.operations.list
  *
@@ -3828,14 +3827,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigeeRegistry_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  @param name The name of the operation's parent resource.
  *

@@ -47,6 +47,8 @@
 @class GTLRDataproc_EnvironmentConfig;
 @class GTLRDataproc_ExecutionConfig;
 @class GTLRDataproc_Expr;
+@class GTLRDataproc_FlinkJob;
+@class GTLRDataproc_FlinkJob_Properties;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
 @class GTLRDataproc_GetPolicyOptions;
@@ -75,6 +77,7 @@
 @class GTLRDataproc_JobReference;
 @class GTLRDataproc_JobScheduling;
 @class GTLRDataproc_JobStatus;
+@class GTLRDataproc_JupyterConfig;
 @class GTLRDataproc_KerberosConfig;
 @class GTLRDataproc_KubernetesClusterConfig;
 @class GTLRDataproc_KubernetesSoftwareConfig;
@@ -120,7 +123,12 @@
 @class GTLRDataproc_RuntimeInfo;
 @class GTLRDataproc_RuntimeInfo_Endpoints;
 @class GTLRDataproc_SecurityConfig;
+@class GTLRDataproc_Session;
+@class GTLRDataproc_Session_Labels;
 @class GTLRDataproc_SessionOperationMetadata_Labels;
+@class GTLRDataproc_SessionStateHistory;
+@class GTLRDataproc_SessionTemplate;
+@class GTLRDataproc_SessionTemplate_Labels;
 @class GTLRDataproc_ShieldedInstanceConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
@@ -565,6 +573,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Submitted;
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_JupyterConfig.kernel
+
+/**
+ *  The kernel is unknown.
+ *
+ *  Value: "KERNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JupyterConfig_Kernel_KernelUnspecified;
+/**
+ *  Python kernel.
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JupyterConfig_Kernel_Python;
+/**
+ *  Scala kernel.
+ *
+ *  Value: "SCALA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JupyterConfig_Kernel_Scala;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_LoggingConfig_DriverLogLevels.driverLogLevel
 
 /**
@@ -625,6 +655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_D
 // ----------------------------------------------------------------------------
 // GTLRDataproc_Metric.metricSource
 
+/**
+ *  flink metric source
+ *
+ *  Value: "FLINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Flink;
 /**
  *  HDFS metric source.
  *
@@ -768,6 +804,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_Session.state
+
+/**
+ *  The session is running.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Active;
+/**
+ *  The session is created before running.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Creating;
+/**
+ *  The session is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Failed;
+/**
+ *  The session state is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_StateUnspecified;
+/**
+ *  The session is terminated successfully.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Terminated;
+/**
+ *  The session is terminating.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Terminating;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_SessionOperationMetadata.operationType
 
 /**
@@ -794,6 +870,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_Operat
  *  Value: "TERMINATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_SessionStateHistory.state
+
+/**
+ *  The session is running.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Active;
+/**
+ *  The session is created before running.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Creating;
+/**
+ *  The session is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Failed;
+/**
+ *  The session state is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_StateUnspecified;
+/**
+ *  The session is terminated successfully.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Terminated;
+/**
+ *  The session is terminating.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Terminating;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
@@ -2197,12 +2313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ExecutionConfig : GTLRObject
 
 /**
- *  Optional. The duration to keep the session alive while it's idling.
- *  Exceeding this threshold causes the session to terminate. This field cannot
- *  be set on a batch workload. Minimum value is 10 minutes; maximum value is 14
- *  days (see JSON representation of Duration
+ *  Optional. Applies to sessions only. The duration to keep the session alive
+ *  while it's idling. Exceeding this threshold causes the session to terminate.
+ *  This field cannot be set on a batch workload. Minimum value is 10 minutes;
+ *  maximum value is 14 days (see JSON representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). Defaults
- *  to 4 hours if not set. If both ttl and idle_ttl are specified for an
+ *  to 1 hour if not set. If both ttl and idle_ttl are specified for an
  *  interactive session, the conditions are treated as OR conditions: the
  *  workload will be terminated when it has been idle for idle_ttl or when ttl
  *  has been exceeded, whichever occurs first.
@@ -2305,6 +2421,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A Dataproc job for running Apache Flink (https://flink.apache.org/)
+ *  applications on YARN.
+ */
+@interface GTLRDataproc_FlinkJob : GTLRObject
+
+/**
+ *  Optional. The arguments to pass to the driver. Do not include arguments,
+ *  such as --conf, that can be set as job properties, since a collision may
+ *  occur that causes an incorrect job submission.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. HCFS URIs of jar files to add to the CLASSPATHs of the Flink
+ *  driver and tasks.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarFileUris;
+
+/** Optional. The runtime log config for job execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_LoggingConfig *loggingConfig;
+
+/**
+ *  The name of the driver's main class. The jar file that contains the class
+ *  must be in the default CLASSPATH or specified in jar_file_uris.
+ */
+@property(nonatomic, copy, nullable) NSString *mainClass;
+
+/** The HCFS URI of the jar file that contains the main class. */
+@property(nonatomic, copy, nullable) NSString *mainJarFileUri;
+
+/**
+ *  Optional. A mapping of property names to values, used to configure Flink.
+ *  Properties that conflict with values set by the Dataproc API may
+ *  beoverwritten. Can include properties set
+ *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlinkJob_Properties *properties;
+
+/**
+ *  Optional. HCFS URI of the savepoint which contains the last saved progress
+ *  for this job
+ */
+@property(nonatomic, copy, nullable) NSString *savepointUri;
+
+@end
+
+
+/**
+ *  Optional. A mapping of property names to values, used to configure Flink.
+ *  Properties that conflict with values set by the Dataproc API may
+ *  beoverwritten. Can include properties set
+ *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_FlinkJob_Properties : GTLRObject
+@end
+
+
+/**
  *  Common config settings for resources of Compute Engine cluster instances,
  *  applicable to all instances in the cluster.
  */
@@ -2329,8 +2508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *internalIpOnly;
 
 /**
- *  The Compute Engine metadata entries to add to all instances (see Project and
- *  instance metadata
+ *  Optional. The Compute Engine metadata entries to add to all instances (see
+ *  Project and instance metadata
  *  (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_Metadata *metadata;
@@ -2435,8 +2614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The Compute Engine metadata entries to add to all instances (see Project and
- *  instance metadata
+ *  Optional. The Compute Engine metadata entries to add to all instances (see
+ *  Project and instance metadata
  *  (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -2890,6 +3069,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to inject credentials to a session.
+ */
+@interface GTLRDataproc_InjectSessionCredentialsRequest : GTLRObject
+
+/**
+ *  Required. The encrypted credentials being injected in to the session.The
+ *  client is responsible for encrypting the credentials in a way that is
+ *  supported by the session.A wrapped value is used here so that the actual
+ *  contents of the encrypted credentials are not written to audit logs.
+ */
+@property(nonatomic, copy, nullable) NSString *credentialsCiphertext;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two TerminateSessionRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.TerminateSessionRequest)s
+ *  with the same ID, the first request is ignored to ensure the most recent
+ *  credentials are injected.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Configuration for the size bounds of an instance group, including its
  *  proportional size to other groups.
  */
@@ -3007,6 +3214,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+
+/**
+ *  Optional. The minimum number of instances to create. If min_num_instances is
+ *  set, min_num_instances is used for a criteria to decide the cluster. Cluster
+ *  creation will be failed by being an error state if the total number of
+ *  instances created is less than the min_num_instances. For example, given
+ *  that num_instances = 5 and min_num_instances = 3, * if 4 instances are
+ *  created and then registered successfully but one instance is failed, the
+ *  failed VM will be deleted and the cluster will be resized to 4 instances in
+ *  running state. * if 2 instances are created successfully and 3 instances are
+ *  failed, the cluster will be in an error state and does not delete failed VMs
+ *  for debugging. * if 2 instance are created and then registered successfully
+ *  but 3 instances are failed to initialize, the cluster will be in an error
+ *  state and does not delete failed VMs for debugging. NB: This can only be set
+ *  for primary workers now.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNumInstances;
 
 /**
  *  Optional. The number of VM instances in the instance group. For HA cluster
@@ -3169,6 +3395,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Optional. Driver scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_DriverSchedulingConfig *driverSchedulingConfig;
+
+/** Optional. Job is a Flink job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlinkJob *flinkJob;
 
 /** Optional. Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
@@ -3439,6 +3668,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        unknown. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *substate;
+
+@end
+
+
+/**
+ *  Jupyter configuration for an interactive session.
+ */
+@interface GTLRDataproc_JupyterConfig : GTLRObject
+
+/** Optional. Display name, shown in the Jupyter kernelspec card. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Kernel
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_JupyterConfig_Kernel_KernelUnspecified The kernel is
+ *        unknown. (Value: "KERNEL_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_JupyterConfig_Kernel_Python Python kernel. (Value:
+ *        "PYTHON")
+ *    @arg @c kGTLRDataproc_JupyterConfig_Kernel_Scala Scala kernel. (Value:
+ *        "SCALA")
+ */
+@property(nonatomic, copy, nullable) NSString *kernel;
 
 @end
 
@@ -3806,6 +4059,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A list of interactive sessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataproc_ListSessionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. The sessions from the specified collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Session *> *sessions;
+
+@end
+
+
+/**
+ *  A list of session templates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessionTemplates" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDataproc_ListSessionTemplatesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Session template list
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SessionTemplate *> *sessionTemplates;
+
+@end
+
+
+/**
  *  A response to a request to list workflow templates in a project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3971,6 +4278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  for more information).
  *
  *  Likely values:
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Flink flink metric source
+ *        (Value: "FLINK")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs HDFS metric source. (Value:
  *        "HDFS")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Hivemetastore hivemetastore
@@ -4241,8 +4550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -4270,8 +4579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -4938,9 +5247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_RuntimeInfo : GTLRObject
 
 /**
- *  Output only. Approximate workload resource usage calculated after workload
- *  finishes (see Dataproc Serverless pricing
- *  (https://cloud.google.com/dataproc-serverless/pricing)).
+ *  Output only. Approximate workload resource usage, calculated when the
+ *  workload completes (see Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).Note: This metric
+ *  calculation may change in the future, for example, to capture cumulative
+ *  workload resource consumption during workload execution (see the Dataproc
+ *  Serverless release notes
+ *  (https://cloud.google.com/dataproc-serverless/docs/release-notes) for
+ *  announcements, changes, fixes and other Dataproc developments).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_UsageMetrics *approximateUsage;
 
@@ -4992,6 +5306,112 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Kerberos related configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KerberosConfig *kerberosConfig;
 
+@end
+
+
+/**
+ *  A representation of a session in the service. Next ID: 18
+ */
+@interface GTLRDataproc_Session : GTLRObject
+
+/** Output only. The time when the session was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The email address of the user who created the session. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/** Optional. Environment configuration for the session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_EnvironmentConfig *environmentConfig;
+
+/** Optional. Jupyter session config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_JupyterConfig *jupyterSession;
+
+/**
+ *  Optional. The labels to associate with this session. Label keys must contain
+ *  1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a session.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_Session_Labels *labels;
+
+/** Required. The resource name of the session. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Runtime configuration for the session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
+
+/** Output only. Runtime information about session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeInfo *runtimeInfo;
+
+/**
+ *  Optional. The session template used by the session.Only resource names
+ *  including project ID and location are valid.Example: *
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]
+ *  *
+ *  projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]Note
+ *  that the template must be in the same project and Dataproc region.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionTemplate;
+
+/**
+ *  Output only. A state of the session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_Session_State_Active The session is running. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRDataproc_Session_State_Creating The session is created before
+ *        running. (Value: "CREATING")
+ *    @arg @c kGTLRDataproc_Session_State_Failed The session is no longer
+ *        running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRDataproc_Session_State_StateUnspecified The session state is
+ *        unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_Session_State_Terminated The session is terminated
+ *        successfully. (Value: "TERMINATED")
+ *    @arg @c kGTLRDataproc_Session_State_Terminating The session is
+ *        terminating. (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Historical state information for the session. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SessionStateHistory *> *stateHistory;
+
+/**
+ *  Output only. Session state details, such as a failure description if the
+ *  state is FAILED.
+ */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/** Output only. The time when the session entered a current state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateTime;
+
+/** Optional. The email address of the user who owns the session. */
+@property(nonatomic, copy, nullable) NSString *user;
+
+/**
+ *  Output only. A session UUID (Unique Universal Identifier). The service
+ *  generates this value when it creates the session.
+ */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Optional. The labels to associate with this session. Label keys must contain
+ *  1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a session.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_Session_Labels : GTLRObject
 @end
 
 
@@ -5053,6 +5473,102 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_SessionOperationMetadata_Labels : GTLRObject
+@end
+
+
+/**
+ *  Historical state information.
+ */
+@interface GTLRDataproc_SessionStateHistory : GTLRObject
+
+/**
+ *  Output only. The state of the session at this point in history.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_Active The session is
+ *        running. (Value: "ACTIVE")
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_Creating The session is
+ *        created before running. (Value: "CREATING")
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_Failed The session is no
+ *        longer running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_StateUnspecified The
+ *        session state is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_Terminated The session is
+ *        terminated successfully. (Value: "TERMINATED")
+ *    @arg @c kGTLRDataproc_SessionStateHistory_State_Terminating The session is
+ *        terminating. (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Details about the state at this point in history. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/** Output only. The time when the session entered the historical state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateStartTime;
+
+@end
+
+
+/**
+ *  A representation of a session template in the service. Next ID: 12
+ */
+@interface GTLRDataproc_SessionTemplate : GTLRObject
+
+/** Output only. The time when the template was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The email address of the user who created the template. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/**
+ *  Optional. Brief description of the template.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Environment configuration for session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_EnvironmentConfig *environmentConfig;
+
+/** Optional. Jupyter session config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_JupyterConfig *jupyterSession;
+
+/**
+ *  Optional. The labels to associate with sessions created using this template.
+ *  Label keys must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a session.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_SessionTemplate_Labels *labels;
+
+/** Required. The resource name of the session template. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Runtime configuration for session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
+
+/** Output only. The time template was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels to associate with sessions created using this template.
+ *  Label keys must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a session.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SessionTemplate_Labels : GTLRObject
 @end
 
 
@@ -5750,6 +6266,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to terminate an interactive session.
+ */
+@interface GTLRDataproc_TerminateSessionRequest : GTLRObject
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two TerminateSessionRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.TerminateSessionRequest)s
+ *  with the same ID, the second request is ignored.Recommendation: Set this
+ *  value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Request message for TestIamPermissions method.
  */
 @interface GTLRDataproc_TestIamPermissionsRequest : GTLRObject
@@ -5862,7 +6398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The usage snaphot represents the resources consumed by a workload at a
+ *  The usage snapshot represents the resources consumed by a workload at a
  *  specified time.
  */
 @interface GTLRDataproc_UsageSnapshot : GTLRObject
@@ -5876,12 +6412,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *milliDcu;
 
 /**
+ *  Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) charged at
+ *  premium tier (see Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliDcuPremium;
+
+/**
  *  Optional. Shuffle Storage in gigabytes (GB). (see Dataproc Serverless
  *  pricing (https://cloud.google.com/dataproc-serverless/pricing))
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shuffleStorageGb;
+
+/**
+ *  Optional. Shuffle Storage in gigabytes (GB) charged at premium tier. (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleStorageGbPremium;
 
 /** Optional. The timestamp of the usage snapshot. */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;

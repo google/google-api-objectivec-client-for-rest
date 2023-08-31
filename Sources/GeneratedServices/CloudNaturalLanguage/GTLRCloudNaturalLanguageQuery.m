@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Natural Language API (language/v1)
+//   Cloud Natural Language API (language/v2)
 // Description:
 //   Provides natural language understanding technologies, such as sentiment
 //   analysis, entity recognition, entity sentiment analysis, and other text
@@ -27,7 +27,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/documents:analyzeEntities";
+  NSString *pathURITemplate = @"v2/documents:analyzeEntities";
   GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -35,28 +35,6 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeEntitiesResponse class];
   query.loggingName = @"language.documents.analyzeEntities";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
-
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/documents:analyzeEntitySentiment";
-  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse class];
-  query.loggingName = @"language.documents.analyzeEntitySentiment";
   return query;
 }
 
@@ -71,7 +49,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/documents:analyzeSentiment";
+  NSString *pathURITemplate = @"v2/documents:analyzeSentiment";
   GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -79,28 +57,6 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeSentimentResponse class];
   query.loggingName = @"language.documents.analyzeSentiment";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
-
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/documents:analyzeSyntax";
-  GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse class];
-  query.loggingName = @"language.documents.analyzeSyntax";
   return query;
 }
 
@@ -115,7 +71,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/documents:annotateText";
+  NSString *pathURITemplate = @"v2/documents:annotateText";
   GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -137,7 +93,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/documents:classifyText";
+  NSString *pathURITemplate = @"v2/documents:classifyText";
   GTLRCloudNaturalLanguageQuery_DocumentsClassifyText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -159,7 +115,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/documents:moderateText";
+  NSString *pathURITemplate = @"v2/documents:moderateText";
   GTLRCloudNaturalLanguageQuery_DocumentsModerateText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

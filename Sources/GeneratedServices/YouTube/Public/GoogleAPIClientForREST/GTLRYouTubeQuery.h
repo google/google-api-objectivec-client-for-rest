@@ -503,6 +503,24 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoLicenseCreativeCommon;
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoLicenseYoutube;
 
 // ----------------------------------------------------------------------------
+// videoPaidProductPlacement
+
+/**
+ *  Return all videos, paid product placement or not.
+ *
+ *  Value: "any"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoPaidProductPlacementAny;
+/**
+ *  Restrict results to only videos with paid product placement.
+ *
+ *  Value: "true"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoPaidProductPlacementTrue;
+/** Value: "videoPaidProductPlacementUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoPaidProductPlacementVideoPaidProductPlacementUnspecified;
+
+// ----------------------------------------------------------------------------
 // videoSyndicated
 
 /**
@@ -4166,6 +4184,19 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *        "creativeCommon")
  */
 @property(nonatomic, copy, nullable) NSString *videoLicense;
+
+/**
+ *  videoPaidProductPlacement
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTubeVideoPaidProductPlacementVideoPaidProductPlacementUnspecified
+ *        Value "videoPaidProductPlacementUnspecified"
+ *    @arg @c kGTLRYouTubeVideoPaidProductPlacementAny Return all videos, paid
+ *        product placement or not. (Value: "any")
+ *    @arg @c kGTLRYouTubeVideoPaidProductPlacementTrue Restrict results to only
+ *        videos with paid product placement. (Value: "true")
+ */
+@property(nonatomic, copy, nullable) NSString *videoPaidProductPlacement;
 
 /**
  *  Filter on syndicated videos.

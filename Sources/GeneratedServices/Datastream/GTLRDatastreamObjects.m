@@ -142,6 +142,17 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_CdcStrategy
+//
+
+@implementation GTLRDatastream_CdcStrategy
+@dynamic mostRecentStartPosition, nextAvailableStartPosition,
+         specificStartPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_ConnectionProfile
 //
 
@@ -518,12 +529,21 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_MostRecentStartPosition
+//
+
+@implementation GTLRDatastream_MostRecentStartPosition
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_MysqlColumn
 //
 
 @implementation GTLRDatastream_MysqlColumn
 @dynamic collation, column, dataType, length, nullable, ordinalPosition,
-         primaryKey;
+         precision, primaryKey, scale;
 @end
 
 
@@ -542,6 +562,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MysqlLogPosition
+//
+
+@implementation GTLRDatastream_MysqlLogPosition
+@dynamic logFile, logPosition;
 @end
 
 
@@ -620,6 +650,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_NextAvailableStartPosition
+//
+
+@implementation GTLRDatastream_NextAvailableStartPosition
 @end
 
 
@@ -941,6 +980,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_RunStreamRequest
+//
+
+@implementation GTLRDatastream_RunStreamRequest
+@dynamic cdcStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SingleTargetDataset
 //
 
@@ -977,6 +1026,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SourceObjectIdentifier
 @dynamic mysqlIdentifier, oracleIdentifier, postgresqlIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpecificStartPosition
+//
+
+@implementation GTLRDatastream_SpecificStartPosition
+@dynamic mysqlLogPosition;
 @end
 
 

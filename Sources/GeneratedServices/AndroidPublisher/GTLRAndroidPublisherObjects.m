@@ -114,6 +114,11 @@ NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExt
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
 
+// GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
+NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn = @"PRICE_INCREASE_TYPE_OPT_IN";
+NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut = @"PRICE_INCREASE_TYPE_OPT_OUT";
+NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified = @"PRICE_INCREASE_TYPE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel = @"STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioRental = @"STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL";
@@ -1390,7 +1395,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings
-@dynamic eeaWithdrawalRightType, taxRateInfoByRegionCode;
+@dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
+         taxRateInfoByRegionCode;
 @end
 
 
@@ -1723,7 +1729,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RegionalPriceMigrationConfig
-@dynamic oldestAllowedPriceVersionTime, regionCode;
+@dynamic oldestAllowedPriceVersionTime, priceIncreaseType, regionCode;
 @end
 
 
@@ -2186,7 +2192,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings
-@dynamic eeaWithdrawalRightType, taxRateInfoByRegionCode;
+@dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
+         taxRateInfoByRegionCode;
 @end
 
 
@@ -2201,6 +2208,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return [GTLRAndroidPublisher_RegionalTaxRateInfo class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SystemApkOptions
+//
+
+@implementation GTLRAndroidPublisher_SystemApkOptions
+@dynamic rotated, uncompressedDexFiles, uncompressedNativeLibraries;
 @end
 
 
@@ -2540,7 +2557,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_Variant
-@dynamic deviceSpec, variantId;
+@dynamic deviceSpec, options, variantId;
 @end
 
 

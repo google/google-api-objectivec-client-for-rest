@@ -626,6 +626,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  This metadata is currently blank.
+ */
+@interface GTLRAnalyticsData_AudienceListMetadata : GTLRObject
+@end
+
+
+/**
  *  The batch request containing multiple pivot report requests.
  */
 @interface GTLRAnalyticsData_BatchRunPivotReportsRequest : GTLRObject
@@ -962,8 +969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  A contiguous set of days: startDate, startDate + 1, ..., endDate. Requests
- *  are allowed up to 4 date ranges.
+ *  A contiguous set of days: `startDate`, `startDate + 1`, ..., `endDate`.
+ *  Requests are allowed up to 4 date ranges.
  */
 @interface GTLRAnalyticsData_DateRange : GTLRObject
 
@@ -1521,8 +1528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  A contiguous set of minutes: startMinutesAgo, startMinutesAgo + 1, ...,
- *  endMinutesAgo. Requests are allowed up to 2 minute ranges.
+ *  A contiguous set of minutes: `startMinutesAgo`, `startMinutesAgo + 1`, ...,
+ *  `endMinutesAgo`. Requests are allowed up to 2 minute ranges.
  */
 @interface GTLRAnalyticsData_MinuteRange : GTLRObject
 

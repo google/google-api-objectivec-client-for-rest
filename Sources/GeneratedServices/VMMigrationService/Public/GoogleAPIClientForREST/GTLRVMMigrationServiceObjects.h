@@ -30,6 +30,8 @@
 @class GTLRVMMigrationService_AwsVmsDetails;
 @class GTLRVMMigrationService_CloneJob;
 @class GTLRVMMigrationService_CloneStep;
+@class GTLRVMMigrationService_ComputeEngineDisksTargetDefaults;
+@class GTLRVMMigrationService_ComputeEngineDisksTargetDetails;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults_Labels;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults_Metadata;
@@ -57,6 +59,9 @@
 @class GTLRVMMigrationService_Operation;
 @class GTLRVMMigrationService_Operation_Metadata;
 @class GTLRVMMigrationService_Operation_Response;
+@class GTLRVMMigrationService_PersistentDisk;
+@class GTLRVMMigrationService_PersistentDiskDefaults;
+@class GTLRVMMigrationService_PersistentDiskDefaults_AdditionalLabels;
 @class GTLRVMMigrationService_PostProcessingStep;
 @class GTLRVMMigrationService_PreparingVMDisksStep;
 @class GTLRVMMigrationService_ReplicatingStep;
@@ -75,7 +80,9 @@
 @class GTLRVMMigrationService_UtilizationReport;
 @class GTLRVMMigrationService_VmUtilizationInfo;
 @class GTLRVMMigrationService_VmUtilizationMetrics;
+@class GTLRVMMigrationService_VmwareDiskDetails;
 @class GTLRVMMigrationService_VmwareSourceDetails;
+@class GTLRVMMigrationService_VmwareSourceVmDetails;
 @class GTLRVMMigrationService_VmwareVmDetails;
 @class GTLRVMMigrationService_VmwareVmsDetails;
 
@@ -616,6 +623,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DatacenterConnector_S
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DatacenterConnector_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_Group.migrationTargetType
+
+/**
+ *  All MigratingVMs in the group must have Compute Engine Disks targets.
+ *
+ *  Value: "MIGRATION_TARGET_TYPE_DISKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeDisks;
+/**
+ *  All MigratingVMs in the group must have Compute Engine targets.
+ *
+ *  Value: "MIGRATION_TARGET_TYPE_GCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeGce;
+/**
+ *  Group type is not specified. This defaults to Compute Engine targets.
+ *
+ *  Value: "MIGRATION_TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_MigratingVm.state
 
 /**
@@ -777,6 +806,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationWarning_Code
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationWarning_Code_WarningCodeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_PersistentDiskDefaults.diskType
+
+/**
+ *  An alternative to SSD persistent disks that balance performance and cost.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced;
+/**
+ *  SSD hard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeSsd;
+/**
+ *  A Standard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeStandard;
+/**
+ *  An unspecified disk type. Will be used as STANDARD.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_ReplicationCycle.state
 
 /**
@@ -916,6 +973,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_UtilizationReport_Tim
  *  Value: "YEAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Year;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_VmwareSourceVmDetails.firmware
+
+/**
+ *  The firmware is BIOS.
+ *
+ *  Value: "BIOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios;
+/**
+ *  The firmware is EFI.
+ *
+ *  Value: "EFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Efi;
+/**
+ *  The firmware is unknown.
+ *
+ *  Value: "FIRMWARE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_FirmwareUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_VmwareVmDetails.bootOption
@@ -1413,6 +1492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_CloneJob : GTLRObject
 
+/** Output only. Details of the target Persistent Disks in Compute Engine. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineDisksTargetDetails *computeEngineDisksTargetDetails;
+
 /** Output only. Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDetails *computeEngineTargetDetails;
 
@@ -1492,6 +1574,43 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  ComputeEngineDisksTargetDefaults is a collection of details for creating
+ *  Persistent Disks in a target Compute Engine project.
+ */
+@interface GTLRVMMigrationService_ComputeEngineDisksTargetDefaults : GTLRObject
+
+/** The details of each Persistent Disk to create. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_PersistentDiskDefaults *> *disks;
+
+/**
+ *  The full path of the resource of type TargetProject which represents the
+ *  Compute Engine project in which to create the Persistent Disks.
+ */
+@property(nonatomic, copy, nullable) NSString *targetProject;
+
+/**
+ *  The zone in which to create the Persistent Disks.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  ComputeEngineDisksTargetDetails is a collection of created Persistent Disks
+ *  details.
+ */
+@interface GTLRVMMigrationService_ComputeEngineDisksTargetDetails : GTLRObject
+
+/** The details of each created Persistent Disk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_PersistentDisk *> *disks;
+
+@end
+
+
+/**
  *  ComputeEngineTargetDefaults is a collection of details for creating a VM in
  *  a target Compute Engine project.
  */
@@ -1504,7 +1623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AppliedLicense *appliedLicense;
 
 /**
- *  Output only. The VM Boot Option, as set in the source vm.
+ *  Output only. The VM Boot Option, as set in the source VM.
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootOption_ComputeEngineBootOptionBios
@@ -1571,12 +1690,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** List of NICs connected to this VM. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_NetworkInterface *> *networkInterfaces;
 
-/** A map of network tags to associate with the VM. */
+/** A list of network tags to associate with the VM. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
 
 /**
  *  Defines whether the instance has Secure Boot enabled. This can be set to
- *  true only if the vm boot option is EFI.
+ *  true only if the VM boot option is EFI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1641,7 +1760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AppliedLicense *appliedLicense;
 
 /**
- *  The VM Boot Option, as set in the source vm.
+ *  The VM Boot Option, as set in the source VM.
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDetails_BootOption_ComputeEngineBootOptionBios
@@ -1708,7 +1827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** List of NICs connected to this VM. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_NetworkInterface *> *networkInterfaces;
 
-/** A map of network tags to associate with the VM. */
+/** A list of network tags to associate with the VM. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
 
 /** The Google Cloud target project ID or project name. */
@@ -1716,7 +1835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /**
  *  Defines whether the instance has Secure Boot enabled. This can be set to
- *  true only if the vm boot option is EFI.
+ *  true only if the VM boot option is EFI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1839,6 +1958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  VM using the replicated snapshot.
  */
 @interface GTLRVMMigrationService_CutoverJob : GTLRObject
+
+/** Output only. Details of the target Persistent Disks in Compute Engine. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineDisksTargetDetails *computeEngineDisksTargetDetails;
 
 /** Output only. Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDetails *computeEngineTargetDetails;
@@ -2124,6 +2246,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Display name is a user defined name for this group which can be updated.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The target type of this group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeDisks
+ *        All MigratingVMs in the group must have Compute Engine Disks targets.
+ *        (Value: "MIGRATION_TARGET_TYPE_DISKS")
+ *    @arg @c kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeGce
+ *        All MigratingVMs in the group must have Compute Engine targets.
+ *        (Value: "MIGRATION_TARGET_TYPE_GCE")
+ *    @arg @c kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeUnspecified
+ *        Group type is not specified. This defaults to Compute Engine targets.
+ *        (Value: "MIGRATION_TARGET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *migrationTargetType;
 
 /** Output only. The Group name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2573,6 +2711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Output only. Details of the VM from an AWS source. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceVmDetails *awsSourceVmDetails;
 
+/** Details of the target Persistent Disks in Compute Engine. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineDisksTargetDefaults *computeEngineDisksTargetDefaults;
+
 /** Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDefaults *computeEngineTargetDefaults;
 
@@ -2702,6 +2843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** Output only. The last time the migrating VM resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. Details of the VM from a Vmware source. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_VmwareSourceVmDetails *vmwareSourceVmDetails;
 
 @end
 
@@ -2872,8 +3016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2901,8 +3045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2960,6 +3104,74 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Request message for 'PauseMigration' request.
  */
 @interface GTLRVMMigrationService_PauseMigrationRequest : GTLRObject
+@end
+
+
+/**
+ *  Details of a created Persistent Disk.
+ */
+@interface GTLRVMMigrationService_PersistentDisk : GTLRObject
+
+/** The URI of the Persistent Disk. */
+@property(nonatomic, copy, nullable) NSString *diskUri;
+
+/**
+ *  The ordinal number of the source VM disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sourceDiskNumber;
+
+@end
+
+
+/**
+ *  Details for creation of a Persistent Disk.
+ */
+@interface GTLRVMMigrationService_PersistentDiskDefaults : GTLRObject
+
+/** A map of labels to associate with the Persistent Disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_PersistentDiskDefaults_AdditionalLabels *additionalLabels;
+
+/** Optional. The name of the Persistent Disk to create. */
+@property(nonatomic, copy, nullable) NSString *diskName;
+
+/**
+ *  The disk type to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced
+ *        An alternative to SSD persistent disks that balance performance and
+ *        cost. (Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeSsd
+ *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
+ *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeStandard
+ *        A Standard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD")
+ *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified
+ *        An unspecified disk type. Will be used as STANDARD. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Required. The ordinal number of the source VM disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sourceDiskNumber;
+
+@end
+
+
+/**
+ *  A map of labels to associate with the Persistent Disk.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_PersistentDiskDefaults_AdditionalLabels : GTLRObject
 @end
 
 
@@ -3543,6 +3755,31 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  The details of a Vmware VM disk.
+ */
+@interface GTLRVMMigrationService_VmwareDiskDetails : GTLRObject
+
+/**
+ *  The ordinal number of the disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskNumber;
+
+/** The disk label. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Size in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
  *  VmwareSourceDetails message describes a specific source details for the
  *  vmware source type.
  */
@@ -3565,6 +3802,37 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** The ip address of the vcenter this Source represents. */
 @property(nonatomic, copy, nullable) NSString *vcenterIp;
+
+@end
+
+
+/**
+ *  Represent the source Vmware VM details.
+ */
+@interface GTLRVMMigrationService_VmwareSourceVmDetails : GTLRObject
+
+/**
+ *  The total size of the disks being migrated in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
+
+/** The disks attached to the source VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_VmwareDiskDetails *> *disks;
+
+/**
+ *  The firmware type of the source VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios The
+ *        firmware is BIOS. (Value: "BIOS")
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Efi The
+ *        firmware is EFI. (Value: "EFI")
+ *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_FirmwareUnspecified
+ *        The firmware is unknown. (Value: "FIRMWARE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *firmware;
 
 @end
 

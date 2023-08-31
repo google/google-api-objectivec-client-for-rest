@@ -869,6 +869,28 @@
 
 @end
 
+@implementation GTLRSASPortalQuery_CustomersSetupSasAnalytics
+
++ (instancetype)queryWithObject:(GTLRSASPortal_SetupSasAnalyticsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1alpha1/customers:setupSasAnalytics";
+  GTLRSASPortalQuery_CustomersSetupSasAnalytics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRSASPortal_Operation class];
+  query.loggingName = @"sasportal.customers.setupSasAnalytics";
+  return query;
+}
+
+@end
+
 @implementation GTLRSASPortalQuery_DeploymentsDevicesDelete
 
 @dynamic name;

@@ -18,6 +18,7 @@
 @class GTLRBigQueryDataTransfer_DataSource;
 @class GTLRBigQueryDataTransfer_DataSourceParameter;
 @class GTLRBigQueryDataTransfer_EmailPreferences;
+@class GTLRBigQueryDataTransfer_EncryptionConfiguration;
 @class GTLRBigQueryDataTransfer_Location;
 @class GTLRBigQueryDataTransfer_Location_Labels;
 @class GTLRBigQueryDataTransfer_Location_Metadata;
@@ -141,6 +142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter
  *  Value: "INTEGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer;
+/**
+ *  List of strings parameter.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_List;
 /**
  *  Page ID for a Google+ Page.
  *
@@ -530,6 +537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer Integer
  *        parameter (64-bits). Will be serialized to json as string. (Value:
  *        "INTEGER")
+ *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_List List of
+ *        strings parameter. (Value: "LIST")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage Page
  *        ID for a Google+ Page. (Value: "PLUS_PAGE")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record
@@ -579,6 +588,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRBigQueryDataTransfer_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents the encryption configuration for a transfer.
+ */
+@interface GTLRBigQueryDataTransfer_EncryptionConfiguration : GTLRObject
+
+/** The name of the KMS key used for encrypting BigQuery data. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 
@@ -866,12 +886,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_StartManualTransferRunsRequest : GTLRObject
 
 /**
- *  Specific run_time for a transfer run to be started. The requested_run_time
- *  must not be in the future.
+ *  A run_time timestamp for historical data files or reports that are scheduled
+ *  to be transferred by the scheduled transfer run. requested_run_time must be
+ *  a past time and cannot include future time values.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestedRunTime;
 
-/** Time range for the transfer runs that should be started. */
+/**
+ *  A time_range start and end timestamp for historical data files or reports
+ *  that are scheduled to be transferred by the scheduled transfer run.
+ *  requested_time_range must be a past time and cannot include future time
+ *  values.
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TimeRange *requestedTimeRange;
 
 @end
@@ -1008,6 +1034,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  address of the user who owns this transfer config.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EmailPreferences *emailPreferences;
+
+/**
+ *  The encryption configuration part. Currently, it is only used for the
+ *  optional KMS key name. The BigQuery service account of your project must be
+ *  granted permissions to use the key. Read methods will return the key name
+ *  applied in effect. Write methods will apply the key if it is present, or
+ *  otherwise try to apply project default keys if it is absent.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EncryptionConfiguration *encryptionConfiguration;
 
 /**
  *  The resource name of the transfer config. Transfer config names have the

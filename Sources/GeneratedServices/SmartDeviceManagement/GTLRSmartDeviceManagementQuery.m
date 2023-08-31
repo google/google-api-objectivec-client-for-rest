@@ -65,7 +65,7 @@
 
 @implementation GTLRSmartDeviceManagementQuery_EnterprisesDevicesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -103,7 +103,7 @@
 
 @implementation GTLRSmartDeviceManagementQuery_EnterprisesStructuresList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -141,7 +141,7 @@
 
 @implementation GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

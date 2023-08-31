@@ -108,6 +108,53 @@ NSString * const kGTLRConnectors_InputParameter_DataType_Uuid  = @"UUID";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varbinary = @"VARBINARY";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varchar = @"VARCHAR";
 
+// GTLRConnectors_QueryParameter.dataType
+NSString * const kGTLRConnectors_QueryParameter_DataType_Array = @"ARRAY";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Bigint = @"BIGINT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Binary = @"BINARY";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Bit   = @"BIT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Blob  = @"BLOB";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Boolean = @"BOOLEAN";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Char  = @"CHAR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Clob  = @"CLOB";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Datalink = @"DATALINK";
+NSString * const kGTLRConnectors_QueryParameter_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Date  = @"DATE";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Datetime = @"DATETIME";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Decimal = @"DECIMAL";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Distinct = @"DISTINCT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Double = @"DOUBLE";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Float = @"FLOAT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Int   = @"INT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Integer = @"INTEGER";
+NSString * const kGTLRConnectors_QueryParameter_DataType_JavaObject = @"JAVA_OBJECT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Long  = @"LONG";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Longnvarchar = @"LONGNVARCHAR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Longvarbinary = @"LONGVARBINARY";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Longvarchar = @"LONGVARCHAR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Nchar = @"NCHAR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Nclob = @"NCLOB";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Null  = @"NULL";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Numeric = @"NUMERIC";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Nvarchar = @"NVARCHAR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Other = @"OTHER";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Real  = @"REAL";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Ref   = @"REF";
+NSString * const kGTLRConnectors_QueryParameter_DataType_RefCursor = @"REF_CURSOR";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Rowid = @"ROWID";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Smallint = @"SMALLINT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Sqlxml = @"SQLXML";
+NSString * const kGTLRConnectors_QueryParameter_DataType_String = @"STRING";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Struct = @"STRUCT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Time  = @"TIME";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Timestamp = @"TIMESTAMP";
+NSString * const kGTLRConnectors_QueryParameter_DataType_TimestampWithTimezone = @"TIMESTAMP_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_QueryParameter_DataType_TimeWithTimezone = @"TIME_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Tinyint = @"TINYINT";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Uuid  = @"UUID";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Varbinary = @"VARBINARY";
+NSString * const kGTLRConnectors_QueryParameter_DataType_Varchar = @"VARCHAR";
+
 // GTLRConnectors_ResultMetadata.dataType
 NSString * const kGTLRConnectors_ResultMetadata_DataType_Array = @"ARRAY";
 NSString * const kGTLRConnectors_ResultMetadata_DataType_Bigint = @"BIGINT";
@@ -442,7 +489,25 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_Query
-@dynamic query;
+@dynamic maxRows, query, queryParameters, timeout;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryParameters" : [GTLRConnectors_QueryParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_QueryParameter
+//
+
+@implementation GTLRConnectors_QueryParameter
+@dynamic dataType, value;
 @end
 
 

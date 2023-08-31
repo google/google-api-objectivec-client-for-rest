@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Natural Language API (language/v1)
+//   Cloud Natural Language API (language/v2)
 // Description:
 //   Provides natural language understanding technologies, such as sentiment
 //   analysis, entity recognition, entity sentiment analysis, and other text
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Finds named entities (currently proper names and common nouns) in the text
- *  along with entity types, salience, mentions for each entity, and other
+ *  along with entity types, probability, mentions for each entity, and other
  *  properties.
  *
  *  Method: language.documents.analyzeEntities
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitiesResponse.
  *
  *  Finds named entities (currently proper names and common nouns) in the text
- *  along with entity types, salience, mentions for each entity, and other
+ *  along with entity types, probability, mentions for each entity, and other
  *  properties.
  *
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest to
@@ -61,33 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities
  */
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest *)object;
-
-@end
-
-/**
- *  Finds entities, similar to AnalyzeEntities in the text and analyzes
- *  sentiment associated with each entity and its mentions.
- *
- *  Method: language.documents.analyzeEntitySentiment
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
- *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
- */
-@interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment : GTLRCloudNaturalLanguageQuery
-
-/**
- *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse.
- *
- *  Finds entities, similar to AnalyzeEntities in the text and analyzes
- *  sentiment associated with each entity and its mentions.
- *
- *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest
- *    to include in the query.
- *
- *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment
- */
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object;
 
 @end
 
@@ -117,37 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Analyzes the syntax of the text and provides sentence boundaries and
- *  tokenization along with part of speech tags, dependency trees, and other
- *  properties.
- *
- *  Method: language.documents.analyzeSyntax
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudNaturalLanguageCloudLanguage
- *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
- */
-@interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax : GTLRCloudNaturalLanguageQuery
-
-/**
- *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse.
- *
- *  Analyzes the syntax of the text and provides sentence boundaries and
- *  tokenization along with part of speech tags, dependency trees, and other
- *  properties.
- *
- *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest to
- *    include in the query.
- *
- *  @return GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax
- */
-+ (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object;
-
-@end
-
-/**
- *  A convenience method that provides all the features that analyzeSentiment,
- *  analyzeEntities, and analyzeSyntax provide in one call.
+ *  A convenience method that provides all features in one call.
  *
  *  Method: language.documents.annotateText
  *
@@ -160,8 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnnotateTextResponse.
  *
- *  A convenience method that provides all the features that analyzeSentiment,
- *  analyzeEntities, and analyzeSyntax provide in one call.
+ *  A convenience method that provides all features in one call.
  *
  *  @param object The @c GTLRCloudNaturalLanguage_AnnotateTextRequest to include
  *    in the query.

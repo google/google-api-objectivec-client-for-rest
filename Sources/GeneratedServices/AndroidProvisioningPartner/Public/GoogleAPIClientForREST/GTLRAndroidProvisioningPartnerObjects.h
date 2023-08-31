@@ -210,6 +210,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesBy
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse.simLockState
+
+/**
+ *  Device is SIM locked to a different partner.
+ *
+ *  Value: "LOCKED_TO_OTHER_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToOtherPartner;
+/**
+ *  Device is SIM locked to the partner querying SIM lock state.
+ *
+ *  Value: "LOCKED_TO_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToPartner;
+/**
+ *  Invalid code. Shouldn't be used.
+ *
+ *  Value: "SIM_LOCK_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_SimLockStateUnspecified;
+/**
+ *  Device is not SIM locked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_Unlocked;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
 
 /**
@@ -1214,6 +1242,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Request to get a device's SIM lock status.
+ */
+@interface GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest : GTLRObject
+
+/** Required. Required. The device identifier to search for. */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
+
+@end
+
+
+/**
+ *  Response containing a device's SimLock state.
+ */
+@interface GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse : GTLRObject
+
+/**
+ *  simLockState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToOtherPartner
+ *        Device is SIM locked to a different partner. (Value:
+ *        "LOCKED_TO_OTHER_PARTNER")
+ *    @arg @c kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToPartner
+ *        Device is SIM locked to the partner querying SIM lock state. (Value:
+ *        "LOCKED_TO_PARTNER")
+ *    @arg @c kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_SimLockStateUnspecified
+ *        Invalid code. Shouldn't be used. (Value: "SIM_LOCK_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_Unlocked
+ *        Device is not SIM locked. (Value: "UNLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *simLockState;
 
 @end
 

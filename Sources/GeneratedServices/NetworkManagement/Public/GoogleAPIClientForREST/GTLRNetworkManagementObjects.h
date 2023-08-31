@@ -93,6 +93,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Destin
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported;
 /**
+ *  Aborted because a PSC endpoint selection for the Google-managed service is
+ *  ambiguous (several PSC endpoints satisfy test input).
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint;
+/**
  *  Aborted due to internal server error.
  *
  *  Value: "INTERNAL_ERROR"
@@ -161,6 +168,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Resour
  *  Value: "SOURCE_ENDPOINT_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound;
+/**
+ *  Aborted because tests with a forwarding rule as a source are not supported.
+ *
+ *  Value: "SOURCE_FORWARDING_RULE_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported;
+/**
+ *  Aborted because tests with a PSC-based Cloud SQL instance as a source are
+ *  not supported.
+ *
+ *  Value: "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported;
 /**
  *  Aborted because the number of steps in the trace exceeding a certain limit
  *  which may be caused by routing loop.
@@ -286,6 +306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Psc
  *  Value: "PSC_VPC_SC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc;
+/**
+ *  Target is a serverless network endpoint group.
+ *
+ *  Value: "SERVERLESS_NEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg;
 /**
  *  Target not specified.
  *
@@ -630,6 +656,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule;
 /**
+ *  Regional network firewall policy rule. For details, see [Regional network
+ *  firewall
+ *  policies](https://cloud.google.com/firewall/docs/regional-firewall-policies).
+ *
+ *  Value: "NETWORK_REGIONAL_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule;
+/**
  *  Implicit firewall rules that are managed by serverless VPC access to allow
  *  ingress access. They are not visible in the Google Cloud console. For
  *  details, see [VPC connector's implicit
@@ -679,6 +713,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Imp
  *  Value: "INTERCONNECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Interconnect;
+/**
+ *  Forwarded to an NCC Hub.
+ *
+ *  Value: "NCC_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_NccHub;
 /**
  *  Forwarded to a VPC peering network.
  *
@@ -912,6 +952,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp;
 /**
+ *  Next hop is an NCC hub.
+ *
+ *  Value: "NEXT_HOP_NCC_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNccHub;
+/**
  *  Next hop is a VPC network gateway.
  *
  *  Value: "NEXT_HOP_NETWORK"
@@ -951,6 +997,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  *  Value: "NEXT_HOP_VPN_TUNNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_RouteInfo.routeScope
+
+/**
+ *  Route is applicable to packets using NCC Hub's routing table.
+ *
+ *  Value: "NCC_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_NccHub;
+/**
+ *  Route is applicable to packets in Network.
+ *
+ *  Value: "NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_Network;
+/**
+ *  Unspecified scope. Default value.
+ *
+ *  Value: "ROUTE_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_RouteScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_RouteInfo.routeType
@@ -1238,6 +1306,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because the connection between the control plane and the node
  *        of the source cluster is initiated by the node and managed by the
  *        Konnectivity proxy. (Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint
+ *        Aborted because a PSC endpoint selection for the Google-managed
+ *        service is ambiguous (several PSC endpoints satisfy test input).
+ *        (Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
@@ -1272,6 +1344,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound
  *        Aborted because the source endpoint could not be found. (Value:
  *        "SOURCE_ENDPOINT_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported
+ *        Aborted because tests with a forwarding rule as a source are not
+ *        supported. (Value: "SOURCE_FORWARDING_RULE_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported
+ *        Aborted because tests with a PSC-based Cloud SQL instance as a source
+ *        are not supported. (Value: "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong Aborted
  *        because the number of steps in the trace exceeding a certain limit
  *        which may be caused by routing loop. (Value: "TRACE_TOO_LONG")
@@ -1707,6 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        VPC-SC that uses [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *        (Value: "PSC_VPC_SC")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg Target is
+ *        a serverless network endpoint group. (Value: "SERVERLESS_NEG")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified Target
  *        not specified. (Value: "TARGET_UNSPECIFIED")
  */
@@ -1912,6 +1992,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
 
 /**
+ *  A forwarding rule and its corresponding IP address represent the frontend
+ *  configuration of a Google Cloud load balancer. Forwarding rules are also
+ *  used for protocol forwarding, Private Service Connect and other network
+ *  services to provide forwarding information in the control plane. Format:
+ *  projects/{project}/global/forwardingRules/{id} or
+ *  projects/{project}/regions/{region}/forwardingRules/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
  *  A cluster URI for [Google Kubernetes Engine
  *  master](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
  */
@@ -1991,6 +2081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** IP protocol in string format, for example: "TCP", "UDP", "ICMP". */
 @property(nonatomic, copy, nullable) NSString *protocol;
+
+/** URI of the source telemetry agent this packet originates from. */
+@property(nonatomic, copy, nullable) NSString *sourceAgentUri;
 
 /** Source IP address. */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
@@ -2095,6 +2188,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        firewall
  *        policies](https://cloud.google.com/vpc/docs/network-firewall-policies).
  *        (Value: "NETWORK_FIREWALL_POLICY_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule
+ *        Regional network firewall policy rule. For details, see [Regional
+ *        network firewall
+ *        policies](https://cloud.google.com/firewall/docs/regional-firewall-policies).
+ *        (Value: "NETWORK_REGIONAL_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule
  *        Implicit firewall rules that are managed by serverless VPC access to
  *        allow ingress access. They are not visible in the Google Cloud
@@ -2169,6 +2267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        VPC. (Value: "IMPORTED_CUSTOM_ROUTE_NEXT_HOP")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_Interconnect Forwarded
  *        to a Cloud Interconnect connection. (Value: "INTERCONNECT")
+ *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_NccHub Forwarded to an
+ *        NCC Hub. (Value: "NCC_HUB")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc Forwarded to
  *        a VPC peering network. (Value: "PEERING_VPC")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified Target
@@ -2587,8 +2687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2616,8 +2716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2682,7 +2782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2690,14 +2790,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRNetworkManagement_Policy : GTLRObject
@@ -2829,13 +2930,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Destination port ranges of the route. Policy based routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destPortRanges;
 
-/** Name of a Compute Engine route. */
+/** Name of a route. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Instance tags of the route. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceTags;
 
-/** URI of a Compute Engine network. */
+/** URI of a NCC Hub. NCC_HUB routes only. */
+@property(nonatomic, copy, nullable) NSString *nccHubUri;
+
+/** URI of a NCC Spoke. NCC_HUB routes only. */
+@property(nonatomic, copy, nullable) NSString *nccSpokeUri;
+
+/** URI of a Compute Engine network. NETWORK routes only. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Next hop of the route. */
@@ -2859,6 +2966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Next hop is an internet gateway. (Value: "NEXT_HOP_INTERNET_GATEWAY")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp Next hop is
  *        an IP address. (Value: "NEXT_HOP_IP")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNccHub Next
+ *        hop is an NCC hub. (Value: "NEXT_HOP_NCC_HUB")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork Next
  *        hop is a VPC network gateway. (Value: "NEXT_HOP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering Next
@@ -2889,6 +2998,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Protocols of the route. Policy based routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
+
+/**
+ *  Indicates where route is applicable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteScope_NccHub Route is
+ *        applicable to packets using NCC Hub's routing table. (Value:
+ *        "NCC_HUB")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteScope_Network Route is
+ *        applicable to packets in Network. (Value: "NETWORK")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteScope_RouteScopeUnspecified
+ *        Unspecified scope. Default value. (Value: "ROUTE_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *routeScope;
 
 /**
  *  Type of route.
@@ -2922,9 +3045,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcPortRanges;
 
 /**
- *  URI of a Compute Engine route. Dynamic route from cloud router does not have
- *  a URI. Advertised route from Google Cloud VPC to on-premises network also
- *  does not have a URI.
+ *  URI of a route. Dynamic, peering static and peering dynamic routes do not
+ *  have an URI. Advertised route from Google Cloud VPC to on-premises network
+ *  also does not have an URI.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 

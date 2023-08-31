@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migration Center API (migrationcenter/v1alpha1)
+//   Migration Center API (migrationcenter/v1)
 // Description:
 //   A unified platform that helps you accelerate your end-to-end cloud journey
 //   from your current on-premises or cloud environments to Google Cloud.
@@ -42,12 +42,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic;
  *  Value: "ASSET_VIEW_FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewFull;
-/**
- *  The asset view includes the standard metadata of an asset.
- *
- *  Value: "ASSET_VIEW_STANDARD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard;
 /**
  *  The asset view is not specified. The API displays the basic view by default.
  *
@@ -287,9 +281,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
- *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
- *        includes the standard metadata of an asset. (Value:
- *        "ASSET_VIEW_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -348,9 +339,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
- *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
- *        includes the standard metadata of an asset. (Value:
- *        "ASSET_VIEW_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1477,6 +1465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 /** Required. Value for parent. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/**
+ *  Required. User specified ID for the preference set. It will become the last
+ *  component of the preference set name. The ID must be unique within the
+ *  project, must conform with RFC-1034, is restricted to lower-cased letters,
+ *  and has a maximum length of 63 characters. The ID must match the regular
+ *  expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
+ */
 @property(nonatomic, copy, nullable) NSString *preferenceSetId;
 
 /**

@@ -124,6 +124,7 @@
 @class GTLRAndroidPublisher_SubscriptionPurchaseLineItem;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode;
+@class GTLRAndroidPublisher_SystemApkOptions;
 @class GTLRAndroidPublisher_SystemFeature;
 @class GTLRAndroidPublisher_SystemInitiatedCancellation;
 @class GTLRAndroidPublisher_TargetingInfo;
@@ -624,6 +625,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
  *  Value: "TIME_EXTENSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
+
+/**
+ *  Price increase will be presented to users on an opt-in basis.
+ *
+ *  Value: "PRICE_INCREASE_TYPE_OPT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn;
+/**
+ *  Price increase will be presented to users on an opt-out basis.
+ *
+ *  Value: "PRICE_INCREASE_TYPE_OPT_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "PRICE_INCREASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
@@ -3154,6 +3177,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @property(nonatomic, copy, nullable) NSString *eeaWithdrawalRightType;
 
 /**
+ *  Whether this in-app product is declared as a product representing a
+ *  tokenized digital asset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
+
+/**
  *  A mapping from region code to tax rate details. The keys are region codes as
  *  defined by Unicode's "CLDR".
  */
@@ -3803,6 +3834,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  ended at the next renewal.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *oldestAllowedPriceVersionTime;
+
+/**
+ *  Optional. The behavior the caller wants users to see when there is a price
+ *  increase during migration. If left unset, the behavior defaults to
+ *  PRICE_INCREASE_TYPE_OPT_IN. Note that the first opt-out price increase
+ *  migration for each app must be initiated in Play Console.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn
+ *        Price increase will be presented to users on an opt-in basis. (Value:
+ *        "PRICE_INCREASE_TYPE_OPT_IN")
+ *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut
+ *        Price increase will be presented to users on an opt-out basis. (Value:
+ *        "PRICE_INCREASE_TYPE_OPT_OUT")
+ *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified
+ *        Unspecified state. (Value: "PRICE_INCREASE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priceIncreaseType;
 
 /**
  *  Required. Region code this configuration applies to, as defined by ISO
@@ -5000,6 +5049,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @property(nonatomic, copy, nullable) NSString *eeaWithdrawalRightType;
 
 /**
+ *  Whether this subscription is declared as a product representing a tokenized
+ *  digital asset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
+
+/**
  *  A mapping from region code to tax rate details. The keys are region codes as
  *  defined by Unicode's "CLDR".
  */
@@ -5019,6 +5076,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *        once.
  */
 @interface GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode : GTLRObject
+@end
+
+
+/**
+ *  Options for system APKs.
+ */
+@interface GTLRAndroidPublisher_SystemApkOptions : GTLRObject
+
+/**
+ *  Whether to use the rotated key for signing the system APK.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rotated;
+
+/**
+ *  Whether system APK was generated with uncompressed dex files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncompressedDexFiles;
+
+/**
+ *  Whether system APK was generated with uncompressed native libraries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncompressedNativeLibraries;
+
 @end
 
 
@@ -5610,6 +5696,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** The device spec used to generate the APK. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceSpec *deviceSpec;
+
+/** Optional. Options applied to the generated APK. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SystemApkOptions *options;
 
 /**
  *  Output only. The ID of a previously created system APK variant.

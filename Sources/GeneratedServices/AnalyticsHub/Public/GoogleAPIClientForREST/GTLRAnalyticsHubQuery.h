@@ -455,6 +455,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all subscriptions on a given Data Exchange or Listing.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.listings.listSubscriptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsListSubscriptions : GTLRAnalyticsHubQuery
+
+/**
+ *  If selected, includes deleted subscriptions in the response (up to 63 days
+ *  after deletion).
+ */
+@property(nonatomic, assign) BOOL includeDeletedSubscriptions;
+
+/** The maximum number of results to return in a single response page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token, returned by a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the requested target. This resource may be either
+ *  a Listing or a DataExchange. e.g.
+ *  projects/123/locations/US/dataExchanges/456 OR e.g.
+ *  projects/123/locations/US/dataExchanges/456/listings/789
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse.
+ *
+ *  Lists all subscriptions on a given Data Exchange or Listing.
+ *
+ *  @param resource Required. Resource name of the requested target. This
+ *    resource may be either a Listing or a DataExchange. e.g.
+ *    projects/123/locations/US/dataExchanges/456 OR e.g.
+ *    projects/123/locations/US/dataExchanges/456/listings/789
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsListSubscriptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates an existing listing.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.listings.patch
@@ -612,6 +663,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all subscriptions on a given Data Exchange or Listing.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.listSubscriptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListSubscriptions : GTLRAnalyticsHubQuery
+
+/**
+ *  If selected, includes deleted subscriptions in the response (up to 63 days
+ *  after deletion).
+ */
+@property(nonatomic, assign) BOOL includeDeletedSubscriptions;
+
+/** The maximum number of results to return in a single response page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token, returned by a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the requested target. This resource may be either
+ *  a Listing or a DataExchange. e.g.
+ *  projects/123/locations/US/dataExchanges/456 OR e.g.
+ *  projects/123/locations/US/dataExchanges/456/listings/789
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse.
+ *
+ *  Lists all subscriptions on a given Data Exchange or Listing.
+ *
+ *  @param resource Required. Resource name of the requested target. This
+ *    resource may be either a Listing or a DataExchange. e.g.
+ *    projects/123/locations/US/dataExchanges/456 OR e.g.
+ *    projects/123/locations/US/dataExchanges/456/listings/789
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListSubscriptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates an existing data exchange.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.patch
@@ -691,6 +793,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Subscription to a Data Exchange. This is a long-running operation
+ *  as it will create one or more linked datasets.
+ *
+ *  Method: analyticshub.projects.locations.dataExchanges.subscribe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSubscribe : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. Resource name of the Data Exchange. e.g.
+ *  `projects/publisherproject/locations/US/dataExchanges/123`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Operation.
+ *
+ *  Creates a Subscription to a Data Exchange. This is a long-running operation
+ *  as it will create one or more linked datasets.
+ *
+ *  @param object The @c GTLRAnalyticsHub_SubscribeDataExchangeRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the Data Exchange. e.g.
+ *    `projects/publisherproject/locations/US/dataExchanges/123`
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSubscribe
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SubscribeDataExchangeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns the permissions that a caller has.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.testIamPermissions
@@ -724,6 +862,186 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsHub_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Deletes a subscription.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsDelete : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. Resource name of the subscription to delete. e.g.
+ *  projects/123/locations/US/subscriptions/456
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Operation.
+ *
+ *  Deletes a subscription.
+ *
+ *  @param name Required. Resource name of the subscription to delete. e.g.
+ *    projects/123/locations/US/subscriptions/456
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a Subscription.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGet : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. Resource name of the subscription. e.g.
+ *  projects/123/locations/US/subscriptions/456
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Subscription.
+ *
+ *  Gets the details of a Subscription.
+ *
+ *  @param name Required. Resource name of the subscription. e.g.
+ *    projects/123/locations/US/subscriptions/456
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all subscriptions in a given project and location.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList : GTLRAnalyticsHubQuery
+
+/**
+ *  The filter expression may be used to filter by Data Exchange or Listing.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of results to return in a single response page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token, returned by a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource path of the subscription. e.g.
+ *  projects/myproject/locations/US
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_ListSubscriptionsResponse.
+ *
+ *  Lists all subscriptions in a given project and location.
+ *
+ *  @param parent Required. The parent resource path of the subscription. e.g.
+ *    projects/myproject/locations/US
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Refreshes a Subscription to a Data Exchange. A Data Exchange can become
+ *  stale when a publisher adds or removes data. This is a long-running
+ *  operation as it may create many linked datasets.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.refresh
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRefresh : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. Resource name of the Subscription to refresh. e.g.
+ *  `projects/subscriberproject/locations/US/subscriptions/123`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Operation.
+ *
+ *  Refreshes a Subscription to a Data Exchange. A Data Exchange can become
+ *  stale when a publisher adds or removes data. This is a long-running
+ *  operation as it may create many linked datasets.
+ *
+ *  @param object The @c GTLRAnalyticsHub_RefreshSubscriptionRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the Subscription to refresh. e.g.
+ *    `projects/subscriberproject/locations/US/subscriptions/123`
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRefresh
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_RefreshSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Revokes a given subscription.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRevoke : GTLRAnalyticsHubQuery
+
+/**
+ *  Required. Resource name of the subscription to revoke. e.g.
+ *  projects/123/locations/US/subscriptions/456
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_RevokeSubscriptionResponse.
+ *
+ *  Revokes a given subscription.
+ *
+ *  @param object The @c GTLRAnalyticsHub_RevokeSubscriptionRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the subscription to revoke. e.g.
+ *    projects/123/locations/US/subscriptions/456
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRevoke
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_RevokeSubscriptionRequest *)object
+                           name:(NSString *)name;
 
 @end
 

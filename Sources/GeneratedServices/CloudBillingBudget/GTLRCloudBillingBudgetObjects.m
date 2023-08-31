@@ -148,8 +148,8 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 //
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule
-@dynamic disableDefaultIamRecipients, monitoringNotificationChannels,
-         pubsubTopic, schemaVersion;
+@dynamic disableDefaultIamRecipients, enableProjectLevelRecipients,
+         monitoringNotificationChannels, pubsubTopic, schemaVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

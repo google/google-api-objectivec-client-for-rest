@@ -175,7 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGet : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Resource name of the policy. See `Policy` for naming requirements.
+ *  Required. Resource name of the policy. See Policy for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
  *  to update a policy during read-modify-write.
  *
- *  @param name Required. Resource name of the policy. See `Policy` for naming
+ *  @param name Required. Resource name of the policy. See Policy for naming
  *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesGet
@@ -210,7 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The effective policy to compute. See `Policy` for naming rules.
+ *  Required. The effective policy to compute. See Policy for naming
+ *  requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -223,8 +224,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
- *  @param name Required. The effective policy to compute. See `Policy` for
- *    naming rules.
+ *  @param name Required. The effective policy to compute. See Policy for naming
+ *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesGetEffectivePolicy
  */
@@ -301,11 +302,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Immutable. The resource name of the policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this policy
- *  configures: * `projects/{project_number}/policies/{constraint_name}` *
- *  `folders/{folder_id}/policies/{constraint_name}` *
+ *  forms, where `constraint_name` is the name of the constraint which this
+ *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
+ *  * `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -333,12 +334,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
  *  @param name Immutable. The resource name of the policy. Must be one of the
- *    following forms, where constraint_name is the name of the constraint which
- *    this policy configures: *
+ *    following forms, where `constraint_name` is the name of the constraint
+ *    which this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.
@@ -691,7 +692,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGet : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Resource name of the policy. See `Policy` for naming requirements.
+ *  Required. Resource name of the policy. See Policy for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -702,7 +703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
  *  to update a policy during read-modify-write.
  *
- *  @param name Required. Resource name of the policy. See `Policy` for naming
+ *  @param name Required. Resource name of the policy. See Policy for naming
  *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesGet
@@ -726,7 +727,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The effective policy to compute. See `Policy` for naming rules.
+ *  Required. The effective policy to compute. See Policy for naming
+ *  requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -739,8 +741,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
- *  @param name Required. The effective policy to compute. See `Policy` for
- *    naming rules.
+ *  @param name Required. The effective policy to compute. See Policy for naming
+ *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesGetEffectivePolicy
  */
@@ -817,11 +819,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Immutable. The resource name of the policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this policy
- *  configures: * `projects/{project_number}/policies/{constraint_name}` *
- *  `folders/{folder_id}/policies/{constraint_name}` *
+ *  forms, where `constraint_name` is the name of the constraint which this
+ *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
+ *  * `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -849,12 +851,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
  *  @param name Immutable. The resource name of the policy. Must be one of the
- *    following forms, where constraint_name is the name of the constraint which
- *    this policy configures: *
+ *    following forms, where `constraint_name` is the name of the constraint
+ *    which this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.
@@ -1007,7 +1009,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGet : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. Resource name of the policy. See `Policy` for naming requirements.
+ *  Required. Resource name of the policy. See Policy for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1018,7 +1020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()`
  *  to update a policy during read-modify-write.
  *
- *  @param name Required. Resource name of the policy. See `Policy` for naming
+ *  @param name Required. Resource name of the policy. See Policy for naming
  *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesGet
@@ -1042,7 +1044,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
 /**
- *  Required. The effective policy to compute. See `Policy` for naming rules.
+ *  Required. The effective policy to compute. See Policy for naming
+ *  requirements.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1055,8 +1058,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  policy across multiple resources. Subtrees of Resource Manager resource
  *  hierarchy with 'under:' prefix will not be expanded.
  *
- *  @param name Required. The effective policy to compute. See `Policy` for
- *    naming rules.
+ *  @param name Required. The effective policy to compute. See Policy for naming
+ *    requirements.
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesGetEffectivePolicy
  */
@@ -1133,11 +1136,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Immutable. The resource name of the policy. Must be one of the following
- *  forms, where constraint_name is the name of the constraint which this policy
- *  configures: * `projects/{project_number}/policies/{constraint_name}` *
- *  `folders/{folder_id}/policies/{constraint_name}` *
+ *  forms, where `constraint_name` is the name of the constraint which this
+ *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
+ *  * `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -1165,12 +1168,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy to
  *    include in the query.
  *  @param name Immutable. The resource name of the policy. Must be one of the
- *    following forms, where constraint_name is the name of the constraint which
- *    this policy configures: *
+ *    following forms, where `constraint_name` is the name of the constraint
+ *    which this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
  *    `folders/{folder_id}/policies/{constraint_name}` *
  *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    "projects/123/policies/compute.disableSerialPortAccess". Note:
+ *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.

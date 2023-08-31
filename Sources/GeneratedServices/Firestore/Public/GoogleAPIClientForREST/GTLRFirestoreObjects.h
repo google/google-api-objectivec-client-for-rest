@@ -19,6 +19,7 @@
 @class GTLRFirestore_AggregationResult;
 @class GTLRFirestore_AggregationResult_AggregateFields;
 @class GTLRFirestore_ArrayValue;
+@class GTLRFirestore_Avg;
 @class GTLRFirestore_BatchWriteRequest_Labels;
 @class GTLRFirestore_BitSequence;
 @class GTLRFirestore_BloomFilter;
@@ -73,6 +74,7 @@
 @class GTLRFirestore_Status_Details_Item;
 @class GTLRFirestore_StructuredAggregationQuery;
 @class GTLRFirestore_StructuredQuery;
+@class GTLRFirestore_Sum;
 @class GTLRFirestore_Target;
 @class GTLRFirestore_TargetChange;
 @class GTLRFirestore_TransactionOptions;
@@ -1022,8 +1024,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
+/** Average aggregator. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Avg *avg;
+
 /** Count aggregator. */
 @property(nonatomic, strong, nullable) GTLRFirestore_Count *count;
+
+/** Sum aggregator. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Sum *sum;
 
 @end
 
@@ -1072,6 +1080,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Average of the values of the requested field. * Only numeric values will be
+ *  aggregated. All non-numeric values including `NULL` are skipped. * If the
+ *  aggregated values contain `NaN`, returns `NaN`. Infinity math follows
+ *  IEEE-754 standards. * If the aggregated value set is empty, returns `NULL`.
+ *  * Always returns the result as a double.
+ */
+@interface GTLRFirestore_Avg : GTLRObject
+
+/** The field to aggregate on. */
+@property(nonatomic, strong, nullable) GTLRFirestore_FieldReference *field;
+
+@end
+
+
+/**
  *  The request for Firestore.BatchGetDocuments.
  */
 @interface GTLRFirestore_BatchGetDocumentsRequest : GTLRObject
@@ -1099,8 +1122,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Reads documents as they were at the given time. This may not be older than
- *  270 seconds.
+ *  Reads documents as they were at the given time. This must be a microsecond
+ *  precision timestamp within the past one hour, or if Point-in-Time Recovery
+ *  is enabled, can additionally be a whole minute timestamp within the past 7
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -1646,7 +1671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The total count of documents that match target_id. If different from the
  *  count of documents in the client that match, the client must manually
  *  determine which documents no longer match the target. The client can use the
- *  `unchanged_names` bloom filter to assist with this determination.
+ *  `unchanged_names` bloom filter to assist with this determination by testing
+ *  ALL the document names against the filter; if the document name is NOT in
+ *  the filter, it means the document no longer matches the target.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1660,17 +1687,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *targetId;
 
 /**
- *  A bloom filter that contains the UTF-8 byte encodings of the resource names
- *  of the documents that match target_id, in the form
- *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`
- *  that have NOT changed since the query results indicated by the resume token
- *  or timestamp given in `Target.resume_type`. This bloom filter may be omitted
- *  at the server's discretion, such as if it is deemed that the client will not
- *  make use of it or if it is too computationally expensive to calculate or
- *  transmit. Clients must gracefully handle this field being absent by falling
- *  back to the logic used before this field existed; that is, re-add the target
- *  without a resume token to figure out which documents in the client's cache
- *  are out of sync.
+ *  A bloom filter that, despite its name, contains the UTF-8 byte encodings of
+ *  the resource names of ALL the documents that match target_id, in the form
+ *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
+ *  This bloom filter may be omitted at the server's discretion, such as if it
+ *  is deemed that the client will not make use of it or if it is too
+ *  computationally expensive to calculate or transmit. Clients must gracefully
+ *  handle this field being absent by falling back to the logic used before this
+ *  field existed; that is, re-add the target without a resume token to figure
+ *  out which documents in the client's cache are out of sync.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_BloomFilter *unchangedNames;
 
@@ -1942,8 +1967,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  At what relative time in the future, compared to the creation time of the
- *  backup should the backup be deleted, i.e. keep backups for 7 days.
+ *  At what relative time in the future, compared to its creation time, the
+ *  backup should be deleted, e.g. keep backups for 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *retention;
 
@@ -2183,6 +2208,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** The progress, in documents, of this operation. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressDocuments;
+
+/**
+ *  The timestamp that corresponds to the version of the database that is being
+ *  exported. If unspecified, there are no guarantees about the consistency of
+ *  the documents being exported.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 /** The time this operation started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2877,6 +2909,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *operationState;
 
+/**
+ *  How far along the restore is as an estimated percentage of remaining time.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressPercentage;
+
 /** The time the restore was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -3100,8 +3137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3129,8 +3166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3187,8 +3224,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Reads documents as they were at the given time. This may not be older than
- *  270 seconds.
+ *  Reads documents as they were at the given time. This must be a microsecond
+ *  precision timestamp within the past one hour, or if Point-in-Time Recovery
+ *  is enabled, can additionally be a whole minute timestamp within the past 7
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3481,8 +3520,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *partitionCount;
 
 /**
- *  Reads documents as they were at the given time. This may not be older than
- *  270 seconds.
+ *  Reads documents as they were at the given time. This must be a microsecond
+ *  precision timestamp within the past one hour, or if Point-in-Time Recovery
+ *  is enabled, can additionally be a whole minute timestamp within the past 7
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3595,7 +3636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_ReadOnly : GTLRObject
 
 /**
- *  Reads documents at the given time. This may not be older than 60 seconds.
+ *  Reads documents at the given time. This must be a microsecond precision
+ *  timestamp within the past one hour, or if Point-in-Time Recovery is enabled,
+ *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3648,8 +3691,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Executes the query at the given timestamp. Requires: * Cannot be more than
- *  270 seconds in the past.
+ *  Executes the query at the given timestamp. This must be a microsecond
+ *  precision timestamp within the past one hour, or if Point-in-Time Recovery
+ *  is enabled, can additionally be a whole minute timestamp within the past 7
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3713,8 +3758,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Reads documents as they were at the given time. This may not be older than
- *  270 seconds.
+ *  Reads documents as they were at the given time. This must be a microsecond
+ *  precision timestamp within the past one hour, or if Point-in-Time Recovery
+ *  is enabled, can additionally be a whole minute timestamp within the past 7
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3923,6 +3970,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** The filter to apply. */
 @property(nonatomic, strong, nullable) GTLRFirestore_Filter *where;
+
+@end
+
+
+/**
+ *  Sum of the values of the requested field. * Only numeric values will be
+ *  aggregated. All non-numeric values including `NULL` are skipped. * If the
+ *  aggregated values contain `NaN`, returns `NaN`. Infinity math follows
+ *  IEEE-754 standards. * If the aggregated value set is empty, returns 0. *
+ *  Returns a 64-bit integer if all aggregated numbers are integers and the sum
+ *  result does not overflow. Otherwise, the result is returned as a double.
+ *  Note that even if all the aggregated values are integers, the result is
+ *  returned as a double if it cannot fit within a 64-bit signed integer. When
+ *  this occurs, the returned value will lose precision. * When underflow
+ *  occurs, floating-point aggregation is non-deterministic. This means that
+ *  running the same query repeatedly without any changes to the underlying
+ *  values could produce slightly different results each time. In those cases,
+ *  values should be stored as integers over floating-point numbers.
+ */
+@interface GTLRFirestore_Sum : GTLRObject
+
+/** The field to aggregate on. */
+@property(nonatomic, strong, nullable) GTLRFirestore_FieldReference *field;
 
 @end
 

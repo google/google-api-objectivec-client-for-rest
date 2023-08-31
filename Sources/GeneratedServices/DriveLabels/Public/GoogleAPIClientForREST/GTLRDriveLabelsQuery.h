@@ -97,6 +97,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Creates a new Label.
  *
  *  Method: drivelabels.labels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsCreate : GTLRDriveLabelsQuery
 
@@ -133,6 +137,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  draft Labels, and disabled Labels may be deleted.
  *
  *  Method: drivelabels.labels.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsDelete : GTLRDriveLabelsQuery
 
@@ -174,6 +182,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  must be published before the changes may be used with Drive Items.
  *
  *  Method: drivelabels.labels.delta
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsDelta : GTLRDriveLabelsQuery
 
@@ -209,6 +221,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  a label may be deleted with `DeleteLabel`.
  *
  *  Method: drivelabels.labels.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsDisable : GTLRDriveLabelsQuery
 
@@ -243,6 +259,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  will be created based on that draft and will be enabled.
  *
  *  Method: drivelabels.labels.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsEnable : GTLRDriveLabelsQuery
 
@@ -277,6 +297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  label at the specified revision ID.
  *
  *  Method: drivelabels.labels.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsGet : GTLRDriveLabelsQuery
 
@@ -335,6 +361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  List labels.
  *
  *  Method: drivelabels.labels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsList : GTLRDriveLabelsQuery
 
@@ -426,6 +458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Lists the LabelLocks on a Label.
  *
  *  Method: drivelabels.labels.locks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsLocksList : GTLRDriveLabelsQuery
 
@@ -461,6 +499,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  are not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.permissions.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsBatchDelete : GTLRDriveLabelsQuery
 
@@ -500,6 +542,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.permissions.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsBatchUpdate : GTLRDriveLabelsQuery
 
@@ -542,6 +588,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.permissions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsCreate : GTLRDriveLabelsQuery
 
@@ -582,6 +632,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  whole, are not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.permissions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsDelete : GTLRDriveLabelsQuery
 
@@ -612,6 +666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Lists a Label's permissions.
  *
  *  Method: drivelabels.labels.permissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsPermissionsList : GTLRDriveLabelsQuery
 
@@ -669,6 +729,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  something that was previously accepted. * Reducing the max entries.
  *
  *  Method: drivelabels.labels.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsPublish : GTLRDriveLabelsQuery
 
@@ -707,6 +771,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Lists the LabelLocks on a Label.
  *
  *  Method: drivelabels.labels.revisions.locks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsLocksList : GTLRDriveLabelsQuery
 
@@ -742,6 +812,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  are not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchDelete : GTLRDriveLabelsQuery
 
@@ -781,6 +855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsBatchUpdate : GTLRDriveLabelsQuery
 
@@ -823,6 +901,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsCreate : GTLRDriveLabelsQuery
 
@@ -863,6 +945,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  whole, are not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.revisions.permissions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsDelete : GTLRDriveLabelsQuery
 
@@ -893,6 +979,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Lists a Label's permissions.
  *
  *  Method: drivelabels.labels.revisions.permissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsPermissionsList : GTLRDriveLabelsQuery
 
@@ -942,6 +1034,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.revisions.updatePermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsRevisionsUpdatePermissions : GTLRDriveLabelsQuery
 
@@ -978,6 +1074,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not require publishing, and take effect immediately.
  *
  *  Method: drivelabels.labels.updateLabelCopyMode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsUpdateLabelCopyMode : GTLRDriveLabelsQuery
 
@@ -1009,6 +1109,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  not revisioned, and do not require publishing.
  *
  *  Method: drivelabels.labels.updatePermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
  */
 @interface GTLRDriveLabelsQuery_LabelsUpdatePermissions : GTLRDriveLabelsQuery
 
@@ -1045,6 +1149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  of Fields allowed and maximum length of the label title.
  *
  *  Method: drivelabels.limits.getLabel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_LimitsGetLabel : GTLRDriveLabelsQuery
 
@@ -1067,6 +1177,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabelsViewLabelViewFull;
  *  Gets the user capabilities.
  *
  *  Method: drivelabels.users.getCapabilities
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabels
+ *    @c kGTLRAuthScopeDriveLabelsDriveLabelsReadonly
  */
 @interface GTLRDriveLabelsQuery_UsersGetCapabilities : GTLRDriveLabelsQuery
 

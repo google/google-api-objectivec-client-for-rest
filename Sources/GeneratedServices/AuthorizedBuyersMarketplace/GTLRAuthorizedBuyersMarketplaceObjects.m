@@ -187,6 +187,7 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplicat
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_AppleItunes = @"APPLE_ITUNES";
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_AppStoreTypeUnspecified = @"APP_STORE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_GooglePlay = @"GOOGLE_PLAY";
+NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_LgTv = @"LG_TV";
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_Oppo = @"OPPO";
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_Playstation = @"PLAYSTATION";
 NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_Roku = @"ROKU";

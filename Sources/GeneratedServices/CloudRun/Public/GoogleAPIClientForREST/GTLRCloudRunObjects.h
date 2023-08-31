@@ -102,6 +102,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Execu
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling;
 /**
+ *  The execution was deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Deleted;
+/**
  *  Default value.
  *
  *  Value: "EXECUTION_REASON_UNDEFINED"
@@ -927,6 +933,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Request message for deleting an Execution.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest : GTLRObject
+
+/**
+ *  A system-generated fingerprint for this version of the resource. This may be
+ *  used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Indicates that the request should be validated without actually cancelling
+ *  any resources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Represents a set of Cloud SQL instances. Each one will be available under
  *  /cloudsql/[instance]. Visit
  *  https://cloud.google.com/sql/docs/mysql/connect-run for more information on
@@ -960,6 +988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling
  *        The execution is in the process of being cancelled. (Value:
  *        "CANCELLING")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Deleted
+ *        The execution was deleted. (Value: "DELETED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined
  *        Default value. (Value: "EXECUTION_REASON_UNDEFINED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError
@@ -1139,7 +1169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
-/** Container names which must start before this container. */
+/** Names of the containers that must start before this container. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dependsOn;
 
 /** List of environment variables to set in the container. */
@@ -1215,10 +1245,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Ephemeral storage which can be backed by real disks (HD, SSD), network
- *  storage or memory (i.e. tmpfs). For now only in memory (tmpfs) is supported.
- *  It is ephemeral in the sense that when the sandbox is taken down, the data
- *  is destroyed with it (it does not persist across sandbox runs).
+ *  In memory (tmpfs) ephemeral storage. It is ephemeral in the sense that when
+ *  the sandbox is taken down, the data is destroyed with it (it does not
+ *  persist across sandbox runs).
  */
 @interface GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource : GTLRObject
 
@@ -1242,10 +1271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Limit on the storage usable by this EmptyDir volume. The size limit is also
  *  applicable for memory medium. The maximum usage on memory medium EmptyDir
  *  would be the minimum value between the SizeLimit specified here and the sum
- *  of memory limits of all containers in a pod. This field's values are of the
- *  'Quantity' k8s type:
- *  https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/quantity/.
- *  The default is nil which means that the limit is undefined. More info:
+ *  of memory limits of all containers. The default is nil which means that the
+ *  limit is undefined. More info:
+ *  https://cloud.google.com/run/docs/configuring/in-memory-volumes#configure-volume.
+ *  Info in Kubernetes:
  *  https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
  */
 @property(nonatomic, copy, nullable) NSString *sizeLimit;
@@ -2826,8 +2855,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *creator;
 
 /**
- *  Custom audiences that can be used in the audience field of ID token for
- *  authenticated requests.
+ *  One or more custom audiences that you want this service to support. Specify
+ *  each custom audience as the full URL in a string. The custom audiences are
+ *  encoded in the token and used to authenticate requests. For more
+ *  information, see
+ *  https://cloud.google.com/run/docs/configuring/custom-audiences.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
 
@@ -3047,6 +3079,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus *> *trafficStatuses;
 
 /**
+ *  Optional. Override the traffic tag threshold limit. Garbage collection will
+ *  start cleaning up non-serving tagged traffic targets based on creation item.
+ *  The default value is 2000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trafficTagsCleanupThreshold;
+
+/**
  *  Output only. Server assigned unique identifier for the trigger. The value is
  *  a UUID4 string and guaranteed to remain unchanged until the resource is
  *  deleted.
@@ -3132,9 +3173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
 
 /**
- *  Output only. Represents time when the task was created by the job
- *  controller. It is not guaranteed to be set in happens-before order across
- *  separate operations.
+ *  Output only. Represents time when the task was created by the system. It is
+ *  not guaranteed to be set in happens-before order across separate operations.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3785,7 +3825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -3793,14 +3833,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudRun_GoogleIamV1Policy : GTLRObject
@@ -3972,8 +4013,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4001,8 +4042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

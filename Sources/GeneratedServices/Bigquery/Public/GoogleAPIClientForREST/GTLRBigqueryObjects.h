@@ -27,6 +27,7 @@
 @class GTLRBigquery_AvroOptions;
 @class GTLRBigquery_BiEngineReason;
 @class GTLRBigquery_BiEngineStatistics;
+@class GTLRBigquery_BigLakeConfiguration;
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
@@ -70,6 +71,7 @@
 @class GTLRBigquery_Explanation;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
+@class GTLRBigquery_ExternalDatasetReference;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
 @class GTLRBigquery_GlobalExplanation;
@@ -165,6 +167,7 @@
 @class GTLRBigquery_TableFieldSchema;
 @class GTLRBigquery_TableFieldSchema_Categories;
 @class GTLRBigquery_TableFieldSchema_PolicyTags;
+@class GTLRBigquery_TableFieldSchema_RangeElementType;
 @class GTLRBigquery_TableList_Tables_Item;
 @class GTLRBigquery_TableList_Tables_Item_Labels;
 @class GTLRBigquery_TableList_Tables_Item_View;
@@ -176,6 +179,7 @@
 @class GTLRBigquery_TrainingOptions_LabelClassWeights;
 @class GTLRBigquery_TrainingRun;
 @class GTLRBigquery_TransactionInfo;
+@class GTLRBigquery_TransformColumn;
 @class GTLRBigquery_UserDefinedFunctionResource;
 @class GTLRBigquery_ViewDefinition;
 
@@ -685,6 +689,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceTy
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_Routine.dataGovernanceType
+
+/**
+ *  Unspecified data governance type.
+ *
+ *  Value: "DATA_GOVERNANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DataGovernanceType_DataGovernanceTypeUnspecified;
+/**
+ *  The data governance type is data masking.
+ *
+ *  Value: "DATA_MASKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DataGovernanceType_DataMasking;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.determinismLevel
 
 /**
@@ -849,6 +869,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Js
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric;
 /**
+ *  Encoded as a pair with types matching range_element_type. Pairs must begin
+ *  with "[", end with ")", and be separated by ", ".
+ *
+ *  Value: "RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Range;
+/**
  *  Encoded as a string value.
  *
  *  Value: "STRING"
@@ -902,6 +929,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dar
  *  Value: "GBTREE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.categoryEncodingMethod
+
+/**
+ *  Applies dummy encoding.
+ *
+ *  Value: "DUMMY_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_DummyEncoding;
+/**
+ *  Unspecified encoding method.
+ *
+ *  Value: "ENCODING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_EncodingMethodUnspecified;
+/**
+ *  Applies label encoding.
+ *
+ *  Value: "LABEL_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_LabelEncoding;
+/**
+ *  Applies one-hot encoding.
+ *
+ *  Value: "ONE_HOT_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_OneHotEncoding;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.colorSpace
@@ -1512,6 +1567,425 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_V
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Za;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.holidayRegions
+
+/**
+ *  United Arab Emirates
+ *
+ *  Value: "AE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ae;
+/**
+ *  Argentina
+ *
+ *  Value: "AR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ar;
+/**
+ *  Austria
+ *
+ *  Value: "AT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_At;
+/**
+ *  Australia
+ *
+ *  Value: "AU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Au;
+/**
+ *  Belgium
+ *
+ *  Value: "BE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Be;
+/**
+ *  Brazil
+ *
+ *  Value: "BR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Br;
+/**
+ *  Canada
+ *
+ *  Value: "CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ca;
+/**
+ *  Switzerland
+ *
+ *  Value: "CH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ch;
+/**
+ *  Chile
+ *
+ *  Value: "CL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cl;
+/**
+ *  China
+ *
+ *  Value: "CN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cn;
+/**
+ *  Colombia
+ *
+ *  Value: "CO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Co;
+/**
+ *  Czechoslovakia
+ *
+ *  Value: "CS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cs;
+/**
+ *  Czech Republic
+ *
+ *  Value: "CZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cz;
+/**
+ *  Germany
+ *
+ *  Value: "DE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_De;
+/**
+ *  Denmark
+ *
+ *  Value: "DK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Dk;
+/**
+ *  Algeria
+ *
+ *  Value: "DZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Dz;
+/**
+ *  Ecuador
+ *
+ *  Value: "EC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ec;
+/**
+ *  Estonia
+ *
+ *  Value: "EE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ee;
+/**
+ *  Egypt
+ *
+ *  Value: "EG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Eg;
+/**
+ *  Europe, the Middle East and Africa.
+ *
+ *  Value: "EMEA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Emea;
+/**
+ *  Spain
+ *
+ *  Value: "ES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Es;
+/**
+ *  Finland
+ *
+ *  Value: "FI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Fi;
+/**
+ *  France
+ *
+ *  Value: "FR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Fr;
+/**
+ *  Great Britain (United Kingdom)
+ *
+ *  Value: "GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Gb;
+/**
+ *  Global.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Global;
+/**
+ *  Greece
+ *
+ *  Value: "GR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Gr;
+/**
+ *  Hong Kong
+ *
+ *  Value: "HK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Hk;
+/**
+ *  Holiday region unspecified.
+ *
+ *  Value: "HOLIDAY_REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_HolidayRegionUnspecified;
+/**
+ *  Hungary
+ *
+ *  Value: "HU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Hu;
+/**
+ *  Indonesia
+ *
+ *  Value: "ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Id;
+/**
+ *  Ireland
+ *
+ *  Value: "IE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ie;
+/**
+ *  Israel
+ *
+ *  Value: "IL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Il;
+/**
+ *  India
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_In;
+/**
+ *  Iran
+ *
+ *  Value: "IR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ir;
+/**
+ *  Italy
+ *
+ *  Value: "IT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_It;
+/**
+ *  Japan and Asia Pacific: Korea, Greater China, India, Australia, and New
+ *  Zealand.
+ *
+ *  Value: "JAPAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Japac;
+/**
+ *  Japan
+ *
+ *  Value: "JP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Jp;
+/**
+ *  Korea (South)
+ *
+ *  Value: "KR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Kr;
+/**
+ *  Latin America and the Caribbean.
+ *
+ *  Value: "LAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Lac;
+/**
+ *  Latvia
+ *
+ *  Value: "LV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Lv;
+/**
+ *  Morocco
+ *
+ *  Value: "MA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ma;
+/**
+ *  Mexico
+ *
+ *  Value: "MX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Mx;
+/**
+ *  Malaysia
+ *
+ *  Value: "MY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_My;
+/**
+ *  North America.
+ *
+ *  Value: "NA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Na;
+/**
+ *  Nigeria
+ *
+ *  Value: "NG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ng;
+/**
+ *  Netherlands
+ *
+ *  Value: "NL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Nl;
+/**
+ *  Norway
+ *
+ *  Value: "NO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_No;
+/**
+ *  New Zealand
+ *
+ *  Value: "NZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Nz;
+/**
+ *  Peru
+ *
+ *  Value: "PE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pe;
+/**
+ *  Philippines
+ *
+ *  Value: "PH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ph;
+/**
+ *  Pakistan
+ *
+ *  Value: "PK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pk;
+/**
+ *  Poland
+ *
+ *  Value: "PL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pl;
+/**
+ *  Portugal
+ *
+ *  Value: "PT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pt;
+/**
+ *  Romania
+ *
+ *  Value: "RO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ro;
+/**
+ *  Serbia
+ *
+ *  Value: "RS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Rs;
+/**
+ *  Russian Federation
+ *
+ *  Value: "RU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ru;
+/**
+ *  Saudi Arabia
+ *
+ *  Value: "SA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sa;
+/**
+ *  Sweden
+ *
+ *  Value: "SE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Se;
+/**
+ *  Singapore
+ *
+ *  Value: "SG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sg;
+/**
+ *  Slovenia
+ *
+ *  Value: "SI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Si;
+/**
+ *  Slovakia
+ *
+ *  Value: "SK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sk;
+/**
+ *  Thailand
+ *
+ *  Value: "TH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Th;
+/**
+ *  Turkey
+ *
+ *  Value: "TR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Tr;
+/**
+ *  Taiwan
+ *
+ *  Value: "TW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Tw;
+/**
+ *  Ukraine
+ *
+ *  Value: "UA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ua;
+/**
+ *  United States
+ *
+ *  Value: "US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Us;
+/**
+ *  Venezuela
+ *
+ *  Value: "VE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ve;
+/**
+ *  Viet Nam
+ *
+ *  Value: "VN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Vn;
+/**
+ *  South Africa
+ *
+ *  Value: "ZA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Za;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.hparamTuningObjectives
 
 /**
@@ -1692,6 +2166,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanLo
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.modelRegistry
+
+/** Value: "MODEL_REGISTRY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ModelRegistry_ModelRegistryUnspecified;
+/**
+ *  Vertex AI.
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ModelRegistry_VertexAi;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.optimizationStrategy
 
 /**
@@ -1708,6 +2194,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation;
 /** Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.pcaSolver
+
+/**
+ *  Auto.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Auto;
+/**
+ *  Full eigen-decoposition.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Full;
+/**
+ *  Randomized SVD.
+ *
+ *  Value: "RANDOMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Randomized;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.treeMethod
@@ -2263,6 +2773,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  accelerated, this field is not populated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BiEngineReason *> *biEngineReasons;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BigLakeConfiguration
+ */
+@interface GTLRBigquery_BigLakeConfiguration : GTLRObject
+
+/**
+ *  [Required] Required and immutable. Credential reference for accessing
+ *  external storage system. Normalized as project_id.location_id.connection_id.
+ */
+@property(nonatomic, copy, nullable) NSString *connectionId;
+
+/**
+ *  [Required] Required and immutable. Open source file format that the table
+ *  data is stored in. Currently only PARQUET is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *fileFormat;
+
+/**
+ *  [Required] Required and immutable. Fully qualified location prefix of the
+ *  external folder where data is stored. Normalized to standard format:
+ *  "gs:////". Starts with "gs://" rather than "/bigstore/". Ends with "/". Does
+ *  not contain "*". See also BigLakeStorageMetadata on how it is used.
+ */
+@property(nonatomic, copy, nullable) NSString *storageUri;
+
+/**
+ *  [Required] Required and immutable. Open source file format that the table
+ *  data is stored in. Currently only PARQUET is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *tableFormat;
 
 @end
 
@@ -3089,6 +3633,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** [Output-only] A hash of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  [Optional] Information about the external metadata storage where the dataset
+ *  is defined. Filled out when the dataset type is EXTERNAL.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ExternalDatasetReference *externalDatasetReference;
 
 /** [Optional] A descriptive name for the dataset. */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
@@ -4115,6 +4665,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  is not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceUris;
+
+@end
+
+
+/**
+ *  GTLRBigquery_ExternalDatasetReference
+ */
+@interface GTLRBigquery_ExternalDatasetReference : GTLRObject
+
+/**
+ *  [Required] The connection id that is used to access the external_source.
+ *  Format:
+ *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/** [Required] External source that backs this dataset. */
+@property(nonatomic, copy, nullable) NSString *externalSource;
 
 @end
 
@@ -6345,7 +6913,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *expirationTime;
 
-/** Output only. Input feature columns that were used to train this model. */
+/**
+ *  Output only. Input feature columns for the model inference. If the model is
+ *  trained with TRANSFORM clause, these are the input of the TRANSFORM clause.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *featureColumns;
 
 /** Optional. A descriptive name for this model. */
@@ -6466,6 +7037,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** Information for all training runs in increasing order of start_time. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TrainingRun *> *trainingRuns;
+
+/**
+ *  Output only. This field will be populated if a TRANSFORM clause was used to
+ *  train a model. TRANSFORM clause (if used) takes feature_columns as input and
+ *  outputs transform_columns. transform_columns then are used to train the
+ *  model.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TransformColumn *> *transformColumns;
 
 @end
 
@@ -6620,7 +7199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -6628,14 +7207,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRBigquery_Policy : GTLRObject
@@ -7453,6 +8033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBatchingRows;
 
+/** Output only. The model version for LLM. */
+@property(nonatomic, copy, nullable) NSString *remoteModelVersion;
+
 /**
  *  Output only. The remote service type for remote model.
  *
@@ -7493,6 +8076,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
+
+/**
+ *  Optional. Data governance specific option, if the value is DATA_MASKING, the
+ *  function will be validated as masking functions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Routine_DataGovernanceType_DataGovernanceTypeUnspecified
+ *        Unspecified data governance type. (Value:
+ *        "DATA_GOVERNANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_Routine_DataGovernanceType_DataMasking The data
+ *        governance type is data masking. (Value: "DATA_MASKING")
+ */
+@property(nonatomic, copy, nullable) NSString *dataGovernanceType;
 
 /**
  *  Required. The body of the routine. For functions, this is the expression in
@@ -7818,7 +8414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  index was not used in all or part of the search query. If index_usage_mode
  *  is FULLLY_USED, this field is not populated.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexUnusedReason *> *indexUnusedReason;
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexUnusedReason *> *indexUnusedReasons;
 
 /** Specifies index usage mode for the query. */
 @property(nonatomic, copy, nullable) NSString *indexUsageMode;
@@ -8026,6 +8622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** The type of the array's elements, if type_kind = "ARRAY". */
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlDataType *arrayElementType;
 
+/** The type of the range's elements, if type_kind = "RANGE". */
+@property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlDataType *rangeElementType;
+
 /** The fields of this struct, in order, if type_kind = "STRUCT". */
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlStructType *structType;
 
@@ -8059,6 +8658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        string. (Value: "JSON")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric Encoded as a
  *        decimal string. (Value: "NUMERIC")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Range Encoded as a pair
+ *        with types matching range_element_type. Pairs must begin with "[", end
+ *        with ")", and be separated by ", ". (Value: "RANGE")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_String Encoded as a
  *        string value. (Value: "STRING")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Struct Encoded as a
@@ -8164,6 +8766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  GTLRBigquery_Table
  */
 @interface GTLRBigquery_Table : GTLRObject
+
+/** [Optional] Specifies the configuration of a BigLake managed table. */
+@property(nonatomic, strong, nullable) GTLRBigquery_BigLakeConfiguration *biglakeConfiguration;
 
 /** [Output-only] Clone definition. */
 @property(nonatomic, strong, nullable) GTLRBigquery_CloneDefinition *cloneDefinition;
@@ -8747,6 +9352,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *precision;
 
 /**
+ *  Optional. The subtype of the RANGE, if the type of this field is RANGE. If
+ *  the type is RANGE, this field is required. Possible values for the field
+ *  element type of a RANGE include: - DATE - DATETIME - TIMESTAMP
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_RangeElementType *rangeElementType;
+
+/**
  *  Optional. Rounding Mode specification of the field. It only can be set on
  *  NUMERIC or BIGNUMERIC type fields.
  */
@@ -8797,6 +9409,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Optional. The subtype of the RANGE, if the type of this field is RANGE. If
+ *  the type is RANGE, this field is required. Possible values for the field
+ *  element type of a RANGE include: - DATE - DATETIME - TIMESTAMP
+ */
+@interface GTLRBigquery_TableFieldSchema_RangeElementType : GTLRObject
+
+/** The field element type of a RANGE */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -9046,6 +9671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @interface GTLRBigquery_TrainingOptions : GTLRObject
 
+/** Activation function of the neural nets. */
+@property(nonatomic, copy, nullable) NSString *activationFn;
+
 /**
  *  If true, detect step changes and make data adjustment in the input time
  *  series.
@@ -9084,6 +9712,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *autoArimaMinOrder;
 
 /**
+ *  Whether to calculate class weights automatically based on the popularity of
+ *  each label.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoClassWeights;
+
+/**
  *  Batch size for dnn models.
  *
  *  Uses NSNumber of longLongValue.
@@ -9104,12 +9740,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *boosterType;
 
 /**
+ *  Budget in hours for AutoML training.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *budgetHours;
+
+/**
  *  Whether or not p-value test should be computed for this model. Only
  *  available for linear and logistic regression models.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *calculatePValues;
+
+/**
+ *  Categorical feature encoding method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_DummyEncoding
+ *        Applies dummy encoding. (Value: "DUMMY_ENCODING")
+ *    @arg @c kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_EncodingMethodUnspecified
+ *        Unspecified encoding method. (Value: "ENCODING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_LabelEncoding
+ *        Applies label encoding. (Value: "LABEL_ENCODING")
+ *    @arg @c kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_OneHotEncoding
+ *        Applies one-hot encoding. (Value: "ONE_HOT_ENCODING")
+ */
+@property(nonatomic, copy, nullable) NSString *categoryEncodingMethod;
 
 /**
  *  If true, clean spikes and dips in the input time series.
@@ -9294,6 +9952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *feedbackType;
 
 /**
+ *  Whether the model should include intercept during model training.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fitIntercept;
+
+/**
  *  Hidden units for dnn models.
  *
  *  Uses NSNumber of longLongValue.
@@ -9439,6 +10104,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, copy, nullable) NSString *holidayRegion;
 
+/** A list of geographical regions that are used for time series modeling. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *holidayRegions;
+
 /**
  *  The number of periods ahead that need to be forecasted.
  *
@@ -9504,6 +10172,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        Initializes the centroids randomly. (Value: "RANDOM")
  */
 @property(nonatomic, copy, nullable) NSString *kmeansInitializationMethod;
+
+/**
+ *  L1 regularization coefficient to activations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *l1RegActivation;
 
 /**
  *  L1 regularization coefficient.
@@ -9574,8 +10249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
 
 /**
- *  Get truncated length by last n points in time series. Use separately from
- *  time_series_length_fraction and min_time_series_length.
+ *  The maximum number of time points in a time series that can be used in
+ *  modeling the trend component of the time series. Don't use this option with
+ *  the `timeSeriesLengthFraction` or `minTimeSeriesLength` options.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9604,8 +10280,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *minSplitLoss;
 
 /**
- *  Set fast trend ARIMA_PLUS model minimum training length. Use in pair with
- *  time_series_length_fraction.
+ *  The minimum number of time points in a time series that are used in modeling
+ *  the trend component of the time series. If you use this option you must also
+ *  set the `timeSeriesLengthFraction` option. This training option ensures that
+ *  enough time points are available when you use `timeSeriesLengthFraction` in
+ *  trend modeling. This is particularly important when forecasting multiple
+ *  time series in a single query using `timeSeriesIdColumn`. If the total
+ *  number of time points is less than the `minTimeSeriesLength` value, then the
+ *  query uses all available time points.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9617,6 +10299,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minTreeChildWeight;
+
+/**
+ *  The model registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_ModelRegistry_ModelRegistryUnspecified
+ *        Value "MODEL_REGISTRY_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_TrainingOptions_ModelRegistry_VertexAi Vertex AI.
+ *        (Value: "VERTEX_AI")
+ */
+@property(nonatomic, copy, nullable) NSString *modelRegistry;
 
 /**
  *  Google Cloud Storage URI from which the model was imported. Only applicable
@@ -9654,6 +10347,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *numParallelTree;
 
 /**
+ *  Number of principal components to keep in the PCA model. Must be <= the
+ *  number of features.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPrincipalComponents;
+
+/**
  *  Number of trials to run this hyperparameter tuning job.
  *
  *  Uses NSNumber of longLongValue.
@@ -9675,12 +10376,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, copy, nullable) NSString *optimizationStrategy;
 
+/** Optimizer used for training the neural nets. */
+@property(nonatomic, copy, nullable) NSString *optimizer;
+
+/**
+ *  The minimum ratio of cumulative explained variance that needs to be given by
+ *  the PCA model.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pcaExplainedVarianceRatio;
+
+/**
+ *  The solver for PCA.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Auto Auto. (Value: "AUTO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Full Full
+ *        eigen-decoposition. (Value: "FULL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Randomized Randomized SVD.
+ *        (Value: "RANDOMIZED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified Value
+ *        "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *pcaSolver;
+
 /**
  *  Number of paths for the sampled Shapley explain method.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sampledShapleyNumPaths;
+
+/**
+ *  If true, scale the feature values by dividing the feature standard
+ *  deviation. Currently only apply to PCA.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleFeatures;
+
+/**
+ *  Whether to standardize numerical features. Default to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardizeFeatures;
 
 /**
  *  Subsample fraction of the training data to grow tree to prevent overfitting
@@ -9706,7 +10447,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIdColumns;
 
 /**
- *  Get truncated length by fraction in time series.
+ *  The fraction of the interpolated length of the time series that's used to
+ *  model the time series trend component. All of the time points of the time
+ *  series are used to model the non-trend component. This training option
+ *  accelerates modeling training without sacrificing much forecasting accuracy.
+ *  You can use this option with `minTimeSeriesLength` but not with
+ *  `maxTimeSeriesLength`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9734,7 +10480,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *treeMethod;
 
 /**
- *  The smoothing window size for the trend component of the time series.
+ *  Smoothing window size for the trend component. When a positive value is
+ *  specified, a center moving average smoothing is applied on the history
+ *  trend. When the smoothing window is out of the boundary at the beginning or
+ *  the end of the trend, the first element or the last element is padded to
+ *  fill the smoothing window before the average is applied.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9742,6 +10492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** User column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *userColumn;
+
+/**
+ *  The version aliases to apply in Vertex AI model registry. Always overwrite
+ *  if the version aliases exists in a existing model.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vertexAiModelVersionAliases;
 
 /**
  *  Hyperparameter for matrix factoration when implicit feedback type is
@@ -9852,6 +10608,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** [Output-only] // [Alpha] Id of the transaction. */
 @property(nonatomic, copy, nullable) NSString *transactionId;
+
+@end
+
+
+/**
+ *  Information about a single transform column.
+ */
+@interface GTLRBigquery_TransformColumn : GTLRObject
+
+/** Output only. Name of the column. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The SQL expression used in the column transform. */
+@property(nonatomic, copy, nullable) NSString *transformSql;
+
+/** Output only. Data type of the column after the transform. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlDataType *type;
 
 @end
 

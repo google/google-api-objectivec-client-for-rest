@@ -45,7 +45,6 @@
 @class GTLRBareMetalSolution_ProvisioningConfig;
 @class GTLRBareMetalSolution_ProvisioningQuota;
 @class GTLRBareMetalSolution_QosPolicy;
-@class GTLRBareMetalSolution_ServerNetworkTemplate;
 @class GTLRBareMetalSolution_SnapshotReservationDetail;
 @class GTLRBareMetalSolution_SSHKey;
 @class GTLRBareMetalSolution_Status;
@@ -986,6 +985,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Message for response of DisableInteractiveSerialConsole.
+ */
+@interface GTLRBareMetalSolution_DisableInteractiveSerialConsoleResponse : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1003,6 +1009,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Message for response of EnableInteractiveSerialConsole.
+ */
+@interface GTLRBareMetalSolution_EnableInteractiveSerialConsoleResponse : GTLRObject
+@end
+
+
+/**
  *  Request for skip lun cooloff and delete it.
  */
 @interface GTLRBareMetalSolution_EvictLunRequest : GTLRObject
@@ -1013,17 +1026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Request for skip volume cooloff and delete it.
  */
 @interface GTLRBareMetalSolution_EvictVolumeRequest : GTLRObject
-@end
-
-
-/**
- *  Response with all provisioning settings.
- */
-@interface GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse : GTLRObject
-
-/** The OS images available. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_OSImage *> *images;
-
 @end
 
 
@@ -1517,6 +1519,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Request for getting all available OS images.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "osImages" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBareMetalSolution_ListOSImagesResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The OS images available.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_OSImage *> *osImages;
 
 @end
 
@@ -2322,8 +2351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2351,8 +2380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2393,7 +2422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Network templates that can be used with this OS Image. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_ServerNetworkTemplate *> *supportedNetworkTemplates;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedNetworkTemplates;
 
 @end
 
@@ -2843,6 +2872,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  Optional. The name of the vlan attachment within vrf. This is of the form
+ *  projects/{project_number}/regions/{region}/interconnectAttachments/{interconnect_attachment}
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachment;
+
 /** Input only. Pairing key. */
 @property(nonatomic, copy, nullable) NSString *pairingKey;
 
@@ -3043,11 +3078,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_SnapshotReservationDetail *snapshotReservationDetail;
 
 /**
- *  The name of the snapshot schedule policy in use for this volume, if any.
- */
-@property(nonatomic, copy, nullable) NSString *snapshotSchedulePolicy;
-
-/**
  *  The state of this storage volume.
  *
  *  Likely values:
@@ -3066,12 +3096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Input only. Name of the storage aggregate pool to allocate the volume in.
- *  Can be used only for VOLUME_PERFORMANCE_TIER_ASSIGNED volumes.
- */
-@property(nonatomic, copy, nullable) NSString *storageAggregatePool;
 
 /**
  *  The storage type for this volume.
@@ -3191,12 +3215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *snapshotsEnabled;
-
-/**
- *  Input only. Name of the storage aggregate pool to allocate the volume in.
- *  Can be used only for VOLUME_PERFORMANCE_TIER_ASSIGNED volumes.
- */
-@property(nonatomic, copy, nullable) NSString *storageAggregatePool;
 
 /**
  *  The type of this Volume.

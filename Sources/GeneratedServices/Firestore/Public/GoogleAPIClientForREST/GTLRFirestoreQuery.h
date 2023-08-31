@@ -554,8 +554,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The ID to use for the database, which will become the final
- *  component of the database's resource name. The value must be set to
- *  "(default)".
+ *  component of the database's resource name. This value should be 4-63
+ *  characters. Valid characters are /a-z-/ with first character a letter and
+ *  the last a letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  valid.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
@@ -590,12 +593,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsDatabasesDelete : GTLRFirestoreQuery
 
 /**
- *  If set to true and the Database is not found, the request will succeed but
- *  no action will be taken.
- */
-@property(nonatomic, assign) BOOL allowMissing;
-
-/**
  *  The current etag of the Database. If an etag is provided and does not match
  *  the current etag of the database, deletion will be blocked and a
  *  FAILED_PRECONDITION error will be returned.
@@ -606,12 +603,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If set, validate the request and preview the response, but do not actually
- *  delete the database.
- */
-@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
@@ -898,8 +889,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Reads the version of the document at the given time. This may not be older
- *  than 270 seconds.
+ *  Reads the version of the document at the given time. This must be a
+ *  microsecond precision timestamp within the past one hour, or if
+ *  Point-in-Time Recovery is enabled, can additionally be a whole minute
+ *  timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -983,8 +976,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Perform the read at the provided time. This may not be older than 270
- *  seconds.
+ *  Perform the read at the provided time. This must be a microsecond precision
+ *  timestamp within the past one hour, or if Point-in-Time Recovery is enabled,
+ *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -1126,8 +1120,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Perform the read at the provided time. This may not be older than 270
- *  seconds.
+ *  Perform the read at the provided time. This must be a microsecond precision
+ *  timestamp within the past one hour, or if Point-in-Time Recovery is enabled,
+ *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 

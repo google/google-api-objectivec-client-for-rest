@@ -2395,7 +2395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The flow to create an TransitionRouteGroup for. Format:
- *  `projects//locations//agents//flows/`.
+ *  `projects//locations//agents//flows/` or `projects//locations//agents/` for
+ *  agent-level groups.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2410,7 +2411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
  *    the query.
  *  @param parent Required. The flow to create an TransitionRouteGroup for.
- *    Format: `projects//locations//agents//flows/`.
+ *    Format: `projects//locations//agents//flows/` or
+ *    `projects//locations//agents/` for agent-level groups.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsCreate
  */
@@ -2444,7 +2446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The name of the TransitionRouteGroup to delete. Format:
- *  `projects//locations//agents//flows//transitionRouteGroups/`.
+ *  `projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2456,7 +2459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the TransitionRouteGroup to delete.
- *    Format: `projects//locations//agents//flows//transitionRouteGroups/`.
+ *    Format: `projects//locations//agents//flows//transitionRouteGroups/` or
+ *    `projects//locations//agents//transitionRouteGroups/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsDelete
  */
@@ -2489,7 +2493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The name of the TransitionRouteGroup. Format:
- *  `projects//locations//agents//flows//transitionRouteGroups/`.
+ *  `projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2499,7 +2504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Retrieves the specified TransitionRouteGroup.
  *
  *  @param name Required. The name of the TransitionRouteGroup. Format:
- *    `projects//locations//agents//flows//transitionRouteGroups/`.
+ *    `projects//locations//agents//flows//transitionRouteGroups/` or
+ *    `projects//locations//agents//transitionRouteGroups/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsGet
  */
@@ -2541,7 +2547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The flow to list all transition route groups for. Format:
- *  `projects//locations//agents//flows/`.
+ *  `projects//locations//agents//flows/` or `projects//locations//agents/.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2552,7 +2558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Returns the list of all transition route groups in the specified flow.
  *
  *  @param parent Required. The flow to list all transition route groups for.
- *    Format: `projects//locations//agents//flows/`.
+ *    Format: `projects//locations//agents//flows/` or
+ *    `projects//locations//agents/.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsList
  *
@@ -2592,7 +2599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The unique identifier of the transition route group.
  *  TransitionRouteGroups.CreateTransitionRouteGroup populates the name
  *  automatically. Format:
- *  `projects//locations//agents//flows//transitionRouteGroups/`.
+ *  `projects//locations//agents//flows//transitionRouteGroups/` .
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2616,7 +2623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param name The unique identifier of the transition route group.
  *    TransitionRouteGroups.CreateTransitionRouteGroup populates the name
  *    automatically. Format:
- *    `projects//locations//agents//flows//transitionRouteGroups/`.
+ *    `projects//locations//agents//flows//transitionRouteGroups/` .
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsPatch
  */
@@ -4287,6 +4294,269 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  Method: dialogflow.projects.locations.agents.transitionRouteGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsCreate : GTLRDialogflowQuery
+
+/**
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The flow to create an TransitionRouteGroup for. Format:
+ *  `projects//locations//agents//flows/` or `projects//locations//agents/` for
+ *  agent-level groups.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
+ *
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
+ *    the query.
+ *  @param parent Required. The flow to create an TransitionRouteGroup for.
+ *    Format: `projects//locations//agents//flows/` or
+ *    `projects//locations//agents/` for agent-level groups.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  Method: dialogflow.projects.locations.agents.transitionRouteGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsDelete : GTLRDialogflowQuery
+
+/**
+ *  This field has no effect for transition route group that no page is using.
+ *  If the transition route group is referenced by any page: * If `force` is set
+ *  to false, an error will be returned with message indicating pages that
+ *  reference the transition route group. * If `force` is set to true,
+ *  Dialogflow will remove the transition route group, as well as any reference
+ *  to it.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the TransitionRouteGroup to delete. Format:
+ *  `projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  @param name Required. The name of the TransitionRouteGroup to delete.
+ *    Format: `projects//locations//agents//flows//transitionRouteGroups/` or
+ *    `projects//locations//agents//transitionRouteGroups/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified TransitionRouteGroup.
+ *
+ *  Method: dialogflow.projects.locations.agents.transitionRouteGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsGet : GTLRDialogflowQuery
+
+/**
+ *  The language to retrieve the transition route group for. The following
+ *  fields are language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The name of the TransitionRouteGroup. Format:
+ *  `projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
+ *
+ *  Retrieves the specified TransitionRouteGroup.
+ *
+ *  @param name Required. The name of the TransitionRouteGroup. Format:
+ *    `projects//locations//agents//flows//transitionRouteGroups/` or
+ *    `projects//locations//agents//transitionRouteGroups/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all transition route groups in the specified flow.
+ *
+ *  Method: dialogflow.projects.locations.agents.transitionRouteGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsList : GTLRDialogflowQuery
+
+/**
+ *  The language to list transition route groups for. The following fields are
+ *  language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The flow to list all transition route groups for. Format:
+ *  `projects//locations//agents//flows/` or `projects//locations//agents/.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListTransitionRouteGroupsResponse.
+ *
+ *  Returns the list of all transition route groups in the specified flow.
+ *
+ *  @param parent Required. The flow to list all transition route groups for.
+ *    Format: `projects//locations//agents//flows/` or
+ *    `projects//locations//agents/.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  Method: dialogflow.projects.locations.agents.transitionRouteGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsPatch : GTLRDialogflowQuery
+
+/**
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The unique identifier of the transition route group.
+ *  TransitionRouteGroups.CreateTransitionRouteGroup populates the name
+ *  automatically. Format:
+ *  `projects//locations//agents//flows//transitionRouteGroups/` .
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
+ *
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
+ *    the query.
+ *  @param name The unique identifier of the transition route group.
+ *    TransitionRouteGroups.CreateTransitionRouteGroup populates the name
+ *    automatically. Format:
+ *    `projects//locations//agents//flows//transitionRouteGroups/` .
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup *)object
                            name:(NSString *)name;
 
 @end

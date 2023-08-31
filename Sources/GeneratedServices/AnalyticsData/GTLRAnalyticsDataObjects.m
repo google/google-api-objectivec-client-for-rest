@@ -144,6 +144,15 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_AudienceListMetadata
+//
+
+@implementation GTLRAnalyticsData_AudienceListMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_BatchRunPivotReportsRequest
 //
 

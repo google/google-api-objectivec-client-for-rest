@@ -1174,6 +1174,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
+ *  Get the device provisioning information by the identifier provided in the
+ *  sign-in url.
+ *
+ *  Method: androidmanagement.provisioningInfo.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_ProvisioningInfoGet : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The identifier that Android Device Policy passes to the 3P sign-in
+ *  page in the form of provisioningInfo/{provisioning_info}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ProvisioningInfo.
+ *
+ *  Get the device provisioning information by the identifier provided in the
+ *  sign-in url.
+ *
+ *  @param name Required. The identifier that Android Device Policy passes to
+ *    the 3P sign-in page in the form of provisioningInfo/{provisioning_info}.
+ *
+ *  @return GTLRAndroidManagementQuery_ProvisioningInfoGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates an enterprise signup URL.
  *
  *  Method: androidmanagement.signupUrls.create

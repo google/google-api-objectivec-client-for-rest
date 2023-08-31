@@ -49,6 +49,7 @@
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
 @class GTLRServiceUsage_Field;
+@class GTLRServiceUsage_FieldPolicy;
 @class GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity;
 @class GTLRServiceUsage_GoogleApiServiceusageV1Service;
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
@@ -64,6 +65,7 @@
 @class GTLRServiceUsage_LoggingDestination;
 @class GTLRServiceUsage_LongRunning;
 @class GTLRServiceUsage_Method;
+@class GTLRServiceUsage_MethodPolicy;
 @class GTLRServiceUsage_MethodSettings;
 @class GTLRServiceUsage_MetricDescriptor;
 @class GTLRServiceUsage_MetricDescriptorMetadata;
@@ -1796,6 +1798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
+/** Defines policies applying to the API methods of the service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MethodPolicy *> *methodPolicies;
+
 @end
 
 
@@ -2438,6 +2443,40 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
+
+@end
+
+
+/**
+ *  Google API Policy Annotation This message defines a simple API policy
+ *  annotation that can be used to annotate API request and response message
+ *  fields with applicable policies. One field may have multiple applicable
+ *  policies that must all be satisfied before a request can be processed. This
+ *  policy annotation is used to generate the overall policy that will be used
+ *  for automatic runtime policy enforcement and documentation generation.
+ */
+@interface GTLRServiceUsage_FieldPolicy : GTLRObject
+
+/**
+ *  Specifies the required permission(s) for the resource referred to by the
+ *  field. It requires the field contains a valid resource reference, and the
+ *  request must pass the permission checks to proceed. For example,
+ *  "resourcemanager.projects.get".
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePermission;
+
+/** Specifies the resource type for the resource referred to by the field. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Selects one or more request or response message fields to apply this
+ *  `FieldPolicy`. When a `FieldPolicy` is used in proto annotation, the
+ *  selector must be left as empty. The service config generator will
+ *  automatically fill the correct value. When a `FieldPolicy` is used in
+ *  service config, the selector must be a comma-separated string with valid
+ *  request or response field paths, such as "foo.bar" or "foo.bar,foo.baz".
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -3434,6 +3473,25 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Defines policies applying to an RPC method.
+ */
+@interface GTLRServiceUsage_MethodPolicy : GTLRObject
+
+/** Policies that are applicable to the request message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_FieldPolicy *> *requestPolicies;
+
+/**
+ *  Selects a method to which these policies should be enforced, for example,
+ *  "google.pubsub.v1.Subscriber.CreateSubscription". Refer to selector for
+ *  syntax details. NOTE: This field must not be set in the proto annotation. It
+ *  will be automatically filled by the service config compiler .
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
  *  Describes the generator configuration for a method.
  */
 @interface GTLRServiceUsage_MethodSettings : GTLRObject
@@ -4061,8 +4119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4090,8 +4148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4808,9 +4866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Metadata for the `UpdateConsumerPolicyLRO` method.
+ *  Metadata for the `UpdateConsumerPolicy` method.
  */
-@interface GTLRServiceUsage_UpdateConsumerPolicyLROMetadata : GTLRObject
+@interface GTLRServiceUsage_UpdateConsumerPolicyMetadata : GTLRObject
 @end
 
 

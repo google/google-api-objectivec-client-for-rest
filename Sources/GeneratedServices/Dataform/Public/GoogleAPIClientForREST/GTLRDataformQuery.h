@@ -107,6 +107,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Applies a Git commit to a Repository. The Repository must not have a value
+ *  for `git_remote_settings.url`.
+ *
+ *  Method: dataform.projects.locations.repositories.commit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesCommit : GTLRDataformQuery
+
+/** Required. The repository's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Empty.
+ *
+ *  Applies a Git commit to a Repository. The Repository must not have a value
+ *  for `git_remote_settings.url`.
+ *
+ *  @param object The @c GTLRDataform_CommitRepositoryChangesRequest to include
+ *    in the query.
+ *  @param name Required. The repository's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesCommit
+ */
++ (instancetype)queryWithObject:(GTLRDataform_CommitRepositoryChangesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new CompilationResult in a given project and location.
  *
  *  Method: dataform.projects.locations.repositories.compilationResults.create
@@ -364,6 +395,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fetches a Repository's history of commits. The Repository must not have a
+ *  value for `git_remote_settings.url`.
+ *
+ *  Method: dataform.projects.locations.repositories.fetchHistory
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory : GTLRDataformQuery
+
+/** Required. The repository's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of commits to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `FetchRepositoryHistory` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `FetchRepositoryHistory` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataform_FetchRepositoryHistoryResponse.
+ *
+ *  Fetches a Repository's history of commits. The Repository must not have a
+ *  value for `git_remote_settings.url`.
+ *
+ *  @param name Required. The repository's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetches a Repository's remote branches.
  *
  *  Method: dataform.projects.locations.repositories.fetchRemoteBranches
@@ -556,6 +634,105 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataform_Repository *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the contents of a given Repository directory. The Repository must
+ *  not have a value for `git_remote_settings.url`.
+ *
+ *  Method: dataform.projects.locations.repositories.queryDirectoryContents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents : GTLRDataformQuery
+
+/**
+ *  Optional. The Commit SHA for the commit to query from. If unset, the
+ *  directory will be queried from HEAD.
+ */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/** Required. The repository's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of paths to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous
+ *  `QueryRepositoryDirectoryContents` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `QueryRepositoryDirectoryContents` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The directory's full path including directory name, relative to
+ *  root. If left unset, the root is used.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRDataform_QueryRepositoryDirectoryContentsResponse.
+ *
+ *  Returns the contents of a given Repository directory. The Repository must
+ *  not have a value for `git_remote_settings.url`.
+ *
+ *  @param name Required. The repository's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the contents of a file (inside a Repository). The Repository must
+ *  not have a value for `git_remote_settings.url`.
+ *
+ *  Method: dataform.projects.locations.repositories.readFile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile : GTLRDataformQuery
+
+/**
+ *  Optional. The commit SHA for the commit to read from. If unset, the file
+ *  will be read from HEAD.
+ */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/** Required. The repository's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Full file path to read including filename, from repository root.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRDataform_ReadRepositoryFileResponse.
+ *
+ *  Returns the contents of a file (inside a Repository). The Repository must
+ *  not have a value for `git_remote_settings.url`.
+ *
+ *  @param name Required. The repository's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

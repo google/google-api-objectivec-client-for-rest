@@ -278,6 +278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 // GTLRCloudResourceManager_TagKey.purpose
 
 /**
+ *  Purpose for data governance. Tag Values created under a key with this
+ *  purpose may have Tag Value children. No `purpose_data` should be set.
+ *
+ *  Value: "DATA_GOVERNANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_DataGovernance;
+/**
  *  Purpose for Compute Engine firewalls. A corresponding `purpose_data` should
  *  be set for the network the tag is intended for. The key should be `network`
  *  and the value should be in ## either of these two formats:
@@ -1276,8 +1283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1305,8 +1312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1397,7 +1404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1405,14 +1412,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudResourceManager_Policy : GTLRObject
@@ -1893,6 +1901,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  engines. A purpose cannot be changed once set.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_DataGovernance Purpose
+ *        for data governance. Tag Values created under a key with this purpose
+ *        may have Tag Value children. No `purpose_data` should be set. (Value:
+ *        "DATA_GOVERNANCE")
  *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall Purpose for
  *        Compute Engine firewalls. A corresponding `purpose_data` should be set
  *        for the network the tag is intended for. The key should be `network`

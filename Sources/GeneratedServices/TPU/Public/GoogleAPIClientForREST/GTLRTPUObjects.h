@@ -349,7 +349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** the accelerator type. */
+/** The accelerator type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -766,7 +766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** The AccleratorConfig for the TPU Node. */
 @property(nonatomic, strong, nullable) GTLRTPU_AcceleratorConfig *acceleratorConfig;
 
-/** Required. The type of hardware accelerators associated with this node. */
+/** Optional. The type of hardware accelerators associated with this node. */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
@@ -850,6 +850,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, strong, nullable) GTLRTPU_Node_Metadata *metadata;
 
+/**
+ *  Output only. Whether the Node belongs to a Multislice group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multisliceNode;
+
 /** Output only. Immutable. The name of the TPU. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -862,6 +869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *  the 0th entry in this map first.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkEndpoint *> *networkEndpoints;
+
+/**
+ *  Output only. The qualified name of the QueuedResource that requested this
+ *  Node.
+ */
+@property(nonatomic, copy, nullable) NSString *queuedResource;
 
 /** Required. The runtime version running in the Node. */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
@@ -988,8 +1001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1017,8 +1030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

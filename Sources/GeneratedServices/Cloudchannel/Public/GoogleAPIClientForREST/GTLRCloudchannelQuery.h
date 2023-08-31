@@ -99,13 +99,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  should not be used for regular business cases. * The new config will not
  *  modify exports used with other configs. Changes to the config may be
  *  immediate, but may take up to 24 hours. * There is a limit of ten configs
- *  for any ChannelPartner or RepricingConfig.effective_invoice_month. * The
- *  contained ChannelPartnerRepricingConfig.repricing_config vaule must be
- *  different from the value used in the current config for a ChannelPartner.
- *  Possible Error Codes: * PERMISSION_DENIED: If the account making the request
- *  and the account being queried are different. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. Also displays if the updated
- *  config is for the current month or past months. * NOT_FOUND: The
+ *  for any ChannelPartner or
+ *  RepricingConfig.EntitlementGranularity.entitlement, for any
+ *  RepricingConfig.effective_invoice_month. * The contained
+ *  ChannelPartnerRepricingConfig.repricing_config value must be different from
+ *  the value used in the current config for a ChannelPartner. Possible Error
+ *  Codes: * PERMISSION_DENIED: If the account making the request and the
+ *  account being queried are different. * INVALID_ARGUMENT: Missing or invalid
+ *  required parameters in the request. Also displays if the updated config is
+ *  for the current month or past months. * NOT_FOUND: The
  *  ChannelPartnerRepricingConfig specified does not exist or is not associated
  *  with the given account. * INTERNAL: Any non-user error related to technical
  *  issues in the backend. In this case, contact Cloud Channel support. Return
@@ -141,13 +143,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  should not be used for regular business cases. * The new config will not
  *  modify exports used with other configs. Changes to the config may be
  *  immediate, but may take up to 24 hours. * There is a limit of ten configs
- *  for any ChannelPartner or RepricingConfig.effective_invoice_month. * The
- *  contained ChannelPartnerRepricingConfig.repricing_config vaule must be
- *  different from the value used in the current config for a ChannelPartner.
- *  Possible Error Codes: * PERMISSION_DENIED: If the account making the request
- *  and the account being queried are different. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. Also displays if the updated
- *  config is for the current month or past months. * NOT_FOUND: The
+ *  for any ChannelPartner or
+ *  RepricingConfig.EntitlementGranularity.entitlement, for any
+ *  RepricingConfig.effective_invoice_month. * The contained
+ *  ChannelPartnerRepricingConfig.repricing_config value must be different from
+ *  the value used in the current config for a ChannelPartner. Possible Error
+ *  Codes: * PERMISSION_DENIED: If the account making the request and the
+ *  account being queried are different. * INVALID_ARGUMENT: Missing or invalid
+ *  required parameters in the request. Also displays if the updated config is
+ *  for the current month or past months. * NOT_FOUND: The
  *  ChannelPartnerRepricingConfig specified does not exist or is not associated
  *  with the given account. * INTERNAL: Any non-user error related to technical
  *  issues in the backend. In this case, contact Cloud Channel support. Return
@@ -467,8 +471,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
- *  request is different from the reseller account in the API request. *
+ *  Possible error codes: * PERMISSION_DENIED: * The reseller account making the
+ *  request is different from the reseller account in the API request. * You are
+ *  not authorized to create a customer. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  Domain field value doesn't match the primary email domain. Return value: The
  *  newly created Customer resource.
@@ -490,8 +496,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
- *  request is different from the reseller account in the API request. *
+ *  Possible error codes: * PERMISSION_DENIED: * The reseller account making the
+ *  request is different from the reseller account in the API request. * You are
+ *  not authorized to create a customer. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  Domain field value doesn't match the primary email domain. Return value: The
  *  newly created Customer resource.
@@ -586,13 +594,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Imports a Customer from the Cloud Identity associated with the provided
  *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
  *  Customer already exists and overwrite_if_exists is true, it will update that
- *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: * The reseller
  *  account making the request is different from the reseller account in the API
- *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
- *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
- *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
- *  conflicting critical fields. Requires an overwrite. Return value: The
- *  Customer.
+ *  request. * You are not authorized to import the customer. See
+ *  https://support.google.com/channelservices/answer/9759265 * NOT_FOUND: Cloud
+ *  Identity doesn't exist or was deleted. * INVALID_ARGUMENT: Required
+ *  parameters are missing, or the auth_token is expired or invalid. *
+ *  ALREADY_EXISTS: A customer already exists and has conflicting critical
+ *  fields. Requires an overwrite. Return value: The Customer.
  *
  *  Method: cloudchannel.accounts.channelPartnerLinks.customers.import
  *
@@ -614,13 +623,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Imports a Customer from the Cloud Identity associated with the provided
  *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
  *  Customer already exists and overwrite_if_exists is true, it will update that
- *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: * The reseller
  *  account making the request is different from the reseller account in the API
- *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
- *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
- *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
- *  conflicting critical fields. Requires an overwrite. Return value: The
- *  Customer.
+ *  request. * You are not authorized to import the customer. See
+ *  https://support.google.com/channelservices/answer/9759265 * NOT_FOUND: Cloud
+ *  Identity doesn't exist or was deleted. * INVALID_ARGUMENT: Required
+ *  parameters are missing, or the auth_token is expired or invalid. *
+ *  ALREADY_EXISTS: A customer already exists and has conflicting critical
+ *  fields. Requires an overwrite. Return value: The Customer.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest to include in
@@ -993,8 +1003,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
- *  request is different from the reseller account in the API request. *
+ *  Possible error codes: * PERMISSION_DENIED: * The reseller account making the
+ *  request is different from the reseller account in the API request. * You are
+ *  not authorized to create a customer. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  Domain field value doesn't match the primary email domain. Return value: The
  *  newly created Customer resource.
@@ -1016,8 +1028,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
- *  request is different from the reseller account in the API request. *
+ *  Possible error codes: * PERMISSION_DENIED: * The reseller account making the
+ *  request is different from the reseller account in the API request. * You are
+ *  not authorized to create a customer. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  Domain field value doesn't match the primary email domain. Return value: The
  *  newly created Customer resource.
@@ -1046,9 +1060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  should not be used for regular business cases. * The new config will not
  *  modify exports used with other configs. Changes to the config may be
  *  immediate, but may take up to 24 hours. * There is a limit of ten configs
- *  for any RepricingConfig.EntitlementGranularity.entitlement or
+ *  for any RepricingConfig.EntitlementGranularity.entitlement, for any
  *  RepricingConfig.effective_invoice_month. * The contained
- *  CustomerRepricingConfig.repricing_config vaule must be different from the
+ *  CustomerRepricingConfig.repricing_config value must be different from the
  *  value used in the current config for a
  *  RepricingConfig.EntitlementGranularity.entitlement. Possible Error Codes: *
  *  PERMISSION_DENIED: If the account making the request and the account being
@@ -1088,9 +1102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  should not be used for regular business cases. * The new config will not
  *  modify exports used with other configs. Changes to the config may be
  *  immediate, but may take up to 24 hours. * There is a limit of ten configs
- *  for any RepricingConfig.EntitlementGranularity.entitlement or
+ *  for any RepricingConfig.EntitlementGranularity.entitlement, for any
  *  RepricingConfig.effective_invoice_month. * The contained
- *  CustomerRepricingConfig.repricing_config vaule must be different from the
+ *  CustomerRepricingConfig.repricing_config value must be different from the
  *  value used in the current config for a
  *  RepricingConfig.EntitlementGranularity.entitlement. Possible Error Codes: *
  *  PERMISSION_DENIED: If the account making the request and the account being
@@ -1694,7 +1708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Creates an entitlement for a customer. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  There is already a customer entitlement for a SKU from the same product
  *  family. * INVALID_VALUE: Make sure the OfferId is valid. If it is, contact
@@ -1733,7 +1749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Creates an entitlement for a customer. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
  *  There is already a customer entitlement for a SKU from the same product
  *  family. * INVALID_VALUE: Make sure the OfferId is valid. If it is, contact
@@ -2141,13 +2159,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Imports a Customer from the Cloud Identity associated with the provided
  *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
  *  Customer already exists and overwrite_if_exists is true, it will update that
- *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: * The reseller
  *  account making the request is different from the reseller account in the API
- *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
- *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
- *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
- *  conflicting critical fields. Requires an overwrite. Return value: The
- *  Customer.
+ *  request. * You are not authorized to import the customer. See
+ *  https://support.google.com/channelservices/answer/9759265 * NOT_FOUND: Cloud
+ *  Identity doesn't exist or was deleted. * INVALID_ARGUMENT: Required
+ *  parameters are missing, or the auth_token is expired or invalid. *
+ *  ALREADY_EXISTS: A customer already exists and has conflicting critical
+ *  fields. Requires an overwrite. Return value: The Customer.
  *
  *  Method: cloudchannel.accounts.customers.import
  *
@@ -2169,13 +2188,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Imports a Customer from the Cloud Identity associated with the provided
  *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
  *  Customer already exists and overwrite_if_exists is true, it will update that
- *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: * The reseller
  *  account making the request is different from the reseller account in the API
- *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
- *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
- *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
- *  conflicting critical fields. Requires an overwrite. Return value: The
- *  Customer.
+ *  request. * You are not authorized to import the customer. See
+ *  https://support.google.com/channelservices/answer/9759265 * NOT_FOUND: Cloud
+ *  Identity doesn't exist or was deleted. * INVALID_ARGUMENT: Required
+ *  parameters are missing, or the auth_token is expired or invalid. *
+ *  ALREADY_EXISTS: A customer already exists and has conflicting critical
+ *  fields. Requires an overwrite. Return value: The Customer.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest to include in
@@ -2258,7 +2278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Lists the following: * Offers that you can purchase for a customer. * Offers
  *  that you can change for an entitlement. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  Method: cloudchannel.accounts.customers.listPurchasableOffers
@@ -2331,7 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *
  *  Lists the following: * Offers that you can purchase for a customer. * Offers
  *  that you can change for an entitlement. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  @param customer Required. The resource name of the customer to list Offers
@@ -2484,7 +2508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Creates a Cloud Identity for the given customer using the customer's
  *  information, or the information provided here. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * You are
+ *  not authorized to provision cloud identity id. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer was not found. * ALREADY_EXISTS: The customer's
  *  primary email already exists. Retry after changing the customer's primary
@@ -2513,7 +2539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *
  *  Creates a Cloud Identity for the given customer using the customer's
  *  information, or the information provided here. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * You are
+ *  not authorized to provision cloud identity id. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer was not found. * ALREADY_EXISTS: The customer's
  *  primary email already exists. Retry after changing the customer's primary
@@ -2589,7 +2617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Transfers customer entitlements to new reseller. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer or offer resource was not found. * ALREADY_EXISTS:
  *  The SKU was already transferred for the customer. * CONDITION_NOT_MET or
@@ -2624,7 +2654,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Transfers customer entitlements to new reseller. Possible error codes: *
- *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller. * The
+ *  reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer or offer resource was not found. * ALREADY_EXISTS:
  *  The SKU was already transferred for the customer. * CONDITION_NOT_MET or
@@ -2793,9 +2825,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  PERMISSION_DENIED: * The customer doesn't belong to the reseller and has no
  *  auth token. * The customer provided incorrect reseller information when
  *  generating auth token. * The reseller account making the request is
- *  different from the reseller account in the query. * INVALID_ARGUMENT:
- *  Required request parameters are missing or invalid. Return value: List of
- *  TransferableOffer for the given customer and SKU.
+ *  different from the reseller account in the query. * The reseller is not
+ *  authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: List of TransferableOffer for the given customer and SKU.
  *
  *  Method: cloudchannel.accounts.listTransferableOffers
  *
@@ -2818,9 +2852,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  PERMISSION_DENIED: * The customer doesn't belong to the reseller and has no
  *  auth token. * The customer provided incorrect reseller information when
  *  generating auth token. * The reseller account making the request is
- *  different from the reseller account in the query. * INVALID_ARGUMENT:
- *  Required request parameters are missing or invalid. Return value: List of
- *  TransferableOffer for the given customer and SKU.
+ *  different from the reseller account in the query. * The reseller is not
+ *  authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265 *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: List of TransferableOffer for the given customer and SKU.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest to

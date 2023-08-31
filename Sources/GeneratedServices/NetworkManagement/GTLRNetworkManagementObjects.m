@@ -18,6 +18,7 @@
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound = @"DESTINATION_ENDPOINT_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported = @"GKE_KONNECTIVITY_PROXY_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint = @"GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument = @"INVALID_ARGUMENT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork = @"MISMATCHED_DESTINATION_NETWORK";
@@ -28,6 +29,8 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound = @"RESOURCE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound = @"SOURCE_ENDPOINT_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported = @"SOURCE_FORWARDING_RULE_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported = @"SOURCE_PSC_CLOUD_SQL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong = @"TRACE_TOO_LONG";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination = @"UNINTENDED_DESTINATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp = @"UNKNOWN_IP";
@@ -50,6 +53,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet = @"INTERNET
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi = @"PSC_GOOGLE_API";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService = @"PSC_PUBLISHED_SERVICE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc = @"PSC_VPC_SC";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg = @"SERVERLESS_NEG";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 
 // GTLRNetworkManagement_DropInfo.cause
@@ -104,6 +108,7 @@ NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRu
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule = @"HIERARCHICAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule = @"IMPLIED_VPC_FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule = @"NETWORK_FIREWALL_POLICY_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule = @"NETWORK_REGIONAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule = @"SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
 
@@ -113,6 +118,7 @@ NSString * const kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance = @"
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster = @"GKE_MASTER";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_ImportedCustomRouteNextHop = @"IMPORTED_CUSTOM_ROUTE_NEXT_HOP";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Interconnect = @"INTERCONNECT";
+NSString * const kGTLRNetworkManagement_ForwardInfo_Target_NccHub = @"NCC_HUB";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc = @"PEERING_VPC";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway = @"VPN_GATEWAY";
@@ -156,12 +162,18 @@ NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInstance = 
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInterconnect = @"NEXT_HOP_INTERCONNECT";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInternetGateway = @"NEXT_HOP_INTERNET_GATEWAY";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp = @"NEXT_HOP_IP";
+NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNccHub = @"NEXT_HOP_NCC_HUB";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork = @"NEXT_HOP_NETWORK";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering = @"NEXT_HOP_PEERING";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance = @"NEXT_HOP_ROUTER_APPLIANCE";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified = @"NEXT_HOP_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway = @"NEXT_HOP_VPN_GATEWAY";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel = @"NEXT_HOP_VPN_TUNNEL";
+
+// GTLRNetworkManagement_RouteInfo.routeScope
+NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_NccHub = @"NCC_HUB";
+NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_Network = @"NETWORK";
+NSString * const kGTLRNetworkManagement_RouteInfo_RouteScope_RouteScopeUnspecified = @"ROUTE_SCOPE_UNSPECIFIED";
 
 // GTLRNetworkManagement_RouteInfo.routeType
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic = @"DYNAMIC";
@@ -434,8 +446,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_Endpoint
 @dynamic appEngineVersion, cloudFunction, cloudRunRevision, cloudSqlInstance,
-         gkeMasterCluster, instance, ipAddress, network, networkType, port,
-         projectId;
+         forwardingRule, gkeMasterCluster, instance, ipAddress, network,
+         networkType, port, projectId;
 @end
 
 
@@ -446,7 +458,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_EndpointInfo
 @dynamic destinationIp, destinationNetworkUri, destinationPort, protocol,
-         sourceIp, sourceNetworkUri, sourcePort;
+         sourceAgentUri, sourceIp, sourceNetworkUri, sourcePort;
 @end
 
 
@@ -803,9 +815,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_RouteInfo
-@dynamic destIpRange, destPortRanges, displayName, instanceTags, networkUri,
-         nextHop, nextHopType, priority, protocols, routeType, srcIpRange,
-         srcPortRanges, uri;
+@dynamic destIpRange, destPortRanges, displayName, instanceTags, nccHubUri,
+         nccSpokeUri, networkUri, nextHop, nextHopType, priority, protocols,
+         routeScope, routeType, srcIpRange, srcPortRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -2427,6 +2427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 
 /**
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Response for a request to get remarketing tag.
  */
 @interface GTLRRealTimeBidding_GetRemarketingTagResponse : GTLRObject
@@ -3373,6 +3376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 
 /**
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Represents the URL restriction (for the URL captured by the pixel callback)
  *  for a user list.
  */
@@ -3481,7 +3487,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Required. The URL restriction for the user list. */
+/**
+ *  Required. Deprecated. This will be removed in October 2023. For more
+ *  information, see the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
+ *  The URL restriction for the user list.
+ */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_UrlRestriction *urlRestriction;
 
 @end

@@ -179,10 +179,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecryp
  *  Value: "MAC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_Mac;
+/**
+ *  CryptoKeys with this purpose may be used with RawEncrypt and RawDecrypt.
+ *  This purpose is meant to be used for interoperable symmetric encryption and
+ *  does not support automatic CryptoKey rotation.
+ *
+ *  Value: "RAW_ENCRYPT_DECRYPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_RawEncryptDecrypt;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersion.algorithm
 
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Gcm;
 /**
  *  Not specified.
  *
@@ -489,6 +533,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingI
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersionTemplate.algorithm
 
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Gcm;
 /**
  *  Not specified.
  *
@@ -845,6 +925,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_Prot
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
 
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Gcm;
 /**
  *  Not specified.
  *
@@ -1255,6 +1371,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLev
 // GTLRCloudKMS_PublicKey.algorithm
 
 /**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm;
+/**
  *  Not specified.
  *
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
@@ -1468,6 +1620,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Prote
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_RawDecryptResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_ExternalVpc;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_RawEncryptResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ExternalVpc;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software;
 
 /**
  *  Request message for KeyManagementService.AsymmetricDecrypt.
@@ -2009,6 +2229,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "ENCRYPT_DECRYPT")
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_Mac CryptoKeys with this purpose
  *        may be used with MacSign. (Value: "MAC")
+ *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_RawEncryptDecrypt CryptoKeys with
+ *        this purpose may be used with RawEncrypt and RawDecrypt. This purpose
+ *        is meant to be used for interoperable symmetric encryption and does
+ *        not support automatic CryptoKey rotation. (Value:
+ *        "RAW_ENCRYPT_DECRYPT")
  */
 @property(nonatomic, copy, nullable) NSString *purpose;
 
@@ -2059,6 +2284,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  supports.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Cbc AES-CBC (Cipher
+ *        Block Chaining Mode) using 128-bit keys. (Value: "AES_128_CBC")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Ctr AES-CTR
+ *        (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes128Gcm AES-GCM (Galois
+ *        Counter Mode) using 128-bit keys. (Value: "AES_128_GCM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Cbc AES-CBC (Cipher
+ *        Block Chaining Mode) using 256-bit keys. (Value: "AES_256_CBC")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Ctr AES-CTR
+ *        (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Gcm AES-GCM (Galois
+ *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256 ECDSA on
@@ -2322,6 +2559,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  ENCRYPT_DECRYPT.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Cbc AES-CBC
+ *        (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Ctr AES-CTR
+ *        (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes128Gcm AES-GCM
+ *        (Galois Counter Mode) using 128-bit keys. (Value: "AES_128_GCM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Cbc AES-CBC
+ *        (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Ctr AES-CTR
+ *        (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Gcm AES-GCM
+ *        (Galois Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
@@ -2986,6 +3237,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  match the version_template of the CryptoKey this version imports into.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Ctr
+ *        AES-CTR (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes128Gcm
+ *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
+ *        "AES_128_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Ctr
+ *        AES-CTR (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Gcm
+ *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
+ *        "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
@@ -3867,7 +4134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -3875,14 +4142,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudKMS_Policy : GTLRObject
@@ -3953,6 +4221,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  The Algorithm associated with this key.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes128Cbc AES-CBC (Cipher Block
+ *        Chaining Mode) using 128-bit keys. (Value: "AES_128_CBC")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes128Ctr AES-CTR (Counter Mode)
+ *        using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes128Gcm AES-GCM (Galois
+ *        Counter Mode) using 128-bit keys. (Value: "AES_128_GCM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes256Cbc AES-CBC (Cipher Block
+ *        Chaining Mode) using 256-bit keys. (Value: "AES_256_CBC")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes256Ctr AES-CTR (Counter Mode)
+ *        using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm AES-GCM (Galois
+ *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 ECDSA on the
@@ -4087,6 +4367,430 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        are performed in software. (Value: "SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+@end
+
+
+/**
+ *  Request message for KeyManagementService.RawDecrypt.
+ */
+@interface GTLRCloudKMS_RawDecryptRequest : GTLRObject
+
+/**
+ *  Optional. Optional data that must match the data originally supplied in
+ *  RawEncryptRequest.additional_authenticated_data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *additionalAuthenticatedData;
+
+/**
+ *  Optional. An optional CRC32C checksum of the
+ *  RawDecryptRequest.additional_authenticated_data. If specified,
+ *  KeyManagementService will verify the integrity of the received
+ *  additional_authenticated_data using this checksum. KeyManagementService will
+ *  report an error if the checksum verification fails. If you receive a
+ *  checksum error, your client should verify that
+ *  CRC32C(additional_authenticated_data) is equal to
+ *  additional_authenticated_data_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalAuthenticatedDataCrc32c;
+
+/**
+ *  Required. The encrypted data originally returned in
+ *  RawEncryptResponse.ciphertext.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ciphertext;
+
+/**
+ *  Optional. An optional CRC32C checksum of the RawDecryptRequest.ciphertext.
+ *  If specified, KeyManagementService will verify the integrity of the received
+ *  ciphertext using this checksum. KeyManagementService will report an error if
+ *  the checksum verification fails. If you receive a checksum error, your
+ *  client should verify that CRC32C(ciphertext) is equal to ciphertext_crc32c,
+ *  and if so, perform a limited number of retries. A persistent mismatch may
+ *  indicate an issue in your computation of the CRC32C checksum. Note: This
+ *  field is defined as int64 for reasons of compatibility across different
+ *  languages. However, it is a non-negative integer, which will never exceed
+ *  2^32-1, and can be safely downconverted to uint32 in languages that support
+ *  this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
+
+/**
+ *  Required. The initialization vector (IV) used during encryption, which must
+ *  match the data originally provided in
+ *  RawEncryptResponse.initialization_vector.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *initializationVector;
+
+/**
+ *  Optional. An optional CRC32C checksum of the
+ *  RawDecryptRequest.initialization_vector. If specified, KeyManagementService
+ *  will verify the integrity of the received initialization_vector using this
+ *  checksum. KeyManagementService will report an error if the checksum
+ *  verification fails. If you receive a checksum error, your client should
+ *  verify that CRC32C(initialization_vector) is equal to
+ *  initialization_vector_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initializationVectorCrc32c;
+
+/**
+ *  The length of the authentication tag that is appended to the end of the
+ *  ciphertext. If unspecified (0), the default value for the key's algorithm
+ *  will be used (for AES-GCM, the default value is 16).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tagLength;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.RawDecrypt.
+ */
+@interface GTLRCloudKMS_RawDecryptResponse : GTLRObject
+
+/**
+ *  The decrypted data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *plaintext;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  RawDecryptResponse.plaintext. An integrity check of plaintext can be
+ *  performed by computing the CRC32C checksum of plaintext and comparing your
+ *  results to this field. Discard the response in case of non-matching checksum
+ *  values, and perform a limited number of retries. A persistent mismatch may
+ *  indicate an issue in your computation of the CRC32C checksum. Note:
+ *  receiving this response message indicates that KeyManagementService is able
+ *  to successfully decrypt the ciphertext. Note: This field is defined as int64
+ *  for reasons of compatibility across different languages. However, it is a
+ *  non-negative integer, which will never exceed 2^32-1, and can be safely
+ *  downconverted to uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used in decryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawDecryptRequest.additional_authenticated_data_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of
+ *  additional_authenticated_data. A false value of this field indicates either
+ *  that // RawDecryptRequest.additional_authenticated_data_crc32c was left
+ *  unset or that it was not delivered to KeyManagementService. If you've set
+ *  RawDecryptRequest.additional_authenticated_data_crc32c but this field is
+ *  still false, discard the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedAdditionalAuthenticatedDataCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawDecryptRequest.ciphertext_crc32c was received by KeyManagementService and
+ *  used for the integrity verification of the ciphertext. A false value of this
+ *  field indicates either that RawDecryptRequest.ciphertext_crc32c was left
+ *  unset or that it was not delivered to KeyManagementService. If you've set
+ *  RawDecryptRequest.ciphertext_crc32c but this field is still false, discard
+ *  the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedCiphertextCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawDecryptRequest.initialization_vector_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of
+ *  initialization_vector. A false value of this field indicates either that
+ *  RawDecryptRequest.initialization_vector_crc32c was left unset or that it was
+ *  not delivered to KeyManagementService. If you've set
+ *  RawDecryptRequest.initialization_vector_crc32c but this field is still
+ *  false, discard the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedInitializationVectorCrc32c;
+
+@end
+
+
+/**
+ *  Request message for KeyManagementService.RawEncrypt.
+ */
+@interface GTLRCloudKMS_RawEncryptRequest : GTLRObject
+
+/**
+ *  Optional. Optional data that, if specified, must also be provided during
+ *  decryption through RawDecryptRequest.additional_authenticated_data. This
+ *  field may only be used in conjunction with an algorithm that accepts
+ *  additional authenticated data (for example, AES-GCM). The maximum size
+ *  depends on the key version's protection_level. For SOFTWARE keys, the
+ *  plaintext must be no larger than 64KiB. For HSM keys, the combined length of
+ *  the plaintext and additional_authenticated_data fields must be no larger
+ *  than 8KiB.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *additionalAuthenticatedData;
+
+/**
+ *  Optional. An optional CRC32C checksum of the
+ *  RawEncryptRequest.additional_authenticated_data. If specified,
+ *  KeyManagementService will verify the integrity of the received
+ *  additional_authenticated_data using this checksum. KeyManagementService will
+ *  report an error if the checksum verification fails. If you receive a
+ *  checksum error, your client should verify that
+ *  CRC32C(additional_authenticated_data) is equal to
+ *  additional_authenticated_data_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalAuthenticatedDataCrc32c;
+
+/**
+ *  Optional. A customer-supplied initialization vector that will be used for
+ *  encryption. If it is not provided for AES-CBC and AES-CTR, one will be
+ *  generated. It will be returned in RawEncryptResponse.initialization_vector.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *initializationVector;
+
+/**
+ *  Optional. An optional CRC32C checksum of the
+ *  RawEncryptRequest.initialization_vector. If specified, KeyManagementService
+ *  will verify the integrity of the received initialization_vector using this
+ *  checksum. KeyManagementService will report an error if the checksum
+ *  verification fails. If you receive a checksum error, your client should
+ *  verify that CRC32C(initialization_vector) is equal to
+ *  initialization_vector_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initializationVectorCrc32c;
+
+/**
+ *  Required. The data to encrypt. Must be no larger than 64KiB. The maximum
+ *  size depends on the key version's protection_level. For SOFTWARE keys, the
+ *  plaintext must be no larger than 64KiB. For HSM keys, the combined length of
+ *  the plaintext and additional_authenticated_data fields must be no larger
+ *  than 8KiB.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *plaintext;
+
+/**
+ *  Optional. An optional CRC32C checksum of the RawEncryptRequest.plaintext. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  plaintext using this checksum. KeyManagementService will report an error if
+ *  the checksum verification fails. If you receive a checksum error, your
+ *  client should verify that CRC32C(plaintext) is equal to plaintext_crc32c,
+ *  and if so, perform a limited number of retries. A persistent mismatch may
+ *  indicate an issue in your computation of the CRC32C checksum. Note: This
+ *  field is defined as int64 for reasons of compatibility across different
+ *  languages. However, it is a non-negative integer, which will never exceed
+ *  2^32-1, and can be safely downconverted to uint32 in languages that support
+ *  this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.RawEncrypt.
+ */
+@interface GTLRCloudKMS_RawEncryptResponse : GTLRObject
+
+/**
+ *  The encrypted data. In the case of AES-GCM, the authentication tag is the
+ *  tag_length bytes at the end of this field.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ciphertext;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  RawEncryptResponse.ciphertext. An integrity check of ciphertext can be
+ *  performed by computing the CRC32C checksum of ciphertext and comparing your
+ *  results to this field. Discard the response in case of non-matching checksum
+ *  values, and perform a limited number of retries. A persistent mismatch may
+ *  indicate an issue in your computation of the CRC32C checksum. Note: This
+ *  field is defined as int64 for reasons of compatibility across different
+ *  languages. However, it is a non-negative integer, which will never exceed
+ *  2^32-1, and can be safely downconverted to uint32 in languages that support
+ *  this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
+
+/**
+ *  The initialization vector (IV) generated by the service during encryption.
+ *  This value must be stored and provided in
+ *  RawDecryptRequest.initialization_vector at decryption time.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *initializationVector;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  RawEncryptResponse.initialization_vector. An integrity check of
+ *  initialization_vector can be performed by computing the CRC32C checksum of
+ *  initialization_vector and comparing your results to this field. Discard the
+ *  response in case of non-matching checksum values, and perform a limited
+ *  number of retries. A persistent mismatch may indicate an issue in your
+ *  computation of the CRC32C checksum. Note: This field is defined as int64 for
+ *  reasons of compatibility across different languages. However, it is a
+ *  non-negative integer, which will never exceed 2^32-1, and can be safely
+ *  downconverted to uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initializationVectorCrc32c;
+
+/**
+ *  The resource name of the CryptoKeyVersion used in encryption. Check this
+ *  field to verify that the intended resource was used for encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used in encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  The length of the authentication tag that is appended to the end of the
+ *  ciphertext.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tagLength;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawEncryptRequest.additional_authenticated_data_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of
+ *  additional_authenticated_data. A false value of this field indicates either
+ *  that // RawEncryptRequest.additional_authenticated_data_crc32c was left
+ *  unset or that it was not delivered to KeyManagementService. If you've set
+ *  RawEncryptRequest.additional_authenticated_data_crc32c but this field is
+ *  still false, discard the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedAdditionalAuthenticatedDataCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawEncryptRequest.initialization_vector_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of
+ *  initialization_vector. A false value of this field indicates either that
+ *  RawEncryptRequest.initialization_vector_crc32c was left unset or that it was
+ *  not delivered to KeyManagementService. If you've set
+ *  RawEncryptRequest.initialization_vector_crc32c but this field is still
+ *  false, discard the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedInitializationVectorCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  RawEncryptRequest.plaintext_crc32c was received by KeyManagementService and
+ *  used for the integrity verification of the plaintext. A false value of this
+ *  field indicates either that RawEncryptRequest.plaintext_crc32c was left
+ *  unset or that it was not delivered to KeyManagementService. If you've set
+ *  RawEncryptRequest.plaintext_crc32c but this field is still false, discard
+ *  the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedPlaintextCrc32c;
 
 @end
 

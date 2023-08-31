@@ -124,6 +124,61 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = 
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds = @"RDS";
 
+// GTLRDatabaseMigrationService_DoubleComparisonFilter.valueComparison
+NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonIfValueLargerEqualThan = @"VALUE_COMPARISON_IF_VALUE_LARGER_EQUAL_THAN";
+NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonIfValueLargerThan = @"VALUE_COMPARISON_IF_VALUE_LARGER_THAN";
+NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerEqualThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_EQUAL_THAN";
+NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_THAN";
+NSString * const kGTLRDatabaseMigrationService_DoubleComparisonFilter_ValueComparison_ValueComparisonUnspecified = @"VALUE_COMPARISON_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_EntityDdl.entityType
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_EntityIssue.entityType
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_EntityIssue.severity
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Severity_IssueSeverityError = @"ISSUE_SEVERITY_ERROR";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Severity_IssueSeverityInfo = @"ISSUE_SEVERITY_INFO";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Severity_IssueSeverityUnspecified = @"ISSUE_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Severity_IssueSeverityWarning = @"ISSUE_SEVERITY_WARNING";
+
+// GTLRDatabaseMigrationService_EntityIssue.type
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeApply = @"ISSUE_TYPE_APPLY";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeConvert = @"ISSUE_TYPE_CONVERT";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeDdl = @"ISSUE_TYPE_DDL";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeUnspecified = @"ISSUE_TYPE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_EntityMapping.draftType
 NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
 NSString * const kGTLRDatabaseMigrationService_EntityMapping_DraftType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
@@ -170,6 +225,37 @@ NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_
 NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatOratopgConfigFile = @"IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE";
 NSString * const kGTLRDatabaseMigrationService_ImportRulesJobDetails_FileFormat_ImportRulesFileFormatUnspecified = @"IMPORT_RULES_FILE_FORMAT_UNSPECIFIED";
 
+// GTLRDatabaseMigrationService_IntComparisonFilter.valueComparison
+NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueLargerEqualThan = @"VALUE_COMPARISON_IF_VALUE_LARGER_EQUAL_THAN";
+NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueLargerThan = @"VALUE_COMPARISON_IF_VALUE_LARGER_THAN";
+NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerEqualThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_EQUAL_THAN";
+NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_THAN";
+NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonUnspecified = @"VALUE_COMPARISON_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_MappingRule.ruleScope
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_MappingRule.state
+NSString * const kGTLRDatabaseMigrationService_MappingRule_State_Deleted = @"DELETED";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_State_Disabled = @"DISABLED";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_State_Enabled = @"ENABLED";
+NSString * const kGTLRDatabaseMigrationService_MappingRule_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_MigrationJob.phase
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc = @"CDC";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump = @"FULL_DUMP";
@@ -208,6 +294,7 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ConnectionProfileTypesIncompatibility = @"CONNECTION_PROFILE_TYPES_INCOMPATIBILITY";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorRdbms = @"ERROR_RDBMS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingConflictingDatabases = @"EXISTING_CONFLICTING_DATABASES";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
@@ -216,7 +303,9 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidSharedPreloadLibrary = @"INVALID_SHARED_PRELOAD_LIBRARY";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidWalLevel = @"INVALID_WAL_LEVEL";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ParallelImportInsufficientPrivilege = @"PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceAlreadySetup = @"SOURCE_ALREADY_SETUP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceSizeExceedsThreshold = @"SOURCE_SIZE_EXCEEDS_THRESHOLD";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport = @"TABLES_WITH_LIMITED_SUPPORT";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDatabaseFdwConfig = @"UNSUPPORTED_DATABASE_FDW_CONFIG";
@@ -227,6 +316,19 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_VersionIncompatibility = @"VERSION_INCOMPATIBILITY";
+
+// GTLRDatabaseMigrationService_MultiEntityRename.sourceNameTransformation
+NSString * const kGTLRDatabaseMigrationService_MultiEntityRename_SourceNameTransformation_EntityNameTransformationCapitalizedCase = @"ENTITY_NAME_TRANSFORMATION_CAPITALIZED_CASE";
+NSString * const kGTLRDatabaseMigrationService_MultiEntityRename_SourceNameTransformation_EntityNameTransformationLowerCase = @"ENTITY_NAME_TRANSFORMATION_LOWER_CASE";
+NSString * const kGTLRDatabaseMigrationService_MultiEntityRename_SourceNameTransformation_EntityNameTransformationNoTransformation = @"ENTITY_NAME_TRANSFORMATION_NO_TRANSFORMATION";
+NSString * const kGTLRDatabaseMigrationService_MultiEntityRename_SourceNameTransformation_EntityNameTransformationUnspecified = @"ENTITY_NAME_TRANSFORMATION_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_MultiEntityRename_SourceNameTransformation_EntityNameTransformationUpperCase = @"ENTITY_NAME_TRANSFORMATION_UPPER_CASE";
+
+// GTLRDatabaseMigrationService_PerformanceConfig.dumpParallelLevel
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_DumpParallelLevelUnspecified = @"DUMP_PARALLEL_LEVEL_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Max = @"MAX";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Min = @"MIN";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Optimal = @"OPTIMAL";
 
 // GTLRDatabaseMigrationService_PostgreSqlConnectionProfile.networkArchitecture
 NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureNewCsqlProducer = @"NETWORK_ARCHITECTURE_NEW_CSQL_PRODUCER";
@@ -241,6 +343,12 @@ NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Deleting 
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Failed = @"FAILED";
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_FailedToDelete = @"FAILED_TO_DELETE";
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_SourceNumericFilter.numericFilterOption
+NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionAll = @"NUMERIC_FILTER_OPTION_ALL";
+NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionLimit = @"NUMERIC_FILTER_OPTION_LIMIT";
+NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionLimitless = @"NUMERIC_FILTER_OPTION_LIMITLESS";
+NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionUnspecified = @"NUMERIC_FILTER_OPTION_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_SslConfig.type
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient = @"SERVER_CLIENT";
@@ -264,6 +372,11 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_ValueListFilter.valuePresentList
+NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_ValuePresentInListIfValueList = @"VALUE_PRESENT_IN_LIST_IF_VALUE_LIST";
+NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_ValuePresentInListIfValueNotList = @"VALUE_PRESENT_IN_LIST_IF_VALUE_NOT_LIST";
+NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_ValuePresentInListUnspecified = @"VALUE_PRESENT_IN_LIST_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -306,7 +419,17 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_ApplyConversionWorkspaceRequest
-@dynamic connectionProfile, filter;
+@dynamic autoCommit, connectionProfile, dryRun, filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ApplyHash
+//
+
+@implementation GTLRDatabaseMigrationService_ApplyHash
+@dynamic uuidFromBytes;
 @end
 
 
@@ -317,6 +440,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 @implementation GTLRDatabaseMigrationService_ApplyJobDetails
 @dynamic connectionProfile, filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_AssignSpecificValue
+//
+
+@implementation GTLRDatabaseMigrationService_AssignSpecificValue
+@dynamic value;
 @end
 
 
@@ -504,6 +637,31 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ConditionalColumnSetValue
+//
+
+@implementation GTLRDatabaseMigrationService_ConditionalColumnSetValue
+@dynamic customFeatures, sourceNumericFilter, sourceTextFilter,
+         valueTransformation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConditionalColumnSetValue_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_ConditionalColumnSetValue_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ConnectionProfile
 //
 
@@ -603,7 +761,7 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_ConvertConversionWorkspaceRequest
-@dynamic autoCommit, filter;
+@dynamic autoCommit, convertFullPath, filter;
 @end
 
 
@@ -614,6 +772,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 @implementation GTLRDatabaseMigrationService_ConvertJobDetails
 @dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ConvertRowIdToColumn
+//
+
+@implementation GTLRDatabaseMigrationService_ConvertRowIdToColumn
+@dynamic onlyIfNoPrimaryKey;
 @end
 
 
@@ -633,15 +801,41 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_DatabaseEntity
-@dynamic databaseFunction, databasePackage, entityType, mappings, parentEntity,
-         schema, sequence, shortName, storedProcedure, synonym, table, tree,
-         view;
+@dynamic database, databaseFunction, databasePackage, entityDdl, entityType,
+         issues, mappings, materializedView, parentEntity, schema, sequence,
+         shortName, storedProcedure, synonym, table, tree, udt, view;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"entityDdl" : [GTLRDatabaseMigrationService_EntityDdl class],
+    @"issues" : [GTLRDatabaseMigrationService_EntityIssue class],
     @"mappings" : [GTLRDatabaseMigrationService_EntityMapping class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DatabaseInstanceEntity
+//
+
+@implementation GTLRDatabaseMigrationService_DatabaseInstanceEntity
+@dynamic customFeatures;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DatabaseInstanceEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_DatabaseInstanceEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -699,6 +893,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_DoubleComparisonFilter
+//
+
+@implementation GTLRDatabaseMigrationService_DoubleComparisonFilter
+@dynamic value, valueComparison;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_DumpFlag
 //
 
@@ -746,6 +950,39 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_EntityDdl
+//
+
+@implementation GTLRDatabaseMigrationService_EntityDdl
+@dynamic ddl, ddlType, entity, entityType, issueId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issueId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_EntityIssue
+//
+
+@implementation GTLRDatabaseMigrationService_EntityIssue
+@dynamic code, ddl, entityType, identifier, message, position, severity, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_EntityMapping
 //
 
@@ -769,6 +1006,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 @implementation GTLRDatabaseMigrationService_EntityMappingLogEntry
 @dynamic mappingComment, ruleId, ruleRevisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_EntityMove
+//
+
+@implementation GTLRDatabaseMigrationService_EntityMove
+@dynamic newSchema;
 @end
 
 
@@ -798,6 +1045,25 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"staticIps" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FilterTableColumns
+//
+
+@implementation GTLRDatabaseMigrationService_FilterTableColumns
+@dynamic excludeColumns, includeColumns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeColumns" : [NSString class],
+    @"includeColumns" : [NSString class]
   };
   return map;
 }
@@ -846,6 +1112,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 @implementation GTLRDatabaseMigrationService_GenerateSshScriptRequest
 @dynamic vm, vmCreationConfig, vmPort, vmSelectionConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_GenerateTcpProxyScriptRequest
+//
+
+@implementation GTLRDatabaseMigrationService_GenerateTcpProxyScriptRequest
+@dynamic vmMachineType, vmName, vmSubnet, vmZone;
 @end
 
 
@@ -930,6 +1206,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_IntComparisonFilter
+//
+
+@implementation GTLRDatabaseMigrationService_IntComparisonFilter
+@dynamic value, valueComparison;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ListConnectionProfilesResponse
 //
 
@@ -991,6 +1277,28 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ListMappingRulesResponse
+//
+
+@implementation GTLRDatabaseMigrationService_ListMappingRulesResponse
+@dynamic mappingRules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mappingRules" : [GTLRDatabaseMigrationService_MappingRule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mappingRules";
 }
 
 @end
@@ -1114,15 +1422,72 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_MappingRule
+//
+
+@implementation GTLRDatabaseMigrationService_MappingRule
+@dynamic conditionalColumnSetValue, convertRowidColumn, displayName, entityMove,
+         filter, filterTableColumns, multiColumnDataTypeChange,
+         multiEntityRename, name, revisionCreateTime, revisionId, ruleOrder,
+         ruleScope, setTablePrimaryKey, singleColumnChange, singleEntityRename,
+         singlePackageChange, sourceSqlChange, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MappingRuleFilter
+//
+
+@implementation GTLRDatabaseMigrationService_MappingRuleFilter
+@dynamic entities, entityNameContains, entityNamePrefix, entityNameSuffix,
+         parentEntity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MaterializedViewEntity
+//
+
+@implementation GTLRDatabaseMigrationService_MaterializedViewEntity
+@dynamic customFeatures, sqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MaterializedViewEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_MaterializedViewEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_MigrationJob
 //
 
 @implementation GTLRDatabaseMigrationService_MigrationJob
 @dynamic cmekKeyName, conversionWorkspace, createTime, destination,
          destinationDatabase, displayName, dumpFlags, dumpPath, duration,
-         endTime, error, filter, labels, name, phase, reverseSshConnectivity,
-         source, sourceDatabase, state, staticIpConnectivity, type, updateTime,
-         vpcPeeringConnectivity;
+         endTime, error, filter, labels, name, performanceConfig, phase,
+         reverseSshConnectivity, source, sourceDatabase, state,
+         staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -1147,6 +1512,42 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 @implementation GTLRDatabaseMigrationService_MigrationJobVerificationError
 @dynamic errorCode, errorDetailMessage, errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MultiColumnDatatypeChange
+//
+
+@implementation GTLRDatabaseMigrationService_MultiColumnDatatypeChange
+@dynamic customFeatures, newDataType, overrideFractionalSecondsPrecision,
+         overrideLength, overridePrecision, overrideScale, sourceDataTypeFilter,
+         sourceNumericFilter, sourceTextFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MultiColumnDatatypeChange_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_MultiColumnDatatypeChange_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_MultiEntityRename
+//
+
+@implementation GTLRDatabaseMigrationService_MultiEntityRename
+@dynamic newNamePattern, sourceNameTransformation;
 @end
 
 
@@ -1235,6 +1636,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_PerformanceConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PerformanceConfig
+@dynamic dumpParallelLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Policy
 //
 
@@ -1253,6 +1664,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_Position
+//
+
+@implementation GTLRDatabaseMigrationService_Position
+@dynamic column, length, line, offset;
 @end
 
 
@@ -1370,6 +1791,7 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_RestartMigrationJobRequest
+@dynamic skipValidation;
 @end
 
 
@@ -1398,6 +1820,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_RollbackConversionWorkspaceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_RoundToScale
+//
+
+@implementation GTLRDatabaseMigrationService_RoundToScale
+@dynamic scale;
 @end
 
 
@@ -1510,6 +1942,109 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_SetTablePrimaryKey
+//
+
+@implementation GTLRDatabaseMigrationService_SetTablePrimaryKey
+@dynamic primaryKey, primaryKeyColumns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"primaryKeyColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SingleColumnChange
+//
+
+@implementation GTLRDatabaseMigrationService_SingleColumnChange
+@dynamic array, arrayLength, autoGenerated, charset, collation, comment,
+         customFeatures, dataType, fractionalSecondsPrecision, length, nullable,
+         precision, scale, setValues, udt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SingleColumnChange_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_SingleColumnChange_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SingleEntityRename
+//
+
+@implementation GTLRDatabaseMigrationService_SingleEntityRename
+@dynamic newName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SinglePackageChange
+//
+
+@implementation GTLRDatabaseMigrationService_SinglePackageChange
+@dynamic packageBody, packageDescription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceNumericFilter
+//
+
+@implementation GTLRDatabaseMigrationService_SourceNumericFilter
+@dynamic numericFilterOption, sourceMaxPrecisionFilter, sourceMaxScaleFilter,
+         sourceMinPrecisionFilter, sourceMinScaleFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceSqlChange
+//
+
+@implementation GTLRDatabaseMigrationService_SourceSqlChange
+@dynamic sqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SourceTextFilter
+//
+
+@implementation GTLRDatabaseMigrationService_SourceTextFilter
+@dynamic sourceMaxLengthFilter, sourceMinLengthFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_SqlAclEntry
 //
 
@@ -1563,6 +2098,7 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 //
 
 @implementation GTLRDatabaseMigrationService_StartMigrationJobRequest
+@dynamic skipValidation;
 @end
 
 
@@ -1710,6 +2246,16 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_TcpProxyScript
+//
+
+@implementation GTLRDatabaseMigrationService_TcpProxyScript
+@dynamic script;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_TestIamPermissionsRequest
 //
 
@@ -1778,6 +2324,30 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_UDTEntity
+//
+
+@implementation GTLRDatabaseMigrationService_UDTEntity
+@dynamic customFeatures, udtBody, udtSqlCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_UDTEntity_CustomFeatures
+//
+
+@implementation GTLRDatabaseMigrationService_UDTEntity_CustomFeatures
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_UserPassword
 //
 
@@ -1788,10 +2358,41 @@ NSString * const kGTLRDatabaseMigrationService_SynonymEntity_SourceType_Database
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ValueListFilter
+//
+
+@implementation GTLRDatabaseMigrationService_ValueListFilter
+@dynamic ignoreCase, valuePresentList, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ValueTransformation
+//
+
+@implementation GTLRDatabaseMigrationService_ValueTransformation
+@dynamic applyHash, assignMaxValue, assignMinValue, assignNull,
+         assignSpecificValue, doubleComparison, intComparison, isNull,
+         roundScale, valueList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_VerifyMigrationJobRequest
 //
 
 @implementation GTLRDatabaseMigrationService_VerifyMigrationJobRequest
+@dynamic migrationJob, updateMask;
 @end
 
 

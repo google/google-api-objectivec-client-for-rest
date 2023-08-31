@@ -919,6 +919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherPro
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_GooglePlay;
 /**
+ *  LG TV
+ *
+ *  Value: "LG_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_LgTv;
+/**
  *  OPPO App Market
  *
  *  Value: "OPPO"
@@ -2764,6 +2770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *        "APP_STORE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_GooglePlay
  *        Google Play (Value: "GOOGLE_PLAY")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_LgTv
+ *        LG TV (Value: "LG_TV")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_Oppo
  *        OPPO App Market (Value: "OPPO")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_PublisherProfileMobileApplication_AppStore_Playstation

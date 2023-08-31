@@ -175,6 +175,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. Set the scope of the budgets to be returned, in the format of the
+ *  resource name. The scope of a budget is the cost that it tracks, such as
+ *  costs for a single project, or the costs for all projects in a folder. Only
+ *  project scope (in the format of "projects/project-id" or "projects/123") is
+ *  supported in this field. When this field is set to a project's resource
+ *  name, the budgets returned are tracking the costs for that project.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
  *  Fetches a @c
  *  GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ListBudgetsResponse.
  *

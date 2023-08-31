@@ -952,6 +952,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_SourceProvenance *sourceProvenance;
 
 /**
+ *  An identifier for Firebase function sources. Disclaimer: This field is only
+ *  supported for Firebase function deployments.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
+
+/**
  *  Name of the Cloud Build Custom Worker Pool that should be used to build the
  *  function. The format of this field is
  *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
@@ -1343,6 +1349,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource *requestResource;
 
+/**
+ *  An identifier for Firebase function sources. Disclaimer: This field is only
+ *  supported for Firebase function deployments.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
+
 /** Mechanism for reporting in-progress stages */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage *> *stages;
 
@@ -1493,6 +1505,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource *requestResource;
 
+/**
+ *  An identifier for Firebase function sources. Disclaimer: This field is only
+ *  supported for Firebase function deployments.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
+
 /** Mechanism for reporting in-progress stages */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage *> *stages;
 
@@ -1642,6 +1660,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource *requestResource;
+
+/**
+ *  An identifier for Firebase function sources. Disclaimer: This field is only
+ *  supported for Firebase function deployments.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
 
 /** Mechanism for reporting in-progress stages */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2Stage *> *stages;
@@ -1942,8 +1966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1971,8 +1995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2074,7 +2098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2082,14 +2106,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudFunctions_Policy : GTLRObject

@@ -20,6 +20,12 @@
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
+@class GTLRSecurityCommandCenter_AttackExposure;
+@class GTLRSecurityCommandCenter_AttackPath;
+@class GTLRSecurityCommandCenter_AttackPathEdge;
+@class GTLRSecurityCommandCenter_AttackPathNode;
+@class GTLRSecurityCommandCenter_AttackStepNode;
+@class GTLRSecurityCommandCenter_AttackStepNode_Labels;
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
@@ -30,11 +36,16 @@
 @class GTLRSecurityCommandCenter_Contact;
 @class GTLRSecurityCommandCenter_ContactDetails;
 @class GTLRSecurityCommandCenter_Container;
+@class GTLRSecurityCommandCenter_CreateResourceValueConfigRequest;
+@class GTLRSecurityCommandCenter_CustomModuleValidationError;
+@class GTLRSecurityCommandCenter_CustomModuleValidationErrors;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
+@class GTLRSecurityCommandCenter_EventThreatDetectionCustomModule;
+@class GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config;
 @class GTLRSecurityCommandCenter_ExfilResource;
 @class GTLRSecurityCommandCenter_Exfiltration;
 @class GTLRSecurityCommandCenter_Expr;
@@ -62,6 +73,8 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
@@ -81,12 +94,15 @@
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
+@class GTLRSecurityCommandCenter_PathNodeAssociatedFinding;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_Position;
 @class GTLRSecurityCommandCenter_Process;
 @class GTLRSecurityCommandCenter_ProcessSignature;
 @class GTLRSecurityCommandCenter_Reference;
 @class GTLRSecurityCommandCenter_Resource;
+@class GTLRSecurityCommandCenter_ResourceValueConfigMetadata;
 @class GTLRSecurityCommandCenter_Role;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
@@ -97,6 +113,7 @@
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
 @class GTLRSecurityCommandCenter_Subject;
+@class GTLRSecurityCommandCenter_ValuedResource;
 @class GTLRSecurityCommandCenter_Vulnerability;
 @class GTLRSecurityCommandCenter_YaraRuleSignature;
 
@@ -134,6 +151,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConf
  *  Value: "INCLUSION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_InclusionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_AttackExposure.state
+
+/**
+ *  The attack exposure has been calculated.
+ *
+ *  Value: "CALCULATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_Calculated;
+/**
+ *  The attack exposure has not been calculated.
+ *
+ *  Value: "NOT_CALCULATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_NotCalculated;
+/**
+ *  The state is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_AttackStepNode.type
+
+/**
+ *  Incoming edge joined with AND
+ *
+ *  Value: "NODE_TYPE_AND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAnd;
+/**
+ *  Incoming edge is attacker
+ *
+ *  Value: "NODE_TYPE_ATTACKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAttacker;
+/**
+ *  Incoming edge is defense
+ *
+ *  Value: "NODE_TYPE_DEFENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeDefense;
+/**
+ *  Incoming edge joined with OR
+ *
+ *  Value: "NODE_TYPE_OR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeOr;
+/**
+ *  Type not specified
+ *
+ *  Value: "NODE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_AuditLogConfig.logType
@@ -457,6 +530,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInterac
  *  Value: "USER_INTERACTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.enablementState
+
+/**
+ *  The module is disabled at the given level.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Disabled;
+/**
+ *  The module is enabled at the given level.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Enabled;
+/**
+ *  Unspecified enablement state.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.findingClass
@@ -784,6 +879,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
+
+/**
+ *  High resource value
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High;
+/**
+ *  Low resource value
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low;
+/**
+ *  Medium resource value
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium;
+/**
+ *  No resource value, e.g. ignore these resources
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None;
+/**
+ *  Unspecific value
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
@@ -1137,6 +1266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer;
 /**
+ *  T1490
+ *
+ *  Value: "INHIBIT_SYSTEM_RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InhibitSystemRecovery;
+/**
  *  T1078.003
  *
  *  Value: "LOCAL_ACCOUNTS"
@@ -1451,6 +1586,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer;
 /**
+ *  T1490
+ *
+ *  Value: "INHIBIT_SYSTEM_RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InhibitSystemRecovery;
+/**
  *  T1078.003
  *
  *  Value: "LOCAL_ACCOUNTS"
@@ -1659,6 +1800,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Servi
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_ValuedResource.resourceValue
+
+/**
+ *  This is a high-value resource.
+ *
+ *  Value: "RESOURCE_VALUE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueHigh;
+/**
+ *  This is a low-value resource.
+ *
+ *  Value: "RESOURCE_VALUE_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueLow;
+/**
+ *  This is a medium-value resource.
+ *
+ *  Value: "RESOURCE_VALUE_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueMedium;
+/**
+ *  The resource value isn't specified.
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueUnspecified;
 
 /**
  *  Represents an access event.
@@ -1886,6 +2055,192 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  An attack exposure contains the results of an attack path simulation run.
+ */
+@interface GTLRSecurityCommandCenter_AttackExposure : GTLRObject
+
+/**
+ *  The resource name of the attack path simulation result that contains the
+ *  details regarding this attack exposure score. Example:
+ *  organizations/123/attackExposureResults/456
+ */
+@property(nonatomic, copy, nullable) NSString *attackExposureResult;
+
+/**
+ *  The number of high value resources that are exposed as a result of this
+ *  finding.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exposedHighValueResourcesCount;
+
+/**
+ *  The number of high value resources that are exposed as a result of this
+ *  finding.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exposedLowValueResourcesCount;
+
+/**
+ *  The number of medium value resources that are exposed as a result of this
+ *  finding.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exposedMediumValueResourcesCount;
+
+/** The most recent time the attack exposure was updated on this finding. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestCalculationTime;
+
+/**
+ *  A number between 0 (inclusive) and infinity that represents how important
+ *  this finding is to remediate. The higher the score, the more important it is
+ *  to remediate.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  What state this AttackExposure is in. This captures whether or not an attack
+ *  exposure has been calculated or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_AttackExposure_State_Calculated The
+ *        attack exposure has been calculated. (Value: "CALCULATED")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackExposure_State_NotCalculated The
+ *        attack exposure has not been calculated. (Value: "NOT_CALCULATED")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackExposure_State_StateUnspecified
+ *        The state is not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A path that an attacker could take to reach an exposed resource.
+ */
+@interface GTLRSecurityCommandCenter_AttackPath : GTLRObject
+
+/** A list of the edges between nodes in this attack path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AttackPathEdge *> *edges;
+
+/**
+ *  The attack path name, for example,
+ *  `organizations/12/simulation/34/valuedResources/56/attackPaths/78`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** A list of nodes that exist in this attack path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AttackPathNode *> *pathNodes;
+
+@end
+
+
+/**
+ *  Represents a connection between a source node and a destination node in this
+ *  attack path.
+ */
+@interface GTLRSecurityCommandCenter_AttackPathEdge : GTLRObject
+
+/** The attack node uuid of the destination node. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** The attack node uuid of the source node. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  Represents one point that an attacker passes through in this attack path.
+ */
+@interface GTLRSecurityCommandCenter_AttackPathNode : GTLRObject
+
+/** The findings associated with this node in the attack path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_PathNodeAssociatedFinding *> *associatedFindings;
+
+/** A list of attack step nodes that exist in this attack path node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AttackStepNode *> *attackSteps;
+
+/** Human-readable name of this resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the resource at this point in the attack path. The format of the
+ *  name follows the Cloud Asset Inventory [resource name
+ *  format]("https://cloud.google.com/asset-inventory/docs/resource-name-format")
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The [supported resource
+ *  type](https://cloud.google.com/asset-inventory/docs/supported-asset-types")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Unique id of the attack path node. */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Detailed steps the attack can take between path nodes.
+ */
+@interface GTLRSecurityCommandCenter_AttackStepNode : GTLRObject
+
+/**
+ *  Attack step description
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** User friendly name of the attack step */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Attack step labels for metadata */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AttackStepNode_Labels *labels;
+
+/**
+ *  Attack step type. Can be either AND, OR or DEFENSE
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAnd
+ *        Incoming edge joined with AND (Value: "NODE_TYPE_AND")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAttacker
+ *        Incoming edge is attacker (Value: "NODE_TYPE_ATTACKER")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeDefense
+ *        Incoming edge is defense (Value: "NODE_TYPE_DEFENSE")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeOr Incoming
+ *        edge joined with OR (Value: "NODE_TYPE_OR")
+ *    @arg @c kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeUnspecified
+ *        Type not specified (Value: "NODE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Unique ID for one Node */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Attack step labels for metadata
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_AttackStepNode_Labels : GTLRObject
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -1947,6 +2302,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  Request message to create multiple resource value configs
+ */
+@interface GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest : GTLRObject
+
+/** Required. The resource value configs to be created. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_CreateResourceValueConfigRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchCreateResourceValueConfigs
+ */
+@interface GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsResponse : GTLRObject
+
+/** The resource value configs created */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *> *resourceValueConfigs;
 
 @end
 
@@ -2210,6 +2587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_Container : GTLRObject
 
+/** The time that the container was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  Optional container image ID, if provided by the container runtime. Uniquely
  *  identifies the container image launched using a container image digest.
@@ -2227,6 +2607,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  string can identify a container image version using mutable tags.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Request message to create single resource value config
+ */
+@interface GTLRSecurityCommandCenter_CreateResourceValueConfigRequest : GTLRObject
+
+/** Required. Resource name of the new ResourceValueConfig's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The resource value config being created. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *resourceValueConfig;
+
+@end
+
+
+/**
+ *  An error encountered while validating the uploaded configuration of an Event
+ *  Threat Detection Custom Module.
+ */
+@interface GTLRSecurityCommandCenter_CustomModuleValidationError : GTLRObject
+
+/**
+ *  A description of the error, suitable for human consumption. Required.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The end position of the error in the uploaded text version of the module.
+ *  This field may be omitted if no specific position applies, or if one could
+ *  not be computed..
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Position *end;
+
+/**
+ *  The path, in RFC 8901 JSON Pointer format, to the field that failed
+ *  validation. This may be left empty if no specific field is affected.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldPath;
+
+/**
+ *  The initial position of the error in the uploaded text version of the
+ *  module. This field may be omitted if no specific position applies, or if one
+ *  could not be computed.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Position *start;
+
+@end
+
+
+/**
+ *  A list of zero or more errors encountered while validating the uploaded
+ *  configuration of an Event Threat Detection Custom Module.
+ */
+@interface GTLRSecurityCommandCenter_CustomModuleValidationErrors : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_CustomModuleValidationError *> *errors;
 
 @end
 
@@ -2445,10 +2886,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  name](https://google.aip.dev/122#full-resource-names) populated because
  *  these resource types, such as Cloud SQL databases, are not yet supported by
  *  Cloud Asset Inventory. In these cases only the display name is provided.
- *  Some database resources may not have the [full resource
- *  name](https://google.aip.dev/122#full-resource-names) populated because
- *  these resource types are not yet supported by Cloud Asset Inventory (e.g.
- *  Cloud SQL databases). In these cases only the display name will be provided.
  */
 @interface GTLRSecurityCommandCenter_Database : GTLRObject
 
@@ -2462,6 +2899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
 
 /**
+ *  Some database resources may not have the [full resource
+ *  name](https://google.aip.dev/122#full-resource-names) populated because
+ *  these resource types are not yet supported by Cloud Asset Inventory (e.g.
+ *  Cloud SQL databases). In these cases only the display name will be provided.
  *  The [full resource name](https://google.aip.dev/122#full-resource-names) of
  *  the database that the user connected to, if it is supported by Cloud Asset
  *  Inventory.
@@ -2476,6 +2917,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  IAM principal and does not have a set format.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
+
+/**
+ *  The version of the database, for example, POSTGRES_14. See [the complete
+ *  list](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/SqlDatabaseVersion).
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2522,6 +2969,78 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 /** Environment variable value as a JSON encoded string. */
 @property(nonatomic, copy, nullable) NSString *val;
 
+@end
+
+
+/**
+ *  Represents an instance of an Event Threat Detection custom module, including
+ *  its full module name, display name, enablement state, and last updated time.
+ *  You can create a custom module at the organization level only.
+ */
+@interface GTLRSecurityCommandCenter_EventThreatDetectionCustomModule : GTLRObject
+
+/**
+ *  Config for the module. For the resident module, its config value is defined
+ *  at this level. For the inherited module, its config value is inherited from
+ *  the ancestor module.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config *config;
+
+/**
+ *  The description for the module.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The human readable name to be displayed for the module. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The state of enablement for the module at the given level of the hierarchy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Disabled
+ *        The module is disabled at the given level. (Value: "DISABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Enabled
+ *        The module is enabled at the given level. (Value: "ENABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified
+ *        Unspecified enablement state. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/** Output only. The editor the module was last updated by. */
+@property(nonatomic, copy, nullable) NSString *lastEditor;
+
+/**
+ *  Immutable. The resource name of the Event Threat Detection custom module.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Type for the module. e.g. CONFIGURABLE_BAD_IP. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The time the module was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Config for the module. For the resident module, its config value is defined
+ *  at this level. For the inherited module, its config value is inherited from
+ *  the ancestor module.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config : GTLRObject
 @end
 
 
@@ -2679,6 +3198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  caller, which method was accessed, and from where.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Access *access;
+
+/** The results of an attack path simulation relevant to this finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AttackExposure *attackExposure;
 
 /**
  *  The canonical name of the finding. It's either
@@ -3832,6 +4354,93 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  A resource value config is a mapping configuration of user's tag values to
+ *  resource values. Used by the attack path simulation.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
+
+/** Output only. Timestamp this resource value config was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of the resource value config.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Name for the resource value config */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of resource labels to search for, evaluated with AND. E.g.
+ *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
+ *  resources with labels "key": "value" AND "env": "prod"
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector *resourceLabelsSelector;
+
+/**
+ *  Apply resource_value only to resources that match resource_type.
+ *  resource_type will be checked with "AND" of other resources. E.g.
+ *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
+ *  value only to "storage.googleapis.com/Bucket" resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Required. Resource value level this expression represents
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High
+ *        High resource value (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low
+ *        Low resource value (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium
+ *        Medium resource value (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None
+ *        No resource value, e.g. ignore these resources (Value: "NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified
+ *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceValue;
+
+/**
+ *  Project or folder to scope this config to. For example, "project/456" would
+ *  apply this config only to resources in "project/456" scope will be checked
+ *  with "AND" of other resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Required. Tag values combined with AND to check against. Values in the form
+ *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
+
+/** Output only. Timestamp this resource value config was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  List of resource labels to search for, evaluated with AND. E.g.
+ *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
+ *  resources with labels "key": "value" AND "env": "prod"
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector : GTLRObject
+@end
+
+
+/**
  *  Response of asset discovery run
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse : GTLRObject
@@ -4520,6 +5129,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  Response message for listing the attack paths for a given simulation or
+ *  valued resource.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "attackPaths" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListAttackPathsResponse : GTLRCollectionObject
+
+/**
+ *  The attack paths that the attack path simulation identified.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AttackPath *> *attackPaths;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing BigQuery exports.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4596,6 +5233,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 /**
  *  If not empty, indicates that there may be more effective custom modules to
  *  be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for listing Event Threat Detection custom modules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "eventThreatDetectionCustomModules" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  Custom modules belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *> *eventThreatDetectionCustomModules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4753,6 +5417,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  Response message to list resource value configs
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourceValueConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListResourceValueConfigsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resource value configs from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *> *resourceValueConfigs;
+
+@end
+
+
+/**
  *  Response message for listing Security Health Analytics custom modules.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4802,6 +5493,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Source *> *sources;
+
+@end
+
+
+/**
+ *  Response message for listing the valued resources for a given simulation.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "valuedResources" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListValuedResourcesResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The estimated total number of results matching the query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  The valued resources that the attack path simulation identified.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ValuedResource *> *valuedResources;
 
 @end
 
@@ -4994,8 +5719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -5023,8 +5748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -5070,6 +5795,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  A finding that is associated with this node in the attack path.
+ */
+@interface GTLRSecurityCommandCenter_PathNodeAssociatedFinding : GTLRObject
+
+/**
+ *  Canonical name of the associated findings. Example:
+ *  organizations/123/sources/456/findings/789
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalFinding;
+
+/** The additional taxonomy group within findings from a given source. */
+@property(nonatomic, copy, nullable) NSString *findingCategory;
+
+/** Full resource name of the finding. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A Kubernetes Pod.
  */
 @interface GTLRSecurityCommandCenter_Pod : GTLRObject
@@ -5104,7 +5849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -5112,14 +5857,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRSecurityCommandCenter_Policy : GTLRObject
@@ -5177,6 +5923,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  A position in the uploaded text version of a module.
+ */
+@interface GTLRSecurityCommandCenter_Position : GTLRObject
+
+/**
+ *  columnNumber
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnNumber;
+
+/**
+ *  lineNumber
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
 
 @end
 
@@ -5310,6 +6078,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Metadata about a ResourceValueConfig. For example, id and name.
+ */
+@interface GTLRSecurityCommandCenter_ResourceValueConfigMetadata : GTLRObject
+
+/** Resource value config name */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5556,6 +6335,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
+ *  Attack path simulation
+ */
+@interface GTLRSecurityCommandCenter_Simulation : GTLRObject
+
+/** Output only. Time simulation was created */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Full resource name of the Simulation: organizations/123/simulations/456 */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Resource value configurations' metadata used in this simulation. Maximum of
+ *  100.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ResourceValueConfigMetadata *> *resourceValueConfigsMetadata;
+
+@end
+
+
+/**
  *  Security Command Center finding source. A finding source is an entity or a
  *  mechanism that can produce a finding. A source is like a container of
  *  findings that come from the same scanner, logger, monitor, and other tools.
@@ -5723,6 +6522,98 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Request to validate an Event Threat Detection custom module.
+ */
+@interface GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest : GTLRObject
+
+/**
+ *  Required. The raw text of the module's contents. Used to generate error
+ *  messages.
+ */
+@property(nonatomic, copy, nullable) NSString *rawText;
+
+/** Required. The type of the module (e.g. CONFIGURABLE_BAD_IP). */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response to validating an Event Threat Detection custom module.
+ */
+@interface GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse : GTLRObject
+
+/**
+ *  A list of errors returned by the validator. If the list is empty, there were
+ *  no errors.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CustomModuleValidationErrors *errors;
+
+@end
+
+
+/**
+ *  A resource that is determined to have value to a user's system
+ */
+@interface GTLRSecurityCommandCenter_ValuedResource : GTLRObject
+
+/** Human-readable name of the valued resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Exposed score for this valued resource. A value of 0 means no exposure was
+ *  detected exposure.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exposedScore;
+
+/**
+ *  Valued resource name, for example, e.g.:
+ *  `organizations/123/simulations/456/valuedResources/789`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The [full resource
+ *  name](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  of the valued resource.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The [resource
+ *  type](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  of the valued resource.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  How valuable this resource is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueHigh
+ *        This is a high-value resource. (Value: "RESOURCE_VALUE_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueLow
+ *        This is a low-value resource. (Value: "RESOURCE_VALUE_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueMedium
+ *        This is a medium-value resource. (Value: "RESOURCE_VALUE_MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueUnspecified
+ *        The resource value isn't specified. (Value:
+ *        "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceValue;
+
+/**
+ *  List of resource value configurations' metadata used to determine the value
+ *  of this resource. Maximum of 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ResourceValueConfigMetadata *> *resourceValueConfigsUsed;
 
 @end
 

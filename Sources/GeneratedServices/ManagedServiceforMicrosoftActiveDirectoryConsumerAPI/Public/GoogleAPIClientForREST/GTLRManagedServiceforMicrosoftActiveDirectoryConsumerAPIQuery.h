@@ -446,6 +446,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  CheckMigrationPermission API gets the current state of DomainMigration
+ *
+ *  Method: managedidentities.projects.locations.global.domains.checkMigrationPermission
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCheckMigrationPermission : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse.
+ *
+ *  CheckMigrationPermission API gets the current state of DomainMigration
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest
+ *    to include in the query.
+ *  @param domain Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCheckMigrationPermission
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest *)object
+                         domain:(NSString *)domain;
+
+@end
+
+/**
  *  Creates a Microsoft AD domain.
  *
  *  Method: managedidentities.projects.locations.global.domains.create

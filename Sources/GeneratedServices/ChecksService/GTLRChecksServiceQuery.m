@@ -17,6 +17,90 @@
 
 @end
 
+@implementation GTLRChecksServiceQuery_AccountsAppsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsAppsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksAccountV1alphaApp class];
+  query.loggingName = @"checks.accounts.apps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/apps";
+  GTLRChecksServiceQuery_AccountsAppsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksAccountV1alphaListAppsResponse class];
+  query.loggingName = @"checks.accounts.apps.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChecksService_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
+  GTLRChecksServiceQuery_AccountsAppsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Empty class];
+  query.loggingName = @"checks.accounts.apps.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsAppsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Empty class];
+  query.loggingName = @"checks.accounts.apps.operations.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRChecksServiceQuery_AccountsAppsOperationsGet
 
 @dynamic name;
@@ -31,6 +115,119 @@
   query.name = name;
   query.expectedObjectClass = [GTLRChecksService_Operation class];
   query.loggingName = @"checks.accounts.apps.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}/operations";
+  GTLRChecksServiceQuery_AccountsAppsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_ListOperationsResponse class];
+  query.loggingName = @"checks.accounts.apps.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsOperationsWait
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChecksService_WaitOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:wait";
+  GTLRChecksServiceQuery_AccountsAppsOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.accounts.apps.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsReportsGet
+
+@dynamic checksFilter, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsAppsReportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksReportV1alphaReport class];
+  query.loggingName = @"checks.accounts.apps.reports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsAppsReportsList
+
+@dynamic checksFilter, filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/reports";
+  GTLRChecksServiceQuery_AccountsAppsReportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksReportV1alphaListReportsResponse class];
+  query.loggingName = @"checks.accounts.apps.reports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_MediaUpload
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/reports:analyzeUpload";
+  GTLRChecksServiceQuery_MediaUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.media.upload";
   return query;
 }
 
@@ -53,6 +250,101 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRChecksService_AnalyzePrivacyPolicyResponse class];
   query.loggingName = @"checks.privacypolicy.analyze";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
+  GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Empty class];
+  query.loggingName = @"checks.projects.privacypolicy.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Empty class];
+  query.loggingName = @"checks.projects.privacypolicy.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.projects.privacypolicy.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}/privacypolicy/operations";
+  GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_ListOperationsResponse class];
+  query.loggingName = @"checks.projects.privacypolicy.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsWait
+
+@dynamic name, timeout;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:wait";
+  GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.projects.privacypolicy.operations.wait";
   return query;
 }
 

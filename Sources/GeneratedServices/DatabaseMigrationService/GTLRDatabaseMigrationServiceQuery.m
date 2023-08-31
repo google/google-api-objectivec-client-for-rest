@@ -19,6 +19,12 @@ NSString * const kGTLRDatabaseMigrationServiceTreeDestinationTree = @"DESTINATIO
 NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree    = @"DRAFT_TREE";
 NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 
+// view
+NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewBasic = @"DATABASE_ENTITY_VIEW_BASIC";
+NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFull = @"DATABASE_ENTITY_VIEW_FULL";
+NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewRootSummary = @"DATABASE_ENTITY_VIEW_ROOT_SUMMARY";
+NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified = @"DATABASE_ENTITY_VIEW_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -366,7 +372,7 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities
 
 @dynamic commitId, conversionWorkspace, filter, pageSize, pageToken, tree,
-         uncommitted;
+         uncommitted, view;
 
 + (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace {
   NSArray *pathParams = @[ @"conversionWorkspace" ];
@@ -444,6 +450,71 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesCreate
+
+@dynamic mappingRuleId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_MappingRule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mappingRules";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_MappingRule class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.mappingRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_Empty class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.mappingRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_MappingRule class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.mappingRules.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesImport
 
 @dynamic parent;
@@ -466,6 +537,25 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDatabaseMigrationService_Operation class];
   query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.mappingRules.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mappingRules";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_ListMappingRulesResponse class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.mappingRules.list";
   return query;
 }
 
@@ -751,6 +841,33 @@ NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
   query.migrationJob = migrationJob;
   query.expectedObjectClass = [GTLRDatabaseMigrationService_SshScript class];
   query.loggingName = @"datamigration.projects.locations.migrationJobs.generateSshScript";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateTcpProxyScript
+
+@dynamic migrationJob;
+
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_GenerateTcpProxyScriptRequest *)object
+                   migrationJob:(NSString *)migrationJob {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"migrationJob" ];
+  NSString *pathURITemplate = @"v1/{+migrationJob}:generateTcpProxyScript";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateTcpProxyScript *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.migrationJob = migrationJob;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_TcpProxyScript class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.generateTcpProxyScript";
   return query;
 }
 

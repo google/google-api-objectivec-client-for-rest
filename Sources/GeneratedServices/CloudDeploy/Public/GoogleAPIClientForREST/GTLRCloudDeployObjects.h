@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deploy API (clouddeploy/v1)
+//   Cloud Deploy API (clouddeploy/v1)
 // Documentation:
 //   https://cloud.google.com/deploy/
 
@@ -63,6 +63,12 @@
 @class GTLRCloudDeploy_PipelineCondition;
 @class GTLRCloudDeploy_PipelineReadyCondition;
 @class GTLRCloudDeploy_Policy;
+@class GTLRCloudDeploy_Postdeploy;
+@class GTLRCloudDeploy_PostdeployJob;
+@class GTLRCloudDeploy_PostdeployJobRun;
+@class GTLRCloudDeploy_Predeploy;
+@class GTLRCloudDeploy_PredeployJob;
+@class GTLRCloudDeploy_PredeployJobRun;
 @class GTLRCloudDeploy_PrivatePool;
 @class GTLRCloudDeploy_Release;
 @class GTLRCloudDeploy_Release_Annotations;
@@ -158,11 +164,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange;
 /**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceDeleted;
+/**
  *  Resource state changed.
  *
  *  Value: "TYPE_RESOURCE_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRestrictionViolated;
 /**
  *  Type is unspecified.
  *
@@ -174,22 +192,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
 // GTLRCloudDeploy_DeployJobRun.failureCause
 
 /**
- *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
- *  failure_message for additional details.
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
  *
  *  Value: "CLOUD_BUILD_REQUEST_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed;
 /**
  *  Cloud Build is not available, either because it is not enabled or because
- *  Google Cloud Deploy has insufficient permissions. See [Required
- *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *  Cloud Deploy has insufficient permissions. See [Required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *
  *  Value: "CLOUD_BUILD_UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The deploy build did not complete within the alloted time.
+ *  The deploy job run did not complete within the alloted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -229,6 +247,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Deplo
  *  Value: "EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_ExecutionEnvironmentUsageUnspecified;
+/**
+ *  Use for postdeploy job execution.
+ *
+ *  Value: "POSTDEPLOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Postdeploy;
+/**
+ *  Use for predeploy job execution.
+ *
+ *  Value: "PREDEPLOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Predeploy;
 /**
  *  Use for rendering.
  *
@@ -362,11 +392,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange;
 /**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceDeleted;
+/**
  *  Resource state changed.
  *
  *  Value: "TYPE_RESOURCE_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRestrictionViolated;
 /**
  *  Type is unspecified.
  *
@@ -421,6 +463,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_StateUnspecified
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_PostdeployJobRun.failureCause
+
+/**
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildRequestFailed;
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildUnavailable;
+/**
+ *  The postdeploy job run did not complete within the alloted time.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_DeadlineExceeded;
+/**
+ *  The postdeploy operation did not complete successfully; check Cloud Build
+ *  logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_FailureCauseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_PredeployJobRun.failureCause
+
+/**
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildRequestFailed;
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildUnavailable;
+/**
+ *  The predeploy job run did not complete within the alloted time.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_DeadlineExceeded;
+/**
+ *  The predeploy operation did not complete successfully; check Cloud Build
+ *  logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_FailureCauseUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Release.renderState
 
 /**
@@ -470,11 +588,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange;
 /**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceDeleted;
+/**
  *  Resource state changed.
  *
  *  Value: "TYPE_RESOURCE_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRestrictionViolated;
 /**
  *  Type is unspecified.
  *
@@ -520,8 +650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_Reject
 // GTLRCloudDeploy_Rollout.deployFailureCause
 
 /**
- *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
- *  failure_message for additional details.
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
  *
  *  Value: "CLOUD_BUILD_REQUEST_FAILED"
  */
@@ -529,7 +659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_C
 /**
  *  Cloud Build is not available, either because it is not enabled or because
  *  Cloud Deploy has insufficient permissions. See [required
- *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *
  *  Value: "CLOUD_BUILD_UNAVAILABLE"
  */
@@ -664,11 +794,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange;
 /**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceDeleted;
+/**
  *  Resource state changed.
  *
  *  Value: "TYPE_RESOURCE_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRestrictionViolated;
 /**
  *  Type is unspecified.
  *
@@ -726,11 +868,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange;
 /**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceDeleted;
+/**
  *  Resource state changed.
  *
  *  Value: "TYPE_RESOURCE_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRestrictionViolated;
 /**
  *  Type is unspecified.
  *
@@ -742,20 +896,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
 // GTLRCloudDeploy_TargetRender.failureCause
 
 /**
- *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
- *  failure_message for additional details.
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
  *
  *  Value: "CLOUD_BUILD_REQUEST_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildRequestFailed;
 /**
  *  Cloud Build is not available, either because it is not enabled or because
- *  Google Cloud Deploy has insufficient permissions. See [required
- *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *
  *  Value: "CLOUD_BUILD_UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable;
+/**
+ *  The render operation did not complete successfully because the custom action
+ *  required for predeploy or postdeploy was not found in the skaffold
+ *  configuration. See failure_message for additional details.
+ *
+ *  Value: "CUSTOM_ACTION_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound;
 /**
  *  The render operation did not complete successfully; check Cloud Build logs.
  *
@@ -801,22 +963,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 // GTLRCloudDeploy_VerifyJobRun.failureCause
 
 /**
- *  Cloud Build failed to fulfill Google Cloud Deploy's request. See
- *  failure_message for additional details.
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
  *
  *  Value: "CLOUD_BUILD_REQUEST_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed;
 /**
  *  Cloud Build is not available, either because it is not enabled or because
- *  Google Cloud Deploy has insufficient permissions. See [required
- *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *
  *  Value: "CLOUD_BUILD_UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The verify build did not complete within the alloted time.
+ *  The verify job run did not complete within the alloted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -1122,6 +1284,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *percentages;
 
 /**
+ *  Optional. Configuration for the postdeploy job of the last phase. If this is
+ *  not configured, there will be no postdeploy job for this phase.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Postdeploy *postdeploy;
+
+/**
+ *  Optional. Configuration for the predeploy job of the first phase. If this is
+ *  not configured, there will be no predeploy job for this phase.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
+
+/**
  *  Whether to run verify tests after each percentage deployment.
  *
  *  Uses NSNumber of boolValue.
@@ -1361,15 +1535,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A `DeliveryPipeline` resource in the Google Cloud Deploy API. A
- *  `DeliveryPipeline` defines a pipeline through which a Skaffold configuration
- *  can progress.
+ *  A `DeliveryPipeline` resource in the Cloud Deploy API. A `DeliveryPipeline`
+ *  defines a pipeline through which a Skaffold configuration can progress.
  */
 @interface GTLRCloudDeploy_DeliveryPipeline : GTLRObject
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy.
+ *  not by Cloud Deploy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Annotations *annotations;
 
@@ -1394,14 +1567,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Labels *labels;
 
@@ -1435,7 +1607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy.
+ *  not by Cloud Deploy.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1447,14 +1619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1490,8 +1661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeResourceStateChange
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -1548,17 +1723,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed
- *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
  *        failure_message for additional details. (Value:
  *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
- *        because Google Cloud Deploy has insufficient permissions. See
- *        [Required
- *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        because Cloud Deploy has insufficient permissions. See [Required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded The
- *        deploy build did not complete within the alloted time. (Value:
+ *        deploy job run did not complete within the alloted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed The
  *        deploy operation did not complete successfully; check Cloud Build
@@ -1606,6 +1780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Output only. The deploy Job. This is the deploy job in the phase. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *deployJob;
+
+/** Output only. The postdeploy Job, which is the last job on the phase. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *postdeployJob;
+
+/** Output only. The predeploy Job, which is the first job on the phase. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *predeployJob;
 
 /**
  *  Output only. The verify Job. Runs after a deploy if the deploy succeeds.
@@ -1778,6 +1958,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Required. Name of the Gateway API HTTPRoute. */
 @property(nonatomic, copy, nullable) NSString *httpRoute;
 
+/**
+ *  Optional. The time to wait for route updates to propagate. The maximum
+ *  configurable time is 3 hours, in seconds format. If unspecified, there is no
+ *  wait time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *routeUpdateWaitTime;
+
 /** Required. Name of the Kubernetes Service. */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -1858,6 +2045,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *jobRun;
 
+/** Output only. A postdeploy Job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PostdeployJob *postdeployJob;
+
+/** Output only. A predeploy Job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PredeployJob *predeployJob;
+
 /**
  *  Output only. Additional information on why the Job was skipped, if
  *  available.
@@ -1896,8 +2089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A `JobRun` resource in the Google Cloud Deploy API. A `JobRun` contains
- *  information of a single `Rollout` job evaluation.
+ *  A `JobRun` resource in the Cloud Deploy API. A `JobRun` contains information
+ *  of a single `Rollout` job evaluation.
  */
 @interface GTLRCloudDeploy_JobRun : GTLRObject
 
@@ -1936,6 +2129,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Output only. ID of the `Rollout` phase this `JobRun` belongs in. */
 @property(nonatomic, copy, nullable) NSString *phaseId;
+
+/** Output only. Information specific to a postdeploy `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PostdeployJobRun *postdeployJobRun;
+
+/** Output only. Information specific to a predeploy `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PredeployJobRun *predeployJobRun;
 
 /** Output only. Time at which the `JobRun` was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2005,8 +2204,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeResourceStateChange
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2347,8 +2550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2376,8 +2579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2526,6 +2729,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *phaseId;
 
 /**
+ *  Optional. Configuration for the postdeploy job of this phase. If this is not
+ *  configured, there will be no postdeploy job for this phase.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Postdeploy *postdeploy;
+
+/**
+ *  Optional. Configuration for the predeploy job of this phase. If this is not
+ *  configured, there will be no predeploy job for this phase.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
+
+/**
  *  Skaffold profiles to use when rendering the manifest for this phase. These
  *  are in addition to the profiles list specified in the `DeliveryPipeline`
  *  stage.
@@ -2597,7 +2812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2605,14 +2820,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudDeploy_Policy : GTLRObject
@@ -2675,6 +2891,150 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Postdeploy contains the postdeploy job configuration information.
+ */
+@interface GTLRCloudDeploy_Postdeploy : GTLRObject
+
+/**
+ *  Optional. A sequence of Skaffold custom actions to invoke during execution
+ *  of the postdeploy job.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+@end
+
+
+/**
+ *  A postdeploy Job.
+ */
+@interface GTLRCloudDeploy_PostdeployJob : GTLRObject
+
+/** Output only. The custom actions that the postdeploy Job executes. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+@end
+
+
+/**
+ *  PostdeployJobRun contains information specific to a postdeploy `JobRun`.
+ */
+@interface GTLRCloudDeploy_PostdeployJobRun : GTLRObject
+
+/**
+ *  Output only. The resource name of the Cloud Build `Build` object that is
+ *  used to execute the custom actions associated with the postdeploy Job.
+ *  Format is projects/{project}/locations/{location}/builds/{build}.
+ */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Output only. The reason the postdeploy failed. This will always be
+ *  unspecified while the postdeploy is in progress or if it succeeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
+ *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_DeadlineExceeded
+ *        The postdeploy job run did not complete within the alloted time.
+ *        (Value: "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_ExecutionFailed The
+ *        postdeploy operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the postdeploy failure, if
+ *  available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+@end
+
+
+/**
+ *  Predeploy contains the predeploy job configuration information.
+ */
+@interface GTLRCloudDeploy_Predeploy : GTLRObject
+
+/**
+ *  Optional. A sequence of Skaffold custom actions to invoke during execution
+ *  of the predeploy job.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+@end
+
+
+/**
+ *  A predeploy Job.
+ */
+@interface GTLRCloudDeploy_PredeployJob : GTLRObject
+
+/** Output only. The custom actions that the predeploy Job executes. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+@end
+
+
+/**
+ *  PredeployJobRun contains information specific to a predeploy `JobRun`.
+ */
+@interface GTLRCloudDeploy_PredeployJobRun : GTLRObject
+
+/**
+ *  Output only. The resource name of the Cloud Build `Build` object that is
+ *  used to execute the custom actions associated with the predeploy Job. Format
+ *  is projects/{project}/locations/{location}/builds/{build}.
+ */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Output only. The reason the predeploy failed. This will always be
+ *  unspecified while the predeploy is in progress or if it succeeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
+ *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_DeadlineExceeded The
+ *        predeploy job run did not complete within the alloted time. (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_ExecutionFailed The
+ *        predeploy operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the predeploy failure, if
+ *  available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+@end
+
+
+/**
  *  Execution using a private Cloud Build pool.
  */
 @interface GTLRCloudDeploy_PrivatePool : GTLRObject
@@ -2704,8 +3064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A `Release` resource in the Google Cloud Deploy API. A `Release` defines a
- *  specific Skaffold configuration instance that can be deployed.
+ *  A `Release` resource in the Cloud Deploy API. A `Release` defines a specific
+ *  Skaffold configuration instance that can be deployed.
  */
 @interface GTLRCloudDeploy_Release : GTLRObject
 
@@ -2718,8 +3078,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
+ *  details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Annotations *annotations;
 
@@ -2755,14 +3115,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Labels *labels;
 
@@ -2803,9 +3162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  The Skaffold version to use when operating on this release, such as
- *  "1.20.0". Not all versions are valid; Google Cloud Deploy supports a
- *  specific set of versions. If unset, the most recent supported Skaffold
- *  version will be used.
+ *  "1.20.0". Not all versions are valid; Cloud Deploy supports a specific set
+ *  of versions. If unset, the most recent supported Skaffold version will be
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *skaffoldVersion;
 
@@ -2832,8 +3191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
+ *  details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2857,14 +3216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2944,8 +3302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeResourceStateChange
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3028,15 +3390,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A `Rollout` resource in the Google Cloud Deploy API. A `Rollout` contains
+ *  A `Rollout` resource in the Cloud Deploy API. A `Rollout` contains
  *  information around a specific deployment to a `Target`.
  */
 @interface GTLRCloudDeploy_Rollout : GTLRObject
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
+ *  details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout_Annotations *annotations;
 
@@ -3080,13 +3442,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildRequestFailed
- *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
  *        failure_message for additional details. (Value:
  *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
  *        because Cloud Deploy has insufficient permissions. See [required
- *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded
  *        Deployment did not complete within the alloted time. (Value:
@@ -3141,14 +3503,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout_Labels *labels;
 
@@ -3207,8 +3568,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
+ *  details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3220,14 +3581,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Labels are attributes that can be set and used by both the user and by
- *  Google Cloud Deploy. Labels must meet the following constraints: * Keys and
- *  values can contain only lowercase letters, numeric characters, underscores,
- *  and dashes. * All characters must use UTF-8 encoding, and international
- *  characters are allowed. * Keys must start with a lowercase letter or
- *  international character. * Each resource is limited to a maximum of 64
- *  labels. Both keys and values are additionally constrained to be <= 128
- *  bytes.
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3272,8 +3632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStateChange
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3465,6 +3829,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_Standard : GTLRObject
 
 /**
+ *  Optional. Configuration for the postdeploy job. If this is not configured,
+ *  postdeploy job will not be present.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Postdeploy *postdeploy;
+
+/**
+ *  Optional. Configuration for the predeploy job. If this is not configured,
+ *  predeploy job will not be present.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
+
+/**
  *  Whether to verify a deployment.
  *
  *  Uses NSNumber of boolValue.
@@ -3540,20 +3916,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  A `Target` resource in the Google Cloud Deploy API. A `Target` defines a
- *  location to which a Skaffold configuration can be deployed.
+ *  A `Target` resource in the Cloud Deploy API. A `Target` defines a location
+ *  to which a Skaffold configuration can be deployed.
  */
 @interface GTLRCloudDeploy_Target : GTLRObject
 
 /**
  *  Optional. User annotations. These attributes can only be set and used by the
- *  user, and not by Google Cloud Deploy. See
- *  https://google.aip.dev/128#annotations for more details such as format and
- *  size limitations.
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Target_Annotations *annotations;
 
-/** Information specifying an Anthos Cluster. */
+/** Optional. Information specifying an Anthos Cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_AnthosCluster *anthosCluster;
 
 /** Output only. Time at which the `Target` was created. */
@@ -3586,22 +3961,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_ExecutionConfig *> *executionConfigs;
 
-/** Information specifying a GKE Cluster. */
+/** Optional. Information specifying a GKE Cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_GkeCluster *gke;
 
 /**
  *  Optional. Labels are attributes that can be set and used by both the user
- *  and by Google Cloud Deploy. Labels must meet the following constraints: *
- *  Keys and values can contain only lowercase letters, numeric characters,
- *  underscores, and dashes. * All characters must use UTF-8 encoding, and
- *  international characters are allowed. * Keys must start with a lowercase
- *  letter or international character. * Each resource is limited to a maximum
- *  of 64 labels. Both keys and values are additionally constrained to be <= 128
+ *  and by Cloud Deploy. Labels must meet the following constraints: * Keys and
+ *  values can contain only lowercase letters, numeric characters, underscores,
+ *  and dashes. * All characters must use UTF-8 encoding, and international
+ *  characters are allowed. * Keys must start with a lowercase letter or
+ *  international character. * Each resource is limited to a maximum of 64
+ *  labels. Both keys and values are additionally constrained to be <= 128
  *  bytes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Target_Labels *labels;
 
-/** Information specifying a multiTarget. */
+/** Optional. Information specifying a multiTarget. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_MultiTarget *multiTarget;
 
 /**
@@ -3617,7 +3992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSNumber *requireApproval;
 
-/** Information specifying a Cloud Run deployment target. */
+/** Optional. Information specifying a Cloud Run deployment target. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunLocation *run;
 
 /** Output only. Resource id of the `Target`. */
@@ -3634,9 +4009,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. User annotations. These attributes can only be set and used by the
- *  user, and not by Google Cloud Deploy. See
- *  https://google.aip.dev/128#annotations for more details such as format and
- *  size limitations.
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3661,12 +4035,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Labels are attributes that can be set and used by both the user
- *  and by Google Cloud Deploy. Labels must meet the following constraints: *
- *  Keys and values can contain only lowercase letters, numeric characters,
- *  underscores, and dashes. * All characters must use UTF-8 encoding, and
- *  international characters are allowed. * Keys must start with a lowercase
- *  letter or international character. * Each resource is limited to a maximum
- *  of 64 labels. Both keys and values are additionally constrained to be <= 128
+ *  and by Cloud Deploy. Labels must meet the following constraints: * Keys and
+ *  values can contain only lowercase letters, numeric characters, underscores,
+ *  and dashes. * All characters must use UTF-8 encoding, and international
+ *  characters are allowed. * Keys must start with a lowercase letter or
+ *  international character. * Each resource is limited to a maximum of 64
+ *  labels. Both keys and values are additionally constrained to be <= 128
  *  bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3744,8 +4118,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange
  *        Deprecated: This field is never used. Use release_render log type
  *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeResourceStateChange
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3765,15 +4143,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildRequestFailed
- *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
  *        failure_message for additional details. (Value:
  *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
- *        because Google Cloud Deploy has insufficient permissions. See
- *        [required
- *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound
+ *        The render operation did not complete successfully because the custom
+ *        action required for predeploy or postdeploy was not found in the
+ *        skaffold configuration. See failure_message for additional details.
+ *        (Value: "CUSTOM_ACTION_NOT_FOUND")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed The
  *        render operation did not complete successfully; check Cloud Build
  *        logs. (Value: "EXECUTION_FAILED")
@@ -3942,17 +4324,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed
- *        Cloud Build failed to fulfill Google Cloud Deploy's request. See
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
  *        failure_message for additional details. (Value:
  *        "CLOUD_BUILD_REQUEST_FAILED")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
- *        because Google Cloud Deploy has insufficient permissions. See
- *        [required
- *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded The
- *        verify build did not complete within the alloted time. (Value:
+ *        verify job run did not complete within the alloted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed The
  *        verify operation did not complete successfully; check Cloud Build

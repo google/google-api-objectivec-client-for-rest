@@ -3,6 +3,14 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Analytics Admin API (analyticsadmin/v1beta)
+// Description:
+//   Manage properties in Google Analytics. Warning: Creating multiple Customer
+//   Applications, Accounts, or Projects to simulate or act as a single Customer
+//   Application, Account, or Project (respectively) or to circumvent
+//   Service-specific usage limits or quotas is a direct violation of Google
+//   Cloud Platform Terms of Service as well as Google APIs Terms of Service.
+//   These actions can result in immediate termination of your GCP project(s)
+//   without any warning.
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -584,6 +592,49 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a conversion event with the specified attributes.
+ *
+ *  Method: analyticsadmin.properties.conversionEvents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this conversion event. Format:
+ *  properties/{property}/conversionEvents/{conversion_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
+ *
+ *  Updates a conversion event with the specified attributes.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
+ *    include in the query.
+ *  @param name Output only. Resource name of this conversion event. Format:
+ *    properties/{property}/conversionEvents/{conversion_event}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaConversionEvent *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1279,7 +1330,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated.
  *
  *  String format is a comma-separated list of fields.
  */

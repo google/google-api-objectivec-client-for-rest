@@ -55,6 +55,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree;
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Default view. Does not return DDLs or Issues.
+ *
+ *  Value: "DATABASE_ENTITY_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewBasic;
+/**
+ *  Return full entity details including mappings, ddl and issues.
+ *
+ *  Value: "DATABASE_ENTITY_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFull;
+/**
+ *  Top-most (Database, Schema) nodes which are returned contains summary
+ *  details for their decendents such as the number of entities per type and
+ *  issues rollups. When this view is used, only a single page of result is
+ *  returned and the page_size property of the request is ignored. The returned
+ *  page will only include the top-most node types.
+ *
+ *  Value: "DATABASE_ENTITY_VIEW_ROOT_SUMMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewRootSummary;
+/**
+ *  Unspecified view. Defaults to basic view.
+ *
+ *  Value: "DATABASE_ENTITY_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -690,8 +722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDescribeDatabaseEntities : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Request a specific commit ID. If not specified, the entities from the latest
- *  commit are returned.
+ *  Optional. Request a specific commit ID. If not specified, the entities from
+ *  the latest commit are returned.
  */
 @property(nonatomic, copy, nullable) NSString *commitId;
 
@@ -702,17 +734,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 @property(nonatomic, copy, nullable) NSString *conversionWorkspace;
 
-/** Filter the returned entities based on AIP-160 standard. */
+/** Optional. Filter the returned entities based on AIP-160 standard. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of entities to return. The service may return fewer
- *  entities than the value specifies.
+ *  Optional. The maximum number of entities to return. The service may return
+ *  fewer entities than the value specifies.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The nextPageToken value received in the previous call to
+ *  Optional. The nextPageToken value received in the previous call to
  *  conversionWorkspace.describeDatabaseEntities, used in the subsequent request
  *  to retrieve the next page of results. On first call this should be left
  *  blank. When paginating, all other parameters provided to
@@ -722,7 +754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The tree to fetch.
+ *  Required. The tree to fetch.
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified Unspecified
@@ -737,10 +769,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *tree;
 
 /**
- *  Whether to retrieve the latest committed version of the entities or the
- *  latest version. This field is ignored if a specific commit_id is specified.
+ *  Optional. Whether to retrieve the latest committed version of the entities
+ *  or the latest version. This field is ignored if a specific commit_id is
+ *  specified.
  */
 @property(nonatomic, assign) BOOL uncommitted;
+
+/**
+ *  Optional. Results view based on AIP-157
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified
+ *        Unspecified view. Defaults to basic view. (Value:
+ *        "DATABASE_ENTITY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewBasic Default
+ *        view. Does not return DDLs or Issues. (Value:
+ *        "DATABASE_ENTITY_VIEW_BASIC")
+ *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFull Return
+ *        full entity details including mappings, ddl and issues. (Value:
+ *        "DATABASE_ENTITY_VIEW_FULL")
+ *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewRootSummary
+ *        Top-most (Database, Schema) nodes which are returned contains summary
+ *        details for their decendents such as the number of entities per type
+ *        and issues rollups. When this view is used, only a single page of
+ *        result is returned and the page_size property of the request is
+ *        ignored. The returned page will only include the top-most node types.
+ *        (Value: "DATABASE_ENTITY_VIEW_ROOT_SUMMARY")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_DescribeDatabaseEntitiesResponse.
@@ -902,6 +958,119 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @end
 
 /**
+ *  Creates a new mapping rule for a given conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.mappingRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesCreate : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The ID of the rule to create. */
+@property(nonatomic, copy, nullable) NSString *mappingRuleId;
+
+/** Required. The parent which owns this collection of mapping rules. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  A unique ID used to identify the request. If the server receives two
+ *  requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MappingRule.
+ *
+ *  Creates a new mapping rule for a given conversion workspace.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_MappingRule to include in
+ *    the query.
+ *  @param parent Required. The parent which owns this collection of mapping
+ *    rules.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_MappingRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single mapping rule.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.mappingRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesDelete : GTLRDatabaseMigrationServiceQuery
+
+/** Required. Name of the mapping rule resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
+ *  recommended to always set this value to a UUID. The ID must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Empty.
+ *
+ *  Deletes a single mapping rule.
+ *
+ *  @param name Required. Name of the mapping rule resource to delete.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a mapping rule.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.mappingRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesGet : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. Name of the mapping rule resource to get. Example:
+ *  conversionWorkspaces/123/mappingRules/rule123 In order to retrieve a
+ *  previous revision of the mapping rule, also provide the revision ID.
+ *  Example:
+ *  conversionWorkspace/123/mappingRules/rule123\@c7cfa2a8c7cfa2a8c7cfa2a8c7cfa2a8
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MappingRule.
+ *
+ *  Gets the details of a mapping rule.
+ *
+ *  @param name Required. Name of the mapping rule resource to get. Example:
+ *    conversionWorkspaces/123/mappingRules/rule123 In order to retrieve a
+ *    previous revision of the mapping rule, also provide the revision ID.
+ *    Example:
+ *    conversionWorkspace/123/mappingRules/rule123\@c7cfa2a8c7cfa2a8c7cfa2a8c7cfa2a8
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Imports the mapping rules for a given conversion workspace. Supports various
  *  formats of external rules files.
  *
@@ -935,6 +1104,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  */
 + (instancetype)queryWithObject:(GTLRDatabaseMigrationService_ImportMappingRulesRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the mapping rules for a specific conversion workspace.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.mappingRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesList : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  The maximum number of rules to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The nextPageToken value received in the previous call to mappingRules.list,
+ *  used in the subsequent request to retrieve the next page of results. On
+ *  first call this should be left blank. When paginating, all other parameters
+ *  provided to mappingRules.list must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the conversion workspace resource whose mapping rules are
+ *  listed in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ListMappingRulesResponse.
+ *
+ *  Lists the mapping rules for a specific conversion workspace.
+ *
+ *  @param parent Required. Name of the conversion workspace resource whose
+ *    mapping rules are listed in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1325,8 +1545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -1420,6 +1640,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree;
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateSshScript
  */
 + (instancetype)queryWithObject:(GTLRDatabaseMigrationService_GenerateSshScriptRequest *)object
+                   migrationJob:(NSString *)migrationJob;
+
+@end
+
+/**
+ *  Generate a TCP Proxy configuration script to configure a cloud-hosted VM
+ *  running a TCP Proxy.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.generateTcpProxyScript
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateTcpProxyScript : GTLRDatabaseMigrationServiceQuery
+
+/** Name of the migration job resource to generate the TCP Proxy script. */
+@property(nonatomic, copy, nullable) NSString *migrationJob;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_TcpProxyScript.
+ *
+ *  Generate a TCP Proxy configuration script to configure a cloud-hosted VM
+ *  running a TCP Proxy.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_GenerateTcpProxyScriptRequest to include in
+ *    the query.
+ *  @param migrationJob Name of the migration job resource to generate the TCP
+ *    Proxy script.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateTcpProxyScript
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_GenerateTcpProxyScriptRequest *)object
                    migrationJob:(NSString *)migrationJob;
 
 @end

@@ -162,7 +162,8 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
 //
 
 @implementation GTLRVerifiedaccess_VerifyChallengeResponseResult
-@dynamic customerId, devicePermanentId, deviceSignal, deviceSignals,
-         keyTrustLevel, profileCustomerId, profileKeyTrustLevel,
-         signedPublicKeyAndChallenge, virtualDeviceId, virtualProfileId;
+@dynamic attestedDeviceId, customerId, deviceEnrollmentId, devicePermanentId,
+         deviceSignal, deviceSignals, keyTrustLevel, profileCustomerId,
+         profileKeyTrustLevel, signedPublicKeyAndChallenge, virtualDeviceId,
+         virtualProfileId;
 @end

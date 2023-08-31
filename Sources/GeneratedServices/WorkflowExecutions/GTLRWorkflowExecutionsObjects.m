@@ -23,6 +23,7 @@ NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone = @"LOG_
 NSString * const kGTLRWorkflowExecutions_Execution_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Failed = @"FAILED";
+NSString * const kGTLRWorkflowExecutions_Execution_State_Queued = @"QUEUED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Unavailable = @"UNAVAILABLE";

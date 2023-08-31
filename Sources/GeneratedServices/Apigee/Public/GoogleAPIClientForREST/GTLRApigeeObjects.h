@@ -29,12 +29,16 @@
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
+@class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy_Labels;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties;
 @class GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig;
 @class GTLRApigee_GoogleCloudApigeeV1App;
+@class GTLRApigee_GoogleCloudApigeeV1AppGroup;
+@class GTLRApigee_GoogleCloudApigeeV1AppGroupApp;
+@class GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
@@ -83,6 +87,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperation;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup;
+@class GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig;
+@class GTLRApigee_GoogleCloudApigeeV1GrpcOperationGroup;
 @class GTLRApigee_GoogleCloudApigeeV1Instance;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatus;
@@ -422,6 +428,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorC
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Deployment.proxyDeploymentType
+
+/**
+ *  Proxy will be of type Extensible if deployments uses one or more Extensible
+ *  proxies
+ *
+ *  Value: "EXTENSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Extensible;
+/**
+ *  Default value till public preview. After public preview this value should
+ *  not be returned.
+ *
+ *  Value: "PROXY_DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_ProxyDeploymentTypeUnspecified;
+/**
+ *  Deployment will be of type Standard if only Standard proxies are used
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Deployment.state
 
 /**
@@ -673,6 +703,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_St
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Environment.type
+
+/**
+ *  Base environment has limited capacity and capabilities and are usually used
+ *  when you are getting started with Apigee or while experimenting. Refer to
+ *  Apigee's public documentation for more details.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Base;
+/**
+ *  Comprehensive environment supports advanced capabilites and even higher
+ *  capacity than Intermediate environment. Refer to Apigee's public
+ *  documentation for more details.
+ *
+ *  Value: "COMPREHENSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Comprehensive;
+/**
+ *  Environment type not specified.
+ *
+ *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_EnvironmentTypeUnspecified;
+/**
+ *  This is the default type and it supports API management features and higher
+ *  capacity than Base environment. Refer to Apigee's public documentation for
+ *  more details.
+ *
+ *  Value: "INTERMEDIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Intermediate;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
@@ -1331,6 +1395,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
 
 /**
+ *  The TargetServer is to be used in the ExternalCallout Policy
+ *
+ *  Value: "EXTERNAL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ExternalCallout;
+/**
  *  GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
  *  EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL _CALLOUT
  *  generally available.
@@ -1339,11 +1409,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc;
 /**
+ *  The TargetServer uses GRPC.
+ *
+ *  Value: "GRPC_TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_GrpcTarget;
+/**
  *  The TargetServer uses HTTP.
  *
  *  Value: "HTTP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http;
+/**
+ *  The TargetSever uses HTTP2.
+ *
+ *  Value: "HTTP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http2;
 /**
  *  UNSPECIFIED defaults to HTTP for backwards compatibility.
  *
@@ -1355,6 +1437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_P
 // GTLRApigee_GoogleCloudApigeeV1TargetServerConfig.protocol
 
 /**
+ *  The TargetServer is to be used in the ExternalCallout Policy
+ *
+ *  Value: "EXTERNAL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ExternalCallout;
+/**
  *  GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
  *  EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL _CALLOUT
  *  generally available.
@@ -1363,11 +1451,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc;
 /**
+ *  The TargetServer uses GRPC.
+ *
+ *  Value: "GRPC_TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_GrpcTarget;
+/**
  *  The TargetServer uses HTTP.
  *
  *  Value: "HTTP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http;
+/**
+ *  The TargetSever uses HTTP2.
+ *
+ *  Value: "HTTP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http2;
 /**
  *  UNSPECIFIED defaults to HTTP for backwards compatibility.
  *
@@ -2029,6 +2129,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup *graphqlOperationGroup;
 
 /**
+ *  Optional. Configuration used to group Apigee proxies with gRPC services and
+ *  method names. This grouping allows us to set quota for a particular proxy
+ *  with the gRPC service name and method. If a method name is not set, this
+ *  implies quota and authorization are applied to all gRPC methods implemented
+ *  by that proxy for that particular gRPC service.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GrpcOperationGroup *grpcOperationGroup;
+
+/**
  *  Response only. Modified time of this environment as milliseconds since
  *  epoch.
  *
@@ -2117,6 +2226,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  defined in the OAuth policy associated with the API product.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+@end
+
+
+/**
+ *  APIProductAssociation has the API product and its administrative state
+ *  association.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1APIProductAssociation : GTLRObject
+
+/** API product to be associated with the credential. */
+@property(nonatomic, copy, nullable) NSString *apiproduct;
+
+/**
+ *  The API product credential associated status. Valid values are `approved` or
+ *  `revoked`.
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -2249,6 +2376,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Metadata describing the API proxy revision as a key-value map. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties *entityMetaDataAsProperties;
+
+/**
+ *  Output only. This field will be marked as true if revision contains any
+ *  policies marked as extensible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasExtensiblePolicy;
 
 /**
  *  List of IntegrationEndpoints in the '/integration-endpoints' directory of
@@ -2412,6 +2547,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** List of API products associated with the app. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiProductRef *> *apiProducts;
 
+/** Name of the AppGroup */
+@property(nonatomic, copy, nullable) NSString *appGroup;
+
 /** ID of the app. */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -2439,6 +2577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  pairs associated with API products.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Credential *> *credentials;
+
+/** Email of the developer. */
+@property(nonatomic, copy, nullable) NSString *developerEmail;
 
 /** ID of the developer. */
 @property(nonatomic, copy, nullable) NSString *developerId;
@@ -2469,6 +2610,194 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /** Status of the credential. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  AppGroup contains the request/response fields representing the logical
+ *  grouping of apps. Note that appgroup_id, create_time and update_time cannot
+ *  be changed by the user, and gets updated by the system. The name and the
+ *  organization once provided cannot be edited subsequently.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroup : GTLRObject
+
+/** Output only. Internal identifier that cannot be edited */
+@property(nonatomic, copy, nullable) NSString *appGroupId;
+
+/** A list of attributes */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/** channel identifier identifies the owner maintaing this grouping. */
+@property(nonatomic, copy, nullable) NSString *channelId;
+
+/** A reference to the associated storefront/marketplace. */
+@property(nonatomic, copy, nullable) NSString *channelUri;
+
+/**
+ *  Output only. Created time as milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/** app group name displayed in the UI */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Modified time as milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/**
+ *  Immutable. Name of the AppGroup. Characters you can use in the name are
+ *  restricted to: A-Z0-9._\\-$ %.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Immutable. the org the app group is created */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Valid values are `active` or `inactive`. Note that the status of the
+ *  AppGroup should be updated via UpdateAppGroupRequest by setting the action
+ *  as `active` or `inactive`.
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Response for [GetAppGroupApp].[AppGroupApps.GetAppGroupApp],
+ *  [CreateAppGroupAppRequest].[AppGroupApp.CreateAppGroupAppRequest] and
+ *  [DeleteAppGroupApp].[AppGroupApp.DeleteAppGroupApp]
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupApp : GTLRObject
+
+/** List of API products associated with the AppGroup app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
+
+/**
+ *  Immutable. Name of the parent AppGroup whose resource name format is of
+ *  syntax (organizations/ * /appgroups/ *).
+ */
+@property(nonatomic, copy, nullable) NSString *appGroup;
+
+/** Immutable. ID of the AppGroup app. */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** List of attributes for the AppGroup app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/**
+ *  Callback URL used by OAuth 2.0 authorization servers to communicate
+ *  authorization codes back to AppGroup apps.
+ */
+@property(nonatomic, copy, nullable) NSString *callbackUrl;
+
+/**
+ *  Output only. Time the AppGroup app was created in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Output only. Set of credentials for the AppGroup app consisting of the
+ *  consumer key/secret pairs associated with the API products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Credential *> *credentials;
+
+/**
+ *  Immutable. Expiration time, in seconds, for the consumer key that is
+ *  generated for the AppGroup app. If not set or left to the default value of
+ *  `-1`, the API key never expires. The expiration time can't be updated after
+ *  it is set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keyExpiresIn;
+
+/**
+ *  Output only. Time the AppGroup app was modified in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/**
+ *  Immutable. Name of the AppGroup app whose resource name format is of syntax
+ *  (organizations/ * /appgroups/ * /apps/ *).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Scopes to apply to the AppGroup app. The specified scopes must already exist
+ *  for the API product that you associate with the AppGroup app.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+/** Status of the App. Valid values include `approved` or `revoked`. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  AppGroupAppKey contains all the information associated with the credentials.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey : GTLRObject
+
+/**
+ *  Output only. List of API products and its status for which the credential
+ *  can be used. **Note**: Use UpdateAppGroupAppKeyApiProductRequest API to make
+ *  the association after the consumer key and secret are created.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1APIProductAssociation *> *apiProducts;
+
+/** List of attributes associated with the credential. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/** Immutable. Consumer key. */
+@property(nonatomic, copy, nullable) NSString *consumerKey;
+
+/** Secret key. */
+@property(nonatomic, copy, nullable) NSString *consumerSecret;
+
+/**
+ *  Output only. Time the AppGroup app expires in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresAt;
+
+/**
+ *  Immutable. Expiration time, in seconds, for the consumer key. If not set or
+ *  left to the default value of `-1`, the API key never expires. The expiration
+ *  time can't be updated after it is set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresInSeconds;
+
+/**
+ *  Output only. Time the AppGroup app was created in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *issuedAt;
+
+/**
+ *  Scopes to apply to the app. The specified scope names must already be
+ *  defined for the API product that you associate with the app.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+/** Status of the credential. Valid values include `approved` or `revoked`. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 @end
@@ -3558,6 +3887,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1PodStatus *> *pods;
 
+/**
+ *  Output only. The type of the deployment (standard or extensible) Deployed
+ *  proxy revision will be marked as extensible in following 2 cases. 1. The
+ *  deployed proxy revision uses extensible policies. 2. If a environment
+ *  supports flowhooks and flow hook is configured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Extensible
+ *        Proxy will be of type Extensible if deployments uses one or more
+ *        Extensible proxies (Value: "EXTENSIBLE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_ProxyDeploymentTypeUnspecified
+ *        Default value till public preview. After public preview this value
+ *        should not be returned. (Value: "PROXY_DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Standard
+ *        Deployment will be of type Standard if only Standard proxies are used
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *proxyDeploymentType;
+
 /** API proxy revision. */
 @property(nonatomic, copy, nullable) NSString *revision;
 
@@ -4360,6 +4708,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
 /**
+ *  hasAttachedFlowHooks
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasAttachedFlowHooks;
+
+/**
  *  Output only. Last modification time of this environment as milliseconds
  *  since epoch.
  *
@@ -4398,6 +4753,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. EnvironmentType selected for the environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Base Base
+ *        environment has limited capacity and capabilities and are usually used
+ *        when you are getting started with Apigee or while experimenting. Refer
+ *        to Apigee's public documentation for more details. (Value: "BASE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Comprehensive
+ *        Comprehensive environment supports advanced capabilites and even
+ *        higher capacity than Intermediate environment. Refer to Apigee's
+ *        public documentation for more details. (Value: "COMPREHENSIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_EnvironmentTypeUnspecified
+ *        Environment type not specified. (Value:
+ *        "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Intermediate This
+ *        is the default type and it supports API management features and higher
+ *        capacity than Base environment. Refer to Apigee's public documentation
+ *        for more details. (Value: "INTERMEDIATE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4996,6 +5373,61 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Binds the resources in a proxy or remote service with the gRPC operation and
+ *  its associated quota enforcement.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig : GTLRObject
+
+/**
+ *  Required. Name of the API proxy with which the gRPC operation and quota are
+ *  associated.
+ */
+@property(nonatomic, copy, nullable) NSString *apiSource;
+
+/** Custom attributes associated with the operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/**
+ *  List of unqualified gRPC method names for the proxy to which quota will be
+ *  applied. If this field is empty, the Quota will apply to all operations on
+ *  the gRPC service defined on the proxy. Example: Given a proxy that is
+ *  configured to serve com.petstore.PetService, the methods
+ *  com.petstore.PetService.ListPets and com.petstore.PetService.GetPet would be
+ *  specified here as simply ["ListPets", "GetPet"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+/**
+ *  Quota parameters to be enforced for the methods and API source combination.
+ *  If none are specified, quota enforcement will not be done.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
+
+/**
+ *  Required. gRPC Service name associated to be associated with the API proxy,
+ *  on which quota rules can be applied upon.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  List of gRPC operation configuration details associated with Apigee API
+ *  proxies.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GrpcOperationGroup : GTLRObject
+
+/**
+ *  Required. List of operation configurations for either Apigee API proxies
+ *  that are associated with this API product.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig *> *operationConfigs;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1IngressConfig
  */
 @interface GTLRApigee_GoogleCloudApigeeV1IngressConfig : GTLRObject
@@ -5408,11 +5840,97 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1ListAppsResponse
+ *  Response for ListAppGroupApps
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "appGroupApps" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRApigee_GoogleCloudApigeeV1ListAppsResponse : GTLRObject
+@interface GTLRApigee_GoogleCloudApigeeV1ListAppGroupAppsResponse : GTLRCollectionObject
 
+/**
+ *  List of AppGroup apps and their credentials.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1AppGroupApp *> *appGroupApps;
+
+/**
+ *  Token that can be sent as `next_page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  ListAppGroupsResponse contains the 0 or more AppGroups, along with the
+ *  optional page token and the total count of apps.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "appGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListAppGroupsResponse : GTLRCollectionObject
+
+/**
+ *  List of AppGroups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1AppGroup *> *appGroups;
+
+/**
+ *  Token that can be sent as `next_page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total count of AppGroups.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  GTLRApigee_GoogleCloudApigeeV1ListAppsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "app" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListAppsResponse : GTLRCollectionObject
+
+/**
+ *  app
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1App *> *app;
+
+/**
+ *  Token that can be sent as `next_page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total count of Apps.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -6519,6 +7037,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Flag that specifies whether the VPC Peering through Private Google
+ *  Access should be disabled between the consumer network and Apigee. Valid
+ *  only when RuntimeType is set to CLOUD. Required if an authorizedNetwork on
+ *  the consumer project is not provided, in which case the flag should be set
+ *  to true. The value must be set before the creation of any Apigee runtime
+ *  instance and can be updated only when there are no runtime instances.
+ *  **Note:** Apigee will be deprecating the vpc peering model that requires you
+ *  to provide 'authorizedNetwork', by making the non-peering model as the
+ *  default way of provisioning Apigee organization in future. So, this will be
+ *  a temporary flag to enable the transition. Not supported for Apigee hybrid.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableVpcPeering;
+
+/**
  *  Display name for the Apigee organization. Unused, but reserved for future
  *  use.
  */
@@ -6889,6 +7423,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `projects/my-sharedvpc-host/global/networks/mynetwork`
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
+
+/**
+ *  Optional. Flag that specifies whether the VPC Peering through Private Google
+ *  Access should be disabled between the consumer network and Apigee. Required
+ *  if an authorizedNetwork on the consumer project is not provided, in which
+ *  case the flag should be set to true. The value must be set before the
+ *  creation of any Apigee runtime instance and can be updated only when there
+ *  are no runtime instances. **Note:** Apigee will be deprecating the vpc
+ *  peering model that requires you to provide 'authorizedNetwork', by making
+ *  the non-peering model as the default way of provisioning Apigee organization
+ *  in future. So, this will be a temporary flag to enable the transition. Not
+ *  supported for Apigee hybrid.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableVpcPeering;
 
 /**
  *  Cloud Platform location for the runtime instance. Defaults to zone
@@ -8186,7 +8736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectionTypes;
 
-/** Display name of the security incident. */
+/** Optional. Display name of the security incident. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -8272,7 +8822,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Customized profile configuration that computes the security score. */
+/**
+ *  Required. Customized profile configuration that computes the security score.
+ */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ProfileConfig *profileConfig;
 
 /** Output only. The time when revision was created. */
@@ -8956,12 +9508,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Immutable. The protocol used by this TargetServer.
  *
  *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ExternalCallout
+ *        The TargetServer is to be used in the ExternalCallout Policy (Value:
+ *        "EXTERNAL_CALLOUT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc GRPC
  *        TargetServer to be used in ExternalCallout Policy. Prefer to use
  *        EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL
  *        _CALLOUT generally available. (Value: "GRPC")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_GrpcTarget
+ *        The TargetServer uses GRPC. (Value: "GRPC_TARGET")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http The
  *        TargetServer uses HTTP. (Value: "HTTP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http2 The
+ *        TargetSever uses HTTP2. (Value: "HTTP2")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified
  *        UNSPECIFIED defaults to HTTP for backwards compatibility. (Value:
  *        "PROTOCOL_UNSPECIFIED")
@@ -9011,12 +9570,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  The protocol used by this target server.
  *
  *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ExternalCallout
+ *        The TargetServer is to be used in the ExternalCallout Policy (Value:
+ *        "EXTERNAL_CALLOUT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc
  *        GRPC TargetServer to be used in ExternalCallout Policy. Prefer to use
  *        EXTERNAL_CALLOUT instead. TODO(b/266125112) deprecate once EXTERNAL
  *        _CALLOUT generally available. (Value: "GRPC")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_GrpcTarget
+ *        The TargetServer uses GRPC. (Value: "GRPC_TARGET")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http
  *        The TargetServer uses HTTP. (Value: "HTTP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http2
+ *        The TargetSever uses HTTP2. (Value: "HTTP2")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified
  *        UNSPECIFIED defaults to HTTP for backwards compatibility. (Value:
  *        "PROTOCOL_UNSPECIFIED")
@@ -9269,6 +9835,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingRate;
+
+@end
+
+
+/**
+ *  Request for UpdateAppGroupAppKey
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest : GTLRObject
+
+/**
+ *  Approve or revoke the consumer key by setting this value to `approve` or
+ *  `revoke` respectively. The `Content-Type` header, if set, must be set to
+ *  `application/octet-stream`, with empty body.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  The list of API products that will be associated with the credential. This
+ *  list will be appended to the existing list of associated API Products for
+ *  this App Key. Duplicates will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
+
+/**
+ *  The new AppGroupKey to be amended. Note that the status can be updated only
+ *  via action.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey *appGroupAppKey;
 
 @end
 
@@ -9545,7 +10139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -9553,14 +10147,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRApigee_GoogleIamV1Policy : GTLRObject
@@ -9732,8 +10327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -9761,8 +10356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

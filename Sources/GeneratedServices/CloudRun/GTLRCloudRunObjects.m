@@ -19,6 +19,7 @@
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling = @"CANCELLING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Deleted = @"DELETED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
@@ -171,6 +172,21 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization
 @dynamic breakglassJustification, useDefault;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest
+@dynamic ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -790,7 +806,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          ETag, expireTime, generation, ingress, labels, lastModifier,
          latestCreatedRevision, latestReadyRevision, launchStage, name,
          observedGeneration, reconciling, satisfiesPzs, templateProperty,
-         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri;
+         terminalCondition, traffic, trafficStatuses,
+         trafficTagsCleanupThreshold, uid, updateTime, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

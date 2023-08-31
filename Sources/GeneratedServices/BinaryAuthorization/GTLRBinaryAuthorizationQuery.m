@@ -253,6 +253,117 @@
 
 @end
 
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesCreate
+
+@dynamic parent, policyId;
+
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_PlatformPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/policies";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_PlatformPolicy class];
+  query.loggingName = @"binaryauthorization.projects.platforms.policies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_Empty class];
+  query.loggingName = @"binaryauthorization.projects.platforms.policies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_PlatformPolicy class];
+  query.loggingName = @"binaryauthorization.projects.platforms.policies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/policies";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_ListPlatformPoliciesResponse class];
+  query.loggingName = @"binaryauthorization.projects.platforms.policies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_PlatformPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_PlatformPolicy class];
+  query.loggingName = @"binaryauthorization.projects.platforms.policies.replacePlatformPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBinaryAuthorizationQuery_ProjectsPolicyGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;

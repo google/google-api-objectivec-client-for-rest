@@ -1800,6 +1800,91 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
+
+@dynamic parent, type;
+
++ (instancetype)queryWithParent:(NSString *)parent
+                           type:(NSString *)type {
+  NSArray *pathParams = @[
+    @"parent", @"type"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/{+type}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.type = type;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
+
+@dynamic parent, type;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                         parent:(NSString *)parent
+                           type:(NSString *)type {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"parent", @"type"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/{+type}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.type = type;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
+
+@dynamic parent, type;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                         parent:(NSString *)parent
+                           type:(NSString *)type {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"parent", @"type"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/{+type}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.type = type;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate
 
 @dynamic parent, type;

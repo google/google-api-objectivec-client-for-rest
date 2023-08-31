@@ -105,7 +105,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_Certification
-@dynamic authority, link, logo, name, validUntil, value;
+@dynamic authority, code, link, logo, name, validUntil, value;
 @end
 
 

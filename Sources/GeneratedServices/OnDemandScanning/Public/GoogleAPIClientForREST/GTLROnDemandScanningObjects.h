@@ -19,7 +19,11 @@
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
 @class GTLROnDemandScanning_BinarySourceInfo;
+@class GTLROnDemandScanning_BuildDefinition;
+@class GTLROnDemandScanning_BuildDefinition_ExternalParameters;
+@class GTLROnDemandScanning_BuildDefinition_InternalParameters;
 @class GTLROnDemandScanning_BuilderConfig;
+@class GTLROnDemandScanning_BuildMetadata;
 @class GTLROnDemandScanning_BuildOccurrence;
 @class GTLROnDemandScanning_BuildProvenance;
 @class GTLROnDemandScanning_BuildProvenance_BuildOptions;
@@ -54,6 +58,7 @@
 @class GTLROnDemandScanning_Identity;
 @class GTLROnDemandScanning_ImageOccurrence;
 @class GTLROnDemandScanning_InTotoProvenance;
+@class GTLROnDemandScanning_InTotoSlsaProvenanceV1;
 @class GTLROnDemandScanning_InTotoStatement;
 @class GTLROnDemandScanning_Justification;
 @class GTLROnDemandScanning_Jwt;
@@ -75,21 +80,29 @@
 @class GTLROnDemandScanning_PackageOccurrence;
 @class GTLROnDemandScanning_PackageVersion;
 @class GTLROnDemandScanning_ProjectRepoId;
+@class GTLROnDemandScanning_ProvenanceBuilder;
+@class GTLROnDemandScanning_ProvenanceBuilder_Version;
 @class GTLROnDemandScanning_Recipe;
 @class GTLROnDemandScanning_Recipe_Arguments_Item;
 @class GTLROnDemandScanning_Recipe_Environment_Item;
 @class GTLROnDemandScanning_RelatedUrl;
 @class GTLROnDemandScanning_Remediation;
 @class GTLROnDemandScanning_RepoId;
+@class GTLROnDemandScanning_ResourceDescriptor;
+@class GTLROnDemandScanning_ResourceDescriptor_Annotations;
+@class GTLROnDemandScanning_ResourceDescriptor_Digest;
+@class GTLROnDemandScanning_RunDetails;
 @class GTLROnDemandScanning_SbomReferenceIntotoPayload;
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate;
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest;
 @class GTLROnDemandScanning_SBOMReferenceOccurrence;
+@class GTLROnDemandScanning_SBOMStatus;
 @class GTLROnDemandScanning_Signature;
 @class GTLROnDemandScanning_SlsaBuilder;
 @class GTLROnDemandScanning_SlsaCompleteness;
 @class GTLROnDemandScanning_SlsaMetadata;
 @class GTLROnDemandScanning_SlsaProvenance;
+@class GTLROnDemandScanning_SlsaProvenanceV1;
 @class GTLROnDemandScanning_SlsaProvenanceZeroTwo;
 @class GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig;
 @class GTLROnDemandScanning_SlsaRecipe;
@@ -638,6 +651,28 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_Remediation
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Workaround;
 
 // ----------------------------------------------------------------------------
+// GTLROnDemandScanning_SBOMStatus.sbomState
+
+/**
+ *  SBOM scanning has completed.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Complete;
+/**
+ *  SBOM scanning is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Pending;
+/**
+ *  Default unknown state.
+ *
+ *  Value: "SBOM_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
 
 /**
@@ -1007,6 +1042,43 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_BuildDefinition
+ */
+@interface GTLROnDemandScanning_BuildDefinition : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *buildType;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildDefinition_ExternalParameters *externalParameters;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildDefinition_InternalParameters *internalParameters;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_ResourceDescriptor *> *resolvedDependencies;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_BuildDefinition_ExternalParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_BuildDefinition_ExternalParameters : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_BuildDefinition_InternalParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_BuildDefinition_InternalParameters : GTLRObject
+@end
+
+
+/**
  *  GTLROnDemandScanning_BuilderConfig
  */
 @interface GTLROnDemandScanning_BuilderConfig : GTLRObject
@@ -1022,6 +1094,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_BuildMetadata
+ */
+@interface GTLROnDemandScanning_BuildMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *finishedOn;
+@property(nonatomic, copy, nullable) NSString *invocationId;
+@property(nonatomic, strong, nullable) GTLRDateTime *startedOn;
+
+@end
+
+
+/**
  *  Details of a build occurrence.
  */
 @interface GTLROnDemandScanning_BuildOccurrence : GTLRObject
@@ -1031,6 +1115,13 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  representation as defined in spec.
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoProvenance *intotoProvenance;
+
+/**
+ *  In-Toto Slsa Provenance V1 represents a slsa provenance meeting the slsa
+ *  spec, wrapped in an in-toto statement. This allows for direct jsonification
+ *  of a to-spec in-toto slsa statement with a to-spec slsa provenance.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoSlsaProvenanceV1 *inTotoSlsaProvenanceV1;
 
 /**
  *  In-toto Statement representation as defined in spec. The intoto_statement
@@ -1536,6 +1627,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
+/** The status of an SBOM generation. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SBOMStatus *sbomStatus;
+
 @end
 
 
@@ -1954,6 +2048,24 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  reproducible). required
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Recipe *recipe;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_InTotoSlsaProvenanceV1
+ */
+@interface GTLROnDemandScanning_InTotoSlsaProvenanceV1 : GTLRObject
+
+/**
+ *  InToto spec defined at
+ *  https://github.com/in-toto/attestation/tree/main/spec#statement
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaProvenanceV1 *predicate;
+@property(nonatomic, copy, nullable) NSString *predicateType;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Subject *> *subject;
 
 @end
 
@@ -2393,8 +2505,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2422,8 +2534,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2683,6 +2795,37 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_ProvenanceBuilder
+ */
+@interface GTLROnDemandScanning_ProvenanceBuilder : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_ResourceDescriptor *> *builderDependencies;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ProvenanceBuilder_Version *version;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_ProvenanceBuilder_Version
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_ProvenanceBuilder_Version : GTLRObject
+@end
+
+
+/**
  *  Steps taken to build the artifact. For a TaskRun, typically each container
  *  corresponds to one step in the recipe.
  */
@@ -2821,6 +2964,66 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_ResourceDescriptor
+ */
+@interface GTLROnDemandScanning_ResourceDescriptor : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ResourceDescriptor_Annotations *annotations;
+
+/**
+ *  content
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ResourceDescriptor_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *downloadLocation;
+@property(nonatomic, copy, nullable) NSString *mediaType;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_ResourceDescriptor_Annotations
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_ResourceDescriptor_Annotations : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_ResourceDescriptor_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_ResourceDescriptor_Digest : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_RunDetails
+ */
+@interface GTLROnDemandScanning_RunDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ProvenanceBuilder *builder;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_ResourceDescriptor *> *byproducts;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildMetadata *metadata;
+
+@end
+
+
+/**
  *  The actual payload that contains the SBOM Reference data. The payload
  *  follows the intoto statement specification. See
  *  https://github.com/in-toto/attestation/blob/main/spec/v1.0/statement.md for
@@ -2900,6 +3103,33 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The signatures over the payload. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_EnvelopeSignature *> *signatures;
+
+@end
+
+
+/**
+ *  The status of an SBOM generation.
+ */
+@interface GTLROnDemandScanning_SBOMStatus : GTLRObject
+
+/**
+ *  If there was an error generating an SBOM, this will indicate what that error
+ *  was.
+ */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/**
+ *  The progress of the SBOM generation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_SBOMStatus_SbomState_Complete SBOM scanning
+ *        has completed. (Value: "COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_SBOMStatus_SbomState_Pending SBOM scanning
+ *        is pending. (Value: "PENDING")
+ *    @arg @c kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified
+ *        Default unknown state. (Value: "SBOM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sbomState;
 
 @end
 
@@ -3064,6 +3294,19 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  reproducible). required
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaRecipe *recipe;
+
+@end
+
+
+/**
+ *  Keep in sync with schema at
+ *  https://github.com/slsa-framework/slsa/blob/main/docs/provenance/schema/v1/provenance.proto
+ *  Builder renamed to ProvenanceBuilder because of Java conflicts.
+ */
+@interface GTLROnDemandScanning_SlsaProvenanceV1 : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildDefinition *buildDefinition;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_RunDetails *runDetails;
 
 @end
 
@@ -3466,7 +3709,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /**
  *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
- *  number for the vulnerability.
+ *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
+ *  denote CVEs.
  */
 @property(nonatomic, copy, nullable) NSString *cve;
 
@@ -3519,6 +3763,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        "UNDER_INVESTIGATION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The vulnerability identifier for this Assessment. Will hold one of common
+ *  identifiers e.g. CVE, GHSA etc.
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerabilityId;
 
 @end
 

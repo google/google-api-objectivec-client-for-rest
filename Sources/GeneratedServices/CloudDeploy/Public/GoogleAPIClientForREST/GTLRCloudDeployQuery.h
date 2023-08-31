@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deploy API (clouddeploy/v1)
+//   Cloud Deploy API (clouddeploy/v1)
 // Documentation:
 //   https://cloud.google.com/deploy/
 

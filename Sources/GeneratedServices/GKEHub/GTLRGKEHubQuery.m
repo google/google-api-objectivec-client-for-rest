@@ -884,6 +884,117 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate
+
+@dynamic parent, scopeNamespaceId;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/namespaces";
+  GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.namespaces.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.namespaces.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Namespace class];
+  query.loggingName = @"gkehub.projects.locations.scopes.namespaces.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/namespaces";
+  GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListScopeNamespacesResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.namespaces.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.namespaces.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsScopesPatch
 
 @dynamic name, updateMask;
@@ -906,6 +1017,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGKEHub_Operation class];
   query.loggingName = @"gkehub.projects.locations.scopes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate
+
+@dynamic parent, rbacrolebindingId;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/rbacrolebindings";
+  GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.rbacrolebindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.rbacrolebindings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_RBACRoleBinding class];
+  query.loggingName = @"gkehub.projects.locations.scopes.rbacrolebindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/rbacrolebindings";
+  GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListScopeRBACRoleBindingsResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.rbacrolebindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.scopes.rbacrolebindings.patch";
   return query;
 }
 

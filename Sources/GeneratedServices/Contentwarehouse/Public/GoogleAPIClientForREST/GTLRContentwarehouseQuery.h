@@ -1101,6 +1101,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Run a predefined pipeline.
+ *
+ *  Method: contentwarehouse.projects.locations.runPipeline
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContentwarehouseCloudPlatform
+ */
+@interface GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline : GTLRContentwarehouseQuery
+
+/**
+ *  Required. The resource name which owns the resources of the pipeline.
+ *  Format: projects/{project_number}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContentwarehouse_GoogleLongrunningOperation.
+ *
+ *  Run a predefined pipeline.
+ *
+ *  @param object The @c
+ *    GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest to
+ *    include in the query.
+ *  @param name Required. The resource name which owns the resources of the
+ *    pipeline. Format: projects/{project_number}/locations/{location}.
+ *
+ *  @return GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline
+ */
++ (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a SynonymSet for a single context. Throws an ALREADY_EXISTS
  *  exception if a synonymset already exists for the context.
  *

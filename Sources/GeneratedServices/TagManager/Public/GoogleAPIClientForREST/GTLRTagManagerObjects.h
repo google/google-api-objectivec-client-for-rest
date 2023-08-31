@@ -2298,6 +2298,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @interface GTLRTagManager_Parameter : GTLRObject
 
 /**
+ *  Whether or not a reference type parameter is strongly or weakly referenced.
+ *  Only used by Transformations. \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.transformations.update
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isWeakReference;
+
+/**
  *  The named key that uniquely identifies a parameter. Required for top-level
  *  parameters, as well as map values. Ignored for list values. \@mutable
  *  tagmanager.accounts.containers.workspaces.variables.create \@mutable

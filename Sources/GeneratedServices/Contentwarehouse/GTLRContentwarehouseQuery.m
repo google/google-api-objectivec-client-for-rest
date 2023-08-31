@@ -733,6 +733,33 @@
 
 @end
 
+@implementation GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContentwarehouse_GoogleCloudContentwarehouseV1RunPipelineRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:runPipeline";
+  GTLRContentwarehouseQuery_ProjectsLocationsRunPipeline *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContentwarehouse_GoogleLongrunningOperation class];
+  query.loggingName = @"contentwarehouse.projects.locations.runPipeline";
+  return query;
+}
+
+@end
+
 @implementation GTLRContentwarehouseQuery_ProjectsLocationsSynonymSetsCreate
 
 @dynamic parent;

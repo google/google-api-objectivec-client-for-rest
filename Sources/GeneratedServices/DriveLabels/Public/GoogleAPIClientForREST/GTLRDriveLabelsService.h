@@ -21,6 +21,41 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: See, edit, create, and delete all Google Drive labels
+ *  in your organization, and see your organization's label-related admin
+ *  policies
+ *
+ *  Value "https://www.googleapis.com/auth/drive.admin.labels"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveLabelsDriveAdminLabels;
+/**
+ *  Authorization scope: See all Google Drive labels and label-related admin
+ *  policies in your organization
+ *
+ *  Value "https://www.googleapis.com/auth/drive.admin.labels.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly;
+/**
+ *  Authorization scope: See, edit, create, and delete your Google Drive labels
+ *
+ *  Value "https://www.googleapis.com/auth/drive.labels"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveLabelsDriveLabels;
+/**
+ *  Authorization scope: See your Google Drive labels
+ *
+ *  Value "https://www.googleapis.com/auth/drive.labels.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveLabelsDriveLabelsReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRDriveLabelsService
+//
+
 /**
  *  Service for executing Drive Labels API queries.
  *

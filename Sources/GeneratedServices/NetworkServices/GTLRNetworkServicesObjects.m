@@ -1275,7 +1275,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_TlsRoute
-@dynamic createTime, descriptionProperty, gateways, meshes, name, rules,
+@dynamic createTime, descriptionProperty, gateways, labels, meshes, name, rules,
          selfLink, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1289,6 +1289,20 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
     @"rules" : [GTLRNetworkServices_TlsRouteRouteRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_TlsRoute_Labels
+//
+
+@implementation GTLRNetworkServices_TlsRoute_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

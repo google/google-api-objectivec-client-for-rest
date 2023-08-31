@@ -19,6 +19,14 @@ NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_AbuseDetectedVaria
 NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_DriveAbusiveContent = @"DRIVE_ABUSIVE_CONTENT";
 NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_LimitedDisable = @"LIMITED_DISABLE";
 
+// GTLRAlertCenter_AccessApproval.justificationReason
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleResponseToProductionAlert = @"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT";
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_JustificationUnspecified = @"JUSTIFICATION_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
+
 // GTLRAlertCenter_AccountSuspensionDetails.abuseReason
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_AccountSuspensionAbuseReasonUnspecified = @"ACCOUNT_SUSPENSION_ABUSE_REASON_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Fraud = @"FRAUD";
@@ -118,6 +126,27 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 @implementation GTLRAlertCenter_AbuseDetected
 @dynamic additionalDetails, product, subAlertId, variationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AccessApproval
+//
+
+@implementation GTLRAlertCenter_AccessApproval
+@dynamic justificationReason, officeLocation, products, requestId, scope,
+         tickets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"justificationReason" : [NSString class],
+    @"products" : [NSString class],
+    @"tickets" : [GTLRAlertCenter_SupportTicket class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -970,6 +999,16 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 @implementation GTLRAlertCenter_SuperAdminPasswordResetEvent
 @dynamic userEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SupportTicket
+//
+
+@implementation GTLRAlertCenter_SupportTicket
+@dynamic ticketId, ticketUrl;
 @end
 
 

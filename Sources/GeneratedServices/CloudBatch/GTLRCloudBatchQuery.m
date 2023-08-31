@@ -102,7 +102,7 @@
 
 @implementation GTLRCloudBatchQuery_ProjectsLocationsJobsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

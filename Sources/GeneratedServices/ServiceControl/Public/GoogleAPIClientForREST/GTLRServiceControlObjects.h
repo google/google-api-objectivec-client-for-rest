@@ -48,6 +48,9 @@
 @class GTLRServiceControl_Response;
 @class GTLRServiceControl_Response_Headers;
 @class GTLRServiceControl_ServiceAccountDelegationInfo;
+@class GTLRServiceControl_ServiceDelegationHistory;
+@class GTLRServiceControl_ServiceMetadata;
+@class GTLRServiceControl_ServiceMetadata_JobMetadata;
 @class GTLRServiceControl_Status;
 @class GTLRServiceControl_Status_Details_Item;
 @class GTLRServiceControl_ThirdPartyPrincipal;
@@ -568,6 +571,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
 @property(nonatomic, copy, nullable) NSString *serviceAccountKeyName;
 
 /**
+ *  Records the history of delegated resource access across Google services.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ServiceDelegationHistory *serviceDelegationHistory;
+
+/**
  *  The third party identification (if any) of the authenticated user making the
  *  request. When the JSON object represented here has a proto equivalent, the
  *  proto name will be indicated in the `\@type` property.
@@ -855,8 +863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
 
 
 /**
- *  Response message for the Report method. If the request contains any invalid
- *  data, the server returns an RPC error.
+ *  Response message for the Report method.
  */
 @interface GTLRServiceControl_ReportResponse : GTLRObject
 @end
@@ -1148,16 +1155,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
 /**
  *  Optional. The identifier of the container of this resource. For Google Cloud
  *  APIs, the resource container must be one of the following formats: -
- *  `projects/` - `folders/` - `organizations/` For the policy enforcement on
- *  the container level (VPCSC and Location Policy check), this field takes
- *  precedence on the container extracted from name when presents.
+ *  `projects/` - `folders/` - `organizations/` Required for the policy
+ *  enforcement on the container level (e.g. VPCSC, Location Policy check, Org
+ *  Policy check).
  */
 @property(nonatomic, copy, nullable) NSString *container;
 
 /**
- *  Optional. The location of the resource. The value must be a valid zone,
- *  region or multiregion. For example: "europe-west4" or
- *  "northamerica-northeast1-a"
+ *  Optional. The location of the resource, it must be a valid zone, region or
+ *  multiregion, for example: "europe-west4", "northamerica-northeast1-a".
+ *  Required for location policy check.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1279,6 +1286,74 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
 /** Third party identity as the real authority. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_ThirdPartyPrincipal *thirdPartyPrincipal;
 
+@end
+
+
+/**
+ *  The history of delegation across multiple services as the result of the
+ *  original user's action. Such as "service A uses its own account to do
+ *  something for user B". This differs from ServiceAccountDelegationInfo, which
+ *  only tracks the history of direct token exchanges (impersonation).
+ */
+@interface GTLRServiceControl_ServiceDelegationHistory : GTLRObject
+
+/** The original end user who initiated the request to GCP. */
+@property(nonatomic, copy, nullable) NSString *originalPrincipal;
+
+/**
+ *  Data identifying the service specific jobs or units of work that were
+ *  involved in a chain of service calls.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ServiceMetadata *> *serviceMetadata;
+
+@end
+
+
+/**
+ *  Metadata describing the service and additional service specific information
+ *  used to identify the job or unit of work at hand.
+ */
+@interface GTLRServiceControl_ServiceMetadata : GTLRObject
+
+/**
+ *  Additional metadata provided by service teams to describe service specific
+ *  job information that was triggered by the original principal.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ServiceMetadata_JobMetadata *jobMetadata;
+
+/**
+ *  A string representing the principal_subject associated with the identity.
+ *  For most identities, the format will be
+ *  `principal://iam.googleapis.com/{identity pool name}/subject/{subject)`
+ *  except for some GKE identities (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD)
+ *  that are still in the legacy format `serviceAccount:{identity pool
+ *  name}[{subject}]` If the identity is a Google account (e.g. workspace user
+ *  account or service account), this will be the email of the prefixed by
+ *  `serviceAccount:`. For example:
+ *  `serviceAccount:my-service-account\@project-1.iam.gserviceaccount.com`. If
+ *  the identity is an individual user, the identity will be formatted as:
+ *  `user:user_ABC\@email.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+/**
+ *  The service's fully qualified domain name, e.g. "dataproc.googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *serviceDomain;
+
+@end
+
+
+/**
+ *  Additional metadata provided by service teams to describe service specific
+ *  job information that was triggered by the original principal.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_ServiceMetadata_JobMetadata : GTLRObject
 @end
 
 

@@ -129,6 +129,11 @@ NSString * const kGTLRYouTubeVideoLicenseAny            = @"any";
 NSString * const kGTLRYouTubeVideoLicenseCreativeCommon = @"creativeCommon";
 NSString * const kGTLRYouTubeVideoLicenseYoutube        = @"youtube";
 
+// videoPaidProductPlacement
+NSString * const kGTLRYouTubeVideoPaidProductPlacementAny      = @"any";
+NSString * const kGTLRYouTubeVideoPaidProductPlacementTrue     = @"true";
+NSString * const kGTLRYouTubeVideoPaidProductPlacementVideoPaidProductPlacementUnspecified = @"videoPaidProductPlacementUnspecified";
+
 // videoSyndicated
 NSString * const kGTLRYouTubeVideoSyndicatedAny                = @"any";
 NSString * const kGTLRYouTubeVideoSyndicatedTrue               = @"true";
@@ -1708,8 +1713,8 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
          order, pageToken, part, publishedAfter, publishedBefore, q, regionCode,
          relatedToVideoId, relevanceLanguage, safeSearch, topicId, type,
          videoCaption, videoCategoryId, videoDefinition, videoDimension,
-         videoDuration, videoEmbeddable, videoLicense, videoSyndicated,
-         videoType;
+         videoDuration, videoEmbeddable, videoLicense,
+         videoPaidProductPlacement, videoSyndicated, videoType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

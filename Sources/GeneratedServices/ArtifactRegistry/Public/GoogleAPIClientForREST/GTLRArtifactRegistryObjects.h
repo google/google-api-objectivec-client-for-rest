@@ -16,13 +16,19 @@
 #endif
 
 @class GTLRArtifactRegistry_AptArtifact;
+@class GTLRArtifactRegistry_AptRepository;
 @class GTLRArtifactRegistry_Binding;
+@class GTLRArtifactRegistry_CleanupPolicy;
+@class GTLRArtifactRegistry_CleanupPolicyCondition;
+@class GTLRArtifactRegistry_CleanupPolicyMostRecentVersions;
 @class GTLRArtifactRegistry_DockerImage;
 @class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_DockerRepositoryConfig;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogetArtifact;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
@@ -47,7 +53,9 @@
 @class GTLRArtifactRegistry_PythonRepository;
 @class GTLRArtifactRegistry_RemoteRepositoryConfig;
 @class GTLRArtifactRegistry_Repository;
+@class GTLRArtifactRegistry_Repository_CleanupPolicies;
 @class GTLRArtifactRegistry_Repository_Labels;
+@class GTLRArtifactRegistry_SbomConfig;
 @class GTLRArtifactRegistry_Status;
 @class GTLRArtifactRegistry_Status_Details_Item;
 @class GTLRArtifactRegistry_Tag;
@@ -56,6 +64,7 @@
 @class GTLRArtifactRegistry_Version_Metadata;
 @class GTLRArtifactRegistry_VirtualRepositoryConfig;
 @class GTLRArtifactRegistry_YumArtifact;
+@class GTLRArtifactRegistry_YumRepository;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -90,6 +99,56 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Source;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_CleanupPolicy.action
+
+/**
+ *  Action not specified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_ActionUnspecified;
+/**
+ *  Delete action.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_Delete;
+/**
+ *  Keep action.
+ *
+ *  Value: "KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_Keep;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_CleanupPolicyCondition.tagState
+
+/**
+ *  Applies to all versions.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Any;
+/**
+ *  Applies to tagged versions only.
+ *
+ *  Value: "TAGGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Tagged;
+/**
+ *  Tag status not specified.
+ *
+ *  Value: "TAG_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_TagStateUnspecified;
+/**
+ *  Applies to untagged versions only.
+ *
+ *  Value: "UNTAGGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Untagged;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_DockerRepository.publicRepository
 
 /**
@@ -104,6 +163,74 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_DockerRepository_Public
  *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_DockerRepository_PublicRepository_PublicRepositoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository.repositoryBase
+
+/**
+ *  Debian.
+ *
+ *  Value: "DEBIAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Debian;
+/**
+ *  Unspecified repository base.
+ *
+ *  Value: "REPOSITORY_BASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified;
+/**
+ *  Ubuntu LTS/Pro.
+ *
+ *  Value: "UBUNTU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Ubuntu;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository.repositoryBase
+
+/**
+ *  CentOS.
+ *
+ *  Value: "CENTOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Centos;
+/**
+ *  CentOS Debug.
+ *
+ *  Value: "CENTOS_DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosDebug;
+/**
+ *  CentOS Stream.
+ *
+ *  Value: "CENTOS_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosStream;
+/**
+ *  CentOS Vault.
+ *
+ *  Value: "CENTOS_VAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosVault;
+/**
+ *  Fedora Extra Packages for Enterprise Linux (EPEL).
+ *
+ *  Value: "EPEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Epel;
+/**
+ *  Unspecified repository base.
+ *
+ *  Value: "REPOSITORY_BASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified;
+/**
+ *  Rocky.
+ *
+ *  Value: "ROCKY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Hash.type
@@ -319,6 +446,29 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_Standar
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_SbomConfig.enablementConfig
+
+/**
+ *  Disabled indicates the repository will not generate SBOMs.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled;
+/**
+ *  Unspecified config was not set. This will be interpreted as DISABLED.
+ *
+ *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified;
+/**
+ *  Inherited indicates the repository is allowed for SBOM generation, however
+ *  the actual state will be inherited from the API enablement state.
+ *
+ *  Value: "INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
 
 /**
@@ -410,12 +560,47 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Configuration for an Apt remote repository.
+ */
+@interface GTLRArtifactRegistry_AptRepository : GTLRObject
+
+/**
+ *  One of the publicly available Apt repositories supported by Artifact
+ *  Registry.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository *publicRepository;
+
+@end
+
+
+/**
  *  The metadata of an LRO from deleting multiple versions.
  */
 @interface GTLRArtifactRegistry_BatchDeleteVersionsMetadata : GTLRObject
 
 /** The versions the operation failed to delete. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *failedVersions;
+
+@end
+
+
+/**
+ *  The request to delete multiple versions across a repository.
+ */
+@interface GTLRArtifactRegistry_BatchDeleteVersionsRequest : GTLRObject
+
+/**
+ *  Required. The names of the versions to delete. A maximum of 10000 versions
+ *  can be deleted in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  If true, the request is performed without deleting data, following AIP-163.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
 @end
 
@@ -479,6 +664,105 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Artifact policy configuration for repository cleanup policies.
+ */
+@interface GTLRArtifactRegistry_CleanupPolicy : GTLRObject
+
+/**
+ *  Policy action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicy_Action_ActionUnspecified
+ *        Action not specified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicy_Action_Delete Delete action.
+ *        (Value: "DELETE")
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicy_Action_Keep Keep action.
+ *        (Value: "KEEP")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Policy condition for matching versions. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_CleanupPolicyCondition *condition;
+
+/**
+ *  The user-provided ID of the cleanup policy.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Policy condition for retaining a minimum number of versions. May only be
+ *  specified with a Keep action.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_CleanupPolicyMostRecentVersions *mostRecentVersions;
+
+@end
+
+
+/**
+ *  CleanupPolicyCondition is a set of conditions attached to a CleanupPolicy.
+ *  If multiple entries are set, all must be satisfied for the condition to be
+ *  satisfied.
+ */
+@interface GTLRArtifactRegistry_CleanupPolicyCondition : GTLRObject
+
+/** Match versions newer than a duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *newerThan;
+
+/** Match versions older than a duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *olderThan;
+
+/** Match versions by package prefix. Applied on any prefix match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageNamePrefixes;
+
+/** Match versions by tag prefix. Applied on any prefix match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagPrefixes;
+
+/**
+ *  Match versions by tag status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Any Applies
+ *        to all versions. (Value: "ANY")
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Tagged
+ *        Applies to tagged versions only. (Value: "TAGGED")
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_TagStateUnspecified
+ *        Tag status not specified. (Value: "TAG_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Untagged
+ *        Applies to untagged versions only. (Value: "UNTAGGED")
+ */
+@property(nonatomic, copy, nullable) NSString *tagState;
+
+/** DEPRECATED: Use older_than. */
+@property(nonatomic, strong, nullable) GTLRDuration *versionAge;
+
+/** Match versions by version name prefix. Applied on any prefix match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *versionNamePrefixes;
+
+@end
+
+
+/**
+ *  CleanupPolicyMostRecentVersions is an alternate condition of a CleanupPolicy
+ *  for retaining a minimum number of versions.
+ */
+@interface GTLRArtifactRegistry_CleanupPolicyMostRecentVersions : GTLRObject
+
+/**
+ *  Minimum number of versions to keep.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keepCount;
+
+/** List of package name prefixes that will apply this rule. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageNamePrefixes;
 
 @end
 
@@ -717,6 +1001,64 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Output only. The time when the File was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Publicly available Apt repositories constructed from a common repository
+ *  base and a custom repository path.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository : GTLRObject
+
+/**
+ *  A common public repository base for Apt.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Debian
+ *        Debian. (Value: "DEBIAN")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified
+ *        Unspecified repository base. (Value: "REPOSITORY_BASE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Ubuntu
+ *        Ubuntu LTS/Pro. (Value: "UBUNTU")
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryBase;
+
+/** A custom field to define a path to a specific repository from the base. */
+@property(nonatomic, copy, nullable) NSString *repositoryPath;
+
+@end
+
+
+/**
+ *  Publicly available Yum repositories constructed from a common repository
+ *  base and a custom repository path.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository : GTLRObject
+
+/**
+ *  A common public repository base for Yum.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Centos
+ *        CentOS. (Value: "CENTOS")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosDebug
+ *        CentOS Debug. (Value: "CENTOS_DEBUG")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosStream
+ *        CentOS Stream. (Value: "CENTOS_STREAM")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosVault
+ *        CentOS Vault. (Value: "CENTOS_VAULT")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Epel
+ *        Fedora Extra Packages for Enterprise Linux (EPEL). (Value: "EPEL")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified
+ *        Unspecified repository base. (Value: "REPOSITORY_BASE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky
+ *        Rocky. (Value: "ROCKY")
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryBase;
+
+/** A custom field to define a path to a specific repository from the base. */
+@property(nonatomic, copy, nullable) NSString *repositoryPath;
 
 @end
 
@@ -1471,8 +1813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1500,8 +1842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1564,7 +1906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1572,14 +1914,15 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRArtifactRegistry_Policy : GTLRObject
@@ -1732,6 +2075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_RemoteRepositoryConfig : GTLRObject
 
+/** Specific settings for an Apt remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_AptRepository *aptRepository;
+
 /**
  *  The description of the remote source.
  *
@@ -1751,6 +2097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** Specific settings for a Python remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_PythonRepository *pythonRepository;
 
+/** Specific settings for a Yum remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_YumRepository *yumRepository;
+
 @end
 
 
@@ -1758,6 +2107,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  A Repository for storing artifacts with a specific format.
  */
 @interface GTLRArtifactRegistry_Repository : GTLRObject
+
+/**
+ *  Optional. Cleanup policies for this repository. Cleanup policies indicate
+ *  when certain package versions can be automatically deleted. Map keys are
+ *  policy IDs supplied by users during policy creation. They must unique within
+ *  a repository and be under 128 characters in length.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Repository_CleanupPolicies *cleanupPolicies;
+
+/**
+ *  Optional. If true, the cleanup pipeline is prevented from deleting versions
+ *  in this repository.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cleanupPolicyDryRun;
 
 /** Output only. The time when the repository was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1858,6 +2223,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
+ *  Optional. Config and state for sbom generation for resources within this
+ *  Repository.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_SbomConfig *sbomConfig;
+
+/**
  *  Output only. The size, in bytes, of all artifact storage in this repository.
  *  Repositories that are generally available or in public preview use this to
  *  calculate storage costs.
@@ -1876,6 +2247,21 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Optional. Cleanup policies for this repository. Cleanup policies indicate
+ *  when certain package versions can be automatically deleted. Map keys are
+ *  policy IDs supplied by users during policy creation. They must unique within
+ *  a repository and be under 128 characters in length.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRArtifactRegistry_CleanupPolicy. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Repository_CleanupPolicies : GTLRObject
+@end
+
+
+/**
  *  Labels with user-defined metadata. This field may contain up to 64 entries.
  *  Label keys and values may be no longer than 63 characters. Label keys must
  *  begin with a lowercase letter and may only contain lowercase letters,
@@ -1887,6 +2273,35 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        fetch them all at once.
  */
 @interface GTLRArtifactRegistry_Repository_Labels : GTLRObject
+@end
+
+
+/**
+ *  Config for whether to generate SBOMs for resources in this repository, as
+ *  well as output fields describing current state.
+ */
+@interface GTLRArtifactRegistry_SbomConfig : GTLRObject
+
+/**
+ *  Optional. Config for whether this repository has sbom generation disabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled
+ *        Disabled indicates the repository will not generate SBOMs. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified
+ *        Unspecified config was not set. This will be interpreted as DISABLED.
+ *        (Value: "ENABLEMENT_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited
+ *        Inherited indicates the repository is allowed for SBOM generation,
+ *        however the actual state will be inherited from the API enablement
+ *        state. (Value: "INHERITED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementConfig;
+
+/** Output only. The last time this repository config was set to INHERITED. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEnableTime;
+
 @end
 
 
@@ -2333,6 +2748,20 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        package (.srpm). (Value: "SOURCE")
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
+
+@end
+
+
+/**
+ *  Configuration for a Yum remote repository.
+ */
+@interface GTLRArtifactRegistry_YumRepository : GTLRObject
+
+/**
+ *  One of the publicly available Yum repositories supported by Artifact
+ *  Registry.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository *publicRepository;
 
 @end
 

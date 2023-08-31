@@ -63,6 +63,7 @@ NSString * const kGTLRCloudResourceManager_Project_State_DeleteRequested = @"DEL
 NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudResourceManager_TagKey.purpose
+NSString * const kGTLRCloudResourceManager_TagKey_Purpose_DataGovernance = @"DATA_GOVERNANCE";
 NSString * const kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall = @"GCE_FIREWALL";
 NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
 

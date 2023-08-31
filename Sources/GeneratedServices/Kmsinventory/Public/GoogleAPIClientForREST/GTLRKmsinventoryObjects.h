@@ -83,11 +83,35 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_P
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion.algorithm
 
 /**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Ctr;
+/**
  *  AES-GCM (Galois Counter Mode) using 128-bit keys.
  *
  *  Value: "AES_128_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Ctr;
 /**
  *  AES-GCM (Galois Counter Mode) using 256-bit keys.
  *
@@ -401,11 +425,35 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate.algorithm
 
 /**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Ctr;
+/**
  *  AES-GCM (Galois Counter Mode) using 128-bit keys.
  *
  *  Value: "AES_128_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Ctr;
 /**
  *  AES-GCM (Galois Counter Mode) using 256-bit keys.
  *
@@ -993,9 +1041,19 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  supports.
  *
  *  Likely values:
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Ctr
+ *        AES-CTR (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes128Gcm
  *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
  *        "AES_128_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Ctr
+ *        AES-CTR (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")
@@ -1267,9 +1325,19 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  ENCRYPT_DECRYPT.
  *
  *  Likely values:
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Ctr
+ *        AES-CTR (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes128Gcm
  *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
  *        "AES_128_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Ctr
+ *        AES-CTR (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")

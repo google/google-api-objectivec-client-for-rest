@@ -1274,6 +1274,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub
+ *  with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables
+ *  are created automatically as part of this service.
+ *
+ *  Method: sasportal.customers.setupSasAnalytics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
+ */
+@interface GTLRSASPortalQuery_CustomersSetupSasAnalytics : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_Operation.
+ *
+ *  Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub
+ *  with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables
+ *  are created automatically as part of this service.
+ *
+ *  @param object The @c GTLRSASPortal_SetupSasAnalyticsRequest to include in
+ *    the query.
+ *
+ *  @return GTLRSASPortalQuery_CustomersSetupSasAnalytics
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_SetupSasAnalyticsRequest *)object;
+
+@end
+
+/**
  *  Deletes a device.
  *
  *  Method: sasportal.deployments.devices.delete

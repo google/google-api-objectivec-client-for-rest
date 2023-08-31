@@ -684,6 +684,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_IosRoboTest
+//
+
+@implementation GTLRTesting_IosRoboTest
+@dynamic appBundleId, appIpa, roboScript;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_IosRuntimeConfiguration
 //
 
@@ -1147,8 +1157,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TestSpecification
 @dynamic androidInstrumentationTest, androidRoboTest, androidTestLoop,
-         disablePerformanceMetrics, disableVideoRecording, iosTestLoop,
-         iosTestSetup, iosXcTest, testSetup, testTimeout;
+         disablePerformanceMetrics, disableVideoRecording, iosRoboTest,
+         iosTestLoop, iosTestSetup, iosXcTest, testSetup, testTimeout;
 @end
 
 

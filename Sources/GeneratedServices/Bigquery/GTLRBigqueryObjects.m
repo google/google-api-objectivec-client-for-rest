@@ -112,6 +112,10 @@ NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslat
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiVisionV1 = @"CLOUD_AI_VISION_V1";
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified = @"REMOTE_SERVICE_TYPE_UNSPECIFIED";
 
+// GTLRBigquery_Routine.dataGovernanceType
+NSString * const kGTLRBigquery_Routine_DataGovernanceType_DataGovernanceTypeUnspecified = @"DATA_GOVERNANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_Routine_DataGovernanceType_DataMasking = @"DATA_MASKING";
+
 // GTLRBigquery_Routine.determinismLevel
 NSString * const kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified = @"DETERMINISM_LEVEL_UNSPECIFIED";
 NSString * const kGTLRBigquery_Routine_DeterminismLevel_Deterministic = @"DETERMINISTIC";
@@ -145,6 +149,7 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64 = @"INT64";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Interval = @"INTERVAL";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Json = @"JSON";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric = @"NUMERIC";
+NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Range = @"RANGE";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_String = @"STRING";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct = @"STRUCT";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time = @"TIME";
@@ -155,6 +160,12 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified 
 NSString * const kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified = @"BOOSTER_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dart = @"DART";
 NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree = @"GBTREE";
+
+// GTLRBigquery_TrainingOptions.categoryEncodingMethod
+NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_DummyEncoding = @"DUMMY_ENCODING";
+NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_EncodingMethodUnspecified = @"ENCODING_METHOD_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_LabelEncoding = @"LABEL_ENCODING";
+NSString * const kGTLRBigquery_TrainingOptions_CategoryEncodingMethod_OneHotEncoding = @"ONE_HOT_ENCODING";
 
 // GTLRBigquery_TrainingOptions.colorSpace
 NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_ColorSpaceUnspecified = @"COLOR_SPACE_UNSPECIFIED";
@@ -269,6 +280,77 @@ NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ve = @"VE";
 NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Vn = @"VN";
 NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Za = @"ZA";
 
+// GTLRBigquery_TrainingOptions.holidayRegions
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ae = @"AE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ar = @"AR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_At = @"AT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Au = @"AU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Be = @"BE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Br = @"BR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ca = @"CA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ch = @"CH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cl = @"CL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cn = @"CN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Co = @"CO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cs = @"CS";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Cz = @"CZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_De = @"DE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Dk = @"DK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Dz = @"DZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ec = @"EC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ee = @"EE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Eg = @"EG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Emea = @"EMEA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Es = @"ES";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Fi = @"FI";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Fr = @"FR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Gb = @"GB";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Global = @"GLOBAL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Gr = @"GR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Hk = @"HK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_HolidayRegionUnspecified = @"HOLIDAY_REGION_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Hu = @"HU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Id = @"ID";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ie = @"IE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Il = @"IL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_In = @"IN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ir = @"IR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_It = @"IT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Japac = @"JAPAC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Jp = @"JP";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Kr = @"KR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Lac = @"LAC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Lv = @"LV";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ma = @"MA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Mx = @"MX";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_My = @"MY";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Na = @"NA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ng = @"NG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Nl = @"NL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_No = @"NO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Nz = @"NZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pe = @"PE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ph = @"PH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pk = @"PK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pl = @"PL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Pt = @"PT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ro = @"RO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Rs = @"RS";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ru = @"RU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sa = @"SA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Se = @"SE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sg = @"SG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Si = @"SI";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Sk = @"SK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Th = @"TH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Tr = @"TR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Tw = @"TW";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ua = @"UA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Us = @"US";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Ve = @"VE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Vn = @"VN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegions_Za = @"ZA";
+
 // GTLRBigquery_TrainingOptions.hparamTuningObjectives
 NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_Accuracy = @"ACCURACY";
 NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_AverageRank = @"AVERAGE_RANK";
@@ -304,10 +386,20 @@ NSString * const kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified = @"
 NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanLogLoss = @"MEAN_LOG_LOSS";
 NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss = @"MEAN_SQUARED_LOSS";
 
+// GTLRBigquery_TrainingOptions.modelRegistry
+NSString * const kGTLRBigquery_TrainingOptions_ModelRegistry_ModelRegistryUnspecified = @"MODEL_REGISTRY_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_ModelRegistry_VertexAi = @"VERTEX_AI";
+
 // GTLRBigquery_TrainingOptions.optimizationStrategy
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_BatchGradientDescent = @"BATCH_GRADIENT_DESCENT";
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation = @"NORMAL_EQUATION";
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified = @"OPTIMIZATION_STRATEGY_UNSPECIFIED";
+
+// GTLRBigquery_TrainingOptions.pcaSolver
+NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Auto  = @"AUTO";
+NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Full  = @"FULL";
+NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Randomized = @"RANDOMIZED";
+NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified = @"UNSPECIFIED";
 
 // GTLRBigquery_TrainingOptions.treeMethod
 NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Approx = @"APPROX";
@@ -532,6 +624,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_BigLakeConfiguration
+//
+
+@implementation GTLRBigquery_BigLakeConfiguration
+@dynamic connectionId, fileFormat, storageUri, tableFormat;
 @end
 
 
@@ -835,9 +937,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @dynamic access, creationTime, datasetReference, defaultCollation,
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultRoundingMode, defaultTableExpirationMs, descriptionProperty,
-         ETag, friendlyName, identifier, isCaseInsensitive, kind, labels,
-         lastModifiedTime, location, maxTimeTravelHours, satisfiesPzs, selfLink,
-         storageBillingModel, tags;
+         ETag, externalDatasetReference, friendlyName, identifier,
+         isCaseInsensitive, kind, labels, lastModifiedTime, location,
+         maxTimeTravelHours, satisfiesPzs, selfLink, storageBillingModel, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1218,6 +1320,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ExternalDatasetReference
+//
+
+@implementation GTLRBigquery_ExternalDatasetReference
+@dynamic connection, externalSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_FeatureValue
 //
 
@@ -1360,15 +1472,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_IndexUnusedReason
 @dynamic baseTable, code, indexName, message;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"baseTable" : @"base_table",
-    @"indexName" : @"index_name"
-  };
-  return map;
-}
-
 @end
 
 
@@ -1804,15 +1907,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_JobStatistics5
 @dynamic copiedLogicalBytes, copiedRows;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"copiedLogicalBytes" : @"copied_logical_bytes",
-    @"copiedRows" : @"copied_rows"
-  };
-  return map;
-}
-
 @end
 
 
@@ -1942,11 +2036,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @implementation GTLRBigquery_MaterializedViewDefinition
 @dynamic allowNonIncrementalDefinition, enableRefresh, lastRefreshTime,
          maxStaleness, query, refreshIntervalMs;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"allowNonIncrementalDefinition" : @"allow_non_incremental_definition" };
-}
-
 @end
 
 
@@ -1978,7 +2067,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          encryptionConfiguration, ETag, expirationTime, featureColumns,
          friendlyName, hparamSearchSpaces, hparamTrials, labelColumns, labels,
          lastModifiedTime, location, modelReference, modelType, optimalTrialIds,
-         remoteModelInfo, trainingRuns;
+         remoteModelInfo, trainingRuns, transformColumns;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1994,7 +2083,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
     @"hparamTrials" : [GTLRBigquery_HparamTuningTrial class],
     @"labelColumns" : [GTLRBigquery_StandardSqlField class],
     @"optimalTrialIds" : [NSNumber class],
-    @"trainingRuns" : [GTLRBigquery_TrainingRun class]
+    @"trainingRuns" : [GTLRBigquery_TrainingRun class],
+    @"transformColumns" : [GTLRBigquery_TransformColumn class]
   };
   return map;
 }
@@ -2400,7 +2490,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_RemoteModelInfo
-@dynamic connection, endpoint, maxBatchingRows, remoteServiceType;
+@dynamic connection, endpoint, maxBatchingRows, remoteModelVersion,
+         remoteServiceType;
 @end
 
 
@@ -2410,10 +2501,10 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_Routine
-@dynamic arguments, creationTime, definitionBody, descriptionProperty,
-         determinismLevel, ETag, importedLibraries, language, lastModifiedTime,
-         remoteFunctionOptions, returnTableType, returnType, routineReference,
-         routineType, sparkOptions, strictMode;
+@dynamic arguments, creationTime, dataGovernanceType, definitionBody,
+         descriptionProperty, determinismLevel, ETag, importedLibraries,
+         language, lastModifiedTime, remoteFunctionOptions, returnTableType,
+         returnType, routineReference, routineType, sparkOptions, strictMode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2532,11 +2623,11 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_SearchStatistics
-@dynamic indexUnusedReason, indexUsageMode;
+@dynamic indexUnusedReasons, indexUsageMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"indexUnusedReason" : [GTLRBigquery_IndexUnusedReason class]
+    @"indexUnusedReasons" : [GTLRBigquery_IndexUnusedReason class]
   };
   return map;
 }
@@ -2636,16 +2727,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_SparkStatistics
 @dynamic endpoints, loggingInfo, sparkJobId, sparkJobLocation;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"loggingInfo" : @"logging_info",
-    @"sparkJobId" : @"spark_job_id",
-    @"sparkJobLocation" : @"spark_job_location"
-  };
-  return map;
-}
-
 @end
 
 
@@ -2669,7 +2750,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_StandardSqlDataType
-@dynamic arrayElementType, structType, typeKind;
+@dynamic arrayElementType, rangeElementType, structType, typeKind;
 @end
 
 
@@ -2753,17 +2834,18 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_Table
-@dynamic cloneDefinition, clustering, creationTime, defaultCollation,
-         defaultRoundingMode, descriptionProperty, encryptionConfiguration,
-         ETag, expirationTime, externalDataConfiguration, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, materializedView,
-         maxStaleness, model, numActiveLogicalBytes, numActivePhysicalBytes,
-         numBytes, numLongTermBytes, numLongTermLogicalBytes,
-         numLongTermPhysicalBytes, numPartitions, numPhysicalBytes, numRows,
-         numTimeTravelPhysicalBytes, numTotalLogicalBytes,
-         numTotalPhysicalBytes, rangePartitioning, requirePartitionFilter,
-         schema, selfLink, snapshotDefinition, streamingBuffer,
-         tableConstraints, tableReference, timePartitioning, type, view;
+@dynamic biglakeConfiguration, cloneDefinition, clustering, creationTime,
+         defaultCollation, defaultRoundingMode, descriptionProperty,
+         encryptionConfiguration, ETag, expirationTime,
+         externalDataConfiguration, friendlyName, identifier, kind, labels,
+         lastModifiedTime, location, materializedView, maxStaleness, model,
+         numActiveLogicalBytes, numActivePhysicalBytes, numBytes,
+         numLongTermBytes, numLongTermLogicalBytes, numLongTermPhysicalBytes,
+         numPartitions, numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
+         numTotalLogicalBytes, numTotalPhysicalBytes, rangePartitioning,
+         requirePartitionFilter, schema, selfLink, snapshotDefinition,
+         streamingBuffer, tableConstraints, tableReference, timePartitioning,
+         type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2968,8 +3050,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_TableFieldSchema
 @dynamic categories, collation, defaultValueExpression, descriptionProperty,
-         fields, maxLength, mode, name, policyTags, precision, roundingMode,
-         scale, type;
+         fields, maxLength, mode, name, policyTags, precision, rangeElementType,
+         roundingMode, scale, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3018,6 +3100,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableFieldSchema_RangeElementType
+//
+
+@implementation GTLRBigquery_TableFieldSchema_RangeElementType
+@dynamic type;
 @end
 
 
@@ -3186,33 +3278,39 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_TrainingOptions
-@dynamic adjustStepChanges, approxGlobalFeatureContrib, autoArima,
-         autoArimaMaxOrder, autoArimaMinOrder, batchSize, boosterType,
-         calculatePValues, cleanSpikesAndDips, colorSpace, colsampleBylevel,
-         colsampleBynode, colsampleBytree, dartNormalizeType, dataFrequency,
-         dataSplitColumn, dataSplitEvalFraction, dataSplitMethod,
-         decomposeTimeSeries, distanceType, dropout, earlyStop,
-         enableGlobalExplain, feedbackType, hiddenUnits, holidayRegion, horizon,
+@dynamic activationFn, adjustStepChanges, approxGlobalFeatureContrib, autoArima,
+         autoArimaMaxOrder, autoArimaMinOrder, autoClassWeights, batchSize,
+         boosterType, budgetHours, calculatePValues, categoryEncodingMethod,
+         cleanSpikesAndDips, colorSpace, colsampleBylevel, colsampleBynode,
+         colsampleBytree, dartNormalizeType, dataFrequency, dataSplitColumn,
+         dataSplitEvalFraction, dataSplitMethod, decomposeTimeSeries,
+         distanceType, dropout, earlyStop, enableGlobalExplain, feedbackType,
+         fitIntercept, hiddenUnits, holidayRegion, holidayRegions, horizon,
          hparamTuningObjectives, includeDrift, initialLearnRate,
          inputLabelColumns, instanceWeightColumn, integratedGradientsNumSteps,
          itemColumn, kmeansInitializationColumn, kmeansInitializationMethod,
-         l1Regularization, l2Regularization, labelClassWeights, learnRate,
-         learnRateStrategy, lossType, maxIterations, maxParallelTrials,
-         maxTimeSeriesLength, maxTreeDepth, minRelativeProgress, minSplitLoss,
-         minTimeSeriesLength, minTreeChildWeight, modelUri, nonSeasonalOrder,
-         numClusters, numFactors, numParallelTree, numTrials,
-         optimizationStrategy, sampledShapleyNumPaths, subsample, tfVersion,
-         timeSeriesDataColumn, timeSeriesIdColumn, timeSeriesIdColumns,
-         timeSeriesLengthFraction, timeSeriesTimestampColumn, treeMethod,
-         trendSmoothingWindowSize, userColumn, walsAlpha, warmStart,
+         l1RegActivation, l1Regularization, l2Regularization, labelClassWeights,
+         learnRate, learnRateStrategy, lossType, maxIterations,
+         maxParallelTrials, maxTimeSeriesLength, maxTreeDepth,
+         minRelativeProgress, minSplitLoss, minTimeSeriesLength,
+         minTreeChildWeight, modelRegistry, modelUri, nonSeasonalOrder,
+         numClusters, numFactors, numParallelTree, numPrincipalComponents,
+         numTrials, optimizationStrategy, optimizer, pcaExplainedVarianceRatio,
+         pcaSolver, sampledShapleyNumPaths, scaleFeatures, standardizeFeatures,
+         subsample, tfVersion, timeSeriesDataColumn, timeSeriesIdColumn,
+         timeSeriesIdColumns, timeSeriesLengthFraction,
+         timeSeriesTimestampColumn, treeMethod, trendSmoothingWindowSize,
+         userColumn, vertexAiModelVersionAliases, walsAlpha, warmStart,
          xgboostVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"hiddenUnits" : [NSNumber class],
+    @"holidayRegions" : [NSString class],
     @"hparamTuningObjectives" : [NSString class],
     @"inputLabelColumns" : [NSString class],
-    @"timeSeriesIdColumns" : [NSString class]
+    @"timeSeriesIdColumns" : [NSString class],
+    @"vertexAiModelVersionAliases" : [NSString class]
   };
   return map;
 }
@@ -3262,6 +3360,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_TransactionInfo
 @dynamic transactionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TransformColumn
+//
+
+@implementation GTLRBigquery_TransformColumn
+@dynamic name, transformSql, type;
 @end
 
 

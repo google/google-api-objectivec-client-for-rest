@@ -421,8 +421,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 @implementation GTLRStreetViewPublish_PhotoSequence
 @dynamic captureTimeOverride, distanceMeters, failureDetails, failureReason,
          filename, gpsSource, identifier, imu, photos, processingState,
-         rawGpsTimeline, sequenceBounds, takedown, uploadReference, uploadTime,
-         viewCount;
+         rawGpsTimeline, sequenceBounds, uploadReference, uploadTime, viewCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

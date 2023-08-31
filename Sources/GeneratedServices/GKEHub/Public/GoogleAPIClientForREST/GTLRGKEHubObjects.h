@@ -59,11 +59,18 @@
 @class GTLRGKEHub_FeatureResourceState;
 @class GTLRGKEHub_FeatureState;
 @class GTLRGKEHub_Fleet;
+@class GTLRGKEHub_Fleet_Labels;
 @class GTLRGKEHub_FleetLifecycleState;
+@class GTLRGKEHub_FleetObservabilityFeatureError;
 @class GTLRGKEHub_FleetObservabilityFeatureSpec;
 @class GTLRGKEHub_FleetObservabilityFeatureState;
+@class GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState;
+@class GTLRGKEHub_FleetObservabilityFleetObservabilityLoggingState;
+@class GTLRGKEHub_FleetObservabilityFleetObservabilityMonitoringState;
+@class GTLRGKEHub_FleetObservabilityLoggingConfig;
 @class GTLRGKEHub_FleetObservabilityMembershipSpec;
 @class GTLRGKEHub_FleetObservabilityMembershipState;
+@class GTLRGKEHub_FleetObservabilityRoutingConfig;
 @class GTLRGKEHub_GkeCluster;
 @class GTLRGKEHub_GoogleRpcStatus;
 @class GTLRGKEHub_GoogleRpcStatus_Details_Item;
@@ -81,6 +88,7 @@
 @class GTLRGKEHub_Membership;
 @class GTLRGKEHub_Membership_Labels;
 @class GTLRGKEHub_MembershipBinding;
+@class GTLRGKEHub_MembershipBinding_Labels;
 @class GTLRGKEHub_MembershipBindingLifecycleState;
 @class GTLRGKEHub_MembershipEndpoint;
 @class GTLRGKEHub_MembershipFeatureSpec;
@@ -89,15 +97,25 @@
 @class GTLRGKEHub_MonitoringConfig;
 @class GTLRGKEHub_MultiCloudCluster;
 @class GTLRGKEHub_MultiClusterIngressFeatureSpec;
+@class GTLRGKEHub_Namespace;
+@class GTLRGKEHub_Namespace_Labels;
+@class GTLRGKEHub_Namespace_NamespaceLabels;
+@class GTLRGKEHub_NamespaceLifecycleState;
 @class GTLRGKEHub_OnPremCluster;
 @class GTLRGKEHub_Operation;
 @class GTLRGKEHub_Operation_Metadata;
 @class GTLRGKEHub_Operation_Response;
 @class GTLRGKEHub_Origin;
 @class GTLRGKEHub_Policy;
+@class GTLRGKEHub_RBACRoleBinding;
+@class GTLRGKEHub_RBACRoleBinding_Labels;
+@class GTLRGKEHub_RBACRoleBindingLifecycleState;
 @class GTLRGKEHub_ResourceManifest;
 @class GTLRGKEHub_ResourceOptions;
+@class GTLRGKEHub_Role;
 @class GTLRGKEHub_Scope;
+@class GTLRGKEHub_Scope_Labels;
+@class GTLRGKEHub_Scope_NamespaceLabels;
 @class GTLRGKEHub_ScopeFeatureSpec;
 @class GTLRGKEHub_ScopeFeatureState;
 @class GTLRGKEHub_ScopeLifecycleState;
@@ -581,37 +599,37 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerM
 // GTLRGKEHub_ConfigManagementSyncState.code
 
 /**
- *  Indicates an error configuring ACM, and user action is required
+ *  Indicates an error configuring Config Sync, and user action is required
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Error;
 /**
- *  ACM has been installed (operator manifest deployed), but not configured.
+ *  Config Sync has been installed but not configured
  *
  *  Value: "NOT_CONFIGURED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured;
 /**
- *  ACM has not been installed (no operator pod found)
+ *  Config Sync has not been installed
  *
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled;
 /**
- *  ACM is in the progress of syncing a new change
+ *  Config Sync is in the progress of syncing a new change
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Pending;
 /**
- *  ACM cannot determine a sync code
+ *  Config Sync cannot determine a sync code
  *
  *  Value: "SYNC_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified;
 /**
- *  ACM successfully synced the git Repo with the cluster
+ *  Config Sync successfully synced the git Repo with the cluster
  *
  *  Value: "SYNCED"
  */
@@ -740,6 +758,52 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState.code
+
+/**
+ *  Unknown or not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_CodeUnspecified;
+/**
+ *  The Feature is encountering errors in the reconciliation. The Feature may
+ *  need intervention to return to normal operation. See the description and any
+ *  associated Feature-specific details for more information.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Error;
+/**
+ *  The Feature is operating normally.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Ok;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_FleetObservabilityRoutingConfig.mode
+
+/**
+ *  logs will be copied to the destination project.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Copy;
+/**
+ *  If UNSPECIFIED, fleet logging feature is disabled.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_ModeUnspecified;
+/**
+ *  logs will be moved to the destination project.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Move;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_IdentityServiceMembershipState.state
 
 /**
@@ -836,6 +900,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdat
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_NamespaceLifecycleState.code
+
+/**
+ *  The code is not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_CodeUnspecified;
+/**
+ *  The namespace is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Creating;
+/**
+ *  The namespace is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Deleting;
+/**
+ *  The namespace active.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Ready;
+/**
+ *  The namespace is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_OnPremCluster.clusterType
 
 /**
@@ -879,6 +977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_Fleet;
 /**
+ *  Per-Membership spec was inherited from the fleet-level default but is now
+ *  out of sync with the current default.
+ *
+ *  Value: "FLEET_OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_FleetOutOfSync;
+/**
  *  Type is unknown or not set.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -890,6 +995,75 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified;
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_RBACRoleBindingLifecycleState.code
+
+/**
+ *  The code is not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_CodeUnspecified;
+/**
+ *  The rbacrolebinding is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Creating;
+/**
+ *  The rbacrolebinding is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Deleting;
+/**
+ *  The rbacrolebinding active.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Ready;
+/**
+ *  The rbacrolebinding is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_Role.predefinedRole
+
+/**
+ *  ADMIN has EDIT and RBAC permissions
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Role_PredefinedRole_Admin;
+/**
+ *  ANTHOS_SUPPORT gives Google Support read-only access to a number of cluster
+ *  resources.
+ *
+ *  Value: "ANTHOS_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Role_PredefinedRole_AnthosSupport;
+/**
+ *  EDIT can edit all resources except RBAC
+ *
+ *  Value: "EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Role_PredefinedRole_Edit;
+/**
+ *  UNKNOWN
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Role_PredefinedRole_Unknown;
+/**
+ *  VIEW can only read resources
+ *
+ *  Value: "VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Role_PredefinedRole_View;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ScopeLifecycleState.code
@@ -1407,8 +1581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Config Sync metrics to Cloud Monitoring and Cloud Monarch when Workload
  *  Identity is enabled. The GSA should have the Monitoring Metric Writer
  *  (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount
- *  `default` in the namespace `config-management-monitoring` should be binded
- *  to the GSA. This field is required when automatic Feature management is
+ *  `default` in the namespace `config-management-monitoring` should be bound to
+ *  the GSA. This field is required when automatic Feature management is
  *  enabled.
  */
 @property(nonatomic, copy, nullable) NSString *metricsGcpServiceAccountEmail;
@@ -2200,18 +2374,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Error Indicates an
- *        error configuring ACM, and user action is required (Value: "ERROR")
- *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured ACM has
- *        been installed (operator manifest deployed), but not configured.
- *        (Value: "NOT_CONFIGURED")
- *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled ACM has
- *        not been installed (no operator pod found) (Value: "NOT_INSTALLED")
- *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Pending ACM is in the
- *        progress of syncing a new change (Value: "PENDING")
- *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified ACM
- *        cannot determine a sync code (Value: "SYNC_CODE_UNSPECIFIED")
- *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Synced ACM successfully
- *        synced the git Repo with the cluster (Value: "SYNCED")
+ *        error configuring Config Sync, and user action is required (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured Config
+ *        Sync has been installed but not configured (Value: "NOT_CONFIGURED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled Config
+ *        Sync has not been installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Pending Config Sync is
+ *        in the progress of syncing a new change (Value: "PENDING")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified
+ *        Config Sync cannot determine a sync code (Value:
+ *        "SYNC_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Synced Config Sync
+ *        successfully synced the git Repo with the cluster (Value: "SYNCED")
  *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Unauthorized Error
  *        authorizing with the cluster (Value: "UNAUTHORIZED")
  *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Unreachable Cluster
@@ -2613,6 +2788,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Optional. Labels for this Fleet. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Fleet_Labels *labels;
+
 /**
  *  Output only. The full, unique resource name of this fleet in the format of
  *  `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud
@@ -2633,6 +2811,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. When the Fleet was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Labels for this Fleet.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Fleet_Labels : GTLRObject
 @end
 
 
@@ -2662,10 +2852,35 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  All error details of the fleet observability feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityFeatureError : GTLRObject
+
+/** The code of the error. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A human-readable description of the current status.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
  *  **Fleet Observability**: The Hub-wide input for the FleetObservability
  *  feature.
  */
 @interface GTLRGKEHub_FleetObservabilityFeatureSpec : GTLRObject
+
+/**
+ *  Specified if fleet logging feature is enabled for the entire fleet. If
+ *  UNSPECIFIED, fleet logging feature is disabled for the entire fleet.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityLoggingConfig *loggingConfig;
+
 @end
 
 
@@ -2674,6 +2889,87 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  state.
  */
 @interface GTLRGKEHub_FleetObservabilityFeatureState : GTLRObject
+
+/** The feature state of default logging. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFleetObservabilityLoggingState *logging;
+
+/** The feature state of fleet monitoring. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFleetObservabilityMonitoringState *monitoring;
+
+@end
+
+
+/**
+ *  Base state for fleet observability feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState : GTLRObject
+
+/**
+ *  The high-level, machine-readable status of this Feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_CodeUnspecified
+ *        Unknown or not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Error
+ *        The Feature is encountering errors in the reconciliation. The Feature
+ *        may need intervention to return to normal operation. See the
+ *        description and any associated Feature-specific details for more
+ *        information. (Value: "ERROR")
+ *    @arg @c kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Ok
+ *        The Feature is operating normally. (Value: "OK")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Errors after reconciling the monitoring and logging feature if the code is
+ *  not OK.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_FleetObservabilityFeatureError *> *errors;
+
+@end
+
+
+/**
+ *  Feature state for logging feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityFleetObservabilityLoggingState : GTLRObject
+
+/** The base feature state of fleet default log. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState *defaultLog;
+
+/** The base feature state of fleet scope log. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState *scopeLog;
+
+@end
+
+
+/**
+ *  Feature state for monitoring feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityFleetObservabilityMonitoringState : GTLRObject
+
+/** The base feature state of fleet monitoring feature. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState *state;
+
+@end
+
+
+/**
+ *  LoggingConfig defines the configuration for different types of logs.
+ */
+@interface GTLRGKEHub_FleetObservabilityLoggingConfig : GTLRObject
+
+/**
+ *  Specified if applying the default routing config to logs not specified in
+ *  other configs.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityRoutingConfig *defaultConfig;
+
+/**
+ *  Specified if applying the routing config to all logs for all fleet scopes.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityRoutingConfig *fleetScopeLogsConfig;
+
 @end
 
 
@@ -2690,6 +2986,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  fleetobservability.
  */
 @interface GTLRGKEHub_FleetObservabilityMembershipState : GTLRObject
+@end
+
+
+/**
+ *  RoutingConfig configures the behaviour of fleet logging feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityRoutingConfig : GTLRObject
+
+/**
+ *  mode configures the logs routing mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Copy logs will be
+ *        copied to the destination project. (Value: "COPY")
+ *    @arg @c kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_ModeUnspecified
+ *        If UNSPECIFIED, fleet logging feature is disabled. (Value:
+ *        "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Move logs will be
+ *        moved to the destination project. (Value: "MOVE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
 @end
 
 
@@ -2786,7 +3104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** AzureAD specific Configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceAzureADConfig *azureadConfig;
 
-/** GoogleConfig specific configuration */
+/** GoogleConfig specific configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceGoogleConfig *googleConfig;
 
 /** Identifier for auth config. */
@@ -2834,6 +3152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  accounts belonging to a specific tenant.
  */
 @property(nonatomic, copy, nullable) NSString *tenant;
+
+/** Optional. Claim in the AzureAD ID Token that holds the user details. */
+@property(nonatomic, copy, nullable) NSString *userClaim;
 
 @end
 
@@ -3230,6 +3551,62 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  List of fleet namespaces.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scopeNamespaces" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGKEHub_ListScopeNamespacesResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the `ListNamespaces`
+ *  method. The value of an empty string means that there are no more resources
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of fleet namespaces
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Namespace *> *scopeNamespaces;
+
+@end
+
+
+/**
+ *  List of Scope RBACRoleBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rbacrolebindings" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGKEHub_ListScopeRBACRoleBindingsResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the
+ *  `ListScopeRBACRoleBindings` method. The value of an empty string means that
+ *  there are no more resources to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Scope RBACRoleBindings.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_RBACRoleBinding *> *rbacrolebindings;
+
+@end
+
+
+/**
  *  List of Scopes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3421,13 +3798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. When the membership binding was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/**
- *  Whether the membershipbinding is Fleet-wide; true means that this Membership
- *  should be bound to all Namespaces in this entire Fleet.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fleet;
+/** Optional. Labels for this MembershipBinding. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_MembershipBinding_Labels *labels;
 
 /**
  *  The resource name for the membershipbinding itself
@@ -3453,6 +3825,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. When the membership binding was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Labels for this MembershipBinding.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_MembershipBinding_Labels : GTLRObject
 @end
 
 
@@ -3693,6 +4077,107 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Namespace represents a namespace across the Fleet
+ */
+@interface GTLRGKEHub_Namespace : GTLRObject
+
+/** Output only. When the namespace was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the namespace was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/** Optional. Labels for this Namespace. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Namespace_Labels *labels;
+
+/**
+ *  The resource name for the namespace
+ *  `projects/{project}/locations/{location}/namespaces/{namespace}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Namespace-level cluster namespace labels. These labels are applied
+ *  to the related namespace of the member clusters bound to the parent Scope.
+ *  Scope-level labels (`namespace_labels` in the Fleet Scope resource) take
+ *  precedence over Namespace-level labels if they share a key. Keys and values
+ *  must be Kubernetes-conformant.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Namespace_NamespaceLabels *namespaceLabels;
+
+/** Required. Scope associated with the namespace */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/** Output only. State of the namespace resource. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_NamespaceLifecycleState *state;
+
+/**
+ *  Output only. Google-generated UUID for this resource. This is unique across
+ *  all namespace resources. If a namespace resource is deleted and another
+ *  resource with the same name is created, it gets a different uid.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. When the namespace was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels for this Namespace.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Namespace_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Namespace-level cluster namespace labels. These labels are applied
+ *  to the related namespace of the member clusters bound to the parent Scope.
+ *  Scope-level labels (`namespace_labels` in the Fleet Scope resource) take
+ *  precedence over Namespace-level labels if they share a key. Keys and values
+ *  must be Kubernetes-conformant.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Namespace_NamespaceLabels : GTLRObject
+@end
+
+
+/**
+ *  NamespaceLifecycleState describes the state of a Namespace resource.
+ */
+@interface GTLRGKEHub_NamespaceLifecycleState : GTLRObject
+
+/**
+ *  Output only. The current state of the Namespace resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_NamespaceLifecycleState_Code_CodeUnspecified The code
+ *        is not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_NamespaceLifecycleState_Code_Creating The namespace is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRGKEHub_NamespaceLifecycleState_Code_Deleting The namespace is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRGKEHub_NamespaceLifecycleState_Code_Ready The namespace
+ *        active. (Value: "READY")
+ *    @arg @c kGTLRGKEHub_NamespaceLifecycleState_Code_Updating The namespace is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
  *  OnPremCluster contains information specific to GKE On-Prem clusters.
  */
 @interface GTLRGKEHub_OnPremCluster : GTLRObject
@@ -3775,8 +4260,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3804,8 +4289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3870,6 +4355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Likely values:
  *    @arg @c kGTLRGKEHub_Origin_Type_Fleet Per-Membership spec was inherited
  *        from the fleet-level default. (Value: "FLEET")
+ *    @arg @c kGTLRGKEHub_Origin_Type_FleetOutOfSync Per-Membership spec was
+ *        inherited from the fleet-level default but is now out of sync with the
+ *        current default. (Value: "FLEET_OUT_OF_SYNC")
  *    @arg @c kGTLRGKEHub_Origin_Type_TypeUnspecified Type is unknown or not
  *        set. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGKEHub_Origin_Type_User Per-Membership spec was inherited
@@ -3893,7 +4381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -3901,14 +4389,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRGKEHub_Policy : GTLRObject
@@ -3971,6 +4460,94 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  RBACRoleBinding represents a rbacrolebinding across the Fleet
+ */
+@interface GTLRGKEHub_RBACRoleBinding : GTLRObject
+
+/** Output only. When the rbacrolebinding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the rbacrolebinding was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/** group is the group, as seen by the kubernetes cluster. */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** Optional. Labels for this RBACRolebinding. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_RBACRoleBinding_Labels *labels;
+
+/**
+ *  The resource name for the rbacrolebinding
+ *  `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *  or
+ *  `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Role to bind to the principal */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Role *role;
+
+/** Output only. State of the rbacrolebinding resource. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_RBACRoleBindingLifecycleState *state;
+
+/**
+ *  Output only. Google-generated UUID for this resource. This is unique across
+ *  all rbacrolebinding resources. If a rbacrolebinding resource is deleted and
+ *  another resource with the same name is created, it gets a different uid.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. When the rbacrolebinding was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  user is the name of the user as seen by the kubernetes cluster, example
+ *  "alice" or "alice\@domain.tld"
+ */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
+ *  Optional. Labels for this RBACRolebinding.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_RBACRoleBinding_Labels : GTLRObject
+@end
+
+
+/**
+ *  RBACRoleBindingLifecycleState describes the state of a RbacRoleBinding
+ *  resource.
+ */
+@interface GTLRGKEHub_RBACRoleBindingLifecycleState : GTLRObject
+
+/**
+ *  Output only. The current state of the rbacrolebinding resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_CodeUnspecified The
+ *        code is not set. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Creating The
+ *        rbacrolebinding is being created. (Value: "CREATING")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Deleting The
+ *        rbacrolebinding is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Ready The
+ *        rbacrolebinding active. (Value: "READY")
+ *    @arg @c kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Updating The
+ *        rbacrolebinding is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
  *  ResourceManifest represents a single Kubernetes resource to be applied to
  *  the cluster.
  */
@@ -4023,6 +4600,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Role is the type for Kubernetes roles
+ */
+@interface GTLRGKEHub_Role : GTLRObject
+
+/**
+ *  predefined_role is the Kubernetes default role to use
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_Role_PredefinedRole_Admin ADMIN has EDIT and RBAC
+ *        permissions (Value: "ADMIN")
+ *    @arg @c kGTLRGKEHub_Role_PredefinedRole_AnthosSupport ANTHOS_SUPPORT gives
+ *        Google Support read-only access to a number of cluster resources.
+ *        (Value: "ANTHOS_SUPPORT")
+ *    @arg @c kGTLRGKEHub_Role_PredefinedRole_Edit EDIT can edit all resources
+ *        except RBAC (Value: "EDIT")
+ *    @arg @c kGTLRGKEHub_Role_PredefinedRole_Unknown UNKNOWN (Value: "UNKNOWN")
+ *    @arg @c kGTLRGKEHub_Role_PredefinedRole_View VIEW can only read resources
+ *        (Value: "VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *predefinedRole;
+
+@end
+
+
+/**
  *  Scope represents a Scope in a Fleet.
  */
 @interface GTLRGKEHub_Scope : GTLRObject
@@ -4040,11 +4642,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. When the scope was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
+/** Optional. Labels for this Scope. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Scope_Labels *labels;
+
 /**
  *  The resource name for the scope
  *  `projects/{project}/locations/{location}/scopes/{scope}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Scope-level cluster namespace labels. For the member clusters
+ *  bound to the Scope, these labels are applied to each namespace under the
+ *  Scope. Scope-level labels take precedence over Namespace-level labels
+ *  (`namespace_labels` in the Fleet Namespace resource) if they share a key.
+ *  Keys and values must be Kubernetes-conformant.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Scope_NamespaceLabels *namespaceLabels;
 
 /** Output only. State of the scope resource. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ScopeLifecycleState *state;
@@ -4059,6 +4673,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Output only. When the scope was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Labels for this Scope.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Scope_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Scope-level cluster namespace labels. For the member clusters
+ *  bound to the Scope, these labels are applied to each namespace under the
+ *  Scope. Scope-level labels take precedence over Namespace-level labels
+ *  (`namespace_labels` in the Fleet Namespace resource) if they share a key.
+ *  Keys and values must be Kubernetes-conformant.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Scope_NamespaceLabels : GTLRObject
 @end
 
 

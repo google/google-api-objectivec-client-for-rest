@@ -49,6 +49,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Metadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Response;
@@ -129,6 +130,34 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse.state
+
+/**
+ *  Domain Migration is Disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Disabled;
+/**
+ *  Domain Migration is Enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Enabled;
+/**
+ *  Domain Migration is not in valid state.
+ *
+ *  Value: "NEEDS_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_NeedsMaintenance;
+/**
+ *  DomainMigration is in unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain.state
@@ -278,6 +307,28 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails.sidFilteringState
+
+/**
+ *  SID Filtering is Disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Disabled;
+/**
+ *  SID Filtering is Enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Enabled;
+/**
+ *  SID Filtering is in unspecified state.
+ *
+ *  Value: "SID_FILTERING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_SidFilteringStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.state
@@ -702,6 +753,43 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /** The certificate thumbprint which uniquely identifies the certificate. */
 @property(nonatomic, copy, nullable) NSString *thumbprint;
+
+@end
+
+
+/**
+ *  CheckMigrationPermissionRequest is the request message for
+ *  CheckMigrationPermission method.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest : GTLRObject
+@end
+
+
+/**
+ *  CheckMigrationPermissionResponse is the response message for
+ *  CheckMigrationPermission method.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse : GTLRObject
+
+/**
+ *  The state of SID filtering of all the domains which has trust established.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails *> *onpremDomains;
+
+/**
+ *  The state of DomainMigration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Disabled
+ *        Domain Migration is Disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Enabled
+ *        Domain Migration is Enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_NeedsMaintenance
+ *        Domain Migration is not in valid state. (Value: "NEEDS_MAINTENANCE")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_StateUnspecified
+ *        DomainMigration is in unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2062,6 +2150,32 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /** Required. FQDN of the on-prem domain being migrated. */
 @property(nonatomic, copy, nullable) NSString *domainName;
+
+@end
+
+
+/**
+ *  OnPremDomainDetails is the message which contains details of on-prem domain
+ *  which is trusted and needs to be migrated.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails : GTLRObject
+
+/** FQDN of the on-prem domain being migrated. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Current SID filtering state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Disabled
+ *        SID Filtering is Disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Enabled
+ *        SID Filtering is Enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_SidFilteringStateUnspecified
+ *        SID Filtering is in unspecified state. (Value:
+ *        "SID_FILTERING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sidFilteringState;
 
 @end
 

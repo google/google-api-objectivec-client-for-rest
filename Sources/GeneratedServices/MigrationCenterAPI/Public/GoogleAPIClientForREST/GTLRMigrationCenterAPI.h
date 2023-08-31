@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migration Center API (migrationcenter/v1alpha1)
+//   Migration Center API (migrationcenter/v1)
 // Description:
 //   A unified platform that helps you accelerate your end-to-end cloud journey
 //   from your current on-premises or cloud environments to Google Cloud.

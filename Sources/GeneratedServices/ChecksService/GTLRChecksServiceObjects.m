@@ -14,6 +14,245 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRChecksService_GoogleChecksReportV1alphaAppBundle.releaseType
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAppBundle_ReleaseType_AppBundleReleaseTypeUnspecified = @"APP_BUNDLE_RELEASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAppBundle_ReleaseType_PreRelease = @"PRE_RELEASE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAppBundle_ReleaseType_Public = @"PUBLIC";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheck.severity
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Severity_CheckSeverityUnspecified = @"CHECK_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Severity_Opportunity = @"OPPORTUNITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Severity_Potential = @"POTENTIAL";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Severity_Priority = @"PRIORITY";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheck.state
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_State_CheckStateUnspecified = @"CHECK_STATE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_State_Failed = @"FAILED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_State_Passed = @"PASSED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_State_Unchecked = @"UNCHECKED";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheck.type
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_CheckTypeUnspecified = @"CHECK_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringCriticalSdkIssue = @"DATA_MONITORING_CRITICAL_SDK_ISSUE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringEncryption = @"DATA_MONITORING_ENCRYPTION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringEndpointsDenylistViolation = @"DATA_MONITORING_ENDPOINTS_DENYLIST_VIOLATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewDataType = @"DATA_MONITORING_NEW_DATA_TYPE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewDataTypeVersionDiff = @"DATA_MONITORING_NEW_DATA_TYPE_VERSION_DIFF";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewEndpoint = @"DATA_MONITORING_NEW_ENDPOINT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewEndpointVersionDiff = @"DATA_MONITORING_NEW_ENDPOINT_VERSION_DIFF";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewPermission = @"DATA_MONITORING_NEW_PERMISSION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewPermissionVersionDiff = @"DATA_MONITORING_NEW_PERMISSION_VERSION_DIFF";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewSdk = @"DATA_MONITORING_NEW_SDK";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewSdkVersionDiff = @"DATA_MONITORING_NEW_SDK_VERSION_DIFF";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringOutdatedSdkVersion = @"DATA_MONITORING_OUTDATED_SDK_VERSION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringPermissionsDenylistViolation = @"DATA_MONITORING_PERMISSIONS_DENYLIST_VIOLATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringSdksDenylistViolation = @"DATA_MONITORING_SDKS_DENYLIST_VIOLATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyAffiliationMention = @"PRIVACY_POLICY_AFFILIATION_MENTION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyBrazilLgpdGeneralRules = @"PRIVACY_POLICY_BRAZIL_LGPD_GENERAL_RULES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyCcpaGeneralRules = @"PRIVACY_POLICY_CCPA_GENERAL_RULES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyChildrenGeneralRules = @"PRIVACY_POLICY_CHILDREN_GENERAL_RULES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyChildrenInfoCollection = @"PRIVACY_POLICY_CHILDREN_INFO_COLLECTION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyChildrenInfoDisclosurePractices = @"PRIVACY_POLICY_CHILDREN_INFO_DISCLOSURE_PRACTICES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyChildrenInfoPublicity = @"PRIVACY_POLICY_CHILDREN_INFO_PUBLICITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyChildrenInfoUsagePurposes = @"PRIVACY_POLICY_CHILDREN_INFO_USAGE_PURPOSES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyCollectionCategoriesDataNotice = @"PRIVACY_POLICY_COLLECTION_CATEGORIES_DATA_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyContactDetailsNotice = @"PRIVACY_POLICY_CONTACT_DETAILS_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataControllerIdentity = @"PRIVACY_POLICY_DATA_CONTROLLER_IDENTITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataRetentionNotice = @"PRIVACY_POLICY_DATA_RETENTION_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeAppsOnDevice = @"PRIVACY_POLICY_DATA_TYPE_APPS_ON_DEVICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeContacts = @"PRIVACY_POLICY_DATA_TYPE_CONTACTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeDeviceId = @"PRIVACY_POLICY_DATA_TYPE_DEVICE_ID";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeHealthAndBiometric = @"PRIVACY_POLICY_DATA_TYPE_HEALTH_AND_BIOMETRIC";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypePhoneNumber = @"PRIVACY_POLICY_DATA_TYPE_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypePii = @"PRIVACY_POLICY_DATA_TYPE_PII";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypePiiCategories = @"PRIVACY_POLICY_DATA_TYPE_PII_CATEGORIES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypePreciseLocation = @"PRIVACY_POLICY_DATA_TYPE_PRECISE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeTextMessages = @"PRIVACY_POLICY_DATA_TYPE_TEXT_MESSAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeUserAccountInfo = @"PRIVACY_POLICY_DATA_TYPE_USER_ACCOUNT_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDpoContactDetails = @"PRIVACY_POLICY_DPO_CONTACT_DETAILS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyGdprGeneralRules = @"PRIVACY_POLICY_GDPR_GENERAL_RULES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyLegalBasis = @"PRIVACY_POLICY_LEGAL_BASIS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyMethodToOptOutFromSellingOrSharingNotice = @"PRIVACY_POLICY_METHOD_TO_OPT_OUT_FROM_SELLING_OR_SHARING_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsMethodOfInfoDeletion = @"PRIVACY_POLICY_PARENTS_METHOD_OF_INFO_DELETION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsMethodToInfoReview = @"PRIVACY_POLICY_PARENTS_METHOD_TO_INFO_REVIEW";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsMethodToStopFurtherInfoCollectionUse = @"PRIVACY_POLICY_PARENTS_METHOD_TO_STOP_FURTHER_INFO_COLLECTION_USE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsRightToInfoDeletion = @"PRIVACY_POLICY_PARENTS_RIGHT_TO_INFO_DELETION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsRightToInfoReview = @"PRIVACY_POLICY_PARENTS_RIGHT_TO_INFO_REVIEW";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyParentsRightToStopFurtherInfoCollectionUse = @"PRIVACY_POLICY_PARENTS_RIGHT_TO_STOP_FURTHER_INFO_COLLECTION_USE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyProcessingPurposeDataNotice = @"PRIVACY_POLICY_PROCESSING_PURPOSE_DATA_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslAddress = @"PRIVACY_POLICY_PSL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslAppInteractions = @"PRIVACY_POLICY_PSL_APP_INTERACTIONS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslApproximateLocation = @"PRIVACY_POLICY_PSL_APPROXIMATE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslCalendarEvents = @"PRIVACY_POLICY_PSL_CALENDAR_EVENTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslContacts = @"PRIVACY_POLICY_PSL_CONTACTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslCrashLogs = @"PRIVACY_POLICY_PSL_CRASH_LOGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslCreditScore = @"PRIVACY_POLICY_PSL_CREDIT_SCORE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslDeviceOrOtherIds = @"PRIVACY_POLICY_PSL_DEVICE_OR_OTHER_IDS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslDiagnostics = @"PRIVACY_POLICY_PSL_DIAGNOSTICS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslEmailAddress = @"PRIVACY_POLICY_PSL_EMAIL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslEmailMessages = @"PRIVACY_POLICY_PSL_EMAIL_MESSAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslFilesAndDocs = @"PRIVACY_POLICY_PSL_FILES_AND_DOCS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslFitnessInfo = @"PRIVACY_POLICY_PSL_FITNESS_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslHealthInfo = @"PRIVACY_POLICY_PSL_HEALTH_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslInAppSearchHistory = @"PRIVACY_POLICY_PSL_IN_APP_SEARCH_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslInstalledApps = @"PRIVACY_POLICY_PSL_INSTALLED_APPS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslMusicFiles = @"PRIVACY_POLICY_PSL_MUSIC_FILES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslName = @"PRIVACY_POLICY_PSL_NAME";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslPhoneNumber = @"PRIVACY_POLICY_PSL_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslPhotos = @"PRIVACY_POLICY_PSL_PHOTOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslPreciseLocation = @"PRIVACY_POLICY_PSL_PRECISE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslPurchaseHistory = @"PRIVACY_POLICY_PSL_PURCHASE_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslRaceAndEthnicity = @"PRIVACY_POLICY_PSL_RACE_AND_ETHNICITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslTextMessages = @"PRIVACY_POLICY_PSL_TEXT_MESSAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslUserIdentifiers = @"PRIVACY_POLICY_PSL_USER_IDENTIFIERS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslVideos = @"PRIVACY_POLICY_PSL_VIDEOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslVoiceOrSoundRecordings = @"PRIVACY_POLICY_PSL_VOICE_OR_SOUND_RECORDINGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyPslWebBrowsingHistory = @"PRIVACY_POLICY_PSL_WEB_BROWSING_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToAccessNotice = @"PRIVACY_POLICY_RIGHT_TO_ACCESS_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToDeleteNotice = @"PRIVACY_POLICY_RIGHT_TO_DELETE_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToKnowAboutSellingNotice = @"PRIVACY_POLICY_RIGHT_TO_KNOW_ABOUT_SELLING_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToKnowAboutSharingNotice = @"PRIVACY_POLICY_RIGHT_TO_KNOW_ABOUT_SHARING_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToLodgeAComplaint = @"PRIVACY_POLICY_RIGHT_TO_LODGE_A_COMPLAINT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToOptOutFromSellingNotice = @"PRIVACY_POLICY_RIGHT_TO_OPT_OUT_FROM_SELLING_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyRightToRectificationNotice = @"PRIVACY_POLICY_RIGHT_TO_RECTIFICATION_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicySharingCategoriesDataNotice = @"PRIVACY_POLICY_SHARING_CATEGORIES_DATA_NOTICE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyUpdateDateRecent = @"PRIVACY_POLICY_UPDATE_DATE_RECENT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyVirginiaVcdpaGeneralRules = @"PRIVACY_POLICY_VIRGINIA_VCDPA_GENERAL_RULES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_StoreListingPrivacyPolicyLinkPresent = @"STORE_LISTING_PRIVACY_POLICY_LINK_PRESENT";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheckCitation.type
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_AlbertaPipa = @"ALBERTA_PIPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_AppStorePolicy = @"APP_STORE_POLICY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_CalOppa = @"CAL_OPPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ccpa = @"CCPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_ChinaPipl = @"CHINA_PIPL";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_CitationTypeUnspecified = @"CITATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Coppa = @"COPPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Cpa = @"CPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Cpra = @"CPRA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ctdpa = @"CTDPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ferpa = @"FERPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Gdpr = @"GDPR";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_GooglePlayPolicy = @"GOOGLE_PLAY_POLICY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Lgpd = @"LGPD";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Pipeda = @"PIPEDA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_QuebecAct = @"QUEBEC_ACT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_QuebecBill64 = @"QUEBEC_BILL_64";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Sopipa = @"SOPIPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ucpa = @"UCPA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Vcdpa = @"VCDPA";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence.dataType
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeAppInteractions = @"DATA_TYPE_APP_INTERACTIONS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeApproximateLocation = @"DATA_TYPE_APPROXIMATE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeCalendarEvents = @"DATA_TYPE_CALENDAR_EVENTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeContacts = @"DATA_TYPE_CONTACTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeCrashLogs = @"DATA_TYPE_CRASH_LOGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeCreditScore = @"DATA_TYPE_CREDIT_SCORE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeDeviceOrOtherIds = @"DATA_TYPE_DEVICE_OR_OTHER_IDS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeEmailAddress = @"DATA_TYPE_EMAIL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeEmails = @"DATA_TYPE_EMAILS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeFilesAndDocs = @"DATA_TYPE_FILES_AND_DOCS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeFitnessInfo = @"DATA_TYPE_FITNESS_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeHealthInfo = @"DATA_TYPE_HEALTH_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeInAppSearchHistory = @"DATA_TYPE_IN_APP_SEARCH_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeInstalledApps = @"DATA_TYPE_INSTALLED_APPS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeMusicFiles = @"DATA_TYPE_MUSIC_FILES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherActions = @"DATA_TYPE_OTHER_ACTIONS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherAppPerformanceData = @"DATA_TYPE_OTHER_APP_PERFORMANCE_DATA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherAudioFiles = @"DATA_TYPE_OTHER_AUDIO_FILES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherFinancialInfo = @"DATA_TYPE_OTHER_FINANCIAL_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherPersonalInfo = @"DATA_TYPE_OTHER_PERSONAL_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherUserGeneratedContent = @"DATA_TYPE_OTHER_USER_GENERATED_CONTENT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePaymentInfo = @"DATA_TYPE_PAYMENT_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePerformanceDiagnostics = @"DATA_TYPE_PERFORMANCE_DIAGNOSTICS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePersonalName = @"DATA_TYPE_PERSONAL_NAME";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePhoneNumber = @"DATA_TYPE_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePhotos = @"DATA_TYPE_PHOTOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePhysicalAddress = @"DATA_TYPE_PHYSICAL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePoliticalOrReligiousBeliefs = @"DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePreciseLocation = @"DATA_TYPE_PRECISE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypePurchaseHistory = @"DATA_TYPE_PURCHASE_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeRaceAndEthnicity = @"DATA_TYPE_RACE_AND_ETHNICITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeSexualOrientation = @"DATA_TYPE_SEXUAL_ORIENTATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeTextMessages = @"DATA_TYPE_TEXT_MESSAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeUserIds = @"DATA_TYPE_USER_IDS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeVideos = @"DATA_TYPE_VIDEOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeVoiceOrSoundRecordings = @"DATA_TYPE_VOICE_OR_SOUND_RECORDINGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeWebBrowsingHistory = @"DATA_TYPE_WEB_BROWSING_HISTORY";
+
+// GTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata.badges
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata_Badges_CheckStateBadgeUnspecified = @"CHECK_STATE_BADGE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata_Badges_NewlyFailing = @"NEWLY_FAILING";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata_Badges_RecentlyFailing = @"RECENTLY_FAILING";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata_Badges_Resolved = @"RESOLVED";
+
+// GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult.dataType
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeAppInteractions = @"DATA_TYPE_APP_INTERACTIONS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeApproximateLocation = @"DATA_TYPE_APPROXIMATE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeCalendarEvents = @"DATA_TYPE_CALENDAR_EVENTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeContacts = @"DATA_TYPE_CONTACTS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeCrashLogs = @"DATA_TYPE_CRASH_LOGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeCreditScore = @"DATA_TYPE_CREDIT_SCORE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeDeviceOrOtherIds = @"DATA_TYPE_DEVICE_OR_OTHER_IDS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeEmailAddress = @"DATA_TYPE_EMAIL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeEmails = @"DATA_TYPE_EMAILS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeFilesAndDocs = @"DATA_TYPE_FILES_AND_DOCS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeFitnessInfo = @"DATA_TYPE_FITNESS_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeHealthInfo = @"DATA_TYPE_HEALTH_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeInAppSearchHistory = @"DATA_TYPE_IN_APP_SEARCH_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeInstalledApps = @"DATA_TYPE_INSTALLED_APPS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeMusicFiles = @"DATA_TYPE_MUSIC_FILES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherActions = @"DATA_TYPE_OTHER_ACTIONS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherAppPerformanceData = @"DATA_TYPE_OTHER_APP_PERFORMANCE_DATA";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherAudioFiles = @"DATA_TYPE_OTHER_AUDIO_FILES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherFinancialInfo = @"DATA_TYPE_OTHER_FINANCIAL_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherPersonalInfo = @"DATA_TYPE_OTHER_PERSONAL_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherUserGeneratedContent = @"DATA_TYPE_OTHER_USER_GENERATED_CONTENT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePaymentInfo = @"DATA_TYPE_PAYMENT_INFO";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePerformanceDiagnostics = @"DATA_TYPE_PERFORMANCE_DIAGNOSTICS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePersonalName = @"DATA_TYPE_PERSONAL_NAME";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePhoneNumber = @"DATA_TYPE_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePhotos = @"DATA_TYPE_PHOTOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePhysicalAddress = @"DATA_TYPE_PHYSICAL_ADDRESS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePoliticalOrReligiousBeliefs = @"DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePreciseLocation = @"DATA_TYPE_PRECISE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypePurchaseHistory = @"DATA_TYPE_PURCHASE_HISTORY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeRaceAndEthnicity = @"DATA_TYPE_RACE_AND_ETHNICITY";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeSexualOrientation = @"DATA_TYPE_SEXUAL_ORIENTATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeTextMessages = @"DATA_TYPE_TEXT_MESSAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeUserIds = @"DATA_TYPE_USER_IDS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeVideos = @"DATA_TYPE_VIDEOS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeVoiceOrSoundRecordings = @"DATA_TYPE_VOICE_OR_SOUND_RECORDINGS";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeWebBrowsingHistory = @"DATA_TYPE_WEB_BROWSING_HISTORY";
+
+// GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringResultMetadata.badges
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringResultMetadata_Badges_DataMonitoringResultBadgeUnspecified = @"DATA_MONITORING_RESULT_BADGE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringResultMetadata_Badges_New = @"NEW";
+
+// GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence.exfiltratedDataType
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeAccount = @"EXFILTRATED_DATA_TYPE_ACCOUNT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeAdvertisingId = @"EXFILTRATED_DATA_TYPE_ADVERTISING_ID";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeAndroidId = @"EXFILTRATED_DATA_TYPE_ANDROID_ID";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeContactEmail = @"EXFILTRATED_DATA_TYPE_CONTACT_EMAIL";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeContactName = @"EXFILTRATED_DATA_TYPE_CONTACT_NAME";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeContactPhoneNumber = @"EXFILTRATED_DATA_TYPE_CONTACT_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeExternalAccount = @"EXFILTRATED_DATA_TYPE_EXTERNAL_ACCOUNT";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeImei = @"EXFILTRATED_DATA_TYPE_IMEI";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeImsi = @"EXFILTRATED_DATA_TYPE_IMSI";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeIncomingTextMessage = @"EXFILTRATED_DATA_TYPE_INCOMING_TEXT_MESSAGE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeIncomingTextNumber = @"EXFILTRATED_DATA_TYPE_INCOMING_TEXT_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeInstalledPackages = @"EXFILTRATED_DATA_TYPE_INSTALLED_PACKAGES";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeOutgoingTextMessage = @"EXFILTRATED_DATA_TYPE_OUTGOING_TEXT_MESSAGE";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeOutgoingTextNumber = @"EXFILTRATED_DATA_TYPE_OUTGOING_TEXT_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypePhoneNumber = @"EXFILTRATED_DATA_TYPE_PHONE_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypePreciseLocation = @"EXFILTRATED_DATA_TYPE_PRECISE_LOCATION";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeSimSerialNumber = @"EXFILTRATED_DATA_TYPE_SIM_SERIAL_NUMBER";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeSsid = @"EXFILTRATED_DATA_TYPE_SSID";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeUnspecified = @"EXFILTRATED_DATA_TYPE_UNSPECIFIED";
+
 // GTLRChecksService_PolicyDataTypeAnnotation.dataType
 NSString * const kGTLRChecksService_PolicyDataTypeAnnotation_DataType_Advertising = @"ADVERTISING";
 NSString * const kGTLRChecksService_PolicyDataTypeAnnotation_DataType_AppCrashLogs = @"APP_CRASH_LOGS";
@@ -152,6 +391,15 @@ NSString * const kGTLRChecksService_PolicySectionAnnotation_SectionType_Transfer
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChecksService_CancelOperationRequest
+//
+
+@implementation GTLRChecksService_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChecksService_Date
 //
 
@@ -162,11 +410,599 @@ NSString * const kGTLRChecksService_PolicySectionAnnotation_SectionType_Transfer
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChecksService_Empty
+//
+
+@implementation GTLRChecksService_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_FindPrivacyPolicyResponse
+//
+
+@implementation GTLRChecksService_FindPrivacyPolicyResponse
+@dynamic privacyPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksAccountV1alphaApp
+//
+
+@implementation GTLRChecksService_GoogleChecksAccountV1alphaApp
+@dynamic name, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksAccountV1alphaListAppsResponse
+//
+
+@implementation GTLRChecksService_GoogleChecksAccountV1alphaListAppsResponse
+@dynamic apps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apps" : [GTLRChecksService_GoogleChecksAccountV1alphaApp class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"apps";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest
+@dynamic codeReferenceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaAppBundle
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaAppBundle
+@dynamic bundleId, codeReferenceId, releaseType, version, versionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheck
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheck
+@dynamic citations, evidence, regionCodes, severity, state, stateMetadata, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRChecksService_GoogleChecksReportV1alphaCheckCitation class],
+    @"regionCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckCitation
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckCitation
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckDataSecurityEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckDataSecurityEvidence
+@dynamic dataInTransitInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataInTransitInfo" : [GTLRChecksService_GoogleChecksReportV1alphaCheckDataSecurityEvidenceDataInTransitInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckDataSecurityEvidenceDataInTransitInfo
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckDataSecurityEvidenceDataInTransitInfo
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence
+@dynamic dataType, dataTypeEvidence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointEvidence
+@dynamic endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidence
+@dynamic endpointDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpointDetails" : [GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidenceEndpointDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidenceEndpointDetails
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidenceEndpointDetails
+@dynamic endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckEvidence
+@dynamic dataSecurity, dataTypes, endpointRestrictionViolations, endpoints,
+         permissionRestrictionViolations, permissions, privacyPolicyTexts,
+         sdkIssues, sdkRestrictionViolations, sdks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypes" : [GTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence class],
+    @"endpointRestrictionViolations" : [GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointRestrictionViolationEvidence class],
+    @"endpoints" : [GTLRChecksService_GoogleChecksReportV1alphaCheckEndpointEvidence class],
+    @"permissionRestrictionViolations" : [GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidence class],
+    @"permissions" : [GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionEvidence class],
+    @"privacyPolicyTexts" : [GTLRChecksService_GoogleChecksReportV1alphaCheckPrivacyPolicyTextEvidence class],
+    @"sdkIssues" : [GTLRChecksService_GoogleChecksReportV1alphaCheckSdkIssueEvidence class],
+    @"sdkRestrictionViolations" : [GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidence class],
+    @"sdks" : [GTLRChecksService_GoogleChecksReportV1alphaCheckSdkEvidence class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionEvidence
+@dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidence
+@dynamic permissionDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissionDetails" : [GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidencePermissionDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidencePermissionDetails
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckPermissionRestrictionViolationEvidencePermissionDetails
+@dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckPrivacyPolicyTextEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckPrivacyPolicyTextEvidence
+@dynamic policyFragment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckSdkEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckSdkEvidence
+@dynamic sdk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckSdkIssueEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckSdkIssueEvidence
+@dynamic sdk, sdkVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidence
+@dynamic sdkDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sdkDetails" : [GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidenceSdkDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidenceSdkDetails
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckSdkRestrictionViolationEvidenceSdkDetails
+@dynamic sdk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaCheckStateMetadata
+@dynamic badges, firstFailingTime, lastFailingTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"badges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoring
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoring
+@dynamic dataTypes, endpoints, permissions, sdks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypes" : [GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult class],
+    @"endpoints" : [GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringEndpointResult class],
+    @"permissions" : [GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringPermissionResult class],
+    @"sdks" : [GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringSdkResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult
+@dynamic dataType, dataTypeEvidence, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringEndpointResult
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringEndpointResult
+@dynamic endpoint, hitCount, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringPermissionResult
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringPermissionResult
+@dynamic metadata, permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringResultMetadata
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringResultMetadata
+@dynamic badges, firstDetectedTime, lastDetectedAppVersion, lastDetectedTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"badges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringSdkResult
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataMonitoringSdkResult
+@dynamic metadata, sdk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence
+@dynamic attributedSdks, endpointDetails, exfiltratedDataType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributedSdks" : [GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceAttributedSdk class],
+    @"endpointDetails" : [GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceEndpointDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceAttributedSdk
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceAttributedSdk
+@dynamic sdk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceEndpointDetails
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidenceEndpointDetails
+@dynamic endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypeEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypeEvidence
+@dynamic endpoints, permissions, privacyPolicyTexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence class],
+    @"permissions" : [GTLRChecksService_GoogleChecksReportV1alphaDataTypePermissionEvidence class],
+    @"privacyPolicyTexts" : [GTLRChecksService_GoogleChecksReportV1alphaDataTypePrivacyPolicyTextEvidence class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypePermissionEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypePermissionEvidence
+@dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaDataTypePrivacyPolicyTextEvidence
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaDataTypePrivacyPolicyTextEvidence
+@dynamic policyFragment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaEndpoint
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaEndpoint
+@dynamic domain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaListReportsResponse
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaListReportsResponse
+@dynamic nextPageToken, reports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reports" : [GTLRChecksService_GoogleChecksReportV1alphaReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaPermission
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaPermission
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaPolicyFragment
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaPolicyFragment
+@dynamic htmlContent, sourceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaReport
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaReport
+@dynamic appBundle, baseReport, checks, dataMonitoring, name, resultsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checks" : [GTLRChecksService_GoogleChecksReportV1alphaCheck class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_GoogleChecksReportV1alphaSdk
+//
+
+@implementation GTLRChecksService_GoogleChecksReportV1alphaSdk
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChecksService_LastUpdatedDate
 //
 
 @implementation GTLRChecksService_LastUpdatedDate
 @dynamic endOffset, lastUpdatedDate, startOffset, textContent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_ListOperationsResponse
+//
+
+@implementation GTLRChecksService_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRChecksService_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
 @end
 
 
@@ -267,4 +1103,14 @@ NSString * const kGTLRChecksService_PolicySectionAnnotation_SectionType_Transfer
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChecksService_WaitOperationRequest
+//
+
+@implementation GTLRChecksService_WaitOperationRequest
+@dynamic timeout;
 @end

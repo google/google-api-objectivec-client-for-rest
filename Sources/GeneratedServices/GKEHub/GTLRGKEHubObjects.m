@@ -141,6 +141,16 @@ NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Deleting = @"DELETING";
 NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Ready    = @"READY";
 NSString * const kGTLRGKEHub_FleetLifecycleState_Code_Updating = @"UPDATING";
 
+// GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState.code
+NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Error = @"ERROR";
+NSString * const kGTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState_Code_Ok = @"OK";
+
+// GTLRGKEHub_FleetObservabilityRoutingConfig.mode
+NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Copy = @"COPY";
+NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_FleetObservabilityRoutingConfig_Mode_Move = @"MOVE";
+
 // GTLRGKEHub_IdentityServiceMembershipState.state
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Error = @"ERROR";
@@ -161,6 +171,13 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Ready        = @"READY";
 NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdating = @"SERVICE_UPDATING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
+// GTLRGKEHub_NamespaceLifecycleState.code
+NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Creating = @"CREATING";
+NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Deleting = @"DELETING";
+NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Ready = @"READY";
+NSString * const kGTLRGKEHub_NamespaceLifecycleState_Code_Updating = @"UPDATING";
+
 // GTLRGKEHub_OnPremCluster.clusterType
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Bootstrap = @"BOOTSTRAP";
 NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified = @"CLUSTERTYPE_UNSPECIFIED";
@@ -170,8 +187,23 @@ NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User    = @"USER";
 
 // GTLRGKEHub_Origin.type
 NSString * const kGTLRGKEHub_Origin_Type_Fleet           = @"FLEET";
+NSString * const kGTLRGKEHub_Origin_Type_FleetOutOfSync  = @"FLEET_OUT_OF_SYNC";
 NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_Origin_Type_User            = @"USER";
+
+// GTLRGKEHub_RBACRoleBindingLifecycleState.code
+NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Creating = @"CREATING";
+NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Deleting = @"DELETING";
+NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Ready = @"READY";
+NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Updating = @"UPDATING";
+
+// GTLRGKEHub_Role.predefinedRole
+NSString * const kGTLRGKEHub_Role_PredefinedRole_Admin         = @"ADMIN";
+NSString * const kGTLRGKEHub_Role_PredefinedRole_AnthosSupport = @"ANTHOS_SUPPORT";
+NSString * const kGTLRGKEHub_Role_PredefinedRole_Edit          = @"EDIT";
+NSString * const kGTLRGKEHub_Role_PredefinedRole_Unknown       = @"UNKNOWN";
+NSString * const kGTLRGKEHub_Role_PredefinedRole_View          = @"VIEW";
 
 // GTLRGKEHub_ScopeLifecycleState.code
 NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -818,7 +850,22 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_Fleet
-@dynamic createTime, deleteTime, displayName, name, state, uid, updateTime;
+@dynamic createTime, deleteTime, displayName, labels, name, state, uid,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Fleet_Labels
+//
+
+@implementation GTLRGKEHub_Fleet_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -834,10 +881,26 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_FleetObservabilityFeatureError
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFeatureError
+@dynamic code, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_FleetObservabilityFeatureSpec
 //
 
 @implementation GTLRGKEHub_FleetObservabilityFeatureSpec
+@dynamic loggingConfig;
 @end
 
 
@@ -847,6 +910,55 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_FleetObservabilityFeatureState
+@dynamic logging, monitoring;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFleetObservabilityBaseFeatureState
+@dynamic code, errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRGKEHub_FleetObservabilityFeatureError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityFleetObservabilityLoggingState
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFleetObservabilityLoggingState
+@dynamic defaultLog, scopeLog;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityFleetObservabilityMonitoringState
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFleetObservabilityMonitoringState
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityLoggingConfig
+//
+
+@implementation GTLRGKEHub_FleetObservabilityLoggingConfig
+@dynamic defaultConfig, fleetScopeLogsConfig;
 @end
 
 
@@ -865,6 +977,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_FleetObservabilityMembershipState
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityRoutingConfig
+//
+
+@implementation GTLRGKEHub_FleetObservabilityRoutingConfig
+@dynamic mode;
 @end
 
 
@@ -945,7 +1067,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_IdentityServiceAzureADConfig
 @dynamic clientId, clientSecret, encryptedClientSecret, kubectlRedirectUri,
-         tenant;
+         tenant, userClaim;
 @end
 
 
@@ -1166,6 +1288,50 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ListScopeNamespacesResponse
+//
+
+@implementation GTLRGKEHub_ListScopeNamespacesResponse
+@dynamic nextPageToken, scopeNamespaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopeNamespaces" : [GTLRGKEHub_Namespace class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"scopeNamespaces";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ListScopeRBACRoleBindingsResponse
+//
+
+@implementation GTLRGKEHub_ListScopeRBACRoleBindingsResponse
+@dynamic nextPageToken, rbacrolebindings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rbacrolebindings" : [GTLRGKEHub_RBACRoleBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rbacrolebindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ListScopesResponse
 //
 
@@ -1261,7 +1427,21 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipBinding
-@dynamic createTime, deleteTime, fleet, name, scope, state, uid, updateTime;
+@dynamic createTime, deleteTime, labels, name, scope, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MembershipBinding_Labels
+//
+
+@implementation GTLRGKEHub_MembershipBinding_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1345,6 +1525,55 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_MultiClusterIngressFeatureSpec
 @dynamic configMembership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Namespace
+//
+
+@implementation GTLRGKEHub_Namespace
+@dynamic createTime, deleteTime, labels, name, namespaceLabels, scope, state,
+         uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Namespace_Labels
+//
+
+@implementation GTLRGKEHub_Namespace_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Namespace_NamespaceLabels
+//
+
+@implementation GTLRGKEHub_Namespace_NamespaceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_NamespaceLifecycleState
+//
+
+@implementation GTLRGKEHub_NamespaceLifecycleState
+@dynamic code;
 @end
 
 
@@ -1442,6 +1671,41 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_RBACRoleBinding
+//
+
+@implementation GTLRGKEHub_RBACRoleBinding
+@dynamic createTime, deleteTime, group, labels, name, role, state, uid,
+         updateTime, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBinding_Labels
+//
+
+@implementation GTLRGKEHub_RBACRoleBinding_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_RBACRoleBindingLifecycleState
+//
+
+@implementation GTLRGKEHub_RBACRoleBindingLifecycleState
+@dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ResourceManifest
 //
 
@@ -1462,11 +1726,50 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_Role
+//
+
+@implementation GTLRGKEHub_Role
+@dynamic predefinedRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_Scope
 //
 
 @implementation GTLRGKEHub_Scope
-@dynamic allMemberships, createTime, deleteTime, name, state, uid, updateTime;
+@dynamic allMemberships, createTime, deleteTime, labels, name, namespaceLabels,
+         state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Scope_Labels
+//
+
+@implementation GTLRGKEHub_Scope_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Scope_NamespaceLabels
+//
+
+@implementation GTLRGKEHub_Scope_NamespaceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

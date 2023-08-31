@@ -1051,6 +1051,29 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/getLatestRecoveryTime";
+  GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse class];
+  query.loggingName = @"sql.projects.instances.getLatestRecoveryTime";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink
 
 @dynamic instance, project;

@@ -990,7 +990,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Parameter
-@dynamic key, list, map, type, value;
+@dynamic isWeakReference, key, list, map, type, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

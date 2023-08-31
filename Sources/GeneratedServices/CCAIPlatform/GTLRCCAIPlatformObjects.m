@@ -15,6 +15,7 @@
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeployed = @"STATE_DEPLOYED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeploying = @"STATE_DEPLOYING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed = @"STATE_FAILED";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod = @"STATE_IN_GRACE_PERIOD";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminated = @"STATE_TERMINATED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminating = @"STATE_TERMINATING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminatingFailed = @"STATE_TERMINATING_FAILED";
@@ -47,26 +48,6 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 @implementation GTLRCCAIPlatform_AdminUser
 @dynamic familyName, givenName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCCAIPlatform_AuthenticationConfig
-//
-
-@implementation GTLRCCAIPlatform_AuthenticationConfig
-@dynamic basicAuthSetting, name, samlSetting;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCCAIPlatform_BasicAuthConfig
-//
-
-@implementation GTLRCCAIPlatform_BasicAuthConfig
-@dynamic enabled;
 @end
 
 
@@ -315,16 +296,6 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 @implementation GTLRCCAIPlatform_Quota
 @dynamic contactCenterCountLimit, contactCenterCountSum,
          contactCenterInstanceSize;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCCAIPlatform_SamlConfig
-//
-
-@implementation GTLRCCAIPlatform_SamlConfig
-@dynamic cert, emailMapping, entityId, loginUri;
 @end
 
 

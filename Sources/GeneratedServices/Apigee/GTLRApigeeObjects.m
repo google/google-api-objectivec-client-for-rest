@@ -64,6 +64,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Integer
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_String = @"STRING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1Deployment.proxyDeploymentType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Extensible = @"EXTENSIBLE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_ProxyDeploymentTypeUnspecified = @"PROXY_DEPLOYMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_ProxyDeploymentType_Standard = @"STANDARD";
+
 // GTLRApigee_GoogleCloudApigeeV1Deployment.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Error = @"ERROR";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing = @"PROGRESSING";
@@ -113,6 +118,12 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Creating = @"C
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Updating = @"UPDATING";
+
+// GTLRApigee_GoogleCloudApigeeV1Environment.type
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Base = @"BASE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Comprehensive = @"COMPREHENSIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_EnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Intermediate = @"INTERMEDIATE";
 
 // GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Active = @"ACTIVE";
@@ -261,13 +272,19 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskL
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe = @"SEVERE";
 
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ExternalCallout = @"EXTERNAL_CALLOUT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc = @"GRPC";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_GrpcTarget = @"GRPC_TARGET";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http = @"HTTP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http2 = @"HTTP2";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1TargetServerConfig.protocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ExternalCallout = @"EXTERNAL_CALLOUT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc = @"GRPC";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_GrpcTarget = @"GRPC_TARGET";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http = @"HTTP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http2 = @"HTTP2";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
@@ -502,9 +519,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProduct
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
-         displayName, environments, graphqlOperationGroup, lastModifiedAt, name,
-         operationGroup, proxies, quota, quotaCounterScope, quotaInterval,
-         quotaTimeUnit, scopes;
+         displayName, environments, graphqlOperationGroup, grpcOperationGroup,
+         lastModifiedAt, name, operationGroup, proxies, quota,
+         quotaCounterScope, quotaInterval, quotaTimeUnit, scopes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -521,6 +538,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1APIProductAssociation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1APIProductAssociation
+@dynamic apiproduct, status;
 @end
 
 
@@ -575,9 +602,10 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision
 @dynamic archive, basepaths, configurationVersion, contextInfo, createdAt,
          descriptionProperty, displayName, entityMetaDataAsProperties,
-         integrationEndpoints, lastModifiedAt, name, policies, proxies,
-         proxyEndpoints, resourceFiles, resources, revision, sharedFlows, spec,
-         targetEndpoints, targets, targetServers, teams, type;
+         hasExtensiblePolicy, integrationEndpoints, lastModifiedAt, name,
+         policies, proxies, proxyEndpoints, resourceFiles, resources, revision,
+         sharedFlows, spec, targetEndpoints, targets, targetServers, teams,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -651,15 +679,77 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1App
-@dynamic apiProducts, appId, attributes, callbackUrl, companyName, createdAt,
-         credentials, developerId, keyExpiresIn, lastModifiedAt, name, scopes,
-         status;
+@dynamic apiProducts, appGroup, appId, attributes, callbackUrl, companyName,
+         createdAt, credentials, developerEmail, developerId, keyExpiresIn,
+         lastModifiedAt, name, scopes, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apiProducts" : [GTLRApigee_GoogleCloudApigeeV1ApiProductRef class],
     @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
     @"credentials" : [GTLRApigee_GoogleCloudApigeeV1Credential class],
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1AppGroup
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AppGroup
+@dynamic appGroupId, attributes, channelId, channelUri, createdAt, displayName,
+         lastModifiedAt, name, organization, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1AppGroupApp
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AppGroupApp
+@dynamic apiProducts, appGroup, appId, attributes, callbackUrl, createdAt,
+         credentials, keyExpiresIn, lastModifiedAt, name, scopes, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiProducts" : [NSString class],
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
+    @"credentials" : [GTLRApigee_GoogleCloudApigeeV1Credential class],
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey
+@dynamic apiProducts, attributes, consumerKey, consumerSecret, expiresAt,
+         expiresInSeconds, issuedAt, scopes, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiProducts" : [GTLRApigee_GoogleCloudApigeeV1APIProductAssociation class],
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
     @"scopes" : [NSString class]
   };
   return map;
@@ -1135,7 +1225,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Deployment
 @dynamic apiProxy, deployStartTime, environment, errors, instances, pods,
-         revision, routeConflicts, serviceAccount, state;
+         proxyDeploymentType, revision, routeConflicts, serviceAccount, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1445,8 +1535,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Environment
 @dynamic apiProxyType, createdAt, deploymentType, descriptionProperty,
-         displayName, forwardProxyUri, lastModifiedAt, name, nodeConfig,
-         properties, state;
+         displayName, forwardProxyUri, hasAttachedFlowHooks, lastModifiedAt,
+         name, nodeConfig, properties, state, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1749,6 +1839,43 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig
+@dynamic apiSource, attributes, methods, quota, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1GrpcOperationGroup
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GrpcOperationGroup
+@dynamic operationConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationConfigs" : [GTLRApigee_GoogleCloudApigeeV1GrpcOperationConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1IngressConfig
 //
 
@@ -1971,17 +2098,65 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListAppGroupAppsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListAppGroupAppsResponse
+@dynamic appGroupApps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appGroupApps" : [GTLRApigee_GoogleCloudApigeeV1AppGroupApp class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"appGroupApps";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListAppGroupsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListAppGroupsResponse
+@dynamic appGroups, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appGroups" : [GTLRApigee_GoogleCloudApigeeV1AppGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"appGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListAppsResponse
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ListAppsResponse
-@dynamic app;
+@dynamic app, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"app" : [GTLRApigee_GoogleCloudApigeeV1App class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"app";
 }
 
 @end
@@ -2786,8 +2961,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
          apiConsumerDataLocation, apigeeProjectId, attributes,
          authorizedNetwork, billingType, caCertificate,
          controlPlaneEncryptionKeyName, createdAt, customerName,
-         descriptionProperty, displayName, environments, expiresAt,
-         lastModifiedAt, name, portalDisabled, projectId, properties,
+         descriptionProperty, disableVpcPeering, displayName, environments,
+         expiresAt, lastModifiedAt, name, portalDisabled, projectId, properties,
          runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,
          type;
 
@@ -2973,7 +3148,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ProvisionOrganizationRequest
-@dynamic analyticsRegion, authorizedNetwork, runtimeLocation;
+@dynamic analyticsRegion, authorizedNetwork, disableVpcPeering, runtimeLocation;
 @end
 
 
@@ -4046,6 +4221,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig
 @dynamic sampler, samplingRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest
+@dynamic action, apiProducts, appGroupAppKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiProducts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -168,7 +168,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_Aggregation
-@dynamic alias, count;
+@dynamic alias, avg, count, sum;
 @end
 
 
@@ -283,6 +283,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_Avg
+//
+
+@implementation GTLRDatastore_Avg
+@dynamic property;
 @end
 
 
@@ -1213,6 +1223,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_Sum
+//
+
+@implementation GTLRDatastore_Sum
+@dynamic property;
 @end
 
 

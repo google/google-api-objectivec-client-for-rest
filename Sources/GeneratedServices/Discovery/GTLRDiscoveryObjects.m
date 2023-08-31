@@ -74,9 +74,10 @@
 
 @implementation GTLRDiscovery_JsonSchema
 @dynamic xRef, additionalPropertiesProperty, annotations, defaultProperty,
-         descriptionProperty, enumProperty, enumDescriptions, format,
-         identifier, items, location, maximum, minimum, pattern, properties,
-         readOnly, repeated, required, type, variant;
+         deprecated, descriptionProperty, enumProperty, enumDeprecated,
+         enumDescriptions, format, identifier, items, location, maximum,
+         minimum, pattern, properties, readOnly, repeated, required, type,
+         variant;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -93,6 +94,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"enum" : [NSString class],
+    @"enumDeprecated" : [NSNumber class],
     @"enumDescriptions" : [NSString class]
   };
   return map;
@@ -177,10 +179,11 @@
 
 @implementation GTLRDiscovery_RestDescription
 @dynamic auth, basePath, baseUrl, batchPath, canonicalName, descriptionProperty,
-         discoveryVersion, documentationLink, ETag, exponentialBackoffDefault,
-         features, icons, identifier, kind, labels, methods, name, ownerDomain,
-         ownerName, packagePath, parameters, protocol, resources, revision,
-         rootUrl, schemas, servicePath, title, version, versionModule;
+         discoveryVersion, documentationLink, endpoints, ETag,
+         exponentialBackoffDefault, features, icons, identifier, kind, labels,
+         methods, name, ownerDomain, ownerName, packagePath, parameters,
+         protocol, resources, revision, rootUrl, schemas, servicePath, title,
+         version, versionModule;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -194,6 +197,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRDiscovery_RestDescription_Endpoints_Item class],
     @"features" : [NSString class],
     @"labels" : [NSString class]
   };
@@ -210,6 +214,21 @@
 
 @implementation GTLRDiscovery_RestDescription_Auth
 @dynamic oauth2;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscovery_RestDescription_Endpoints_Item
+//
+
+@implementation GTLRDiscovery_RestDescription_Endpoints_Item
+@dynamic deprecated, descriptionProperty, endpointUrl, location;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -324,9 +343,9 @@
 //
 
 @implementation GTLRDiscovery_RestMethod
-@dynamic descriptionProperty, etagRequired, flatPath, httpMethod, identifier,
-         mediaUpload, parameterOrder, parameters, path, request, response,
-         scopes, supportsMediaDownload, supportsMediaUpload,
+@dynamic deprecated, descriptionProperty, etagRequired, flatPath, httpMethod,
+         identifier, mediaUpload, parameterOrder, parameters, path, request,
+         response, scopes, supportsMediaDownload, supportsMediaUpload,
          supportsSubscription, useMediaDownloadService;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -446,7 +465,7 @@
 //
 
 @implementation GTLRDiscovery_RestResource
-@dynamic methods, resources;
+@dynamic deprecated, methods, resources;
 @end
 
 

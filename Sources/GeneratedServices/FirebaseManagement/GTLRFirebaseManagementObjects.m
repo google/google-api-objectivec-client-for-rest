@@ -477,6 +477,15 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseManagement_OperationMetadata
+//
+
+@implementation GTLRFirebaseManagement_OperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseManagement_ProductMetadata
 //
 

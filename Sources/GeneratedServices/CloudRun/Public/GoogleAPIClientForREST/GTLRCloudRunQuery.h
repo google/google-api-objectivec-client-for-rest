@@ -128,6 +128,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Cancels an Execution.
+ *
+ *  Method: run.projects.locations.jobs.executions.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the Execution to cancel. Format:
+ *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *  where {project} can be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Cancels an Execution.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Execution to cancel. Format:
+ *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+ *    where {project} can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes an Execution.
  *
  *  Method: run.projects.locations.jobs.executions.delete

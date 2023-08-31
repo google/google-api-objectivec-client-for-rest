@@ -135,6 +135,25 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Group class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.groups.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -153,6 +172,25 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
   query.loggingName = @"networkconnectivity.projects.locations.global.hubs.groups.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/groups";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListGroupsResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.groups.list";
   return query;
 }
 
@@ -414,6 +452,71 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesCreate
+
+@dynamic parent, policyBasedRouteId, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_PolicyBasedRoute *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/policyBasedRoutes";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_PolicyBasedRoute class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -432,6 +535,25 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
   query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/policyBasedRoutes";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListPolicyBasedRoutesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.list";
   return query;
 }
 

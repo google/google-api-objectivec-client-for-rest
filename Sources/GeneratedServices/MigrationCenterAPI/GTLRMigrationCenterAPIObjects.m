@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migration Center API (migrationcenter/v1alpha1)
+//   Migration Center API (migrationcenter/v1)
 // Description:
 //   A unified platform that helps you accelerate your end-to-end cloud journey
 //   from your current on-premises or cloud environments to Google Cloud.
@@ -19,17 +19,21 @@ NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_Li
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeDefault = @"LICENSE_TYPE_DEFAULT";
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeUnspecified = @"LICENSE_TYPE_UNSPECIFIED";
 
-// GTLRMigrationCenterAPI_ComputeEnginePreferences.persistentDiskType
-NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
-NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
-NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
-NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
-
 // GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_DiskEntry.interfaceType
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Fc = @"FC";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Ide = @"IDE";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_InterfaceTypeUnspecified = @"INTERFACE_TYPE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Iscsi = @"ISCSI";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Nvme = @"NVME";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sas = @"SAS";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sata = @"SATA";
+NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Scsi = @"SCSI";
 
 // GTLRMigrationCenterAPI_FitDescriptor.fitLevel
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_Fit = @"FIT";
@@ -37,22 +41,24 @@ NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_FitLevelUnspecif
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_NoFit = @"NO_FIT";
 NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_RequiresEffort = @"REQUIRES_EFFORT";
 
-// GTLRMigrationCenterAPI_GCSPayloadInfo.format
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatCmdb = @"IMPORT_JOB_FORMAT_CMDB";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAwsCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAzureCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatManualCsv = @"IMPORT_JOB_FORMAT_MANUAL_CSV";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsCsv = @"IMPORT_JOB_FORMAT_RVTOOLS_CSV";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsXlsx = @"IMPORT_JOB_FORMAT_RVTOOLS_XLSX";
-NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatUnspecified = @"IMPORT_JOB_FORMAT_UNSPECIFIED";
+// GTLRMigrationCenterAPI_GuestConfigDetails.selinuxMode
+NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeDisabled = @"SE_LINUX_MODE_DISABLED";
+NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeEnforcing = @"SE_LINUX_MODE_ENFORCING";
+NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModePermissive = @"SE_LINUX_MODE_PERMISSIVE";
+NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeUnspecified = @"SE_LINUX_MODE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_GuestOsDetails.family
+NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyLinux = @"OS_FAMILY_LINUX";
+NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnix = @"OS_FAMILY_UNIX";
+NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnknown = @"OS_FAMILY_UNKNOWN";
+NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyWindows = @"OS_FAMILY_WINDOWS";
 
 // GTLRMigrationCenterAPI_ImportDataFile.format
-NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatCmdb = @"IMPORT_JOB_FORMAT_CMDB";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAwsCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAzureCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV";
-NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatManualCsv = @"IMPORT_JOB_FORMAT_MANUAL_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsCsv = @"IMPORT_JOB_FORMAT_RVTOOLS_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsXlsx = @"IMPORT_JOB_FORMAT_RVTOOLS_XLSX";
+NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatStratozoneCsv = @"IMPORT_JOB_FORMAT_STRATOZONE_CSV";
 NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatUnspecified = @"IMPORT_JOB_FORMAT_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_ImportDataFile.state
@@ -76,19 +82,37 @@ NSString * const kGTLRMigrationCenterAPI_ImportJob_State_ImportJobStateRunning =
 NSString * const kGTLRMigrationCenterAPI_ImportJob_State_ImportJobStateUnspecified = @"IMPORT_JOB_STATE_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPI_ImportJob_State_ImportJobStateValidating = @"IMPORT_JOB_STATE_VALIDATING";
 
-// GTLRMigrationCenterAPI_InlinePayloadInfo.format
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatCmdb = @"IMPORT_JOB_FORMAT_CMDB";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAwsCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAzureCsv = @"IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatManualCsv = @"IMPORT_JOB_FORMAT_MANUAL_CSV";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsCsv = @"IMPORT_JOB_FORMAT_RVTOOLS_CSV";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsXlsx = @"IMPORT_JOB_FORMAT_RVTOOLS_XLSX";
-NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatUnspecified = @"IMPORT_JOB_FORMAT_UNSPECIFIED";
+// GTLRMigrationCenterAPI_MachineArchitectureDetails.firmwareType
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Bios = @"BIOS";
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Efi = @"EFI";
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_FirmwareTypeUnspecified = @"FIRMWARE_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_MachineArchitectureDetails.hyperthreading
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_CpuHyperThreadingUnspecified = @"CPU_HYPER_THREADING_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Disabled = @"DISABLED";
+NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Enabled = @"ENABLED";
+
+// GTLRMigrationCenterAPI_MachineDetails.powerState
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Active = @"ACTIVE";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleted = @"DELETED";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleting = @"DELETING";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Pending = @"PENDING";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_PowerStateUnspecified = @"POWER_STATE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspended = @"SUSPENDED";
+NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspending = @"SUSPENDING";
 
 // GTLRMigrationCenterAPI_NetworkAddress.assignment
 NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentDhcp = @"ADDRESS_ASSIGNMENT_DHCP";
 NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentStatic = @"ADDRESS_ASSIGNMENT_STATIC";
 NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentUnspecified = @"ADDRESS_ASSIGNMENT_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_NetworkConnection.state
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Closed = @"CLOSED";
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Closing = @"CLOSING";
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Listen = @"LISTEN";
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Open = @"OPEN";
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Opening = @"OPENING";
+NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_Report.state
 NSString * const kGTLRMigrationCenterAPI_Report_State_Failed   = @"FAILED";
@@ -100,11 +124,25 @@ NSString * const kGTLRMigrationCenterAPI_Report_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRMigrationCenterAPI_Report_Type_TotalCostOfOwnership = @"TOTAL_COST_OF_OWNERSHIP";
 NSString * const kGTLRMigrationCenterAPI_Report_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRMigrationCenterAPI_ReportSummaryMachineFinding.allocatedDiskTypes
-NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
-NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
-NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
-NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+// GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding.allocatedDiskTypes
+NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
+NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
+NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
+NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_RunningService.startMode
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Auto = @"AUTO";
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Boot = @"BOOT";
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Disabled = @"DISABLED";
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Manual = @"MANUAL";
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_StartModeUnspecified = @"START_MODE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_System = @"SYSTEM";
+
+// GTLRMigrationCenterAPI_RunningService.state
+NSString * const kGTLRMigrationCenterAPI_RunningService_State_Active = @"ACTIVE";
+NSString * const kGTLRMigrationCenterAPI_RunningService_State_Paused = @"PAUSED";
+NSString * const kGTLRMigrationCenterAPI_RunningService_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_RunningService_State_Stopped = @"STOPPED";
 
 // GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
 NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment1Year = @"COMMITMENT_1_YEAR";
@@ -130,17 +168,6 @@ NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeGuestOsScan = @"S
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeInventoryScan = @"SOURCE_TYPE_INVENTORY_SCAN";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUnknown = @"SOURCE_TYPE_UNKNOWN";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUpload = @"SOURCE_TYPE_UPLOAD";
-
-// GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails.hyperthreading
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingDisabled = @"HYPER_THREADING_DISABLED";
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingEnabled = @"HYPER_THREADING_ENABLED";
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingUnspecified = @"HYPER_THREADING_UNSPECIFIED";
-
-// GTLRMigrationCenterAPI_VirtualMachineDetails.osFamily
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyLinux = @"OS_FAMILY_LINUX";
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnix = @"OS_FAMILY_UNIX";
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnknown = @"OS_FAMILY_UNKNOWN";
-NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyWindows = @"OS_FAMILY_WINDOWS";
 
 // GTLRMigrationCenterAPI_VirtualMachinePreferences.commitmentPlan
 NSString * const kGTLRMigrationCenterAPI_VirtualMachinePreferences_CommitmentPlan_CommitmentPlanNone = @"COMMITMENT_PLAN_NONE";
@@ -170,6 +197,17 @@ NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTyp
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeSesparseV1 = @"BACKING_TYPE_SESPARSE_V1";
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeSesparseV2 = @"BACKING_TYPE_SESPARSE_V2";
 NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeUnspecified = @"BACKING_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_VmwareDiskConfig.rdmCompatibility
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_PhysicalCompatibility = @"PHYSICAL_COMPATIBILITY";
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_RdmCompatibilityUnspecified = @"RDM_COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_VirtualCompatibility = @"VIRTUAL_COMPATIBILITY";
+
+// GTLRMigrationCenterAPI_VmwareDiskConfig.vmdkMode
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_Dependent = @"DEPENDENT";
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentNonpersistent = @"INDEPENDENT_NONPERSISTENT";
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentPersistent = @"INDEPENDENT_PERSISTENT";
+NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_VmdkModeUnspecified = @"VMDK_MODE_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_VmwareEnginePreferences.commitmentPlan
 NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_Commitment1YearMonthlyPayments = @"COMMITMENT_1_YEAR_MONTHLY_PAYMENTS";
@@ -368,8 +406,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_Asset
-@dynamic assignedGroups, attributes, createTime, insightList, labels, name,
-         performanceData, sources, updateTime, virtualMachineDetails;
+@dynamic assignedGroups, attributes, createTime, insightList, labels,
+         machineDetails, name, performanceData, sources, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -416,8 +454,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_AssetFrame
-@dynamic attributes, labels, performanceSamples, reportTime, traceToken,
-         virtualMachineDetails;
+@dynamic attributes, labels, machineDetails, performanceSamples, reportTime,
+         traceToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -573,7 +611,12 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_BiosDetails
-@dynamic biosManufacturer, biosName, biosReleaseDate, biosVersion, smbiosUuid;
+@dynamic biosName, identifier, manufacturer, releaseDate, smbiosUuid, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -602,7 +645,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ComputeEnginePreferences
-@dynamic licenseType, machinePreferences, persistentDiskType;
+@dynamic licenseType, machinePreferences;
 @end
 
 
@@ -717,22 +760,12 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_DateTime
-//
-
-@implementation GTLRMigrationCenterAPI_DateTime
-@dynamic day, hours, minutes, month, nanos, seconds, timeZone, utcOffset, year;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMigrationCenterAPI_DiskEntry
 //
 
 @implementation GTLRMigrationCenterAPI_DiskEntry
-@dynamic diskLabel, diskLabelType, hwAddress, interfaceType, partitions, status,
-         totalCapacityBytes, totalFreeBytes, vmwareConfig;
+@dynamic capacityBytes, diskLabel, diskLabelType, freeBytes, hwAddress,
+         interfaceType, partitions, vmware;
 @end
 
 
@@ -826,15 +859,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ExecutionReport
-@dynamic executionErrors, framesReported, jobErrors, totalRowsCount;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"jobErrors" : [GTLRMigrationCenterAPI_ImportError class]
-  };
-  return map;
-}
-
+@dynamic executionErrors, framesReported, totalRowsCount;
 @end
 
 
@@ -925,11 +950,19 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_GCSPayloadInfo
+//   GTLRMigrationCenterAPI_GenericInsight
 //
 
-@implementation GTLRMigrationCenterAPI_GCSPayloadInfo
-@dynamic format, path;
+@implementation GTLRMigrationCenterAPI_GenericInsight
+@dynamic additionalInformation, defaultMessage, messageId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalInformation" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -940,15 +973,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_GenericPlatformDetails
 @dynamic location;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_GoogleKubernetesEngineMigrationTarget
-//
-
-@implementation GTLRMigrationCenterAPI_GoogleKubernetesEngineMigrationTarget
 @end
 
 
@@ -987,7 +1011,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GuestConfigDetails
-@dynamic fstab, hosts, issue, nfsExports, selinux;
+@dynamic fstab, hosts, issue, nfsExports, selinuxMode;
 @end
 
 
@@ -997,7 +1021,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GuestInstalledApplication
-@dynamic name, path, time, vendor, version;
+@dynamic applicationName, installTime, path, vendor, version;
 @end
 
 
@@ -1025,7 +1049,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GuestOsDetails
-@dynamic config, runtime;
+@dynamic config, family, osName, runtime, version;
 @end
 
 
@@ -1035,7 +1059,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GuestRuntimeDetails
-@dynamic domain, installedApps, lastUptime, machineName, networkInfo,
+@dynamic domain, installedApps, lastBootTime, machineName, network,
          openFileList, processes, services;
 @end
 
@@ -1103,8 +1127,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_ImportJob
 @dynamic assetSource, completeTime, createTime, displayName, executionReport,
-         gcsPayload, inlinePayload, labels, name, state, updateTime,
-         validationReport;
+         labels, name, state, updateTime, validationReport;
 @end
 
 
@@ -1142,29 +1165,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_InlinePayloadInfo
-//
-
-@implementation GTLRMigrationCenterAPI_InlinePayloadInfo
-@dynamic format, payload;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"payload" : [GTLRMigrationCenterAPI_PayloadFile class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMigrationCenterAPI_Insight
 //
 
 @implementation GTLRMigrationCenterAPI_Insight
-@dynamic migrationInsight;
+@dynamic genericInsight, migrationInsight;
 @end
 
 
@@ -1477,6 +1482,48 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_MachineArchitectureDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MachineArchitectureDetails
+@dynamic bios, cpuArchitecture, cpuName, cpuSocketCount, cpuThreadCount,
+         firmwareType, hyperthreading, vendor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MachineDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MachineDetails
+@dynamic architecture, coreCount, createTime, disks, guestOs, machineName,
+         memoryMb, network, platform, powerState, uuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MachineDiskDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MachineDiskDetails
+@dynamic disks, totalCapacityBytes, totalFreeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_MachineNetworkDetails
+//
+
+@implementation GTLRMigrationCenterAPI_MachineNetworkDetails
+@dynamic adapters, primaryIpAddress, primaryMacAddress, publicIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_MachinePreferences
 //
 
@@ -1519,7 +1566,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_MigrationInsight
-@dynamic computeEngineTarget, fit, gkeTarget, vmwareEngineTarget;
+@dynamic computeEngineTarget, fit;
 @end
 
 
@@ -1549,11 +1596,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_NetworkAdapterList
-@dynamic networkAdapters;
+@dynamic entries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"networkAdapters" : [GTLRMigrationCenterAPI_NetworkAdapterDetails class]
+    @"entries" : [GTLRMigrationCenterAPI_NetworkAdapterDetails class]
   };
   return map;
 }
@@ -1577,11 +1624,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_NetworkAddressList
-@dynamic addresses;
+@dynamic entries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"addresses" : [GTLRMigrationCenterAPI_NetworkAddress class]
+    @"entries" : [GTLRMigrationCenterAPI_NetworkAddress class]
   };
   return map;
 }
@@ -1743,16 +1790,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_PayloadFile
-//
-
-@implementation GTLRMigrationCenterAPI_PayloadFile
-@dynamic data, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMigrationCenterAPI_PerformanceSample
 //
 
@@ -1908,10 +1945,9 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ReportSummaryAssetAggregateStats
-@dynamic assetAge, coreCountHistogram, memoryBytesHistogram, memoryUtilization,
-         memoryUtilizationChart, operatingSystem, storageBytesHistogram,
-         storageUtilization, storageUtilizationChart, totalAssets, totalCores,
-         totalMemoryBytes, totalStorageBytes;
+@dynamic coreCountHistogram, memoryBytesHistogram, memoryUtilizationChart,
+         operatingSystem, storageBytesHistogram, storageUtilizationChart,
+         totalAssets, totalCores, totalMemoryBytes, totalStorageBytes;
 @end
 
 
@@ -1945,6 +1981,27 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding
+//
+
+@implementation GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding
+@dynamic allocatedAssetCount, allocatedDiskTypes, allocatedRegions,
+         machineSeriesAllocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allocatedDiskTypes" : [NSString class],
+    @"allocatedRegions" : [NSString class],
+    @"machineSeriesAllocations" : [GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_ReportSummaryGroupFinding
 //
 
@@ -1972,11 +2029,10 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ReportSummaryGroupPreferenceSetFinding
-@dynamic descriptionProperty, displayName, machineFinding, machinePreferences,
-         monthlyCostCompute, monthlyCostNetworkEgress, monthlyCostOsLicense,
-         monthlyCostOther, monthlyCostStorage, monthlyCostTotal,
-         preferredRegion, pricingTrack, soleTenantFinding, topPriority,
-         vmwareEngineFinding;
+@dynamic computeEngineFinding, descriptionProperty, displayName,
+         machinePreferences, monthlyCostCompute, monthlyCostNetworkEgress,
+         monthlyCostOsLicense, monthlyCostOther, monthlyCostStorage,
+         monthlyCostTotal, soleTenantFinding, vmwareEngineFinding;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2010,27 +2066,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_ReportSummaryHistogramChartDataBucket
 @dynamic count, lowerBound, upperBound;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_ReportSummaryMachineFinding
-//
-
-@implementation GTLRMigrationCenterAPI_ReportSummaryMachineFinding
-@dynamic allocatedAssetCount, allocatedDiskTypes, allocatedRegions,
-         machineSeriesAllocations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allocatedDiskTypes" : [NSString class],
-    @"allocatedRegions" : [NSString class],
-    @"machineSeriesAllocations" : [GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -2085,16 +2120,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding
+//   GTLRMigrationCenterAPI_ReportSummaryVmwareEngineFinding
 //
 
-@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding
+@implementation GTLRMigrationCenterAPI_ReportSummaryVmwareEngineFinding
 @dynamic allocatedAssetCount, allocatedRegions, nodeAllocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allocatedRegions" : [NSString class],
-    @"nodeAllocations" : [GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation class]
+    @"nodeAllocations" : [GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation class]
   };
   return map;
 }
@@ -2104,20 +2139,20 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_ReportSummaryVMWareNode
+//   GTLRMigrationCenterAPI_ReportSummaryVmwareNode
 //
 
-@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareNode
+@implementation GTLRMigrationCenterAPI_ReportSummaryVmwareNode
 @dynamic code;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation
+//   GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation
 //
 
-@implementation GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation
+@implementation GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation
 @dynamic allocatedAssetCount, nodeCount, vmwareNode;
 @end
 
@@ -2162,11 +2197,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_RunningProcessList
-@dynamic processes;
+@dynamic entries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"processes" : [GTLRMigrationCenterAPI_RunningProcess class]
+    @"entries" : [GTLRMigrationCenterAPI_RunningProcess class]
   };
   return map;
 }
@@ -2180,7 +2215,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_RunningService
-@dynamic cmdline, exePath, name, pid, startMode, state, status;
+@dynamic cmdline, exePath, pid, serviceName, startMode, state;
 @end
 
 
@@ -2190,11 +2225,11 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_RunningServiceList
-@dynamic services;
+@dynamic entries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRMigrationCenterAPI_RunningService class]
+    @"entries" : [GTLRMigrationCenterAPI_RunningService class]
   };
   return map;
 }
@@ -2208,17 +2243,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_RuntimeNetworkInfo
-@dynamic connections, netstat, netstatTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_Selinux
-//
-
-@implementation GTLRMigrationCenterAPI_Selinux
-@dynamic enabled, mode;
+@dynamic connections, scanTime;
 @end
 
 
@@ -2266,8 +2291,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_Source
-@dynamic createTime, descriptionProperty, displayName, errorFrameCount,
-         isManaged, name, pendingFrameCount, priority, state, type, updateTime;
+@dynamic createTime, descriptionProperty, displayName, errorFrameCount, managed,
+         name, pendingFrameCount, priority, state, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2303,21 +2328,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_TimeZone
-//
-
-@implementation GTLRMigrationCenterAPI_TimeZone
-@dynamic identifier, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -2388,50 +2398,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails
-//
-
-@implementation GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails
-@dynamic bios, cpuArchitecture, cpuManufacturer, cpuName, cpuSocketCount,
-         cpuThreadCount, firmware, hyperthreading, vendor;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_VirtualMachineDetails
-//
-
-@implementation GTLRMigrationCenterAPI_VirtualMachineDetails
-@dynamic coreCount, createTime, guestOs, memoryMb, osFamily, osName, osVersion,
-         platform, powerState, vcenterFolder, vcenterUrl, vcenterVmId,
-         vmArchitecture, vmDisks, vmName, vmNetwork, vmUuid;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_VirtualMachineDiskDetails
-//
-
-@implementation GTLRMigrationCenterAPI_VirtualMachineDiskDetails
-@dynamic disks, hddTotalCapacityBytes, hddTotalFreeBytes, lsblkJson;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_VirtualMachineNetworkDetails
-//
-
-@implementation GTLRMigrationCenterAPI_VirtualMachineNetworkDetails
-@dynamic defaultGw, networkAdapters, primaryIpAddress, primaryMacAddress,
-         publicIpAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMigrationCenterAPI_VirtualMachinePreferences
 //
 
@@ -2448,16 +2414,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_VmwareDiskConfig
-@dynamic backingType, rdmCompatibilityMode, shared, vmdkDiskMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMigrationCenterAPI_VmwareEngineMigrationTarget
-//
-
-@implementation GTLRMigrationCenterAPI_VmwareEngineMigrationTarget
+@dynamic backingType, rdmCompatibility, shared, vmdkMode;
 @end
 
 
@@ -2478,5 +2435,6 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_VmwarePlatformDetails
-@dynamic esxVersion, osid, vcenterVersion;
+@dynamic esxVersion, osid, vcenterFolder, vcenterUri, vcenterVersion,
+         vcenterVmId;
 @end

@@ -392,8 +392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
 /**
  *  Includes all file extensions not covered by another entry. Binary scanning
  *  attempts to convert the content of the file to utf_8 to scan the file. If
- *  you wish to avoid this fall back, specify one or more of the other
- *  FileType's in your storage scan.
+ *  you wish to avoid this fall back, specify one or more of the other file
+ *  types in your storage scan.
  *
  *  Value: "BINARY_FILE"
  */
@@ -405,8 +405,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Csv;
 /**
- *  Excel files >30 MB will be scanned as binary files. Included file
- *  extensions: xlsx, xlsm, xltx, xltm
+ *  Microsoft Excel files larger than 30 MB will be scanned as binary files.
+ *  Included file extensions: xlsx, xlsm, xltx, xltm. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  Excel files.
  *
  *  Value: "EXCEL"
  */
@@ -418,23 +420,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /**
- *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png.
- *  bytes_limit_per_file has no effect on image files. Image inspection is
- *  restricted to 'global', 'us', 'asia', and 'europe'.
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png. Setting
+ *  bytes_limit_per_file or bytes_limit_per_file_percent has no effect on image
+ *  files. Image inspection is restricted to the `global`, `us`, `asia`, and
+ *  `europe` regions.
  *
  *  Value: "IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
 /**
- *  PDF files >30 MB will be scanned as binary files. Included file extensions:
- *  pdf
+ *  PDF files larger than 30 MB will be scanned as binary files. Included file
+ *  extensions: pdf. Setting `bytes_limit_per_file` or
+ *  `bytes_limit_per_file_percent` has no effect on PDF files.
  *
  *  Value: "PDF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
 /**
- *  Powerpoint files >30 MB will be scanned as binary files. Included file
- *  extensions: pptx, pptm, potx, potm, pot
+ *  Microsoft PowerPoint files larger than 30 MB will be scanned as binary
+ *  files. Included file extensions: pptx, pptm, potx, potm, pot. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  PowerPoint files.
  *
  *  Value: "POWERPOINT"
  */
@@ -457,8 +463,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Tsv;
 /**
- *  Word files >30 MB will be scanned as binary files. Included file extensions:
- *  docx, dotx, docm, dotm
+ *  Microsoft Word files larger than 30 MB will be scanned as binary files.
+ *  Included file extensions: docx, dotx, docm, dotm. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  Word files.
  *
  *  Value: "WORD"
  */
@@ -954,8 +962,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
 /**
  *  Includes all file extensions not covered by another entry. Binary scanning
  *  attempts to convert the content of the file to utf_8 to scan the file. If
- *  you wish to avoid this fall back, specify one or more of the other
- *  FileType's in your storage scan.
+ *  you wish to avoid this fall back, specify one or more of the other file
+ *  types in your storage scan.
  *
  *  Value: "BINARY_FILE"
  */
@@ -967,8 +975,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Csv;
 /**
- *  Excel files >30 MB will be scanned as binary files. Included file
- *  extensions: xlsx, xlsm, xltx, xltm
+ *  Microsoft Excel files larger than 30 MB will be scanned as binary files.
+ *  Included file extensions: xlsx, xlsm, xltx, xltm. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  Excel files.
  *
  *  Value: "EXCEL"
  */
@@ -980,23 +990,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_FileTypeUnspecified;
 /**
- *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png.
- *  bytes_limit_per_file has no effect on image files. Image inspection is
- *  restricted to 'global', 'us', 'asia', and 'europe'.
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png. Setting
+ *  bytes_limit_per_file or bytes_limit_per_file_percent has no effect on image
+ *  files. Image inspection is restricted to the `global`, `us`, `asia`, and
+ *  `europe` regions.
  *
  *  Value: "IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Image;
 /**
- *  PDF files >30 MB will be scanned as binary files. Included file extensions:
- *  pdf
+ *  PDF files larger than 30 MB will be scanned as binary files. Included file
+ *  extensions: pdf. Setting `bytes_limit_per_file` or
+ *  `bytes_limit_per_file_percent` has no effect on PDF files.
  *
  *  Value: "PDF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Pdf;
 /**
- *  Powerpoint files >30 MB will be scanned as binary files. Included file
- *  extensions: pptx, pptm, potx, potm, pot
+ *  Microsoft PowerPoint files larger than 30 MB will be scanned as binary
+ *  files. Included file extensions: pptx, pptm, potx, potm, pot. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  PowerPoint files.
  *
  *  Value: "POWERPOINT"
  */
@@ -1019,8 +1033,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Tsv;
 /**
- *  Word files >30 MB will be scanned as binary files. Included file extensions:
- *  docx, dotx, docm, dotm
+ *  Microsoft Word files larger than 30 MB will be scanned as binary files.
+ *  Included file extensions: docx, dotx, docm, dotm. Setting
+ *  `bytes_limit_per_file` or `bytes_limit_per_file_percent` has no effect on
+ *  Word files.
  *
  *  Value: "WORD"
  */
@@ -2434,7 +2450,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  References to fields excluded from scanning. This allows you to skip
- *  inspection of entire columns which you know have no findings.
+ *  inspection of entire columns which you know have no findings. When
+ *  inspecting a table, we recommend that you inspect all columns. Otherwise,
+ *  findings might be impacted because hints from excluded columns will not be
+ *  used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *excludedFields;
 
@@ -2447,7 +2466,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
 
-/** Limit scanning only to these fields. */
+/**
+ *  Limit scanning only to these fields. When inspecting a table, we recommend
+ *  that you inspect all columns. Otherwise, findings might be impacted because
+ *  hints from excluded columns will not be used.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *includedFields;
 
 /**
@@ -2825,8 +2848,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Max number of bytes to scan from a file. If a scanned file's size is bigger
  *  than this value then the rest of the bytes are omitted. Only one of
- *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
- *  Cannot be set if de-identification is requested.
+ *  `bytes_limit_per_file` and `bytes_limit_per_file_percent` can be specified.
+ *  This field can't be set if de-identification is requested. For certain file
+ *  types, setting this field has no effect. For more information, see [Limits
+ *  on bytes scanned per
+ *  file](https://cloud.google.com/dlp/docs/supported-file-types#max-byte-size-per-file).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2836,8 +2862,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Max percentage of bytes to scan from a file. The rest are omitted. The
  *  number of bytes scanned is rounded down. Must be between 0 and 100,
  *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one of
- *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
- *  Cannot be set if de-identification is requested.
+ *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified. This
+ *  field can't be set if de-identification is requested. For certain file
+ *  types, setting this field has no effect. For more information, see [Limits
+ *  on bytes scanned per
+ *  file](https://cloud.google.com/dlp/docs/supported-file-types#max-byte-size-per-file).
  *
  *  Uses NSNumber of intValue.
  */

@@ -1148,8 +1148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the parent package whose tags will be listed. Example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1
+ *  The name of the parent package whose tags will be listed. For example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1158,9 +1158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Lists tags.
  *
- *  @param parent The name of the parent package whose tags will be listed.
- *    Example:
- *    "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1
+ *  @param parent The name of the parent package whose tags will be listed. For
+ *    example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsList
  *
@@ -1215,6 +1215,37 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_Tag *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes multiple versions across a repository. The returned operation will
+ *  complete once the versions have been deleted.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.packages.versions.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsBatchDelete : GTLRArtifactRegistryQuery
+
+/** The name of the repository holding all requested versions. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Deletes multiple versions across a repository. The returned operation will
+ *  complete once the versions have been deleted.
+ *
+ *  @param object The @c GTLRArtifactRegistry_BatchDeleteVersionsRequest to
+ *    include in the query.
+ *  @param parent The name of the repository holding all requested versions.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_BatchDeleteVersionsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

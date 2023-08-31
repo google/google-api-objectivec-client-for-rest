@@ -257,6 +257,25 @@
 
 @end
 
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsListSubscriptions
+
+@dynamic includeDeletedSubscriptions, pageSize, pageToken, resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:listSubscriptions";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsListSubscriptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.listings.listSubscriptions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsPatch
 
 @dynamic name, updateMask;
@@ -365,6 +384,25 @@
 
 @end
 
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListSubscriptions
+
+@dynamic includeDeletedSubscriptions, pageSize, pageToken, resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:listSubscriptions";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListSubscriptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.listSubscriptions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesPatch
 
 @dynamic name, updateMask;
@@ -419,6 +457,33 @@
 
 @end
 
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSubscribe
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SubscribeDataExchangeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:subscribe";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSubscribe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Operation class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.subscribe";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesTestIamPermissions
 
 @dynamic resource;
@@ -441,6 +506,117 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRAnalyticsHub_TestIamPermissionsResponse class];
   query.loggingName = @"analyticshub.projects.locations.dataExchanges.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Operation class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Subscription class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subscriptions";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAnalyticsHub_ListSubscriptionsResponse class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRefresh
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_RefreshSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:refresh";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRefresh *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Operation class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.refresh";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_RevokeSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_RevokeSubscriptionResponse class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.revoke";
   return query;
 }
 

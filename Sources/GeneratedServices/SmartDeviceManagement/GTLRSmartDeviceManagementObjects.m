@@ -97,17 +97,13 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListDevicesResponse
-@dynamic devices, nextPageToken;
+@dynamic devices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"devices" : [GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Device class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"devices";
 }
 
 @end
@@ -119,17 +115,13 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListRoomsResponse
-@dynamic nextPageToken, rooms;
+@dynamic rooms;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"rooms" : [GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Room class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"rooms";
 }
 
 @end
@@ -141,17 +133,13 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListStructuresResponse
-@dynamic nextPageToken, structures;
+@dynamic structures;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"structures" : [GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"structures";
 }
 
 @end

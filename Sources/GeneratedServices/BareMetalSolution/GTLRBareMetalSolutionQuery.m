@@ -36,25 +36,6 @@
 
 @end
 
-@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch
-
-@dynamic location;
-
-+ (instancetype)queryWithLocation:(NSString *)location {
-  NSArray *pathParams = @[ @"location" ];
-  NSString *pathURITemplate = @"v2/{+location}/instanceProvisioningSettings:fetch";
-  GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.location = location;
-  query.expectedObjectClass = [GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse class];
-  query.loggingName = @"baremetalsolution.projects.locations.instanceProvisioningSettings.fetch";
-  return query;
-}
-
-@end
-
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDetachLun
 
 @dynamic instance;
@@ -591,6 +572,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/osImages";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListOSImagesResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.osImages.list";
   return query;
 }
 

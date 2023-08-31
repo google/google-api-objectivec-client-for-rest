@@ -37,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification.notificationType
 
 /**
+ *  General security MSA
+ *
+ *  Value: "NOTIFICATION_TYPE_SECURITY_MSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityMsa;
+/**
  *  Security and privacy advisory notifications
  *
  *  Value: "NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY"
@@ -48,6 +54,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
  *  Value: "NOTIFICATION_TYPE_SENSITIVE_ACTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSensitiveActions;
+/**
+ *  Threat horizons MSA
+ *
+ *  Value: "NOTIFICATION_TYPE_THREAT_HORIZONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeThreatHorizons;
 /**
  *  Default type
  *
@@ -220,12 +232,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
  *  Type of notification
  *
  *  Likely values:
+ *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityMsa
+ *        General security MSA (Value: "NOTIFICATION_TYPE_SECURITY_MSA")
  *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSecurityPrivacyAdvisory
  *        Security and privacy advisory notifications (Value:
  *        "NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY")
  *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeSensitiveActions
  *        Sensitive action notifications (Value:
  *        "NOTIFICATION_TYPE_SENSITIVE_ACTIONS")
+ *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeThreatHorizons
+ *        Threat horizons MSA (Value: "NOTIFICATION_TYPE_THREAT_HORIZONS")
  *    @arg @c kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification_NotificationType_NotificationTypeUnspecified
  *        Default type (Value: "NOTIFICATION_TYPE_UNSPECIFIED")
  */

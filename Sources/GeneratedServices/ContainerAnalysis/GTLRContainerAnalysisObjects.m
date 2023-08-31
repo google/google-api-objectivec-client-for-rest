@@ -361,6 +361,11 @@ NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_RemediationT
 NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_VendorFix = @"VENDOR_FIX";
 NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_Workaround = @"WORKAROUND";
 
+// GTLRContainerAnalysis_SBOMStatus.sbomState
+NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Complete = @"COMPLETE";
+NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Pending = @"PENDING";
+NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified = @"SBOM_STATE_UNSPECIFIED";
+
 // GTLRContainerAnalysis_Version.kind
 NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum   = @"MAXIMUM";
 NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum   = @"MINIMUM";
@@ -472,7 +477,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_Assessment
 @dynamic cve, impacts, justification, longDescription, relatedUris,
-         remediations, shortDescription, state;
+         remediations, shortDescription, state, vulnerabilityId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -613,6 +618,53 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_BuildDefinition
+//
+
+@implementation GTLRContainerAnalysis_BuildDefinition
+@dynamic buildType, externalParameters, internalParameters,
+         resolvedDependencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resolvedDependencies" : [GTLRContainerAnalysis_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_BuildDefinition_ExternalParameters
+//
+
+@implementation GTLRContainerAnalysis_BuildDefinition_ExternalParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_BuildDefinition_InternalParameters
+//
+
+@implementation GTLRContainerAnalysis_BuildDefinition_InternalParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_BuilderConfig
 //
 
@@ -623,6 +675,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_BuildMetadata
+//
+
+@implementation GTLRContainerAnalysis_BuildMetadata
+@dynamic finishedOn, invocationId, startedOn;
 @end
 
 
@@ -642,7 +704,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_BuildOccurrence
-@dynamic intotoProvenance, intotoStatement, provenance, provenanceBytes;
+@dynamic intotoProvenance, inTotoSlsaProvenanceV1, intotoStatement, provenance,
+         provenanceBytes;
 @end
 
 
@@ -691,9 +754,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_BuildStep
-@dynamic allowExitCodes, allowFailure, args, dir, entrypoint, env, exitCode,
-         identifier, name, pullTiming, script, secretEnv, status, timeout,
-         timing, volumes, waitFor;
+@dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
+         entrypoint, env, exitCode, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -935,7 +998,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime;
+         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1312,10 +1375,10 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions
-@dynamic defaultLogsBucketBehavior, diskSizeGb, dynamicSubstitutions, env,
-         logging, logStreamingOption, machineType, pool, requestedVerifyOption,
-         secretEnv, sourceProvenanceHash, substitutionOption, volumes,
-         workerPool;
+@dynamic automapSubstitutions, defaultLogsBucketBehavior, diskSizeGb,
+         dynamicSubstitutions, env, logging, logStreamingOption, machineType,
+         pool, requestedVerifyOption, secretEnv, sourceProvenanceHash,
+         substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1346,9 +1409,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep
-@dynamic allowExitCodes, allowFailure, args, dir, entrypoint, env, exitCode,
-         identifier, name, pullTiming, script, secretEnv, status, timeout,
-         timing, volumes, waitFor;
+@dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
+         entrypoint, env, exitCode, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1386,6 +1449,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage
 @dynamic digest, name, pushTiming;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository
+@dynamic dir, repository, revision;
 @end
 
 
@@ -1563,7 +1636,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source
-@dynamic gitSource, repoSource, storageSource, storageSourceManifest;
+@dynamic connectedRepository, gitSource, repoSource, storageSource,
+         storageSourceManifest;
 @end
 
 
@@ -1873,6 +1947,28 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"materials" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_InTotoSlsaProvenanceV1
+//
+
+@implementation GTLRContainerAnalysis_InTotoSlsaProvenanceV1
+@dynamic xType, predicate, predicateType, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xType" : @"_type" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subject" : [GTLRContainerAnalysis_Subject class]
   };
   return map;
 }
@@ -2233,6 +2329,42 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_ProvenanceBuilder
+//
+
+@implementation GTLRContainerAnalysis_ProvenanceBuilder
+@dynamic builderDependencies, identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"builderDependencies" : [GTLRContainerAnalysis_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ProvenanceBuilder_Version
+//
+
+@implementation GTLRContainerAnalysis_ProvenanceBuilder_Version
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Publisher
 //
 
@@ -2320,6 +2452,62 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_ResourceDescriptor
+//
+
+@implementation GTLRContainerAnalysis_ResourceDescriptor
+@dynamic annotations, content, digest, downloadLocation, mediaType, name, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ResourceDescriptor_Annotations
+//
+
+@implementation GTLRContainerAnalysis_ResourceDescriptor_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ResourceDescriptor_Digest
+//
+
+@implementation GTLRContainerAnalysis_ResourceDescriptor_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_RunDetails
+//
+
+@implementation GTLRContainerAnalysis_RunDetails
+@dynamic builder, byproducts, metadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"byproducts" : [GTLRContainerAnalysis_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_SbomReferenceIntotoPayload
 //
 
@@ -2394,6 +2582,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_SBOMStatus
+//
+
+@implementation GTLRContainerAnalysis_SBOMStatus
+@dynamic error, sbomState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_SetIamPolicyRequest
 //
 
@@ -2463,6 +2661,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaProvenanceV1
+//
+
+@implementation GTLRContainerAnalysis_SlsaProvenanceV1
+@dynamic buildDefinition, runDetails;
 @end
 
 
@@ -2764,7 +2972,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_VexAssessment
 @dynamic cve, impacts, justification, noteName, relatedUris, remediations,
-         state;
+         state, vulnerabilityId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

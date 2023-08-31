@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRTranscoder_AdBreak;
+@class GTLRTranscoder_Aes128Encryption;
 @class GTLRTranscoder_Animation;
 @class GTLRTranscoder_AnimationEnd;
 @class GTLRTranscoder_AnimationFade;
@@ -24,14 +25,18 @@
 @class GTLRTranscoder_AudioMapping;
 @class GTLRTranscoder_AudioStream;
 @class GTLRTranscoder_BwdifConfig;
+@class GTLRTranscoder_Clearkey;
 @class GTLRTranscoder_Color;
 @class GTLRTranscoder_Crop;
 @class GTLRTranscoder_DashConfig;
 @class GTLRTranscoder_Deblock;
 @class GTLRTranscoder_Deinterlace;
 @class GTLRTranscoder_Denoise;
+@class GTLRTranscoder_DrmSystems;
 @class GTLRTranscoder_EditAtom;
 @class GTLRTranscoder_ElementaryStream;
+@class GTLRTranscoder_Encryption;
+@class GTLRTranscoder_Fairplay;
 @class GTLRTranscoder_H264CodecSettings;
 @class GTLRTranscoder_H265CodecSettings;
 @class GTLRTranscoder_Image;
@@ -42,13 +47,17 @@
 @class GTLRTranscoder_JobTemplate;
 @class GTLRTranscoder_JobTemplate_Labels;
 @class GTLRTranscoder_Manifest;
+@class GTLRTranscoder_MpegCommonEncryption;
 @class GTLRTranscoder_MuxStream;
 @class GTLRTranscoder_NormalizedCoordinate;
 @class GTLRTranscoder_Output;
 @class GTLRTranscoder_Overlay;
 @class GTLRTranscoder_Pad;
+@class GTLRTranscoder_Playready;
 @class GTLRTranscoder_PreprocessingConfig;
 @class GTLRTranscoder_PubsubDestination;
+@class GTLRTranscoder_SampleAesEncryption;
+@class GTLRTranscoder_SecretManagerSource;
 @class GTLRTranscoder_SegmentSettings;
 @class GTLRTranscoder_SpriteSheet;
 @class GTLRTranscoder_Status;
@@ -57,6 +66,7 @@
 @class GTLRTranscoder_TextStream;
 @class GTLRTranscoder_VideoStream;
 @class GTLRTranscoder_Vp9CodecSettings;
+@class GTLRTranscoder_Widevine;
 @class GTLRTranscoder_YadifConfig;
 
 // Generated comments include content from the discovery document; avoid them
@@ -95,7 +105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_AnimationFade_FadeType_FadeTy
 // GTLRTranscoder_DashConfig.segmentReferenceScheme
 
 /**
- *  Lists the URLs of media files for each segment.
+ *  Explicitly lists the URLs of media files for each segment. For example, if
+ *  SegmentSettings.individual_segments is `true`, then the manifest contains
+ *  fields similar to the following: ```xml ... ```
  *
  *  Value: "SEGMENT_LIST"
  */
@@ -107,7 +119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceSc
  */
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified;
 /**
- *  Lists each segment from a template with $Number$ variable.
+ *  SegmentSettings.individual_segments must be set to `true` to use this
+ *  segment reference scheme. Uses the DASH specification `` tag to determine
+ *  the URLs of media files for each segment. For example: ```xml ... ```
  *
  *  Value: "SEGMENT_TEMPLATE_NUMBER"
  */
@@ -137,11 +151,33 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeIntera
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRTranscoder_Job.optimization
+
+/**
+ *  Prioritize job processing speed.
+ *
+ *  Value: "AUTODETECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Optimization_Autodetect;
+/**
+ *  Disable all optimizations.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Optimization_Disabled;
+/**
+ *  The optimization strategy is not specified.
+ *
+ *  Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_Optimization_OptimizationStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRTranscoder_Job.state
 
 /**
- *  The job has failed. For additional information, see `failure_reason` and
- *  `failure_details`
+ *  The job has failed. For additional information, see
+ *  [Troubleshooting](https://cloud.google.com/transcoder/docs/troubleshooting).
  *
  *  Value: "FAILED"
  */
@@ -208,6 +244,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Configuration for AES-128 encryption.
+ */
+@interface GTLRTranscoder_Aes128Encryption : GTLRObject
+@end
+
+
+/**
  *  Animation types.
  */
 @interface GTLRTranscoder_Animation : GTLRObject
@@ -225,7 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  End previous overlay animation from the video. Without AnimationEnd, the
+ *  End previous overlay animation from the video. Without `AnimationEnd`, the
  *  overlay object will keep the state of previous animation until the end of
  *  the video.
  */
@@ -332,13 +375,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`.
+ *  The mapping for the JobConfig.edit_list atoms with audio EditAtom.inputs.
  */
 @interface GTLRTranscoder_AudioMapping : GTLRObject
 
 /**
- *  Required. The `EditAtom.key` that references the atom with audio inputs in
- *  the `Job.edit_list`.
+ *  Required. The EditAtom.key that references the atom with audio inputs in the
+ *  JobConfig.edit_list.
  */
 @property(nonatomic, copy, nullable) NSString *atomKey;
 
@@ -357,7 +400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *inputChannel;
 
-/** Required. The `Input.key` that identifies the input file. */
+/** Required. The Input.key that identifies the input file. */
 @property(nonatomic, copy, nullable) NSString *inputKey;
 
 /**
@@ -427,7 +470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`. */
+/**
+ *  The mapping for the JobConfig.edit_list atoms with audio EditAtom.inputs.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioMapping *> *mapping;
 
 /**
@@ -468,6 +513,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *parity;
 
+@end
+
+
+/**
+ *  Clearkey configuration.
+ */
+@interface GTLRTranscoder_Clearkey : GTLRObject
 @end
 
 
@@ -551,18 +603,22 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The segment reference scheme for a `DASH` manifest. The default is
- *  `SEGMENT_LIST`
+ *  `SEGMENT_LIST`.
  *
  *  Likely values:
  *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentList
- *        Lists the URLs of media files for each segment. (Value:
- *        "SEGMENT_LIST")
+ *        Explicitly lists the URLs of media files for each segment. For
+ *        example, if SegmentSettings.individual_segments is `true`, then the
+ *        manifest contains fields similar to the following: ```xml ... ```
+ *        (Value: "SEGMENT_LIST")
  *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified
  *        The segment reference scheme is not specified. (Value:
  *        "SEGMENT_REFERENCE_SCHEME_UNSPECIFIED")
  *    @arg @c kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentTemplateNumber
- *        Lists each segment from a template with $Number$ variable. (Value:
- *        "SEGMENT_TEMPLATE_NUMBER")
+ *        SegmentSettings.individual_segments must be set to `true` to use this
+ *        segment reference scheme. Uses the DASH specification `` tag to
+ *        determine the URLs of media files for each segment. For example:
+ *        ```xml ... ``` (Value: "SEGMENT_TEMPLATE_NUMBER")
  */
 @property(nonatomic, copy, nullable) NSString *segmentReferenceScheme;
 
@@ -631,6 +687,26 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Defines configuration for DRM systems in use.
+ */
+@interface GTLRTranscoder_DrmSystems : GTLRObject
+
+/** Clearkey configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Clearkey *clearkey;
+
+/** Fairplay configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Fairplay *fairplay;
+
+/** Playready configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Playready *playready;
+
+/** Widevine configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Widevine *widevine;
+
+@end
+
+
+/**
  *  Edit atom.
  */
 @interface GTLRTranscoder_EditAtom : GTLRObject
@@ -643,8 +719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRDuration *endTimeOffset;
 
 /**
- *  List of `Input.key`s identifying files that should be used in this atom. The
- *  listed `inputs` must have the same timeline.
+ *  List of Input.key values identifying files that should be used in this atom.
+ *  The listed `inputs` must have the same timeline.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputs;
 
@@ -695,6 +771,46 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Encryption settings.
+ */
+@interface GTLRTranscoder_Encryption : GTLRObject
+
+/** Configuration for AES-128 encryption. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Aes128Encryption *aes128;
+
+/**
+ *  Required. DRM system(s) to use; at least one must be specified. If a DRM
+ *  system is omitted, it is considered disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRTranscoder_DrmSystems *drmSystems;
+
+/**
+ *  Required. Identifier for this set of encryption options.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Configuration for MPEG Common Encryption (MPEG-CENC). */
+@property(nonatomic, strong, nullable) GTLRTranscoder_MpegCommonEncryption *mpegCenc;
+
+/** Configuration for SAMPLE-AES encryption. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_SampleAesEncryption *sampleAes;
+
+/** Keys are stored in Google Secret Manager. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_SecretManagerSource *secretManagerKeySource;
+
+@end
+
+
+/**
+ *  Fairplay configuration.
+ */
+@interface GTLRTranscoder_Fairplay : GTLRObject
+@end
+
+
+/**
  *  H264 codec settings.
  */
 @interface GTLRTranscoder_H264CodecSettings : GTLRObject
@@ -718,7 +834,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The number of consecutive B-frames. Must be greater than or equal to zero.
- *  Must be less than `VideoStream.gop_frame_count` if set. The default is 0.
+ *  Must be less than H264CodecSettings.gop_frame_count if set. The default is
+ *  0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -750,7 +867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Use two-pass encoding strategy to achieve better video quality.
- *  `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
+ *  H264CodecSettings.rate_control_mode must be `vbr`. The default is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -832,8 +949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
- *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
+ *  Specify the mode. The default is `vbr`. Supported rate control modes: -
+ *  `vbr` - variable bitrate - `crf` - constant rate factor
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
 
@@ -848,7 +965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must
  *  be greater than zero. The default is equal to 90% of
- *  `VideoStream.vbv_size_bits`.
+ *  H264CodecSettings.vbv_size_bits.
  *
  *  Uses NSNumber of intValue.
  */
@@ -856,7 +973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Size of the Video Buffering Verifier (VBV) buffer in bits. Must be greater
- *  than zero. The default is equal to `VideoStream.bitrate_bps`.
+ *  than zero. The default is equal to H264CodecSettings.bitrate_bps.
  *
  *  Uses NSNumber of intValue.
  */
@@ -902,7 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The number of consecutive B-frames. Must be greater than or equal to zero.
- *  Must be less than `VideoStream.gop_frame_count` if set. The default is 0.
+ *  Must be less than H265CodecSettings.gop_frame_count if set. The default is
+ *  0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -934,7 +1052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Use two-pass encoding strategy to achieve better video quality.
- *  `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
+ *  H265CodecSettings.rate_control_mode must be `vbr`. The default is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1014,8 +1132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
- *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
+ *  Specify the mode. The default is `vbr`. Supported rate control modes: -
+ *  `vbr` - variable bitrate - `crf` - constant rate factor
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
 
@@ -1030,7 +1148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must
  *  be greater than zero. The default is equal to 90% of
- *  `VideoStream.vbv_size_bits`.
+ *  H265CodecSettings.vbv_size_bits.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1107,7 +1225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  URI of the media. Input files must be at least 5 seconds in duration and
  *  stored in Cloud Storage (for example, `gs://bucket/inputs/file.mp4`). If
- *  empty, the value is populated from `Job.input_uri`. See [Supported input and
+ *  empty, the value is populated from Job.input_uri. See [Supported input and
  *  output
  *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
@@ -1121,6 +1239,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @interface GTLRTranscoder_Job : GTLRObject
 
+/**
+ *  The processing priority of a batch job. This field can only be set for batch
+ *  mode jobs. The default value is 0. This value cannot be negative. Higher
+ *  values correspond to higher priorities for the job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchModePriority;
+
 /** The configuration for this job. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_JobConfig *config;
 
@@ -1132,7 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Output only. An error object that describes the reason for the failure. This
- *  property is always present when `state` is `FAILED`.
+ *  property is always present when ProcessingState is `FAILED`.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Status *error;
 
@@ -1177,6 +1304,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The optimization strategy of the job. The default is `AUTODETECT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTranscoder_Job_Optimization_Autodetect Prioritize job
+ *        processing speed. (Value: "AUTODETECT")
+ *    @arg @c kGTLRTranscoder_Job_Optimization_Disabled Disable all
+ *        optimizations. (Value: "DISABLED")
+ *    @arg @c kGTLRTranscoder_Job_Optimization_OptimizationStrategyUnspecified
+ *        The optimization strategy is not specified. (Value:
+ *        "OPTIMIZATION_STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *optimization;
+
+/**
  *  Input only. Specify the `output_uri` to populate an empty
  *  `Job.config.output.uri` or `JobTemplate.config.output.uri` when using
  *  template. URI for the output file(s). For example,
@@ -1193,7 +1334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *
  *  Likely values:
  *    @arg @c kGTLRTranscoder_Job_State_Failed The job has failed. For
- *        additional information, see `failure_reason` and `failure_details`
+ *        additional information, see
+ *        [Troubleshooting](https://cloud.google.com/transcoder/docs/troubleshooting).
  *        (Value: "FAILED")
  *    @arg @c kGTLRTranscoder_Job_State_Pending The job is enqueued and will be
  *        picked up for processing soon. (Value: "PENDING")
@@ -1251,13 +1393,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AdBreak *> *adBreaks;
 
 /**
- *  List of `Edit atom`s. Defines the ultimate timeline of the resulting file or
+ *  List of edit atoms. Defines the ultimate timeline of the resulting file or
  *  manifest.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_EditAtom *> *editList;
 
 /** List of elementary streams. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_ElementaryStream *> *elementaryStreams;
+
+/**
+ *  List of encryption configurations for the content. Each configuration has an
+ *  ID. Specify this ID in the MuxStream.encryption_id field to indicate the
+ *  configuration to use for that `MuxStream` output.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_Encryption *> *encryptions;
 
 /** List of input assets stored in Cloud Storage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_Input *> *inputs;
@@ -1386,15 +1535,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The name of the generated file. The default is `manifest` with the extension
- *  suffix corresponding to the `Manifest.type`.
+ *  suffix corresponding to the Manifest.type.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
 /**
- *  Required. List of user given `MuxStream.key`s that should appear in this
- *  manifest. When `Manifest.type` is `HLS`, a media manifest with name
- *  `MuxStream.key` and `.m3u8` extension is generated for each element of the
- *  `Manifest.mux_streams`.
+ *  Required. List of user supplied MuxStream.key values that should appear in
+ *  this manifest. When Manifest.type is `HLS`, a media manifest with name
+ *  MuxStream.key and `.m3u8` extension is generated for each element in this
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *muxStreams;
 
@@ -1415,6 +1564,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Configuration for MPEG Common Encryption (MPEG-CENC).
+ */
+@interface GTLRTranscoder_MpegCommonEncryption : GTLRObject
+
+/**
+ *  Required. Specify the encryption scheme. Supported encryption schemes: -
+ *  `cenc` - `cbcs`
+ */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+@end
+
+
+/**
  *  Multiplexing settings for output stream.
  */
 @interface GTLRTranscoder_MuxStream : GTLRObject
@@ -1427,21 +1590,24 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *container;
 
-/** List of `ElementaryStream.key`s multiplexed in this stream. */
+/** List of ElementaryStream.key values multiplexed in this stream. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *elementaryStreams;
 
 /**
- *  The name of the generated file. The default is `MuxStream.key` with the
- *  extension suffix corresponding to the `MuxStream.container`. Individual
+ *  Identifier of the encryption configuration to use. If omitted, output will
+ *  be unencrypted.
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionId;
+
+/**
+ *  The name of the generated file. The default is MuxStream.key with the
+ *  extension suffix corresponding to the MuxStream.container. Individual
  *  segments also have an incremental 10-digit zero-padded suffix starting from
  *  0 before the extension, such as `mux_stream0000000123.ts`.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
-/**
- *  A unique key for this multiplexed stream. HLS media manifests will be named
- *  `MuxStream.key` with the `.m3u8` extension suffix.
- */
+/** A unique key for this multiplexed stream. */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /** Segment settings for `ts`, `fmp4` and `vtt`. */
@@ -1479,8 +1645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  URI for the output file(s). For example, `gs://my-bucket/outputs/`. If
- *  empty, the value is populated from `Job.output_uri`. See [Supported input
- *  and output
+ *  empty, the value is populated from Job.output_uri. See [Supported input and
+ *  output
  *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1494,7 +1660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Overlay : GTLRObject
 
 /**
- *  List of Animations. The list should be chronological, without any time
+ *  List of animations. The list should be chronological, without any time
  *  overlap.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_Animation *> *animations;
@@ -1543,6 +1709,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Playready configuration.
+ */
+@interface GTLRTranscoder_Playready : GTLRObject
+@end
+
+
+/**
  *  Preprocessing configurations.
  */
 @interface GTLRTranscoder_PreprocessingConfig : GTLRObject
@@ -1581,6 +1754,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  example: `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  Configuration for SAMPLE-AES encryption.
+ */
+@interface GTLRTranscoder_SampleAesEncryption : GTLRObject
+@end
+
+
+/**
+ *  Configuration for secrets stored in Google Secret Manager.
+ */
+@interface GTLRTranscoder_SecretManagerSource : GTLRObject
+
+/**
+ *  Required. The name of the Secret Version containing the encryption key in
+ *  the following format:
+ *  `projects/{project}/secrets/{secret_id}/versions/{version_number}` Note that
+ *  only numbered versions are supported. Aliases like "latest" are not
+ *  supported.
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersion;
 
 @end
 
@@ -1753,17 +1950,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`.
+ *  The mapping for the JobConfig.edit_list atoms with text EditAtom.inputs.
  */
 @interface GTLRTranscoder_TextMapping : GTLRObject
 
 /**
- *  Required. The `EditAtom.key` that references atom with text inputs in the
- *  `Job.edit_list`.
+ *  Required. The EditAtom.key that references atom with text inputs in the
+ *  JobConfig.edit_list.
  */
 @property(nonatomic, copy, nullable) NSString *atomKey;
 
-/** Required. The `Input.key` that identifies the input file. */
+/** Required. The Input.key that identifies the input file. */
 @property(nonatomic, copy, nullable) NSString *inputKey;
 
 /**
@@ -1801,7 +1998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`. */
+/**
+ *  The mapping for the JobConfig.edit_list atoms with text EditAtom.inputs.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextMapping *> *mapping;
 
 @end
@@ -1907,8 +2106,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
- *  control modes: - `vbr` - variable bitrate
+ *  Specify the mode. The default is `vbr`. Supported rate control modes: -
+ *  `vbr` - variable bitrate
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
 
@@ -1925,6 +2124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
+@end
+
+
+/**
+ *  Widevine configuration.
+ */
+@interface GTLRTranscoder_Widevine : GTLRObject
 @end
 
 

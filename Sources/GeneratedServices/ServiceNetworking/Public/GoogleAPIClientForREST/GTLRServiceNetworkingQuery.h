@@ -516,6 +516,117 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Producers can use this method to retrieve information about the DNS record
+ *  set added to the private zone inside the shared tenant host project
+ *  associated with a consumer network.
+ *
+ *  Method: servicenetworking.services.dnsRecordSets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesDnsRecordSetsGet : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. The consumer network containing the record set. Must be in the
+ *  form of projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/** Required. The domain name of the zone containing the recordset. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Required. Parent resource identifying the connection which owns this
+ *  collection of DNS zones in the format services/{service}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. RecordSet Type eg. type='A'. See the list of [Supported DNS
+ *  Types](https://cloud.google.com/dns/records/json-record).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Required. The name of the zone containing the record set.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_DnsRecordSet.
+ *
+ *  Producers can use this method to retrieve information about the DNS record
+ *  set added to the private zone inside the shared tenant host project
+ *  associated with a consumer network.
+ *
+ *  @param parent Required. Parent resource identifying the connection which
+ *    owns this collection of DNS zones in the format services/{service}.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesDnsRecordSetsGet
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Producers can use this method to retrieve a list of available DNS RecordSets
+ *  available inside the private zone on the tenant host project accessible from
+ *  their network.
+ *
+ *  Method: servicenetworking.services.dnsRecordSets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesDnsRecordSetsList : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. The network that the consumer is using to connect with services.
+ *  Must be in the form of projects/{project}/global/networks/{network}
+ *  {project} is the project number, as in '12345' {network} is the network
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/**
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The name of the private DNS zone in the shared producer host
+ *  project from which the record set will be removed.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ListDnsRecordSetsResponse.
+ *
+ *  Producers can use this method to retrieve a list of available DNS RecordSets
+ *  available inside the private zone on the tenant host project accessible from
+ *  their network.
+ *
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesDnsRecordSetsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Service producers can use this method to remove DNS record sets from private
  *  DNS zones in the shared producer host project.
  *
@@ -706,6 +817,96 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_EnableVpcServiceControlsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Service producers can use this method to retrieve a DNS zone in the shared
+ *  producer host project and the matching peering zones in consumer project
+ *
+ *  Method: servicenetworking.services.projects.global.networks.dnsZones.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesGet : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. The network that the consumer is using to connect with services.
+ *  Must be in the form of
+ *  services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *  Where {service} is the peering service that is managing connectivity for the
+ *  service producer's organization. For Google services that support this
+ *  {project} is the project number, as in '12345' {network} is the network
+ *  name. {zoneName} is the DNS zone name
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_GetDnsZoneResponse.
+ *
+ *  Service producers can use this method to retrieve a DNS zone in the shared
+ *  producer host project and the matching peering zones in consumer project
+ *
+ *  @param name Required. The network that the consumer is using to connect with
+ *    services. Must be in the form of
+ *    services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *    Where {service} is the peering service that is managing connectivity for
+ *    the service producer's organization. For Google services that support this
+ *    {project} is the project number, as in '12345' {network} is the network
+ *    name. {zoneName} is the DNS zone name
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  * Service producers can use this method to retrieve a list of available DNS
+ *  zones in the shared producer host project and the matching peering zones in
+ *  the consumer project. *
+ *
+ *  Method: servicenetworking.services.projects.global.networks.dnsZones.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesList : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. Parent resource identifying the connection which owns this
+ *  collection of DNS zones in the format
+ *  services/{service}/projects/{project}/global/networks/{network} Service: The
+ *  service that is managing connectivity for the service producer's
+ *  organization. For Google services that support this functionality, this
+ *  value is `servicenetworking.googleapis.com`. Projects: the consumer project
+ *  containing the consumer network. Network: The consumer network accessible
+ *  from the tenant project.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ListDnsZonesResponse.
+ *
+ *  * Service producers can use this method to retrieve a list of available DNS
+ *  zones in the shared producer host project and the matching peering zones in
+ *  the consumer project. *
+ *
+ *  @param parent Required. Parent resource identifying the connection which
+ *    owns this collection of DNS zones in the format
+ *    services/{service}/projects/{project}/global/networks/{network} Service:
+ *    The service that is managing connectivity for the service producer's
+ *    organization. For Google services that support this functionality, this
+ *    value is `servicenetworking.googleapis.com`. Projects: the consumer
+ *    project containing the consumer network. Network: The consumer network
+ *    accessible from the tenant project.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

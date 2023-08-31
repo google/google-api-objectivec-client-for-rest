@@ -21,6 +21,12 @@ NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRDeploymentManager_BulkInsertOperationStatus.status
+NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Creating = @"CREATING";
+NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done = @"DONE";
+NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_RollingBack = @"ROLLING_BACK";
+NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRDeploymentManager_Operation.status
 NSString * const kGTLRDeploymentManager_Operation_Status_Done  = @"DONE";
 NSString * const kGTLRDeploymentManager_Operation_Status_Pending = @"PENDING";
@@ -131,6 +137,14 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Single
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.state
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Abandoned = @"ABANDONED";
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Done = @"DONE";
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Failed = @"FAILED";
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagated = @"PROPAGATED";
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagating = @"PROPAGATING";
+NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Unspecified = @"UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDeploymentManager_AuditConfig
@@ -182,6 +196,17 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_BulkInsertOperationStatus
+//
+
+@implementation GTLRDeploymentManager_BulkInsertOperationStatus
+@dynamic createdVmCount, deletedVmCount, failedToCreateVmCount, status,
+         targetVmCount;
 @end
 
 
@@ -355,6 +380,30 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_InstancesBulkInsertOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_InstancesBulkInsertOperationMetadata
+@dynamic perLocationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus
+//
+
+@implementation GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDeploymentManager_BulkInsertOperationStatus class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_Manifest
 //
 
@@ -406,9 +455,10 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
 @implementation GTLRDeploymentManager_Operation
 @dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
          error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
-         kind, name, operationGroupId, operationType, progress, region,
-         selfLink, startTime, status, statusMessage, targetId, targetLink, user,
-         warnings, zoneProperty;
+         instancesBulkInsertOperationMetadata, kind, name, operationGroupId,
+         operationType, progress, region, selfLink,
+         setCommonInstanceMetadataOperationMetadata, startTime, status,
+         statusMessage, targetId, targetLink, user, warnings, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -685,6 +735,72 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
 
 @implementation GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata
+@dynamic clientOperationId, perLocationOperations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations
+//
+
+@implementation GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo
+//
+
+@implementation GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo
+@dynamic error, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Status
+//
+
+@implementation GTLRDeploymentManager_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDeploymentManager_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_Status_Details_Item
+//
+
+@implementation GTLRDeploymentManager_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

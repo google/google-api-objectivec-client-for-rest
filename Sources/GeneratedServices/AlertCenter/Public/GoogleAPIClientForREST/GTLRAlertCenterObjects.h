@@ -49,6 +49,7 @@
 @class GTLRAlertCenter_Status;
 @class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuperAdminPasswordResetEvent;
+@class GTLRAlertCenter_SupportTicket;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
 @class GTLRAlertCenter_TransferError;
 @class GTLRAlertCenter_TransferMisconfiguration;
@@ -91,6 +92,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_
  *  Value: "LIMITED_DISABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AbuseDetected_VariationType_LimitedDisable;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_AccessApproval.justificationReason
+
+/**
+ *  Customer Initiated Support
+ *
+ *  Value: "CUSTOMER_INITIATED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_CustomerInitiatedSupport;
+/**
+ *  Google Initiated Review
+ *
+ *  Value: "GOOGLE_INITIATED_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleInitiatedReview;
+/**
+ *  Google Initiated Service
+ *
+ *  Value: "GOOGLE_INITIATED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleInitiatedService;
+/**
+ *  Google Response to Production Alert
+ *
+ *  Value: "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_GoogleResponseToProductionAlert;
+/**
+ *  Justification unspecified
+ *
+ *  Value: "JUSTIFICATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_JustificationUnspecified;
+/**
+ *  Third Party Data Request
+ *
+ *  Value: "THIRD_PARTY_DATA_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccessApproval_JustificationReason_ThirdPartyDataRequest;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_AccountSuspensionDetails.abuseReason
@@ -567,6 +608,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        abusive behavior. (Value: "LIMITED_DISABLE")
  */
 @property(nonatomic, copy, nullable) NSString *variationType;
+
+@end
+
+
+/**
+ *  Alert that is triggered when Google support requests to access customer
+ *  data.
+ */
+@interface GTLRAlertCenter_AccessApproval : GTLRObject
+
+/** Justification for data access based on justification enums. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *justificationReason;
+
+/** Office location of Google staff requesting access such as "US". */
+@property(nonatomic, copy, nullable) NSString *officeLocation;
+
+/** Products within scope of the Access Approvals request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *products;
+
+/**
+ *  ID of the Access Approvals request. This is a helpful field when requesting
+ *  support from Google.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Scope of access, also known as a resource. This is further narrowed down by
+ *  the product field.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Support tickets related to this Access Approvals request. Populated if there
+ *  is an associated case number.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_SupportTicket *> *tickets;
 
 @end
 
@@ -1983,6 +2060,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** email of person whose password was reset */
 @property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
+ *  Support ticket related to Access Approvals request
+ */
+@interface GTLRAlertCenter_SupportTicket : GTLRObject
+
+/** Support ticket ID */
+@property(nonatomic, copy, nullable) NSString *ticketId;
+
+/** Link to support ticket */
+@property(nonatomic, copy, nullable) NSString *ticketUrl;
 
 @end
 

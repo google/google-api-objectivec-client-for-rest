@@ -60,6 +60,12 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo_Typ
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64 = @"X64";
 
+// GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport.deviceActivityState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Active = @"ACTIVE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_DeviceActivityStateUnspecified = @"DEVICE_ACTIVITY_STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Idle = @"IDLE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Locked = @"LOCKED";
+
 // GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport.aueMonth
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_April = @"APRIL";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_August = @"AUGUST";
@@ -516,6 +522,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1Device
 @dynamic deviceId, machine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport
+@dynamic deviceActivityState, reportTime;
 @end
 
 
@@ -1036,11 +1052,12 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice
-@dynamic audioStatusReport, deviceId, peripheralsReport;
+@dynamic audioStatusReport, deviceActivityReport, deviceId, peripheralsReport;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
+    @"deviceActivityReport" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport class],
     @"peripheralsReport" : [GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport class]
   };
   return map;

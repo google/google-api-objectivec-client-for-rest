@@ -19,6 +19,7 @@
 @class GTLRDeploymentManager_AuditConfig;
 @class GTLRDeploymentManager_AuditLogConfig;
 @class GTLRDeploymentManager_Binding;
+@class GTLRDeploymentManager_BulkInsertOperationStatus;
 @class GTLRDeploymentManager_ConfigFile;
 @class GTLRDeploymentManager_Deployment;
 @class GTLRDeploymentManager_DeploymentLabelEntry;
@@ -26,6 +27,8 @@
 @class GTLRDeploymentManager_DeploymentUpdateLabelEntry;
 @class GTLRDeploymentManager_Expr;
 @class GTLRDeploymentManager_ImportFile;
+@class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata;
+@class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
 @class GTLRDeploymentManager_Operation_Error;
@@ -42,6 +45,11 @@
 @class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
+@class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata;
+@class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations;
+@class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
+@class GTLRDeploymentManager_Status;
+@class GTLRDeploymentManager_Status_Details_Item;
 @class GTLRDeploymentManager_TargetConfiguration;
 @class GTLRDeploymentManager_Type;
 
@@ -82,6 +90,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_BulkInsertOperationStatus.status
+
+/**
+ *  Rolling forward - creating VMs.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Creating;
+/**
+ *  Done
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done;
+/**
+ *  Rolling back - cleaning up after an error.
+ *
+ *  Value: "ROLLING_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_RollingBack;
+/** Value: "STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDeploymentManager_Operation.status
@@ -719,6 +751,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable;
 
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.state
+
+/**
+ *  Operation not tracked in this location e.g. zone is marked as DOWN.
+ *
+ *  Value: "ABANDONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Abandoned;
+/**
+ *  Operation has completed successfully.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Done;
+/**
+ *  Operation is in an error state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Failed;
+/**
+ *  Operation is confirmed to be in the location.
+ *
+ *  Value: "PROPAGATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagated;
+/**
+ *  Operation is not yet confirmed to have been created in the location.
+ *
+ *  Value: "PROPAGATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagating;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Unspecified;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -844,6 +912,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_BulkInsertOperationStatus
+ */
+@interface GTLRDeploymentManager_BulkInsertOperationStatus : GTLRObject
+
+/**
+ *  [Output Only] Count of VMs successfully created so far.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdVmCount;
+
+/**
+ *  [Output Only] Count of VMs that got deleted during rollback.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedVmCount;
+
+/**
+ *  [Output Only] Count of VMs that started creating but encountered an error.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedToCreateVmCount;
+
+/**
+ *  [Output Only] Creation status of BulkInsert operation - information if the
+ *  flow is rolling forward or rolling back.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Creating
+ *        Rolling forward - creating VMs. (Value: "CREATING")
+ *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done Done
+ *        (Value: "DONE")
+ *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_RollingBack
+ *        Rolling back - cleaning up after an error. (Value: "ROLLING_BACK")
+ *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified
+ *        Value "STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  [Output Only] Count of VMs originally planned to be created.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetVmCount;
 
 @end
 
@@ -1180,6 +1300,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 
 
 /**
+ *  GTLRDeploymentManager_InstancesBulkInsertOperationMetadata
+ */
+@interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata : GTLRObject
+
+/**
+ *  Status information per location (location name is key). Example key:
+ *  zones/us-central1-a
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus *perLocationStatus;
+
+@end
+
+
+/**
+ *  Status information per location (location name is key). Example key:
+ *  zones/us-central1-a
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDeploymentManager_BulkInsertOperationStatus. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus : GTLRObject
+@end
+
+
+/**
  *  GTLRDeploymentManager_Manifest
  */
 @interface GTLRDeploymentManager_Manifest : GTLRObject
@@ -1269,7 +1417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  information, read Handling API responses. Operations can be global, regional
  *  or zonal. - For global operations, use the `globalOperations` resource. -
  *  For regional operations, use the `regionOperations` resource. - For zonal
- *  operations, use the `zonalOperations` resource. For more information, read
+ *  operations, use the `zoneOperations` resource. For more information, read
  *  Global, Regional, and Zonal Resources.
  */
 @interface GTLRDeploymentManager_Operation : GTLRObject
@@ -1334,6 +1482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_InstancesBulkInsertOperationMetadata *instancesBulkInsertOperationMetadata;
+
 /**
  *  [Output Only] Type of the resource. Always `compute#operation` for Operation
  *  resources.
@@ -1376,6 +1526,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
+ *  [Output Only] If the operation is for projects.setCommonInstanceMetadata,
+ *  this field will contain information on all underlying zonal actions and
+ *  their state.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata *setCommonInstanceMetadataOperationMetadata;
+
+/**
  *  [Output Only] The time that this operation was started by the server. This
  *  value is in RFC3339 text format.
  */
@@ -1415,7 +1572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 
 /**
  *  [Output Only] User who requested the operation, for example:
- *  `user\@example.com`.
+ *  `user\@example.com` or `alice_smith_identifier
+ *  (global/workforcePools/example-com-us-employees)`.
  */
 @property(nonatomic, copy, nullable) NSString *user;
 
@@ -1645,7 +1803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1653,14 +1811,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDeploymentManager_Policy : GTLRObject
@@ -2211,6 +2370,117 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata
+ */
+@interface GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata : GTLRObject
+
+/** [Output Only] The client operation id. */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  [Output Only] Status information per location (location name is key).
+ *  Example key: zones/us-central1-a
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations *perLocationOperations;
+
+@end
+
+
+/**
+ *  [Output Only] Status information per location (location name is key).
+ *  Example key: zones/us-central1-a
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations : GTLRObject
+@end
+
+
+/**
+ *  GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo
+ */
+@interface GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo : GTLRObject
+
+/**
+ *  [Output Only] If state is `ABANDONED` or `FAILED`, this field is populated.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Status *error;
+
+/**
+ *  [Output Only] Status of the action, which can be one of the following:
+ *  `PROPAGATING`, `PROPAGATED`, `ABANDONED`, `FAILED`, or `DONE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Abandoned
+ *        Operation not tracked in this location e.g. zone is marked as DOWN.
+ *        (Value: "ABANDONED")
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Done
+ *        Operation has completed successfully. (Value: "DONE")
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Failed
+ *        Operation is in an error state. (Value: "FAILED")
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagated
+ *        Operation is confirmed to be in the location. (Value: "PROPAGATED")
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Propagating
+ *        Operation is not yet confirmed to have been created in the location.
+ *        (Value: "PROPAGATING")
+ *    @arg @c kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRDeploymentManager_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDeploymentManager_Status_Details_Item : GTLRObject
 @end
 
 

@@ -11,15 +11,6 @@
 
 #import <GoogleAPIClientForREST/GTLRChecksService.h>
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
-NSString * const kGTLRAuthScopeChecksServiceXapiZoo = @"https://www.googleapis.com/auth/xapi.zoo";
-
-// ----------------------------------------------------------------------------
-//   GTLRChecksServiceService
-//
-
 @implementation GTLRChecksServiceService
 
 - (instancetype)init {
@@ -27,6 +18,7 @@ NSString * const kGTLRAuthScopeChecksServiceXapiZoo = @"https://www.googleapis.c
   if (self) {
     // From discovery.
     self.rootURLString = @"https://checks.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

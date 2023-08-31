@@ -127,50 +127,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response message for SmartDeviceManagementService.ListDevices
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "devices" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListDevicesResponse : GTLRCollectionObject
+@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListDevicesResponse : GTLRObject
 
-/**
- *  The list of devices.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** The list of devices. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Device *> *devices;
-
-/** The pagination token to retrieve the next page of results. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
  *  Response message for SmartDeviceManagementService.ListRooms
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "rooms" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListRoomsResponse : GTLRCollectionObject
+@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListRoomsResponse : GTLRObject
 
-/**
- *  The pagination token to retrieve the next page of results. If this field is
- *  omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The list of rooms.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** The list of rooms. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Room *> *rooms;
 
 @end
@@ -178,26 +149,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response message for SmartDeviceManagementService.ListStructures
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "structures" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListStructuresResponse : GTLRCollectionObject
+@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListStructuresResponse : GTLRObject
 
-/**
- *  The pagination token to retrieve the next page of results. If this field is
- *  omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The list of structures.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** The list of structures. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure *> *structures;
 
 @end

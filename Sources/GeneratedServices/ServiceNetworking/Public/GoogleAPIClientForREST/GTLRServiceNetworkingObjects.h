@@ -40,6 +40,7 @@
 @class GTLRServiceNetworking_CustomHttpPattern;
 @class GTLRServiceNetworking_DnsRecordSet;
 @class GTLRServiceNetworking_DnsZone;
+@class GTLRServiceNetworking_DnsZonePair;
 @class GTLRServiceNetworking_Documentation;
 @class GTLRServiceNetworking_DocumentationRule;
 @class GTLRServiceNetworking_DotnetSettings;
@@ -49,6 +50,7 @@
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
 @class GTLRServiceNetworking_Field;
+@class GTLRServiceNetworking_FieldPolicy;
 @class GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange;
 @class GTLRServiceNetworking_GoSettings;
 @class GTLRServiceNetworking_Http;
@@ -62,6 +64,7 @@
 @class GTLRServiceNetworking_LoggingDestination;
 @class GTLRServiceNetworking_LongRunning;
 @class GTLRServiceNetworking_Method;
+@class GTLRServiceNetworking_MethodPolicy;
 @class GTLRServiceNetworking_MethodSettings;
 @class GTLRServiceNetworking_MetricDescriptor;
 @class GTLRServiceNetworking_MetricDescriptorMetadata;
@@ -2025,6 +2028,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
+/** Defines policies applying to the API methods of the service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_MethodPolicy *> *methodPolicies;
+
 @end
 
 
@@ -2190,6 +2196,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  letter or digit, and only contain lowercase letters, digits or dashes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  * Represents a pair of private and peering DNS zone resources. *
+ */
+@interface GTLRServiceNetworking_DnsZonePair : GTLRObject
+
+/** The DNS peering zone in the consumer project. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DnsZone *consumerPeeringZone;
+
+/** The private DNS zone in the shared producer host project. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DnsZone *producerPrivateZone;
 
 @end
 
@@ -2626,6 +2646,55 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
+
+@end
+
+
+/**
+ *  Google API Policy Annotation This message defines a simple API policy
+ *  annotation that can be used to annotate API request and response message
+ *  fields with applicable policies. One field may have multiple applicable
+ *  policies that must all be satisfied before a request can be processed. This
+ *  policy annotation is used to generate the overall policy that will be used
+ *  for automatic runtime policy enforcement and documentation generation.
+ */
+@interface GTLRServiceNetworking_FieldPolicy : GTLRObject
+
+/**
+ *  Specifies the required permission(s) for the resource referred to by the
+ *  field. It requires the field contains a valid resource reference, and the
+ *  request must pass the permission checks to proceed. For example,
+ *  "resourcemanager.projects.get".
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePermission;
+
+/** Specifies the resource type for the resource referred to by the field. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Selects one or more request or response message fields to apply this
+ *  `FieldPolicy`. When a `FieldPolicy` is used in proto annotation, the
+ *  selector must be left as empty. The service config generator will
+ *  automatically fill the correct value. When a `FieldPolicy` is used in
+ *  service config, the selector must be a comma-separated string with valid
+ *  request or response field paths, such as "foo.bar" or "foo.bar,foo.baz".
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Represents managed DNS zones created in the shared Producer host and
+ *  consumer projects.
+ */
+@interface GTLRServiceNetworking_GetDnsZoneResponse : GTLRObject
+
+/** The DNS peering zone created in the consumer project. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DnsZone *consumerPeeringZone;
+
+/** The private DNS zone created in the shared producer host project. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_DnsZone *producerPrivateZone;
 
 @end
 
@@ -3087,6 +3156,32 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Represents all DNS RecordSets associated with the producer network
+ */
+@interface GTLRServiceNetworking_ListDnsRecordSetsResponse : GTLRObject
+
+/** DNS record Set Resource */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DnsRecordSet *> *dnsRecordSets;
+
+@end
+
+
+/**
+ *  Represents all DNS zones in the shared producer host project and the
+ *  matching peering zones in the consumer project.
+ */
+@interface GTLRServiceNetworking_ListDnsZonesResponse : GTLRObject
+
+/**
+ *  All pairs of private DNS zones in the shared producer host project and the
+ *  matching peering zones in the consumer project..
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DnsZonePair *> *dnsZonePairs;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3293,6 +3388,25 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        (Value: "SYNTAX_PROTO3")
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
+
+@end
+
+
+/**
+ *  Defines policies applying to an RPC method.
+ */
+@interface GTLRServiceNetworking_MethodPolicy : GTLRObject
+
+/** Policies that are applicable to the request message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_FieldPolicy *> *requestPolicies;
+
+/**
+ *  Selects a method to which these policies should be enforced, for example,
+ *  "google.pubsub.v1.Subscriber.CreateSubscription". Refer to selector for
+ *  syntax details. NOTE: This field must not be set in the proto annotation. It
+ *  will be automatically filled by the service config compiler .
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
 
 @end
 
@@ -3925,8 +4039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3954,8 +4068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

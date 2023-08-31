@@ -137,7 +137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 
 /**
  *  Required. The parent, which owns this collection of notifications. Must be
- *  of the form "organizations/{organization}/locations/{location}".
+ *  of the form "organizations/{organization}/locations/{location}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -166,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *
  *  @param parent Required. The parent, which owns this collection of
  *    notifications. Must be of the form
- *    "organizations/{organization}/locations/{location}".
+ *    "organizations/{organization}/locations/{location}"
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsNotificationsList
  *

@@ -197,7 +197,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_Aggregation
-@dynamic alias, count;
+@dynamic alias, avg, count, sum;
 @end
 
 
@@ -240,6 +240,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_Avg
+//
+
+@implementation GTLRFirestore_Avg
+@dynamic field;
 @end
 
 
@@ -702,7 +712,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata
 @dynamic collectionIds, endTime, namespaceIds, operationState, outputUriPrefix,
-         progressBytes, progressDocuments, startTime;
+         progressBytes, progressDocuments, snapshotTime, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1002,7 +1012,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata
-@dynamic backup, database, endTime, operationState, startTime;
+@dynamic backup, database, endTime, operationState, progressPercentage,
+         startTime;
 @end
 
 
@@ -1528,6 +1539,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_Sum
+//
+
+@implementation GTLRFirestore_Sum
+@dynamic field;
 @end
 
 

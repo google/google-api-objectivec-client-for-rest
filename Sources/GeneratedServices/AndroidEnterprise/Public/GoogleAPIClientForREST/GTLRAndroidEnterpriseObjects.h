@@ -1309,6 +1309,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @property(nonatomic, strong, nullable) NSNumber *isProduction;
 
 /**
+ *  The SDK version this app targets, as specified in the manifest of the APK.
+ *  See http://developer.android.com/guide/topics/manifest/uses-sdk-element.html
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetSdkVersion;
+
+/**
  *  Deprecated, use trackId instead.
  *
  *  Likely values:

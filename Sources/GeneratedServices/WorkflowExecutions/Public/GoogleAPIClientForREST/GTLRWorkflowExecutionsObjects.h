@@ -87,6 +87,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Cance
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Failed;
 /**
+ *  Request has been placed in the backlog for processing at a later time.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Queued;
+/**
  *  Invalid state.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -223,6 +229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
  *        was stopped intentionally. (Value: "CANCELLED")
  *    @arg @c kGTLRWorkflowExecutions_Execution_State_Failed The execution
  *        failed with an error. (Value: "FAILED")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_State_Queued Request has been
+ *        placed in the backlog for processing at a later time. (Value:
+ *        "QUEUED")
  *    @arg @c kGTLRWorkflowExecutions_Execution_State_StateUnspecified Invalid
  *        state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRWorkflowExecutions_Execution_State_Succeeded The execution
@@ -339,15 +348,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 @interface GTLRWorkflowExecutions_PubsubMessage : GTLRObject
 
 /**
- *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data. This can be used to filter messages on the
+ *  Optional. Attributes for this message. If this field is empty, the message
+ *  must contain non-empty data. This can be used to filter messages on the
  *  subscription.
  */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_PubsubMessage_Attributes *attributes;
 
 /**
- *  The message data field. If this field is empty, the message must contain at
- *  least one attribute.
+ *  Optional. The message data field. If this field is empty, the message must
+ *  contain at least one attribute.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -355,28 +364,29 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  ID of this message, assigned by the server when the message is published.
- *  Guaranteed to be unique within the topic. This value may be read by a
- *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
+ *  Optional. ID of this message, assigned by the server when the message is
+ *  published. Guaranteed to be unique within the topic. This value may be read
+ *  by a subscriber that receives a `PubsubMessage` via a `Pull` call or a push
  *  delivery. It must not be populated by the publisher in a `Publish` call.
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
- *  If non-empty, identifies related messages for which publish order should be
- *  respected. If a `Subscription` has `enable_message_ordering` set to `true`,
- *  messages published with the same non-empty `ordering_key` value will be
- *  delivered to subscribers in the order in which they are received by the
- *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
- *  must specify the same `ordering_key` value. For more information, see
- *  [ordering messages](https://cloud.google.com/pubsub/docs/ordering).
+ *  Optional. If non-empty, identifies related messages for which publish order
+ *  should be respected. If a `Subscription` has `enable_message_ordering` set
+ *  to `true`, messages published with the same non-empty `ordering_key` value
+ *  will be delivered to subscribers in the order in which they are received by
+ *  the Pub/Sub system. All `PubsubMessage`s published in a given
+ *  `PublishRequest` must specify the same `ordering_key` value. For more
+ *  information, see [ordering
+ *  messages](https://cloud.google.com/pubsub/docs/ordering).
  */
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
 /**
- *  The time at which the message was published, populated by the server when it
- *  receives the `Publish` call. It must not be populated by the publisher in a
- *  `Publish` call.
+ *  Optional. The time at which the message was published, populated by the
+ *  server when it receives the `Publish` call. It must not be populated by the
+ *  publisher in a `Publish` call.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
@@ -384,8 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 
 
 /**
- *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data. This can be used to filter messages on the
+ *  Optional. Attributes for this message. If this field is empty, the message
+ *  must contain non-empty data. This can be used to filter messages on the
  *  subscription.
  *
  *  @note This class is documented as having more properties of NSString. Use @c

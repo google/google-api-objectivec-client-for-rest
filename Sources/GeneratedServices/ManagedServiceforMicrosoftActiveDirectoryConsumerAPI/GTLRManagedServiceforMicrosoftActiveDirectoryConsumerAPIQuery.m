@@ -252,6 +252,33 @@
 
 @end
 
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCheckMigrationPermission
+
+@dynamic domain;
+
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest *)object
+                         domain:(NSString *)domain {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"domain" ];
+  NSString *pathURITemplate = @"v1/{+domain}:checkMigrationPermission";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCheckMigrationPermission *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.domain = domain;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.checkMigrationPermission";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCreate
 
 @dynamic domainName, parent;

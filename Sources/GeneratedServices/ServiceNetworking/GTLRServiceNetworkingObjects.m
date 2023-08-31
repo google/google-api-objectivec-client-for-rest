@@ -611,7 +611,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Control
-@dynamic environment;
+@dynamic environment, methodPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodPolicies" : [GTLRServiceNetworking_MethodPolicy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -734,6 +742,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_DnsZone
 @dynamic dnsSuffix, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_DnsZonePair
+//
+
+@implementation GTLRServiceNetworking_DnsZonePair
+@dynamic consumerPeeringZone, producerPrivateZone;
 @end
 
 
@@ -924,6 +942,26 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_FieldPolicy
+//
+
+@implementation GTLRServiceNetworking_FieldPolicy
+@dynamic resourcePermission, resourceType, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_GetDnsZoneResponse
+//
+
+@implementation GTLRServiceNetworking_GetDnsZoneResponse
+@dynamic consumerPeeringZone, producerPrivateZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_GoogleCloudServicenetworkingV1betaConnection
 //
 
@@ -1080,6 +1118,42 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_ListDnsRecordSetsResponse
+//
+
+@implementation GTLRServiceNetworking_ListDnsRecordSetsResponse
+@dynamic dnsRecordSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsRecordSets" : [GTLRServiceNetworking_DnsRecordSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ListDnsZonesResponse
+//
+
+@implementation GTLRServiceNetworking_ListDnsZonesResponse
+@dynamic dnsZonePairs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsZonePairs" : [GTLRServiceNetworking_DnsZonePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_ListOperationsResponse
 //
 
@@ -1199,6 +1273,24 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"options" : [GTLRServiceNetworking_Option class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_MethodPolicy
+//
+
+@implementation GTLRServiceNetworking_MethodPolicy
+@dynamic requestPolicies, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestPolicies" : [GTLRServiceNetworking_FieldPolicy class]
   };
   return map;
 }

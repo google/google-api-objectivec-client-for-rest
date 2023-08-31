@@ -1335,6 +1335,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Use this method to start, resume or recover a stream with a non default CDC
+ *  strategy. NOTE: This feature is currently experimental.
+ *
+ *  Method: datastream.projects.locations.streams.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsRun : GTLRDatastreamQuery
+
+/**
+ *  Required. Name of the stream resource to start, in the format:
+ *  projects/{project_id}/locations/{location}/streams/{stream_name}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatastream_Operation.
+ *
+ *  Use this method to start, resume or recover a stream with a non default CDC
+ *  strategy. NOTE: This feature is currently experimental.
+ *
+ *  @param object The @c GTLRDatastream_RunStreamRequest to include in the
+ *    query.
+ *  @param name Required. Name of the stream resource to start, in the format:
+ *    projects/{project_id}/locations/{location}/streams/{stream_name}
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsRun
+ */
++ (instancetype)queryWithObject:(GTLRDatastream_RunStreamRequest *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

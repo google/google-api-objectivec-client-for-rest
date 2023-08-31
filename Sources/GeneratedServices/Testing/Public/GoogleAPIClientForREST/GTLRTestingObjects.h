@@ -49,6 +49,7 @@
 @class GTLRTesting_IosDeviceFile;
 @class GTLRTesting_IosDeviceList;
 @class GTLRTesting_IosModel;
+@class GTLRTesting_IosRoboTest;
 @class GTLRTesting_IosRuntimeConfiguration;
 @class GTLRTesting_IosTestLoop;
 @class GTLRTesting_IosTestSetup;
@@ -1988,6 +1989,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A test that explores an iOS application on an iOS device.
+ */
+@interface GTLRTesting_IosRoboTest : GTLRObject
+
+/**
+ *  The bundle ID for the app-under-test. This is determined by examining the
+ *  application's "Info.plist" file.
+ */
+@property(nonatomic, copy, nullable) NSString *appBundleId;
+
+/** Required. The ipa stored at this file should be used to run the test. */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *appIpa;
+
+/**
+ *  An optional Roboscript to customize the crawl. See
+ *  https://firebase.google.com/docs/test-lab/android/robo-scripts-reference for
+ *  more information about Roboscripts.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *roboScript;
+
+@end
+
+
+/**
  *  iOS configuration that can be selected at the time a test is run.
  */
 @interface GTLRTesting_IosRuntimeConfiguration : GTLRObject
@@ -3043,8 +3068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_Account *account;
 
 /**
- *  APKs to install in addition to those being directly tested. Currently capped
- *  at 100.
+ *  APKs to install in addition to those being directly tested. These will be
+ *  installed after the app under test. Currently capped at 100.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *additionalApks;
 
@@ -3119,6 +3144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableVideoRecording;
+
+/** An iOS Robo test. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosRoboTest *iosRoboTest;
 
 /** An iOS application with a test loop. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosTestLoop *iosTestLoop;

@@ -2,12 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Debugger API (Deprecated) (clouddebugger/v2)
-// Description:
-//   Examines the call stack and variables of a running application without
-//   stopping or slowing it down. (Deprecated)
+//   Places API (New) (places/v1)
 // Documentation:
-//   https://cloud.google.com/debugger
+//   https://mapsplatform.google.com/maps-products/#places-section
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -26,36 +23,41 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: Use Stackdriver Debugger
- *
- *  Value "https://www.googleapis.com/auth/cloud_debugger"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger;
-/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesCloudPlatform;
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/maps-platform.places
+ *
+ *  Value "https://www.googleapis.com/auth/maps-platform.places"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlaces;
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/maps-platform.places.textsearch
+ *
+ *  Value "https://www.googleapis.com/auth/maps-platform.places.textsearch"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesTextsearch;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudDebuggerService
+//   GTLRMapsPlacesService
 //
 
 /**
- *  Service for executing Cloud Debugger API (Deprecated) queries.
- *
- *  Examines the call stack and variables of a running application without
- *  stopping or slowing it down. (Deprecated)
+ *  Service for executing Places API (New) queries.
  */
-@interface GTLRCloudDebuggerService : GTLRService
+@interface GTLRMapsPlacesService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudDebuggerQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRMapsPlacesQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

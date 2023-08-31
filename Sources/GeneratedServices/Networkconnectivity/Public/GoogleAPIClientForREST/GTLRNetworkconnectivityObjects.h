@@ -20,13 +20,19 @@
 @class GTLRNetworkconnectivity_ConsumerPscConfig;
 @class GTLRNetworkconnectivity_ConsumerPscConnection;
 @class GTLRNetworkconnectivity_Expr;
+@class GTLRNetworkconnectivity_Filter;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation_Metadata;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation_Response;
+@class GTLRNetworkconnectivity_GoogleRpcErrorInfo;
+@class GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata;
 @class GTLRNetworkconnectivity_GoogleRpcStatus;
 @class GTLRNetworkconnectivity_GoogleRpcStatus_Details_Item;
+@class GTLRNetworkconnectivity_Group;
+@class GTLRNetworkconnectivity_Group_Labels;
 @class GTLRNetworkconnectivity_Hub;
 @class GTLRNetworkconnectivity_Hub_Labels;
+@class GTLRNetworkconnectivity_InterconnectAttachment;
 @class GTLRNetworkconnectivity_InternalRange;
 @class GTLRNetworkconnectivity_InternalRange_Labels;
 @class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
@@ -38,6 +44,8 @@
 @class GTLRNetworkconnectivity_Location_Metadata;
 @class GTLRNetworkconnectivity_NextHopVpcNetwork;
 @class GTLRNetworkconnectivity_Policy;
+@class GTLRNetworkconnectivity_PolicyBasedRoute;
+@class GTLRNetworkconnectivity_PolicyBasedRoute_Labels;
 @class GTLRNetworkconnectivity_ProducerPscConfig;
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
@@ -62,6 +70,9 @@
 @class GTLRNetworkconnectivity_SpokeSummary;
 @class GTLRNetworkconnectivity_SpokeTypeCount;
 @class GTLRNetworkconnectivity_StateReason;
+@class GTLRNetworkconnectivity_VirtualMachine;
+@class GTLRNetworkconnectivity_Warnings;
+@class GTLRNetworkconnectivity_Warnings_Data;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -110,6 +121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  *  Value: "CONNECTION_POLICY_MISSING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing;
+/**
+ *  Service Connection Policy limit reached for this network and Service Class
+ *
+ *  Value: "POLICY_LIMIT_REACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_PolicyLimitReached;
 /**
  *  Default state, when Connection Map is created initially.
  *
@@ -189,6 +206,81 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Filter.protocolVersion
+
+/**
+ *  The PBR is for IPv4 internet protocol traffic.
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_Ipv4;
+/**
+ *  Default value.
+ *
+ *  Value: "PROTOCOL_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_ProtocolVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Group.state
+
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Accepting;
+/**
+ *  The resource is active
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Active;
+/**
+ *  The resource's create operation is in progress.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Creating;
+/**
+ *  The resource's delete operation is in progress.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Deleting;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Rejecting;
+/**
+ *  No state information available
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_StateUnspecified;
+/**
+ *  The resource's update operation is in progress.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Hub.state
 
 /**
@@ -250,6 +342,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Updating;
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_InternalRange.overlaps
 
+/**
+ *  Allow creation of internal ranges that overlap with existing subnets.
+ *
+ *  Value: "OVERLAP_EXISTING_SUBNET_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Overlaps_OverlapExistingSubnetRange;
 /**
  *  Allow creation of static routes more specific that the current internal
  *  range.
@@ -354,6 +452,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_Loc
  *  Value: "SITE_TO_SITE_SPOKES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToSiteSpokes;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PolicyBasedRoute.nextHopOtherRoutes
+
+/**
+ *  Use the routes from the default routing tables (system-generated routes,
+ *  custom routes, peering route) to determine the next hop. This will
+ *  effectively exclude matching packets being applied on other PBRs with a
+ *  lower priority.
+ *
+ *  Value: "DEFAULT_ROUTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting;
+/**
+ *  Default value.
+ *
+ *  Value: "OTHER_ROUTES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_PscConnection.errorType
@@ -846,23 +963,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Pen
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rejected;
 
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Warnings.code
+
+/**
+ *  The policy based route is being modified (e.g. created/deleted) at this
+ *  time.
+ *
+ *  Value: "RESOURCE_BEING_MODIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified;
+/**
+ *  The policy based route is not active and functioning. Common causes are the
+ *  dependent network was deleted or the resource project was turned off.
+ *
+ *  Value: "RESOURCE_NOT_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceNotActive;
+/**
+ *  Default value.
+ *
+ *  Value: "WARNING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified;
+
 /**
  *  The request for HubService.AcceptSpoke.
  */
 @interface GTLRNetworkconnectivity_AcceptSpokeRequest : GTLRObject
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1032,6 +1173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing
  *        No Service Connection Policy found for this network and Service Class
  *        (Value: "CONNECTION_POLICY_MISSING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_PolicyLimitReached
+ *        Service Connection Policy limit reached for this network and Service
+ *        Class (Value: "POLICY_LIMIT_REACHED")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_StateUnspecified
  *        Default state, when Connection Map is created initially. (Value:
  *        "STATE_UNSPECIFIED")
@@ -1052,6 +1196,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 /** The most recent error during operating this connection. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
+
+/**
+ *  Output only. The error info for the latest error during operating this
+ *  connection.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo *errorInfo;
 
 /**
  *  The error type indicates whether the error is consumer facing, producer
@@ -1194,6 +1344,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 
 /**
+ *  Filter matches L4 traffic.
+ */
+@interface GTLRNetworkconnectivity_Filter : GTLRObject
+
+/**
+ *  Optional. The destination IP range of outgoing packets that this policy
+ *  based route applies to. Default is "0.0.0.0/0" if protocol version is IPv4.
+ */
+@property(nonatomic, copy, nullable) NSString *destRange;
+
+/**
+ *  Optional. The IP protocol that this policy based route applies to. Valid
+ *  values are 'TCP', 'UDP', and 'ALL'. Default is 'ALL'.
+ */
+@property(nonatomic, copy, nullable) NSString *ipProtocol;
+
+/**
+ *  Required. Internet protocol versions this policy based route applies to. For
+ *  this version, only IPV4 is supported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Filter_ProtocolVersion_Ipv4 The PBR is
+ *        for IPv4 internet protocol traffic. (Value: "IPV4")
+ *    @arg @c kGTLRNetworkconnectivity_Filter_ProtocolVersion_ProtocolVersionUnspecified
+ *        Default value. (Value: "PROTOCOL_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocolVersion;
+
+/**
+ *  Optional. The source IP range of outgoing packets that this policy based
+ *  route applies to. Default is "0.0.0.0/0" if protocol version is IPv4.
+ */
+@property(nonatomic, copy, nullable) NSString *srcRange;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetworkconnectivity_GoogleLongrunningCancelOperationRequest : GTLRObject
@@ -1258,8 +1446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1287,8 +1475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1301,6 +1489,69 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_GoogleLongrunningOperation_Response : GTLRObject
+@end
+
+
+/**
+ *  Describes the cause of the error with structured details. Example of an
+ *  error when contacting the "pubsub.googleapis.com" API when it is not
+ *  enabled: { "reason": "API_DISABLED" "domain": "googleapis.com" "metadata": {
+ *  "resource": "projects/123", "service": "pubsub.googleapis.com" } } This
+ *  response indicates that the pubsub.googleapis.com API is not enabled.
+ *  Example of an error that is returned when attempting to create a Spanner
+ *  instance in a region that is out of stock: { "reason": "STOCKOUT" "domain":
+ *  "spanner.googleapis.com", "metadata": { "availableRegions":
+ *  "us-central1,us-east2" } }
+ */
+@interface GTLRNetworkconnectivity_GoogleRpcErrorInfo : GTLRObject
+
+/**
+ *  The logical grouping to which the "reason" belongs. The error domain is
+ *  typically the registered service name of the tool or product that generates
+ *  the error. Example: "pubsub.googleapis.com". If the error is generated by
+ *  some common infrastructure, the error domain must be a globally unique value
+ *  that identifies the infrastructure. For Google API infrastructure, the error
+ *  domain is "googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Additional structured details about this error. Keys should match
+ *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
+ *  the current value of an exceeded limit, the units should be contained in the
+ *  key, not the value. For example, rather than {"instanceLimit":
+ *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
+ *  if the client exceeds the number of instances that can be created in a
+ *  single (batch) request.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata *metadata;
+
+/**
+ *  The reason of the error. This is a constant value that identifies the
+ *  proximate cause of the error. Error reasons are unique within a particular
+ *  domain of errors. This should be at most 63 characters and match a regular
+ *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Additional structured details about this error. Keys should match
+ *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
+ *  the current value of an exceeded limit, the units should be contained in the
+ *  key, not the value. For example, rather than {"instanceLimit":
+ *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
+ *  if the client exceeds the number of instances that can be created in a
+ *  single (batch) request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata : GTLRObject
 @end
 
 
@@ -1346,6 +1597,90 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A group is a set of spokes to which you can apply policies. Each group of
+ *  spokes has its own route table. For each group, you can also set different
+ *  rules for whether spokes can be automatically attached to the hub.
+ */
+@interface GTLRNetworkconnectivity_Group : GTLRObject
+
+/** Output only. The time the group was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Group_Labels *labels;
+
+/**
+ *  Immutable. The name of the group. Group names must be unique. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub}/groups/{group_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current lifecycle state of this group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Accepting The resource's
+ *        accept operation is in progress. (Value: "ACCEPTING")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Active The resource is active
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Creating The resource's
+ *        create operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Deleting The resource's
+ *        delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Inactive The resource is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Obsolete The hub associated
+ *        with this spoke resource has been deleted. This state applies to spoke
+ *        resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Rejecting The resource's
+ *        reject operation is in progress. (Value: "REJECTING")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_StateUnspecified No state
+ *        information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Group_State_Updating The resource's
+ *        update operation is in progress. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The Google-generated UUID for the group. This value is unique
+ *  across all group resources. If a group is deleted and another with the same
+ *  name is created, the new route table is assigned a different unique_id.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time the group was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_Group_Labels : GTLRObject
 @end
 
 
@@ -1456,6 +1791,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *        fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_Hub_Labels : GTLRObject
+@end
+
+
+/**
+ *  InterconnectAttachment to which this route applies to.
+ */
+@interface GTLRNetworkconnectivity_InterconnectAttachment : GTLRObject
+
+/**
+ *  Optional. Cloud region to install this policy based route on interconnect
+ *  attachment. Use `all` to install it on all interconnect attachments.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 @end
 
 
@@ -1666,11 +2015,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 @interface GTLRNetworkconnectivity_LinkedVpcNetwork : GTLRObject
 
 /**
- *  Optional. IP Ranges encompassing the subnets to be excluded from peering.
+ *  Optional. IP ranges encompassing the subnets to be excluded from peering.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
 
-/** Required. The URI of the VPC network resource */
+/** Required. The URI of the VPC network resource. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -1698,6 +2047,37 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 /** Output only. The VPC network where these VPN tunnels are located. */
 @property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
+ *  Response for HubService.ListGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "groups" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The requested groups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Group *> *groups;
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Hubs that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1815,6 +2195,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for PolicyBasedRouting.ListPolicyBasedRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policyBasedRoutes" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListPolicyBasedRoutesResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Policy based routes to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_PolicyBasedRoute *> *policyBasedRoutes;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2166,7 +2576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2174,14 +2584,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRNetworkconnectivity_Policy : GTLRObject
@@ -2244,6 +2655,115 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 
 
 /**
+ *  Policy Based Routes (PBR) are more powerful routes that allows GCP customers
+ *  to route their L4 network traffic based on not just destination IP, but also
+ *  source IP, protocol and more. A PBR always take precedence when it conflicts
+ *  with other types of routes. Next id: 22
+ */
+@interface GTLRNetworkconnectivity_PolicyBasedRoute : GTLRObject
+
+/** Output only. Time when the PolicyBasedRoute was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. An optional description of this resource. Provide this field when
+ *  you create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The filter to match L4 traffic. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Filter *filter;
+
+/** Optional. The interconnect attachments to which this route applies to. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InterconnectAttachment *interconnectAttachment;
+
+/**
+ *  Output only. Type of this resource. Always
+ *  networkconnectivity#policyBasedRoute for Policy Based Route resources.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PolicyBasedRoute_Labels *labels;
+
+/**
+ *  Immutable. A unique name of the resource in the form of
+ *  `projects/{project_number}/locations/global/PolicyBasedRoutes/{policy_based_route_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Fully-qualified URL of the network that this route applies to.
+ *  e.g. projects/my-project/global/networks/my-network.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The IP of a global access enabled L4 ILB that should be the next
+ *  hop to handle matching packets. For this version, only next_hop_ilb_ip is
+ *  supported.
+ */
+@property(nonatomic, copy, nullable) NSString *nextHopIlbIp;
+
+/**
+ *  Optional. Other routes that will be referenced to determine the next hop of
+ *  the packet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting
+ *        Use the routes from the default routing tables (system-generated
+ *        routes, custom routes, peering route) to determine the next hop. This
+ *        will effectively exclude matching packets being applied on other PBRs
+ *        with a lower priority. (Value: "DEFAULT_ROUTING")
+ *    @arg @c kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified
+ *        Default value. (Value: "OTHER_ROUTES_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nextHopOtherRoutes;
+
+/**
+ *  Optional. The priority of this policy based route. Priority is used to break
+ *  ties in cases where there are more than one matching policy based routes
+ *  found. In cases where multiple policy based routes are matched, the one with
+ *  the lowest-numbered priority value wins. The default value is 1000. The
+ *  priority value must be from 1 to 65535, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/** Output only. Server-defined fully-qualified URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. Time when the PolicyBasedRoute was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Optional. VM instances to which this policy based route applies to. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_VirtualMachine *virtualMachine;
+
+/**
+ *  Output only. If potential misconfigurations are detected for this route,
+ *  this field will be populated with warning messages.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Warnings *> *warnings;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_PolicyBasedRoute_Labels : GTLRObject
+@end
+
+
+/**
  *  The PSC configurations on producer side.
  */
 @interface GTLRNetworkconnectivity_ProducerPscConfig : GTLRObject
@@ -2299,6 +2819,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
 
 /**
+ *  Output only. The error info for the latest error during operating this
+ *  connection.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo *errorInfo;
+
+/**
  *  The error type indicates whether the error is consumer facing, producer
  *  facing or system internal.
  *
@@ -2350,21 +2876,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  */
 @interface GTLRNetworkconnectivity_RejectSpokeRequest : GTLRObject
 
-/** Optional. Additional Details behind the rejection */
+/**
+ *  Optional. Additional information provided by the hub administrator in the
+ *  `RejectSpoke` call.
+ */
 @property(nonatomic, copy, nullable) NSString *details;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2405,8 +2934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Immutable. The name of the route. Route names must be unique. They use the
- *  following form:
+ *  Immutable. The name of the route. Route names must be unique. Route names
+ *  use the following form:
  *  `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}/routes/{route_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2466,7 +2995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  Output only. The Google-generated UUID for the route. This value is unique
  *  across all Network Connectivity Center route resources. If a route is
  *  deleted and another with the same name is created, the new route is assigned
- *  a different unique_id.
+ *  a different `uid`.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
@@ -2530,7 +3059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RouteTable_Labels *labels;
 
 /**
- *  Immutable. The name of the route table. Route Table names must be unique.
+ *  Immutable. The name of the route table. Route table names must be unique.
  *  They use the following form:
  *  `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}`
  */
@@ -2566,7 +3095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  Output only. The Google-generated UUID for the route table. This value is
  *  unique across all route table resources. If a route table is deleted and
  *  another with the same name is created, the new route table is assigned a
- *  different unique_id.
+ *  different `uid`.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
@@ -2650,11 +3179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  Service class in Service Connection Maps and Service Connection Policies.
  */
 @property(nonatomic, copy, nullable) NSString *serviceClass;
-
-/**
- *  Output only. URIs of all Service Connection Maps using this service class.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceConnectionMaps;
 
 /** Output only. Time when the ServiceClass was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2942,7 +3466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  connectivity resources. When you create a spoke, you associate it with a
  *  hub. You must also identify a value for exactly one of the following fields:
  *  * linked_vpn_tunnels * linked_interconnect_attachments *
- *  linked_router_appliance_instances
+ *  linked_router_appliance_instances * linked_vpc_network
  */
 @interface GTLRNetworkconnectivity_Spoke : GTLRObject
 
@@ -2955,6 +3479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The name of the group that this spoke is associated with. */
+@property(nonatomic, copy, nullable) NSString *group;
 
 /** Immutable. The name of the hub that this spoke is attached to. */
 @property(nonatomic, copy, nullable) NSString *hub;
@@ -2985,7 +3512,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. The reasons for current state of the spoke. */
+/**
+ *  Output only. The reasons for current state of the spoke. Only present when
+ *  the spoke is in the `INACTIVE` state.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_StateReason *> *reasons;
 
 /**
@@ -3036,7 +3566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 /**
  *  Output only. The Google-generated UUID for the spoke. This value is unique
  *  across all spoke resources. If a spoke is deleted and another with the same
- *  name is created, the new spoke is assigned a different unique_id.
+ *  name is created, the new spoke is assigned a different `unique_id`.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
@@ -3260,6 +3790,75 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  VM instances to which this policy based route applies to.
+ */
+@interface GTLRNetworkconnectivity_VirtualMachine : GTLRObject
+
+/**
+ *  Optional. A list of VM instance tags to which this policy based route
+ *  applies to. VM instances that have ANY of tags specified here will install
+ *  this PBR.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  Informational warning message.
+ */
+@interface GTLRNetworkconnectivity_Warnings : GTLRObject
+
+/**
+ *  Output only. A warning code, if applicable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified The
+ *        policy based route is being modified (e.g. created/deleted) at this
+ *        time. (Value: "RESOURCE_BEING_MODIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_ResourceNotActive The
+ *        policy based route is not active and functioning. Common causes are
+ *        the dependent network was deleted or the resource project was turned
+ *        off. (Value: "RESOURCE_NOT_ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified Default
+ *        value. (Value: "WARNING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Output only. Metadata about this warning in key: value format. The key
+ *  should provides more detail on the warning being returned. For example, for
+ *  warnings where there are no results in a list request for a particular zone,
+ *  this key might be scope and the key value might be the zone name. Other
+ *  examples might be a key indicating a deprecated resource and a suggested
+ *  replacement.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Warnings_Data *data;
+
+/** Output only. A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *warningMessage;
+
+@end
+
+
+/**
+ *  Output only. Metadata about this warning in key: value format. The key
+ *  should provides more detail on the warning being returned. For example, for
+ *  warnings where there are no results in a list request for a particular zone,
+ *  this key might be scope and the key value might be the zone name. Other
+ *  examples might be a key indicating a deprecated resource and a suggested
+ *  replacement.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_Warnings_Data : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

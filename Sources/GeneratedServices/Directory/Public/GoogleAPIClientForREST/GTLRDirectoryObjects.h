@@ -112,73 +112,119 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_Seve
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 
 /**
- *  The device was replaced by a device with a different model.
+ *  Different model replacement. You are replacing this device with an upgraded
+ *  or newer device model.
  *
- *  Value: "deprovisionReasonDifferentModelReplacement"
+ *  Value: "DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement;
 /**
  *  The device's domain was changed.
  *
- *  Value: "deprovisionReasonDomainMove"
+ *  Value: "DEPROVISION_REASON_DOMAIN_MOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove;
 /**
  *  A reason was not required. For example, the licenses were returned to the
  *  customer's license pool.
  *
- *  Value: "deprovisionReasonNotRequired"
+ *  Value: "DEPROVISION_REASON_NOT_REQUIRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired;
 /**
  *  The device was deprovisioned for a legacy reason that is no longer
  *  supported.
  *
- *  Value: "deprovisionReasonOther"
+ *  Value: "DEPROVISION_REASON_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther;
 /**
- *  The device was deprovisioned by a repair service center.
+ *  The device was deprovisioned by the Repair Service Center. Can only be set
+ *  by Repair Service Center during RMA.
  *
- *  Value: "deprovisionReasonRepairCenter"
+ *  Value: "DEPROVISION_REASON_REPAIR_CENTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter;
 /**
- *  The device was retired.
+ *  Retiring from fleet. You are donating, discarding, or otherwise removing the
+ *  device from use.
  *
- *  Value: "deprovisionReasonRetiringDevice"
+ *  Value: "DEPROVISION_REASON_RETIRING_DEVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice;
 /**
- *  The device was replaced by a device with the same model.
+ *  Same model replacement. You have return materials authorization (RMA) or you
+ *  are replacing a malfunctioning device under warranty with the same device
+ *  model.
  *
- *  Value: "deprovisionReasonSameModelReplacement"
+ *  Value: "DEPROVISION_REASON_SAME_MODEL_REPLACEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement;
 /**
  *  Service expired for the device.
  *
- *  Value: "deprovisionReasonServiceExpiration"
+ *  Value: "DEPROVISION_REASON_SERVICE_EXPIRATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration;
 /**
  *  The deprovision reason is unknown.
  *
- *  Value: "deprovisionReasonUnspecified"
+ *  Value: "DEPROVISION_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified;
 /**
  *  The device was upgraded.
  *
- *  Value: "deprovisionReasonUpgrade"
+ *  Value: "DEPROVISION_REASON_UPGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade;
 /**
- *  The device's perpetual upgrade was transferred to a new device.
+ *  ChromeOS Flex upgrade transfer. This is a ChromeOS Flex device that you are
+ *  replacing with a Chromebook within a year.
  *
- *  Value: "deprovisionReasonUpgradeTransfer"
+ *  Value: "DEPROVISION_REASON_UPGRADE_TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.deviceLicenseType
+
+/**
+ *  The license type is unknown.
+ *
+ *  Value: "deviceLicenseTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_DeviceLicenseTypeUnspecified;
+/**
+ *  The device is bundled with a perpetual Chrome Education Upgrade.
+ *
+ *  Value: "education"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Education;
+/**
+ *  The device has a perpetual standalone Chrome Education Upgrade.
+ *
+ *  Value: "educationUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade;
+/**
+ *  The device is bundled with a perpetual Chrome Enterprise Upgrade.
+ *
+ *  Value: "enterprise"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Enterprise;
+/**
+ *  The device has an annual standalone Chrome Enterprise Upgrade.
+ *
+ *  Value: "enterpriseUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade;
+/**
+ *  The device has an annual Kiosk Upgrade.
+ *
+ *  Value: "kioskUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesCommand.state
@@ -1411,36 +1457,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *
  *  Likely values:
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement
- *        The device was replaced by a device with a different model. (Value:
- *        "deprovisionReasonDifferentModelReplacement")
+ *        Different model replacement. You are replacing this device with an
+ *        upgraded or newer device model. (Value:
+ *        "DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove
  *        The device's domain was changed. (Value:
- *        "deprovisionReasonDomainMove")
+ *        "DEPROVISION_REASON_DOMAIN_MOVE")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonNotRequired
  *        A reason was not required. For example, the licenses were returned to
- *        the customer's license pool. (Value: "deprovisionReasonNotRequired")
+ *        the customer's license pool. (Value:
+ *        "DEPROVISION_REASON_NOT_REQUIRED")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther
  *        The device was deprovisioned for a legacy reason that is no longer
- *        supported. (Value: "deprovisionReasonOther")
+ *        supported. (Value: "DEPROVISION_REASON_OTHER")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRepairCenter
- *        The device was deprovisioned by a repair service center. (Value:
- *        "deprovisionReasonRepairCenter")
+ *        The device was deprovisioned by the Repair Service Center. Can only be
+ *        set by Repair Service Center during RMA. (Value:
+ *        "DEPROVISION_REASON_REPAIR_CENTER")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonRetiringDevice
- *        The device was retired. (Value: "deprovisionReasonRetiringDevice")
+ *        Retiring from fleet. You are donating, discarding, or otherwise
+ *        removing the device from use. (Value:
+ *        "DEPROVISION_REASON_RETIRING_DEVICE")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonSameModelReplacement
- *        The device was replaced by a device with the same model. (Value:
- *        "deprovisionReasonSameModelReplacement")
+ *        Same model replacement. You have return materials authorization (RMA)
+ *        or you are replacing a malfunctioning device under warranty with the
+ *        same device model. (Value:
+ *        "DEPROVISION_REASON_SAME_MODEL_REPLACEMENT")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration
  *        Service expired for the device. (Value:
- *        "deprovisionReasonServiceExpiration")
+ *        "DEPROVISION_REASON_SERVICE_EXPIRATION")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUnspecified
  *        The deprovision reason is unknown. (Value:
- *        "deprovisionReasonUnspecified")
+ *        "DEPROVISION_REASON_UNSPECIFIED")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade
- *        The device was upgraded. (Value: "deprovisionReasonUpgrade")
+ *        The device was upgraded. (Value: "DEPROVISION_REASON_UPGRADE")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgradeTransfer
- *        The device's perpetual upgrade was transferred to a new device.
- *        (Value: "deprovisionReasonUpgradeTransfer")
+ *        ChromeOS Flex upgrade transfer. This is a ChromeOS Flex device that
+ *        you are replacing with a Chromebook within a year. (Value:
+ *        "DEPROVISION_REASON_UPGRADE_TRANSFER")
  */
 @property(nonatomic, copy, nullable) NSString *deprovisionReason;
 
@@ -1449,6 +1503,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** The unique ID of the Chrome device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Output only. Device license type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_DeviceLicenseTypeUnspecified
+ *        The license type is unknown. (Value: "deviceLicenseTypeUnspecified")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Education The
+ *        device is bundled with a perpetual Chrome Education Upgrade. (Value:
+ *        "education")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade
+ *        The device has a perpetual standalone Chrome Education Upgrade.
+ *        (Value: "educationUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Enterprise The
+ *        device is bundled with a perpetual Chrome Enterprise Upgrade. (Value:
+ *        "enterprise")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade
+ *        The device has an annual standalone Chrome Enterprise Upgrade. (Value:
+ *        "enterpriseUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade The
+ *        device has an annual Kiosk Upgrade. (Value: "kioskUpgrade")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceLicenseType;
 
 /** Reports of disk space and other info about mounted/connected volumes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item *> *diskVolumeReports;

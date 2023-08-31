@@ -748,12 +748,18 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  */
 @interface GTLRVerifiedaccess_VerifyChallengeResponseResult : GTLRObject
 
+/** Attested device ID (ADID). */
+@property(nonatomic, copy, nullable) NSString *attestedDeviceId;
+
 /**
  *  Unique customer id that this device belongs to, as defined by the Google
  *  Admin SDK at
  *  https://developers.google.com/admin-sdk/directory/v1/guides/manage-customers
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
+
+/** Device enrollment id for ChromeOS devices. */
+@property(nonatomic, copy, nullable) NSString *deviceEnrollmentId;
 
 /**
  *  Device permanent id is returned in this field (for the machine response

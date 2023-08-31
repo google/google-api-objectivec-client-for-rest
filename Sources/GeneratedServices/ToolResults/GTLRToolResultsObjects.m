@@ -141,6 +141,7 @@ NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
 
 // GTLRToolResults_TestIssue.type
 NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
+NSString * const kGTLRToolResults_TestIssue_Type_AssetIssue    = @"assetIssue";
 NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"availableDeepLinks";
 NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"blankScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
@@ -259,6 +260,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 @implementation GTLRToolResults_AppStartTime
 @dynamic fullyDrawnTime, initialDisplayTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_AssetIssue
+//
+
+@implementation GTLRToolResults_AssetIssue
 @end
 
 

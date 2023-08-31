@@ -39,6 +39,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DatasetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
@@ -53,6 +54,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
@@ -88,6 +90,9 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_CommonUsageWithinTimeRange;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec;
 @class GTLRDataCatalog_Operation;
 @class GTLRDataCatalog_Operation_Metadata;
@@ -347,6 +352,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
  *  Value: "LOOKER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Looker;
+/**
+ *  Vertex AI
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_VertexAi;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource.service
@@ -427,6 +438,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "LOOKER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Looker;
+/**
+ *  Vertex AI
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_VertexAi;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.type
@@ -741,6 +758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Sear
  *  Value: "LOOKER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Looker;
+/**
+ *  Vertex AI
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_VertexAi;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.searchResultType
@@ -825,6 +848,126 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Value: "MANAGING_SYSTEM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TaxonomyService_Name_ManagingSystemUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec.dataType
+
+/**
+ *  Conversation dataset which supports conversation problems.
+ *
+ *  Value: "CONVERSATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Conversation;
+/**
+ *  Should not be used.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_DataTypeUnspecified;
+/**
+ *  Document dataset which supports DocumentAnnotation problems.
+ *
+ *  Value: "DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Document;
+/**
+ *  Enterprise Knowledge Graph dataset which is used for HITL labeling
+ *  integration.
+ *
+ *  Value: "ENTERPRISE_KNOWLEDGE_GRAPH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_EnterpriseKnowledgeGraph;
+/**
+ *  Image dataset which supports ImageClassification, ImageObjectDetection and
+ *  ImageSegmentation problems.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Image;
+/**
+ *  Store Vision dataset which is used for HITL integration.
+ *
+ *  Value: "STORE_VISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_StoreVision;
+/**
+ *  Structured data dataset.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Table;
+/**
+ *  Document dataset which supports TextClassification, TextExtraction and
+ *  TextSentiment problems.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Text;
+/**
+ *  Text prompt dataset which supports Large Language Models.
+ *
+ *  Value: "TEXT_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TextPrompt;
+/**
+ *  TextToSpeech dataset which supports TextToSpeech problems.
+ *
+ *  Value: "TEXT_TO_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TextToSpeech;
+/**
+ *  TimeSeries dataset.
+ *
+ *  Value: "TIME_SERIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TimeSeries;
+/**
+ *  Translation dataset which supports Translation problems.
+ *
+ *  Value: "TRANSLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Translation;
+/**
+ *  Video dataset which supports VideoClassification, VideoObjectTracking and
+ *  VideoActionRecognition problems.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo.sourceType
+
+/**
+ *  The Model is uploaded by automl training pipeline.
+ *
+ *  Value: "AUTOML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Automl;
+/**
+ *  The Model is registered and sync'ed from BigQuery ML.
+ *
+ *  Value: "BQML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Bqml;
+/**
+ *  The Model is uploaded by user or custom training pipeline.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Custom;
+/**
+ *  The Model is saved or tuned from Model Garden.
+ *
+ *  Value: "MODEL_GARDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelGarden;
+/**
+ *  Should not be used.
+ *
+ *  Value: "MODEL_SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelSourceTypeUnspecified;
 
 /**
  *  Associates `members`, or principals, with a `role`.
@@ -1442,6 +1585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Looker
  *        Looker (Value: "LOOKER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_VertexAi
+ *        Vertex AI (Value: "VERTEX_AI")
  */
 @property(nonatomic, copy, nullable) NSString *system;
 
@@ -1508,6 +1653,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userManaged;
+
+@end
+
+
+/**
+ *  Specification that applies to a dataset. Valid only for entries with the
+ *  `DATASET` type.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatasetSpec : GTLRObject
+
+/** Vertex AI Dataset specific fields */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec *vertexDatasetSpec;
 
 @end
 
@@ -1608,6 +1765,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec *databaseTableSpec;
 
+/** Specification that applies to a dataset. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatasetSpec *datasetSpec;
+
 /** Output only. Physical location of the entry. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource *dataSource;
 
@@ -1678,6 +1838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Looker
  *        Looker (Value: "LOOKER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_VertexAi
+ *        Vertex AI (Value: "VERTEX_AI")
  */
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
@@ -1707,6 +1869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  `user_specified_system` is equal to `LOOKER`
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec *lookerSystemSpec;
+
+/** Model specification. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec *modelSpec;
 
 /**
  *  Output only. The resource name of an entry in URL format. Note: The entry
@@ -2316,6 +2481,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Specification that applies to a model. Valid only for entries with the
+ *  `MODEL` type.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec : GTLRObject
+
+/** Specification for vertex model resources. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSpec *vertexModelSpec;
+
+@end
+
+
+/**
  *  Request message for ModifyEntryContacts.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest : GTLRObject
@@ -2723,6 +2900,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequest : GTLRObject
 
 /**
+ *  Optional. If set, use searchAll permission granted on organizations from
+ *  `include_org_ids` and projects from `include_project_ids` instead of the
+ *  fine grained per resource permissions when filtering the search results. The
+ *  only allowed `order_by` criteria for admin_search mode is `default`. Using
+ *  this flags guarantees a full recall of the search results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminSearch;
+
+/**
  *  Specifies the order of results. Currently supported case-sensitive values
  *  are: * `relevance` that can only be descending * `last_modified_timestamp
  *  [asc|desc]` with descending (`desc`) as default * `default` that can only be
@@ -2926,6 +3114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Looker
  *        Looker (Value: "LOOKER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_VertexAi
+ *        Vertex AI (Value: "VERTEX_AI")
  */
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
@@ -3636,6 +3826,130 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Specification for vertex dataset resources.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec : GTLRObject
+
+/**
+ *  The number of DataItems in this Dataset. Only apply for non-structured
+ *  Dataset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataItemCount;
+
+/**
+ *  Type of the dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Conversation
+ *        Conversation dataset which supports conversation problems. (Value:
+ *        "CONVERSATION")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_DataTypeUnspecified
+ *        Should not be used. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Document
+ *        Document dataset which supports DocumentAnnotation problems. (Value:
+ *        "DOCUMENT")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_EnterpriseKnowledgeGraph
+ *        Enterprise Knowledge Graph dataset which is used for HITL labeling
+ *        integration. (Value: "ENTERPRISE_KNOWLEDGE_GRAPH")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Image
+ *        Image dataset which supports ImageClassification, ImageObjectDetection
+ *        and ImageSegmentation problems. (Value: "IMAGE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_StoreVision
+ *        Store Vision dataset which is used for HITL integration. (Value:
+ *        "STORE_VISION")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Table
+ *        Structured data dataset. (Value: "TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Text
+ *        Document dataset which supports TextClassification, TextExtraction and
+ *        TextSentiment problems. (Value: "TEXT")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TextPrompt
+ *        Text prompt dataset which supports Large Language Models. (Value:
+ *        "TEXT_PROMPT")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TextToSpeech
+ *        TextToSpeech dataset which supports TextToSpeech problems. (Value:
+ *        "TEXT_TO_SPEECH")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_TimeSeries
+ *        TimeSeries dataset. (Value: "TIME_SERIES")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Translation
+ *        Translation dataset which supports Translation problems. (Value:
+ *        "TRANSLATION")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_DataType_Video
+ *        Video dataset which supports VideoClassification, VideoObjectTracking
+ *        and VideoActionRecognition problems. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+@end
+
+
+/**
+ *  Detail description of the source information of a Vertex model.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo : GTLRObject
+
+/**
+ *  If this Model is copy of another Model. If true then source_type pertains to
+ *  the original.
+ *
+ *  Remapped to 'copyProperty' to avoid NSObject's 'copy'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copyProperty NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Type of the model source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Automl
+ *        The Model is uploaded by automl training pipeline. (Value: "AUTOML")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Bqml
+ *        The Model is registered and sync'ed from BigQuery ML. (Value: "BQML")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Custom
+ *        The Model is uploaded by user or custom training pipeline. (Value:
+ *        "CUSTOM")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelGarden
+ *        The Model is saved or tuned from Model Garden. (Value: "MODEL_GARDEN")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelSourceTypeUnspecified
+ *        Should not be used. (Value: "MODEL_SOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  Specification for vertex model resources.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSpec : GTLRObject
+
+/**
+ *  URI of the Docker image to be used as the custom container for serving
+ *  predictions.
+ */
+@property(nonatomic, copy, nullable) NSString *containerImageUri;
+
+/**
+ *  User provided version aliases so that a model version can be referenced via
+ *  alias
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *versionAliases;
+
+/** The description of this version. */
+@property(nonatomic, copy, nullable) NSString *versionDescription;
+
+/** The version ID of the model. */
+@property(nonatomic, copy, nullable) NSString *versionId;
+
+/** Source of a Vertex model. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo *vertexModelSourceInfo;
+
+@end
+
+
+/**
  *  Table view specification.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec : GTLRObject
@@ -3704,8 +4018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3733,8 +4047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3763,7 +4077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -3771,14 +4085,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataCatalog_Policy : GTLRObject

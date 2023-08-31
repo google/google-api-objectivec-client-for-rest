@@ -42,6 +42,7 @@
 @class GTLRGKEOnPrem_BareMetalCluster;
 @class GTLRGKEOnPrem_BareMetalCluster_Annotations;
 @class GTLRGKEOnPrem_BareMetalClusterOperationsConfig;
+@class GTLRGKEOnPrem_BareMetalClusterUpgradePolicy;
 @class GTLRGKEOnPrem_BareMetalControlPlaneConfig;
 @class GTLRGKEOnPrem_BareMetalControlPlaneNodePoolConfig;
 @class GTLRGKEOnPrem_BareMetalDrainedMachine;
@@ -78,6 +79,7 @@
 @class GTLRGKEOnPrem_BareMetalVersionInfo;
 @class GTLRGKEOnPrem_BareMetalVipConfig;
 @class GTLRGKEOnPrem_BareMetalWorkloadNodeConfig;
+@class GTLRGKEOnPrem_BinaryAuthorization;
 @class GTLRGKEOnPrem_Binding;
 @class GTLRGKEOnPrem_ClusterUser;
 @class GTLRGKEOnPrem_Expr;
@@ -85,10 +87,13 @@
 @class GTLRGKEOnPrem_Location;
 @class GTLRGKEOnPrem_Location_Labels;
 @class GTLRGKEOnPrem_Location_Metadata;
+@class GTLRGKEOnPrem_Metric;
 @class GTLRGKEOnPrem_NodeTaint;
 @class GTLRGKEOnPrem_Operation;
 @class GTLRGKEOnPrem_Operation_Metadata;
 @class GTLRGKEOnPrem_Operation_Response;
+@class GTLRGKEOnPrem_OperationProgress;
+@class GTLRGKEOnPrem_OperationStage;
 @class GTLRGKEOnPrem_Policy;
 @class GTLRGKEOnPrem_ResourceCondition;
 @class GTLRGKEOnPrem_ResourceStatus;
@@ -105,10 +110,12 @@
 @class GTLRGKEOnPrem_VmwareAdminCluster_Annotations;
 @class GTLRGKEOnPrem_VmwareAdminControlPlaneNodeConfig;
 @class GTLRGKEOnPrem_VmwareAdminF5BigIpConfig;
+@class GTLRGKEOnPrem_VmwareAdminHAControlPlaneConfig;
 @class GTLRGKEOnPrem_VmwareAdminLoadBalancerConfig;
 @class GTLRGKEOnPrem_VmwareAdminManualLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminMetalLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminNetworkConfig;
+@class GTLRGKEOnPrem_VmwareAdminSeesawConfig;
 @class GTLRGKEOnPrem_VmwareAdminVCenterConfig;
 @class GTLRGKEOnPrem_VmwareAdminVipConfig;
 @class GTLRGKEOnPrem_VmwareAutoRepairConfig;
@@ -116,6 +123,7 @@
 @class GTLRGKEOnPrem_VmwareBundleConfig;
 @class GTLRGKEOnPrem_VmwareCluster;
 @class GTLRGKEOnPrem_VmwareCluster_Annotations;
+@class GTLRGKEOnPrem_VmwareClusterUpgradePolicy;
 @class GTLRGKEOnPrem_VmwareControlPlaneNodeConfig;
 @class GTLRGKEOnPrem_VmwareControlPlaneV2Config;
 @class GTLRGKEOnPrem_VmwareControlPlaneVsphereConfig;
@@ -135,6 +143,7 @@
 @class GTLRGKEOnPrem_VmwareNodePool_Annotations;
 @class GTLRGKEOnPrem_VmwareNodePoolAutoscalingConfig;
 @class GTLRGKEOnPrem_VmwarePlatformConfig;
+@class GTLRGKEOnPrem_VmwareSeesawConfig;
 @class GTLRGKEOnPrem_VmwareStaticIpConfig;
 @class GTLRGKEOnPrem_VmwareStorageConfig;
 @class GTLRGKEOnPrem_VmwareVCenterConfig;
@@ -252,6 +261,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalCluster_State_StateUn
 FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalCluster_State_Stopping;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEOnPrem_BareMetalClusterUpgradePolicy.policy
+
+/**
+ *  Upgrade all worker node pools in parallel.
+ *
+ *  Value: "CONCURRENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Concurrent;
+/**
+ *  No upgrade policy selected.
+ *
+ *  Value: "NODE_POOL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_NodePoolPolicyUnspecified;
+/**
+ *  Upgrade worker node pools sequentially.
+ *
+ *  Value: "SERIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Serial;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEOnPrem_BareMetalNodePool.state
 
 /**
@@ -334,6 +365,117 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalWorkloadNodeConfig_Co
 FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BareMetalWorkloadNodeConfig_ContainerRuntime_ContainerRuntimeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEOnPrem_BinaryAuthorization.evaluationMode
+
+/**
+ *  Disable BinaryAuthorization
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_Disabled;
+/**
+ *  Default value
+ *
+ *  Value: "EVALUATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified;
+/**
+ *  Enforce Kubernetes admission requests with BinaryAuthorization using the
+ *  project's singleton policy.
+ *
+ *  Value: "PROJECT_SINGLETON_POLICY_ENFORCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEOnPrem_Metric.metric
+
+/**
+ *  Not set.
+ *
+ *  Value: "METRIC_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_MetricIdUnspecified;
+/**
+ *  The number of nodes draining.
+ *
+ *  Value: "NODES_DRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesDraining;
+/**
+ *  The number of nodes to fail actuation.
+ *
+ *  Value: "NODES_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesFailed;
+/**
+ *  The number of nodes healthy.
+ *
+ *  Value: "NODES_HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesHealthy;
+/**
+ *  The number of nodes in maintenance mode.
+ *
+ *  Value: "NODES_IN_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesInMaintenance;
+/**
+ *  The number of nodes to be upgraded.
+ *
+ *  Value: "NODES_PENDING_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesPendingUpgrade;
+/**
+ *  The number of nodes reconciling.
+ *
+ *  Value: "NODES_RECONCILING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesReconciling;
+/**
+ *  The total number of nodes being actuated.
+ *
+ *  Value: "NODES_TOTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesTotal;
+/**
+ *  The number of nodes upgraded.
+ *
+ *  Value: "NODES_UPGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesUpgraded;
+/**
+ *  The number of nodes actively upgrading.
+ *
+ *  Value: "NODES_UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesUpgrading;
+/**
+ *  The number of completed preflight checks.
+ *
+ *  Value: "PREFLIGHTS_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsCompleted;
+/**
+ *  The number of preflight checks failed.
+ *
+ *  Value: "PREFLIGHTS_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsFailed;
+/**
+ *  The number of preflight checks running.
+ *
+ *  Value: "PREFLIGHTS_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsRunning;
+/**
+ *  The total number of preflight checks.
+ *
+ *  Value: "PREFLIGHTS_TOTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsTotal;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEOnPrem_NodeTaint.effect
 
 /**
@@ -389,6 +531,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Delete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_OperationTypeUnspecified;
 /**
+ *  The platform is being upgraded.
+ *
+ *  Value: "PLATFORM_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_PlatformUpgrade;
+/**
  *  The resource is being updated.
  *
  *  Value: "UPDATE"
@@ -400,6 +548,80 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Update;
  *  Value: "UPGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Upgrade;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEOnPrem_OperationStage.stage
+
+/**
+ *  Resource is being configured.
+ *
+ *  Value: "CONFIGURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Configure;
+/**
+ *  Resource is being deployed.
+ *
+ *  Value: "DEPLOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Deploy;
+/**
+ *  Waiting for the resource to become healthy.
+ *
+ *  Value: "HEALTH_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_HealthCheck;
+/**
+ *  Preflight checks are running.
+ *
+ *  Value: "PREFLIGHT_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_PreflightCheck;
+/**
+ *  Not set.
+ *
+ *  Value: "STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_StageUnspecified;
+/**
+ *  Resource is being updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Update;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEOnPrem_OperationStage.state
+
+/**
+ *  The stage has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_State_Failed;
+/**
+ *  The stage is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_State_Pending;
+/**
+ *  The stage is running
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_State_Running;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_State_StateUnspecified;
+/**
+ *  The stage has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_OperationStage_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEOnPrem_ResourceCondition.state
@@ -716,6 +938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *bareMetalVersion;
 
+/** Binary Authorization related configurations. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BinaryAuthorization *binaryAuthorization;
+
 /** Cluster operations configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminClusterOperationsConfig *clusterOperations;
 
@@ -905,9 +1130,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_BareMetalAdminApiServerArgument *> *apiServerArgs;
 
 /**
- *  Configures the node pool running the control plane. If specified the
- *  corresponding NodePool will be created for the cluster's control plane. The
- *  NodePool will have the same name and namespace as the cluster.
+ *  Required. Configures the node pool running the control plane. If specified
+ *  the corresponding NodePool will be created for the cluster's control plane.
+ *  The NodePool will have the same name and namespace as the cluster.
  */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminControlPlaneNodePoolConfig *controlPlaneNodePoolConfig;
 
@@ -922,7 +1147,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @interface GTLRGKEOnPrem_BareMetalAdminControlPlaneNodePoolConfig : GTLRObject
 
-/** The generic configuration for a node pool running the control plane. */
+/**
+ *  Required. The generic configuration for a node pool running the control
+ *  plane.
+ */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalNodePoolConfig *nodePoolConfig;
 
 @end
@@ -1325,6 +1553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *bareMetalVersion;
 
+/** Binary Authorization related configurations. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BinaryAuthorization *binaryAuthorization;
+
 /** Cluster operations configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalClusterOperationsConfig *clusterOperations;
 
@@ -1455,6 +1686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** The cluster upgrade policy. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalClusterUpgradePolicy *upgradePolicy;
+
 /** Output only. The result of the preflight check. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_ValidationCheck *validationCheck;
 
@@ -1491,6 +1725,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableApplicationLogs;
+
+@end
+
+
+/**
+ *  BareMetalClusterUpgradePolicy defines the cluster upgrade policy.
+ */
+@interface GTLRGKEOnPrem_BareMetalClusterUpgradePolicy : GTLRObject
+
+/**
+ *  Specifies which upgrade policy to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Concurrent
+ *        Upgrade all worker node pools in parallel. (Value: "CONCURRENT")
+ *    @arg @c kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_NodePoolPolicyUnspecified
+ *        No upgrade policy selected. (Value: "NODE_POOL_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Serial Upgrade
+ *        worker node pools sequentially. (Value: "SERIAL")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
 
 @end
 
@@ -2095,8 +2350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @interface GTLRGKEOnPrem_BareMetalParallelUpgradeConfig : GTLRObject
 
 /**
- *  Required. The maximum number of nodes that can be upgraded at once. Defaults
- *  to 1.
+ *  The maximum number of nodes that can be upgraded at once.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2265,6 +2519,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPodsPerNode;
+
+@end
+
+
+/**
+ *  Configuration for Binary Authorization.
+ */
+@interface GTLRGKEOnPrem_BinaryAuthorization : GTLRObject
+
+/**
+ *  Mode of operation for binauthz policy evaluation. If unspecified, defaults
+ *  to DISABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_Disabled Disable
+ *        BinaryAuthorization (Value: "DISABLED")
+ *    @arg @c kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified
+ *        Default value (Value: "EVALUATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce
+ *        Enforce Kubernetes admission requests with BinaryAuthorization using
+ *        the project's singleton policy. (Value:
+ *        "PROJECT_SINGLETON_POLICY_ENFORCE")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationMode;
 
 @end
 
@@ -2877,6 +3155,66 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  Progress metric is (string, int|float|string) pair.
+ */
+@interface GTLRGKEOnPrem_Metric : GTLRObject
+
+/**
+ *  For metrics with floating point value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  For metrics with integer value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  Required. The metric name.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_MetricIdUnspecified Not set. (Value:
+ *        "METRIC_ID_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesDraining The number of nodes
+ *        draining. (Value: "NODES_DRAINING")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesFailed The number of nodes to
+ *        fail actuation. (Value: "NODES_FAILED")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesHealthy The number of nodes
+ *        healthy. (Value: "NODES_HEALTHY")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesInMaintenance The number of
+ *        nodes in maintenance mode. (Value: "NODES_IN_MAINTENANCE")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesPendingUpgrade The number of
+ *        nodes to be upgraded. (Value: "NODES_PENDING_UPGRADE")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesReconciling The number of nodes
+ *        reconciling. (Value: "NODES_RECONCILING")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesTotal The total number of nodes
+ *        being actuated. (Value: "NODES_TOTAL")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesUpgraded The number of nodes
+ *        upgraded. (Value: "NODES_UPGRADED")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_NodesUpgrading The number of nodes
+ *        actively upgrading. (Value: "NODES_UPGRADING")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_PreflightsCompleted The number of
+ *        completed preflight checks. (Value: "PREFLIGHTS_COMPLETED")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_PreflightsFailed The number of
+ *        preflight checks failed. (Value: "PREFLIGHTS_FAILED")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_PreflightsRunning The number of
+ *        preflight checks running. (Value: "PREFLIGHTS_RUNNING")
+ *    @arg @c kGTLRGKEOnPrem_Metric_Metric_PreflightsTotal The total number of
+ *        preflight checks. (Value: "PREFLIGHTS_TOTAL")
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** For metrics with custom values (ratios, visual progress, etc.). */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  NodeTaint applied to every Kubernetes node in a node pool. Kubernetes taints
  *  can be used together with tolerations to control how workloads are scheduled
  *  to your nodes. Node taints are permanent.
@@ -2948,8 +3286,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2977,8 +3315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3017,6 +3355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Output only. Detailed progress information for the operation. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_OperationProgress *progress;
+
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
@@ -3045,6 +3386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *        deleted. (Value: "DELETE")
  *    @arg @c kGTLRGKEOnPrem_OperationMetadata_Type_OperationTypeUnspecified Not
  *        set. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_OperationMetadata_Type_PlatformUpgrade The platform
+ *        is being upgraded. (Value: "PLATFORM_UPGRADE")
  *    @arg @c kGTLRGKEOnPrem_OperationMetadata_Type_Update The resource is being
  *        updated. (Value: "UPDATE")
  *    @arg @c kGTLRGKEOnPrem_OperationMetadata_Type_Upgrade The resource is
@@ -3054,6 +3397,70 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Information about operation progress. LINT.IfChange
+ */
+@interface GTLRGKEOnPrem_OperationProgress : GTLRObject
+
+/** The stages of the operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_OperationStage *> *stages;
+
+@end
+
+
+/**
+ *  Information about a particular stage of an operation.
+ */
+@interface GTLRGKEOnPrem_OperationStage : GTLRObject
+
+/** Time the stage ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Progress metric bundle. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_Metric *> *metrics;
+
+/**
+ *  The high-level stage of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_Configure Resource is being
+ *        configured. (Value: "CONFIGURE")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_Deploy Resource is being
+ *        deployed. (Value: "DEPLOY")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_HealthCheck Waiting for the
+ *        resource to become healthy. (Value: "HEALTH_CHECK")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_PreflightCheck Preflight
+ *        checks are running. (Value: "PREFLIGHT_CHECK")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_StageUnspecified Not set.
+ *        (Value: "STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_Stage_Update Resource is being
+ *        updated. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
+
+/** Time the stage started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. State of the stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_State_Failed The stage has failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_State_Pending The stage is pending.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_State_Running The stage is running
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_State_StateUnspecified Not set.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEOnPrem_OperationStage_State_Succeeded The stage has
+ *        completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -3071,7 +3478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -3079,14 +3486,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRGKEOnPrem_Policy : GTLRObject
@@ -3680,6 +4088,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) NSNumber *memory;
 
+/**
+ *  The number of control plane nodes for this VMware admin cluster. (default: 1
+ *  replica).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicas;
+
 @end
 
 
@@ -3705,6 +4121,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  Specifies HA admin control plane config.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminHAControlPlaneConfig : GTLRObject
+
+/** Static IP addresses for the admin control plane nodes. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareIpBlock *controlPlaneIpBlock;
+
+@end
+
+
+/**
  *  VmwareAdminLoadBalancerConfig contains load balancer configuration for
  *  VMware admin cluster.
  */
@@ -3718,6 +4145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** MetalLB load balancers. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminMetalLbConfig *metalLbConfig;
+
+/** Output only. Configuration for Seesaw typed load balancers. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminSeesawConfig *seesawConfig;
 
 /** The VIPs used by the load balancer. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminVipConfig *vipConfig;
@@ -3789,6 +4219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Configuration settings for a DHCP IP configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareDhcpIpConfig *dhcpIpConfig;
 
+/** Configuration for HA admin cluster control plane. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminHAControlPlaneConfig *haControlPlaneConfig;
+
 /**
  *  Represents common network settings irrespective of the host's IP address.
  */
@@ -3813,6 +4246,56 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** vcenter_network specifies vCenter network name. */
 @property(nonatomic, copy, nullable) NSString *vcenterNetwork;
+
+@end
+
+
+/**
+ *  VmwareSeesawConfig represents configuration parameters for an already
+ *  existing Seesaw load balancer. IMPORTANT: Please note that the Anthos
+ *  On-Prem API will not generate or update Seesaw configurations it can only
+ *  bind a pre-existing configuration to a new user cluster. IMPORTANT: When
+ *  attempting to create a user cluster with a pre-existing Seesaw load balancer
+ *  you will need to follow some preparation steps before calling the
+ *  'CreateVmwareCluster' API method. First you will need to create the user
+ *  cluster's namespace via kubectl. The namespace will need to use the
+ *  following naming convention : -gke-onprem-mgmt or -gke-onprem-mgmt depending
+ *  on whether you used the 'VmwareCluster.local_name' to disambiguate
+ *  collisions; for more context see the documentation of
+ *  'VmwareCluster.local_name'. Once the namespace is created you will need to
+ *  create a secret resource via kubectl. This secret will contain copies of
+ *  your Seesaw credentials. The Secret must be called 'user-cluster-creds' and
+ *  contain Seesaw's SSH and Cert credentials. The credentials must be keyed
+ *  with the following names: 'seesaw-ssh-private-key', 'seesaw-ssh-public-key',
+ *  'seesaw-ssh-ca-key', 'seesaw-ssh-ca-cert'.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminSeesawConfig : GTLRObject
+
+/**
+ *  Enable two load balancer VMs to achieve a highly-available Seesaw load
+ *  balancer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHa;
+
+/**
+ *  In general the following format should be used for the Seesaw group name:
+ *  seesaw-for-[cluster_name].
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** The IP Blocks to be used by the Seesaw load balancer */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_VmwareIpBlock *> *ipBlocks;
+
+/** MasterIP is the IP announced by the master of Seesaw group. */
+@property(nonatomic, copy, nullable) NSString *masterIp;
+
+/** Name to be used by Stackdriver. */
+@property(nonatomic, copy, nullable) NSString *stackdriverName;
+
+/** Names of the VMs created for this Seesaw group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vms;
 
 @end
 
@@ -3975,6 +4458,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Disable bundled ingress.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableBundledIngress;
+
+/**
  *  Enable control plane V2. Default to false.
  *
  *  Uses NSNumber of boolValue.
@@ -4067,6 +4557,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Output only. The time at which VMware user cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Specifies upgrade policy for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareClusterUpgradePolicy *upgradePolicy;
+
 /**
  *  Output only. ValidationCheck represents the result of the preflight check
  *  job.
@@ -4107,6 +4600,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  VmwareClusterUpgradePolicy defines the cluster upgrade policy.
+ */
+@interface GTLRGKEOnPrem_VmwareClusterUpgradePolicy : GTLRObject
+
+/**
+ *  Controls whether the upgrade applies to the control plane only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *controlPlaneOnly;
+
+@end
+
+
+/**
  *  Specifies control plane node config for the VMware user cluster.
  */
 @interface GTLRGKEOnPrem_VmwareControlPlaneNodeConfig : GTLRObject
@@ -4138,7 +4646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) NSNumber *replicas;
 
-/** Output only. Vsphere-specific config. */
+/** Vsphere-specific config. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareControlPlaneVsphereConfig *vsphereConfig;
 
 @end
@@ -4300,6 +4808,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** Configuration for MetalLB typed load balancers. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareMetalLbConfig *metalLbConfig;
+
+/** Output only. Configuration for Seesaw typed load balancers. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareSeesawConfig *seesawConfig;
 
 /** The VIPs used by the load balancer. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareVipConfig *vipConfig;
@@ -4473,7 +4984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** The initial taints assigned to nodes of this node pool. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_NodeTaint *> *taints;
 
-/** Output only. Specifies the vSphere config for node pool. */
+/** Specifies the vSphere config for node pool. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareVsphereConfig *vsphereConfig;
 
 @end
@@ -4659,6 +5170,56 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  VmwareSeesawConfig represents configuration parameters for an already
+ *  existing Seesaw load balancer. IMPORTANT: Please note that the Anthos
+ *  On-Prem API will not generate or update Seesaw configurations it can only
+ *  bind a pre-existing configuration to a new user cluster. IMPORTANT: When
+ *  attempting to create a user cluster with a pre-existing Seesaw load balancer
+ *  you will need to follow some preparation steps before calling the
+ *  'CreateVmwareCluster' API method. First you will need to create the user
+ *  cluster's namespace via kubectl. The namespace will need to use the
+ *  following naming convention : -gke-onprem-mgmt or -gke-onprem-mgmt depending
+ *  on whether you used the 'VmwareCluster.local_name' to disambiguate
+ *  collisions; for more context see the documentation of
+ *  'VmwareCluster.local_name'. Once the namespace is created you will need to
+ *  create a secret resource via kubectl. This secret will contain copies of
+ *  your Seesaw credentials. The Secret must be called 'user-cluster-creds' and
+ *  contain Seesaw's SSH and Cert credentials. The credentials must be keyed
+ *  with the following names: 'seesaw-ssh-private-key', 'seesaw-ssh-public-key',
+ *  'seesaw-ssh-ca-key', 'seesaw-ssh-ca-cert'.
+ */
+@interface GTLRGKEOnPrem_VmwareSeesawConfig : GTLRObject
+
+/**
+ *  Enable two load balancer VMs to achieve a highly-available Seesaw load
+ *  balancer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHa;
+
+/**
+ *  Required. In general the following format should be used for the Seesaw
+ *  group name: seesaw-for-[cluster_name].
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** Required. The IP Blocks to be used by the Seesaw load balancer */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_VmwareIpBlock *> *ipBlocks;
+
+/** Required. MasterIP is the IP announced by the master of Seesaw group. */
+@property(nonatomic, copy, nullable) NSString *masterIp;
+
+/** Name to be used by Stackdriver. */
+@property(nonatomic, copy, nullable) NSString *stackdriverName;
+
+/** Names of the VMs created for this Seesaw group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vms;
+
+@end
+
+
+/**
  *  Represents the network configuration required for the VMware user clusters
  *  with Static IP configurations.
  */
@@ -4777,10 +5338,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** The name of the vCenter datastore. Inherited from the user cluster. */
 @property(nonatomic, copy, nullable) NSString *datastore;
 
-/**
- *  The name of the vCenter storage policy. Inherited from the user cluster.
- */
-@property(nonatomic, copy, nullable) NSString *storagePolicyName;
+/** Vsphere host groups to apply to all VMs in the node pool */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostGroups;
 
 /** Tags to apply to VMs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_VmwareVsphereTag *> *tags;

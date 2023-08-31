@@ -1676,6 +1676,705 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates an app and associates it with an AppGroup. This API associates the
+ *  AppGroup app with the specified API product and auto-generates an API key
+ *  for the app to use in calls to API proxies inside that API product. The
+ *  `name` is the unique ID of the app that you can use in API calls.
+ *
+ *  Method: apigee.organizations.appgroups.apps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{app_group_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp.
+ *
+ *  Creates an app and associates it with an AppGroup. This API associates the
+ *  AppGroup app with the specified API product and auto-generates an API key
+ *  for the app to use in calls to API proxies inside that API product. The
+ *  `name` is the unique ID of the app that you can use in API calls.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp to include in
+ *    the query.
+ *  @param parent Required. Name of the AppGroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{app_group_name}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroupApp *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an AppGroup app. **Note**: The delete operation is asynchronous. The
+ *  AppGroup app is deleted immediately, but its associated resources, such as
+ *  app keys or access tokens, may take anywhere from a few seconds to a few
+ *  minutes to be deleted.
+ *
+ *  Method: apigee.organizations.appgroups.apps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup app. Use the following structure in your
+ *  request: `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp.
+ *
+ *  Deletes an AppGroup app. **Note**: The delete operation is asynchronous. The
+ *  AppGroup app is deleted immediately, but its associated resources, such as
+ *  app keys or access tokens, may take anywhere from a few seconds to a few
+ *  minutes to be deleted.
+ *
+ *  @param name Required. Name of the AppGroup app. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details for an AppGroup app.
+ *
+ *  Method: apigee.organizations.appgroups.apps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup app. Use the following structure in your
+ *  request: `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp.
+ *
+ *  Returns the details for an AppGroup app.
+ *
+ *  @param name Required. Name of the AppGroup app. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Removes an API product from an app's consumer key. After the API product is
+ *  removed, the app cannot access the API resources defined in that API
+ *  product. **Note**: The consumer key is not removed, only its association
+ *  with the API product.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.apiproducts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysApiproductsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Parent of the AppGroup app key. Use the following structure in
+ *  your request:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey.
+ *
+ *  Removes an API product from an app's consumer key. After the API product is
+ *  removed, the app cannot access the API resources defined in that API
+ *  product. **Note**: The consumer key is not removed, only its association
+ *  with the API product.
+ *
+ *  @param name Required. Parent of the AppGroup app key. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysApiproductsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Approves or revokes the consumer key for an API product. After a consumer
+ *  key is approved, the app can use it to access APIs. A consumer key that is
+ *  revoked or pending cannot be used to access an API. Any access tokens
+ *  associated with a revoked consumer key will remain active. However, Apigee
+ *  checks the status of the consumer key and if set to `revoked` will not allow
+ *  access to the API.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.apiproducts.updateAppGroupAppKeyApiProduct
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysApiproductsUpdateAppGroupAppKeyApiProduct : GTLRApigeeQuery
+
+/**
+ *  Approve or revoke the consumer key by setting this value to `approve` or
+ *  `revoke` respectively. The `Content-Type` header, if set, must be set to
+ *  `application/octet-stream`, with empty body.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Name of the API product in the developer app key in the following
+ *  format:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Approves or revokes the consumer key for an API product. After a consumer
+ *  key is approved, the app can use it to access APIs. A consumer key that is
+ *  revoked or pending cannot be used to access an API. Any access tokens
+ *  associated with a revoked consumer key will remain active. However, Apigee
+ *  checks the status of the consumer key and if set to `revoked` will not allow
+ *  access to the API.
+ *
+ *  @param name Required. Name of the API product in the developer app key in
+ *    the following format:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysApiproductsUpdateAppGroupAppKeyApiProduct
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a custom consumer key and secret for a AppGroup app. This is
+ *  particularly useful if you want to migrate existing consumer keys and
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  ProductizeAppGroupAppKey API to make the association after the consumer key
+ *  and secret are created. If a consumer key and secret already exist, you can
+ *  keep them or delete them using the DeleteAppGroupAppKey API.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Parent of the AppGroup app key. Use the following structure in
+ *  your request:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey.
+ *
+ *  Creates a custom consumer key and secret for a AppGroup app. This is
+ *  particularly useful if you want to migrate existing consumer keys and
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  ProductizeAppGroupAppKey API to make the association after the consumer key
+ *  and secret are created. If a consumer key and secret already exist, you can
+ *  keep them or delete them using the DeleteAppGroupAppKey API.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey to include
+ *    in the query.
+ *  @param parent Required. Parent of the AppGroup app key. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an app's consumer key and removes all API products associated with
+ *  the app. After the consumer key is deleted, it cannot be used to access any
+ *  APIs.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup app key. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey.
+ *
+ *  Deletes an app's consumer key and removes all API products associated with
+ *  the app. After the consumer key is deleted, it cannot be used to access any
+ *  APIs.
+ *
+ *  @param name Required. Name of the AppGroup app key. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details for a consumer key for a AppGroup app, including the key and
+ *  secret value, associated API products, and other information.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup app key. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey.
+ *
+ *  Gets details for a consumer key for a AppGroup app, including the key and
+ *  secret value, associated API products, and other information.
+ *
+ *  @param name Required. Name of the AppGroup app key. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Adds an API product to an AppGroupAppKey, enabling the app that holds the
+ *  key to access the API resources bundled in the API product. In addition, you
+ *  can add attributes to the AppGroupAppKey. This API replaces the existing
+ *  attributes with those specified in the request. Include or exclude any
+ *  existing attributes that you want to retain or delete, respectively. You can
+ *  use the same key to access all API products associated with the app.
+ *
+ *  Method: apigee.organizations.appgroups.apps.keys.updateAppGroupAppKey
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysUpdateAppGroupAppKey : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup app key. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey.
+ *
+ *  Adds an API product to an AppGroupAppKey, enabling the app that holds the
+ *  key to access the API resources bundled in the API product. In addition, you
+ *  can add attributes to the AppGroupAppKey. This API replaces the existing
+ *  attributes with those specified in the request. Include or exclude any
+ *  existing attributes that you want to retain or delete, respectively. You can
+ *  use the same key to access all API products associated with the app.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest to include in
+ *    the query.
+ *  @param name Required. Name of the AppGroup app key. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}/keys/{key}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsKeysUpdateAppGroupAppKey
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1UpdateAppGroupAppKeyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all apps created by an AppGroup in an Apigee organization. Optionally,
+ *  you can request an expanded view of the AppGroup apps. Lists all
+ *  AppGroupApps in an AppGroup. A maximum of 1000 AppGroup apps are returned in
+ *  the response if PageSize is not specified, or if the PageSize is greater
+ *  than 1000.
+ *
+ *  Method: apigee.organizations.appgroups.apps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number entries to return. If unspecified, at most 1000
+ *  entries will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token. If provides, must be a valid AppGroup app returned
+ *  from a previous call that can be used to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the AppGroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{app_group_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListAppGroupAppsResponse.
+ *
+ *  Lists all apps created by an AppGroup in an Apigee organization. Optionally,
+ *  you can request an expanded view of the AppGroup apps. Lists all
+ *  AppGroupApps in an AppGroup. A maximum of 1000 AppGroup apps are returned in
+ *  the response if PageSize is not specified, or if the PageSize is greater
+ *  than 1000.
+ *
+ *  @param parent Required. Name of the AppGroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{app_group_name}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the details for an AppGroup app. In addition, you can add an API
+ *  product to an AppGroup app and automatically generate an API key for the app
+ *  to use when calling APIs in the API product. If you want to use an existing
+ *  API key for the API product, add the API product to the API key using the
+ *  UpdateAppGroupAppKey API. Using this API, you cannot update the app name, as
+ *  it is the primary key used to identify the app and cannot be changed. This
+ *  API replaces the existing attributes with those specified in the request.
+ *  Include or exclude any existing attributes that you want to retain or
+ *  delete, respectively.
+ *
+ *  Method: apigee.organizations.appgroups.apps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsAppsUpdate : GTLRApigeeQuery
+
+/**
+ *  Approve or revoke the consumer key by setting this value to `approve` or
+ *  `revoke`. The `Content-Type` header must be set to
+ *  `application/octet-stream`, with empty body.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Name of the AppGroup app. Use the following structure in your
+ *  request: `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp.
+ *
+ *  Updates the details for an AppGroup app. In addition, you can add an API
+ *  product to an AppGroup app and automatically generate an API key for the app
+ *  to use when calling APIs in the API product. If you want to use an existing
+ *  API key for the API product, add the API product to the API key using the
+ *  UpdateAppGroupAppKey API. Using this API, you cannot update the app name, as
+ *  it is the primary key used to identify the app and cannot be changed. This
+ *  API replaces the existing attributes with those specified in the request.
+ *  Include or exclude any existing attributes that you want to retain or
+ *  delete, respectively.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp to include in
+ *    the query.
+ *  @param name Required. Name of the AppGroup app. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/appgroups/{app_group_name}/apps/{app}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsAppsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroupApp *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an AppGroup. Once created, user can register apps under the AppGroup
+ *  to obtain secret key and password. At creation time, the AppGroup's state is
+ *  set as `active`.
+ *
+ *  Method: apigee.organizations.appgroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Apigee organization in which the AppGroup is created.
+ *  Use the following structure in your request: `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroup.
+ *
+ *  Creates an AppGroup. Once created, user can register apps under the AppGroup
+ *  to obtain secret key and password. At creation time, the AppGroup's state is
+ *  set as `active`.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroup to include in
+ *    the query.
+ *  @param parent Required. Name of the Apigee organization in which the
+ *    AppGroup is created. Use the following structure in your request:
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an AppGroup. All app and API keys associations with the AppGroup are
+ *  also removed. **Warning**: This API will permanently delete the AppGroup and
+ *  related artifacts. **Note**: The delete operation is asynchronous. The
+ *  AppGroup app is deleted immediately, but its associated resources, such as
+ *  apps and API keys, may take anywhere from a few seconds to a few minutes to
+ *  be deleted.
+ *
+ *  Method: apigee.organizations.appgroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{app_group_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroup.
+ *
+ *  Deletes an AppGroup. All app and API keys associations with the AppGroup are
+ *  also removed. **Warning**: This API will permanently delete the AppGroup and
+ *  related artifacts. **Note**: The delete operation is asynchronous. The
+ *  AppGroup app is deleted immediately, but its associated resources, such as
+ *  apps and API keys, may take anywhere from a few seconds to a few minutes to
+ *  be deleted.
+ *
+ *  @param name Required. Name of the AppGroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{app_group_name}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the AppGroup details for the provided AppGroup name in the request
+ *  URI.
+ *
+ *  Method: apigee.organizations.appgroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the AppGroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{app_group_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroup.
+ *
+ *  Returns the AppGroup details for the provided AppGroup name in the request
+ *  URI.
+ *
+ *  @param name Required. Name of the AppGroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{app_group_name}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all AppGroups in an organization. A maximum of 1000 AppGroups are
+ *  returned in the response if PageSize is not specified, or if the PageSize is
+ *  greater than 1000.
+ *
+ *  Method: apigee.organizations.appgroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsList : GTLRApigeeQuery
+
+/**
+ *  The filter expression to be used to get the list of AppGroups, where
+ *  filtering can be done on status, channelId or channelUri of the app group.
+ *  Examples: filter=status=active", filter=channelId=, filter=channelUri=
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Count of AppGroups a single page can have in the response. If unspecified,
+ *  at most 1000 AppGroups will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The starting index record for listing the AppGroups. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the Apigee organization. Use the following structure in
+ *  your request: `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListAppGroupsResponse.
+ *
+ *  Lists all AppGroups in an organization. A maximum of 1000 AppGroups are
+ *  returned in the response if PageSize is not specified, or if the PageSize is
+ *  greater than 1000.
+ *
+ *  @param parent Required. Name of the Apigee organization. Use the following
+ *    structure in your request: `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an appGroup. This API replaces the existing appGroup details with
+ *  those specified in the request. Include or exclude any existing details that
+ *  you want to retain or delete, respectively. Note that the state of the
+ *  AppGroup should be updated using `action`, and not via AppGroup. **Note**:
+ *  OAuth access tokens and Key Management Service (KMS) entities (apps,
+ *  developers, and API products) are cached for 180 seconds (current default).
+ *  Any custom attributes associated with these entities are cached for at least
+ *  180 seconds after the entity is accessed at runtime. Therefore, an
+ *  `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access
+ *  token in less than 180 seconds.
+ *
+ *  Method: apigee.organizations.appgroups.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsUpdate : GTLRApigeeQuery
+
+/**
+ *  Activate or de-activate the appGroup by setting the action as `active` or
+ *  `inactive`. The `Content-Type` header must be set to
+ *  `application/octet-stream`, with empty body.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Name of the AppGroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{app_group_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroup.
+ *
+ *  Updates an appGroup. This API replaces the existing appGroup details with
+ *  those specified in the request. Include or exclude any existing details that
+ *  you want to retain or delete, respectively. Note that the state of the
+ *  AppGroup should be updated using `action`, and not via AppGroup. **Note**:
+ *  OAuth access tokens and Key Management Service (KMS) entities (apps,
+ *  developers, and API products) are cached for 180 seconds (current default).
+ *  Any custom attributes associated with these entities are cached for at least
+ *  180 seconds after the entity is accessed at runtime. Therefore, an
+ *  `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access
+ *  token in less than 180 seconds.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroup to include in
+ *    the query.
+ *  @param name Required. Name of the AppGroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{app_group_name}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the app profile for the specified app ID.
  *
  *  Method: apigee.organizations.apps.get
@@ -1719,10 +2418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /** API product. */
 @property(nonatomic, copy, nullable) NSString *apiProduct;
 
-/**
- *  Optional. Filter by the type of the app. Valid values are `company` or
- *  `developer`. Defaults to `developer`.
- */
+/** Optional. 'apptype' is no longer available. Use a 'filter' instead. */
 @property(nonatomic, copy, nullable) NSString *apptype;
 
 /**
@@ -1730,6 +2426,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  the organization. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL expand;
+
+/**
+ *  Optional. The filter expression to be used to get the list of apps, where
+ *  filtering can be done on developerEmail, apiProduct, consumerKey, status,
+ *  appId, appName, appType and appGroup. Examples:
+ *  "developerEmail=foo\@bar.com", "appType=AppGroup", or "appType=Developer"
+ *  "filter" is supported from ver 1.10.0 and above.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Comma-separated list of app IDs on which to filter. */
 @property(nonatomic, copy, nullable) NSString *ids;
@@ -1745,6 +2450,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  `revoked`. Defaults to `approved`.
  */
 @property(nonatomic, copy, nullable) NSString *keyStatus;
+
+/**
+ *  Optional. Count of apps a single page can have in the response. If
+ *  unspecified, at most 100 apps will be returned. The maximum value is 100;
+ *  values above 100 will be coerced to 100. "page_size" is supported from ver
+ *  1.10.0 and above.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The starting index record for listing the developers. "page_token"
+ *  is supported from ver 1.10.0 and above.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Resource path of the parent in the following format:
@@ -1775,6 +2494,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -2567,7 +3290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  specify the associated API products in your request. Instead, use the
  *  UpdateDeveloperAppKey API to make the association after the consumer key and
  *  secret are created. If a consumer key and secret already exist, you can keep
- *  them or delete them using the DeleteDeveloperAppKey API.
+ *  them or delete them using the DeleteDeveloperAppKey API. **Note**: All keys
+ *  start out with status=approved, even if status=revoked is passed when the
+ *  key is created. To revoke a key, use the UpdateDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create
  *
@@ -2595,7 +3320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  specify the associated API products in your request. Instead, use the
  *  UpdateDeveloperAppKey API to make the association after the consumer key and
  *  secret are created. If a consumer key and secret already exist, you can keep
- *  them or delete them using the DeleteDeveloperAppKey API.
+ *  them or delete them using the DeleteDeveloperAppKey API. **Note**: All keys
+ *  start out with status=approved, even if status=revoked is passed when the
+ *  key is created. To revoke a key, use the UpdateDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -2620,7 +3347,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  specify the associated API products in your request. Instead, use the
  *  UpdateDeveloperAppKey API to make the association after the consumer key and
  *  secret are created. If a consumer key and secret already exist, you can keep
- *  them or delete them using the DeleteDeveloperAppKey API.
+ *  them or delete them using the DeleteDeveloperAppKey API. **Note**: All keys
+ *  start out with status=approved, even if status=revoked is passed when the
+ *  key is created. To revoke a key, use the UpdateDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create.create
  *
@@ -2648,7 +3377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  specify the associated API products in your request. Instead, use the
  *  UpdateDeveloperAppKey API to make the association after the consumer key and
  *  secret are created. If a consumer key and secret already exist, you can keep
- *  them or delete them using the DeleteDeveloperAppKey API.
+ *  them or delete them using the DeleteDeveloperAppKey API. **Note**: All keys
+ *  start out with status=approved, even if status=revoked is passed when the
+ *  key is created. To revoke a key, use the UpdateDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -7101,14 +7832,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of incidents to return. The service may return fewer than
- *  this value. If unspecified, at most 50 incidents will be returned.
+ *  Optional. The maximum number of incidents to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 incidents will be
+ *  returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListSecurityIncident` call. Provide
- *  this to retrieve the subsequent page.
+ *  Optional. A page token, received from a previous `ListSecurityIncident`
+ *  call. Provide this to retrieve the subsequent page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -10350,6 +11082,72 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  CreateSecurityProfile create a new custom security profile.
+ *
+ *  Method: apigee.organizations.securityProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesCreate : GTLRApigeeQuery
+
+/** Required. Name of organization. Format: organizations/{org} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the SecurityProfile, which will become the final
+ *  component of the action's resource name. This value should be 4-63
+ *  characters, and valid characters are /(^[a-z]([a-z0-9-]{ 0,61}[a-z0-9])?$/.
+ */
+@property(nonatomic, copy, nullable) NSString *securityProfileId;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfile.
+ *
+ *  CreateSecurityProfile create a new custom security profile.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityProfile to
+ *    include in the query.
+ *  @param parent Required. Name of organization. Format: organizations/{org}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfile *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  DeleteSecurityProfile delete a profile with all its revisions.
+ *
+ *  Method: apigee.organizations.securityProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of profile. Format:
+ *  organizations/{org}/securityProfiles/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  DeleteSecurityProfile delete a profile with all its revisions.
+ *
+ *  @param name Required. Name of profile. Format:
+ *    organizations/{org}/securityProfiles/{profile}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  ComputeEnvironmentScores calculates scores for requested time range for the
  *  specified security profile and environment.
  *
@@ -10589,6 +11387,46 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  UpdateSecurityProfile update the metadata of security profile.
+ *
+ *  Method: apigee.organizations.securityProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesPatch : GTLRApigeeQuery
+
+/**
+ *  Immutable. Name of the security profile resource. Format:
+ *  organizations/{org}/securityProfiles/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfile.
+ *
+ *  UpdateSecurityProfile update the metadata of security profile.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityProfile to
+ *    include in the query.
+ *  @param name Immutable. Name of the security profile resource. Format:
+ *    organizations/{org}/securityProfiles/{profile}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfile *)object
+                           name:(NSString *)name;
 
 @end
 

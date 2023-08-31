@@ -658,6 +658,25 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_ProvisioningInfoGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_ProvisioningInfoGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_ProvisioningInfo class];
+  query.loggingName = @"androidmanagement.provisioningInfo.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_SignupUrlsCreate
 
 @dynamic callbackUrl, projectId;

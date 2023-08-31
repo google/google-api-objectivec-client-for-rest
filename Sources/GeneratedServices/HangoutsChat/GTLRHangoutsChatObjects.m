@@ -115,6 +115,11 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_DisplayStyl
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Peek = @"PEEK";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Replace = @"REPLACE";
 
+// GTLRHangoutsChat_GoogleAppsCardV1Card.sectionDividerStyle
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_DividerStyleUnspecified = @"DIVIDER_STYLE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_NoDivider = @"NO_DIVIDER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_SolidDivider = @"SOLID_DIVIDER";
+
 // GTLRHangoutsChat_GoogleAppsCardV1CardHeader.imageType
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Circle = @"CIRCLE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Square = @"SQUARE";
@@ -165,9 +170,14 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Reload = @"R
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize = @"FULL_SIZE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay = @"OVERLAY";
 
+// GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource.commonDataSource
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown = @"UNKNOWN";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_User = @"USER";
+
 // GTLRHangoutsChat_GoogleAppsCardV1SelectionInput.type
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox = @"CHECK_BOX";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_MultiSelect = @"MULTI_SELECT";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton = @"RADIO_BUTTON";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch = @"SWITCH";
 
@@ -442,6 +452,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ChatClientDataSourceMarkup
+//
+
+@implementation GTLRHangoutsChat_ChatClientDataSourceMarkup
+@dynamic spaceDataSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Color
 //
 
@@ -690,7 +710,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Card
 @dynamic cardActions, displayStyle, fixedFooter, header, name, peekCardHeader,
-         sections;
+         sectionDividerStyle, sections;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -894,6 +914,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource
+@dynamic commonDataSource, hostAppDataSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1Section
 //
 
@@ -916,7 +946,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionInput
-@dynamic items, label, name, onChangeAction, type;
+@dynamic externalDataSource, items, label, multiSelectMaxSelectedItems,
+         multiSelectMinQueryLength, name, onChangeAction, platformDataSource,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -934,7 +966,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionItem
-@dynamic selected, text, value;
+@dynamic bottomText, selected, startIconUri, text, value;
 @end
 
 
@@ -1016,6 +1048,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Widgets
 @dynamic buttonList, dateTimePicker, decoratedText, image, selectionInput,
          textInput, textParagraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_HostAppDataSourceMarkup
+//
+
+@implementation GTLRHangoutsChat_HostAppDataSourceMarkup
+@dynamic chatDataSource;
 @end
 
 
@@ -1187,8 +1229,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @dynamic actionResponse, annotations, argumentText, attachedGifs, attachment,
          cards, cardsV2, clientAssignedMessageId, createTime, deleteTime,
          deletionMetadata, emojiReactionSummaries, fallbackText, lastUpdateTime,
-         matchedUrl, name, sender, slashCommand, space, text, thread,
-         threadReply;
+         matchedUrl, name, quotedMessageMetadata, sender, slashCommand, space,
+         text, thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1222,6 +1264,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_OpenLink
 @dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_QuotedMessageMetadata
+//
+
+@implementation GTLRHangoutsChat_QuotedMessageMetadata
+@dynamic lastUpdateTime, name;
 @end
 
 
@@ -1297,8 +1349,19 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic adminInstalled, displayName, name, singleUserBotDm, spaceDetails,
-         spaceHistoryState, spaceThreadingState, spaceType, threaded, type;
+@dynamic adminInstalled, displayName, externalUserAllowed, name,
+         singleUserBotDm, spaceDetails, spaceHistoryState, spaceThreadingState,
+         spaceType, threaded, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SpaceDataSource
+//
+
+@implementation GTLRHangoutsChat_SpaceDataSource
+@dynamic defaultToCurrentSpace;
 @end
 
 

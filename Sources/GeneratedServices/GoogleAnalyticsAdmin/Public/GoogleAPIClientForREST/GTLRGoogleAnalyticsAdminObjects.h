@@ -3,6 +3,14 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Analytics Admin API (analyticsadmin/v1beta)
+// Description:
+//   Manage properties in Google Analytics. Warning: Creating multiple Customer
+//   Applications, Accounts, or Projects to simulate or act as a single Customer
+//   Application, Account, or Project (respectively) or to circumvent
+//   Service-specific usage limits or quotas is a direct violation of Google
+//   Cloud Platform Terms of Service as well as Google APIs Terms of Service.
+//   These actions can result in immediate termination of your GCP project(s)
+//   without any warning.
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -236,6 +244,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistory
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.countingMethod
+
+/**
+ *  Counting method not specified.
+ *
+ *  Value: "CONVERSION_COUNTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_ConversionCountingMethodUnspecified;
+/**
+ *  Each Event instance is considered a Conversion.
+ *
+ *  Value: "ONCE_PER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerEvent;
+/**
+ *  An Event instance is considered a Conversion at most once per session per
+ *  user.
+ *
+ *  Value: "ONCE_PER_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerSession;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.scope
@@ -1465,6 +1496,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *  A conversion event in a Google Analytics property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaConversionEvent : GTLRObject
+
+/**
+ *  Optional. The method by which conversions will be counted across multiple
+ *  events within a session. If this value is not provided, it will be set to
+ *  `ONCE_PER_EVENT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_ConversionCountingMethodUnspecified
+ *        Counting method not specified. (Value:
+ *        "CONVERSION_COUNTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerEvent
+ *        Each Event instance is considered a Conversion. (Value:
+ *        "ONCE_PER_EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerSession
+ *        An Event instance is considered a Conversion at most once per session
+ *        per user. (Value: "ONCE_PER_SESSION")
+ */
+@property(nonatomic, copy, nullable) NSString *countingMethod;
 
 /**
  *  Output only. Time when this conversion event was created in the property.

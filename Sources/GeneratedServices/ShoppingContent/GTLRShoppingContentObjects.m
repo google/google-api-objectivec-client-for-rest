@@ -18,6 +18,12 @@ NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredenti
 NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyIntegration = @"SHOPIFY_INTEGRATION";
 NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement = @"SHOPIFY_ORDER_MANAGEMENT";
 
+// GTLRShoppingContent_AccountIssueImpact.severity
+NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Error = @"ERROR";
+NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Info = @"INFO";
+NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Warning = @"WARNING";
+
 // GTLRShoppingContent_AccountLabel.labelType
 NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Automatic = @"AUTOMATIC";
 NSString * const kGTLRShoppingContent_AccountLabel_LabelType_LabelTypeUnspecified = @"LABEL_TYPE_UNSPECIFIED";
@@ -65,6 +71,16 @@ NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Monthly = @"
 NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_ReportGranularityUnspecified = @"REPORT_GRANULARITY_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Weekly = @"WEEKLY";
 
+// GTLRShoppingContent_BuiltInSimpleAction.type
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddBusinessRegistrationNumber = @"ADD_BUSINESS_REGISTRATION_NUMBER";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddContactInfo = @"ADD_CONTACT_INFO";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddProducts = @"ADD_PRODUCTS";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_BuiltInSimpleActionTypeUnspecified = @"BUILT_IN_SIMPLE_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ClaimWebsite = @"CLAIM_WEBSITE";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_EditItemAttribute = @"EDIT_ITEM_ATTRIBUTE";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount = @"LINK_ADS_ACCOUNT";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone = @"VERIFY_PHONE";
+
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_BusinessModelUnspecified = @"BUSINESS_MODEL_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Importer = @"IMPORTER";
@@ -93,11 +109,45 @@ NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Dupli
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Executed = @"EXECUTED";
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified = @"EXECUTION_STATUS_UNSPECIFIED";
 
+// GTLRShoppingContent_CheckoutSettings.effectiveEnrollmentState
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified = @"CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Enrolled = @"ENROLLED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive = @"INACTIVE";
+
+// GTLRShoppingContent_CheckoutSettings.effectiveReviewState
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Approved = @"APPROVED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_CheckoutOnMerchantReviewStateUnspecified = @"CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_InReview = @"IN_REVIEW";
+
+// GTLRShoppingContent_CheckoutSettings.enrollmentState
+NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified = @"CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Enrolled = @"ENROLLED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive = @"INACTIVE";
+
+// GTLRShoppingContent_CheckoutSettings.reviewState
+NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_Approved = @"APPROVED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_CheckoutOnMerchantReviewStateUnspecified = @"CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_InReview = @"IN_REVIEW";
+
+// GTLRShoppingContent_CompetitiveVisibility.trafficSource
+NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Ads = @"ADS";
+NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_All = @"ALL";
+NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Organic = @"ORGANIC";
+NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Unknown = @"UNKNOWN";
+
 // GTLRShoppingContent_ConversionSource.state
 NSString * const kGTLRShoppingContent_ConversionSource_State_Active = @"ACTIVE";
 NSString * const kGTLRShoppingContent_ConversionSource_State_Archived = @"ARCHIVED";
 NSString * const kGTLRShoppingContent_ConversionSource_State_Pending = @"PENDING";
 NSString * const kGTLRShoppingContent_ConversionSource_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRShoppingContent_ExternalAction.type
+NSString * const kGTLRShoppingContent_ExternalAction_Type_ExternalActionTypeUnspecified = @"EXTERNAL_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ExternalAction_Type_LegalAppealInHelpCenter = @"LEGAL_APPEAL_IN_HELP_CENTER";
+NSString * const kGTLRShoppingContent_ExternalAction_Type_ReviewAccountIssueInMerchantCenter = @"REVIEW_ACCOUNT_ISSUE_IN_MERCHANT_CENTER";
+NSString * const kGTLRShoppingContent_ExternalAction_Type_ReviewProductIssueInMerchantCenter = @"REVIEW_PRODUCT_ISSUE_IN_MERCHANT_CENTER";
 
 // GTLRShoppingContent_FreeListingsProgramStatus.globalState
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled = @"ENABLED";
@@ -157,6 +207,12 @@ NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InStock = @
 NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_InventoryStatusUnspecified = @"INVENTORY_STATUS_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_NotInInventory = @"NOT_IN_INVENTORY";
 NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_OutOfStock = @"OUT_OF_STOCK";
+
+// GTLRShoppingContent_ProductIssueImpact.severity
+NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Error = @"ERROR";
+NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Info = @"INFO";
+NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Warning = @"WARNING";
 
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified = @"AGGREGATED_STATUS_UNSPECIFIED";
@@ -234,6 +290,14 @@ NSString * const kGTLRShoppingContent_RecommendationCreative_Type_Video = @"VIDE
 NSString * const kGTLRShoppingContent_RecommendationDescription_Type_DescriptionTypeUnspecified = @"DESCRIPTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Long = @"LONG";
 NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Short = @"SHORT";
+
+// GTLRShoppingContent_RenderAccountIssuesRequestPayload.contentOption
+NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_ContentOptionUnspecified = @"CONTENT_OPTION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_PreRenderedHtml = @"PRE_RENDERED_HTML";
+
+// GTLRShoppingContent_RenderProductIssuesRequestPayload.contentOption
+NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_ContentOptionUnspecified = @"CONTENT_OPTION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_PreRenderedHtml = @"PRE_RENDERED_HTML";
 
 // GTLRShoppingContent_ReportInteractionRequest.interactionType
 NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick = @"INTERACTION_CLICK";
@@ -492,6 +556,42 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountImageImprovementsSettings
 @dynamic allowAutomaticImageImprovements;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountIssue
+//
+
+@implementation GTLRShoppingContent_AccountIssue
+@dynamic actions, impact, prerenderedContent, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRShoppingContent_Action class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountIssueImpact
+//
+
+@implementation GTLRShoppingContent_AccountIssueImpact
+@dynamic breakdowns, message, severity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"breakdowns" : [GTLRShoppingContent_Breakdown class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1156,6 +1256,34 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Action
+//
+
+@implementation GTLRShoppingContent_Action
+@dynamic builtinSimpleAction, buttonLabel, externalAction, isAvailable, reasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reasons" : [GTLRShoppingContent_ActionReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ActionReason
+//
+
+@implementation GTLRShoppingContent_ActionReason
+@dynamic action, detail, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
 //
 
@@ -1170,6 +1298,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Address
 @dynamic administrativeArea, city, country, postalCode, streetAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AlternateDisputeResolution
+//
+
+@implementation GTLRShoppingContent_AlternateDisputeResolution
+@dynamic label, uri;
 @end
 
 
@@ -1229,6 +1367,45 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Brand
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_Breakdown
+//
+
+@implementation GTLRShoppingContent_Breakdown
+@dynamic details, regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [NSString class],
+    @"regions" : [GTLRShoppingContent_BreakdownRegion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_BreakdownRegion
+//
+
+@implementation GTLRShoppingContent_BreakdownRegion
+@dynamic code, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_BuiltInSimpleAction
+//
+
+@implementation GTLRShoppingContent_BuiltInSimpleAction
+@dynamic attributeCode, type;
 @end
 
 
@@ -1319,6 +1496,17 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CheckoutSettings
+//
+
+@implementation GTLRShoppingContent_CheckoutSettings
+@dynamic effectiveEnrollmentState, effectiveReviewState, effectiveUriSettings,
+         enrollmentState, merchantId, reviewState, uriSettings;
 @end
 
 
@@ -1444,6 +1632,19 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CompetitiveVisibility
+//
+
+@implementation GTLRShoppingContent_CompetitiveVisibility
+@dynamic adsOrganicRatio, categoryBenchmarkVisibilityTrend, categoryId,
+         countryCode, date, domain, higherPositionRate, isYourDomain,
+         pageOverlapRate, rank, relativeVisibility, trafficSource,
+         yourDomainVisibilityTrend;
 @end
 
 
@@ -1953,6 +2154,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ExternalAction
+//
+
+@implementation GTLRShoppingContent_ExternalAction
+@dynamic type, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_FreeListingsProgramStatus
 //
 
@@ -2114,6 +2325,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_InapplicabilityDetails
 @dynamic inapplicableCount, inapplicableReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InsertCheckoutSettingsRequest
+//
+
+@implementation GTLRShoppingContent_InsertCheckoutSettingsRequest
+@dynamic uriSettings;
 @end
 
 
@@ -4564,8 +4785,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PosInventory
-@dynamic contentLanguage, gtin, itemId, kind, price, quantity, storeCode,
-         targetCountry, timestamp;
+@dynamic contentLanguage, gtin, itemId, kind, pickupMethod, pickupSla, price,
+         quantity, storeCode, targetCountry, timestamp;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -4582,8 +4803,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PosInventoryRequest
-@dynamic contentLanguage, gtin, itemId, price, quantity, storeCode,
-         targetCountry, timestamp;
+@dynamic contentLanguage, gtin, itemId, pickupMethod, pickupSla, price,
+         quantity, storeCode, targetCountry, timestamp;
 @end
 
 
@@ -4593,8 +4814,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PosInventoryResponse
-@dynamic contentLanguage, gtin, itemId, kind, price, quantity, storeCode,
-         targetCountry, timestamp;
+@dynamic contentLanguage, gtin, itemId, kind, pickupMethod, pickupSla, price,
+         quantity, storeCode, targetCountry, timestamp;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -4800,7 +5021,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          shippingLabel, shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
          subscriptionCost, targetCountry, taxCategory, taxes, title,
-         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure,
+         virtualModelLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4937,6 +5159,42 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ProductId
 @dynamic productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductIssue
+//
+
+@implementation GTLRShoppingContent_ProductIssue
+@dynamic actions, impact, prerenderedContent, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRShoppingContent_Action class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductIssueImpact
+//
+
+@implementation GTLRShoppingContent_ProductIssueImpact
+@dynamic breakdowns, message, severity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"breakdowns" : [GTLRShoppingContent_Breakdown class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -5739,6 +5997,62 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_RenderAccountIssuesRequestPayload
+//
+
+@implementation GTLRShoppingContent_RenderAccountIssuesRequestPayload
+@dynamic contentOption;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RenderAccountIssuesResponse
+//
+
+@implementation GTLRShoppingContent_RenderAccountIssuesResponse
+@dynamic alternateDisputeResolution, issues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRShoppingContent_AccountIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RenderProductIssuesRequestPayload
+//
+
+@implementation GTLRShoppingContent_RenderProductIssuesRequestPayload
+@dynamic contentOption;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RenderProductIssuesResponse
+//
+
+@implementation GTLRShoppingContent_RenderProductIssuesResponse
+@dynamic alternateDisputeResolution, issues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRShoppingContent_ProductIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ReportInteractionRequest
 //
 
@@ -5753,8 +6067,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ReportRow
-@dynamic bestSellers, brand, metrics, priceCompetitiveness, priceInsights,
-         productCluster, productView, segments;
+@dynamic bestSellers, brand, competitiveVisibility, metrics,
+         priceCompetitiveness, priceInsights, productCluster, productView,
+         segments;
 @end
 
 
@@ -7165,6 +7480,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_UnitInvoiceTaxLine
 @dynamic taxAmount, taxName, taxType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_UrlSettings
+//
+
+@implementation GTLRShoppingContent_UrlSettings
+@dynamic cartUriTemplate, checkoutUriTemplate;
 @end
 
 

@@ -608,6 +608,33 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_SetupSasAnalyticsMetadata
+//
+
+@implementation GTLRSASPortal_SetupSasAnalyticsMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_SetupSasAnalyticsRequest
+//
+
+@implementation GTLRSASPortal_SetupSasAnalyticsRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_SetupSasAnalyticsResponse
+//
+
+@implementation GTLRSASPortal_SetupSasAnalyticsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_SignDeviceRequest
 //
 

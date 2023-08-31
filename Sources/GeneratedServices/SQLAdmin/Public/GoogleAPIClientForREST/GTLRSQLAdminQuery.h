@@ -1496,6 +1496,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get Latest Recovery Time for a given instance.
+ *
+ *  Method: sql.projects.instances.getLatestRecoveryTime
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse.
+ *
+ *  Get Latest Recovery Time for a given instance.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Perform Disk Shrink on primary instance.
  *
  *  Method: sql.projects.instances.performDiskShrink

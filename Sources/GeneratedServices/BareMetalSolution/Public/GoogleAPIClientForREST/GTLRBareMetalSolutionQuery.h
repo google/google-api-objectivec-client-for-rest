@@ -61,39 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get instance provisioning settings for a given project. This is hidden
- *  method used by UI only.
- *
- *  Method: baremetalsolution.projects.locations.instanceProvisioningSettings.fetch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
- */
-@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch : GTLRBareMetalSolutionQuery
-
-/**
- *  Required. The parent project and location containing the
- *  ProvisioningSettings.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  Fetches a @c
- *  GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse.
- *
- *  Get instance provisioning settings for a given project. This is hidden
- *  method used by UI only.
- *
- *  @param location Required. The parent project and location containing the
- *    ProvisioningSettings.
- *
- *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch
- */
-+ (instancetype)queryWithLocation:(NSString *)location;
-
-@end
-
-/**
  *  Detach LUN from Instance.
  *
  *  Method: baremetalsolution.projects.locations.instances.detachLun
@@ -858,6 +825,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the list of OS images which are currently approved.
+ *
+ *  Method: baremetalsolution.projects.locations.osImages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList : GTLRBareMetalSolutionQuery
+
+/**
+ *  Requested page size. The server might return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default. Notice that page_size
+ *  field is not supported and won't be respected in the API request for now,
+ *  will be updated when pagination is supported.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results from the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListProvisioningQuotasRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListOSImagesResponse.
+ *
+ *  Retrieves the list of OS images which are currently approved.
+ *
+ *  @param parent Required. Parent value for ListProvisioningQuotasRequest.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

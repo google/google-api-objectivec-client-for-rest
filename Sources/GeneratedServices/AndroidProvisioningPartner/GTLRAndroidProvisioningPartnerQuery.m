@@ -475,6 +475,33 @@
 
 @end
 
+@implementation GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGetSimLockState
+
+@dynamic partnerId;
+
++ (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest *)object
+                      partnerId:(long long)partnerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"partnerId" ];
+  NSString *pathURITemplate = @"v1/partners/{+partnerId}/devices:getSimLockState";
+  GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGetSimLockState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.partnerId = partnerId;
+  query.expectedObjectClass = [GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse class];
+  query.loggingName = @"androiddeviceprovisioning.partners.devices.getSimLockState";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata
 
 @dynamic deviceId, metadataOwnerId;

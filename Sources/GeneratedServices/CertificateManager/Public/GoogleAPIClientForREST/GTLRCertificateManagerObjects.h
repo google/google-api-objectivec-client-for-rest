@@ -121,6 +121,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
 // GTLRCertificateManager_Certificate.scope
 
 /**
+ *  Certificates with ALL_REGIONS scope are served from all GCP regions. See
+ *  https://cloud.google.com/compute/docs/regions-zones.
+ *
+ *  Value: "ALL_REGIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_AllRegions;
+/**
  *  Certificates with default scope are served from core Google data centers. If
  *  unsure, choose this option.
  *
@@ -362,6 +369,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  Immutable. The scope of the certificate.
  *
  *  Likely values:
+ *    @arg @c kGTLRCertificateManager_Certificate_Scope_AllRegions Certificates
+ *        with ALL_REGIONS scope are served from all GCP regions. See
+ *        https://cloud.google.com/compute/docs/regions-zones. (Value:
+ *        "ALL_REGIONS")
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_Default Certificates
  *        with default scope are served from core Google data centers. If
  *        unsure, choose this option. (Value: "DEFAULT")
@@ -1171,8 +1182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1200,8 +1211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

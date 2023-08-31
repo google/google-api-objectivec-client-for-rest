@@ -21,6 +21,7 @@
 @class GTLRDatastore_AggregationResult_AggregateProperties;
 @class GTLRDatastore_AggregationResultBatch;
 @class GTLRDatastore_ArrayValue;
+@class GTLRDatastore_Avg;
 @class GTLRDatastore_CompositeFilter;
 @class GTLRDatastore_Count;
 @class GTLRDatastore_Entity;
@@ -65,6 +66,7 @@
 @class GTLRDatastore_ReadWrite;
 @class GTLRDatastore_Status;
 @class GTLRDatastore_Status_Details_Item;
+@class GTLRDatastore_Sum;
 @class GTLRDatastore_TransactionOptions;
 @class GTLRDatastore_Value;
 
@@ -838,8 +840,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
+/** Average aggregator. */
+@property(nonatomic, strong, nullable) GTLRDatastore_Avg *avg;
+
 /** Count aggregator. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Count *count;
+
+/** Sum aggregator. */
+@property(nonatomic, strong, nullable) GTLRDatastore_Sum *sum;
 
 @end
 
@@ -980,6 +988,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  all values have identical settings for 'exclude_from_indexes'.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Value *> *values;
+
+@end
+
+
+/**
+ *  Average of the values of the requested property. * Only numeric values will
+ *  be aggregated. All non-numeric values including `NULL` are skipped. * If the
+ *  aggregated values contain `NaN`, returns `NaN`. Infinity math follows
+ *  IEEE-754 standards. * If the aggregated value set is empty, returns `NULL`.
+ *  * Always returns the result as a double.
+ */
+@interface GTLRDatastore_Avg : GTLRObject
+
+/** The property to aggregate on. */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *property;
 
 @end
 
@@ -2110,8 +2133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2139,8 +2162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2798,7 +2821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_ReadOnly : GTLRObject
 
 /**
- *  Reads entities at the given time. This may not be older than 60 seconds.
+ *  Reads entities at the given time. This must be a microsecond precision
+ *  timestamp within the past one hour, or if Point-in-Time Recovery is enabled,
+ *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -2832,9 +2857,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *readConsistency;
 
 /**
- *  Reads entities as they were at the given time. This may not be older than
- *  270 seconds. This value is only supported for Cloud Firestore in Datastore
- *  mode.
+ *  Reads entities as they were at the given time. This value is only supported
+ *  for Cloud Firestore in Datastore mode. This must be a microsecond precision
+ *  timestamp within the past one hour, or if Point-in-Time Recovery is enabled,
+ *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -3073,6 +3099,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDatastore_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Sum of the values of the requested property. * Only numeric values will be
+ *  aggregated. All non-numeric values including `NULL` are skipped. * If the
+ *  aggregated values contain `NaN`, returns `NaN`. Infinity math follows
+ *  IEEE-754 standards. * If the aggregated value set is empty, returns 0. *
+ *  Returns a 64-bit integer if all aggregated numbers are integers and the sum
+ *  result does not overflow. Otherwise, the result is returned as a double.
+ *  Note that even if all the aggregated values are integers, the result is
+ *  returned as a double if it cannot fit within a 64-bit signed integer. When
+ *  this occurs, the returned value will lose precision. * When underflow
+ *  occurs, floating-point aggregation is non-deterministic. This means that
+ *  running the same query repeatedly without any changes to the underlying
+ *  values could produce slightly different results each time. In those cases,
+ *  values should be stored as integers over floating-point numbers.
+ */
+@interface GTLRDatastore_Sum : GTLRObject
+
+/** The property to aggregate on. */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *property;
+
 @end
 
 

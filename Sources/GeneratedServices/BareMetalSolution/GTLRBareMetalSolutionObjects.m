@@ -223,6 +223,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_DisableInteractiveSerialConsoleResponse
+//
+
+@implementation GTLRBareMetalSolution_DisableInteractiveSerialConsoleResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_Empty
 //
 
@@ -241,6 +250,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_EnableInteractiveSerialConsoleResponse
+//
+
+@implementation GTLRBareMetalSolution_EnableInteractiveSerialConsoleResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_EvictLunRequest
 //
 
@@ -254,24 +272,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_EvictVolumeRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse
-//
-
-@implementation GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse
-@dynamic images;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"images" : [GTLRBareMetalSolution_OSImage class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -522,6 +522,28 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 + (NSString *)collectionItemsKey {
   return @"nfsShares";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListOSImagesResponse
+//
+
+@implementation GTLRBareMetalSolution_ListOSImagesResponse
+@dynamic nextPageToken, osImages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"osImages" : [GTLRBareMetalSolution_OSImage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"osImages";
 }
 
 @end
@@ -916,7 +938,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"applicableInstanceTypes" : [NSString class],
-    @"supportedNetworkTemplates" : [GTLRBareMetalSolution_ServerNetworkTemplate class]
+    @"supportedNetworkTemplates" : [NSString class]
   };
   return map;
 }
@@ -1178,7 +1200,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_VlanAttachment
-@dynamic identifier, pairingKey, peerIp, peerVlanId, qosPolicy, routerIp;
+@dynamic identifier, interconnectAttachment, pairingKey, peerIp, peerVlanId,
+         qosPolicy, routerIp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1198,8 +1221,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
          maxSizeGib, name, notes, originallyRequestedSizeGib, performanceTier,
          pod, protocol, remainingSpaceGib, requestedSizeGib,
          snapshotAutoDeleteBehavior, snapshotEnabled, snapshotReservationDetail,
-         snapshotSchedulePolicy, state, storageAggregatePool, storageType,
-         workloadProfile;
+         state, storageType, workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1236,8 +1258,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_VolumeConfig
 @dynamic gcpService, identifier, lunRanges, machineIds, name, nfsExports,
-         performanceTier, protocol, sizeGb, snapshotsEnabled,
-         storageAggregatePool, type, userNote;
+         performanceTier, protocol, sizeGb, snapshotsEnabled, type, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -83,8 +83,10 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp = 
 NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined = @"undefined";
 
 // GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb = @"globalL7ilb";
 NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None = @"none";
 NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb = @"regionalL4ilb";
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb = @"regionalL7ilb";
 
 // ----------------------------------------------------------------------------
 //

@@ -108,17 +108,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -151,17 +151,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -254,6 +254,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Gets details about a Network Connectivity Center group.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGet : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the route table resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Group.
+ *
+ *  Gets details about a Network Connectivity Center group.
+ *
+ *  @param name Required. The name of the route table resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -299,6 +325,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists groups in a given hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsList : GTLRNetworkconnectivityQuery
+
+/** An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListGroupsResponse.
+ *
+ *  Lists groups in a given hub.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -466,8 +534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, strong, nullable) NSArray<NSString *> *spokeLocations;
 
 /**
- *  The view of the spoke to return. The view you use determines which spoke
- *  fields are included in the response.
+ *  The view of the spoke to return. The view that you use determines which
+ *  spoke fields are included in the response.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivityViewSpokeViewUnspecified The spoke view is
@@ -518,17 +586,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -781,6 +849,120 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Creates a new PolicyBasedRoute in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the PolicyBasedRoute. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Unique id for the Policy Based Route to create. */
+@property(nonatomic, copy, nullable) NSString *policyBasedRouteId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new PolicyBasedRoute in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_PolicyBasedRoute to include in
+ *    the query.
+ *  @param parent Required. The parent resource's name of the PolicyBasedRoute.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_PolicyBasedRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single PolicyBasedRoute.
+ *
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the PolicyBasedRoute resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single PolicyBasedRoute.
+ *
+ *  @param name Required. Name of the PolicyBasedRoute resource to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single PolicyBasedRoute.
+ *
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the PolicyBasedRoute resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_PolicyBasedRoute.
+ *
+ *  Gets details of a single PolicyBasedRoute.
+ *
+ *  @param name Required. Name of the PolicyBasedRoute resource to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -826,6 +1008,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists PolicyBasedRoutes in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListPolicyBasedRoutesResponse.
+ *
+ *  Lists PolicyBasedRoutes in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1478,7 +1702,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** The page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource's name. */
+/**
+ *  Required. The parent resource's name. ex. projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1486,7 +1712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists ServiceClasses in a given project and location.
  *
- *  @param parent Required. The parent resource's name.
+ *  @param parent Required. The parent resource's name. ex.
+ *    projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesList
  *
@@ -1653,7 +1880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsCreate : GTLRNetworkconnectivityQuery
 
-/** Required. The parent resource's name of the ServiceConnectionMap. */
+/**
+ *  Required. The parent resource's name of the ServiceConnectionMap. ex.
+ *  projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1687,7 +1917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionMap to include
  *    in the query.
  *  @param parent Required. The parent resource's name of the
- *    ServiceConnectionMap.
+ *    ServiceConnectionMap. ex. projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsCreate
  */
@@ -1841,7 +2071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** The page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource's name. */
+/**
+ *  Required. The parent resource's name. ex. projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1849,7 +2081,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists ServiceConnectionMaps in a given project and location.
  *
- *  @param parent Required. The parent resource's name.
+ *  @param parent Required. The parent resource's name. ex.
+ *    projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsList
  *
@@ -2016,7 +2249,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesCreate : GTLRNetworkconnectivityQuery
 
-/** Required. The parent resource's name of the ServiceConnectionPolicy. */
+/**
+ *  Required. The parent resource's name of the ServiceConnectionPolicy. ex.
+ *  projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2049,7 +2285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionPolicy to
  *    include in the query.
  *  @param parent Required. The parent resource's name of the
- *    ServiceConnectionPolicy.
+ *    ServiceConnectionPolicy. ex. projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesCreate
  */
@@ -2203,7 +2439,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** The page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource's name. */
+/**
+ *  Required. The parent resource's name. ex. projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2211,7 +2449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists ServiceConnectionPolicies in a given project and location.
  *
- *  @param parent Required. The parent resource's name.
+ *  @param parent Required. The parent resource's name. ex.
+ *    projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesList
  *
@@ -2378,7 +2617,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensCreate : GTLRNetworkconnectivityQuery
 
-/** Required. The parent resource's name of the ServiceConnectionToken. */
+/**
+ *  Required. The parent resource's name of the ServiceConnectionToken. ex.
+ *  projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2412,7 +2654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @param object The @c GTLRNetworkconnectivity_ServiceConnectionToken to
  *    include in the query.
  *  @param parent Required. The parent resource's name of the
- *    ServiceConnectionToken.
+ *    ServiceConnectionToken. ex. projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensCreate
  */
@@ -2517,7 +2759,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** The page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource's name. */
+/**
+ *  Required. The parent resource's name. ex. projects/123/locations/us-east1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2525,7 +2769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists ServiceConnectionTokens in a given project and location.
  *
- *  @param parent Required. The parent resource's name.
+ *  @param parent Required. The parent resource's name. ex.
+ *    projects/123/locations/us-east1
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionTokensList
  *
@@ -2580,17 +2825,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2626,17 +2871,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2790,17 +3035,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A unique request ID (optional). If you specify this ID, you can
- *  use it in cases when you need to retry your request. When you need to retry,
- *  this ID lets the server know that it can ignore the request if it has
- *  already been completed. The server guarantees that for at least 60 minutes
- *  after the first request. For example, consider a situation where you make an
- *  initial request and the request times out. If you make the request again
- *  with the same request ID, the server can check to see whether the original
- *  operation was received. If it was, the server ignores the second request.
- *  This behavior prevents clients from mistakenly creating duplicate
- *  commitments. The request ID must be a valid UUID, with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check to see whether the original operation was
+ *  received. If it was, the server ignores the second request. This behavior
+ *  prevents clients from mistakenly creating duplicate commitments. The request
+ *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2833,9 +3078,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Does one of the following: * Rejects a proposal to attach a Network
- *  Connectivity Center spoke to the hub. * Rejects and removes a previously
- *  attached spoke from the hub.
+ *  Rejects a Network Connectivity Center spoke from being attached to the hub.
+ *  If the spoke was previously in the `ACTIVE` state, it transitions to the
+ *  `INACTIVE` state and is no longer able to connect to other spokes that are
+ *  attached to the hub.
  *
  *  Method: networkconnectivity.projects.locations.spokes.reject
  *
@@ -2850,9 +3096,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Does one of the following: * Rejects a proposal to attach a Network
- *  Connectivity Center spoke to the hub. * Rejects and removes a previously
- *  attached spoke from the hub.
+ *  Rejects a Network Connectivity Center spoke from being attached to the hub.
+ *  If the spoke was previously in the `ACTIVE` state, it transitions to the
+ *  `INACTIVE` state and is no longer able to connect to other spokes that are
+ *  attached to the hub.
  *
  *  @param object The @c GTLRNetworkconnectivity_RejectSpokeRequest to include
  *    in the query.

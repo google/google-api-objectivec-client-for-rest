@@ -61,6 +61,7 @@
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource;
@@ -91,6 +92,7 @@
 @class GTLRCloudHealthcare_PatientId;
 @class GTLRCloudHealthcare_Policy;
 @class GTLRCloudHealthcare_ProgressCounter;
+@class GTLRCloudHealthcare_PubsubDestination;
 @class GTLRCloudHealthcare_QueryAccessibleDataRequest_RequestAttributes;
 @class GTLRCloudHealthcare_QueryAccessibleDataRequest_ResourceAttributes;
 @class GTLRCloudHealthcare_RedactConfig;
@@ -128,6 +130,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_AnalyzeEntitiesRequest.alternativeOutputFormat
+
+/**
+ *  No alternative output format is specified.
+ *
+ *  Value: "ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_AlternativeOutputFormatUnspecified;
+/**
+ *  FHIR bundle output.
+ *
+ *  Value: "FHIR_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_FhirBundle;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_AnalyzeEntitiesRequest.licensedVocabularies
@@ -856,6 +874,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_AnalyzeEntitiesRequest : GTLRObject
 
+/**
+ *  Optional. Alternative output format to be generated based on the results of
+ *  analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_AlternativeOutputFormatUnspecified
+ *        No alternative output format is specified. (Value:
+ *        "ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_FhirBundle
+ *        FHIR bundle output. (Value: "FHIR_BUNDLE")
+ */
+@property(nonatomic, copy, nullable) NSString *alternativeOutputFormat;
+
 /** document_content is a document to be annotated. */
 @property(nonatomic, copy, nullable) NSString *documentContent;
 
@@ -885,6 +916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  were mentioned in the provided document.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_EntityMention *> *entityMentions;
+
+/**
+ *  The FHIR bundle ([`R4`](http://hl7.org/fhir/R4/bundle.html)) that includes
+ *  all the entities, the entity mentions, and the relationships in JSON format.
+ */
+@property(nonatomic, copy, nullable) NSString *fhirBundle;
 
 /**
  *  relationships contains all the binary relationships that were identified
@@ -1882,6 +1919,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
+/**
+ *  Optional. A list of streaming configs used to configure the destination of
+ *  streaming exports for every DICOM instance insertion in this DICOM store.
+ *  After a new config is added to `stream_configs`, DICOM instance insertions
+ *  are streamed to the new destination. When a config is removed from
+ *  `stream_configs`, the server stops streaming to that destination. Each
+ *  config must contain a unique destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig *> *streamConfigs;
+
 @end
 
 
@@ -2194,8 +2241,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  Restricts messages exported to those matching a filter, only applicable to
+ *  PubsubDestination and GcsDestination. The following syntax is available: * A
+ *  string field value can be written as text inside quotation marks, for
+ *  example `"query text"`. The only valid relational operation for text fields
+ *  is equality (`=`), where text is searched within the field, rather than
+ *  having the field be equal to the text. For example, `"Comment = great"`
+ *  returns messages with `great` in the comment field. * A number field value
+ *  can be written as an integer, a decimal, or an exponential. The valid
+ *  relational operators for number fields are the equality operator (`=`),
+ *  along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note
+ *  that there is no inequality (`!=`) operator. You can prepend the `NOT`
+ *  operator to an expression to negate it. * A date field value must be written
+ *  in the `yyyy-mm-dd` format. Fields with date and time use the RFC3339 time
+ *  format. Leading zeros are required for one-digit months and days. The valid
+ *  relational operators for date fields are the equality operator (`=`) , along
+ *  with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that
+ *  there is no inequality (`!=`) operator. You can prepend the `NOT` operator
+ *  to an expression to negate it. * Multiple field query expressions can be
+ *  combined in one query by adding `AND` or `OR` operators between the
+ *  expressions. If a boolean operator appears within a quoted string, it is not
+ *  treated as special, and is just another part of the character string to be
+ *  matched. You can prepend the `NOT` operator to an expression to negate it.
+ *  The following fields and functions are available for filtering: *
+ *  `message_type`, from the MSH-9.1 field. For example, `NOT message_type =
+ *  "ADT"`. * `send_date` or `sendDate`, the `yyyy-mm-dd` date the message was
+ *  sent in the dataset's time_zone, from the MSH-7 segment. For example,
+ *  `send_date < "2017-01-02"`. * `send_time`, the timestamp when the message
+ *  was sent, using the RFC3339 time format for comparisons, from the MSH-7
+ *  segment. For example, `send_time < "2017-01-02T00:00:00-05:00"`. *
+ *  `create_time`, the timestamp when the message was created in the HL7v2
+ *  store. Use the RFC3339 time format for comparisons. For example,
+ *  `create_time < "2017-01-02T00:00:00-05:00"`. * `send_facility`, the care
+ *  center that the message came from, from the MSH-4 segment. For example,
+ *  `send_facility = "ABC"`. Note: The filter will be applied to every message
+ *  in the HL7v2 store whose `send_time` lies in the range defined by the
+ *  `start_time` and the `end_time`. Even if the filter only matches a small set
+ *  of messages, the export operation can still take a long time to finish when
+ *  a lot of messages are between the specified `start_time` and `end_time`
+ *  range.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Export to a Cloud Storage destination. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GcsDestination *gcsDestination;
+
+/** Export messages to a Pub/Sub topic. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_PubsubDestination *pubsubDestination;
 
 /**
  *  The start of the range in `send_time` (MSH.7,
@@ -2962,6 +3055,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  contain content only, no metadata.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  StreamConfig specifies configuration for a streaming DICOM export.
+ */
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig : GTLRObject
+
+/**
+ *  Results are appended to this table. The server creates a new table in the
+ *  given BigQuery dataset if the specified table does not exist. To enable the
+ *  Cloud Healthcare API to write to your BigQuery table, you must give the
+ *  Cloud Healthcare API service account the bigquery.dataEditor role. The
+ *  service account is:
+ *  `service-{PROJECT_NUMBER}\@gcp-sa-healthcare.iam.gserviceaccount.com`. The
+ *  PROJECT_NUMBER identifies the project that the DICOM store resides in. To
+ *  get the project number, go to the Cloud Console Dashboard. It is recommended
+ *  to not have a custom schema in the destination table which could conflict
+ *  with the schema created by the Cloud Healthcare API. Instance deletions are
+ *  not applied to the destination table. The destination's table schema will be
+ *  automatically updated in case a new instance's data is incompatible with the
+ *  current schema. The schema should not be updated manually as this can cause
+ *  incompatibilies that cannot be resolved automatically. One resolution in
+ *  this case is to delete the incompatible table and let the server recreate
+ *  one, though the newly created table only contains data after the table
+ *  recreation. BigQuery imposes a 1 MB limit on streaming insert row size,
+ *  therefore any instance that generates more than 1 MB of BigQuery data will
+ *  not be streamed. If an instance cannot be streamed to BigQuery, errors will
+ *  be logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination *bigqueryDestination;
 
 @end
 
@@ -4107,6 +4233,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
+/**
+ *  Indicates whether or not to send Pub/Sub notifications on bulk import. Only
+ *  supported for DICOM imports.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sendForBulkImport;
+
 @end
 
 
@@ -4144,8 +4278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4173,8 +4307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4318,7 +4452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -4326,14 +4460,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudHealthcare_Policy : GTLRObject
@@ -4420,6 +4555,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *success;
+
+@end
+
+
+/**
+ *  The Pub/Sub output destination. The Cloud Healthcare Service Agent requires
+ *  the `roles/pubsub.publisher` Cloud IAM role on the Pub/Sub topic.
+ */
+@interface GTLRCloudHealthcare_PubsubDestination : GTLRObject
+
+/**
+ *  The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that Pub/Sub
+ *  messages are published on. Supplied by the client. The `PubsubMessage`
+ *  contains the following fields: * `PubsubMessage.Data` contains the resource
+ *  name. * `PubsubMessage.MessageId` is the ID of this notification. It is
+ *  guaranteed to be unique within the topic. * `PubsubMessage.PublishTime` is
+ *  the time when the message was published. [Topic
+ *  names](https://cloud.google.com/pubsub/docs/overview#names) must be scoped
+ *  to a project. The Cloud Healthcare API service account,
+ *  service-PROJECT_NUMBER\@gcp-sa-healthcare.iam.gserviceaccount.com, must have
+ *  publisher permissions on the given Pub/Sub topic. Not having adequate
+ *  permissions causes the calls that send notifications to fail.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 @end
 

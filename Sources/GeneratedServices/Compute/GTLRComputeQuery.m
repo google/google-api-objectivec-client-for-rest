@@ -15495,6 +15495,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_ResourcePoliciesPatch
+
+@dynamic project, region, requestId, resourcePolicy, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCompute_ResourcePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 resourcePolicy:(NSString *)resourcePolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resourcePolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
+  GTLRComputeQuery_ResourcePoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resourcePolicy = resourcePolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.resourcePolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ResourcePoliciesSetIamPolicy
 
 @dynamic project, region, resource;
@@ -15626,6 +15659,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Router class];
   query.loggingName = @"compute.routers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersGetNatIpInfo
+
+@dynamic natName, project, region, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/getNatIpInfo";
+  GTLRComputeQuery_RoutersGetNatIpInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_NatIpInfoResponse class];
+  query.loggingName = @"compute.routers.getNatIpInfo";
   return query;
 }
 

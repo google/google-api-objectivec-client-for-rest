@@ -58,6 +58,30 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_ResultUnspecified = @"RESULT_UNSPECIFIED";
 NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_Verified = @"VERIFIED";
 
+// GTLRBinaryAuthorization_VerificationRule.trustedBuilder
+NSString * const kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_BuilderUnspecified = @"BUILDER_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_GoogleCloudBuild = @"GOOGLE_CLOUD_BUILD";
+
+// GTLRBinaryAuthorization_VulnerabilityCheck.maximumFixableSeverity
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_AllowAll = @"ALLOW_ALL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_BlockAll = @"BLOCK_ALL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_High = @"HIGH";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Low = @"LOW";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_MaximumAllowedSeverityUnspecified = @"MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Minimal = @"MINIMAL";
+
+// GTLRBinaryAuthorization_VulnerabilityCheck.maximumUnfixableSeverity
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_AllowAll = @"ALLOW_ALL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_BlockAll = @"BLOCK_ALL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_High = @"HIGH";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Low = @"LOW";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_MaximumAllowedSeverityUnspecified = @"MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Minimal = @"MINIMAL";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBinaryAuthorization_AdmissionRule
@@ -88,6 +112,16 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_AttestationAuthenticator
+//
+
+@implementation GTLRBinaryAuthorization_AttestationAuthenticator
+@dynamic displayName, pkixPublicKeySet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_AttestationOccurrence
 //
 
@@ -98,6 +132,24 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
   NSDictionary<NSString *, Class> *map = @{
     @"jwts" : [GTLRBinaryAuthorization_Jwt class],
     @"signatures" : [GTLRBinaryAuthorization_Signature class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_AttestationSource
+//
+
+@implementation GTLRBinaryAuthorization_AttestationSource
+@dynamic containerAnalysisAttestationProjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containerAnalysisAttestationProjects" : [NSString class]
   };
   return map;
 }
@@ -159,6 +211,36 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_Check
+//
+
+@implementation GTLRBinaryAuthorization_Check
+@dynamic alwaysDeny, displayName, imageAllowlist, imageFreshnessCheck,
+         simpleSigningAttestationCheck, slsaCheck, trustedDirectoryCheck,
+         vulnerabilityCheck;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_CheckSet
+//
+
+@implementation GTLRBinaryAuthorization_CheckSet
+@dynamic checks, displayName, imageAllowlist, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checks" : [GTLRBinaryAuthorization_Check class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_Empty
 //
 
@@ -183,6 +265,24 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_GkePolicy
+//
+
+@implementation GTLRBinaryAuthorization_GkePolicy
+@dynamic checkSets, imageAllowlist;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checkSets" : [GTLRBinaryAuthorization_CheckSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_IamPolicy
 //
 
@@ -200,6 +300,34 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_ImageAllowlist
+//
+
+@implementation GTLRBinaryAuthorization_ImageAllowlist
+@dynamic allowPattern;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowPattern" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_ImageFreshnessCheck
+//
+
+@implementation GTLRBinaryAuthorization_ImageFreshnessCheck
+@dynamic maxUploadAgeDays;
 @end
 
 
@@ -237,11 +365,66 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_ListPlatformPoliciesResponse
+//
+
+@implementation GTLRBinaryAuthorization_ListPlatformPoliciesResponse
+@dynamic nextPageToken, platformPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"platformPolicies" : [GTLRBinaryAuthorization_PlatformPolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"platformPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_PkixPublicKey
 //
 
 @implementation GTLRBinaryAuthorization_PkixPublicKey
 @dynamic publicKeyPem, signatureAlgorithm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_PkixPublicKeySet
+//
+
+@implementation GTLRBinaryAuthorization_PkixPublicKeySet
+@dynamic pkixPublicKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pkixPublicKeys" : [GTLRBinaryAuthorization_PkixPublicKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_PlatformPolicy
+//
+
+@implementation GTLRBinaryAuthorization_PlatformPolicy
+@dynamic descriptionProperty, gkePolicy, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -333,6 +516,16 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_Scope
+//
+
+@implementation GTLRBinaryAuthorization_Scope
+@dynamic kubernetesNamespace, kubernetesServiceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_SetIamPolicyRequest
 //
 
@@ -348,6 +541,43 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 @implementation GTLRBinaryAuthorization_Signature
 @dynamic publicKeyId, signature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SimpleSigningAttestationCheck
+//
+
+@implementation GTLRBinaryAuthorization_SimpleSigningAttestationCheck
+@dynamic attestationAuthenticators, containerAnalysisAttestationProjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attestationAuthenticators" : [GTLRBinaryAuthorization_AttestationAuthenticator class],
+    @"containerAnalysisAttestationProjects" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SlsaCheck
+//
+
+@implementation GTLRBinaryAuthorization_SlsaCheck
+@dynamic rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRBinaryAuthorization_VerificationRule class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -380,6 +610,24 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_TrustedDirectoryCheck
+//
+
+@implementation GTLRBinaryAuthorization_TrustedDirectoryCheck
+@dynamic trustedDirPatterns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trustedDirPatterns" : [NSString class]
   };
   return map;
 }
@@ -422,4 +670,44 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 @implementation GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse
 @dynamic denialReason, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_VerificationRule
+//
+
+@implementation GTLRBinaryAuthorization_VerificationRule
+@dynamic attestationSource, configBasedBuildRequired, trustedBuilder,
+         trustedSourceRepoPatterns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trustedSourceRepoPatterns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_VulnerabilityCheck
+//
+
+@implementation GTLRBinaryAuthorization_VulnerabilityCheck
+@dynamic allowedCves, blockedCves, containerAnalysisVulnerabilityProjects,
+         maximumFixableSeverity, maximumUnfixableSeverity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedCves" : [NSString class],
+    @"blockedCves" : [NSString class],
+    @"containerAnalysisVulnerabilityProjects" : [NSString class]
+  };
+  return map;
+}
+
 @end

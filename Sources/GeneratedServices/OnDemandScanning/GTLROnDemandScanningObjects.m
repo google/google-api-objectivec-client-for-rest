@@ -151,6 +151,11 @@ NSString * const kGTLROnDemandScanning_Remediation_RemediationType_RemediationTy
 NSString * const kGTLROnDemandScanning_Remediation_RemediationType_VendorFix = @"VENDOR_FIX";
 NSString * const kGTLROnDemandScanning_Remediation_RemediationType_Workaround = @"WORKAROUND";
 
+// GTLROnDemandScanning_SBOMStatus.sbomState
+NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Complete = @"COMPLETE";
+NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Pending = @"PENDING";
+NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified = @"SBOM_STATE_UNSPECIFIED";
+
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Minimum    = @"MINIMUM";
@@ -331,6 +336,53 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_BuildDefinition
+//
+
+@implementation GTLROnDemandScanning_BuildDefinition
+@dynamic buildType, externalParameters, internalParameters,
+         resolvedDependencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resolvedDependencies" : [GTLROnDemandScanning_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_BuildDefinition_ExternalParameters
+//
+
+@implementation GTLROnDemandScanning_BuildDefinition_ExternalParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_BuildDefinition_InternalParameters
+//
+
+@implementation GTLROnDemandScanning_BuildDefinition_InternalParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_BuilderConfig
 //
 
@@ -346,11 +398,22 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_BuildMetadata
+//
+
+@implementation GTLROnDemandScanning_BuildMetadata
+@dynamic finishedOn, invocationId, startedOn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_BuildOccurrence
 //
 
 @implementation GTLROnDemandScanning_BuildOccurrence
-@dynamic intotoProvenance, intotoStatement, provenance, provenanceBytes;
+@dynamic intotoProvenance, inTotoSlsaProvenanceV1, intotoStatement, provenance,
+         provenanceBytes;
 @end
 
 
@@ -503,7 +566,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime;
+         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -809,6 +872,28 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"materials" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_InTotoSlsaProvenanceV1
+//
+
+@implementation GTLROnDemandScanning_InTotoSlsaProvenanceV1
+@dynamic xType, predicate, predicateType, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xType" : @"_type" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subject" : [GTLROnDemandScanning_Subject class]
   };
   return map;
 }
@@ -1146,6 +1231,42 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_ProvenanceBuilder
+//
+
+@implementation GTLROnDemandScanning_ProvenanceBuilder
+@dynamic builderDependencies, identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"builderDependencies" : [GTLROnDemandScanning_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ProvenanceBuilder_Version
+//
+
+@implementation GTLROnDemandScanning_ProvenanceBuilder_Version
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Recipe
 //
 
@@ -1223,6 +1344,62 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_ResourceDescriptor
+//
+
+@implementation GTLROnDemandScanning_ResourceDescriptor
+@dynamic annotations, content, digest, downloadLocation, mediaType, name, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ResourceDescriptor_Annotations
+//
+
+@implementation GTLROnDemandScanning_ResourceDescriptor_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ResourceDescriptor_Digest
+//
+
+@implementation GTLROnDemandScanning_ResourceDescriptor_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_RunDetails
+//
+
+@implementation GTLROnDemandScanning_RunDetails
+@dynamic builder, byproducts, metadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"byproducts" : [GTLROnDemandScanning_ResourceDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_SbomReferenceIntotoPayload
 //
 
@@ -1287,6 +1464,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_SBOMStatus
+//
+
+@implementation GTLROnDemandScanning_SBOMStatus
+@dynamic error, sbomState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Signature
 //
 
@@ -1346,6 +1533,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SlsaProvenanceV1
+//
+
+@implementation GTLROnDemandScanning_SlsaProvenanceV1
+@dynamic buildDefinition, runDetails;
 @end
 
 
@@ -1583,7 +1780,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_VexAssessment
 @dynamic cve, impacts, justification, noteName, relatedUris, remediations,
-         state;
+         state, vulnerabilityId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

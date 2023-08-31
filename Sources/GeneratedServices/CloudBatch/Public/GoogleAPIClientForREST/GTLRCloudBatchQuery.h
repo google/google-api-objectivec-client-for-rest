@@ -200,6 +200,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
+/**
+ *  Optional. Sort results. Supported are "name", "name desc", "create_time",
+ *  and "create_time desc".
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 

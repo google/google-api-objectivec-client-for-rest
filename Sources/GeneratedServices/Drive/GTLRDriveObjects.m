@@ -238,7 +238,8 @@
 //
 
 @implementation GTLRDrive_ContentRestriction
-@dynamic readOnly, reason, restrictingUser, restrictionTime, type;
+@dynamic ownerRestricted, readOnly, reason, restrictingUser, restrictionTime,
+         type;
 @end
 
 
@@ -394,15 +395,16 @@
          canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
          canComment, canCopy, canDelete, canDeleteChildren, canDownload,
          canEdit, canListChildren, canModifyContent,
-         canModifyContentRestriction, canModifyLabels,
+         canModifyContentRestriction, canModifyEditorContentRestriction,
+         canModifyLabels, canModifyOwnerContentRestriction,
          canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
          canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
          canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
          canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
          canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
          canReadLabels, canReadRevisions, canReadTeamDrive, canRemoveChildren,
-         canRemoveMyDriveParent, canRename, canShare, canTrash,
-         canTrashChildren, canUntrash;
+         canRemoveContentRestriction, canRemoveMyDriveParent, canRename,
+         canShare, canTrash, canTrashChildren, canUntrash;
 @end
 
 

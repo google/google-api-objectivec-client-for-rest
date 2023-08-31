@@ -570,7 +570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. The expiration time of the backup, with microseconds granularity
- *  that must be at least 6 hours and at most 30 days from the time the request
+ *  that must be at least 6 hours and at most 90 days from the time the request
  *  is received. Once the `expire_time` has passed, Cloud Bigtable will delete
  *  the backup and free the resources used by the backup.
  */
@@ -816,8 +816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The number of nodes allocated to this cluster. More nodes enable higher
- *  throughput and more consistent performance.
+ *  The number of nodes in the cluster. If no value is set, Cloud Bigtable
+ *  automatically allocates nodes based on your data footprint and optimized for
+ *  50% storage utilization.
  *
  *  Uses NSNumber of intValue.
  */
