@@ -26,6 +26,7 @@
 @class GTLRDiscovery_RestDescription_Auth_Oauth2;
 @class GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes;
 @class GTLRDiscovery_RestDescription_Auth_Oauth2_Scopes_Scope;
+@class GTLRDiscovery_RestDescription_Endpoints_Item;
 @class GTLRDiscovery_RestDescription_Icons;
 @class GTLRDiscovery_RestDescription_Methods;
 @class GTLRDiscovery_RestDescription_Parameters;
@@ -176,6 +177,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *defaultProperty;
 
 /**
+ *  Whether the parameter is deprecated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deprecated;
+
+/**
  *  A description of this object.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -188,6 +196,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Remapped to 'enumProperty' to avoid language reserved word 'enum'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enumProperty;
+
+/**
+ *  The deprecation status for the enums. Each position maps to the
+ *  corresponding value in the "enum" array.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *enumDeprecated;
 
 /**
  *  The descriptions for the enums. Each position maps to the corresponding
@@ -363,6 +379,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** A link to human readable documentation for the API. */
 @property(nonatomic, copy, nullable) NSString *documentationLink;
 
+/**
+ *  A list of location-based endpoint objects for this API. Each object contains
+ *  the endpoint URL, location, description and deprecation status.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscovery_RestDescription_Endpoints_Item *> *endpoints;
+
 /** The ETag for this response. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -455,6 +477,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** OAuth 2.0 authentication information. */
 @property(nonatomic, strong, nullable) GTLRDiscovery_RestDescription_Auth_Oauth2 *oauth2;
+
+@end
+
+
+/**
+ *  A single endpoint object
+ */
+@interface GTLRDiscovery_RestDescription_Endpoints_Item : GTLRObject
+
+/**
+ *  Whether this endpoint is deprecated
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deprecated;
+
+/**
+ *  A string describing the host designated by the URL
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The URL of the endpoint target host */
+@property(nonatomic, copy, nullable) NSString *endpointUrl;
+
+/** The location of the endpoint */
+@property(nonatomic, copy, nullable) NSString *location;
 
 @end
 
@@ -564,6 +614,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRDiscovery_RestMethod
  */
 @interface GTLRDiscovery_RestMethod : GTLRObject
+
+/**
+ *  Whether this method is deprecated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deprecated;
 
 /**
  *  Description of this method.
@@ -771,6 +828,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRDiscovery_RestResource
  */
 @interface GTLRDiscovery_RestResource : GTLRObject
+
+/**
+ *  Whether this resource is deprecated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deprecated;
 
 /** Methods on this resource. */
 @property(nonatomic, strong, nullable) GTLRDiscovery_RestResource_Methods *methods;

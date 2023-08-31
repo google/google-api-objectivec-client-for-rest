@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migration Center API (migrationcenter/v1alpha1)
+//   Migration Center API (migrationcenter/v1)
 // Description:
 //   A unified platform that helps you accelerate your end-to-end cloud journey
 //   from your current on-premises or cloud environments to Google Cloud.
@@ -50,7 +50,6 @@
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationNetwork;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats;
 @class GTLRMigrationCenterAPI_Date;
-@class GTLRMigrationCenterAPI_DateTime;
 @class GTLRMigrationCenterAPI_DiskEntry;
 @class GTLRMigrationCenterAPI_DiskEntryList;
 @class GTLRMigrationCenterAPI_DiskPartition;
@@ -63,9 +62,8 @@
 @class GTLRMigrationCenterAPI_FrameViolationEntry;
 @class GTLRMigrationCenterAPI_FstabEntry;
 @class GTLRMigrationCenterAPI_FstabEntryList;
-@class GTLRMigrationCenterAPI_GCSPayloadInfo;
+@class GTLRMigrationCenterAPI_GenericInsight;
 @class GTLRMigrationCenterAPI_GenericPlatformDetails;
-@class GTLRMigrationCenterAPI_GoogleKubernetesEngineMigrationTarget;
 @class GTLRMigrationCenterAPI_Group;
 @class GTLRMigrationCenterAPI_Group_Labels;
 @class GTLRMigrationCenterAPI_GuestConfigDetails;
@@ -80,12 +78,15 @@
 @class GTLRMigrationCenterAPI_ImportJob;
 @class GTLRMigrationCenterAPI_ImportJob_Labels;
 @class GTLRMigrationCenterAPI_ImportRowError;
-@class GTLRMigrationCenterAPI_InlinePayloadInfo;
 @class GTLRMigrationCenterAPI_Insight;
 @class GTLRMigrationCenterAPI_InsightList;
 @class GTLRMigrationCenterAPI_Location;
 @class GTLRMigrationCenterAPI_Location_Labels;
 @class GTLRMigrationCenterAPI_Location_Metadata;
+@class GTLRMigrationCenterAPI_MachineArchitectureDetails;
+@class GTLRMigrationCenterAPI_MachineDetails;
+@class GTLRMigrationCenterAPI_MachineDiskDetails;
+@class GTLRMigrationCenterAPI_MachineNetworkDetails;
 @class GTLRMigrationCenterAPI_MachinePreferences;
 @class GTLRMigrationCenterAPI_MachineSeries;
 @class GTLRMigrationCenterAPI_MemoryUsageSample;
@@ -105,7 +106,6 @@
 @class GTLRMigrationCenterAPI_Operation;
 @class GTLRMigrationCenterAPI_Operation_Metadata;
 @class GTLRMigrationCenterAPI_Operation_Response;
-@class GTLRMigrationCenterAPI_PayloadFile;
 @class GTLRMigrationCenterAPI_PerformanceSample;
 @class GTLRMigrationCenterAPI_PhysicalPlatformDetails;
 @class GTLRMigrationCenterAPI_PlatformDetails;
@@ -118,42 +118,35 @@
 @class GTLRMigrationCenterAPI_ReportSummaryAssetAggregateStats;
 @class GTLRMigrationCenterAPI_ReportSummaryChartData;
 @class GTLRMigrationCenterAPI_ReportSummaryChartDataDataPoint;
+@class GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding;
 @class GTLRMigrationCenterAPI_ReportSummaryGroupFinding;
 @class GTLRMigrationCenterAPI_ReportSummaryGroupPreferenceSetFinding;
 @class GTLRMigrationCenterAPI_ReportSummaryHistogramChartData;
 @class GTLRMigrationCenterAPI_ReportSummaryHistogramChartDataBucket;
-@class GTLRMigrationCenterAPI_ReportSummaryMachineFinding;
 @class GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation;
 @class GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding;
 @class GTLRMigrationCenterAPI_ReportSummarySoleTenantNodeAllocation;
 @class GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData;
-@class GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding;
-@class GTLRMigrationCenterAPI_ReportSummaryVMWareNode;
-@class GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation;
+@class GTLRMigrationCenterAPI_ReportSummaryVmwareEngineFinding;
+@class GTLRMigrationCenterAPI_ReportSummaryVmwareNode;
+@class GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation;
 @class GTLRMigrationCenterAPI_RunningProcess;
 @class GTLRMigrationCenterAPI_RunningProcess_Attributes;
 @class GTLRMigrationCenterAPI_RunningProcessList;
 @class GTLRMigrationCenterAPI_RunningService;
 @class GTLRMigrationCenterAPI_RunningServiceList;
 @class GTLRMigrationCenterAPI_RuntimeNetworkInfo;
-@class GTLRMigrationCenterAPI_Selinux;
 @class GTLRMigrationCenterAPI_SoleTenancyPreferences;
 @class GTLRMigrationCenterAPI_SoleTenantNodeType;
 @class GTLRMigrationCenterAPI_Source;
 @class GTLRMigrationCenterAPI_Status;
 @class GTLRMigrationCenterAPI_Status_Details_Item;
-@class GTLRMigrationCenterAPI_TimeZone;
 @class GTLRMigrationCenterAPI_UpdateAssetRequest;
 @class GTLRMigrationCenterAPI_UploadFileInfo;
 @class GTLRMigrationCenterAPI_UploadFileInfo_Headers;
 @class GTLRMigrationCenterAPI_ValidationReport;
-@class GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails;
-@class GTLRMigrationCenterAPI_VirtualMachineDetails;
-@class GTLRMigrationCenterAPI_VirtualMachineDiskDetails;
-@class GTLRMigrationCenterAPI_VirtualMachineNetworkDetails;
 @class GTLRMigrationCenterAPI_VirtualMachinePreferences;
 @class GTLRMigrationCenterAPI_VmwareDiskConfig;
-@class GTLRMigrationCenterAPI_VmwareEngineMigrationTarget;
 @class GTLRMigrationCenterAPI_VmwareEnginePreferences;
 @class GTLRMigrationCenterAPI_VmwarePlatformDetails;
 
@@ -191,35 +184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferen
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_ComputeEnginePreferences.persistentDiskType
-
-/**
- *  Balanced Persistent Disk.
- *
- *  Value: "PERSISTENT_DISK_TYPE_BALANCED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced;
-/**
- *  SSD Persistent Disk.
- *
- *  Value: "PERSISTENT_DISK_TYPE_SSD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd;
-/**
- *  Standard HDD Persistent Disk.
- *
- *  Value: "PERSISTENT_DISK_TYPE_STANDARD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard;
-/**
- *  Unspecified (default value). Selecting this value allows the system to use
- *  any disk type according to reported usage. This a good value to start with.
- *
- *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
 
 /**
@@ -247,6 +211,58 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescrip
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_DiskEntry.interfaceType
+
+/**
+ *  FC interface type.
+ *
+ *  Value: "FC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Fc;
+/**
+ *  IDE interface type.
+ *
+ *  Value: "IDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Ide;
+/**
+ *  Interface type unknown or unspecified.
+ *
+ *  Value: "INTERFACE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_InterfaceTypeUnspecified;
+/**
+ *  iSCSI interface type.
+ *
+ *  Value: "ISCSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Iscsi;
+/**
+ *  NVME interface type.
+ *
+ *  Value: "NVME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Nvme;
+/**
+ *  SAS interface type.
+ *
+ *  Value: "SAS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sas;
+/**
+ *  SATA interface type.
+ *
+ *  Value: "SATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sata;
+/**
+ *  SCSI interface type.
+ *
+ *  Value: "SCSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Scsi;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_FitDescriptor.fitLevel
@@ -277,61 +293,60 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLeve
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_RequiresEffort;
 
 // ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_GCSPayloadInfo.format
+// GTLRMigrationCenterAPI_GuestConfigDetails.selinuxMode
 
 /**
- *  Configuration management DB format.
+ *  SELinux is disabled.
  *
- *  Value: "IMPORT_JOB_FORMAT_CMDB"
+ *  Value: "SE_LINUX_MODE_DISABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatCmdb;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeDisabled;
 /**
- *  CSV format exported from AWS using the AWS collection script.
+ *  SELinux enforcing mode.
  *
- *  Value: "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV"
+ *  Value: "SE_LINUX_MODE_ENFORCING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAwsCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeEnforcing;
 /**
- *  CSV format exported from Azure using the Azure collection script.
+ *  SELinux permissive mode.
  *
- *  Value: "IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV"
+ *  Value: "SE_LINUX_MODE_PERMISSIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAzureCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModePermissive;
 /**
- *  CSV format created manually. For more information, see Manually create and
- *  upload data tables.
+ *  SELinux mode unknown or unspecified.
  *
- *  Value: "IMPORT_JOB_FORMAT_MANUAL_CSV"
+ *  Value: "SE_LINUX_MODE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatManualCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_GuestOsDetails.family
+
 /**
- *  RVTools format (CSV).
+ *  Various Linux flavors.
  *
- *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV"
+ *  Value: "OS_FAMILY_LINUX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyLinux;
 /**
- *  RVTools format (XLSX).
+ *  Non-Linux Unix flavors.
  *
- *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX"
+ *  Value: "OS_FAMILY_UNIX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsXlsx;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnix;
+/** Value: "OS_FAMILY_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnknown;
 /**
- *  Default value.
+ *  Microsoft Windows Server and Desktop.
  *
- *  Value: "IMPORT_JOB_FORMAT_UNSPECIFIED"
+ *  Value: "OS_FAMILY_WINDOWS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyWindows;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ImportDataFile.format
 
-/**
- *  Configuration management DB format.
- *
- *  Value: "IMPORT_JOB_FORMAT_CMDB"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatCmdb;
 /**
  *  CSV format exported from AWS using the AWS collection script.
  *
@@ -345,13 +360,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAzureCsv;
 /**
- *  CSV format created manually. For more information, see Manually create and
- *  upload data tables.
- *
- *  Value: "IMPORT_JOB_FORMAT_MANUAL_CSV"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatManualCsv;
-/**
  *  RVTools format (CSV).
  *
  *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV"
@@ -363,6 +371,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format
  *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsXlsx;
+/**
+ *  CSV format created manually and following the StratoZone format. For more
+ *  information, see Manually create and upload data tables.
+ *
+ *  Value: "IMPORT_JOB_FORMAT_STRATOZONE_CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatStratozoneCsv;
 /**
  *  Default value.
  *
@@ -457,51 +472,96 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportJob_State_Impor
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ImportJob_State_ImportJobStateValidating;
 
 // ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_InlinePayloadInfo.format
+// GTLRMigrationCenterAPI_MachineArchitectureDetails.firmwareType
 
 /**
- *  Configuration management DB format.
+ *  BIOS firmware.
  *
- *  Value: "IMPORT_JOB_FORMAT_CMDB"
+ *  Value: "BIOS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatCmdb;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Bios;
 /**
- *  CSV format exported from AWS using the AWS collection script.
+ *  EFI firmware.
  *
- *  Value: "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV"
+ *  Value: "EFI"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAwsCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Efi;
 /**
- *  CSV format exported from Azure using the Azure collection script.
+ *  Unspecified or unknown.
  *
- *  Value: "IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV"
+ *  Value: "FIRMWARE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAzureCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_FirmwareTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_MachineArchitectureDetails.hyperthreading
+
 /**
- *  CSV format created manually. For more information, see Manually create and
- *  upload data tables.
+ *  Unspecified or unknown.
  *
- *  Value: "IMPORT_JOB_FORMAT_MANUAL_CSV"
+ *  Value: "CPU_HYPER_THREADING_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatManualCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_CpuHyperThreadingUnspecified;
 /**
- *  RVTools format (CSV).
+ *  Hyper-threading is disabled.
  *
- *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV"
+ *  Value: "DISABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsCsv;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Disabled;
 /**
- *  RVTools format (XLSX).
+ *  Hyper-threading is enabled.
  *
- *  Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX"
+ *  Value: "ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsXlsx;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Enabled;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_MachineDetails.powerState
+
 /**
- *  Default value.
+ *  The machine is active.
  *
- *  Value: "IMPORT_JOB_FORMAT_UNSPECIFIED"
+ *  Value: "ACTIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Active;
+/**
+ *  The machine is deleted from the hosting platform.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleted;
+/**
+ *  The machine is being deleted from the hosting platform.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleting;
+/**
+ *  The machine is preparing to enter the ACTIVE state. An instance may enter
+ *  the PENDING state when it launches for the first time, or when it is started
+ *  after being in the SUSPENDED state.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Pending;
+/**
+ *  Power state is unknown.
+ *
+ *  Value: "POWER_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_PowerStateUnspecified;
+/**
+ *  The machine is off.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspended;
+/**
+ *  The machine is being turned off.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspending;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_NetworkAddress.assignment
@@ -524,6 +584,46 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assign
  *  Value: "ADDRESS_ASSIGNMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkAddress_Assignment_AddressAssignmentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_NetworkConnection.state
+
+/**
+ *  The connection is closed.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Closed;
+/**
+ *  The connection is being closed.
+ *
+ *  Value: "CLOSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Closing;
+/**
+ *  Listening for incoming connections.
+ *
+ *  Value: "LISTEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Listen;
+/**
+ *  The connection is open.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Open;
+/**
+ *  The connection is being opened.
+ *
+ *  Value: "OPENING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_Opening;
+/**
+ *  Connection state is unknown or unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_NetworkConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_Report.state
@@ -570,33 +670,101 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Report_Type_TotalCost
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Report_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_ReportSummaryMachineFinding.allocatedDiskTypes
+// GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding.allocatedDiskTypes
 
 /**
  *  Balanced Persistent Disk.
  *
  *  Value: "PERSISTENT_DISK_TYPE_BALANCED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeBalanced;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeBalanced;
 /**
  *  SSD Persistent Disk.
  *
  *  Value: "PERSISTENT_DISK_TYPE_SSD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeSsd;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeSsd;
 /**
  *  Standard HDD Persistent Disk.
  *
  *  Value: "PERSISTENT_DISK_TYPE_STANDARD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeStandard;
 /**
  *  Unspecified (default value). Selecting this value allows the system to use
  *  any disk type according to reported usage. This a good value to start with.
  *
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryMachineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding_AllocatedDiskTypes_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_RunningService.startMode
+
+/**
+ *  The service is started by the operating system, at system start-up
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Auto;
+/**
+ *  The service is a device driver started by the system loader.
+ *
+ *  Value: "BOOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Boot;
+/**
+ *  The service is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Disabled;
+/**
+ *  The service is started only manually, by a user.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_Manual;
+/**
+ *  Start mode unspecified.
+ *
+ *  Value: "START_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_StartModeUnspecified;
+/**
+ *  The service is a device driver started by the IOInitSystem function.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_StartMode_System;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_RunningService.state
+
+/**
+ *  Service is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_Active;
+/**
+ *  Service is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_Paused;
+/**
+ *  Service state unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_StateUnspecified;
+/**
+ *  Service is stopped.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_Stopped;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
@@ -715,52 +883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTyp
  *  Value: "SOURCE_TYPE_UPLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUpload;
-
-// ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails.hyperthreading
-
-/**
- *  Hyperthreading is disabled.
- *
- *  Value: "HYPER_THREADING_DISABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingDisabled;
-/**
- *  Hyperthreading is enabled.
- *
- *  Value: "HYPER_THREADING_ENABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingEnabled;
-/**
- *  Unknown (default value).
- *
- *  Value: "HYPER_THREADING_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRMigrationCenterAPI_VirtualMachineDetails.osFamily
-
-/**
- *  Various Linux flavors.
- *
- *  Value: "OS_FAMILY_LINUX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyLinux;
-/**
- *  Non-Linux Unix flavors.
- *
- *  Value: "OS_FAMILY_UNIX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnix;
-/** Value: "OS_FAMILY_UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnknown;
-/**
- *  Microsoft Windows Server and Desktop.
- *
- *  Value: "OS_FAMILY_WINDOWS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyWindows;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_VirtualMachinePreferences.commitmentPlan
@@ -907,6 +1029,56 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_Back
  *  Value: "BACKING_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_BackingType_BackingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_VmwareDiskConfig.rdmCompatibility
+
+/**
+ *  Physical compatibility mode.
+ *
+ *  Value: "PHYSICAL_COMPATIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_PhysicalCompatibility;
+/**
+ *  Compatibility mode unspecified or unknown.
+ *
+ *  Value: "RDM_COMPATIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_RdmCompatibilityUnspecified;
+/**
+ *  Virtual compatibility mode.
+ *
+ *  Value: "VIRTUAL_COMPATIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_VirtualCompatibility;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_VmwareDiskConfig.vmdkMode
+
+/**
+ *  Dependent disk mode.
+ *
+ *  Value: "DEPENDENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_Dependent;
+/**
+ *  Independent - Nonpersistent disk mode.
+ *
+ *  Value: "INDEPENDENT_NONPERSISTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentNonpersistent;
+/**
+ *  Independent - Persistent disk mode.
+ *
+ *  Value: "INDEPENDENT_PERSISTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentPersistent;
+/**
+ *  VMDK disk mode unspecified or unknown.
+ *
+ *  Value: "VMDK_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_VmdkModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_VmwareEnginePreferences.commitmentPlan
@@ -1215,6 +1387,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Asset_Labels *labels;
 
+/**
+ *  Output only. Asset information specific for virtual and physical machines.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineDetails *machineDetails;
+
 /** Output only. The full name of the asset. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1226,9 +1403,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Output only. The timestamp when the asset was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/** Output only. Asset information specific for virtual machines. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachineDetails *virtualMachineDetails;
 
 @end
 
@@ -1268,9 +1442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame_Labels *labels;
 
+/** Asset information specific for virtual machines. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineDetails *machineDetails;
+
 /**
- *  Asset performance data samples. Samples that are older than 40 days are
- *  ignored.
+ *  Asset performance data samples. Samples that are from more than 40 days ago
+ *  or after tomorrow are ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PerformanceSample *> *performanceSamples;
 
@@ -1282,9 +1459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  traceability.
  */
 @property(nonatomic, copy, nullable) NSString *traceToken;
-
-/** Asset information specific for virtual machines. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachineDetails *virtualMachineDetails;
 
 @end
 
@@ -1427,20 +1601,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_BiosDetails : GTLRObject
 
-/** BIOS manufacturer. */
-@property(nonatomic, copy, nullable) NSString *biosManufacturer;
-
-/** BIOS name. */
+/**
+ *  BIOS name. This fields is deprecated. Please use the `id` field instead.
+ */
 @property(nonatomic, copy, nullable) NSString *biosName;
 
-/** BIOS release date. */
-@property(nonatomic, copy, nullable) NSString *biosReleaseDate;
+/**
+ *  BIOS ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
-/** BIOS version. */
-@property(nonatomic, copy, nullable) NSString *biosVersion;
+/** BIOS manufacturer. */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** BIOS release date. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Date *releaseDate;
 
 /** SMBIOS UUID. */
 @property(nonatomic, copy, nullable) NSString *smbiosUuid;
+
+/** BIOS version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1487,24 +1670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Preferences concerning the machine types to consider on Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachinePreferences *machinePreferences;
-
-/**
- *  Persistent disk type to use. If unspecified (default), all types are
- *  considered, based on available usage data.
- *
- *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced
- *        Balanced Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_BALANCED")
- *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd
- *        SSD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_SSD")
- *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard
- *        Standard HDD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_STANDARD")
- *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified
- *        Unspecified (default value). Selecting this value allows the system to
- *        use any disk type according to reported usage. This a good value to
- *        start with. (Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *persistentDiskType;
 
 @end
 
@@ -1742,95 +1907,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  Represents civil time (or occasionally physical time). This type can
- *  represent a civil time in one of a few possible ways: * When utc_offset is
- *  set and time_zone is unset: a civil time on a calendar day with a particular
- *  offset from UTC. * When time_zone is set and utc_offset is unset: a civil
- *  time on a calendar day in a particular time zone. * When neither time_zone
- *  nor utc_offset is set: a civil time on a calendar day in local time. The
- *  date is relative to the Proleptic Gregorian Calendar. If year, month, or day
- *  are 0, the DateTime is considered not to have a specific year, month, or day
- *  respectively. This type may also be used to represent a physical time if all
- *  the date and time fields are set and either case of the `time_offset` oneof
- *  is set. Consider using `Timestamp` message for physical time instead. If
- *  your use case also would like to store the user's timezone, that can be done
- *  in another field. This type is more flexible than some applications may
- *  want. Make sure to document and validate your application's limitations.
- */
-@interface GTLRMigrationCenterAPI_DateTime : GTLRObject
-
-/**
- *  Optional. Day of month. Must be from 1 to 31 and valid for the year and
- *  month, or 0 if specifying a datetime without a day.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *day;
-
-/**
- *  Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults
- *  to 0 (midnight). An API may choose to allow the value "24:00:00" for
- *  scenarios like business closing time.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hours;
-
-/**
- *  Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minutes;
-
-/**
- *  Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime
- *  without a month.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *month;
-
-/**
- *  Optional. Fractions of seconds in nanoseconds. Must be from 0 to
- *  999,999,999, defaults to 0.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nanos;
-
-/**
- *  Optional. Seconds of minutes of the time. Must normally be from 0 to 59,
- *  defaults to 0. An API may allow the value 60 if it allows leap-seconds.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *seconds;
-
-/** Time zone. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_TimeZone *timeZone;
-
-/**
- *  UTC offset. Must be whole seconds, between -18 hours and +18 hours. For
- *  example, a UTC offset of -4:00 would be represented as { seconds: -14400 }.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *utcOffset;
-
-/**
- *  Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a
- *  datetime without a year.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *year;
-
-@end
-
-
-/**
  *  Single disk entry.
  */
 @interface GTLRMigrationCenterAPI_DiskEntry : GTLRObject
+
+/**
+ *  Disk capacity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *capacityBytes;
 
 /** Disk label. */
 @property(nonatomic, copy, nullable) NSString *diskLabel;
@@ -1838,34 +1924,45 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Disk label type (e.g. BIOS/GPT) */
 @property(nonatomic, copy, nullable) NSString *diskLabelType;
 
-/** Disk hardware address (e.g. 0:1 for SCSI). */
-@property(nonatomic, copy, nullable) NSString *hwAddress;
-
-/** Disks interface type (e.g. SATA/SCSI) */
-@property(nonatomic, copy, nullable) NSString *interfaceType;
-
-/** Partition layout. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskPartitionList *partitions;
-
-/** Disk status (e.g. online). */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  Disk capacity.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalCapacityBytes;
-
 /**
  *  Disk free space.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *totalFreeBytes;
+@property(nonatomic, strong, nullable) NSNumber *freeBytes;
+
+/** Disk hardware address (e.g. 0:1 for SCSI). */
+@property(nonatomic, copy, nullable) NSString *hwAddress;
+
+/**
+ *  Disks interface type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Fc FC interface
+ *        type. (Value: "FC")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Ide IDE interface
+ *        type. (Value: "IDE")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_InterfaceTypeUnspecified
+ *        Interface type unknown or unspecified. (Value:
+ *        "INTERFACE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Iscsi iSCSI
+ *        interface type. (Value: "ISCSI")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Nvme NVME
+ *        interface type. (Value: "NVME")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sas SAS interface
+ *        type. (Value: "SAS")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Sata SATA
+ *        interface type. (Value: "SATA")
+ *    @arg @c kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Scsi SCSI
+ *        interface type. (Value: "SCSI")
+ */
+@property(nonatomic, copy, nullable) NSString *interfaceType;
+
+/** Partition layout. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskPartitionList *partitions;
 
 /** VMware disk details. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VmwareDiskConfig *vmwareConfig;
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VmwareDiskConfig *vmware;
 
 @end
 
@@ -1909,7 +2006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Sub-partitions. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskPartitionList *subPartitions;
 
-/** Partition type (e.g. BIOS boot). */
+/** Partition type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** Partition UUID. */
@@ -1990,13 +2087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) NSNumber *framesReported;
 
 /**
- *  List of job-level errors. Deprecated, use the job errors under
- *  execution_errors instead.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ImportError *> *jobErrors;
-
-/**
- *  Total number of rows in the import job.
+ *  Output only. Total number of rows in the import job.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2126,36 +2217,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  A resource that represents a payload hosted on Google Cloud Storage.
+ *  An insight about an asset (experimental insight)
  */
-@interface GTLRMigrationCenterAPI_GCSPayloadInfo : GTLRObject
+@interface GTLRMigrationCenterAPI_GenericInsight : GTLRObject
 
 /**
- *  The import job format.
- *
- *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatCmdb
- *        Configuration management DB format. (Value: "IMPORT_JOB_FORMAT_CMDB")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAwsCsv
- *        CSV format exported from AWS using the AWS collection script. (Value:
- *        "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatExportedAzureCsv
- *        CSV format exported from Azure using the Azure collection script.
- *        (Value: "IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatManualCsv
- *        CSV format created manually. For more information, see Manually create
- *        and upload data tables. (Value: "IMPORT_JOB_FORMAT_MANUAL_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsCsv
- *        RVTools format (CSV). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatRvtoolsXlsx
- *        RVTools format (XLSX). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX")
- *    @arg @c kGTLRMigrationCenterAPI_GCSPayloadInfo_Format_ImportJobFormatUnspecified
- *        Default value. (Value: "IMPORT_JOB_FORMAT_UNSPECIFIED")
+ *  Output only. Additional information about the insight, each entry can be a
+ *  logical entry and must make sense if it is displayed with line breaks
+ *  between each entry. Text can contain md style links
  */
-@property(nonatomic, copy, nullable) NSString *format;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalInformation;
 
-/** The payload path in Google Cloud Storage. */
-@property(nonatomic, copy, nullable) NSString *path;
+/**
+ *  Output only. In case message_code is not yet known by the client
+ *  default_message will be the message to be used instead.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultMessage;
+
+/**
+ *  Output only. Represents a globally unique message id for this insight, can
+ *  be used for localization purposes, in case message_code is not yet known by
+ *  the client use default_message instead.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageId;
 
 @end
 
@@ -2172,13 +2258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-@end
-
-
-/**
- *  GKE migration target.
- */
-@interface GTLRMigrationCenterAPI_GoogleKubernetesEngineMigrationTarget : GTLRObject
 @end
 
 
@@ -2244,8 +2323,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** NFS exports. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NfsExportList *nfsExports;
 
-/** SELinux details. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Selinux *selinux;
+/**
+ *  Security-Enhanced Linux (SELinux) mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeDisabled
+ *        SELinux is disabled. (Value: "SE_LINUX_MODE_DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeEnforcing
+ *        SELinux enforcing mode. (Value: "SE_LINUX_MODE_ENFORCING")
+ *    @arg @c kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModePermissive
+ *        SELinux permissive mode. (Value: "SE_LINUX_MODE_PERMISSIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_GuestConfigDetails_SelinuxMode_SeLinuxModeUnspecified
+ *        SELinux mode unknown or unspecified. (Value:
+ *        "SE_LINUX_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *selinuxMode;
 
 @end
 
@@ -2256,13 +2348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_GuestInstalledApplication : GTLRObject
 
 /** Installed application name. */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *applicationName;
+
+/** The time when the application was installed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *installTime;
 
 /** Source path. */
 @property(nonatomic, copy, nullable) NSString *path;
-
-/** Date application was installed. */
-@property(nonatomic, copy, nullable) NSString *time;
 
 /** Installed application vendor. */
 @property(nonatomic, copy, nullable) NSString *vendor;
@@ -2292,8 +2384,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** OS and app configuration. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GuestConfigDetails *config;
 
+/**
+ *  What family the OS belong to, if known.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyLinux
+ *        Various Linux flavors. (Value: "OS_FAMILY_LINUX")
+ *    @arg @c kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnix
+ *        Non-Linux Unix flavors. (Value: "OS_FAMILY_UNIX")
+ *    @arg @c kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyUnknown
+ *        Value "OS_FAMILY_UNKNOWN"
+ *    @arg @c kGTLRMigrationCenterAPI_GuestOsDetails_Family_OsFamilyWindows
+ *        Microsoft Windows Server and Desktop. (Value: "OS_FAMILY_WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *family;
+
+/** The name of the operating system. */
+@property(nonatomic, copy, nullable) NSString *osName;
+
 /** Runtime information. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GuestRuntimeDetails *runtime;
+
+/** The version of the operating system. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2309,14 +2422,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Installed applications information. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GuestInstalledApplicationList *installedApps;
 
-/** Date since last booted (last uptime date). */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Date *lastUptime;
+/** Last time the OS was booted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastBootTime;
 
 /** Machine name. */
 @property(nonatomic, copy, nullable) NSString *machineName;
 
 /** Runtime network information (connections, ports). */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_RuntimeNetworkInfo *networkInfo;
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_RuntimeNetworkInfo *network;
 
 /** Open files information. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_OpenFileList *openFileList;
@@ -2370,21 +2483,20 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Required. The payload format.
  *
  *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatCmdb
- *        Configuration management DB format. (Value: "IMPORT_JOB_FORMAT_CMDB")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAwsCsv
  *        CSV format exported from AWS using the AWS collection script. (Value:
  *        "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatExportedAzureCsv
  *        CSV format exported from Azure using the Azure collection script.
  *        (Value: "IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatManualCsv
- *        CSV format created manually. For more information, see Manually create
- *        and upload data tables. (Value: "IMPORT_JOB_FORMAT_MANUAL_CSV")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsCsv
  *        RVTools format (CSV). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatRvtoolsXlsx
  *        RVTools format (XLSX). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX")
+ *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatStratozoneCsv
+ *        CSV format created manually and following the StratoZone format. For
+ *        more information, see Manually create and upload data tables. (Value:
+ *        "IMPORT_JOB_FORMAT_STRATOZONE_CSV")
  *    @arg @c kGTLRMigrationCenterAPI_ImportDataFile_Format_ImportJobFormatUnspecified
  *        Default value. (Value: "IMPORT_JOB_FORMAT_UNSPECIFIED")
  */
@@ -2456,14 +2568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Output only. The report with the results of running the import job. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ExecutionReport *executionReport;
-
-/** The payload is in Google Cloud Storage. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GCSPayloadInfo *gcsPayload;
-
-/**
- *  The payload is included in the request, mainly used for small import jobs.
- */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_InlinePayloadInfo *inlinePayload;
 
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportJob_Labels *labels;
@@ -2545,44 +2649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  A resource that represents the inline import job payload.
- */
-@interface GTLRMigrationCenterAPI_InlinePayloadInfo : GTLRObject
-
-/**
- *  The import job format.
- *
- *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatCmdb
- *        Configuration management DB format. (Value: "IMPORT_JOB_FORMAT_CMDB")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAwsCsv
- *        CSV format exported from AWS using the AWS collection script. (Value:
- *        "IMPORT_JOB_FORMAT_EXPORTED_AWS_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatExportedAzureCsv
- *        CSV format exported from Azure using the Azure collection script.
- *        (Value: "IMPORT_JOB_FORMAT_EXPORTED_AZURE_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatManualCsv
- *        CSV format created manually. For more information, see Manually create
- *        and upload data tables. (Value: "IMPORT_JOB_FORMAT_MANUAL_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsCsv
- *        RVTools format (CSV). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_CSV")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatRvtoolsXlsx
- *        RVTools format (XLSX). (Value: "IMPORT_JOB_FORMAT_RVTOOLS_XLSX")
- *    @arg @c kGTLRMigrationCenterAPI_InlinePayloadInfo_Format_ImportJobFormatUnspecified
- *        Default value. (Value: "IMPORT_JOB_FORMAT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *format;
-
-/** List of payload files. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_PayloadFile *> *payload;
-
-@end
-
-
-/**
  *  An insight about an asset.
  */
 @interface GTLRMigrationCenterAPI_Insight : GTLRObject
+
+/** Output only. A generic insight about an asset */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GenericInsight *genericInsight;
 
 /** Output only. An insight about potential migrations for an asset. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MigrationInsight *migrationInsight;
@@ -2960,6 +3032,184 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
+ *  Details of the machine architecture.
+ */
+@interface GTLRMigrationCenterAPI_MachineArchitectureDetails : GTLRObject
+
+/** BIOS Details. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_BiosDetails *bios;
+
+/** CPU architecture, e.g., "x64-based PC", "x86_64", "i686" etc. */
+@property(nonatomic, copy, nullable) NSString *cpuArchitecture;
+
+/** CPU name, e.g., "Intel Xeon E5-2690", "AMD EPYC 7571" etc. */
+@property(nonatomic, copy, nullable) NSString *cpuName;
+
+/**
+ *  Number of processor sockets allocated to the machine.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuSocketCount;
+
+/**
+ *  Number of CPU threads allocated to the machine.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuThreadCount;
+
+/**
+ *  Firmware type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Bios
+ *        BIOS firmware. (Value: "BIOS")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_Efi
+ *        EFI firmware. (Value: "EFI")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_FirmwareType_FirmwareTypeUnspecified
+ *        Unspecified or unknown. (Value: "FIRMWARE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *firmwareType;
+
+/**
+ *  CPU hyper-threading support.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_CpuHyperThreadingUnspecified
+ *        Unspecified or unknown. (Value: "CPU_HYPER_THREADING_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Disabled
+ *        Hyper-threading is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineArchitectureDetails_Hyperthreading_Enabled
+ *        Hyper-threading is enabled. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *hyperthreading;
+
+/** Hardware vendor. */
+@property(nonatomic, copy, nullable) NSString *vendor;
+
+@end
+
+
+/**
+ *  Details of a machine.
+ */
+@interface GTLRMigrationCenterAPI_MachineDetails : GTLRObject
+
+/** Architecture details (vendor, CPU architecture). */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineArchitectureDetails *architecture;
+
+/**
+ *  Number of CPU cores in the machine. Must be non-negative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCount;
+
+/** Machine creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Disk details. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineDiskDetails *disks;
+
+/** Guest OS information. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GuestOsDetails *guestOs;
+
+/** Machine name. */
+@property(nonatomic, copy, nullable) NSString *machineName;
+
+/**
+ *  The amount of memory in the machine. Must be non-negative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryMb;
+
+/** Network details. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineNetworkDetails *network;
+
+/** Platform specific information. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_PlatformDetails *platform;
+
+/**
+ *  Power state of the machine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Active The
+ *        machine is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleted The
+ *        machine is deleted from the hosting platform. (Value: "DELETED")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Deleting The
+ *        machine is being deleted from the hosting platform. (Value:
+ *        "DELETING")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Pending The
+ *        machine is preparing to enter the ACTIVE state. An instance may enter
+ *        the PENDING state when it launches for the first time, or when it is
+ *        started after being in the SUSPENDED state. (Value: "PENDING")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_PowerStateUnspecified
+ *        Power state is unknown. (Value: "POWER_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspended The
+ *        machine is off. (Value: "SUSPENDED")
+ *    @arg @c kGTLRMigrationCenterAPI_MachineDetails_PowerState_Suspending The
+ *        machine is being turned off. (Value: "SUSPENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *powerState;
+
+/** Machine unique identifier. */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Details of machine disks.
+ */
+@interface GTLRMigrationCenterAPI_MachineDiskDetails : GTLRObject
+
+/** List of disks. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskEntryList *disks;
+
+/**
+ *  Disk total Capacity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCapacityBytes;
+
+/**
+ *  Total disk free space.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalFreeBytes;
+
+@end
+
+
+/**
+ *  Details of network adapters and settings.
+ */
+@interface GTLRMigrationCenterAPI_MachineNetworkDetails : GTLRObject
+
+/** List of network adapters. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkAdapterList *adapters;
+
+/** The primary IP address of the machine. */
+@property(nonatomic, copy, nullable) NSString *primaryIpAddress;
+
+/**
+ *  MAC address of the machine. This property is used to uniqly identify the
+ *  machine.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryMacAddress;
+
+/** The public IP address of the machine. */
+@property(nonatomic, copy, nullable) NSString *publicIpAddress;
+
+@end
+
+
+/**
  *  The type of machines to consider when calculating virtual machine migration
  *  insights and recommendations. Not all machine types are available in all
  *  zones and regions.
@@ -3019,12 +3269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_FitDescriptor *fit;
 
-/** Output only. A Google Kubernetes Engine target. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GoogleKubernetesEngineMigrationTarget *gkeTarget;
-
-/** Output only. A VMWare Engine target. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VmwareEngineMigrationTarget *vmwareEngineTarget;
-
 @end
 
 
@@ -3080,8 +3324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_NetworkAdapterList : GTLRObject
 
-/** Network adapter descriptions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_NetworkAdapterDetails *> *networkAdapters;
+/** Network adapter entries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_NetworkAdapterDetails *> *entries;
 
 @end
 
@@ -3125,7 +3369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_NetworkAddressList : GTLRObject
 
 /** Network address entries. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_NetworkAddress *> *addresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_NetworkAddress *> *entries;
 
 @end
 
@@ -3168,7 +3412,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) NSNumber *remotePort;
 
-/** Connection state (e.g. CONNECTED). */
+/**
+ *  Network connection state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_Closed The
+ *        connection is closed. (Value: "CLOSED")
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_Closing The
+ *        connection is being closed. (Value: "CLOSING")
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_Listen Listening
+ *        for incoming connections. (Value: "LISTEN")
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_Open The
+ *        connection is open. (Value: "OPEN")
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_Opening The
+ *        connection is being opened. (Value: "OPENING")
+ *    @arg @c kGTLRMigrationCenterAPI_NetworkConnection_State_StateUnspecified
+ *        Connection state is unknown or unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *state;
 
 @end
@@ -3299,8 +3560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3328,8 +3589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3384,25 +3645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  Payload file for inline import job payload.
- */
-@interface GTLRMigrationCenterAPI_PayloadFile : GTLRObject
-
-/**
- *  The file data.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *data;
-
-/** The file name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  Performance data sample.
  */
 @interface GTLRMigrationCenterAPI_PerformanceSample : GTLRObject
@@ -3419,7 +3661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Network usage sample. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkUsageSample *network;
 
-/** Required. Time the sample was collected. */
+/** Time the sample was If omitted, the frame report time will be used. */
 @property(nonatomic, strong, nullable) GTLRDateTime *sampleTime;
 
 @end
@@ -3676,17 +3918,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_ReportSummaryAssetAggregateStats : GTLRObject
 
-/** Count of assets grouped by age. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *assetAge;
-
 /** Histogram showing a distribution of CPU core counts. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *coreCountHistogram;
 
 /** Histogram showing a distribution of memory sizes. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *memoryBytesHistogram;
-
-/** Total memory split into Used/Free buckets. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *memoryUtilization;
 
 /** Total memory split into Used/Free buckets. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData *memoryUtilizationChart;
@@ -3696,9 +3932,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Histogram showing a distribution of memory sizes. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *storageBytesHistogram;
-
-/** Total storage split into Used/Free buckets. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *storageUtilization;
 
 /** Total memory split into Used/Free buckets. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryUtilizationChartData *storageUtilizationChart;
@@ -3767,6 +4000,30 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
+ *  A set of findings that applies to assets destined for Compute Engine.
+ */
+@interface GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding : GTLRObject
+
+/**
+ *  Count of assets which were allocated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
+
+/** Set of disk types allocated to assets. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedDiskTypes;
+
+/** Set of regions in which the assets were allocated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedRegions;
+
+/** Distribution of assets based on the Machine Series. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation *> *machineSeriesAllocations;
+
+@end
+
+
+/**
  *  Summary Findings for a specific Group.
  */
 @interface GTLRMigrationCenterAPI_ReportSummaryGroupFinding : GTLRObject
@@ -3803,6 +4060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_ReportSummaryGroupPreferenceSetFinding : GTLRObject
 
+/** A set of findings that applies to Compute Engine machines in the input. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryComputeEngineFinding *computeEngineFinding;
+
 /**
  *  Description for the Preference Set.
  *
@@ -3812,9 +4072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Display Name of the Preference Set */
 @property(nonatomic, copy, nullable) NSString *displayName;
-
-/** A set of findings that applies to all machines in the input. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryMachineFinding *machineFinding;
 
 /** A set of preferences that applies to all machines in the context. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachinePreferences *machinePreferences;
@@ -3837,20 +4094,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Total monthly cost for this preference set. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Money *monthlyCostTotal;
 
-/** Target region for this Preference Set */
-@property(nonatomic, copy, nullable) NSString *preferredRegion;
-
-/** Text describing the pricing track specified for this Preference Set */
-@property(nonatomic, copy, nullable) NSString *pricingTrack;
-
-/** A set of findings that applies to Stole-Tenant machines in the input. */
+/** A set of findings that applies to Sole-Tenant machines in the input. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummarySoleTenantFinding *soleTenantFinding;
 
-/** Text describing the business priority specified for this Preference Set */
-@property(nonatomic, copy, nullable) NSString *topPriority;
-
 /** A set of findings that applies to VMWare machines in the input. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding *vmwareEngineFinding;
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVmwareEngineFinding *vmwareEngineFinding;
 
 @end
 
@@ -3900,30 +4148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *upperBound;
-
-@end
-
-
-/**
- *  A set of findings that applies to assets of type Virtual/Physical Machine.
- */
-@interface GTLRMigrationCenterAPI_ReportSummaryMachineFinding : GTLRObject
-
-/**
- *  Count of assets which were allocated.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allocatedAssetCount;
-
-/** Set of disk types allocated to assets. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedDiskTypes;
-
-/** Set of regions in which the assets were allocated. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedRegions;
-
-/** Distribution of assets based on the Machine Series. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryMachineSeriesAllocation *> *machineSeriesAllocations;
 
 @end
 
@@ -4019,7 +4243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /**
  *  A set of findings that applies to assets destined for VMWare Engine.
  */
-@interface GTLRMigrationCenterAPI_ReportSummaryVMWareEngineFinding : GTLRObject
+@interface GTLRMigrationCenterAPI_ReportSummaryVmwareEngineFinding : GTLRObject
 
 /**
  *  Count of assets which are allocated
@@ -4032,7 +4256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allocatedRegions;
 
 /** Set of per-nodetype allocation records */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation *> *nodeAllocations;
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation *> *nodeAllocations;
 
 @end
 
@@ -4040,7 +4264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /**
  *  A VMWare Engine Node
  */
-@interface GTLRMigrationCenterAPI_ReportSummaryVMWareNode : GTLRObject
+@interface GTLRMigrationCenterAPI_ReportSummaryVmwareNode : GTLRObject
 
 /**
  *  Code to identify VMware Engine node series, e.g. "ve1-standard-72". Based on
@@ -4055,7 +4279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /**
  *  Represents assets allocated to a specific VMWare Node type.
  */
-@interface GTLRMigrationCenterAPI_ReportSummaryVMWareNodeAllocation : GTLRObject
+@interface GTLRMigrationCenterAPI_ReportSummaryVmwareNodeAllocation : GTLRObject
 
 /**
  *  Count of assets allocated to these nodes
@@ -4072,7 +4296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
 /** VMWare node type, e.g. "ve1-standard-72" */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVMWareNode *vmwareNode;
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryVmwareNode *vmwareNode;
 
 @end
 
@@ -4145,7 +4369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_RunningProcessList : GTLRObject
 
 /** Running process entries. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_RunningProcess *> *processes;
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_RunningProcess *> *entries;
 
 @end
 
@@ -4161,9 +4385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Service binary path. */
 @property(nonatomic, copy, nullable) NSString *exePath;
 
-/** Service name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
 /**
  *  Service pid.
  *
@@ -4171,14 +4392,43 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) NSNumber *pid;
 
-/** Service start mode (raw, OS-agnostic). */
+/** Service name. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Service start mode (OS-agnostic).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_Auto The service
+ *        is started by the operating system, at system start-up (Value: "AUTO")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_Boot The service
+ *        is a device driver started by the system loader. (Value: "BOOT")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_Disabled The
+ *        service is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_Manual The
+ *        service is started only manually, by a user. (Value: "MANUAL")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_StartModeUnspecified
+ *        Start mode unspecified. (Value: "START_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_StartMode_System The
+ *        service is a device driver started by the IOInitSystem function.
+ *        (Value: "SYSTEM")
+ */
 @property(nonatomic, copy, nullable) NSString *startMode;
 
-/** Service state (raw, OS-agnostic). */
+/**
+ *  Service state (OS-agnostic).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_State_Active Service is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_State_Paused Service is
+ *        paused. (Value: "PAUSED")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_State_StateUnspecified
+ *        Service state unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_RunningService_State_Stopped Service is
+ *        stopped. (Value: "STOPPED")
+ */
 @property(nonatomic, copy, nullable) NSString *state;
-
-/** Service status. */
-@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -4189,7 +4439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_RunningServiceList : GTLRObject
 
 /** Running service entries. */
-@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_RunningService *> *services;
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_RunningService *> *entries;
 
 @end
 
@@ -4202,29 +4452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Network connections. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkConnectionList *connections;
 
-/** Netstat (raw, OS-agnostic). */
-@property(nonatomic, copy, nullable) NSString *netstat;
-
-/** Netstat time collected. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DateTime *netstatTime;
-
-@end
-
-
-/**
- *  SELinux details.
- */
-@interface GTLRMigrationCenterAPI_Selinux : GTLRObject
-
-/**
- *  Is SELinux enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/** SELinux mode enforcing / permissive. */
-@property(nonatomic, copy, nullable) NSString *mode;
+/** Time of the last network scan. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scanTime;
 
 @end
 
@@ -4346,7 +4575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isManaged;
+@property(nonatomic, strong, nullable) NSNumber *managed;
 
 /** Output only. The full name of the source. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4451,25 +4680,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  Represents a time zone from the [IANA Time Zone
- *  Database](https://www.iana.org/time-zones).
- */
-@interface GTLRMigrationCenterAPI_TimeZone : GTLRObject
-
-/**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
  *  A request to update an asset.
  */
 @interface GTLRMigrationCenterAPI_UpdateAssetRequest : GTLRObject
@@ -4511,7 +4721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_UploadFileInfo : GTLRObject
 
-/** Output only. The headers that were used to sign the URL. */
+/** Output only. The headers that were used to sign the URI. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_UploadFileInfo_Headers *headers;
 
 /** Output only. Upload URI for the file. */
@@ -4524,7 +4734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  Output only. The headers that were used to sign the URL.
+ *  Output only. The headers that were used to sign the URI.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4568,192 +4778,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** List of job level errors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ImportError *> *jobErrors;
-
-@end
-
-
-/**
- *  Details of the VM architecture.
- */
-@interface GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails : GTLRObject
-
-/** BIOS Details. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_BiosDetails *bios;
-
-/** CPU architecture, e.g., "x64-based PC", "x86_64", "i686" etc. */
-@property(nonatomic, copy, nullable) NSString *cpuArchitecture;
-
-/** CPU manufacturer, e.g., "Intel", "AMD". */
-@property(nonatomic, copy, nullable) NSString *cpuManufacturer;
-
-/** CPU name, e.g., "Intel Xeon E5-2690", "AMD EPYC 7571" etc. */
-@property(nonatomic, copy, nullable) NSString *cpuName;
-
-/**
- *  Number of processor sockets allocated to the machine.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cpuSocketCount;
-
-/**
- *  Number of CPU threads allocated to the machine.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cpuThreadCount;
-
-/** Firmware (BIOS/efi). */
-@property(nonatomic, copy, nullable) NSString *firmware;
-
-/**
- *  CPU hyperthreading support.
- *
- *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingDisabled
- *        Hyperthreading is disabled. (Value: "HYPER_THREADING_DISABLED")
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingEnabled
- *        Hyperthreading is enabled. (Value: "HYPER_THREADING_ENABLED")
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineArchitectureDetails_Hyperthreading_HyperThreadingUnspecified
- *        Unknown (default value). (Value: "HYPER_THREADING_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *hyperthreading;
-
-/** Hardware vendor. */
-@property(nonatomic, copy, nullable) NSString *vendor;
-
-@end
-
-
-/**
- *  Details of a VirtualMachine.
- */
-@interface GTLRMigrationCenterAPI_VirtualMachineDetails : GTLRObject
-
-/**
- *  Number of CPU cores in the VirtualMachine. Must be non-negative.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *coreCount;
-
-/** VM creation timestamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Guest OS information. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_GuestOsDetails *guestOs;
-
-/**
- *  The amount of memory in the VirtualMachine. Must be non-negative.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *memoryMb;
-
-/**
- *  What family the OS belong to, if known.
- *
- *  Likely values:
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyLinux
- *        Various Linux flavors. (Value: "OS_FAMILY_LINUX")
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnix
- *        Non-Linux Unix flavors. (Value: "OS_FAMILY_UNIX")
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyUnknown
- *        Value "OS_FAMILY_UNKNOWN"
- *    @arg @c kGTLRMigrationCenterAPI_VirtualMachineDetails_OsFamily_OsFamilyWindows
- *        Microsoft Windows Server and Desktop. (Value: "OS_FAMILY_WINDOWS")
- */
-@property(nonatomic, copy, nullable) NSString *osFamily;
-
-/** The name of the operating system running on the VirtualMachine. */
-@property(nonatomic, copy, nullable) NSString *osName;
-
-/** The version of the operating system running on the virtual machine. */
-@property(nonatomic, copy, nullable) NSString *osVersion;
-
-/** Platform information. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_PlatformDetails *platform;
-
-/** Power state of VM (poweredOn or poweredOff). */
-@property(nonatomic, copy, nullable) NSString *powerState;
-
-/** Folder name in vCenter where asset resides. */
-@property(nonatomic, copy, nullable) NSString *vcenterFolder;
-
-/** vCenter URL used in collection. */
-@property(nonatomic, copy, nullable) NSString *vcenterUrl;
-
-/** vCenter VM ID. */
-@property(nonatomic, copy, nullable) NSString *vcenterVmId;
-
-/** VM architecture details (vendor, cpu arch). */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachineArchitectureDetails *vmArchitecture;
-
-/** VM disk details. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachineDiskDetails *vmDisks;
-
-/** Virtual Machine display name. */
-@property(nonatomic, copy, nullable) NSString *vmName;
-
-/** VM network details. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_VirtualMachineNetworkDetails *vmNetwork;
-
-/** Virtual Machine unique identifier. */
-@property(nonatomic, copy, nullable) NSString *vmUuid;
-
-@end
-
-
-/**
- *  Details of VM disks.
- */
-@interface GTLRMigrationCenterAPI_VirtualMachineDiskDetails : GTLRObject
-
-/** List of disks. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiskEntryList *disks;
-
-/**
- *  Disk total Capacity.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hddTotalCapacityBytes;
-
-/**
- *  Total Disk Free Space.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hddTotalFreeBytes;
-
-/** Raw lsblk output in json. */
-@property(nonatomic, copy, nullable) NSString *lsblkJson;
-
-@end
-
-
-/**
- *  Details of network adapters and settings.
- */
-@interface GTLRMigrationCenterAPI_VirtualMachineNetworkDetails : GTLRObject
-
-/** Default gateway address. */
-@property(nonatomic, copy, nullable) NSString *defaultGw;
-
-/** List of network adapters. */
-@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkAdapterList *networkAdapters;
-
-/** IP address of the machine. */
-@property(nonatomic, copy, nullable) NSString *primaryIpAddress;
-
-/**
- *  MAC address of the machine. This property is used to uniqly identify the
- *  machine.
- */
-@property(nonatomic, copy, nullable) NSString *primaryMacAddress;
-
-/** Public IP address of the machine. */
-@property(nonatomic, copy, nullable) NSString *publicIpAddress;
 
 @end
 
@@ -4886,8 +4910,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, copy, nullable) NSString *backingType;
 
-/** RDM compatibility mode. */
-@property(nonatomic, copy, nullable) NSString *rdmCompatibilityMode;
+/**
+ *  RDM compatibility mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_PhysicalCompatibility
+ *        Physical compatibility mode. (Value: "PHYSICAL_COMPATIBILITY")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_RdmCompatibilityUnspecified
+ *        Compatibility mode unspecified or unknown. (Value:
+ *        "RDM_COMPATIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_RdmCompatibility_VirtualCompatibility
+ *        Virtual compatibility mode. (Value: "VIRTUAL_COMPATIBILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *rdmCompatibility;
 
 /**
  *  Is VMDK shared with other VMs.
@@ -4896,16 +4931,23 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) NSNumber *shared;
 
-/** VMDK disk mode. */
-@property(nonatomic, copy, nullable) NSString *vmdkDiskMode;
-
-@end
-
-
 /**
- *  VMWare engine migration target.
+ *  VMDK disk mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_Dependent
+ *        Dependent disk mode. (Value: "DEPENDENT")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentNonpersistent
+ *        Independent - Nonpersistent disk mode. (Value:
+ *        "INDEPENDENT_NONPERSISTENT")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_IndependentPersistent
+ *        Independent - Persistent disk mode. (Value: "INDEPENDENT_PERSISTENT")
+ *    @arg @c kGTLRMigrationCenterAPI_VmwareDiskConfig_VmdkMode_VmdkModeUnspecified
+ *        VMDK disk mode unspecified or unknown. (Value:
+ *        "VMDK_MODE_UNSPECIFIED")
  */
-@interface GTLRMigrationCenterAPI_VmwareEngineMigrationTarget : GTLRObject
+@property(nonatomic, copy, nullable) NSString *vmdkMode;
+
 @end
 
 
@@ -4985,8 +5027,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, copy, nullable) NSString *osid;
 
+/** Folder name in vCenter where asset resides. */
+@property(nonatomic, copy, nullable) NSString *vcenterFolder;
+
+/** vCenter URI used in collection. */
+@property(nonatomic, copy, nullable) NSString *vcenterUri;
+
 /** vCenter version. */
 @property(nonatomic, copy, nullable) NSString *vcenterVersion;
+
+/** vCenter VM ID. */
+@property(nonatomic, copy, nullable) NSString *vcenterVmId;
 
 @end
 

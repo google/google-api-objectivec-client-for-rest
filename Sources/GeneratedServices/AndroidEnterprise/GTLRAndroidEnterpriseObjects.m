@@ -463,7 +463,8 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_AppVersion
-@dynamic isProduction, track, trackId, versionCode, versionString;
+@dynamic isProduction, targetSdkVersion, track, trackId, versionCode,
+         versionString;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -84,7 +84,7 @@
 
 @implementation GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, scope;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

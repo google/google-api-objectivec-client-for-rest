@@ -19,6 +19,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadataIndividualBatchUpdateStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
@@ -126,9 +127,21 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2OutputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2ProcessDocumentResponse;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2Vertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetGCSManagedConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetUnmanagedDatasetConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdUnmanagedDocumentId;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataImportConfigValidationResult;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataIndividualImportStatus;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
@@ -189,10 +202,14 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix;
 @class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1OcrConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1OcrConfigHints;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions;
 @class GTLRDocument_GoogleCloudDocumentaiV1Processor;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
@@ -241,7 +258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3B
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTrain;
 /**
  *  Default value if the enum is not set.
- *  go/protodosdonts#do-include-an-unspecified-value-in-an-enum
  *
  *  Value: "DATASET_SPLIT_TYPE_UNSPECIFIED"
  */
@@ -270,7 +286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3B
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTrain;
 /**
  *  Default value if the enum is not set.
- *  go/protodosdonts#do-include-an-unspecified-value-in-an-enum
  *
  *  Value: "DATASET_SPLIT_TYPE_UNSPECIFIED"
  */
@@ -339,7 +354,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3E
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTrain;
 /**
  *  Default value if the enum is not set.
- *  go/protodosdonts#do-include-an-unspecified-value-in-an-enum
  *
  *  Value: "DATASET_SPLIT_TYPE_UNSPECIFIED"
  */
@@ -417,7 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3R
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestTimestamp;
 /**
- *  Unspecified case, fallback to read the LATEST_HUMAN_REVIEW.
+ *  Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`.
  *
  *  Value: "REVISION_CASE_UNSPECIFIED"
  */
@@ -996,6 +1010,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Com
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset.state
+
+/**
+ *  Dataset has been initialized.
+ *
+ *  Value: "INITIALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Initialized;
+/**
+ *  Dataset is being initialized.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Initializing;
+/**
+ *  Default unspecified enum, should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_StateUnspecified;
+/**
+ *  Dataset has not been initialized.
+ *
+ *  Value: "UNINITIALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Uninitialized;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
 
 /**
@@ -1093,6 +1135,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Rev
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef.revisionCase
+
+/**
+ *  The first (OCR) revision.
+ *
+ *  Value: "BASE_OCR_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_BaseOcrRevision;
+/**
+ *  The latest revision made by a human.
+ *
+ *  Value: "LATEST_HUMAN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_LatestHumanReview;
+/**
+ *  The latest revision based on timestamp.
+ *
+ *  Value: "LATEST_TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_LatestTimestamp;
+/**
+ *  Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`.
+ *
+ *  Value: "REVISION_CASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata.state
@@ -1645,7 +1715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /** The list of individual auto-labeling statuses of the dataset documents. */
@@ -1690,7 +1760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /**
@@ -1739,7 +1809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /**
@@ -1751,8 +1821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTrain
  *        Identifies the train documents. (Value: "DATASET_SPLIT_TRAIN")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTypeUnspecified
- *        Default value if the enum is not set.
- *        go/protodosdonts#do-include-an-unspecified-value-in-an-enum (Value:
+ *        Default value if the enum is not set. (Value:
  *        "DATASET_SPLIT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitUnassigned
  *        Identifies the unassigned documents. (Value:
@@ -1769,8 +1838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTrain
  *        Identifies the train documents. (Value: "DATASET_SPLIT_TRAIN")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTypeUnspecified
- *        Default value if the enum is not set.
- *        go/protodosdonts#do-include-an-unspecified-value-in-an-enum (Value:
+ *        Default value if the enum is not set. (Value:
  *        "DATASET_SPLIT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitUnassigned
  *        Identifies the unassigned documents. (Value:
@@ -1802,6 +1870,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Response of the batch move documents operation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long-running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+/** The list of response details of each document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadataIndividualBatchUpdateStatus *> *individualBatchUpdateStatuses;
+
+@end
+
+
+/**
+ *  The status of each individual document in the batch update process.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadataIndividualBatchUpdateStatus : GTLRObject
+
+/** The document id of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
+
+/** The status of updating the document in storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  Response of the batch update documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsResponse : GTLRObject
 @end
 
 
@@ -2015,7 +2118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /** The list of response details of each document. */
@@ -2061,8 +2164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTrain
  *        Identifies the train documents. (Value: "DATASET_SPLIT_TRAIN")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTypeUnspecified
- *        Default value if the enum is not set.
- *        go/protodosdonts#do-include-an-unspecified-value-in-an-enum (Value:
+ *        Default value if the enum is not set. (Value:
  *        "DATASET_SPLIT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned
  *        Identifies the unassigned documents. (Value:
@@ -2114,7 +2216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /** Validation statuses of the batch documents import config. */
@@ -2134,9 +2236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  The validation status of each import config. Status is set to errors if
- *  there is no documents to import in the import_config, or OK if the operation
- *  will try to proceed at least one document.
+ *  The validation status of each import config. Status is set to an error if
+ *  there are no documents to import in the `import_config`, or `OK` if the
+ *  operation will try to proceed with at least one document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult : GTLRObject
 
@@ -2156,6 +2258,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** The source Cloud Storage URI of the document. */
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
+
+/**
+ *  The document id of imported document if it was successful, otherwise empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *outputDocumentId;
 
 /**
  *  The output_gcs_destination of the processed document if it was successful,
@@ -2203,7 +2310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /**
@@ -2312,7 +2419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_LatestTimestamp
  *        The latest revision based on timestamp. (Value: "LATEST_TIMESTAMP")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified
- *        Unspecified case, fallback to read the LATEST_HUMAN_REVIEW. (Value:
+ *        Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`. (Value:
  *        "REVISION_CASE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *revisionCase;
@@ -2328,7 +2435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
@@ -2338,6 +2445,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Response of the sample documents operation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponse : GTLRObject
+
+/** The status of sampling documents in test split. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *sampleTestStatus;
+
+/** The status of sampling documents in training split. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *sampleTrainingStatus;
 
 /** The result of the sampling process. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SampleDocumentsResponseSelectedDocument *> *selectedDocuments;
@@ -2462,7 +2575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata : GTLRObject
 
-/** The basic metadata of the long running operation. */
+/** The basic metadata of the long-running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
@@ -2623,6 +2736,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** The input documents for the BatchProcessDocuments method. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *inputDocuments;
+
+/** Inference-time options for the process API */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions *processOptions;
 
 /**
  *  Whether human review should be skipped for this request. Default to `false`.
@@ -5691,6 +5807,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long-running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+/**
+ *  Total number of documents that failed to be deleted in storage.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorDocumentCount;
+
+/** The list of response details of each document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus *> *individualBatchDeleteStatuses;
+
+/**
+ *  Total number of documents deleting from dataset.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentCount;
+
+@end
+
+
+/**
+ *  The status of each individual document in the batch delete process.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus : GTLRObject
+
+/** The document id of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId *documentId;
+
+/** The status of deleting the document in storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  Response of the delete documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsResponse : GTLRObject
+@end
+
+
+/**
  *  The long-running operation metadata for BatchProcessDocuments.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata : GTLRObject
@@ -5817,6 +5982,109 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  A singleton resource under a Processor which configures a collection of
+ *  documents.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset : GTLRObject
+
+/** Optional. Document AI Warehouse-based dataset configuration. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig *documentWarehouseConfig;
+
+/**
+ *  Optional. User-managed Cloud Storage dataset configuration. Use this
+ *  configuration if the dataset documents are stored under a user-managed Cloud
+ *  Storage location.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetGCSManagedConfig *gcsManagedConfig;
+
+/**
+ *  Dataset resource name. Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}/dataset`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A lightweight indexing source with low latency and high
+ *  reliability, but lacking advanced features like CMEK and content-based
+ *  search.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig *spannerIndexingConfig;
+
+/**
+ *  Required. State of the dataset. Ignored when updating dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Initialized
+ *        Dataset has been initialized. (Value: "INITIALIZED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Initializing
+ *        Dataset is being initialized. (Value: "INITIALIZING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_StateUnspecified
+ *        Default unspecified enum, should not be used. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Uninitialized
+ *        Dataset has not been initialized. (Value: "UNINITIALIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. Unmanaged dataset configuration. Use this configuration if the
+ *  dataset documents are managed by the document service internally (not
+ *  user-managed).
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetUnmanagedDatasetConfig *unmanagedDatasetConfig;
+
+@end
+
+
+/**
+ *  Configuration specific to the Document AI Warehouse-based implementation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig : GTLRObject
+
+/**
+ *  Output only. The collection in Document AI Warehouse associated with the
+ *  dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *collection;
+
+/**
+ *  Output only. The schema in Document AI Warehouse associated with the
+ *  dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+@end
+
+
+/**
+ *  Configuration specific to the Cloud Storage-based implementation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetGCSManagedConfig : GTLRObject
+
+/**
+ *  Required. The Cloud Storage URI (a directory) where the documents belonging
+ *  to the dataset must be stored.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix *gcsPrefix;
+
+@end
+
+
+/**
+ *  Configuration specific to spanner-based indexing.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig : GTLRObject
+@end
+
+
+/**
+ *  Configuration specific to an unmanaged dataset.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetUnmanagedDatasetConfig : GTLRObject
+@end
+
+
+/**
  *  The long-running operation metadata for the DeleteProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata : GTLRObject
@@ -5876,6 +6144,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Document Identifier.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId : GTLRObject
+
+/** A document id within user-managed Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
+
+/** Points to a specific revision of the document if set. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef *revisionRef;
+
+/** A document id within unmanaged dataset. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdUnmanagedDocumentId *unmanagedDocId;
+
+@end
+
+
+/**
+ *  Identifies a document uniquely within the scope of a dataset in the
+ *  user-managed Cloud Storage option.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId : GTLRObject
+
+/** Id of the document (indexed) managed by Content Warehouse. */
+@property(nonatomic, copy, nullable) NSString *cwDocId;
+
+/** Required. The Cloud Storage URI where the actual document is stored. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
+
+/**
+ *  Identifies a document uniquely within the scope of a dataset in unmanaged
+ *  option.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdUnmanagedDocumentId : GTLRObject
+
+/** Required. The id of the document. */
+@property(nonatomic, copy, nullable) NSString *docId;
+
+@end
+
+
+/**
  *  The long-running operation metadata for the EnableProcessor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata : GTLRObject
@@ -5912,6 +6224,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** The resource name of the created evaluation. */
 @property(nonatomic, copy, nullable) NSString *evaluation;
+
+@end
+
+
+/**
+ *  Specifies all documents on Cloud Storage with a common prefix.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix : GTLRObject
+
+/** The URI prefix. */
+@property(nonatomic, copy, nullable) NSString *gcsUriPrefix;
 
 @end
 
@@ -5955,6 +6278,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** A message providing more details about the human review state. */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
+@end
+
+
+/**
+ *  Metadata of the import document operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long-running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+/** Validation statuses of the batch documents import config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataImportConfigValidationResult *> *importConfigValidationResults;
+
+/** The list of response details of each document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataIndividualImportStatus *> *individualImportStatuses;
+
+/**
+ *  Total number of the documents that are qualified for importing.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentCount;
+
+@end
+
+
+/**
+ *  The validation status of each import config. Status is set to an error if
+ *  there are no documents to import in the `import_config`, or `OK` if the
+ *  operation will try to proceed with at least one document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataImportConfigValidationResult : GTLRObject
+
+/** The source Cloud Storage URI specified in the import config. */
+@property(nonatomic, copy, nullable) NSString *inputGcsSource;
+
+/** The validation status of import config. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The status of each individual document in the import process.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataIndividualImportStatus : GTLRObject
+
+/** The source Cloud Storage URI of the document. */
+@property(nonatomic, copy, nullable) NSString *inputGcsSource;
+
+/**
+ *  The document id of imported document if it was successful, otherwise empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId *outputDocumentId;
+
+/** The status of the importing of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  Response of the import document operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsResponse : GTLRObject
 @end
 
 
@@ -6057,6 +6446,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  The revision reference specifies which revision on the document to read.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef : GTLRObject
+
+/**
+ *  Reads the revision generated by the processor version. The format takes the
+ *  full resource name of processor version.
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
+ */
+@property(nonatomic, copy, nullable) NSString *latestProcessorVersion;
+
+/**
+ *  Reads the revision by the predefined case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_BaseOcrRevision
+ *        The first (OCR) revision. (Value: "BASE_OCR_REVISION")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_LatestHumanReview
+ *        The latest revision made by a human. (Value: "LATEST_HUMAN_REVIEW")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_LatestTimestamp
+ *        The latest revision based on timestamp. (Value: "LATEST_TIMESTAMP")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef_RevisionCase_RevisionCaseUnspecified
+ *        Unspecified case, fall back to read the `LATEST_HUMAN_REVIEW`. (Value:
+ *        "REVISION_CASE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *revisionCase;
+
+/** Reads the revision given by the id. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
  *  The long-running operation metadata for the SetDefaultProcessorVersion
  *  method.
  */
@@ -6154,6 +6577,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Response message for the UndeployProcessorVersion method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiV1beta3UpdateDatasetOperationMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3UpdateDatasetOperationMetadata : GTLRObject
+
+/** The basic metadata of the long-running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
 @end
 
 
@@ -8317,6 +8751,90 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Config for Document OCR.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1OcrConfig : GTLRObject
+
+/**
+ *  A list of advanced OCR options to further fine-tune OCR behavior. Current
+ *  valid values are: - `legacy_layout`: a heuristics layout detection
+ *  algorithm, which serves as an alternative to the current ML-based layout
+ *  detection algorithm. Customers can choose the best suitable layout algorithm
+ *  based on their situation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advancedOcrOptions;
+
+/**
+ *  Turn on font id model and returns font style information. Use
+ *  PremiumFeatures.compute_style_info instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeStyleInfo;
+
+/**
+ *  Enables intelligent document quality scores after OCR. Can help with
+ *  diagnosing why OCR responses are of poor quality for a given input. Adds
+ *  additional latency comparable to regular OCR to the process call.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableImageQualityScores;
+
+/**
+ *  Enables special handling for PDFs with existing text information. Results in
+ *  better text extraction quality in such PDF inputs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNativePdfParsing;
+
+/**
+ *  Includes symbol level OCR information if set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSymbol;
+
+/** Hints for the OCR model. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfigHints *hints;
+
+@end
+
+
+/**
+ *  Hints for OCR Engine
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1OcrConfigHints : GTLRObject
+
+/**
+ *  List of BCP-47 language codes to use for OCR. In most cases, not specifying
+ *  it yields the best results since it enables automatic language detection.
+ *  For languages based on the Latin alphabet, setting hints is not needed. In
+ *  rare cases, when the language of the text in the image is known, setting a
+ *  hint will help get better results (although it will be a significant
+ *  hindrance if the hint is wrong).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languageHints;
+
+@end
+
+
+/**
+ *  Options for Process API
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions : GTLRObject
+
+/**
+ *  Only applicable to `OCR_PROCESSOR`. Returns error if set on other processor
+ *  types.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfig *ocrConfig;
+
+@end
+
+
+/**
  *  The first-class citizen for Document AI. Each processor defines how to
  *  extract structural information from a document.
  */
@@ -8348,6 +8866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  processing.
  */
 @property(nonatomic, copy, nullable) NSString *processEndpoint;
+
+/** Output only. The processor version aliases. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias *> *processorVersionAliases;
 
 /**
  *  Output only. The state of the processor.
@@ -8510,7 +9031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
 /**
- *  Denotes that this `ProcessorVersion` is managed by Google.
+ *  Output only. Denotes that this `ProcessorVersion` is managed by Google.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8564,6 +9085,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Contains the alias and the aliased resource name of processor version.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias : GTLRObject
+
+/** The alias in the form of `processor_version` resource name. */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/** The resource name of aliased processor version. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
+
+@end
+
+
+/**
  *  Information about the upcoming deprecation of this processor version.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo : GTLRObject
@@ -8591,8 +9126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *fieldMask;
 
+/** A raw document on Google Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsDocument *gcsDocument;
+
 /** An inline document proto. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;
+
+/** Inference-time options for the process API */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions *processOptions;
 
 /** A raw document content (bytes). */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1RawDocument *rawDocument;
@@ -8636,6 +9177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The display name of the document, it supports all Unicode characters except
+ *  the following: `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\\"`, `,` `~`, `=`
+ *  and `:` are reserved. If not specified, a default ID will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  An IANA MIME type (RFC6838) indicating the nature and format of the content.
@@ -9076,8 +9624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -9105,8 +9653,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

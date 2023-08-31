@@ -34,6 +34,8 @@
 @class GTLRDataflow_CreateJobFromTemplateRequest_Parameters;
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
+@class GTLRDataflow_DataSamplingConfig;
+@class GTLRDataflow_DataSamplingReport;
 @class GTLRDataflow_DatastoreIODetails;
 @class GTLRDataflow_DebugOptions;
 @class GTLRDataflow_DerivedSource;
@@ -123,6 +125,7 @@
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_RuntimeMetadata;
 @class GTLRDataflow_RuntimeUpdatableParams;
+@class GTLRDataflow_SdkBug;
 @class GTLRDataflow_SdkHarnessContainerImage;
 @class GTLRDataflow_SDKInfo;
 @class GTLRDataflow_SdkVersion;
@@ -437,6 +440,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_K
  *  Value: "VALUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_DataSamplingConfig.behaviors
+
+/**
+ *  When given, enables sampling in-flight from all PCollections.
+ *
+ *  Value: "ALWAYS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DataSamplingConfig_Behaviors_AlwaysOn;
+/**
+ *  If given, has no effect on sampling behavior. Used as an unknown or unset
+ *  sentinel value.
+ *
+ *  Value: "DATA_SAMPLING_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DataSamplingConfig_Behaviors_DataSamplingBehaviorUnspecified;
+/**
+ *  When given, disables element sampling. Has same behavior as not setting the
+ *  behavior.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DataSamplingConfig_Behaviors_Disabled;
+/**
+ *  When given, enables sampling input elements when a user-defined DoFn causes
+ *  an exception.
+ *
+ *  Value: "EXCEPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DataSamplingConfig_Behaviors_Exceptions;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_DerivedSource.derivationMode
@@ -1213,6 +1247,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Kms
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_MachineType;
 /**
+ *  The parameter specifies a number input.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Number;
+/**
  *  The parameter specifies a Pub/Sub Subscription.
  *
  *  Value: "PUBSUB_SUBSCRIPTION"
@@ -1270,6 +1310,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfigurat
  *  Value: "WORKER_IP_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_SdkBug.severity
+
+/**
+ *  A minor bug that that may reduce reliability or performance for some jobs.
+ *  Impact will be minimal or non-existent for most jobs.
+ *
+ *  Value: "NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Severity_Notice;
+/**
+ *  A bug with extremely significant impact. Jobs may fail erroneously,
+ *  performance may be severely degraded, and data loss may be very likely.
+ *
+ *  Value: "SEVERE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Severity_Severe;
+/**
+ *  A bug of unknown severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Severity_SeverityUnspecified;
+/**
+ *  A bug that has some likelihood of causing performance degradation, data
+ *  loss, or job failures.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_SdkBug.type
+
+/**
+ *  Using this version of the SDK may cause data loss.
+ *
+ *  Value: "DATALOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Type_Dataloss;
+/**
+ *  Catch-all for SDK bugs that don't fit in the below categories.
+ *
+ *  Value: "GENERAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Type_General;
+/**
+ *  Using this version of the SDK may result in degraded performance.
+ *
+ *  Value: "PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Type_Performance;
+/**
+ *  Unknown issue with this SDK.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkBug_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SDKInfo.language
@@ -2452,6 +2551,84 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Configuration options for sampling elements.
+ */
+@interface GTLRDataflow_DataSamplingConfig : GTLRObject
+
+/**
+ *  List of given sampling behaviors to enable. For example, specifying
+ *  behaviors = [ALWAYS_ON] samples in-flight elements but does not sample
+ *  exceptions. Can be used to specify multiple behaviors like, behaviors =
+ *  [ALWAYS_ON, EXCEPTIONS] for specifying periodic sampling and exception
+ *  sampling. If DISABLED is in the list, then sampling will be disabled and
+ *  ignore the other given behaviors. Ordering does not matter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *behaviors;
+
+@end
+
+
+/**
+ *  Contains per-worker telemetry about the data sampling feature.
+ */
+@interface GTLRDataflow_DataSamplingReport : GTLRObject
+
+/**
+ *  Optional. Delta of bytes written to file from previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWrittenDelta;
+
+/**
+ *  Optional. Delta of bytes sampled from previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementsSampledBytes;
+
+/**
+ *  Optional. Delta of number of elements sampled from previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementsSampledCount;
+
+/**
+ *  Optional. Delta of number of samples taken from user code exceptions from
+ *  previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exceptionsSampledCount;
+
+/**
+ *  Optional. Delta of number of PCollections sampled from previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pcollectionsSampledCount;
+
+/**
+ *  Optional. Delta of errors counts from persisting the samples from previous
+ *  report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *persistenceErrorsCount;
+
+/**
+ *  Optional. Delta of errors counts from retrieving, or translating the samples
+ *  from previous report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *translationErrorsCount;
+
+@end
+
+
+/**
  *  Metadata for a Datastore connector used by the job.
  */
 @interface GTLRDataflow_DatastoreIODetails : GTLRObject
@@ -2473,6 +2650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Describes any options that have an effect on the debugging of pipelines.
  */
 @interface GTLRDataflow_DebugOptions : GTLRObject
+
+/** Configuration options for sampling elements from a running pipeline. */
+@property(nonatomic, strong, nullable) GTLRDataflow_DataSamplingConfig *dataSampling;
 
 /**
  *  When true, enables the logging of the literal hot key to the user's Cloud
@@ -2785,6 +2965,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** A description of the process that generated the request. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_UserAgent *userAgent;
+
+/**
+ *  Output only. Whether the job uses the new streaming engine billing model
+ *  based on resource usage.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useStreamingEngineResourceBasedBilling;
 
 /**
  *  A structure describing which components and their versions of the service
@@ -4978,6 +5166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        specifies a KMS Key name. (Value: "KMS_KEY_NAME")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_MachineType The
  *        parameter specifies a Machine Type. (Value: "MACHINE_TYPE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Number The parameter
+ *        specifies a number input. (Value: "NUMBER")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription The
  *        parameter specifies a Pub/Sub Subscription. (Value:
  *        "PUBSUB_SUBSCRIPTION")
@@ -5522,6 +5712,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
 
 /**
+ *  Optional. The disk size, in gigabytes, to use on each remote Compute Engine
+ *  worker instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
  *  Optional. Whether to enable Streaming Engine for the job.
  *
  *  Uses NSNumber of boolValue.
@@ -5685,6 +5883,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  A bug found in the Dataflow SDK.
+ */
+@interface GTLRDataflow_SdkBug : GTLRObject
+
+/**
+ *  Output only. How severe the SDK bug is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_SdkBug_Severity_Notice A minor bug that that may
+ *        reduce reliability or performance for some jobs. Impact will be
+ *        minimal or non-existent for most jobs. (Value: "NOTICE")
+ *    @arg @c kGTLRDataflow_SdkBug_Severity_Severe A bug with extremely
+ *        significant impact. Jobs may fail erroneously, performance may be
+ *        severely degraded, and data loss may be very likely. (Value: "SEVERE")
+ *    @arg @c kGTLRDataflow_SdkBug_Severity_SeverityUnspecified A bug of unknown
+ *        severity. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRDataflow_SdkBug_Severity_Warning A bug that has some
+ *        likelihood of causing performance degradation, data loss, or job
+ *        failures. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Output only. Describes the impact of this SDK bug.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_SdkBug_Type_Dataloss Using this version of the SDK
+ *        may cause data loss. (Value: "DATALOSS")
+ *    @arg @c kGTLRDataflow_SdkBug_Type_General Catch-all for SDK bugs that
+ *        don't fit in the below categories. (Value: "GENERAL")
+ *    @arg @c kGTLRDataflow_SdkBug_Type_Performance Using this version of the
+ *        SDK may result in degraded performance. (Value: "PERFORMANCE")
+ *    @arg @c kGTLRDataflow_SdkBug_Type_TypeUnspecified Unknown issue with this
+ *        SDK. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Link to more information on the bug. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Defines an SDK harness container for executing Dataflow pipelines.
  */
 @interface GTLRDataflow_SdkHarnessContainerImage : GTLRObject
@@ -5745,6 +5987,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  The version of the SDK used to run the job.
  */
 @interface GTLRDataflow_SdkVersion : GTLRObject
+
+/** Output only. Known bugs found in this SDK version. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SdkBug *> *bugs;
 
 /**
  *  The support status for this SDK version.
@@ -7469,6 +7714,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  WorkerMessage provides information to the backend about a worker.
  */
 @interface GTLRDataflow_WorkerMessage : GTLRObject
+
+/**
+ *  Optional. Contains metrics related to go/dataflow-data-sampling-telemetry.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_DataSamplingReport *dataSamplingReport;
 
 /**
  *  Labels are used to group WorkerMessages. For example, a worker_message about

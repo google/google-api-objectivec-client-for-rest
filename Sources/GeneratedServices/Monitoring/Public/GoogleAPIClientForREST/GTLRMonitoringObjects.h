@@ -26,6 +26,7 @@
 @class GTLRMonitoring_BasicSli;
 @class GTLRMonitoring_BucketOptions;
 @class GTLRMonitoring_CloudEndpoints;
+@class GTLRMonitoring_CloudFunctionV2Target;
 @class GTLRMonitoring_CloudRun;
 @class GTLRMonitoring_ClusterIstio;
 @class GTLRMonitoring_CollectdPayload;
@@ -92,6 +93,8 @@
 @class GTLRMonitoring_PingConfig;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_PointData;
+@class GTLRMonitoring_PrometheusQueryLanguageCondition;
+@class GTLRMonitoring_PrometheusQueryLanguageCondition_Labels;
 @class GTLRMonitoring_QueryLanguageCondition;
 @class GTLRMonitoring_Range;
 @class GTLRMonitoring_RequestBasedSli;
@@ -106,6 +109,7 @@
 @class GTLRMonitoring_SourceContext;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
+@class GTLRMonitoring_SyntheticMonitorTarget;
 @class GTLRMonitoring_TcpCheck;
 @class GTLRMonitoring_Telemetry;
 @class GTLRMonitoring_TimeInterval;
@@ -2197,8 +2201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  notifications, and incidents. To avoid confusion, don't use the same display
  *  name for multiple policies in the same project. The name is limited to 512
  *  Unicode characters.The convention for the display_name of a
- *  PrometheusQueryLanguageCondition is "/", where the and should be taken from
- *  the corresponding Prometheus configuration file. This convention is not
+ *  PrometheusQueryLanguageCondition is "{rule group name}/{alert name}", where
+ *  the {rule group name} and {alert name} should be taken from the
+ *  corresponding Prometheus configuration file. This convention is not
  *  enforced. In any case the display_name is not a unique key of the
  *  AlertPolicy.
  */
@@ -2255,10 +2260,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  value is limited to 63 Unicode characters or 128 bytes, whichever is
  *  smaller. Labels and values can contain only lowercase letters, numerals,
  *  underscores, and dashes. Keys must begin with a letter.Note that Prometheus
- *  and are valid Prometheus label names
- *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
- *  This means that they cannot be stored as is in user labels, because
- *  Prometheus labels may contain upper-case letters.
+ *  {alert name} is a valid Prometheus label names
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels),
+ *  whereas Prometheus {rule group} is an unrestricted UTF-8 string. This means
+ *  that they cannot be stored as-is in user labels, because they may contain
+ *  characters that are not allowed in user-label values.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_AlertPolicy_UserLabels *userLabels;
 
@@ -2278,10 +2284,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  value is limited to 63 Unicode characters or 128 bytes, whichever is
  *  smaller. Labels and values can contain only lowercase letters, numerals,
  *  underscores, and dashes. Keys must begin with a letter.Note that Prometheus
- *  and are valid Prometheus label names
- *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
- *  This means that they cannot be stored as is in user labels, because
- *  Prometheus labels may contain upper-case letters.
+ *  {alert name} is a valid Prometheus label names
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels),
+ *  whereas Prometheus {rule group} is an unrestricted UTF-8 string. This means
+ *  that they cannot be stored as-is in user labels, because they may contain
+ *  characters that are not allowed in user-label values.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2486,6 +2493,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  (https://cloud.google.com/monitoring/api/resources#tag_api).
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  A Synthetic Monitor deployed to a Cloud Functions V2 instance.
+ */
+@interface GTLRMonitoring_CloudFunctionV2Target : GTLRObject
+
+/**
+ *  Output only. The cloud_run_revision Monitored Resource associated with the
+ *  GCFv2. The Synthetic Monitor execution results (metrics, logs, and spans)
+ *  are reported against this Monitored Resource. This field is output only.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *cloudRunRevision;
+
+/**
+ *  Required. Fully qualified GCFv2 resource name i.e.
+ *  projects/{project}/locations/{location}/functions/{function} Required.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2702,6 +2730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /** A condition that uses the Monitoring Query Language to define alerts. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_QueryLanguageCondition *conditionMonitoringQueryLanguage;
+
+/** A condition that uses the Prometheus query language to define alerts. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PrometheusQueryLanguageCondition *conditionPrometheusQueryLanguage;
 
 /** A condition that compares a time series against a threshold. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
@@ -3034,6 +3065,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Optional. The subject line of the notification. The subject line may not
+ *  exceed 10,240 bytes. In notifications generated by this policy, the contents
+ *  of the subject line after variable expansion will be truncated to 255 bytes
+ *  or shorter at the latest UTF-8 character boundary. The 255-byte limit is
+ *  recommended by this thread
+ *  (https://stackoverflow.com/questions/1592291/what-is-the-email-subject-length-limit).
+ *  It is both the limit imposed by some third-party ticketing products and it
+ *  is common to define textual fields in databases as VARCHAR(255).The contents
+ *  of the subject line can be templatized by using variables
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables). If this field is
+ *  missing or empty, a default subject line will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
 
 @end
 
@@ -5596,6 +5642,116 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  A condition type that allows alert policies to be defined using Prometheus
+ *  Query Language (PromQL)
+ *  (https://prometheus.io/docs/prometheus/latest/querying/basics/).The
+ *  PrometheusQueryLanguageCondition message contains information from a
+ *  Prometheus alerting rule and its associated rule group.A Prometheus alerting
+ *  rule is described here
+ *  (https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
+ *  The semantics of a Prometheus alerting rule is described here
+ *  (https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule).A
+ *  Prometheus rule group is described here
+ *  (https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+ *  The semantics of a Prometheus rule group is described here
+ *  (https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule_group).Because
+ *  Cloud Alerting has no representation of a Prometheus rule group resource, we
+ *  must embed the information of the parent rule group inside each of the
+ *  conditions that refer to it. We must also update the contents of all
+ *  Prometheus alerts in case the information of their rule group changes.The
+ *  PrometheusQueryLanguageCondition protocol buffer combines the information of
+ *  the corresponding rule group and alerting rule. The structure of the
+ *  PrometheusQueryLanguageCondition protocol buffer does NOT mimic the
+ *  structure of the Prometheus rule group and alerting rule YAML declarations.
+ *  The PrometheusQueryLanguageCondition protocol buffer may change in the
+ *  future to support future rule group and/or alerting rule features. There are
+ *  no new such features at the present time (2023-06-26).
+ */
+@interface GTLRMonitoring_PrometheusQueryLanguageCondition : GTLRObject
+
+/**
+ *  Optional. The alerting rule name of this alert in the corresponding
+ *  Prometheus configuration file.Some external tools may require this field to
+ *  be populated correctly in order to refer to the original Prometheus
+ *  configuration file. The rule group name and the alert name are necessary to
+ *  update the relevant AlertPolicies in case the definition of the rule group
+ *  changes in the future.This field is optional. If this field is not empty,
+ *  then it must be a valid Prometheus label name
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
+ *  This field may not exceed 2048 Unicode characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *alertRule;
+
+/**
+ *  Optional. Alerts are considered firing once their PromQL expression was
+ *  evaluated to be "true" for this long. Alerts whose PromQL expression was not
+ *  evaluated to be "true" for long enough are considered pending. Must be a
+ *  non-negative duration or missing. This field is optional. Its default value
+ *  is zero.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Optional. How often this rule should be evaluated. Must be a positive
+ *  multiple of 30 seconds or missing. This field is optional. Its default value
+ *  is 30 seconds. If this PrometheusQueryLanguageCondition was generated from a
+ *  Prometheus alerting rule, then this value should be taken from the enclosing
+ *  rule group.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *evaluationInterval;
+
+/**
+ *  Optional. Labels to add to or overwrite in the PromQL query result. Label
+ *  names must be valid
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
+ *  Label values can be templatized by using variables
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables). The only
+ *  available variable names are the names of the labels in the PromQL result,
+ *  including "__name__" and "value". "labels" may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PrometheusQueryLanguageCondition_Labels *labels;
+
+/**
+ *  Required. The PromQL expression to evaluate. Every evaluation cycle this
+ *  expression is evaluated at the current time, and all resultant time series
+ *  become pending/firing alerts. This field must not be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Optional. The rule group name of this alert in the corresponding Prometheus
+ *  configuration file.Some external tools may require this field to be
+ *  populated correctly in order to refer to the original Prometheus
+ *  configuration file. The rule group name and the alert name are necessary to
+ *  update the relevant AlertPolicies in case the definition of the rule group
+ *  changes in the future.This field is optional. If this field is not empty,
+ *  then it must contain a valid UTF-8 string. This field may not exceed 2048
+ *  Unicode characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *ruleGroup;
+
+@end
+
+
+/**
+ *  Optional. Labels to add to or overwrite in the PromQL query result. Label
+ *  names must be valid
+ *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
+ *  Label values can be templatized by using variables
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables). The only
+ *  available variable names are the names of the labels in the PromQL result,
+ *  including "__name__" and "value". "labels" may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_PrometheusQueryLanguageCondition_Labels : GTLRObject
+@end
+
+
+/**
  *  A condition type that allows alert policies to be defined using Monitoring
  *  Query Language (https://cloud.google.com/monitoring/mql).
  */
@@ -6166,6 +6322,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Describes a Synthetic Monitor to be invoked by Uptime.
+ */
+@interface GTLRMonitoring_SyntheticMonitorTarget : GTLRObject
+
+/** Target a Synthetic Monitor GCFv2 instance. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_CloudFunctionV2Target *cloudFunctionV2;
+
+@end
+
+
+/**
  *  Information required for a TCP Uptime check request.
  */
 @interface GTLRMonitoring_TcpCheck : GTLRObject
@@ -6618,6 +6785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  available regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *selectedRegions;
+
+/** Specifies a Synthetic Monitor to invoke. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_SyntheticMonitorTarget *syntheticMonitor;
 
 /** Contains information needed to make a TCP check. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_TcpCheck *tcpCheck;

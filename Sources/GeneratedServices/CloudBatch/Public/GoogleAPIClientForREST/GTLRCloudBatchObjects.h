@@ -576,6 +576,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
+ *  Optional. The NVIDIA GPU driver version that should be installed for this
+ *  type. You can define the specific driver version such as "470.103.01",
+ *  following the driver version requirements in
+ *  https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#minimum-driver.
+ *  Batch will install the specific accelerator driver if qualified.
+ */
+@property(nonatomic, copy, nullable) NSString *driverVersion;
+
+/**
  *  Deprecated: please use instances[0].install_gpu_drivers instead.
  *
  *  Uses NSNumber of boolValue.
@@ -696,7 +705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @interface GTLRCloudBatch_AgentInfo : GTLRObject
 
-/** The assigned Job ID */
+/** Optional. The assigned Job ID */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /** When the AgentInfo is generated. */
@@ -1113,7 +1122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Compute resource requirements
+ *  Compute resource requirements. ComputeResource defines the amount of
+ *  resources required for each task. Make sure your tasks have enough resources
+ *  to successfully run. If you also define the types of resources for a job to
+ *  use with the
+ *  [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate)
+ *  field, make sure both fields are compatible with each other.
  */
 @interface GTLRCloudBatch_ComputeResource : GTLRObject
 
@@ -1125,14 +1139,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *bootDiskMib;
 
 /**
- *  The milliCPU count.
+ *  The milliCPU count. `cpuMilli` defines the amount of CPU resources per task
+ *  in milliCPU units. For example, `1000` corresponds to 1 vCPU per task. If
+ *  undefined, the default value is `2000`. If you also define the VM's machine
+ *  type using the `machineType` in
+ *  [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy)
+ *  field or inside the `instanceTemplate` in the
+ *  [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate)
+ *  field, make sure the CPU resources for both fields are compatible with each
+ *  other and with how many tasks you want to allow to run on the same VM at the
+ *  same time. For example, if you specify the `n2-standard-2` machine type,
+ *  which has 2 vCPUs each, you are recommended to set `cpuMilli` no more than
+ *  `2000`, or you are recommended to run two tasks on the same VM if you set
+ *  `cpuMilli` to `1000` or less.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuMilli;
 
 /**
- *  Memory in MiB.
+ *  Memory in MiB. `memoryMib` defines the amount of memory per task in MiB
+ *  units. If undefined, the default value is `2000`. If you also define the
+ *  VM's machine type using the `machineType` in
+ *  [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy)
+ *  field or inside the `instanceTemplate` in the
+ *  [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate)
+ *  field, make sure the memory resources for both fields are compatible with
+ *  each other and with how many tasks you want to allow to run on the same VM
+ *  at the same time. For example, if you specify the `n2-standard-2` machine
+ *  type, which has 8 GiB each, you are recommended to set `memoryMib` to no
+ *  more than `8192`, or you are recommended to run two tasks on the same VM if
+ *  you set `memoryMib` to `4096` or less.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1215,26 +1252,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, copy, nullable) NSString *diskInterface;
 
 /**
- *  Name of a public or custom image used as the data source. For example, the
+ *  URL for a VM image to use as the data source for this disk. For example, the
  *  following are all valid URLs: * Specify the image by its family name:
  *  projects/{project}/global/images/family/{image_family} * Specify the image
  *  version: projects/{project}/global/images/{image_version} You can also use
  *  Batch customized image in short names. The following image values are
- *  supported for a boot disk: * "batch-debian": use Batch Debian images. *
- *  "batch-centos": use Batch CentOS images. * "batch-cos": use Batch
- *  Container-Optimized images. * "batch-hpc-centos": use Batch HPC CentOS
+ *  supported for a boot disk: * `batch-debian`: use Batch Debian images. *
+ *  `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch
+ *  Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS
  *  images.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  Disk size in GB. For persistent disk, this field is ignored if `data_source`
- *  is `image` or `snapshot`. For local SSD, size_gb should be a multiple of
- *  375GB, otherwise, the final size will be the next greater multiple of 375
- *  GB. For boot disk, Batch will calculate the boot disk size based on source
- *  image and task requirements if you do not speicify the size. If both this
- *  field and the boot_disk_mib field in task spec's compute_resource are
- *  defined, Batch will only honor this field.
+ *  Disk size in GB. **Non-Boot Disk**: If the `type` specifies a persistent
+ *  disk, this field is ignored if `data_source` is set as `image` or
+ *  `snapshot`. If the `type` specifies a local SSD, this field should be a
+ *  multiple of 375 GB, otherwise, the final size will be the next greater
+ *  multiple of 375 GB. **Boot Disk**: Batch will calculate the boot disk size
+ *  based on source image and task requirements if you do not speicify the size.
+ *  If both this field and the `boot_disk_mib` field in task spec's
+ *  `compute_resource` are defined, Batch will only honor this field. Also, this
+ *  field should be no smaller than the source disk's size when the
+ *  `data_source` is set as `snapshot` or `image`. For example, if you set an
+ *  image as the `data_source` field and the image's default disk size 30 GB,
+ *  you can only use this field to make the disk larger or equal to 30 GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1347,7 +1389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Non-boot disks to be attached for each VM created by this InstancePolicy.
- *  New disks will be deleted when the VM is deleted.
+ *  New disks will be deleted when the VM is deleted. A non-boot disk is a disk
+ *  that can be of a device with a file system or a raw storage drive that is
+ *  not ready for data storage and accessing.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AttachedDisk *> *disks;
 
@@ -1383,14 +1427,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Either an InstancePolicy or an instance template.
+ *  InstancePolicyOrTemplate lets you define the type of resources to use for
+ *  this job either with an InstancePolicy or an instance template. If
+ *  undefined, Batch picks the type of VM to use and doesn't include optional VM
+ *  resources such as GPUs and extra disks.
  */
 @interface GTLRCloudBatch_InstancePolicyOrTemplate : GTLRObject
 
 /**
  *  Set this field true if users want Batch to help fetch drivers from a third
  *  party location and install them for GPUs specified in policy.accelerators or
- *  instance_template on their behalf. Default is false.
+ *  instance_template on their behalf. Default is false. For Container-Optimized
+ *  Image cases, Batch will install the accelerator driver following milestones
+ *  of https://cloud.google.com/container-optimized-os/docs/release-notes. For
+ *  non Container-Optimized Image cases, following
+ *  https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1535,9 +1586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  The Pub/Sub topic where notifications like the job state changes will be
- *  published. This topic exist in the same project as the job and billings will
- *  be charged to this project. If not specified, no Pub/Sub messages will be
- *  sent. Topic format: `projects/{project}/topics/{topic}`.
+ *  published. The topic must exist in the same project as the job and billings
+ *  will be charged to this project. If not specified, no Pub/Sub messages will
+ *  be sent. Topic format: `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1862,8 +1913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Message details. Describe the attribute that a message should have. Without
- *  specified message attributes, no message will be sent by default.
+ *  Message details. Describe the conditions under which messages will be sent.
+ *  If no attribute is defined, no message will be sent by default. One message
+ *  should specify either the job or the task level attributes, but not both.
+ *  For example, job level: JOB_STATE_CHANGED and/or a specified new_job_state;
+ *  task level: TASK_STATE_CHANGED and/or a specified new_task_state.
  */
 @interface GTLRCloudBatch_Message : GTLRObject
 
@@ -2028,8 +2082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2057,8 +2111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

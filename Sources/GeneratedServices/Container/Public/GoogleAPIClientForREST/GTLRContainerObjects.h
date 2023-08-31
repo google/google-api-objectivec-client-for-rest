@@ -16,8 +16,11 @@
 #endif
 
 @class GTLRContainer_AcceleratorConfig;
+@class GTLRContainer_AdditionalNodeNetworkConfig;
+@class GTLRContainer_AdditionalPodNetworkConfig;
 @class GTLRContainer_AdditionalPodRangesConfig;
 @class GTLRContainer_AddonsConfig;
+@class GTLRContainer_AdvancedDatapathObservabilityConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_Autopilot;
@@ -159,6 +162,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AdvancedDatapathObservabilityConfig.relayMode
+
+/**
+ *  disabled
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_Disabled;
+/**
+ *  exposed via external load balancer
+ *
+ *  Value: "EXTERNAL_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_ExternalLb;
+/**
+ *  exposed via internal load balancer
+ *
+ *  Value: "INTERNAL_VPC_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_InternalVpcLb;
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "RELAY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_AutopilotCompatibilityIssue.incompatibilityType
@@ -487,7 +518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unkno
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns;
 /**
- *  Use KubeDNS for DNS resolution
+ *  Use KubeDNS for DNS resolution.
  *
  *  Value: "KUBE_DNS"
  */
@@ -806,11 +837,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ControllerManager;
 /**
+ *  DaemonSet
+ *
+ *  Value: "DAEMONSET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset;
+/**
+ *  Deployment
+ *
+ *  Value: "DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Deployment;
+/**
+ *  Horizontal Pod Autoscaling
+ *
+ *  Value: "HPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa;
+/**
+ *  Pod
+ *
+ *  Value: "POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Pod;
+/**
  *  kube-scheduler
  *
  *  Value: "SCHEDULER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Scheduler;
+/**
+ *  Statefulset
+ *
+ *  Value: "STATEFULSET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Statefulset;
+/**
+ *  Storage
+ *
+ *  Value: "STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Storage;
 /**
  *  system components
  *
@@ -1858,6 +1925,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  AdditionalNodeNetworkConfig is the configuration for additional node
+ *  networks within the NodeNetworkConfig message
+ */
+@interface GTLRContainer_AdditionalNodeNetworkConfig : GTLRObject
+
+/** Name of the VPC where the additional interface belongs */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Name of the subnetwork where the additional interface belongs */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
+ *  AdditionalPodNetworkConfig is the configuration for additional pod networks
+ *  within the NodeNetworkConfig message
+ */
+@interface GTLRContainer_AdditionalPodNetworkConfig : GTLRObject
+
+/** The maximum number of pods per node which use this pod network */
+@property(nonatomic, strong, nullable) GTLRContainer_MaxPodsConstraint *maxPodsPerNode;
+
+/**
+ *  The name of the secondary range on the subnet which provides IP address for
+ *  this pod range
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryPodRange;
+
+/** Name of the subnetwork where the additional pod network belongs */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
  *  AdditionalPodRangesConfig is the configuration for additional pod secondary
  *  ranges supporting the ClusterUpdate message.
  */
@@ -1935,6 +2038,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  enabled for the nodes.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
+
+@end
+
+
+/**
+ *  AdvancedDatapathObservabilityConfig specifies configuration of observability
+ *  features of advanced datapath.
+ */
+@interface GTLRContainer_AdvancedDatapathObservabilityConfig : GTLRObject
+
+/**
+ *  Expose flow metrics on nodes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMetrics;
+
+/**
+ *  Method used to make Relay available
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_Disabled
+ *        disabled (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_ExternalLb
+ *        exposed via external load balancer (Value: "EXTERNAL_LB")
+ *    @arg @c kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_InternalVpcLb
+ *        exposed via internal load balancer (Value: "INTERNAL_VPC_LB")
+ *    @arg @c kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified
+ *        Default value. This shouldn't be used. (Value:
+ *        "RELAY_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relayMode;
 
 @end
 
@@ -3454,7 +3589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_CloudDns Use CloudDNS for DNS
  *        resolution. (Value: "CLOUD_DNS")
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_KubeDns Use KubeDNS for DNS
- *        resolution (Value: "KUBE_DNS")
+ *        resolution. (Value: "KUBE_DNS")
  *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault Use GKE
  *        default DNS provider(kube-dns) for DNS resolution. (Value:
  *        "PLATFORM_DEFAULT")
@@ -3931,8 +4066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. [Output only] The utilization of the cluster default IPv4 range
- *  for pod. The ratio is Usage/[Total number of IPs in the secondary range],
- *  Usage=numNodes*numZones*podIPsPerNode.
+ *  for the pod. The ratio is Usage/[Total number of IPs in the secondary
+ *  range], Usage=numNodes*numZones*podIPsPerNode.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4609,6 +4744,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_MonitoringConfig : GTLRObject
 
+/** Configuration of Advanced Datapath Observability features. */
+@property(nonatomic, strong, nullable) GTLRContainer_AdvancedDatapathObservabilityConfig *advancedDatapathObservabilityConfig;
+
 /** Monitoring components configuration */
 @property(nonatomic, strong, nullable) GTLRContainer_MonitoringComponentConfig *componentConfig;
 
@@ -4673,6 +4811,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableL4ilbSubsetting;
+
+/**
+ *  Whether multi-networking is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMultiNetworking;
 
 /**
  *  GatewayAPIConfig contains the desired config of Gateway API on this cluster.
@@ -5252,6 +5397,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_NodeNetworkConfig : GTLRObject
 
 /**
+ *  We specify the additional node networks for this node pool using this list.
+ *  Each node network corresponds to an additional interface
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AdditionalNodeNetworkConfig *> *additionalNodeNetworkConfigs;
+
+/**
+ *  We specify the additional pod networks for this node pool using this list.
+ *  Each pod network corresponds to an additional alias IP range for the node
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AdditionalPodNetworkConfig *> *additionalPodNetworkConfigs;
+
+/**
  *  Input only. Whether to create a new range for pod IPs in this node pool.
  *  Defaults are provided for `pod_range` and `pod_ipv4_cidr_block` if they are
  *  not specified. If neither `create_pod_range` or `pod_range` are specified,
@@ -5299,8 +5456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *podIpv4CidrBlock;
 
 /**
- *  Output only. [Output only] The utilization of the IPv4 range for pod. The
- *  ratio is Usage/[Total number of IPs in the secondary range],
+ *  Output only. [Output only] The utilization of the IPv4 range for the pod.
+ *  The ratio is Usage/[Total number of IPs in the secondary range],
  *  Usage=numNodes*numZones*podIPsPerNode.
  *
  *  Uses NSNumber of doubleValue.
@@ -5879,6 +6036,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  PlacementPolicy defines the placement policy used by the node pool.
  */
 @interface GTLRContainer_PlacementPolicy : GTLRObject
+
+/**
+ *  If set, refers to the name of a custom resource policy supplied by the user.
+ *  The resource policy must be in the same project and region as the node pool.
+ *  If not found, InvalidArgument error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *policyName;
+
+/**
+ *  Optional. TPU placement topology for pod slice node pool.
+ *  https://cloud.google.com/tpu/docs/types-topologies#tpu_topologies
+ */
+@property(nonatomic, copy, nullable) NSString *tpuTopology;
 
 /**
  *  The type of placement.
@@ -7475,6 +7645,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
 /**
+ *  Optional. The desired disk size for nodes in the node pool specified in GB.
+ *  The smallest allowed disk size is 10GB. Initiates an upgrade operation that
+ *  migrates the nodes in the node pool to the specified disk size.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Optional. The desired disk type (e.g. 'pd-standard', 'pd-ssd' or
+ *  'pd-balanced') for nodes in the node pool. Initiates an upgrade operation
+ *  that migrates the nodes in the node pool to the specified disk type.
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
  *  The current etag of the node pool. If an etag is provided and does not match
  *  the current etag of the node pool, update will be blocked and an ABORTED
  *  error will be returned.
@@ -7521,6 +7707,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Logging configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
+
+/**
+ *  Optional. The desired [Google Compute Engine machine
+ *  type](https://cloud.google.com/compute/docs/machine-types) for nodes in the
+ *  node pool. Initiates an upgrade operation that migrates the nodes in the
+ *  node pool to the specified machine type.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to update.

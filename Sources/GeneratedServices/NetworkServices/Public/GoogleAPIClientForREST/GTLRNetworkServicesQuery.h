@@ -2259,10 +2259,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  Required. Short name of the TcpRoute resource to be created. E.g. TODO(Add
- *  an example).
- */
+/** Required. Short name of the TcpRoute resource to be created. */
 @property(nonatomic, copy, nullable) NSString *tcpRouteId;
 
 /**
@@ -2444,10 +2441,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  Required. Short name of the TlsRoute resource to be created. E.g. TODO(Add
- *  an example).
- */
+/** Required. Short name of the TlsRoute resource to be created. */
 @property(nonatomic, copy, nullable) NSString *tlsRouteId;
 
 /**

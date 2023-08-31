@@ -670,7 +670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Permanently deletes a shared drive for which the user is an organizer. The
+ *  Permanently deletes a shared drive for which the user is an `organizer`. The
  *  shared drive cannot contain any untrashed items.
  *
  *  Method: drive.drives.delete
@@ -704,7 +704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Permanently deletes a shared drive for which the user is an organizer. The
+ *  Permanently deletes a shared drive for which the user is an `organizer`. The
  *  shared drive cannot contain any untrashed items.
  *
  *  @param driveId The ID of the shared drive.
@@ -1118,9 +1118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Permanently deletes a file owned by the user without moving it to the trash.
- *  If the file belongs to a shared drive the user must be an organizer on the
- *  parent. If the target is a folder, all descendants owned by the user are
- *  also deleted.
+ *  If the file belongs to a shared drive, the user must be an `organizer` on
+ *  the parent folder. If the target is a folder, all descendants owned by the
+ *  user are also deleted.
  *
  *  Method: drive.files.delete
  *
@@ -1163,9 +1163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  be nil. This query does not fetch an object.
  *
  *  Permanently deletes a file owned by the user without moving it to the trash.
- *  If the file belongs to a shared drive the user must be an organizer on the
- *  parent. If the target is a folder, all descendants owned by the user are
- *  also deleted.
+ *  If the file belongs to a shared drive, the user must be an `organizer` on
+ *  the parent folder. If the target is a folder, all descendants owned by the
+ *  user are also deleted.
  *
  *  @param fileId The ID of the file.
  *
@@ -1552,7 +1552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_FilesListLabels : GTLRDriveQuery
 
-/** The ID for the file or shared drive. */
+/** The ID for the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
@@ -1575,7 +1575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists the labels on a file.
  *
- *  @param fileId The ID for the file or shared drive.
+ *  @param fileId The ID for the file.
  *
  *  @return GTLRDriveQuery_FilesListLabels
  *

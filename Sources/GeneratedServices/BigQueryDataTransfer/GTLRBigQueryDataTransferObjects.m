@@ -34,6 +34,7 @@ NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_TransferTypeU
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Boolean = @"BOOLEAN";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Double = @"DOUBLE";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer = @"INTEGER";
+NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_List = @"LIST";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage = @"PLUS_PAGE";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record = @"RECORD";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_String = @"STRING";
@@ -148,6 +149,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_EncryptionConfiguration
+//
+
+@implementation GTLRBigQueryDataTransfer_EncryptionConfiguration
+@dynamic kmsKeyName;
 @end
 
 
@@ -432,9 +443,10 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
-         destinationDatasetId, disabled, displayName, emailPreferences, name,
-         nextRunTime, notificationPubsubTopic, ownerInfo, params, schedule,
-         scheduleOptions, state, updateTime, userId;
+         destinationDatasetId, disabled, displayName, emailPreferences,
+         encryptionConfiguration, name, nextRunTime, notificationPubsubTopic,
+         ownerInfo, params, schedule, scheduleOptions, state, updateTime,
+         userId;
 @end
 
 

@@ -461,8 +461,9 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_CertificateTemplate
-@dynamic createTime, descriptionProperty, identityConstraints, labels, name,
-         passthroughExtensions, predefinedValues, updateTime;
+@dynamic createTime, descriptionProperty, identityConstraints, labels,
+         maximumLifetime, name, passthroughExtensions, predefinedValues,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -32,6 +32,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1Device;
+@class GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
@@ -296,6 +297,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "X64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport.deviceActivityState
+
+/**
+ *  Device is currently being used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Active;
+/**
+ *  Device activity state is unspecified.
+ *
+ *  Value: "DEVICE_ACTIVITY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_DeviceActivityStateUnspecified;
+/**
+ *  Device is currently idle.
+ *
+ *  Value: "IDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Idle;
+/**
+ *  Device is currently locked.
+ *
+ *  Value: "LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Locked;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport.aueMonth
@@ -1855,6 +1884,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Device activity report. * Granular permission needed:
+ *  TELEMETRY_API_DEVICE_ACTIVITY_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport : GTLRObject
+
+/**
+ *  Output only. Device activity state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Active
+ *        Device is currently being used. (Value: "ACTIVE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_DeviceActivityStateUnspecified
+ *        Device activity state is unspecified. (Value:
+ *        "DEVICE_ACTIVITY_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Idle
+ *        Device is currently idle. (Value: "IDLE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport_DeviceActivityState_Locked
+ *        Device is currently locked. (Value: "LOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceActivityState;
+
+/** Output only. Timestamp of when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
  *  Report for CountChromeDevicesPerAueDateResponse, contains the count of
  *  devices of a specific model and auto update expiration range.
  */
@@ -3210,6 +3267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  order of report_time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport *> *audioStatusReport;
+
+/**
+ *  Output only. Device activity reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport *> *deviceActivityReport;
 
 /**
  *  The unique Directory API ID of the device. This value is the same as the

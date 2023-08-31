@@ -37,6 +37,20 @@ NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInval
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientValidationModeUnspecified = @"CLIENT_VALIDATION_MODE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
 
+// GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls10 = @"TLS_1_0";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls11 = @"TLS_1_1";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls12 = @"TLS_1_2";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls13 = @"TLS_1_3";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_TlsVersionUnspecified = @"TLS_VERSION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_TlsInspectionPolicy.tlsFeatureProfile
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCompatible = @"PROFILE_COMPATIBLE";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCustom = @"PROFILE_CUSTOM";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileModern = @"PROFILE_MODERN";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileRestricted = @"PROFILE_RESTRICTED";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileUnspecified = @"PROFILE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRNetworkSecurity_AddAddressGroupItemsRequest
@@ -909,10 +923,19 @@ NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInva
 //
 
 @implementation GTLRNetworkSecurity_TlsInspectionPolicy
-@dynamic caPool, createTime, descriptionProperty, name, updateTime;
+@dynamic caPool, createTime, customTlsFeatures, descriptionProperty,
+         excludePublicCaSet, minTlsVersion, name, tlsFeatureProfile,
+         trustConfig, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customTlsFeatures" : [NSString class]
+  };
+  return map;
 }
 
 @end

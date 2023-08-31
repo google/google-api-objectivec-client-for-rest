@@ -26,6 +26,7 @@
 @class GTLRConnectors_Field_AdditionalDetails;
 @class GTLRConnectors_InputParameter;
 @class GTLRConnectors_Query;
+@class GTLRConnectors_QueryParameter;
 @class GTLRConnectors_Reference;
 @class GTLRConnectors_ResultMetadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response;
@@ -587,6 +588,280 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Varbi
  *  Value: "VARCHAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Varchar;
+
+// ----------------------------------------------------------------------------
+// GTLRConnectors_QueryParameter.dataType
+
+/**
+ *  Array type.
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Array;
+/**
+ *  Big int type.
+ *
+ *  Value: "BIGINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Bigint;
+/**
+ *  Binary type.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Binary;
+/**
+ *  Bit type.
+ *
+ *  Value: "BIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Bit;
+/**
+ *  Blob type.
+ *
+ *  Value: "BLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Blob;
+/**
+ *  Boolean type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Boolean;
+/**
+ *  Char type.
+ *
+ *  Value: "CHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Char;
+/**
+ *  Clob type.
+ *
+ *  Value: "CLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Clob;
+/**
+ *  Datalink type.
+ *
+ *  Value: "DATALINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Datalink;
+/**
+ *  Datatype unspecified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_DataTypeUnspecified;
+/**
+ *  Date type.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Date;
+/**
+ *  Deprecated Datetime type.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Datetime;
+/**
+ *  Decimal type.
+ *
+ *  Value: "DECIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Decimal;
+/**
+ *  Distinct type keyword.
+ *
+ *  Value: "DISTINCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Distinct;
+/**
+ *  Double type.
+ *
+ *  Value: "DOUBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Double;
+/**
+ *  Float type.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Float;
+/**
+ *  Deprecated Int type, use INTEGER type instead.
+ *
+ *  Value: "INT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Int;
+/**
+ *  Integer type.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Integer;
+/**
+ *  Java object type.
+ *
+ *  Value: "JAVA_OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_JavaObject;
+/**
+ *  Deprecated Long type, use BIGINT type instead.
+ *
+ *  Value: "LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Long;
+/**
+ *  Long Nvarchar type.
+ *
+ *  Value: "LONGNVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Longnvarchar;
+/**
+ *  Long Varbinary type.
+ *
+ *  Value: "LONGVARBINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Longvarbinary;
+/**
+ *  Long varchar type.
+ *
+ *  Value: "LONGVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Longvarchar;
+/**
+ *  Nchar type.
+ *
+ *  Value: "NCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Nchar;
+/**
+ *  Nclob type.
+ *
+ *  Value: "NCLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Nclob;
+/**
+ *  Null type.
+ *
+ *  Value: "NULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Null;
+/**
+ *  Numeric type.
+ *
+ *  Value: "NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Numeric;
+/**
+ *  Nvarchar type.
+ *
+ *  Value: "NVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Nvarchar;
+/**
+ *  Other type.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Other;
+/**
+ *  Real type.
+ *
+ *  Value: "REAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Real;
+/**
+ *  Ref type.
+ *
+ *  Value: "REF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Ref;
+/**
+ *  Ref_cursor type.
+ *
+ *  Value: "REF_CURSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_RefCursor;
+/**
+ *  Row ID type.
+ *
+ *  Value: "ROWID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Rowid;
+/**
+ *  Small int type.
+ *
+ *  Value: "SMALLINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Smallint;
+/**
+ *  SQLXML type.
+ *
+ *  Value: "SQLXML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Sqlxml;
+/**
+ *  Deprecated string type, use VARCHAR type instead.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_String;
+/**
+ *  Struct type.
+ *
+ *  Value: "STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Struct;
+/**
+ *  Time type.
+ *
+ *  Value: "TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Time;
+/**
+ *  Timestamp type.
+ *
+ *  Value: "TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Timestamp;
+/**
+ *  Timestamp with timezone type.
+ *
+ *  Value: "TIMESTAMP_WITH_TIMEZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_TimestampWithTimezone;
+/**
+ *  Time with timezone type.
+ *
+ *  Value: "TIME_WITH_TIMEZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_TimeWithTimezone;
+/**
+ *  Tiny int type.
+ *
+ *  Value: "TINYINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Tinyint;
+/**
+ *  Deprecated UUID type, use VARCHAR instead.
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Uuid;
+/**
+ *  Varbinary type.
+ *
+ *  Value: "VARBINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Varbinary;
+/**
+ *  Varchar type.
+ *
+ *  Value: "VARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Varchar;
 
 // ----------------------------------------------------------------------------
 // GTLRConnectors_ResultMetadata.dataType
@@ -1412,8 +1687,136 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @interface GTLRConnectors_Query : GTLRObject
 
+/**
+ *  Sets the limit for the maximum number of rows returned after the query
+ *  execution.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRows;
+
 /** Required. Sql query to execute. */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  In the struct, the value corresponds to the value of query parameter and
+ *  date type corresponds to the date type of the query parameter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_QueryParameter *> *queryParameters;
+
+/**
+ *  Sets the number of seconds the driver will wait for a query to execute.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeout;
+
+@end
+
+
+/**
+ *  Query parameter definition
+ */
+@interface GTLRConnectors_QueryParameter : GTLRObject
+
+/**
+ *  dataType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Array Array type. (Value:
+ *        "ARRAY")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Bigint Big int type.
+ *        (Value: "BIGINT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Binary Binary type.
+ *        (Value: "BINARY")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Bit Bit type. (Value:
+ *        "BIT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Blob Blob type. (Value:
+ *        "BLOB")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Boolean Boolean type.
+ *        (Value: "BOOLEAN")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Char Char type. (Value:
+ *        "CHAR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Clob Clob type. (Value:
+ *        "CLOB")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Datalink Datalink type.
+ *        (Value: "DATALINK")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_DataTypeUnspecified
+ *        Datatype unspecified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Date Date type. (Value:
+ *        "DATE")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Datetime Deprecated
+ *        Datetime type. (Value: "DATETIME")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Decimal Decimal type.
+ *        (Value: "DECIMAL")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Distinct Distinct type
+ *        keyword. (Value: "DISTINCT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Double Double type.
+ *        (Value: "DOUBLE")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Float Float type. (Value:
+ *        "FLOAT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Int Deprecated Int type,
+ *        use INTEGER type instead. (Value: "INT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Integer Integer type.
+ *        (Value: "INTEGER")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_JavaObject Java object
+ *        type. (Value: "JAVA_OBJECT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Long Deprecated Long type,
+ *        use BIGINT type instead. (Value: "LONG")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Longnvarchar Long Nvarchar
+ *        type. (Value: "LONGNVARCHAR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Longvarbinary Long
+ *        Varbinary type. (Value: "LONGVARBINARY")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Longvarchar Long varchar
+ *        type. (Value: "LONGVARCHAR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Nchar Nchar type. (Value:
+ *        "NCHAR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Nclob Nclob type. (Value:
+ *        "NCLOB")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Null Null type. (Value:
+ *        "NULL")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Numeric Numeric type.
+ *        (Value: "NUMERIC")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Nvarchar Nvarchar type.
+ *        (Value: "NVARCHAR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Other Other type. (Value:
+ *        "OTHER")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Real Real type. (Value:
+ *        "REAL")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Ref Ref type. (Value:
+ *        "REF")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_RefCursor Ref_cursor type.
+ *        (Value: "REF_CURSOR")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Rowid Row ID type. (Value:
+ *        "ROWID")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Smallint Small int type.
+ *        (Value: "SMALLINT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Sqlxml SQLXML type.
+ *        (Value: "SQLXML")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_String Deprecated string
+ *        type, use VARCHAR type instead. (Value: "STRING")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Struct Struct type.
+ *        (Value: "STRUCT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Time Time type. (Value:
+ *        "TIME")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Timestamp Timestamp type.
+ *        (Value: "TIMESTAMP")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_TimestampWithTimezone
+ *        Timestamp with timezone type. (Value: "TIMESTAMP_WITH_TIMEZONE")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_TimeWithTimezone Time with
+ *        timezone type. (Value: "TIME_WITH_TIMEZONE")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Tinyint Tiny int type.
+ *        (Value: "TINYINT")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Uuid Deprecated UUID type,
+ *        use VARCHAR instead. (Value: "UUID")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Varbinary Varbinary type.
+ *        (Value: "VARBINARY")
+ *    @arg @c kGTLRConnectors_QueryParameter_DataType_Varchar Varchar type.
+ *        (Value: "VARCHAR")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

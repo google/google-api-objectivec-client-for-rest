@@ -12719,6 +12719,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeConversions;
 /**
+ *  A bidding strategy that automatically sets bids to maximize revenue while
+ *  spending your budget.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeConversionValue;
+/**
  *  An automated bidding strategy that sets bids to achieve maximum lift.
  *
  *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT"
@@ -12736,6 +12743,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingSt
  *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpm;
+/**
+ *  A bidding strategy that automatically maximizes revenue while averaging a
+ *  specific target Return On Ad Spend (ROAS).
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetRoas;
 /**
  *  Type is not specified or unknown.
  *
@@ -12775,6 +12789,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  *  Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_YoutubeAndPartnersSettings.effectiveContentCategory
+
+/**
+ *  A category including all content across YouTube and video partners that
+ *  meets standards for monetization.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_EXPANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryExpanded;
+/**
+ *  A category consisting of a reduced range of content that meets heightened
+ *  requirements, especially regarding inappropriate language and sexual
+ *  suggestiveness.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryLimited;
+/**
+ *  A category consisting of a wide range of content appropriate for most
+ *  brands. The content is based off of YouTube's [advertiser-friendly content
+ *  guidelines](https://support.google.com/youtube/answer/6162278).
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryStandard;
+/**
+ *  Content category is not specified or is unknown in this version.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_YoutubeVideoDetails.unavailableReason
@@ -15164,7 +15211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  as the pageToken in a subsequent call to
  *  `BulkListAdGroupAssignedTargetingOptions` to fetch the next page of results.
  *  This token will be absent if there are no more
- *  youtube_ad_group_assigned_targeting_options to return.
+ *  youtube_ad_group_assigned_targeting_options or
+ *  ad_group_assigned_targeting_options to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -21208,7 +21256,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BiddingStrategy *bidStrategy;
 
 /**
- *  Immutable. The billable outcome of the insertion order.
+ *  Immutable. The billable outcome of the insertion order. Outcome based buying
+ *  is deprecated. `BILLABLE_OUTCOME_PAY_PER_IMPRESSION` is the only valid
+ *  value.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick
@@ -24717,8 +24767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -24746,8 +24796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -27978,6 +28028,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        A bidding strategy that automatically maximizes number of conversions
  *        given a daily budget. (Value:
  *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSIONS")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeConversionValue
+ *        A bidding strategy that automatically sets bids to maximize revenue
+ *        while spending your budget. (Value:
+ *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE")
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift
  *        An automated bidding strategy that sets bids to achieve maximum lift.
  *        (Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT")
@@ -27988,6 +28042,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpm
  *        A bidding strategy that pays a configurable amount per impression.
  *        (Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetRoas
+ *        A bidding strategy that automatically maximizes revenue while
+ *        averaging a specific target Return On Ad Spend (ROAS). (Value:
+ *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS")
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeUnspecified
  *        Type is not specified or unknown. (Value:
  *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED")
@@ -27998,7 +28056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The value used by the bidding strategy. When the bidding strategy is
  *  assigned at the line item level, this field is only applicable for the
  *  following strategy types: *
- *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` When the bidding
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` When the bidding
  *  strategy is assigned at the ad group level, this field is only applicable
  *  for the following strategy types: *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM` *
@@ -28051,7 +28110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_YoutubeAndPartnersSettings : GTLRObject
 
-/** The bidding strategy of the YouTube and Partners line item. */
+/** Required. The bidding strategy of the YouTube and Partners line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy *biddingStrategy;
 
 /**
@@ -28078,6 +28137,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *contentCategory;
+
+/**
+ *  Output only. The content category which takes effect when serving the line
+ *  item. When content category is set in both line item and advertiser, the
+ *  stricter one will take effect when serving the line item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryExpanded
+ *        A category including all content across YouTube and video partners
+ *        that meets standards for monetization. (Value:
+ *        "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_EXPANDED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryLimited
+ *        A category consisting of a reduced range of content that meets
+ *        heightened requirements, especially regarding inappropriate language
+ *        and sexual suggestiveness. (Value:
+ *        "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryStandard
+ *        A category consisting of a wide range of content appropriate for most
+ *        brands. The content is based off of YouTube's [advertiser-friendly
+ *        content
+ *        guidelines](https://support.google.com/youtube/answer/6162278).
+ *        (Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryUnspecified
+ *        Content category is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveContentCategory;
 
 /**
  *  Settings that control what YouTube and Partners inventories the line item
@@ -28111,7 +28197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetFrequency *targetFrequency;
 
-/** The third-party measurement settings of the line item. */
+/** Optional. The third-party measurement settings of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAndPartnersThirdPartyMeasurementSettings *thirdPartyMeasurementSettings;
 
 /** The settings related to VideoAdSequence. */

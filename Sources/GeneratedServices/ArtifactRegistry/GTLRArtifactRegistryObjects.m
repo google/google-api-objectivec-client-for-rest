@@ -19,9 +19,34 @@ NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Binary = @"BINARY
 NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Source = @"SOURCE";
 
+// GTLRArtifactRegistry_CleanupPolicy.action
+NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_Delete = @"DELETE";
+NSString * const kGTLRArtifactRegistry_CleanupPolicy_Action_Keep = @"KEEP";
+
+// GTLRArtifactRegistry_CleanupPolicyCondition.tagState
+NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Any = @"ANY";
+NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Tagged = @"TAGGED";
+NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_TagStateUnspecified = @"TAG_STATE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_CleanupPolicyCondition_TagState_Untagged = @"UNTAGGED";
+
 // GTLRArtifactRegistry_DockerRepository.publicRepository
 NSString * const kGTLRArtifactRegistry_DockerRepository_PublicRepository_DockerHub = @"DOCKER_HUB";
 NSString * const kGTLRArtifactRegistry_DockerRepository_PublicRepository_PublicRepositoryUnspecified = @"PUBLIC_REPOSITORY_UNSPECIFIED";
+
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository.repositoryBase
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Debian = @"DEBIAN";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified = @"REPOSITORY_BASE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Ubuntu = @"UBUNTU";
+
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository.repositoryBase
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Centos = @"CENTOS";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosDebug = @"CENTOS_DEBUG";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosStream = @"CENTOS_STREAM";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_CentosVault = @"CENTOS_VAULT";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Epel = @"EPEL";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified = @"REPOSITORY_BASE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky = @"ROCKY";
 
 // GTLRArtifactRegistry_Hash.type
 NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TYPE_UNSPECIFIED";
@@ -69,6 +94,11 @@ NSString * const kGTLRArtifactRegistry_Repository_Mode_RemoteRepository = @"REMO
 NSString * const kGTLRArtifactRegistry_Repository_Mode_StandardRepository = @"STANDARD_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository = @"VIRTUAL_REPOSITORY";
 
+// GTLRArtifactRegistry_SbomConfig.enablementConfig
+NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled = @"DISABLED";
+NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified = @"ENABLEMENT_CONFIG_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited = @"INHERITED";
+
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow = @"ALLOW";
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Deny = @"DENY";
@@ -86,6 +116,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_AptArtifact
 @dynamic architecture, component, controlFile, name, packageName, packageType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_AptRepository
+//
+
+@implementation GTLRArtifactRegistry_AptRepository
+@dynamic publicRepository;
 @end
 
 
@@ -109,6 +149,24 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_BatchDeleteVersionsRequest
+//
+
+@implementation GTLRArtifactRegistry_BatchDeleteVersionsRequest
+@dynamic names, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_Binding
 //
 
@@ -118,6 +176,60 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_CleanupPolicy
+//
+
+@implementation GTLRArtifactRegistry_CleanupPolicy
+@dynamic action, condition, identifier, mostRecentVersions;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_CleanupPolicyCondition
+//
+
+@implementation GTLRArtifactRegistry_CleanupPolicyCondition
+@dynamic newerThan, olderThan, packageNamePrefixes, tagPrefixes, tagState,
+         versionAge, versionNamePrefixes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"packageNamePrefixes" : [NSString class],
+    @"tagPrefixes" : [NSString class],
+    @"versionNamePrefixes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_CleanupPolicyMostRecentVersions
+//
+
+@implementation GTLRArtifactRegistry_CleanupPolicyMostRecentVersions
+@dynamic keepCount, packageNamePrefixes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"packageNamePrefixes" : [NSString class]
   };
   return map;
 }
@@ -223,6 +335,26 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository
+@dynamic repositoryBase, repositoryPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository
+@dynamic repositoryBase, repositoryPath;
 @end
 
 
@@ -875,8 +1007,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_RemoteRepositoryConfig
-@dynamic descriptionProperty, dockerRepository, mavenRepository, npmRepository,
-         pythonRepository;
+@dynamic aptRepository, descriptionProperty, dockerRepository, mavenRepository,
+         npmRepository, pythonRepository, yumRepository;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -891,12 +1023,27 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_Repository
-@dynamic createTime, descriptionProperty, dockerConfig, format, kmsKeyName,
-         labels, mavenConfig, mode, name, remoteRepositoryConfig, satisfiesPzs,
-         sizeBytes, updateTime, virtualRepositoryConfig;
+@dynamic cleanupPolicies, cleanupPolicyDryRun, createTime, descriptionProperty,
+         dockerConfig, format, kmsKeyName, labels, mavenConfig, mode, name,
+         remoteRepositoryConfig, satisfiesPzs, sbomConfig, sizeBytes,
+         updateTime, virtualRepositoryConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Repository_CleanupPolicies
+//
+
+@implementation GTLRArtifactRegistry_Repository_CleanupPolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRArtifactRegistry_CleanupPolicy class];
 }
 
 @end
@@ -913,6 +1060,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_SbomConfig
+//
+
+@implementation GTLRArtifactRegistry_SbomConfig
+@dynamic enablementConfig, lastEnableTime;
 @end
 
 
@@ -1298,4 +1455,14 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_YumArtifact
 @dynamic architecture, name, packageName, packageType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_YumRepository
+//
+
+@implementation GTLRArtifactRegistry_YumRepository
+@dynamic publicRepository;
 @end

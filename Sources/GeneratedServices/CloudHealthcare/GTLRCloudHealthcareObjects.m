@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudHealthcare_AnalyzeEntitiesRequest.alternativeOutputFormat
+NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_AlternativeOutputFormatUnspecified = @"ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_FhirBundle = @"FHIR_BUNDLE";
+
 // GTLRCloudHealthcare_AnalyzeEntitiesRequest.licensedVocabularies
 NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_Icd10cm = @"ICD10CM";
 NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_LicensedVocabularyUnspecified = @"LICENSED_VOCABULARY_UNSPECIFIED";
@@ -166,7 +170,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_AnalyzeEntitiesRequest
-@dynamic documentContent, licensedVocabularies;
+@dynamic alternativeOutputFormat, documentContent, licensedVocabularies;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -184,7 +188,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_AnalyzeEntitiesResponse
-@dynamic entities, entityMentions, relationships;
+@dynamic entities, entityMentions, fhirBundle, relationships;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -623,7 +627,15 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DicomStore
-@dynamic labels, name, notificationConfig;
+@dynamic labels, name, notificationConfig, streamConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamConfigs" : [GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -783,7 +795,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ExportMessagesRequest
-@dynamic endTime, gcsDestination, startTime;
+@dynamic endTime, filter, gcsDestination, pubsubDestination, startTime;
 @end
 
 
@@ -1072,6 +1084,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig
+//
+
+@implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig
+@dynamic bigqueryDestination;
 @end
 
 
@@ -1740,7 +1762,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_NotificationConfig
-@dynamic pubsubTopic;
+@dynamic pubsubTopic, sendForBulkImport;
 @end
 
 
@@ -1860,6 +1882,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_ProgressCounter
 @dynamic failure, pending, success;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_PubsubDestination
+//
+
+@implementation GTLRCloudHealthcare_PubsubDestination
+@dynamic pubsubTopic;
 @end
 
 

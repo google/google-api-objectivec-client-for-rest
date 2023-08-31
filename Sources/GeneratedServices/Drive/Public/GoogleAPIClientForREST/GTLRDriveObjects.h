@@ -423,7 +423,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A comment on a file.
+ *  A comment on a file. Some resource methods (such as `comments.update`)
+ *  require a `commentId`. Use the `comments.list` method to retrieve the ID for
+ *  a comment in a file.
  */
 @interface GTLRDrive_Comment : GTLRObject
 
@@ -564,6 +566,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_ContentRestriction : GTLRObject
 
 /**
+ *  Whether the content restriction can only be modified or removed by a user
+ *  who owns the file. For files in shared drives, any user with `organizer`
+ *  capabilities can modify or remove this content restriction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerRestricted;
+
+/**
  *  Whether the content of the file is read-only. If a file is read-only, a new
  *  revision of the file may not be added, comments may not be added or
  *  modified, and the title of the file may not be modified.
@@ -600,7 +611,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Representation of a shared drive.
+ *  Representation of a shared drive. Some resource methods (such as
+ *  `drives.update`) require a `driveId`. Use the `drives.list` method to
+ *  retrieve the ID for a shared drive.
  */
 @interface GTLRDrive_Drive : GTLRObject
 
@@ -988,7 +1001,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The metadata for a file.
+ *  The metadata for a file. Some resource methods (such as `files.update`)
+ *  require a `fileId`. Use the `files.list` method to retrieve the ID for a
+ *  file.
  */
 @interface GTLRDrive_File : GTLRObject
 
@@ -1537,12 +1552,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canModifyContent;
 
 /**
- *  Output only. Whether the current user can modify restrictions on content of
- *  this file.
+ *  Deprecated: Output only. Use one of `canModifyEditorContentRestriction`,
+ *  `canModifyOwnerContentRestriction` or `canRemoveContentRestriction`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction;
+
+/**
+ *  Output only. Whether the current user can add or modify content restrictions
+ *  on the file which are editor restricted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canModifyEditorContentRestriction;
 
 /**
  *  Output only. Whether the current user can modify the labels on the file.
@@ -1550,6 +1573,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyLabels;
+
+/**
+ *  Output only. Whether the current user can add or modify content restrictions
+ *  which are owner restricted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canModifyOwnerContentRestriction;
 
 /**
  *  Output only. Whether the current user can move children of this folder
@@ -1672,6 +1703,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
+
+/**
+ *  Output only. Whether there is a content restriction on the file that can be
+ *  removed by the current user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRemoveContentRestriction;
 
 /**
  *  Output only. Whether the current user can remove a parent from the item
@@ -2316,8 +2355,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A permission for a file. A permission grants a user, group, domain or the
- *  world access to a file or a folder hierarchy.
+ *  A permission for a file. A permission grants a user, group, domain, or the
+ *  world access to a file or a folder hierarchy. Some resource methods (such as
+ *  `permissions.update`) require a `permissionId`. Use the `permissions.list`
+ *  method to retrieve the ID for a file, folder, or shared drive.
  */
 @interface GTLRDrive_Permission : GTLRObject
 
@@ -2523,7 +2564,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A reply to a comment on a file.
+ *  A reply to a comment on a file. Some resource methods (such as
+ *  `replies.update`) require a `replyId`. Use the `replies.list` method to
+ *  retrieve the ID for a reply.
  */
 @interface GTLRDrive_Reply : GTLRObject
 
@@ -2618,7 +2661,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The metadata for a revision to a file.
+ *  The metadata for a revision to a file. Some resource methods (such as
+ *  `revisions.update`) require a `revisionId`. Use the `revisions.list` method
+ *  to retrieve the ID for a revision.
  */
 @interface GTLRDrive_Revision : GTLRObject
 

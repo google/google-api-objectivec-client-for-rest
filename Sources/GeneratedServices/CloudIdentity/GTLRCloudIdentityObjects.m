@@ -600,9 +600,9 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 @dynamic androidSpecificAttributes, assetTag, basebandVersion,
          bootloaderVersion, brand, buildNumber, compromisedState, createTime,
          deviceId, deviceType, enabledDeveloperOptions, enabledUsbDebugging,
-         encryptionState, imei, kernelVersion, lastSyncTime, managementState,
-         manufacturer, meid, model, name, networkOperator, osVersion,
-         otherAccounts, ownerType, releaseVersion, securityPatchTime,
+         encryptionState, hostname, imei, kernelVersion, lastSyncTime,
+         managementState, manufacturer, meid, model, name, networkOperator,
+         osVersion, otherAccounts, ownerType, releaseVersion, securityPatchTime,
          serialNumber, wifiMacAddresses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

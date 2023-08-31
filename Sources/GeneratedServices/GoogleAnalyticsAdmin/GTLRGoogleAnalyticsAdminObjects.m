@@ -3,6 +3,14 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Google Analytics Admin API (analyticsadmin/v1beta)
+// Description:
+//   Manage properties in Google Analytics. Warning: Creating multiple Customer
+//   Applications, Accounts, or Projects to simulate or act as a single Customer
+//   Application, Account, or Project (respectively) or to circumvent
+//   Service-specific usage limits or quotas is a direct violation of Google
+//   Cloud Platform Terms of Service as well as Google APIs Terms of Service.
+//   These actions can result in immediate termination of your GCP project(s)
+//   without any warning.
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
@@ -45,6 +53,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_Ac
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_Support = @"SUPPORT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_System = @"SYSTEM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent_ActorType_User = @"USER";
+
+// GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.countingMethod
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_ConversionCountingMethodUnspecified = @"CONVERSION_COUNTING_METHOD_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerEvent = @"ONCE_PER_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaConversionEvent_CountingMethod_OncePerSession = @"ONCE_PER_SESSION";
 
 // GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.scope
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomDimension_Scope_DimensionScopeUnspecified = @"DIMENSION_SCOPE_UNSPECIFIED";
@@ -505,7 +518,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaConversionEvent
-@dynamic createTime, custom, deletable, eventName, name;
+@dynamic countingMethod, createTime, custom, deletable, eventName, name;
 @end
 
 

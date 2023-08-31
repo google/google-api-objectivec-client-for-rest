@@ -2300,7 +2300,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. */
+/**
+ *  Required. Resource name for the parent of the TagValues to be listed, in the
+ *  format `tagKeys/123` or `tagValues/123`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**

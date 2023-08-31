@@ -2622,6 +2622,90 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Deletes `Checkout` settings and unenrolls merchant from `Checkout` program.
+ *
+ *  Method: content.freelistingsprogram.checkoutsettings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsDelete : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes `Checkout` settings and unenrolls merchant from `Checkout` program.
+ *
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Gets Checkout settings for the given merchant. This includes information
+ *  about review state, enrollment state and URL settings.
+ *
+ *  Method: content.freelistingsprogram.checkoutsettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsGet : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_CheckoutSettings.
+ *
+ *  Gets Checkout settings for the given merchant. This includes information
+ *  about review state, enrollment state and URL settings.
+ *
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Enrolls merchant in `Checkout` program.
+ *
+ *  Method: content.freelistingsprogram.checkoutsettings.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsInsert : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_CheckoutSettings.
+ *
+ *  Enrolls merchant in `Checkout` program.
+ *
+ *  @param object The @c GTLRShoppingContent_InsertCheckoutSettingsRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_FreelistingsprogramCheckoutsettingsInsert
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_InsertCheckoutSettingsRequest *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Retrieves the status and review eligibility for the free listing program.
  *  Returns errors and warnings if they require action to resolve, will become
  *  disapprovals, or impact impressions. Use `accountstatuses` to view all
@@ -3160,6 +3244,111 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_LocalInventory *)object
                      merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Provide a list of merchant's issues with a support content and available
+ *  actions. This content and actions are meant to be rendered and shown in
+ *  third-party applications.
+ *
+ *  Method: content.merchantsupport.renderaccountissues
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_MerchantsupportRenderaccountissues : GTLRShoppingContentQuery
+
+/**
+ *  Optional. The [IETF BCP-47](https://tools.ietf.org/html/bcp47) language code
+ *  used to localize support content. If not set, the result will be in default
+ *  language ('en-US').
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The ID of the account to fetch issues for. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Optional. The [IANA](https://www.iana.org/time-zones) timezone used to
+ *  localize times in support content. For example 'America/Los_Angeles'. If not
+ *  set, results will use as a default UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RenderAccountIssuesResponse.
+ *
+ *  Provide a list of merchant's issues with a support content and available
+ *  actions. This content and actions are meant to be rendered and shown in
+ *  third-party applications.
+ *
+ *  @param object The @c GTLRShoppingContent_RenderAccountIssuesRequestPayload
+ *    to include in the query.
+ *  @param merchantId Required. The ID of the account to fetch issues for.
+ *
+ *  @return GTLRShoppingContentQuery_MerchantsupportRenderaccountissues
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RenderAccountIssuesRequestPayload *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Provide a list of issues for merchant's product with a support content and
+ *  available actions. This content and actions are meant to be rendered and
+ *  shown in third-party applications.
+ *
+ *  Method: content.merchantsupport.renderproductissues
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_MerchantsupportRenderproductissues : GTLRShoppingContentQuery
+
+/**
+ *  Optional. The [IETF BCP-47](https://tools.ietf.org/html/bcp47) language code
+ *  used to localize support content. If not set, the result will be in default
+ *  language ('en-US').
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The ID of the account that contains the product. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Required. The
+ *  [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
+ *  of the product to fetch issues for.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Optional. The [IANA](https://www.iana.org/time-zones) timezone used to
+ *  localize times in support content. For example 'America/Los_Angeles'. If not
+ *  set, results will use as a default UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RenderProductIssuesResponse.
+ *
+ *  Provide a list of issues for merchant's product with a support content and
+ *  available actions. This content and actions are meant to be rendered and
+ *  shown in third-party applications.
+ *
+ *  @param object The @c GTLRShoppingContent_RenderProductIssuesRequestPayload
+ *    to include in the query.
+ *  @param merchantId Required. The ID of the account that contains the product.
+ *  @param productId Required. The
+ *    [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
+ *    of the product to fetch issues for.
+ *
+ *  @return GTLRShoppingContentQuery_MerchantsupportRenderproductissues
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RenderProductIssuesRequestPayload *)object
+                     merchantId:(long long)merchantId
                       productId:(NSString *)productId;
 
 @end
@@ -5210,6 +5399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  The maximum number of products to return in the response, used for paging.
+ *  The default value is 25. The maximum value is 250.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5325,7 +5515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  The maximum number of product statuses to return in the response, used for
- *  paging.
+ *  paging. The default value is 25. The maximum value is 250.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 

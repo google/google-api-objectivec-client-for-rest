@@ -398,9 +398,9 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 @implementation GTLRTPU_Node
 @dynamic acceleratorConfig, acceleratorType, apiVersion, cidrBlock, createTime,
          dataDisks, descriptionProperty, health, healthDescription, identifier,
-         labels, metadata, name, networkConfig, networkEndpoints,
-         runtimeVersion, schedulingConfig, serviceAccount,
-         shieldedInstanceConfig, state, symptoms, tags;
+         labels, metadata, multisliceNode, name, networkConfig,
+         networkEndpoints, queuedResource, runtimeVersion, schedulingConfig,
+         serviceAccount, shieldedInstanceConfig, state, symptoms, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

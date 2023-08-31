@@ -1660,6 +1660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Reprici
 // GTLRCloudchannel_GoogleCloudChannelV1TransferEligibility.ineligibilityReason
 
 /**
+ *  The reseller is not authorized to transact on this Product. See
+ *  https://support.google.com/channelservices/answer/9759265
+ *
+ *  Value: "CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_ChannelPartnerNotAuthorizedForSku;
+/**
  *  Reseller needs to accept TOS before transferring the SKU.
  *
  *  Value: "PENDING_TOS_ACCEPTANCE"
@@ -2212,7 +2219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
  *  is the underlying Subscription ID. For Google Cloud, this is the Billing
- *  Account ID of the billing subaccount."
+ *  Account ID of the billing subaccount.
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -3142,9 +3149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Required. The organization address for the customer. To enforce US laws and
- *  embargoes, we require a region and zip code. You must provide valid
- *  addresses for every customer. To set the customer's language, use the
- *  Customer-level language code.
+ *  embargoes, we require a region, postal code, and address lines. You must
+ *  provide valid addresses for every customer. To set the customer's language,
+ *  use the Customer-level language code.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypePostalAddress *orgPostalAddress;
 
@@ -4786,7 +4793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
  *  is the underlying Subscription ID. For Google Cloud, this is the Billing
- *  Account ID of the billing subaccount."
+ *  Account ID of the billing subaccount.
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -5096,8 +5103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment *adjustment;
 
 /**
- *  Applies the repricing configuration at the channel partner level. This is
- *  the only supported value for ChannelPartnerRepricingConfig.
+ *  Applies the repricing configuration at the channel partner level. Only
+ *  ChannelPartnerRepricingConfig supports this value.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity *channelPartnerGranularity;
 
@@ -5115,8 +5122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *effectiveInvoiceMonth;
 
 /**
- *  Applies the repricing configuration at the entitlement level. This is the
- *  only supported value for CustomerRepricingConfig.
+ *  Applies the repricing configuration at the entitlement level. Note: If a
+ *  ChannelPartnerRepricingConfig using RepricingConfig.EntitlementGranularity
+ *  becomes effective, then no existing or future
+ *  RepricingConfig.ChannelPartnerGranularity will apply to the
+ *  RepricingConfig.EntitlementGranularity.entitlement. This is the recommended
+ *  value for both CustomerRepricingConfig and ChannelPartnerRepricingConfig.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity *entitlementGranularity;
 
@@ -5407,6 +5418,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Specified the reason for ineligibility.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_ChannelPartnerNotAuthorizedForSku
+ *        The reseller is not authorized to transact on this Product. See
+ *        https://support.google.com/channelservices/answer/9759265 (Value:
+ *        "CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_PendingTosAcceptance
  *        Reseller needs to accept TOS before transferring the SKU. (Value:
  *        "PENDING_TOS_ACCEPTANCE")
@@ -5677,8 +5692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -5706,8 +5721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

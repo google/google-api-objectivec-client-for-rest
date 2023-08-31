@@ -1163,6 +1163,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Decrypts data that was originally encrypted using a raw cryptographic
+ *  mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.rawDecrypt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRawDecrypt : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for decryption.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_RawDecryptResponse.
+ *
+ *  Decrypts data that was originally encrypted using a raw cryptographic
+ *  mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
+ *
+ *  @param object The @c GTLRCloudKMS_RawDecryptRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    decryption.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRawDecrypt
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_RawDecryptRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Encrypts data using portable cryptographic primitives. Most users should
+ *  choose Encrypt and Decrypt rather than their raw counterparts. The
+ *  CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.rawEncrypt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRawEncrypt : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_RawEncryptResponse.
+ *
+ *  Encrypts data using portable cryptographic primitives. Most users should
+ *  choose Encrypt and Decrypt rather than their raw counterparts. The
+ *  CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
+ *
+ *  @param object The @c GTLRCloudKMS_RawEncryptRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    encryption.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRawEncrypt
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_RawEncryptRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration
  *  of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time
  *  will be cleared.

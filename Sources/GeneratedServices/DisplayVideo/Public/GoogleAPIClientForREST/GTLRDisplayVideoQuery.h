@@ -9641,11 +9641,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Allows filtering by assigned targeting option fields. Supported syntax: *
- *  Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`. * A restriction has the form
- *  of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)`
- *  operator. Supported fields: * `targetingType` Examples: *
+ *  Optional. Allows filtering by assigned targeting option fields. Supported
+ *  syntax: * Filter expressions are made up of one or more restrictions. *
+ *  Restrictions can be combined by the logical operator `OR`. * A restriction
+ *  has the form of `{field} {operator} {value}`. * All fields must use the
+ *  `EQUALS (=)` operator. Supported fields: * `targetingType` Examples: *
  *  `AssignedTargetingOption` resources of targeting type
  *  `TARGETING_TYPE_YOUTUBE_VIDEO` or `TARGETING_TYPE_YOUTUBE_CHANNEL`:
  *  `targetingType="TARGETING_TYPE_YOUTUBE_VIDEO" OR
@@ -9657,25 +9657,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Field by which to sort the list. Acceptable values are: * `youtubeAdGroupId`
- *  (default) * `assignedTargetingOption.targetingType` The default sorting
- *  order is ascending. To specify descending order for a field, a suffix "desc"
- *  should be added to the field name. Example: `targetingType desc`.
+ *  Optional. Field by which to sort the list. Acceptable values are: *
+ *  `youtubeAdGroupId` (acceptable in v2) * `adGroupId` (acceptable in v3) *
+ *  `assignedTargetingOption.targetingType` The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix "desc" should
+ *  be added to the field name. Example: `targetingType desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
- *  an invalid value is specified.
+ *  Optional. Requested page size. The size must be an integer between `1` and
+ *  `5000`. If unspecified, the default is `5000`. Returns error code
+ *  `INVALID_ARGUMENT` if an invalid value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A token that lets the client fetch the next page of results. Typically, this
- *  is the value of next_page_token returned from the previous call to the
- *  `BulkListAdGroupAssignedTargetingOptions` method. If not specified, the
- *  first page of results will be returned.
+ *  Optional. A token that lets the client fetch the next page of results.
+ *  Typically, this is the value of next_page_token returned from the previous
+ *  call to the `BulkListAdGroupAssignedTargetingOptions` method. If not
+ *  specified, the first page of results will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

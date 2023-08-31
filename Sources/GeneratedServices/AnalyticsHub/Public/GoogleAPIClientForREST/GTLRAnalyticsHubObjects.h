@@ -20,14 +20,25 @@
 @class GTLRAnalyticsHub_Binding;
 @class GTLRAnalyticsHub_DataExchange;
 @class GTLRAnalyticsHub_DataProvider;
+@class GTLRAnalyticsHub_DcrExchangeConfig;
+@class GTLRAnalyticsHub_DefaultExchangeConfig;
 @class GTLRAnalyticsHub_DestinationDataset;
 @class GTLRAnalyticsHub_DestinationDataset_Labels;
 @class GTLRAnalyticsHub_DestinationDatasetReference;
 @class GTLRAnalyticsHub_Expr;
 @class GTLRAnalyticsHub_GetPolicyOptions;
+@class GTLRAnalyticsHub_LinkedResource;
 @class GTLRAnalyticsHub_Listing;
+@class GTLRAnalyticsHub_Operation_Metadata;
+@class GTLRAnalyticsHub_Operation_Response;
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
+@class GTLRAnalyticsHub_RestrictedExportConfig;
+@class GTLRAnalyticsHub_SharingEnvironmentConfig;
+@class GTLRAnalyticsHub_Status;
+@class GTLRAnalyticsHub_Status_Details_Item;
+@class GTLRAnalyticsHub_Subscription;
+@class GTLRAnalyticsHub_Subscription_LinkedDatasetMap;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -127,6 +138,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_Active;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Subscription.state
+
+/**
+ *  This subscription is active and the data is accessible.
+ *
+ *  Value: "STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateActive;
+/**
+ *  This subscription has been cancelled or revoked and the data is no longer
+ *  accessible.
+ *
+ *  Value: "STATE_INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateInactive;
+/**
+ *  The data referenced by this subscription is out of date and should be
+ *  refreshed. This can happen when a data provider adds or removes datasets.
+ *
+ *  Value: "STATE_STALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateStale;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -335,6 +376,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  */
 @property(nonatomic, copy, nullable) NSString *primaryContact;
 
+/**
+ *  Required. Configurable data sharing environment option for a data exchange.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_SharingEnvironmentConfig *sharingEnvironmentConfig;
+
 @end
 
 
@@ -349,6 +395,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 /** Optional. Email or URL of the data provider. Max Length: 1000 bytes. */
 @property(nonatomic, copy, nullable) NSString *primaryContact;
 
+@end
+
+
+/**
+ *  Data Clean Room (DCR), used for privacy-safe and secured data sharing.
+ */
+@interface GTLRAnalyticsHub_DcrExchangeConfig : GTLRObject
+@end
+
+
+/**
+ *  Default Analytics Hub data exchange, used for secured data sharing.
+ */
+@interface GTLRAnalyticsHub_DefaultExchangeConfig : GTLRObject
 @end
 
 
@@ -520,6 +580,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
+ *  Reference to a linked resource tracked by this Subscription.
+ */
+@interface GTLRAnalyticsHub_LinkedResource : GTLRObject
+
+/**
+ *  Output only. Name of the linked dataset, e.g.
+ *  projects/subscriberproject/datasets/linked_dataset
+ */
+@property(nonatomic, copy, nullable) NSString *linkedDataset;
+
+@end
+
+
+/**
  *  Message for response to the list of data exchanges.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -618,6 +692,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 @property(nonatomic, copy, nullable) NSString *requestAccess;
 
 /**
+ *  Optional. If set, restricted export configuration will be propagated and
+ *  enforced on the linked dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RestrictedExportConfig *restrictedExportConfig;
+
+/**
  *  Output only. Current state of the listing.
  *
  *  Likely values:
@@ -682,6 +762,134 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
+ *  Message for response to the listing of shared resource subscriptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sharedResourceSubscriptions" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse : GTLRCollectionObject
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of subscriptions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Subscription *> *sharedResourceSubscriptions;
+
+@end
+
+
+/**
+ *  Message for response to the listing of subscriptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "subscriptions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAnalyticsHub_ListSubscriptionsResponse : GTLRCollectionObject
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of subscriptions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRAnalyticsHub_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_Operation_Response : GTLRObject
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRAnalyticsHub_OperationMetadata : GTLRObject
@@ -732,7 +940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -740,14 +948,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRAnalyticsHub_Policy : GTLRObject
@@ -826,6 +1035,70 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
+ *  Message for refreshing a subscription.
+ */
+@interface GTLRAnalyticsHub_RefreshSubscriptionRequest : GTLRObject
+@end
+
+
+/**
+ *  Message for response when you refresh a subscription.
+ */
+@interface GTLRAnalyticsHub_RefreshSubscriptionResponse : GTLRObject
+
+/** The refreshed subscription resource. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription *subscription;
+
+@end
+
+
+/**
+ *  Restricted export config, used to configure restricted export on linked
+ *  dataset.
+ */
+@interface GTLRAnalyticsHub_RestrictedExportConfig : GTLRObject
+
+/**
+ *  Optional. If true, enable restricted export.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. If true, restrict direct table access(read api/tabledata.list)
+ *  on linked table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictDirectTableAccess;
+
+/**
+ *  Optional. If true, restrict export of query result derived from restricted
+ *  linked dataset table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictQueryResult;
+
+@end
+
+
+/**
+ *  Message for revoking a subscription.
+ */
+@interface GTLRAnalyticsHub_RevokeSubscriptionRequest : GTLRObject
+@end
+
+
+/**
+ *  Message for response when you revoke a subscription.
+ */
+@interface GTLRAnalyticsHub_RevokeSubscriptionResponse : GTLRObject
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRAnalyticsHub_SetIamPolicyRequest : GTLRObject
@@ -850,6 +1123,97 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
+ *  Sharing environment is a behavior model for sharing data within a data
+ *  exchange. This option is configurable for a data exchange.
+ */
+@interface GTLRAnalyticsHub_SharingEnvironmentConfig : GTLRObject
+
+/** Data Clean Room (DCR), used for privacy-safe and secured data sharing. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DcrExchangeConfig *dcrExchangeConfig;
+
+/** Default Analytics Hub data exchange, used for secured data sharing. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DefaultExchangeConfig *defaultExchangeConfig;
+
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRAnalyticsHub_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRAnalyticsHub_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Message for subscribing to a Data Exchange.
+ */
+@interface GTLRAnalyticsHub_SubscribeDataExchangeRequest : GTLRObject
+
+/**
+ *  Required. The parent resource path of the Subscription. e.g.
+ *  `projects/subscriberproject/locations/US`
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** Email of the subscriber. */
+@property(nonatomic, copy, nullable) NSString *subscriberContact;
+
+/** Required. Name of the subscription to create. e.g. `subscription1` */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+@end
+
+
+/**
+ *  Message for response when you subscribe to a Data Exchange.
+ */
+@interface GTLRAnalyticsHub_SubscribeDataExchangeResponse : GTLRObject
+
+/** Subscription object created from this subscribe action. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription *subscription;
+
+@end
+
+
+/**
  *  Message for subscribing to a listing.
  */
 @interface GTLRAnalyticsHub_SubscribeListingRequest : GTLRObject
@@ -864,6 +1228,95 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  Message for response when you subscribe to a listing.
  */
 @interface GTLRAnalyticsHub_SubscribeListingResponse : GTLRObject
+
+/** Subscription object created from this subscribe action. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription *subscription;
+
+@end
+
+
+/**
+ *  A subscription represents a subscribers' access to a particular set of
+ *  published data. It contains references to associated listings, data
+ *  exchanges, and linked datasets. TODO(b/267528977) Consider port the new
+ *  resource to v1beta1 and dataexchange APIs.
+ */
+@interface GTLRAnalyticsHub_Subscription : GTLRObject
+
+/** Output only. Timestamp when the subscription was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  Output only. Resource name of the source Data Exchange. e.g.
+ *  projects/123/locations/US/dataExchanges/456
+ */
+@property(nonatomic, copy, nullable) NSString *dataExchange;
+
+/** Output only. Timestamp when the subscription was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifyTime;
+
+/**
+ *  Output only. Map of listing resource names to associated linked resource,
+ *  e.g. projects/123/locations/US/dataExchanges/456/listings/789 ->
+ *  projects/123/datasets/my_dataset For listing-level subscriptions, this is a
+ *  map of size 1. Only contains values if state == STATE_ACTIVE.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription_LinkedDatasetMap *linkedDatasetMap;
+
+/**
+ *  Output only. Resource name of the source Listing. e.g.
+ *  projects/123/locations/US/dataExchanges/456/listings/789
+ */
+@property(nonatomic, copy, nullable) NSString *listing;
+
+/**
+ *  Output only. The resource name of the subscription. e.g.
+ *  `projects/myproject/locations/US/subscriptions/123`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Display name of the project of this subscription. */
+@property(nonatomic, copy, nullable) NSString *organizationDisplayName;
+
+/** Output only. Organization of the project this subscription belongs to. */
+@property(nonatomic, copy, nullable) NSString *organizationId;
+
+/**
+ *  Output only. Current state of the subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Subscription_State_StateActive This subscription
+ *        is active and the data is accessible. (Value: "STATE_ACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_Subscription_State_StateInactive This
+ *        subscription has been cancelled or revoked and the data is no longer
+ *        accessible. (Value: "STATE_INACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_Subscription_State_StateStale The data
+ *        referenced by this subscription is out of date and should be
+ *        refreshed. This can happen when a data provider adds or removes
+ *        datasets. (Value: "STATE_STALE")
+ *    @arg @c kGTLRAnalyticsHub_Subscription_State_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Email of the subscriber. */
+@property(nonatomic, copy, nullable) NSString *subscriberContact;
+
+@end
+
+
+/**
+ *  Output only. Map of listing resource names to associated linked resource,
+ *  e.g. projects/123/locations/US/dataExchanges/456/listings/789 ->
+ *  projects/123/datasets/my_dataset For listing-level subscriptions, this is a
+ *  map of size 1. Only contains values if state == STATE_ACTIVE.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAnalyticsHub_LinkedResource. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_Subscription_LinkedDatasetMap : GTLRObject
 @end
 
 

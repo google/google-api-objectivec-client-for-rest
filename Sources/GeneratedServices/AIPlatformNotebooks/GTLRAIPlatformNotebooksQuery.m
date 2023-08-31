@@ -35,6 +35,117 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckUpgradability
+
+@dynamic notebookInstance;
+
++ (instancetype)queryWithNotebookInstance:(NSString *)notebookInstance {
+  NSArray *pathParams = @[ @"notebookInstance" ];
+  NSString *pathURITemplate = @"v2/{+notebookInstance}:checkUpgradability";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckUpgradability *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.notebookInstance = notebookInstance;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_CheckInstanceUpgradabilityResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.checkUpgradability";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCreate
+
+@dynamic instanceId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Instance *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/instances";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:diagnose";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.diagnose";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Instance class];
+  query.loggingName = @"notebooks.projects.locations.instances.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -53,6 +164,133 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Policy class];
   query.loggingName = @"notebooks.projects.locations.instances.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/instances";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_ListInstancesResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Instance *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportInfoSystem
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ReportInstanceInfoSystemRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:reportInfoSystem";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportInfoSystem *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.reportInfoSystem";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResetInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:reset";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.reset";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RollbackInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rollback";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.rollback";
   return query;
 }
 
@@ -85,6 +323,60 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStart
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_StartInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:start";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.start";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStop
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_StopInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:stop";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.stop";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesTestIamPermissions
 
 @dynamic resource;
@@ -107,6 +399,60 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_TestIamPermissionsResponse class];
   query.loggingName = @"notebooks.projects.locations.instances.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpgradeInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:upgrade";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.upgrade";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgradeSystem
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpgradeInstanceSystemRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:upgradeSystem";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgradeSystem *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.upgradeSystem";
   return query;
 }
 

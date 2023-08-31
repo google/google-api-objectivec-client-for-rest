@@ -196,7 +196,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  */
 @interface GTLRClouderrorreportingQuery_ProjectsEventsList : GTLRClouderrorreportingQuery
 
-/** Required. The group for which events shall be returned. */
+/**
+ *  Required. The group for which events shall be returned. The `group_id` is a
+ *  unique identifier for a particular error group. The identifier is derived
+ *  from key parts of the error-log content and is treated as Service Data. For
+ *  information about how Service Data is handled, see [Google Cloud Privacy
+ *  Notice](https://cloud.google.com/terms/cloud-privacy-notice).
+ */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /** Optional. The maximum number of results to return per response. */
@@ -342,9 +348,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 
 /**
  *  Required. The group resource name. Written as
- *  `projects/{projectID}/groups/{group_name}`. Call groupStats.list to return a
+ *  `projects/{projectID}/groups/{group_id}`. Call groupStats.list to return a
  *  list of groups belonging to this project. Example:
- *  `projects/my-project-123/groups/my-group`
+ *  `projects/my-project-123/groups/my-group` In the group resource name, the
+ *  `group_id` is a unique identifier for a particular error group. The
+ *  identifier is derived from key parts of the error-log content and is treated
+ *  as Service Data. For information about how Service Data is handled, see
+ *  [Google Cloud Privacy
+ *  Notice](https://cloud.google.com/terms/cloud-privacy-notice).
  */
 @property(nonatomic, copy, nullable) NSString *groupName;
 
@@ -354,9 +365,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Get the specified group.
  *
  *  @param groupName Required. The group resource name. Written as
- *    `projects/{projectID}/groups/{group_name}`. Call groupStats.list to return
- *    a list of groups belonging to this project. Example:
- *    `projects/my-project-123/groups/my-group`
+ *    `projects/{projectID}/groups/{group_id}`. Call groupStats.list to return a
+ *    list of groups belonging to this project. Example:
+ *    `projects/my-project-123/groups/my-group` In the group resource name, the
+ *    `group_id` is a unique identifier for a particular error group. The
+ *    identifier is derived from key parts of the error-log content and is
+ *    treated as Service Data. For information about how Service Data is
+ *    handled, see [Google Cloud Privacy
+ *    Notice](https://cloud.google.com/terms/cloud-privacy-notice).
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsGet
  */
@@ -403,7 +419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *alignmentTime;
 
-/** Optional. List all ErrorGroupStats with these IDs. */
+/**
+ *  Optional. List all ErrorGroupStats with these IDs. The `group_id` is a
+ *  unique identifier for a particular error group. The identifier is derived
+ *  from key parts of the error-log content and is treated as Service Data. For
+ *  information about how Service Data is handled, see [Google Cloud Privacy
+ *  Notice] (https://cloud.google.com/terms/cloud-privacy-notice).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupId;
 
 /**
@@ -528,8 +550,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @interface GTLRClouderrorreportingQuery_ProjectsGroupsUpdate : GTLRClouderrorreportingQuery
 
 /**
- *  The group resource name. Example:
- *  projects/my-project-123/groups/CNSgkpnppqKCUw
+ *  The group resource name. Written as
+ *  `projects/{projectID}/groups/{group_id}`. Example:
+ *  `projects/my-project-123/groups/my-group` In the group resource name, the
+ *  `group_id` is a unique identifier for a particular error group. The
+ *  identifier is derived from key parts of the error-log content and is treated
+ *  as Service Data. For information about how Service Data is handled, see
+ *  [Google Cloud Privacy
+ *  Notice](https://cloud.google.com/terms/cloud-privacy-notice).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -540,8 +568,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *
  *  @param object The @c GTLRClouderrorreporting_ErrorGroup to include in the
  *    query.
- *  @param name The group resource name. Example:
- *    projects/my-project-123/groups/CNSgkpnppqKCUw
+ *  @param name The group resource name. Written as
+ *    `projects/{projectID}/groups/{group_id}`. Example:
+ *    `projects/my-project-123/groups/my-group` In the group resource name, the
+ *    `group_id` is a unique identifier for a particular error group. The
+ *    identifier is derived from key parts of the error-log content and is
+ *    treated as Service Data. For information about how Service Data is
+ *    handled, see [Google Cloud Privacy
+ *    Notice](https://cloud.google.com/terms/cloud-privacy-notice).
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsUpdate
  */

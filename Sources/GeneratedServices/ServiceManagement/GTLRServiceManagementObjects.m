@@ -575,7 +575,15 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Control
-@dynamic environment;
+@dynamic environment, methodPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodPolicies" : [GTLRServiceManagement_MethodPolicy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -848,6 +856,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_FieldPolicy
+//
+
+@implementation GTLRServiceManagement_FieldPolicy
+@dynamic resourcePermission, resourceType, selector;
 @end
 
 
@@ -1221,6 +1239,24 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"options" : [GTLRServiceManagement_Option class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_MethodPolicy
+//
+
+@implementation GTLRServiceManagement_MethodPolicy
+@dynamic requestPolicies, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestPolicies" : [GTLRServiceManagement_FieldPolicy class]
   };
   return map;
 }

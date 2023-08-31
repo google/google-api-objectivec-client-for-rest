@@ -45,6 +45,12 @@ NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryUnspecified = @"CA
 NSString * const kGTLRAnalyticsHub_Listing_State_Active        = @"ACTIVE";
 NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_Subscription.state
+NSString * const kGTLRAnalyticsHub_Subscription_State_StateActive = @"STATE_ACTIVE";
+NSString * const kGTLRAnalyticsHub_Subscription_State_StateInactive = @"STATE_INACTIVE";
+NSString * const kGTLRAnalyticsHub_Subscription_State_StateStale = @"STATE_STALE";
+NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAnalyticsHub_AuditConfig
@@ -116,7 +122,7 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 @implementation GTLRAnalyticsHub_DataExchange
 @dynamic descriptionProperty, displayName, documentation, icon, listingCount,
-         name, primaryContact;
+         name, primaryContact, sharingEnvironmentConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -132,6 +138,24 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 @implementation GTLRAnalyticsHub_DataProvider
 @dynamic name, primaryContact;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_DcrExchangeConfig
+//
+
+@implementation GTLRAnalyticsHub_DcrExchangeConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_DefaultExchangeConfig
+//
+
+@implementation GTLRAnalyticsHub_DefaultExchangeConfig
 @end
 
 
@@ -220,6 +244,16 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_LinkedResource
+//
+
+@implementation GTLRAnalyticsHub_LinkedResource
+@dynamic linkedDataset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_ListDataExchangesResponse
 //
 
@@ -248,7 +282,7 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 @implementation GTLRAnalyticsHub_Listing
 @dynamic bigqueryDataset, categories, dataProvider, descriptionProperty,
          displayName, documentation, icon, name, primaryContact, publisher,
-         requestAccess, state;
+         requestAccess, restrictedExportConfig, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -310,6 +344,88 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse
+//
+
+@implementation GTLRAnalyticsHub_ListSharedResourceSubscriptionsResponse
+@dynamic nextPageToken, sharedResourceSubscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sharedResourceSubscriptions" : [GTLRAnalyticsHub_Subscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sharedResourceSubscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_ListSubscriptionsResponse
+//
+
+@implementation GTLRAnalyticsHub_ListSubscriptionsResponse
+@dynamic nextPageToken, subscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subscriptions" : [GTLRAnalyticsHub_Subscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"subscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Operation
+//
+
+@implementation GTLRAnalyticsHub_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Operation_Metadata
+//
+
+@implementation GTLRAnalyticsHub_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Operation_Response
+//
+
+@implementation GTLRAnalyticsHub_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_OperationMetadata
 //
 
@@ -354,11 +470,120 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_RefreshSubscriptionRequest
+//
+
+@implementation GTLRAnalyticsHub_RefreshSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RefreshSubscriptionResponse
+//
+
+@implementation GTLRAnalyticsHub_RefreshSubscriptionResponse
+@dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RestrictedExportConfig
+//
+
+@implementation GTLRAnalyticsHub_RestrictedExportConfig
+@dynamic enabled, restrictDirectTableAccess, restrictQueryResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RevokeSubscriptionRequest
+//
+
+@implementation GTLRAnalyticsHub_RevokeSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RevokeSubscriptionResponse
+//
+
+@implementation GTLRAnalyticsHub_RevokeSubscriptionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_SetIamPolicyRequest
 //
 
 @implementation GTLRAnalyticsHub_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SharingEnvironmentConfig
+//
+
+@implementation GTLRAnalyticsHub_SharingEnvironmentConfig
+@dynamic dcrExchangeConfig, defaultExchangeConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Status
+//
+
+@implementation GTLRAnalyticsHub_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRAnalyticsHub_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Status_Details_Item
+//
+
+@implementation GTLRAnalyticsHub_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SubscribeDataExchangeRequest
+//
+
+@implementation GTLRAnalyticsHub_SubscribeDataExchangeRequest
+@dynamic destination, subscriberContact, subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SubscribeDataExchangeResponse
+//
+
+@implementation GTLRAnalyticsHub_SubscribeDataExchangeResponse
+@dynamic subscription;
 @end
 
 
@@ -378,6 +603,33 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 //
 
 @implementation GTLRAnalyticsHub_SubscribeListingResponse
+@dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Subscription
+//
+
+@implementation GTLRAnalyticsHub_Subscription
+@dynamic creationTime, dataExchange, lastModifyTime, linkedDatasetMap, listing,
+         name, organizationDisplayName, organizationId, state,
+         subscriberContact;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Subscription_LinkedDatasetMap
+//
+
+@implementation GTLRAnalyticsHub_Subscription_LinkedDatasetMap
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAnalyticsHub_LinkedResource class];
+}
+
 @end
 
 

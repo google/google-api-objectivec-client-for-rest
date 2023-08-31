@@ -151,15 +151,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_Accelerator : GTLRObject
 
 /**
- *  Number of accelerator cards exposed to the instance.
+ *  Optional. Number of accelerator cards exposed to the instance.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Type of accelerator resource to attach to the instance, for example,
- *  "nvidia-tesla-p100".
+ *  Optional. Type of accelerator resource to attach to the instance, for
+ *  example, `"nvidia-tesla-p100"`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -307,17 +307,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @interface GTLRCloudWorkstations_Container : GTLRObject
 
-/** Arguments passed to the entrypoint. */
+/** Optional. Arguments passed to the entrypoint. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
-/** If set, overrides the default ENTRYPOINT specified by the image. */
+/**
+ *  Optional. If set, overrides the default ENTRYPOINT specified by the image.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
-/** Environment variables passed to the container's entrypoint. */
+/** Optional. Environment variables passed to the container's entrypoint. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Container_Env *env;
 
 /**
- *  A Docker container image that defines a custom environment. Cloud
+ *  Optional. A Docker container image that defines a custom environment. Cloud
  *  Workstations provides a number of [preconfigured
  *  images](https://cloud.google.com/workstations/docs/preconfigured-base-images),
  *  but you can create your own [custom container
@@ -329,20 +331,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  If set, overrides the USER specified in the image with the given uid.
+ *  Optional. If set, overrides the USER specified in the image with the given
+ *  uid.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *runAsUser;
 
-/** If set, overrides the default DIR specified by the image. */
+/** Optional. If set, overrides the default DIR specified by the image. */
 @property(nonatomic, copy, nullable) NSString *workingDir;
 
 @end
 
 
 /**
- *  Environment variables passed to the container's entrypoint.
+ *  Optional. Environment variables passed to the container's entrypoint.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -364,7 +367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Immutable. The name of the Google Cloud KMS encryption key. For example,
- *  `projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME`.
+ *  `"projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME"`.
  *  The key must be in the same region as the workstation configuration.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
@@ -437,7 +440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceConfidentialInstanceConfig : GTLRObject
 
 /**
- *  Whether the instance has confidential compute enabled.
+ *  Optional. Whether the instance has confidential compute enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -452,25 +455,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceInstance : GTLRObject
 
 /**
- *  A list of the type and count of accelerator cards attached to the instance.
+ *  Optional. A list of the type and count of accelerator cards attached to the
+ *  instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_Accelerator *> *accelerators;
 
 /**
- *  The size of the boot disk for the VM in gigabytes (GB). The minimum boot
- *  disk size is `30` GB. Defaults to `50` GB.
+ *  Optional. The size of the boot disk for the VM in gigabytes (GB). The
+ *  minimum boot disk size is `30` GB. Defaults to `50` GB.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
 
-/** A set of Compute Engine Confidential VM instance options. */
+/** Optional. A set of Compute Engine Confidential VM instance options. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /**
- *  When set to true, disables public IP addresses for VMs. If you disable
- *  public IP addresses, you must set up Private Google Access or Cloud NAT on
- *  your network. If you use Private Google Access and you use
+ *  Optional. When set to true, disables public IP addresses for VMs. If you
+ *  disable public IP addresses, you must set up Private Google Access or Cloud
+ *  NAT on your network. If you use Private Google Access and you use
  *  `private.googleapis.com` or `restricted.googleapis.com` for Container
  *  Registry and Artifact Registry, make sure that you set up DNS records for
  *  domains `*.gcr.io` and `*.pkg.dev`. Defaults to false (VMs have public IP
@@ -481,16 +485,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) NSNumber *disablePublicIpAddresses;
 
 /**
- *  Whether to enable nested virtualization on instances.
+ *  Optional. Whether to enable nested virtualization on Cloud Workstations VMs
+ *  created under this workstation configuration. Nested virtualization lets you
+ *  run virtual machine (VM) instances inside your workstation. Before enabling
+ *  nested virtualization, consider the following important considerations.
+ *  Cloud Workstations instances are subject to the [same restrictions as
+ *  Compute Engine
+ *  instances](https://cloud.google.com/compute/docs/instances/nested-virtualization/overview#restrictions):
+ *  * **Organization policy**: projects, folders, or organizations may be
+ *  restricted from creating nested VMs if the **Disable VM nested
+ *  virtualization** constraint is enforced in the organization policy. For more
+ *  information, see the Compute Engine section, [Checking whether nested
+ *  virtualization is
+ *  allowed](https://cloud.google.com/compute/docs/instances/nested-virtualization/managing-constraint#checking_whether_nested_virtualization_is_allowed).
+ *  * **Performance**: nested VMs might experience a 10% or greater decrease in
+ *  performance for workloads that are CPU-bound and possibly greater than a 10%
+ *  decrease for workloads that are input/output bound. * **Machine Type**:
+ *  nested virtualization can only be enabled on workstation configurations that
+ *  specify a machine_type in the N1 or N2 machine series. * **GPUs**: nested
+ *  virtualization may not be enabled on workstation configurations with
+ *  accelerators. * **Operating System**: Because [Container-Optimized
+ *  OS](https://cloud.google.com/compute/docs/images/os-details#container-optimized_os_cos)
+ *  does not support nested virtualization, when nested virtualization is
+ *  enabled, the underlying Compute Engine VM instances boot from an [Ubuntu
+ *  LTS](https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts)
+ *  image.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
- *  The type of machine to use for VM instances—for example, `e2-standard-4`.
- *  For more information about machine types that Cloud Workstations supports,
- *  see the list of [available machine
+ *  Optional. The type of machine to use for VM instances—for example,
+ *  `"e2-standard-4"`. For more information about machine types that Cloud
+ *  Workstations supports, see the list of [available machine
  *  types](https://cloud.google.com/workstations/docs/available-machine-types).
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
@@ -504,21 +532,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) NSNumber *pooledInstances;
 
 /**
- *  The number of VMs that the system should keep idle so that new workstations
- *  can be started quickly for new users. Defaults to `0` in the API.
+ *  Optional. The number of VMs that the system should keep idle so that new
+ *  workstations can be started quickly for new users. Defaults to `0` in the
+ *  API.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *poolSize;
 
 /**
- *  The email address of the service account for Cloud Workstations VMs created
- *  with this configuration. When specified, be sure that the service account
- *  has `logginglogEntries.create` permission on the project so it can write
- *  logs out to Cloud Logging. If using a custom container image, the service
- *  account must have permissions to pull the specified image. If you as the
- *  administrator want to be able to `ssh` into the underlying VM, you need to
- *  set this value to a service account for which you have the
+ *  Optional. The email address of the service account for Cloud Workstations
+ *  VMs created with this configuration. When specified, be sure that the
+ *  service account has `logginglogEntries.create` permission on the project so
+ *  it can write logs out to Cloud Logging. If using a custom container image,
+ *  the service account must have permissions to pull the specified image. If
+ *  you as the administrator want to be able to `ssh` into the underlying VM,
+ *  you need to set this value to a service account for which you have the
  *  `iam.serviceAccounts.actAs` permission. Conversely, if you don't want anyone
  *  to be able to `ssh` into the underlying VM, use a service account where no
  *  one has that permission. If not set, VMs run with a service account provided
@@ -527,12 +556,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** A set of Compute Engine Shielded instance options. */
+/** Optional. A set of Compute Engine Shielded instance options. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
- *  Network tags to add to the Compute Engine machines backing the workstations.
- *  This option applies [network
+ *  Optional. Network tags to add to the Compute Engine VMs backing the
+ *  workstations. This option applies [network
  *  tags](https://cloud.google.com/vpc/docs/add-remove-network-tags) to VMs
  *  created with this configuration. These network tags enable the creation of
  *  [firewall
@@ -545,7 +574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  A PersistentDirectory backed by a Compute Engine regional persistent disk.
- *  The `persistentDirectories[]` field is repeated, but it may contain only one
+ *  The persistent_directories field is repeated, but it may contain only one
  *  entry. It creates a [persistent
  *  disk](https://cloud.google.com/compute/docs/disks/persistent-disks) that
  *  mounts to the workstation VM at `/home` when the session starts and detaches
@@ -555,22 +584,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceRegionalPersistentDisk : GTLRObject
 
 /**
- *  The [type of the persistent
+ *  Optional. The [type of the persistent
  *  disk](https://cloud.google.com/compute/docs/disks#disk-types) for the home
- *  directory. Defaults to `pd-standard`.
+ *  directory. Defaults to `"pd-standard"`.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
- *  Type of file system that the disk should be formatted with. The workstation
- *  image must support this file system type. Must be empty if source_snapshot
- *  is set. Defaults to `ext4`.
+ *  Optional. Type of file system that the disk should be formatted with. The
+ *  workstation image must support this file system type. Must be empty if
+ *  source_snapshot is set. Defaults to `"ext4"`.
  */
 @property(nonatomic, copy, nullable) NSString *fsType;
 
 /**
- *  Whether the persistent disk should be deleted when the workstation is
- *  deleted. Valid values are `DELETE` and `RETAIN`. Defaults to `DELETE`.
+ *  Optional. Whether the persistent disk should be deleted when the workstation
+ *  is deleted. Valid values are `DELETE` and `RETAIN`. Defaults to `DELETE`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudWorkstations_GceRegionalPersistentDisk_ReclaimPolicy_Delete
@@ -585,18 +614,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *reclaimPolicy;
 
 /**
- *  The GB capacity of a persistent home directory for each workstation created
- *  with this configuration. Must be empty if `source_snapshot` is set. Valid
- *  values are `10`, `50`, `100`, `200`, `500`, or `1000`. Defaults to `200`. If
- *  less than `200` GB, the `diskType` must be `pd-balanced` or `pd-ssd`.
+ *  Optional. The GB capacity of a persistent home directory for each
+ *  workstation created with this configuration. Must be empty if
+ *  source_snapshot is set. Valid values are `10`, `50`, `100`, `200`, `500`, or
+ *  `1000`. Defaults to `200`. If less than `200` GB, the disk_type must be
+ *  `"pd-balanced"` or `"pd-ssd"`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
 
 /**
- *  Name of the snapshot to use as the source for the disk. If set, size_gb and
- *  fs_type must be empty.
+ *  Optional. Name of the snapshot to use as the source for the disk. If set,
+ *  size_gb and fs_type must be empty.
  */
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
@@ -609,21 +639,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceShieldedInstanceConfig : GTLRObject
 
 /**
- *  Whether the instance has integrity monitoring enabled.
+ *  Optional. Whether the instance has integrity monitoring enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
 
 /**
- *  Whether the instance has Secure Boot enabled.
+ *  Optional. Whether the instance has Secure Boot enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
 
 /**
- *  Whether the instance has the vTPM enabled.
+ *  Optional. Whether the instance has the vTPM enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -848,12 +878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_ListWorkstationsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
+ *  Optional. Token to retrieve the next page of results, or empty if there are
+ *  no more results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Unreachable resources. */
+/** Optional. Unreachable resources. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 /**
@@ -901,8 +931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -930,8 +960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -991,7 +1021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 /** A PersistentDirectory backed by a Compute Engine persistent disk. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceRegionalPersistentDisk *gcePd;
 
-/** Location of this directory in the running workstation. */
+/** Optional. Location of this directory in the running workstation. */
 @property(nonatomic, copy, nullable) NSString *mountPath;
 
 @end
@@ -1010,7 +1040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1018,14 +1048,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudWorkstations_Policy : GTLRObject
@@ -1088,23 +1119,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Configuration options for private clusters.
+ *  Configuration options for private workstation clusters.
  */
 @interface GTLRCloudWorkstations_PrivateClusterConfig : GTLRObject
 
 /**
- *  Additional projects that are allowed to attach to the workstation cluster's
- *  service attachment. By default, the workstation cluster's project and the
- *  VPC host project (if different) are allowed.
+ *  Optional. Additional projects that are allowed to attach to the workstation
+ *  cluster's service attachment. By default, the workstation cluster's project
+ *  and the VPC host project (if different) are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedProjects;
 
 /**
  *  Output only. Hostname for the workstation cluster. This field will be
  *  populated only when private endpoint is enabled. To access workstations in
- *  the cluster, create a new DNS zone mapping this domain name to an internal
- *  IP address and a forwarding rule mapping that address to the service
- *  attachment.
+ *  the workstation cluster, create a new DNS zone mapping this domain name to
+ *  an internal IP address and a forwarding rule mapping that address to the
+ *  service attachment.
  */
 @property(nonatomic, copy, nullable) NSString *clusterHostname;
 
@@ -1118,8 +1149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 /**
  *  Output only. Service attachment URI for the workstation cluster. The service
  *  attachemnt is created when private endpoint is enabled. To access
- *  workstations in the cluster, configure access to the managed service using
- *  [Private Service
+ *  workstations in the workstation cluster, configure access to the managed
+ *  service using [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
  */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
@@ -1132,11 +1163,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @interface GTLRCloudWorkstations_ReadinessCheck : GTLRObject
 
-/** Path to which the request should be sent. */
+/** Optional. Path to which the request should be sent. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Port to which the request should be sent.
+ *  Optional. Port to which the request should be sent.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1175,14 +1206,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_StartWorkstationRequest : GTLRObject
 
 /**
- *  If set, the request will be rejected if the latest version of the
+ *  Optional. If set, the request will be rejected if the latest version of the
  *  workstation on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1242,14 +1273,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_StopWorkstationRequest : GTLRObject
 
 /**
- *  If set, the request will be rejected if the latest version of the
+ *  Optional. If set, the request will be rejected if the latest version of the
  *  workstation on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1292,24 +1323,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @interface GTLRCloudWorkstations_Workstation : GTLRObject
 
-/** Client-specified annotations. */
+/** Optional. Client-specified annotations. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Workstation_Annotations *annotations;
 
-/** Output only. Time when this resource was created. */
+/** Output only. Time when this workstation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. Time when this resource was soft-deleted. */
+/** Output only. Time when this workstation was soft-deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/** Human-readable name for this resource. */
+/** Optional. Human-readable name for this workstation. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Environment variables passed to the workstation container's entrypoint. */
+/**
+ *  Optional. Environment variables passed to the workstation container's
+ *  entrypoint.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Workstation_Env *env;
 
 /**
- *  Checksum computed by the server. May be sent on update and delete requests
- *  to make sure that the client has an up-to-date value before proceeding.
+ *  Optional. Checksum computed by the server. May be sent on update and delete
+ *  requests to make sure that the client has an up-to-date value before
+ *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1322,17 +1357,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation and that are also propagated to the
+ *  underlying Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Workstation_Labels *labels;
 
-/** Full name of this resource. */
+/** Full name of this workstation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Indicates whether this resource is currently being updated to
- *  match its intended state.
+ *  Output only. Indicates whether this workstation is currently being updated
+ *  to match its intended state.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1358,17 +1395,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. A system-assigned unique identifier for this resource. */
+/** Output only. A system-assigned unique identifier for this workstation. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Time when this resource was most recently updated. */
+/** Output only. Time when this workstation was most recently updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Client-specified annotations.
+ *  Optional. Client-specified annotations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1380,7 +1417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Environment variables passed to the workstation container's entrypoint.
+ *  Optional. Environment variables passed to the workstation container's
+ *  entrypoint.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1392,8 +1430,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation and that are also propagated to the
+ *  underlying Compute Engine resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1405,70 +1445,77 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A grouping of workstation configurations and the associated workstations in
- *  that region.
+ *  A workstation cluster resource in the Cloud Workstations API. Defines a
+ *  group of workstations in a particular region and the VPC network they're
+ *  attached to.
  */
 @interface GTLRCloudWorkstations_WorkstationCluster : GTLRObject
 
-/** Client-specified annotations. */
+/** Optional. Client-specified annotations. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationCluster_Annotations *annotations;
 
-/** Output only. Status conditions describing the current resource state. */
+/**
+ *  Output only. Status conditions describing the workstation cluster's current
+ *  state.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_Status *> *conditions;
 
 /**
- *  Output only. The private IP address of the control plane for this cluster.
- *  Workstation VMs need access to this IP address to work with the service, so
- *  make sure that your firewall rules allow egress from the workstation VMs to
- *  this address.
+ *  Output only. The private IP address of the control plane for this
+ *  workstation cluster. Workstation VMs need access to this IP address to work
+ *  with the service, so make sure that your firewall rules allow egress from
+ *  the workstation VMs to this address.
  */
 @property(nonatomic, copy, nullable) NSString *controlPlaneIp;
 
-/** Output only. Time when this resource was created. */
+/** Output only. Time when this workstation cluster was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. Whether this resource is in degraded mode, in which case it may
- *  require user action to restore full functionality. Details can be found in
- *  the `conditions` field.
+ *  Output only. Whether this workstation cluster is in degraded mode, in which
+ *  case it may require user action to restore full functionality. Details can
+ *  be found in conditions.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *degraded;
 
-/** Output only. Time when this resource was soft-deleted. */
+/** Output only. Time when this workstation cluster was soft-deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/** Human-readable name for this resource. */
+/** Optional. Human-readable name for this workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Checksum computed by the server. May be sent on update and delete requests
- *  to make sure that the client has an up-to-date value before proceeding.
+ *  Optional. Checksum computed by the server. May be sent on update and delete
+ *  requests to make sure that the client has an up-to-date value before
+ *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation cluster and that are also propagated to the
+ *  underlying Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationCluster_Labels *labels;
 
-/** Full name of this resource. */
+/** Full name of this workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. Name of the Compute Engine network in which instances associated
- *  with this cluster will be created.
+ *  with this workstation cluster will be created.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
-/** Configuration for private cluster. */
+/** Optional. Configuration for private workstation cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_PrivateClusterConfig *privateClusterConfig;
 
 /**
- *  Output only. Indicates whether this resource is currently being updated to
- *  match its intended state.
+ *  Output only. Indicates whether this workstation cluster is currently being
+ *  updated to match its intended state.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1476,22 +1523,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Immutable. Name of the Compute Engine subnetwork in which instances
- *  associated with this cluster will be created. Must be part of the subnetwork
- *  specified for this cluster.
+ *  associated with this workstation cluster will be created. Must be part of
+ *  the subnetwork specified for this workstation cluster.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
-/** Output only. A system-assigned unique identifier for this resource. */
+/**
+ *  Output only. A system-assigned unique identifier for this workstation
+ *  cluster.
+ */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Time when this resource was most recently updated. */
+/**
+ *  Output only. Time when this workstation cluster was most recently updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Client-specified annotations.
+ *  Optional. Client-specified annotations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1503,8 +1555,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation cluster and that are also propagated to the
+ *  underlying Compute Engine resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1516,46 +1570,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  A set of configuration options that describe how a workstation runs.
- *  Workstation configurations are intended to be shared across multiple
- *  workstations.
+ *  A workstation configuration resource in the Cloud Workstations API.
+ *  Workstation configurations act as templates for workstations. The
+ *  workstation configuration defines details such as the workstation virtual
+ *  machine (VM) instance type, persistent storage, container image defining
+ *  environment, which IDE or Code Editor to use, and more. Administrators and
+ *  platform teams can also use [Identity and Access Management
+ *  (IAM)](https://cloud.google.com/iam/docs/overview) rules to grant access to
+ *  teams or to individual developers.
  */
 @interface GTLRCloudWorkstations_WorkstationConfig : GTLRObject
 
-/** Client-specified annotations. */
+/** Optional. Client-specified annotations. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationConfig_Annotations *annotations;
 
 /** Output only. Status conditions describing the current resource state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_Status *> *conditions;
 
 /**
- *  Container that runs upon startup for each workstation using this workstation
- *  configuration.
+ *  Optional. Container that runs upon startup for each workstation using this
+ *  workstation configuration.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Container *container;
 
-/** Output only. Time when this resource was created. */
+/** Output only. Time when this workstation configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Output only. Whether this resource is degraded, in which case it may require
- *  user action to restore full functionality. See also the `conditions` field.
+ *  user action to restore full functionality. See also the conditions field.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *degraded;
 
-/** Output only. Time when this resource was soft-deleted. */
+/** Output only. Time when this workstation configuration was soft-deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/** Human-readable name for this resource. */
+/** Optional. Human-readable name for this workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Whether to enable Linux `auditd` logging on the workstation. When enabled, a
- *  service account must also be specified that has `logging.buckets.write`
- *  permission on the project. Operating system audit logging is distinct from
- *  [Cloud Audit
+ *  Optional. Whether to enable Linux `auditd` logging on the workstation. When
+ *  enabled, a service account must also be specified that has
+ *  `logging.buckets.write` permission on the project. Operating system audit
+ *  logging is distinct from [Cloud Audit
  *  Logs](https://cloud.google.com/workstations/docs/audit-logging).
  *
  *  Uses NSNumber of boolValue.
@@ -1579,80 +1638,89 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_CustomerEncryptionKey *encryptionKey;
 
 /**
- *  Checksum computed by the server. May be sent on update and delete requests
- *  to make sure that the client has an up-to-date value before proceeding.
+ *  Optional. Checksum computed by the server. May be sent on update and delete
+ *  requests to make sure that the client has an up-to-date value before
+ *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Runtime host for the workstation. */
+/** Optional. Runtime host for the workstation. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Host *host;
 
 /**
- *  Number of seconds to wait before automatically stopping a workstation after
- *  it last received user traffic. A value of `0s` indicates that Cloud
- *  Workstations VMs created with this configuration should never time out due
- *  to idleness. Provide
+ *  Optional. Number of seconds to wait before automatically stopping a
+ *  workstation after it last received user traffic. A value of `"0s"` indicates
+ *  that Cloud Workstations VMs created with this configuration should never
+ *  time out due to idleness. Provide
  *  [duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)
- *  terminated by `s` for seconds—for example, `7200s` (2 hours). The default is
- *  `1200s` (20 minutes).
+ *  terminated by `s` for seconds—for example, `"7200s"` (2 hours). The default
+ *  is `"1200s"` (20 minutes).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation configuration and that are also propagated to
+ *  the underlying Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationConfig_Labels *labels;
 
-/** Full name of this resource. */
+/** Full name of this workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Directories to persist across workstation sessions. */
+/** Optional. Directories to persist across workstation sessions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_PersistentDirectory *> *persistentDirectories;
 
 /**
- *  Readiness checks to perform when starting a workstation using this
+ *  Optional. Readiness checks to perform when starting a workstation using this
  *  workstation configuration. Mark a workstation as running only after all
  *  specified readiness checks return 200 status codes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_ReadinessCheck *> *readinessChecks;
 
 /**
- *  Output only. Indicates whether this resource is currently being updated to
- *  match its intended state.
+ *  Output only. Indicates whether this workstation configuration is currently
+ *  being updated to match its intended state.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
- *  Number of seconds that a workstation can run until it is automatically shut
- *  down. We recommend that workstations be shut down daily to reduce costs and
- *  so that security updates can be applied upon restart. The `idleTimeout` and
- *  `runningTimeout` parameters are independent of each other. Note that the
- *  `runningTimeout` parameter shuts down VMs after the specified time,
+ *  Optional. Number of seconds that a workstation can run until it is
+ *  automatically shut down. We recommend that workstations be shut down daily
+ *  to reduce costs and so that security updates can be applied upon restart.
+ *  The idle_timeout and running_timeout fields are independent of each other.
+ *  Note that the running_timeout field shuts down VMs after the specified time,
  *  regardless of whether or not the VMs are idle. Provide duration terminated
- *  by `s` for seconds—for example, `54000s` (15 hours). Defaults to `43200s`
- *  (12 hours). A value of `0` indicates that workstations using this
- *  configuration should never time out. If `encryption_key` is set, it must be
- *  greater than `0` and less than `86400s` (24 hours). Warning: A value of `0s`
- *  indicates that Cloud Workstations VMs created with this configuration have
- *  no maximum running time. This is strongly discouraged because you incur
- *  costs and will not pick up security updates.
+ *  by `s` for seconds—for example, `"54000s"` (15 hours). Defaults to
+ *  `"43200s"` (12 hours). A value of `"0s"` indicates that workstations using
+ *  this configuration should never time out. If encryption_key is set, it must
+ *  be greater than `"0s"` and less than `"86400s"` (24 hours). Warning: A value
+ *  of `"0s"` indicates that Cloud Workstations VMs created with this
+ *  configuration have no maximum running time. This is strongly discouraged
+ *  because you incur costs and will not pick up security updates.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *runningTimeout;
 
-/** Output only. A system-assigned unique identifier for this resource. */
+/**
+ *  Output only. A system-assigned unique identifier for this workstation
+ *  configuration.
+ */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Time when this resource was most recently updated. */
+/**
+ *  Output only. Time when this workstation configuration was most recently
+ *  updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Client-specified annotations.
+ *  Optional. Client-specified annotations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1664,8 +1732,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Client-specified labels that are applied to the resource and that are also
- *  propagated to the underlying Compute Engine resources.
+ *  Optional.
+ *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
+ *  are applied to the workstation configuration and that are also propagated to
+ *  the underlying Compute Engine resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

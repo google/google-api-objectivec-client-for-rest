@@ -141,6 +141,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse.enrolledSolution
+
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeRecommendation;
+/**
+ *  Used for Retail Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink.state
 
 /**
@@ -1678,6 +1700,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Metadata related to the EnrollSolution method. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response for EnrollSolution method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse : GTLRObject
+
+/**
+ *  Retail API solution that the project has enrolled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeRecommendation
+ *        Used for Recommendations AI. (Value: "SOLUTION_TYPE_RECOMMENDATION")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeSearch
+ *        Used for Retail Search. (Value: "SOLUTION_TYPE_SEARCH")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeUnspecified
+ *        Default value. (Value: "SOLUTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrolledSolution;
 
 @end
 
@@ -5427,9 +5478,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /**
  *  The brands of the product. A maximum of 30 brands are allowed unless
- *  overridden via pantheon UI. Each brand must be a UTF-8 encoded string with a
- *  length limit of 1,000 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. Corresponding properties: Google Merchant Center property
+ *  overridden through the Google Cloud console. Each brand must be a UTF-8
+ *  encoded string with a length limit of 1,000 characters. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property
  *  [brand](https://support.google.com/merchants/answer/6324351). Schema.org
  *  property [Product.brand](https://schema.org/brand).
  */
@@ -8173,8 +8225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -8202,8 +8254,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

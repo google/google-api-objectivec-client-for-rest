@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Workload Manager API (workloadmanager/v1)
+// Description:
+//   Workload Manager is a service that provides tooling for enterprise
+//   workloads to automate the deployment and validation of your workloads
+//   against best practices and recommendations.
 // Documentation:
 //   https://cloud.google.com/workload-manager/docs
 
@@ -28,11 +32,35 @@ NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties.applicationType
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_ApplicationTypeUnspecified = @"APPLICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_Netweaver = @"NETWEAVER";
+
+// GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties.databaseType
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Db2 = @"DB2";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_Hana = @"HANA";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_MaxDb = @"MAX_DB";
+
+// GTLRWorkloadManager_SapDiscoveryResource.resourceKind
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindAddress = @"RESOURCE_KIND_ADDRESS";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindBackendService = @"RESOURCE_KIND_BACKEND_SERVICE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindDisk = @"RESOURCE_KIND_DISK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindFilestore = @"RESOURCE_KIND_FILESTORE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindForwardingRule = @"RESOURCE_KIND_FORWARDING_RULE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindHealthCheck = @"RESOURCE_KIND_HEALTH_CHECK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstance = @"RESOURCE_KIND_INSTANCE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindInstanceGroup = @"RESOURCE_KIND_INSTANCE_GROUP";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindNetwork = @"RESOURCE_KIND_NETWORK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindPublicAddress = @"RESOURCE_KIND_PUBLIC_ADDRESS";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindSubnetwork = @"RESOURCE_KIND_SUBNETWORK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceKind_ResourceKindUnspecified = @"RESOURCE_KIND_UNSPECIFIED";
+
 // GTLRWorkloadManager_SapDiscoveryResource.resourceType
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Compute = @"COMPUTE";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Network = @"NETWORK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeCompute = @"RESOURCE_TYPE_COMPUTE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeNetwork = @"RESOURCE_TYPE_NETWORK";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeStorage = @"RESOURCE_TYPE_STORAGE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
-NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Storage = @"STORAGE";
 
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Corosync = @"COROSYNC";
@@ -50,6 +78,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_D
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory = @"DB_MAX_SERVER_MEMORY";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling = @"DB_TRANSACTION_LOG_HANDLING";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount = @"DB_VIRTUAL_LOG_FILE_COUNT";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics = @"INSTANCE_METRICS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os = @"OS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified = @"SQLSERVER_VALIDATION_TYPE_UNSPECIFIED";
 
@@ -520,7 +549,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponent
-@dynamic applicationType, databaseType, hostProject, resources, sid;
+@dynamic applicationProperties, databaseProperties, hostProject, resources, sid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -529,6 +558,26 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties
+@dynamic applicationType, ascsUri, nfsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties
+@dynamic databaseType, primaryInstanceUri, sharedNfsUri;
 @end
 
 
@@ -618,7 +667,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SqlserverValidation
-@dynamic agentVersion, validationDetails;
+@dynamic agentVersion, instance, projectId, validationDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -632,23 +681,41 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_SqlserverValidationValidationDetail
+//   GTLRWorkloadManager_SqlserverValidationDetails
 //
 
-@implementation GTLRWorkloadManager_SqlserverValidationValidationDetail
-@dynamic fields, type;
+@implementation GTLRWorkloadManager_SqlserverValidationDetails
+@dynamic fields;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields
+//   GTLRWorkloadManager_SqlserverValidationDetails_Fields
 //
 
-@implementation GTLRWorkloadManager_SqlserverValidationValidationDetail_Fields
+@implementation GTLRWorkloadManager_SqlserverValidationDetails_Fields
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_SqlserverValidationValidationDetail
+//
+
+@implementation GTLRWorkloadManager_SqlserverValidationValidationDetail
+@dynamic details, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRWorkloadManager_SqlserverValidationDetails class]
+  };
+  return map;
 }
 
 @end

@@ -220,17 +220,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `X-CloudScheduler-JobName`: This header will contain the job name. *
  *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
  *  unix-cron format, this header will contain the job schedule time in RFC3339
- *  UTC "Zulu" format. If the job has an body, Cloud Scheduler sets the
- *  following headers: * `Content-Type`: By default, the `Content-Type` header
- *  is set to `"application/octet-stream"`. The default can be overridden by
- *  explictly setting `Content-Type` to a particular media type when the job is
- *  created. For example, `Content-Type` can be set to `"application/json"`. *
- *  `Content-Length`: This is computed by Cloud Scheduler. This value is output
- *  only. It cannot be changed. The headers below are output only. They cannot
- *  be set or overridden: * `X-Google-*`: For Google internal use only. *
- *  `X-AppEngine-*`: For Google internal use only. In addition, some App Engine
- *  headers, which contain job-specific information, are also be sent to the job
- *  handler.
+ *  UTC "Zulu" format. If the job has a body and the following headers are not
+ *  set by the user, Cloud Scheduler sets default values: * `Content-Type`: This
+ *  will be set to `"application/octet-stream"`. You can override this default
+ *  by explicitly setting `Content-Type` to a particular media type when
+ *  creating the job. For example, you can set `Content-Type` to
+ *  `"application/json"`. The headers below are output only. They cannot be set
+ *  or overridden: * `Content-Length`: This is computed by Cloud Scheduler. *
+ *  `X-Google-*`: For Google internal use only. * `X-AppEngine-*`: For Google
+ *  internal use only. In addition, some App Engine headers, which contain
+ *  job-specific information, are also be sent to the job handler.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_AppEngineHttpTarget_Headers *headers;
 
@@ -281,17 +280,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `X-CloudScheduler-JobName`: This header will contain the job name. *
  *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
  *  unix-cron format, this header will contain the job schedule time in RFC3339
- *  UTC "Zulu" format. If the job has an body, Cloud Scheduler sets the
- *  following headers: * `Content-Type`: By default, the `Content-Type` header
- *  is set to `"application/octet-stream"`. The default can be overridden by
- *  explictly setting `Content-Type` to a particular media type when the job is
- *  created. For example, `Content-Type` can be set to `"application/json"`. *
- *  `Content-Length`: This is computed by Cloud Scheduler. This value is output
- *  only. It cannot be changed. The headers below are output only. They cannot
- *  be set or overridden: * `X-Google-*`: For Google internal use only. *
- *  `X-AppEngine-*`: For Google internal use only. In addition, some App Engine
- *  headers, which contain job-specific information, are also be sent to the job
- *  handler.
+ *  UTC "Zulu" format. If the job has a body and the following headers are not
+ *  set by the user, Cloud Scheduler sets default values: * `Content-Type`: This
+ *  will be set to `"application/octet-stream"`. You can override this default
+ *  by explicitly setting `Content-Type` to a particular media type when
+ *  creating the job. For example, you can set `Content-Type` to
+ *  `"application/json"`. The headers below are output only. They cannot be set
+ *  or overridden: * `Content-Length`: This is computed by Cloud Scheduler. *
+ *  `X-Google-*`: For Google internal use only. * `X-AppEngine-*`: For Google
+ *  internal use only. In addition, some App Engine headers, which contain
+ *  job-specific information, are also be sent to the job handler.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -401,21 +399,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, copy, nullable) NSString *body;
 
 /**
+ *  HTTP request headers. This map contains the header field names and values.
  *  The user can specify HTTP request headers to send with the job's HTTP
- *  request. This map contains the header field names and values. Repeated
- *  headers are not supported, but a header value can contain commas. These
- *  headers represent a subset of the headers that will accompany the job's HTTP
- *  request. Some HTTP request headers will be ignored or replaced. A partial
- *  list of headers that will be ignored or replaced is below: - Host: This will
- *  be computed by Cloud Scheduler and derived from uri. * `Content-Length`:
- *  This will be computed by Cloud Scheduler. * `User-Agent`: This will be set
- *  to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google internal use only. *
- *  `X-AppEngine-*`: Google internal use only. * `X-CloudScheduler`: This header
- *  will be set to true. * `X-CloudScheduler-JobName`: This header will contain
- *  the job name. * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs
- *  specified in the unix-cron format, this header will contain the job schedule
- *  time in RFC3339 UTC "Zulu" format. The total size of headers must be less
- *  than 80KB.
+ *  request. Repeated headers are not supported, but a header value can contain
+ *  commas. The following headers represent a subset of the headers that
+ *  accompany the job's HTTP request. Some HTTP request headers are ignored or
+ *  replaced. A partial list of headers that are ignored or replaced is below: *
+ *  Host: This will be computed by Cloud Scheduler and derived from uri. *
+ *  `Content-Length`: This will be computed by Cloud Scheduler. * `User-Agent`:
+ *  This will be set to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google
+ *  internal use only. * `X-AppEngine-*`: Google internal use only. *
+ *  `X-CloudScheduler`: This header will be set to true. *
+ *  `X-CloudScheduler-JobName`: This header will contain the job name. *
+ *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
+ *  unix-cron format, this header will contain the job schedule time in RFC3339
+ *  UTC "Zulu" format. If the job has a body and the following headers are not
+ *  set by the user, Cloud Scheduler sets default values: * `Content-Type`: This
+ *  will be set to `"application/octet-stream"`. You can override this default
+ *  by explicitly setting `Content-Type` to a particular media type when
+ *  creating the job. For example, you can set `Content-Type` to
+ *  `"application/json"`. The total size of headers must be less than 80KB.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_HttpTarget_Headers *headers;
 
@@ -475,21 +478,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
+ *  HTTP request headers. This map contains the header field names and values.
  *  The user can specify HTTP request headers to send with the job's HTTP
- *  request. This map contains the header field names and values. Repeated
- *  headers are not supported, but a header value can contain commas. These
- *  headers represent a subset of the headers that will accompany the job's HTTP
- *  request. Some HTTP request headers will be ignored or replaced. A partial
- *  list of headers that will be ignored or replaced is below: - Host: This will
- *  be computed by Cloud Scheduler and derived from uri. * `Content-Length`:
- *  This will be computed by Cloud Scheduler. * `User-Agent`: This will be set
- *  to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google internal use only. *
- *  `X-AppEngine-*`: Google internal use only. * `X-CloudScheduler`: This header
- *  will be set to true. * `X-CloudScheduler-JobName`: This header will contain
- *  the job name. * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs
- *  specified in the unix-cron format, this header will contain the job schedule
- *  time in RFC3339 UTC "Zulu" format. The total size of headers must be less
- *  than 80KB.
+ *  request. Repeated headers are not supported, but a header value can contain
+ *  commas. The following headers represent a subset of the headers that
+ *  accompany the job's HTTP request. Some HTTP request headers are ignored or
+ *  replaced. A partial list of headers that are ignored or replaced is below: *
+ *  Host: This will be computed by Cloud Scheduler and derived from uri. *
+ *  `Content-Length`: This will be computed by Cloud Scheduler. * `User-Agent`:
+ *  This will be set to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google
+ *  internal use only. * `X-AppEngine-*`: Google internal use only. *
+ *  `X-CloudScheduler`: This header will be set to true. *
+ *  `X-CloudScheduler-JobName`: This header will contain the job name. *
+ *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
+ *  unix-cron format, this header will contain the job schedule time in RFC3339
+ *  UTC "Zulu" format. If the job has a body and the following headers are not
+ *  set by the user, Cloud Scheduler sets default values: * `Content-Type`: This
+ *  will be set to `"application/octet-stream"`. You can override this default
+ *  by explicitly setting `Content-Type` to a particular media type when
+ *  creating the job. For example, you can set `Content-Type` to
+ *  `"application/json"`. The total size of headers must be less than 80KB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -574,7 +582,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  time will be delayed if the previous execution has not ended when its
  *  scheduled time occurs. If retry_count > 0 and a job attempt fails, the job
  *  will be tried a total of retry_count times, with exponential backoff, until
- *  the next scheduled start time.
+ *  the next scheduled start time. If retry_count is 0, a job attempt will not
+ *  be retried if it fails. Instead the Cloud Scheduler system will wait for the
+ *  next scheduled execution time. Setting retry_count to 0 does not prevent
+ *  failed jobs from running according to schedule after the failure.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -812,15 +823,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @interface GTLRCloudScheduler_PubsubMessage : GTLRObject
 
 /**
- *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data. This can be used to filter messages on the
+ *  Optional. Attributes for this message. If this field is empty, the message
+ *  must contain non-empty data. This can be used to filter messages on the
  *  subscription.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_PubsubMessage_Attributes *attributes;
 
 /**
- *  The message data field. If this field is empty, the message must contain at
- *  least one attribute.
+ *  Optional. The message data field. If this field is empty, the message must
+ *  contain at least one attribute.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -828,28 +839,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  ID of this message, assigned by the server when the message is published.
- *  Guaranteed to be unique within the topic. This value may be read by a
- *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
+ *  Optional. ID of this message, assigned by the server when the message is
+ *  published. Guaranteed to be unique within the topic. This value may be read
+ *  by a subscriber that receives a `PubsubMessage` via a `Pull` call or a push
  *  delivery. It must not be populated by the publisher in a `Publish` call.
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
- *  If non-empty, identifies related messages for which publish order should be
- *  respected. If a `Subscription` has `enable_message_ordering` set to `true`,
- *  messages published with the same non-empty `ordering_key` value will be
- *  delivered to subscribers in the order in which they are received by the
- *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
- *  must specify the same `ordering_key` value. For more information, see
- *  [ordering messages](https://cloud.google.com/pubsub/docs/ordering).
+ *  Optional. If non-empty, identifies related messages for which publish order
+ *  should be respected. If a `Subscription` has `enable_message_ordering` set
+ *  to `true`, messages published with the same non-empty `ordering_key` value
+ *  will be delivered to subscribers in the order in which they are received by
+ *  the Pub/Sub system. All `PubsubMessage`s published in a given
+ *  `PublishRequest` must specify the same `ordering_key` value. For more
+ *  information, see [ordering
+ *  messages](https://cloud.google.com/pubsub/docs/ordering).
  */
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
 /**
- *  The time at which the message was published, populated by the server when it
- *  receives the `Publish` call. It must not be populated by the publisher in a
- *  `Publish` call.
+ *  Optional. The time at which the message was published, populated by the
+ *  server when it receives the `Publish` call. It must not be populated by the
+ *  publisher in a `Publish` call.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
@@ -857,8 +869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
- *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data. This can be used to filter messages on the
+ *  Optional. Attributes for this message. If this field is empty, the message
+ *  must contain non-empty data. This can be used to filter messages on the
  *  subscription.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -972,12 +984,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 /**
  *  The number of attempts that the system will make to run a job using the
  *  exponential backoff procedure described by max_doublings. The default value
- *  of retry_count is zero. If retry_count is zero, a job attempt will *not* be
+ *  of retry_count is zero. If retry_count is 0, a job attempt will not be
  *  retried if it fails. Instead the Cloud Scheduler system will wait for the
- *  next scheduled execution time. If retry_count is set to a non-zero number
- *  then Cloud Scheduler will retry failed attempts, using exponential backoff,
- *  retry_count times, or until the next scheduled execution time, whichever
- *  comes first. Values greater than 5 and negative values are not allowed.
+ *  next scheduled execution time. Setting retry_count to 0 does not prevent
+ *  failed jobs from running according to schedule after the failure. If
+ *  retry_count is set to a non-zero number then Cloud Scheduler will retry
+ *  failed attempts, using exponential backoff, retry_count times, or until the
+ *  next scheduled execution time, whichever comes first. Values greater than 5
+ *  and negative values are not allowed.
  *
  *  Uses NSNumber of intValue.
  */

@@ -36,8 +36,9 @@
 //
 
 @implementation GTLRTranslate_BatchTranslateDocumentRequest
-@dynamic customizedAttribution, enableShadowRemovalNativePdf, formatConversions,
-         glossaries, inputConfigs, models, outputConfig, sourceLanguageCode,
+@dynamic customizedAttribution, enableRotationCorrection,
+         enableShadowRemovalNativePdf, formatConversions, glossaries,
+         inputConfigs, models, outputConfig, sourceLanguageCode,
          targetLanguageCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

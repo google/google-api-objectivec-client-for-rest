@@ -1074,7 +1074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Provides functionality to remove logged activity for a user. Currently to be
- *  used only for dynamite 1p clients **Note:** This API requires a standard end
+ *  used only for Chat 1p clients **Note:** This API requires a standard end
  *  user account to execute. A service account can't perform Remove Activity
  *  requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
@@ -1092,7 +1092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_RemoveActivityResponse.
  *
  *  Provides functionality to remove logged activity for a user. Currently to be
- *  used only for dynamite 1p clients **Note:** This API requires a standard end
+ *  used only for Chat 1p clients **Note:** This API requires a standard end
  *  user account to execute. A service account can't perform Remove Activity
  *  requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
@@ -1177,9 +1177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  translations. Set this field using the language set in browser or for the
  *  page. In the event that the user's language preference is known, set this
  *  field to the known user language. When specified, the documents in search
- *  results are biased towards the specified language. From Suggest API
- *  perspective, for 3p suggest this is used as a hint while making predictions
- *  to add language boosting.
+ *  results are biased towards the specified language. The Suggest API uses this
+ *  field as a hint to make better third-party autocomplete predictions.
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 

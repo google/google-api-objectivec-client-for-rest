@@ -13,7 +13,6 @@
 #endif
 
 @class GTLRCCAIPlatform_AdminUser;
-@class GTLRCCAIPlatform_BasicAuthConfig;
 @class GTLRCCAIPlatform_ContactCenter;
 @class GTLRCCAIPlatform_ContactCenter_Labels;
 @class GTLRCCAIPlatform_InstanceConfig;
@@ -24,7 +23,6 @@
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
 @class GTLRCCAIPlatform_Quota;
-@class GTLRCCAIPlatform_SamlConfig;
 @class GTLRCCAIPlatform_SAMLParams;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
@@ -61,6 +59,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDe
  *  Value: "STATE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed;
+/**
+ *  State IN_GRACE_PERIOD
+ *
+ *  Value: "STATE_IN_GRACE_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod;
 /**
  *  State TERMINATED
  *
@@ -205,39 +209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  GTLRCCAIPlatform_AuthenticationConfig
- */
-@interface GTLRCCAIPlatform_AuthenticationConfig : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCCAIPlatform_BasicAuthConfig *basicAuthSetting;
-
-/**
- *  Name of authentication config. Format:
- *  projects/{project}/locations/{location}/contactCenters/{contact_center}/authentication-config
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@property(nonatomic, strong, nullable) GTLRCCAIPlatform_SamlConfig *samlSetting;
-
-@end
-
-
-/**
- *  GTLRCCAIPlatform_BasicAuthConfig
- */
-@interface GTLRCCAIPlatform_BasicAuthConfig : GTLRObject
-
-/**
- *  enabled
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-@end
-
-
-/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCCAIPlatform_CancelOperationRequest : GTLRObject
@@ -304,6 +275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        DEPLOYING (Value: "STATE_DEPLOYING")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateFailed State FAILED
  *        (Value: "STATE_FAILED")
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod State
+ *        IN_GRACE_PERIOD (Value: "STATE_IN_GRACE_PERIOD")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminated State
  *        TERMINATED (Value: "STATE_TERMINATED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminating State
@@ -617,8 +590,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -646,8 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -746,29 +719,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
  */
 @property(nonatomic, copy, nullable) NSString *contactCenterInstanceSize;
-
-@end
-
-
-/**
- *  GTLRCCAIPlatform_SamlConfig
- */
-@interface GTLRCCAIPlatform_SamlConfig : GTLRObject
-
-/** X.509 public certificate for IdP */
-@property(nonatomic, copy, nullable) NSString *cert;
-
-/** IdP field that maps to the user’s email address */
-@property(nonatomic, copy, nullable) NSString *emailMapping;
-
-/**
- *  The entity ID for the identity provider. Example: https://[IDP
- *  Domain]/saml/metadata
- */
-@property(nonatomic, copy, nullable) NSString *entityId;
-
-/** The sso login url. Example: https://[IDP Domain]/saml/sso/login */
-@property(nonatomic, copy, nullable) NSString *loginUri;
 
 @end
 

@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRDriveLabels.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeDriveLabelsDriveAdminLabels     = @"https://www.googleapis.com/auth/drive.admin.labels";
+NSString * const kGTLRAuthScopeDriveLabelsDriveAdminLabelsReadonly = @"https://www.googleapis.com/auth/drive.admin.labels.readonly";
+NSString * const kGTLRAuthScopeDriveLabelsDriveLabels          = @"https://www.googleapis.com/auth/drive.labels";
+NSString * const kGTLRAuthScopeDriveLabelsDriveLabelsReadonly  = @"https://www.googleapis.com/auth/drive.labels.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRDriveLabelsService
+//
+
 @implementation GTLRDriveLabelsService
 
 - (instancetype)init {

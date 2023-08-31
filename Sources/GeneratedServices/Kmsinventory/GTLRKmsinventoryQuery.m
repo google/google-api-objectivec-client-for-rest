@@ -18,7 +18,14 @@
 
 @implementation GTLRKmsinventoryQuery_OrganizationsProtectedResourcesSearch
 
-@dynamic cryptoKey, pageSize, pageToken, scope;
+@dynamic cryptoKey, pageSize, pageToken, resourceTypes, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithScope:(NSString *)scope {
   NSArray *pathParams = @[ @"scope" ];

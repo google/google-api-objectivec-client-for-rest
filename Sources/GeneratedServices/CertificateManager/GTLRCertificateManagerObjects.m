@@ -24,6 +24,7 @@ NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_Failed =
 NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCertificateManager_Certificate.scope
+NSString * const kGTLRCertificateManager_Certificate_Scope_AllRegions = @"ALL_REGIONS";
 NSString * const kGTLRCertificateManager_Certificate_Scope_Default = @"DEFAULT";
 NSString * const kGTLRCertificateManager_Certificate_Scope_EdgeCache = @"EDGE_CACHE";
 

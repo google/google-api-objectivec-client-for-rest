@@ -29,6 +29,11 @@ NSString * const kGTLRGKEOnPrem_BareMetalCluster_State_Running = @"RUNNING";
 NSString * const kGTLRGKEOnPrem_BareMetalCluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRGKEOnPrem_BareMetalCluster_State_Stopping = @"STOPPING";
 
+// GTLRGKEOnPrem_BareMetalClusterUpgradePolicy.policy
+NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Concurrent = @"CONCURRENT";
+NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_NodePoolPolicyUnspecified = @"NODE_POOL_POLICY_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_BareMetalClusterUpgradePolicy_Policy_Serial = @"SERIAL";
+
 // GTLRGKEOnPrem_BareMetalNodePool.state
 NSString * const kGTLRGKEOnPrem_BareMetalNodePool_State_Degraded = @"DEGRADED";
 NSString * const kGTLRGKEOnPrem_BareMetalNodePool_State_Error  = @"ERROR";
@@ -46,6 +51,27 @@ NSString * const kGTLRGKEOnPrem_BareMetalNodePoolConfig_OperatingSystem_Operatin
 NSString * const kGTLRGKEOnPrem_BareMetalWorkloadNodeConfig_ContainerRuntime_Containerd = @"CONTAINERD";
 NSString * const kGTLRGKEOnPrem_BareMetalWorkloadNodeConfig_ContainerRuntime_ContainerRuntimeUnspecified = @"CONTAINER_RUNTIME_UNSPECIFIED";
 
+// GTLRGKEOnPrem_BinaryAuthorization.evaluationMode
+NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_Disabled = @"DISABLED";
+NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified = @"EVALUATION_MODE_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce = @"PROJECT_SINGLETON_POLICY_ENFORCE";
+
+// GTLRGKEOnPrem_Metric.metric
+NSString * const kGTLRGKEOnPrem_Metric_Metric_MetricIdUnspecified = @"METRIC_ID_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesDraining    = @"NODES_DRAINING";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesFailed      = @"NODES_FAILED";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesHealthy     = @"NODES_HEALTHY";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesInMaintenance = @"NODES_IN_MAINTENANCE";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesPendingUpgrade = @"NODES_PENDING_UPGRADE";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesReconciling = @"NODES_RECONCILING";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesTotal       = @"NODES_TOTAL";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesUpgraded    = @"NODES_UPGRADED";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_NodesUpgrading   = @"NODES_UPGRADING";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsCompleted = @"PREFLIGHTS_COMPLETED";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsFailed = @"PREFLIGHTS_FAILED";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsRunning = @"PREFLIGHTS_RUNNING";
+NSString * const kGTLRGKEOnPrem_Metric_Metric_PreflightsTotal  = @"PREFLIGHTS_TOTAL";
+
 // GTLRGKEOnPrem_NodeTaint.effect
 NSString * const kGTLRGKEOnPrem_NodeTaint_Effect_EffectUnspecified = @"EFFECT_UNSPECIFIED";
 NSString * const kGTLRGKEOnPrem_NodeTaint_Effect_NoExecute     = @"NO_EXECUTE";
@@ -56,8 +82,24 @@ NSString * const kGTLRGKEOnPrem_NodeTaint_Effect_PreferNoSchedule = @"PREFER_NO_
 NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Create  = @"CREATE";
 NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Delete  = @"DELETE";
 NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_PlatformUpgrade = @"PLATFORM_UPGRADE";
 NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Update  = @"UPDATE";
 NSString * const kGTLRGKEOnPrem_OperationMetadata_Type_Upgrade = @"UPGRADE";
+
+// GTLRGKEOnPrem_OperationStage.stage
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Configure = @"CONFIGURE";
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Deploy    = @"DEPLOY";
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_HealthCheck = @"HEALTH_CHECK";
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_PreflightCheck = @"PREFLIGHT_CHECK";
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_OperationStage_Stage_Update    = @"UPDATE";
+
+// GTLRGKEOnPrem_OperationStage.state
+NSString * const kGTLRGKEOnPrem_OperationStage_State_Failed    = @"FAILED";
+NSString * const kGTLRGKEOnPrem_OperationStage_State_Pending   = @"PENDING";
+NSString * const kGTLRGKEOnPrem_OperationStage_State_Running   = @"RUNNING";
+NSString * const kGTLRGKEOnPrem_OperationStage_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRGKEOnPrem_OperationStage_State_Succeeded = @"SUCCEEDED";
 
 // GTLRGKEOnPrem_ResourceCondition.state
 NSString * const kGTLRGKEOnPrem_ResourceCondition_State_StateFalse = @"STATE_FALSE";
@@ -143,12 +185,12 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_BareMetalAdminCluster
-@dynamic annotations, bareMetalVersion, clusterOperations, controlPlane,
-         createTime, deleteTime, descriptionProperty, endpoint, ETag, fleet,
-         loadBalancer, localName, maintenanceConfig, maintenanceStatus, name,
-         networkConfig, nodeAccessConfig, nodeConfig, osEnvironmentConfig,
-         proxy, reconciling, securityConfig, state, status, storage, uid,
-         updateTime, validationCheck;
+@dynamic annotations, bareMetalVersion, binaryAuthorization, clusterOperations,
+         controlPlane, createTime, deleteTime, descriptionProperty, endpoint,
+         ETag, fleet, loadBalancer, localName, maintenanceConfig,
+         maintenanceStatus, name, networkConfig, nodeAccessConfig, nodeConfig,
+         osEnvironmentConfig, proxy, reconciling, securityConfig, state, status,
+         storage, uid, updateTime, validationCheck;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -471,12 +513,12 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_BareMetalCluster
 @dynamic adminClusterMembership, adminClusterName, annotations,
-         bareMetalVersion, clusterOperations, controlPlane, createTime,
-         deleteTime, descriptionProperty, endpoint, ETag, fleet, loadBalancer,
-         localName, maintenanceConfig, maintenanceStatus, name, networkConfig,
-         nodeAccessConfig, nodeConfig, osEnvironmentConfig, proxy, reconciling,
-         securityConfig, state, status, storage, uid, updateTime,
-         validationCheck;
+         bareMetalVersion, binaryAuthorization, clusterOperations, controlPlane,
+         createTime, deleteTime, descriptionProperty, endpoint, ETag, fleet,
+         loadBalancer, localName, maintenanceConfig, maintenanceStatus, name,
+         networkConfig, nodeAccessConfig, nodeConfig, osEnvironmentConfig,
+         proxy, reconciling, securityConfig, state, status, storage, uid,
+         updateTime, upgradePolicy, validationCheck;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -510,6 +552,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_BareMetalClusterOperationsConfig
 @dynamic enableApplicationLogs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_BareMetalClusterUpgradePolicy
+//
+
+@implementation GTLRGKEOnPrem_BareMetalClusterUpgradePolicy
+@dynamic policy;
 @end
 
 
@@ -970,6 +1022,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_BinaryAuthorization
+//
+
+@implementation GTLRGKEOnPrem_BinaryAuthorization
+@dynamic evaluationMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_Binding
 //
 
@@ -1321,6 +1383,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_Metric
+//
+
+@implementation GTLRGKEOnPrem_Metric
+@dynamic doubleValue, intValue, metric, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_NodeTaint
 //
 
@@ -1373,8 +1445,44 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_OperationMetadata
-@dynamic apiVersion, controlPlaneDisconnected, createTime, endTime,
+@dynamic apiVersion, controlPlaneDisconnected, createTime, endTime, progress,
          requestedCancellation, statusMessage, target, type, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_OperationProgress
+//
+
+@implementation GTLRGKEOnPrem_OperationProgress
+@dynamic stages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stages" : [GTLRGKEOnPrem_OperationStage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_OperationStage
+//
+
+@implementation GTLRGKEOnPrem_OperationStage
+@dynamic endTime, metrics, stage, startTime, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRGKEOnPrem_Metric class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1694,7 +1802,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminControlPlaneNodeConfig
-@dynamic cpus, memory;
+@dynamic cpus, memory, replicas;
 @end
 
 
@@ -1710,11 +1818,21 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_VmwareAdminHAControlPlaneConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminHAControlPlaneConfig
+@dynamic controlPlaneIpBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_VmwareAdminLoadBalancerConfig
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminLoadBalancerConfig
-@dynamic f5Config, manualLbConfig, metalLbConfig, vipConfig;
+@dynamic f5Config, manualLbConfig, metalLbConfig, seesawConfig, vipConfig;
 @end
 
 
@@ -1744,13 +1862,32 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminNetworkConfig
-@dynamic dhcpIpConfig, hostConfig, podAddressCidrBlocks,
+@dynamic dhcpIpConfig, haControlPlaneConfig, hostConfig, podAddressCidrBlocks,
          serviceAddressCidrBlocks, staticIpConfig, vcenterNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"podAddressCidrBlocks" : [NSString class],
     @"serviceAddressCidrBlocks" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_VmwareAdminSeesawConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminSeesawConfig
+@dynamic enableHa, group, ipBlocks, masterIp, stackdriverName, vms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipBlocks" : [GTLRGKEOnPrem_VmwareIpBlock class],
+    @"vms" : [NSString class]
   };
   return map;
 }
@@ -1818,9 +1955,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @dynamic adminClusterMembership, adminClusterName, annotations,
          antiAffinityGroups, authorization, autoRepairConfig, controlPlaneNode,
          createTime, dataplaneV2, deleteTime, descriptionProperty,
-         enableControlPlaneV2, endpoint, ETag, fleet, loadBalancer, localName,
-         name, networkConfig, onPremVersion, reconciling, state, status,
-         storage, uid, updateTime, validationCheck, vcenter, vmTrackingEnabled;
+         disableBundledIngress, enableControlPlaneV2, endpoint, ETag, fleet,
+         loadBalancer, localName, name, networkConfig, onPremVersion,
+         reconciling, state, status, storage, uid, updateTime, upgradePolicy,
+         validationCheck, vcenter, vmTrackingEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1844,6 +1982,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_VmwareClusterUpgradePolicy
+//
+
+@implementation GTLRGKEOnPrem_VmwareClusterUpgradePolicy
+@dynamic controlPlaneOnly;
 @end
 
 
@@ -1961,7 +2109,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareLoadBalancerConfig
-@dynamic f5Config, manualLbConfig, metalLbConfig, vipConfig;
+@dynamic f5Config, manualLbConfig, metalLbConfig, seesawConfig, vipConfig;
 @end
 
 
@@ -2108,6 +2256,25 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_VmwareSeesawConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareSeesawConfig
+@dynamic enableHa, group, ipBlocks, masterIp, stackdriverName, vms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipBlocks" : [GTLRGKEOnPrem_VmwareIpBlock class],
+    @"vms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_VmwareStaticIpConfig
 //
 
@@ -2171,10 +2338,11 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareVsphereConfig
-@dynamic datastore, storagePolicyName, tags;
+@dynamic datastore, hostGroups, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"hostGroups" : [NSString class],
     @"tags" : [GTLRGKEOnPrem_VmwareVsphereTag class]
   };
   return map;

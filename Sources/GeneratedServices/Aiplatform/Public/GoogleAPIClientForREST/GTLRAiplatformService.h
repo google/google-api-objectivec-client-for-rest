@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Game Services API (gameservices/v1)
+//   Vertex AI API (aiplatform/v1)
 // Description:
-//   Deploy and manage infrastructure for global multiplayer gaming experiences.
+//   Train high-quality custom machine learning models with minimal machine
+//   learning expertise and effort.
 // Documentation:
-//   https://cloud.google.com/solutions/gaming/
+//   https://cloud.google.com/vertex-ai/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -22,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -30,23 +31,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGameServicesCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAiplatformCloudPlatform;
+/**
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAiplatformCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
-//   GTLRGameServicesService
+//   GTLRAiplatformService
 //
 
 /**
- *  Service for executing Game Services API queries.
+ *  Service for executing Vertex AI API queries.
  *
- *  Deploy and manage infrastructure for global multiplayer gaming experiences.
+ *  Train high-quality custom machine learning models with minimal machine
+ *  learning expertise and effort.
  */
-@interface GTLRGameServicesService : GTLRService
+@interface GTLRAiplatformService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRGameServicesQuery.h. The query can the be sent with GTLRService's execute
+// GTLRAiplatformQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

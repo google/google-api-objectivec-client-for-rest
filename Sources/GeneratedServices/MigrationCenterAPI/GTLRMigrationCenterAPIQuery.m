@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Migration Center API (migrationcenter/v1alpha1)
+//   Migration Center API (migrationcenter/v1)
 // Description:
 //   A unified platform that helps you accelerate your end-to-end cloud journey
 //   from your current on-premises or cloud environments to Google Cloud.
@@ -17,7 +17,6 @@
 // view
 NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic     = @"ASSET_VIEW_BASIC";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewFull      = @"ASSET_VIEW_FULL";
-NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard  = @"ASSET_VIEW_STANDARD";
 NSString * const kGTLRMigrationCenterAPIViewAssetViewUnspecified = @"ASSET_VIEW_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewBasic = @"ERROR_FRAME_VIEW_BASIC";
 NSString * const kGTLRMigrationCenterAPIViewErrorFrameViewFull = @"ERROR_FRAME_VIEW_FULL";
@@ -53,7 +52,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/assets:aggregateValues";
+  NSString *pathURITemplate = @"v1/{+parent}/assets:aggregateValues";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsAggregateValues *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -80,7 +79,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/assets:batchDelete";
+  NSString *pathURITemplate = @"v1/{+parent}/assets:batchDelete";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsBatchDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -107,7 +106,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/assets:batchUpdate";
+  NSString *pathURITemplate = @"v1/{+parent}/assets:batchUpdate";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsBatchUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -127,7 +126,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -146,7 +145,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -165,7 +164,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/assets";
+  NSString *pathURITemplate = @"v1/{+parent}/assets";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -191,7 +190,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -218,7 +217,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/assets:reportAssetFrames";
+  NSString *pathURITemplate = @"v1/{+parent}/assets:reportAssetFrames";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsReportAssetFrames *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -238,7 +237,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -257,7 +256,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGetSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -283,7 +282,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"group" ];
-  NSString *pathURITemplate = @"v1alpha1/{+group}:addAssets";
+  NSString *pathURITemplate = @"v1/{+group}:addAssets";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsAddAssets *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -310,7 +309,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/groups";
+  NSString *pathURITemplate = @"v1/{+parent}/groups";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -330,7 +329,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -349,7 +348,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -368,7 +367,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/groups";
+  NSString *pathURITemplate = @"v1/{+parent}/groups";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -394,7 +393,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -421,7 +420,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"group" ];
-  NSString *pathURITemplate = @"v1alpha1/{+group}:removeAssets";
+  NSString *pathURITemplate = @"v1/{+group}:removeAssets";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsGroupsRemoveAssets *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -448,7 +447,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/importJobs";
+  NSString *pathURITemplate = @"v1/{+parent}/importJobs";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -468,7 +467,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -487,7 +486,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -513,7 +512,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/importDataFiles";
+  NSString *pathURITemplate = @"v1/{+parent}/importDataFiles";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsImportDataFilesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -533,7 +532,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsImportDataFilesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -552,7 +551,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsImportDataFilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -571,7 +570,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/importDataFiles";
+  NSString *pathURITemplate = @"v1/{+parent}/importDataFiles";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsImportDataFilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -590,7 +589,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/importJobs";
+  NSString *pathURITemplate = @"v1/{+parent}/importJobs";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -616,7 +615,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -643,7 +642,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}:run";
+  NSString *pathURITemplate = @"v1/{+name}:run";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsRun *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -670,7 +669,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}:validate";
+  NSString *pathURITemplate = @"v1/{+name}:validate";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsImportJobsValidate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -690,7 +689,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -716,7 +715,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -736,7 +735,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -755,7 +754,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -774,7 +773,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -800,7 +799,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/preferenceSets";
+  NSString *pathURITemplate = @"v1/{+parent}/preferenceSets";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsPreferenceSetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -820,7 +819,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsPreferenceSetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -839,7 +838,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsPreferenceSetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -858,7 +857,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/preferenceSets";
+  NSString *pathURITemplate = @"v1/{+parent}/preferenceSets";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsPreferenceSetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -884,7 +883,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsPreferenceSetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -911,7 +910,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/reportConfigs";
+  NSString *pathURITemplate = @"v1/{+parent}/reportConfigs";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -931,7 +930,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -950,7 +949,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -969,7 +968,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/reportConfigs";
+  NSString *pathURITemplate = @"v1/{+parent}/reportConfigs";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -995,7 +994,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/reports";
+  NSString *pathURITemplate = @"v1/{+parent}/reports";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsReportsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1015,7 +1014,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsReportsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1034,7 +1033,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsReportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1053,7 +1052,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/reports";
+  NSString *pathURITemplate = @"v1/{+parent}/reports";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsReportConfigsReportsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1079,7 +1078,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/sources";
+  NSString *pathURITemplate = @"v1/{+parent}/sources";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1099,7 +1098,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1118,7 +1117,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1137,7 +1136,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/errorFrames";
+  NSString *pathURITemplate = @"v1/{+parent}/errorFrames";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesErrorFramesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1156,7 +1155,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1175,7 +1174,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/sources";
+  NSString *pathURITemplate = @"v1/{+parent}/sources";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1201,7 +1200,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsSourcesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1228,7 +1227,7 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRMigrationCenterAPIQuery_ProjectsLocationsUpdateSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"

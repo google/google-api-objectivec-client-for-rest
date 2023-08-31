@@ -856,9 +856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Output only. True if new timestamp column based partitioning is in use,
- *  false if legacy ingestion-time partitioning is in use.All new sinks will
- *  have this field set true and will use timestamp column based partitioning.
- *  If use_partitioned_tables is false, this value has no meaning and will be
+ *  false if legacy ingress-time partitioning is in use.All new sinks will have
+ *  this field set true and will use timestamp column based partitioning. If
+ *  use_partitioned_tables is false, this value has no meaning and will be
  *  false. Legacy sinks using partitioned tables will have this field set to
  *  false.
  *
@@ -966,7 +966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  For
  *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
  *  enable CMEK for the Log Router, set this field to a valid kms_key_name for
- *  which the associated service account has the required
+ *  which the associated service account has the needed
  *  cloudkms.cryptoKeyEncrypterDecrypter roles assigned for the key.The Cloud
  *  KMS key used by the Log Router can be updated by changing the kms_key_name
  *  to a new valid key name or disabled by setting the key name to an empty
@@ -1173,11 +1173,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_DeleteLinkRequest : GTLRObject
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1703,9 +1703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. The maximum number of results to return from this request. Default
- *  is 50. If the value is negative or exceeds 1000, the request is rejected.
- *  The presence of next_page_token in the response indicates that more results
- *  might be available.
+ *  is 50. If the value is negative, the request is rejected.The presence of
+ *  next_page_token in the response indicates that more results might be
+ *  available.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2175,7 +2175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  characters: upper and lower case alphanumeric characters, forward-slash,
  *  underscore, hyphen, and period.For backward compatibility, if log_name
  *  begins with a forward-slash, such as /projects/..., then the log entry is
- *  ingested as usual, but the forward-slash is removed. Listing the log entry
+ *  processed as usual, but the forward-slash is removed. Listing the log entry
  *  will not show the leading slash and filtering for a log name with a leading
  *  slash will never return any results.
  */
@@ -2287,7 +2287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  logs retention period
  *  (https://cloud.google.com/logging/quotas#logs_retention_periods) in the
  *  past, and that don't exceed 24 hours in the future. Log entries outside
- *  those time boundaries aren't ingested by Logging.
+ *  those time boundaries are rejected by Logging.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
@@ -2297,9 +2297,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  example, if your trace data is stored in the Cloud project
  *  "my-trace-project" and if the service that is creating the log entry
  *  receives a trace header that includes the trace ID "12345", then the service
- *  should use "projects/my-tracing-project/traces/12345".The trace field
- *  provides the link between logs and traces. By using this field, you can
- *  navigate from a log entry to a trace.
+ *  should use "projects/my-trace-project/traces/12345".The trace field provides
+ *  the link between logs and traces. By using this field, you can navigate from
+ *  a log entry to a trace.
  */
 @property(nonatomic, copy, nullable) NSString *trace;
 
@@ -2732,10 +2732,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Required. The export destination: "storage.googleapis.com/[GCS_BUCKET]"
  *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
  *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]"
- *  "logging.googleapis.com/projects/[PROJECT_ID]" The sink's writer_identity,
- *  set when the sink is created, must have permission to write to the
- *  destination or else the log entries are not exported. For more information,
- *  see Exporting Logs with Sinks
+ *  "logging.googleapis.com/projects/[PROJECT_ID]"
+ *  "logging.googleapis.com/projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  The sink's writer_identity, set when the sink is created, must have
+ *  permission to write to the destination or else the log entries are not
+ *  exported. For more information, see Exporting Logs with Sinks
  *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -3403,8 +3404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -3432,8 +3433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -3630,8 +3631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. If set to true, the _Default sink in newly created projects and
  *  folders will created in a disabled state. This can be used to automatically
- *  disable log ingestion if there is already an aggregated sink configured in
- *  the hierarchy. The _Default sink can be re-enabled manually if needed.
+ *  disable log storage if there is already an aggregated sink configured in the
+ *  hierarchy. The _Default sink can be re-enabled manually if needed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3680,9 +3681,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The Cloud region that will be used for _Default and _Required log
- *  buckets for newly created projects and folders. For example europe-west1.
- *  This setting does not affect the location of custom log buckets.
+ *  Optional. The storage location that Cloud Logging will use to create new
+ *  resources when a location is needed but not explicitly provided. The use
+ *  cases includes: The location of _Default and _Required log bucket for newly
+ *  created projects and folders.Example value: europe-west1.Note: this setting
+ *  does not affect the location of resources where a location is explicitly
+ *  provided when created, such as custom log buckets.
  */
 @property(nonatomic, copy, nullable) NSString *storageLocation;
 

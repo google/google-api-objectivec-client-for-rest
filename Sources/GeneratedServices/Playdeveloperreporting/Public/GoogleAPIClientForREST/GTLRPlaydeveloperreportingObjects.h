@@ -669,29 +669,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /**
  *  Singleton resource representing the set of error report metrics. This metric
  *  set contains un-normalized error report counts. **Supported aggregation
- *  periods:** * DAILY: metrics are aggregated in calendar date intervals. The
- *  default and only supported timezone is `America/Los_Angeles`. **Supported
- *  metrics:** * `errorReportCount` (`google.type.Decimal`): Absolute count of
- *  individual error reports that have been received for an app. *
- *  `distinctUsers` (`google.type.Decimal`): Count of distinct users for which
- *  reports have been received. Care must be taken not to aggregate this count
- *  further, as it may result in users being counted multiple times. This value
- *  is not rounded, however it may be an approximation. **Required dimension:**
- *  This dimension must be always specified in all requests in the `dimensions`
- *  field in query requests. * `reportType` (string): the type of error. The
- *  value should correspond to one of the possible values in ErrorType.
- *  **Supported dimensions:** * `apiLevel` (string): the API level of Android
- *  that was running on the user's device, e.g., 26. * `versionCode` (int64):
- *  version of the app that was running on the user's device. * `deviceModel`
- *  (string): unique identifier of the user's device model. The form of the
- *  identifier is 'deviceBrand/device', where deviceBrand corresponds to
- *  Build.BRAND and device corresponds to Build.DEVICE, e.g., google/coral. *
- *  `deviceType` (string): identifier of the device's form factor, e.g., PHONE.
- *  * `issueId` (string): the id an error was assigned to. The value should
- *  correspond to the `{issue}` component of the issue name. * `deviceRamBucket`
- *  (int64): RAM of the device, in MB, in buckets (3GB, 4GB, etc.). *
- *  `deviceSocMake` (string): Make of the device's primary system-on-chip, e.g.,
- *  Samsung.
+ *  periods:** * HOURLY: metrics are aggregated in hourly intervals. The default
+ *  and only supported timezone is `UTC`. * DAILY: metrics are aggregated in
+ *  calendar date intervals. The default and only supported timezone is
+ *  `America/Los_Angeles`. **Supported metrics:** * `errorReportCount`
+ *  (`google.type.Decimal`): Absolute count of individual error reports that
+ *  have been received for an app. * `distinctUsers` (`google.type.Decimal`):
+ *  Count of distinct users for which reports have been received. Care must be
+ *  taken not to aggregate this count further, as it may result in users being
+ *  counted multiple times. This value is not rounded, however it may be an
+ *  approximation. **Required dimension:** This dimension must be always
+ *  specified in all requests in the `dimensions` field in query requests. *
+ *  `reportType` (string): the type of error. The value should correspond to one
+ *  of the possible values in ErrorType. **Supported dimensions:** * `apiLevel`
+ *  (string): the API level of Android that was running on the user's device,
+ *  e.g., 26. * `versionCode` (int64): version of the app that was running on
+ *  the user's device. * `deviceModel` (string): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceType` (string): identifier of the
+ *  device's form factor, e.g., PHONE. * `issueId` (string): the id an error was
+ *  assigned to. The value should correspond to the `{issue}` component of the
+ *  issue name. * `deviceRamBucket` (int64): RAM of the device, in MB, in
+ *  buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's
+ *  primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".

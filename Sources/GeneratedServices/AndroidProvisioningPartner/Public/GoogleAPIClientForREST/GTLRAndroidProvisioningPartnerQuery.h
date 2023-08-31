@@ -680,6 +680,33 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a device's SIM lock state.
+ *
+ *  Method: androiddeviceprovisioning.partners.devices.getSimLockState
+ */
+@interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGetSimLockState : GTLRAndroidProvisioningPartnerQuery
+
+/** Required. The ID of the partner. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse.
+ *
+ *  Gets a device's SIM lock state.
+ *
+ *  @param object The @c
+ *    GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest to include in
+ *    the query.
+ *  @param partnerId Required. The ID of the partner.
+ *
+ *  @return GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGetSimLockState
+ */
++ (instancetype)queryWithObject:(GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest *)object
+                      partnerId:(long long)partnerId;
+
+@end
+
+/**
  *  Updates reseller metadata associated with the device. Android devices only.
  *
  *  Method: androiddeviceprovisioning.partners.devices.metadata

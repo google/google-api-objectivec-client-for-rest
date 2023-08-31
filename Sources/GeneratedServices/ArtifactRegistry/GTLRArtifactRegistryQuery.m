@@ -721,6 +721,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsBatchDelete
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_BatchDeleteVersionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions:batchDelete";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.versions.batchDelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsDelete
 
 @dynamic force, name;

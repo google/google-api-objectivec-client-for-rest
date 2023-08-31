@@ -208,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  */
 @interface GTLRFirebasestorage_Bucket : GTLRObject
 
-/** Resource name of the bucket. */
+/** Output only. Resource name of the bucket. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

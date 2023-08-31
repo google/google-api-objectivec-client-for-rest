@@ -399,8 +399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_ApiSpec_Labels *labels;
 
 /**
- *  A style (format) descriptor for this spec that is specified as a Media Type
- *  (https://en.wikipedia.org/wiki/Media_type). Possible values include
+ *  A style (format) descriptor for this spec that is specified as a [Media
+ *  Type](https://en.wikipedia.org/wiki/Media_type). Possible values include
  *  `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and
  *  `application/vnd.apigee.graphql`, with possible suffixes representing
  *  compression types. These hypothetical names are defined in the vendor tree
@@ -1208,7 +1208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 
 /**
- *  A resource that represents Google Cloud Platform location.
+ *  A resource that represents a Google Cloud location.
  */
 @interface GTLRApigeeRegistry_Location : GTLRObject
 

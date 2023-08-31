@@ -467,6 +467,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_CloudFunctionV2Target
+//
+
+@implementation GTLRMonitoring_CloudFunctionV2Target
+@dynamic cloudRunRevision, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_CloudRun
 //
 
@@ -563,7 +573,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Condition
 @dynamic conditionAbsent, conditionMatchedLog, conditionMonitoringQueryLanguage,
-         conditionThreshold, displayName, name;
+         conditionPrometheusQueryLanguage, conditionThreshold, displayName,
+         name;
 @end
 
 
@@ -712,7 +723,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Documentation
-@dynamic content, mimeType;
+@dynamic content, mimeType, subject;
 @end
 
 
@@ -1739,6 +1750,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_PrometheusQueryLanguageCondition
+//
+
+@implementation GTLRMonitoring_PrometheusQueryLanguageCondition
+@dynamic alertRule, duration, evaluationInterval, labels, query, ruleGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_PrometheusQueryLanguageCondition_Labels
+//
+
+@implementation GTLRMonitoring_PrometheusQueryLanguageCondition_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_QueryLanguageCondition
 //
 
@@ -1950,6 +1985,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_SyntheticMonitorTarget
+//
+
+@implementation GTLRMonitoring_SyntheticMonitorTarget
+@dynamic cloudFunctionV2;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_TcpCheck
 //
 
@@ -2092,7 +2137,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 @implementation GTLRMonitoring_UptimeCheckConfig
 @dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
          isInternal, monitoredResource, name, period, resourceGroup,
-         selectedRegions, tcpCheck, timeout, userLabels;
+         selectedRegions, syntheticMonitor, tcpCheck, timeout, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

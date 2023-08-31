@@ -100,7 +100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 @property(nonatomic, strong, nullable) NSNumber *maxInstances;
 
 /**
- *  Maximum throughput of the connector in Mbps. Default is 300, max is 1000.
+ *  Maximum throughput of the connector in Mbps. Default is 300, max is 1000. If
+ *  both max-throughput and max-instances are provided, max-instances takes
+ *  precedence over max-throughput.
  *
  *  Uses NSNumber of intValue.
  */
@@ -114,7 +116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 @property(nonatomic, strong, nullable) NSNumber *minInstances;
 
 /**
- *  Minimum throughput of the connector in Mbps. Default and min is 200.
+ *  Minimum throughput of the connector in Mbps. Default and min is 200. If both
+ *  min-throughput and min-instances are provided, min-instances takes
+ *  precedence over min-throughput.
  *
  *  Uses NSNumber of intValue.
  */
@@ -320,8 +324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -349,8 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

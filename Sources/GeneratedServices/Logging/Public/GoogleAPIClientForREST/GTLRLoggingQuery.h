@@ -620,11 +620,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksDelete : GTLRLoggingQuery
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -634,11 +634,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a link. This will also delete the corresponding BigQuery linked
  *  dataset.
  *
- *  @param name Required. The full resource name of the link to
- *    delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  @param name Required. The full resource name of the link to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksDelete
  */
@@ -660,11 +660,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksGet : GTLRLoggingQuery
 
 /**
- *  Required. The resource name of the
- *  link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  Required. The resource name of the link:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -673,11 +673,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a link.
  *
- *  @param name Required. The resource name of the
- *    link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  @param name Required. The resource name of the link:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksGet
  */
@@ -709,11 +709,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource whose links are to be
- *  listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  Required. The parent resource whose links are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -722,11 +722,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists links.
  *
- *  @param parent Required. The parent resource whose links are to be
- *    listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  @param parent Required. The parent resource whose links are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsLinksList
  *
@@ -1042,7 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  Method: logging.billingAccounts.locations.buckets.views.get
  *
@@ -1065,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  @param name Required. The resource name of the policy:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -1570,9 +1570,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  Method: logging.billingAccounts.sinks.create
  *
@@ -1584,10 +1584,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -1607,8 +1607,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identities to this API. The sink's destination must be in the same project
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
- *  writer_identity will be a unique service account used only for exports from
- *  the new sink. For more information, see writer_identity in LogSink.
+ *  writer_identity will be a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  used by the sinks with the same parent. For more information, see
+ *  writer_identity in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -1616,9 +1618,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -1808,9 +1810,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -1890,9 +1893,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -1991,7 +1995,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Streaming read of log entries as they are ingested. Until the stream is
+ *  Streaming read of log entries as they are received. Until the stream is
  *  terminated, it will continue reading logs.
  *
  *  Method: logging.entries.tail
@@ -2007,7 +2011,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_TailLogEntriesResponse.
  *
- *  Streaming read of log entries as they are ingested. Until the stream is
+ *  Streaming read of log entries as they are received. Until the stream is
  *  terminated, it will continue reading logs.
  *
  *  @param object The @c GTLRLogging_TailLogEntriesRequest to include in the
@@ -2870,11 +2874,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsBucketsLinksDelete : GTLRLoggingQuery
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2884,11 +2888,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a link. This will also delete the corresponding BigQuery linked
  *  dataset.
  *
- *  @param name Required. The full resource name of the link to
- *    delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  @param name Required. The full resource name of the link to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsLinksDelete
  */
@@ -2910,11 +2914,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsBucketsLinksGet : GTLRLoggingQuery
 
 /**
- *  Required. The resource name of the
- *  link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  Required. The resource name of the link:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2923,11 +2927,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a link.
  *
- *  @param name Required. The resource name of the
- *    link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  @param name Required. The resource name of the link:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsLinksGet
  */
@@ -2959,11 +2963,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource whose links are to be
- *  listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  Required. The parent resource whose links are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2972,11 +2976,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists links.
  *
- *  @param parent Required. The parent resource whose links are to be
- *    listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  @param parent Required. The parent resource whose links are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsLinksList
  *
@@ -3292,7 +3296,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  Method: logging.folders.locations.buckets.views.get
  *
@@ -3315,7 +3319,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  @param name Required. The resource name of the policy:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -3820,9 +3824,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  Method: logging.folders.sinks.create
  *
@@ -3834,10 +3838,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -3857,8 +3861,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identities to this API. The sink's destination must be in the same project
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
- *  writer_identity will be a unique service account used only for exports from
- *  the new sink. For more information, see writer_identity in LogSink.
+ *  writer_identity will be a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  used by the sinks with the same parent. For more information, see
+ *  writer_identity in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -3866,9 +3872,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -4058,9 +4064,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -4140,9 +4147,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -4491,11 +4499,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_LocationsBucketsLinksDelete : GTLRLoggingQuery
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4505,11 +4513,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a link. This will also delete the corresponding BigQuery linked
  *  dataset.
  *
- *  @param name Required. The full resource name of the link to
- *    delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  @param name Required. The full resource name of the link to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_LocationsBucketsLinksDelete
  */
@@ -4531,11 +4539,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_LocationsBucketsLinksGet : GTLRLoggingQuery
 
 /**
- *  Required. The resource name of the
- *  link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  Required. The resource name of the link:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4544,11 +4552,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a link.
  *
- *  @param name Required. The resource name of the
- *    link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  @param name Required. The resource name of the link:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_LocationsBucketsLinksGet
  */
@@ -4580,11 +4588,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource whose links are to be
- *  listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  Required. The parent resource whose links are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4593,11 +4601,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists links.
  *
- *  @param parent Required. The parent resource whose links are to be
- *    listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  @param parent Required. The parent resource whose links are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_LocationsBucketsLinksList
  *
@@ -4913,7 +4921,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  Method: logging.locations.buckets.views.get
  *
@@ -4936,7 +4944,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  @param name Required. The resource name of the policy:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -6004,11 +6012,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsLinksDelete : GTLRLoggingQuery
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6018,11 +6026,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a link. This will also delete the corresponding BigQuery linked
  *  dataset.
  *
- *  @param name Required. The full resource name of the link to
- *    delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  @param name Required. The full resource name of the link to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsLinksDelete
  */
@@ -6044,11 +6052,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsLinksGet : GTLRLoggingQuery
 
 /**
- *  Required. The resource name of the
- *  link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  Required. The resource name of the link:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6057,11 +6065,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a link.
  *
- *  @param name Required. The resource name of the
- *    link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  @param name Required. The resource name of the link:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsLinksGet
  */
@@ -6093,11 +6101,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource whose links are to be
- *  listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  Required. The parent resource whose links are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6106,11 +6114,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists links.
  *
- *  @param parent Required. The parent resource whose links are to be
- *    listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  @param parent Required. The parent resource whose links are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsLinksList
  *
@@ -6426,7 +6434,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  Method: logging.organizations.locations.buckets.views.get
  *
@@ -6449,7 +6457,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  @param name Required. The resource name of the policy:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -6954,9 +6962,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  Method: logging.organizations.sinks.create
  *
@@ -6968,10 +6976,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -6991,8 +6999,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identities to this API. The sink's destination must be in the same project
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
- *  writer_identity will be a unique service account used only for exports from
- *  the new sink. For more information, see writer_identity in LogSink.
+ *  writer_identity will be a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  used by the sinks with the same parent. For more information, see
+ *  writer_identity in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -7000,9 +7010,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -7192,9 +7202,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -7274,9 +7285,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -8047,11 +8059,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsLinksDelete : GTLRLoggingQuery
 
 /**
- *  Required. The full resource name of the link to
- *  delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  Required. The full resource name of the link to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8061,11 +8073,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a link. This will also delete the corresponding BigQuery linked
  *  dataset.
  *
- *  @param name Required. The full resource name of the link to
- *    delete."projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
+ *  @param name Required. The full resource name of the link to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsLinksDelete
  */
@@ -8087,11 +8099,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsLinksGet : GTLRLoggingQuery
 
 /**
- *  Required. The resource name of the
- *  link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  Required. The resource name of the link:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8100,11 +8112,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a link.
  *
- *  @param name Required. The resource name of the
- *    link:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/LINK_ID
+ *  @param name Required. The resource name of the link:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsLinksGet
  */
@@ -8136,11 +8148,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource whose links are to be
- *  listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *  "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  Required. The parent resource whose links are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -8149,11 +8161,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists links.
  *
- *  @param parent Required. The parent resource whose links are to be
- *    listed:"projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/links/"
- *    "organizations/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/"
- *    "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/
+ *  @param parent Required. The parent resource whose links are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsLinksList
  *
@@ -8469,7 +8481,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  Method: logging.projects.locations.buckets.views.get
  *
@@ -8492,7 +8504,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Gets a view on a log bucket..
+ *  Gets a view on a log bucket.
  *
  *  @param name Required. The resource name of the policy:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -9188,9 +9200,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  Method: logging.projects.sinks.create
  *
@@ -9202,10 +9214,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -9225,8 +9237,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identities to this API. The sink's destination must be in the same project
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
- *  writer_identity will be a unique service account used only for exports from
- *  the new sink. For more information, see writer_identity in LogSink.
+ *  writer_identity will be a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  used by the sinks with the same parent. For more information, see
+ *  writer_identity in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -9234,9 +9248,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -9426,9 +9440,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -9508,9 +9523,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -9554,9 +9570,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  Method: logging.sinks.create
  *
@@ -9568,10 +9584,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -9591,8 +9607,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  identities to this API. The sink's destination must be in the same project
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
- *  writer_identity will be a unique service account used only for exports from
- *  the new sink. For more information, see writer_identity in LogSink.
+ *  writer_identity will be a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  used by the sinks with the same parent. For more information, see
+ *  writer_identity in LogSink.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -9600,9 +9618,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogSink.
  *
  *  Creates a sink that exports specified log entries to a destination. The
- *  export of newly-ingested log entries begins immediately, unless the sink's
- *  writer_identity is not permitted to write to the destination. A sink can
- *  export log entries only from the resource owning the sink.
+ *  export begins upon ingress, unless the sink's writer_identity is not
+ *  permitted to write to the destination. A sink can export log entries only
+ *  from the resource owning the sink.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
@@ -9792,9 +9810,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated sink depends on both the old and new values of this field: If the
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
- *  new value is true, then writer_identity is changed to a unique service
- *  account. It is an error if the old value is true and the new value is set to
- *  false or defaulted to false.
+ *  new value is true, then writer_identity is changed to a service agent
+ *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  owned by Cloud Logging. It is an error if the old value is true and the new
+ *  value is set to false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 

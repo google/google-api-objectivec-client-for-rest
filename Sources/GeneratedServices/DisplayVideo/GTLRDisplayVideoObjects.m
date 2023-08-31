@@ -2247,9 +2247,11 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_AdGroupEffe
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeManualCpm = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeManualCpv = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeConversions = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSIONS";
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeConversionValue = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpa = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpm = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM";
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetRoas = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeUnspecified = @"YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_YoutubeAndPartnersSettings.contentCategory
@@ -2257,6 +2259,12 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_Yo
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryLimited = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryStandard = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryUnspecified = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED";
+
+// GTLRDisplayVideo_YoutubeAndPartnersSettings.effectiveContentCategory
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryExpanded = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_EXPANDED";
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryLimited = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_LIMITED";
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryStandard = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD";
+NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryUnspecified = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED";
 
 // GTLRDisplayVideo_YoutubeVideoDetails.unavailableReason
 NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUnavailableReasonDeleted = @"VIDEO_UNAVAILABLE_REASON_DELETED";
@@ -6725,10 +6733,10 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_YoutubeAndPartnersSettings
-@dynamic biddingStrategy, contentCategory, inventorySourceSettings, leadFormId,
-         linkedMerchantId, relatedVideoIds, targetFrequency,
-         thirdPartyMeasurementSettings, videoAdSequenceSettings,
-         viewFrequencyCap;
+@dynamic biddingStrategy, contentCategory, effectiveContentCategory,
+         inventorySourceSettings, leadFormId, linkedMerchantId, relatedVideoIds,
+         targetFrequency, thirdPartyMeasurementSettings,
+         videoAdSequenceSettings, viewFrequencyCap;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

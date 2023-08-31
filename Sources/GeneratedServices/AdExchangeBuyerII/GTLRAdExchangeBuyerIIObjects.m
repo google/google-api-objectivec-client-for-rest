@@ -448,6 +448,7 @@ NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppSto
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_AppleItunes = @"APPLE_ITUNES";
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_AppStoreTypeUnspecified = @"APP_STORE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_GooglePlay = @"GOOGLE_PLAY";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_LgTv = @"LG_TV";
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Oppo = @"OPPO";
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Playstation = @"PLAYSTATION";
 NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Roku = @"ROKU";

@@ -703,7 +703,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The maximum number of reports to return. The service may return fewer than
  *  this value. If unspecified, at most 50 reports will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  value is 100; values above 100 will be coerced to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

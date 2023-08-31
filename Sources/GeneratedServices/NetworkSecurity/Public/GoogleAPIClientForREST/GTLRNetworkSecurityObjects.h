@@ -182,6 +182,79 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid;
 
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
+
+/**
+ *  TLS 1.0
+ *
+ *  Value: "TLS_1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls10;
+/**
+ *  TLS 1.1
+ *
+ *  Value: "TLS_1_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls11;
+/**
+ *  TLS 1.2
+ *
+ *  Value: "TLS_1_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls12;
+/**
+ *  TLS 1.3
+ *
+ *  Value: "TLS_1_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls13;
+/**
+ *  Indicates no TLS version was specified.
+ *
+ *  Value: "TLS_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_TlsVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_TlsInspectionPolicy.tlsFeatureProfile
+
+/**
+ *  Compatible profile. Allows the broadest set of clients, even those which
+ *  support only out-of-date SSL features to negotiate with the TLS inspection
+ *  proxy.
+ *
+ *  Value: "PROFILE_COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCompatible;
+/**
+ *  Custom profile. Allow only the set of allowed SSL features specified in the
+ *  custom_features field of SslPolicy.
+ *
+ *  Value: "PROFILE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCustom;
+/**
+ *  Modern profile. Supports a wide set of SSL features, allowing modern clients
+ *  to negotiate SSL with the TLS inspection proxy.
+ *
+ *  Value: "PROFILE_MODERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileModern;
+/**
+ *  Restricted profile. Supports a reduced set of SSL features, intended to meet
+ *  stricter compliance requirements.
+ *
+ *  Value: "PROFILE_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileRestricted;
+/**
+ *  Indicates no profile was specified.
+ *
+ *  Value: "PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileUnspecified;
+
 /**
  *  Request used by the AddAddressGroupItems method.
  */
@@ -852,7 +925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -860,14 +933,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRNetworkSecurity_GoogleIamV1Policy : GTLRObject
@@ -1480,8 +1554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1509,8 +1583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1788,11 +1862,59 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. List of custom TLS cipher suites selected. This field is valid
+ *  only if the selected tls_feature_profile is CUSTOM. The
+ *  compute.SslPoliciesService.ListAvailableFeatures method returns the set of
+ *  features that can be specified in this list. Note that Secure Web Proxy does
+ *  not yet honor this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customTlsFeatures;
+
+/**
  *  Optional. Free-text description of the resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If FALSE (the default), use our default set of public CAs in
+ *  addition to any CAs specified in trust_config. These public CAs are
+ *  currently based on the Mozilla Root Program and are subject to change over
+ *  time. If TRUE, do not accept our default set of public CAs. Only CAs
+ *  specified in trust_config will be accepted. This defaults to FALSE (use
+ *  public CAs in addition to trust_config) for backwards compatibility, but
+ *  trusting public root CAs is *not recommended* unless the traffic in question
+ *  is outbound to public web servers. When possible, prefer setting this to
+ *  "false" and explicitly specifying trusted CAs and certificates in a
+ *  TrustConfig. Note that Secure Web Proxy does not yet honor this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludePublicCaSet;
+
+/**
+ *  Optional. Minimum TLS version that the firewall should use when negotiating
+ *  connections with both clients and servers. If this is not set, then the
+ *  default value is to allow the broadest set of clients and servers (TLS 1.0
+ *  or higher). Setting this to more restrictive values may improve security,
+ *  but may also prevent the firewall from connecting to some clients or
+ *  servers. Note that Secure Web Proxy does not yet honor this field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls10 TLS
+ *        1.0 (Value: "TLS_1_0")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls11 TLS
+ *        1.1 (Value: "TLS_1_1")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls12 TLS
+ *        1.2 (Value: "TLS_1_2")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls13 TLS
+ *        1.3 (Value: "TLS_1_3")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_TlsVersionUnspecified
+ *        Indicates no TLS version was specified. (Value:
+ *        "TLS_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *minTlsVersion;
 
 /**
  *  Required. Name of the resource. Name is of the form
@@ -1801,6 +1923,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  *  pattern:(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$).
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The selected Profile. If this is not set, then the default value
+ *  is to allow the broadest set of clients and servers ("PROFILE_COMPATIBLE").
+ *  Setting this to more restrictive values may improve security, but may also
+ *  prevent the TLS inspection proxy from connecting to some clients or servers.
+ *  Note that Secure Web Proxy does not yet honor this field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCompatible
+ *        Compatible profile. Allows the broadest set of clients, even those
+ *        which support only out-of-date SSL features to negotiate with the TLS
+ *        inspection proxy. (Value: "PROFILE_COMPATIBLE")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileCustom
+ *        Custom profile. Allow only the set of allowed SSL features specified
+ *        in the custom_features field of SslPolicy. (Value: "PROFILE_CUSTOM")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileModern
+ *        Modern profile. Supports a wide set of SSL features, allowing modern
+ *        clients to negotiate SSL with the TLS inspection proxy. (Value:
+ *        "PROFILE_MODERN")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileRestricted
+ *        Restricted profile. Supports a reduced set of SSL features, intended
+ *        to meet stricter compliance requirements. (Value:
+ *        "PROFILE_RESTRICTED")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileUnspecified
+ *        Indicates no profile was specified. (Value: "PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tlsFeatureProfile;
+
+/**
+ *  Optional. A TrustConfig resource used when making a connection to the TLS
+ *  server. This is a relative resource path following the form
+ *  "projects/{project}/locations/{location}/trustConfigs/{trust_config}". This
+ *  is necessary to intercept TLS connections to servers with certificates
+ *  signed by a private CA or self-signed certificates. Note that Secure Web
+ *  Proxy does not yet honor this field.
+ */
+@property(nonatomic, copy, nullable) NSString *trustConfig;
 
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

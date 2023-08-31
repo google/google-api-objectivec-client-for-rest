@@ -695,33 +695,6 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
-@implementation GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"{+resource}:setIamPolicy";
-  GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRBigquery_Policy class];
-  query.loggingName = @"bigquery.rowAccessPolicies.setIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions
 
 @dynamic resource;

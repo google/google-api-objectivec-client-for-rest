@@ -1394,15 +1394,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 
 /**
  *  Issue a job that queries assets using a SQL statement compatible with
- *  [BigQuery Standard
- *  SQL](http://cloud/bigquery/docs/reference/standard-sql/enabling-standard-sql).
- *  If the query execution finishes within timeout and there's no pagination,
- *  the full query results will be returned in the `QueryAssetsResponse`.
- *  Otherwise, full query results can be obtained by issuing extra requests with
- *  the `job_reference` from the a previous `QueryAssets` call. Note, the query
- *  result has approximately 10 GB limitation enforced by BigQuery
- *  https://cloud.google.com/bigquery/docs/best-practices-performance-output,
- *  queries return larger results will result in errors.
+ *  [BigQuery SQL](https://cloud.google.com/bigquery/docs/introduction-sql). If
+ *  the query execution finishes within timeout and there's no pagination, the
+ *  full query results will be returned in the `QueryAssetsResponse`. Otherwise,
+ *  full query results can be obtained by issuing extra requests with the
+ *  `job_reference` from the a previous `QueryAssets` call. Note, the query
+ *  result has approximately 10 GB limitation enforced by
+ *  [BigQuery](https://cloud.google.com/bigquery/docs/best-practices-performance-output).
+ *  Queries return larger results will result in errors.
  *
  *  Method: cloudasset.queryAssets
  *
@@ -1424,15 +1423,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Fetches a @c GTLRCloudAsset_QueryAssetsResponse.
  *
  *  Issue a job that queries assets using a SQL statement compatible with
- *  [BigQuery Standard
- *  SQL](http://cloud/bigquery/docs/reference/standard-sql/enabling-standard-sql).
- *  If the query execution finishes within timeout and there's no pagination,
- *  the full query results will be returned in the `QueryAssetsResponse`.
- *  Otherwise, full query results can be obtained by issuing extra requests with
- *  the `job_reference` from the a previous `QueryAssets` call. Note, the query
- *  result has approximately 10 GB limitation enforced by BigQuery
- *  https://cloud.google.com/bigquery/docs/best-practices-performance-output,
- *  queries return larger results will result in errors.
+ *  [BigQuery SQL](https://cloud.google.com/bigquery/docs/introduction-sql). If
+ *  the query execution finishes within timeout and there's no pagination, the
+ *  full query results will be returned in the `QueryAssetsResponse`. Otherwise,
+ *  full query results can be obtained by issuing extra requests with the
+ *  `job_reference` from the a previous `QueryAssets` call. Note, the query
+ *  result has approximately 10 GB limitation enforced by
+ *  [BigQuery](https://cloud.google.com/bigquery/docs/best-practices-performance-output).
+ *  Queries return larger results will result in errors.
  *
  *  @param object The @c GTLRCloudAsset_QueryAssetsRequest to include in the
  *    query.

@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesExecuteCommand : GTLRSmartDeviceManagementQuery
 
@@ -75,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesGet : GTLRSmartDeviceManagementQuery
 
@@ -104,6 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesList : GTLRSmartDeviceManagementQuery
 
@@ -112,15 +115,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  (substring match): 'customName=wing'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional requested page size. Server may return fewer devices than
- *  requested. If unspecified, server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Optional token of the page to retrieve. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The parent enterprise to list devices under. E.g. "enterprises/XYZ". */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -135,10 +129,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    "enterprises/XYZ".
  *
  *  @return GTLRSmartDeviceManagementQuery_EnterprisesDevicesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -151,6 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresGet : GTLRSmartDeviceManagementQuery
 
@@ -181,20 +172,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresList : GTLRSmartDeviceManagementQuery
 
 /** Optional filter to list structures. */
 @property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Requested page size. Server may return fewer structures than requested. If
- *  unspecified, server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The token of the page to retrieve. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** The parent enterprise to list structures under. E.g. "enterprises/XYZ". */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -209,10 +192,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    "enterprises/XYZ".
  *
  *  @return GTLRSmartDeviceManagementQuery_EnterprisesStructuresList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -225,6 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsGet : GTLRSmartDeviceManagementQuery
 
@@ -255,17 +235,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
+ *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList : GTLRSmartDeviceManagementQuery
-
-/**
- *  Requested page size. Server may return fewer rooms than requested. If
- *  unspecified, server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The token of the page to retrieve. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The parent resource name of the rooms requested. For example:
@@ -283,10 +255,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    "enterprises/XYZ/structures/ABC".
  *
  *  @return GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

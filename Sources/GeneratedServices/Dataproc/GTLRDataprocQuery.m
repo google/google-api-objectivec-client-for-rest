@@ -385,6 +385,255 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsCreate
+
+@dynamic parent, requestId, sessionId;
+
++ (instancetype)queryWithObject:(GTLRDataproc_Session *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sessions";
+  GTLRDataprocQuery_ProjectsLocationsSessionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.sessions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsSessionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.sessions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsSessionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Session class];
+  query.loggingName = @"dataproc.projects.locations.sessions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRDataproc_InjectSessionCredentialsRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:injectCredentials";
+  GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.sessions.injectCredentials";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sessions";
+  GTLRDataprocQuery_ProjectsLocationsSessionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListSessionsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsTerminate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TerminateSessionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:terminate";
+  GTLRDataprocQuery_ProjectsLocationsSessionsTerminate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.sessions.terminate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionTemplatesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SessionTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sessionTemplates";
+  GTLRDataprocQuery_ProjectsLocationsSessionTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_SessionTemplate class];
+  query.loggingName = @"dataproc.projects.locations.sessionTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionTemplatesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsSessionTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.locations.sessionTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsSessionTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SessionTemplate class];
+  query.loggingName = @"dataproc.projects.locations.sessionTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sessionTemplates";
+  GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListSessionTemplatesResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessionTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SessionTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SessionTemplate class];
+  query.loggingName = @"dataproc.projects.locations.sessionTemplates.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate
 
 @dynamic parent;
@@ -856,7 +1105,8 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersDelete
 
-@dynamic clusterName, clusterUuid, projectId, region, requestId;
+@dynamic clusterName, clusterUuid, gracefulTerminationTimeout, projectId,
+         region, requestId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                             region:(NSString *)region

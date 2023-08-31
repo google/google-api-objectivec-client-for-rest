@@ -15,6 +15,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product;
@@ -768,6 +769,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
+ *  Details for a subscriptiin line item with finite billing cycles.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails : GTLRObject
+
+/**
+ *  Required. The number of a subscription line item billing cycles after which
+ *  billing will stop automatically.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *billingCycleCountLimit;
+
+@end
+
+
+/**
  *  Payload specific to Google One products.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload : GTLRObject
@@ -900,6 +917,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  A Product resource that defines a subscription service that can be resold.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product : GTLRObject
+
+/**
+ *  Optional. Details for a subscription line item with finite billing cycles.
+ *  If unset, the line item will be charged indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails *finiteBillingCycleDetails;
 
 /**
  *  Output only. Response only. Resource name of the product. It will have the
@@ -1307,6 +1330,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Details for a subscription line item with finite billing cycles.
+ *  If unset, the line item will be charged indefinitely. Used only with
+ *  LINE_ITEM_RECURRENCE_TYPE_PERIODIC.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails *finiteBillingCycleDetails;
 
 /**
  *  Output only. The free trial end time will be populated after the line item

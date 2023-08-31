@@ -18,6 +18,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AudioInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult;
@@ -27,6 +29,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput_SessionParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DtmfInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentTestCasesConfig;
@@ -50,6 +53,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrasePart;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1KnowledgeConnectorSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo;
@@ -60,6 +64,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageKnowledgeInfoCard;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio;
@@ -100,6 +105,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput_SessionParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DeploymentResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DtmfInput;
@@ -118,7 +124,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequestGitDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Form;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FormParameter;
@@ -139,6 +147,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3IntentParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3IntentTrainingPhrasePart;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Match;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Match_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest;
@@ -163,6 +172,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio;
@@ -171,6 +181,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequestGitSource;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState;
@@ -413,6 +424,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "PASSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Passed;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection.dataStoreType
+
+/**
+ *  Not specified. This value indicates that the data store type is not
+ *  specified, so it will not be used during search.
+ *
+ *  Value: "DATA_STORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_DataStoreTypeUnspecified;
+/**
+ *  A data store that contains public web content.
+ *
+ *  Value: "PUBLIC_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_PublicWeb;
+/**
+ *  A data store that contains structured data (for example FAQ).
+ *
+ *  Value: "STRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Structured;
+/**
+ *  A data store that contains unstructured private data.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Unstructured;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata.state
@@ -787,6 +827,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Cont
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Passed;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection.dataStoreType
+
+/**
+ *  Not specified. This value indicates that the data store type is not
+ *  specified, so it will not be used during search.
+ *
+ *  Value: "DATA_STORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_DataStoreTypeUnspecified;
+/**
+ *  A data store that contains public web content.
+ *
+ *  Value: "PUBLIC_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_PublicWeb;
+/**
+ *  A data store that contains structured data (for example FAQ).
+ *
+ *  Value: "STRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Structured;
+/**
+ *  A data store that contains unstructured private data.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Unstructured;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment.state
 
 /**
@@ -1030,6 +1099,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Expo
  *  Value: "JSON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_Json;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy.globalImportStrategy
+
+/**
+ *  Create a new resource with a numeric suffix appended to the end of the
+ *  existing display name.
+ *
+ *  Value: "IMPORT_STRATEGY_CREATE_NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyCreateNew;
+/**
+ *  Keep existing resource and discard incoming resource in the content to be
+ *  imported.
+ *
+ *  Value: "IMPORT_STRATEGY_KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyKeep;
+/**
+ *  Combine existing and incoming resources when a conflict is encountered.
+ *
+ *  Value: "IMPORT_STRATEGY_MERGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyMerge;
+/**
+ *  Replace existing resource with incoming resource in the content to be
+ *  imported.
+ *
+ *  Value: "IMPORT_STRATEGY_REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyReplace;
+/**
+ *  Throw error if a conflict is encountered.
+ *
+ *  Value: "IMPORT_STRATEGY_THROW_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyThrowError;
+/**
+ *  Unspecified. Treated as 'CREATE_NEW'.
+ *
+ *  Value: "IMPORT_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata.state
@@ -1363,6 +1475,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Page
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage.responseType
+
+/**
+ *  The response is from an entry prompt in the page.
+ *
+ *  Value: "ENTRY_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_EntryPrompt;
+/**
+ *  The response is from a transition route or an event handler in the page or
+ *  flow or transition route group.
+ *
+ *  Value: "HANDLER_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_HandlerPrompt;
+/**
+ *  The response is from form-filling prompt in the page.
+ *
+ *  Value: "PARAMETER_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_ParameterPrompt;
+/**
+ *  Not specified.
+ *
+ *  Value: "RESPONSE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_ResponseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest.restoreOption
 
 /**
@@ -1587,6 +1728,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Turn
  *  Value: "AGENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_Agent;
+/**
+ *  Agent transition route group.
+ *
+ *  Value: "AGENT_TRANSITION_ROUTE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_AgentTransitionRouteGroup;
 /**
  *  Entity type.
  *
@@ -3469,8 +3616,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that transform user requests into actionable data. You can include agents in
  *  your app, product, or service to determine user intent and respond to the
  *  user in a natural way. After you create an agent, you can add Intents,
- *  Entity Types, Flows, Fulfillments, Webhooks, and so on to manage the
- *  conversation flows..
+ *  Entity Types, Flows, Fulfillments, Webhooks, TransitionRouteGroups and so on
+ *  to manage the conversation flows.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Agent : GTLRObject
 
@@ -3526,6 +3673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
 
+/** Git integration settings for this agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings *gitIntegrationSettings;
+
 /**
  *  Indicates whether the agent is locked for changes. If the agent is locked,
  *  modifications to the agent will be rejected except for RestoreAgent.
@@ -3575,6 +3725,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Europe/Paris.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  Settings for connecting to Git repository for an agent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings : GTLRObject
+
+/** GitHub settings. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings *githubSettings;
+
+@end
+
+
+/**
+ *  Settings of integration with GitHub.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings : GTLRObject
+
+/**
+ *  The access token used to authenticate the access to the GitHub repository.
+ */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/** A list of branches configured to be used from Dialogflow. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *branches;
+
+/** The unique repository display name for the GitHub repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The GitHub repository URI related to the agent. */
+@property(nonatomic, copy, nullable) NSString *repositoryUri;
+
+/** The branch of the GitHub repository tracked for this agent. */
+@property(nonatomic, copy, nullable) NSString *trackingBranch;
 
 @end
 
@@ -3936,6 +4122,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  A data store connection. It represents a data store in Discovery Engine and
+ *  the type of the contents it contains.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection : GTLRObject
+
+/**
+ *  The full name of the referenced data store. Formats:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  The type of the connected data store.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_DataStoreTypeUnspecified
+ *        Not specified. This value indicates that the data store type is not
+ *        specified, so it will not be used during search. (Value:
+ *        "DATA_STORE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_PublicWeb
+ *        A data store that contains public web content. (Value: "PUBLIC_WEB")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Structured
+ *        A data store that contains structured data (for example FAQ). (Value:
+ *        "STRUCTURED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Unstructured
+ *        A data store that contains unstructured private data. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataStoreType;
+
+@end
+
+
+/**
  *  Metadata for DeleteDocument operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DeleteDocumentOperationMetadata : GTLRObject
@@ -4151,7 +4372,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportAgentResponse : GTLRObject
 
 /**
- *  Uncompressed raw byte content for agent.
+ *  Uncompressed raw byte content for agent. This field is populated if none of
+ *  `agent_uri` and `git_destination` are specified in ExportAgentRequest.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -4163,6 +4385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+/**
+ *  Commit SHA of the git push. This field is populated if `git_destination` is
+ *  specified in ExportAgentRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *commitSha;
 
 @end
 
@@ -4874,6 +5102,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The Knowledge Connector settings for this page or flow. This includes
+ *  information such as the attached Knowledge Bases, and the way to execute
+ *  fulfillment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1KnowledgeConnectorSettings : GTLRObject
+
+/** Optional. List of related data store connections. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection *> *dataStoreConnections;
+
+/**
+ *  Whether Knowledge Connector is enabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The target flow to transition to. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetFlow;
+
+/**
+ *  The target page to transition to. Format:
+ *  `projects//locations//agents//flows//pages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPage;
+
+/**
+ *  The fulfillment to be triggered. When the answers from the Knowledge
+ *  Connector are selected by Dialogflow, you can utitlize the request scoped
+ *  parameter `$request.knowledge.answers` (contains up to the 5 highest
+ *  confidence answers) and `$request.knowledge.questions` (contains the
+ *  corresponding questions) to construct the fulfillment.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Fulfillment *triggerFulfillment;
+
+@end
+
+
+/**
  *  A Dialogflow CX conversation (session) can be described and visualized as a
  *  state machine. The states of a CX session are represented by pages. For each
  *  flow, you define many pages, where your combined pages can handle a complete
@@ -4907,6 +5176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Form *form;
 
+/** Optional. Knowledge connector configuration. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1KnowledgeConnectorSettings *knowledgeConnectorSettings;
+
 /**
  *  The unique identifier of the page. Required for the Pages.UpdatePage method.
  *  Pages.CreatePage populates the name automatically. Format:
@@ -4915,14 +5187,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Ordered list of `TransitionRouteGroups` associated with the page. Transition
- *  route groups must be unique within a page. * If multiple transition routes
- *  within a page scope refer to the same intent, then the precedence order is:
- *  page's transition route -> page's transition route group -> flow's
- *  transition routes. * If multiple transition route groups within a page
- *  contain the same intent, then the first group in the ordered list takes
- *  precedence.
- *  Format:`projects//locations//agents//flows//transitionRouteGroups/`.
+ *  Ordered list of `TransitionRouteGroups` added to the page. Transition route
+ *  groups must be unique within a page. If the page links both flow-level
+ *  transition route groups and agent-level transition route groups, the
+ *  flow-level ones will have higher priority and will be put before the
+ *  agent-level ones. * If multiple transition routes within a page scope refer
+ *  to the same intent, then the precedence order is: page's transition route ->
+ *  page's transition route group -> flow's transition routes. * If multiple
+ *  transition route groups within a page contain the same intent, then the
+ *  first group in the ordered list takes precedence.
+ *  Format:`projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/` for agent-level
+ *  groups.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *transitionRouteGroups;
 
@@ -5127,6 +5403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction *endInteraction;
 
+/**
+ *  Represents info card for knowledge answers, to be better rendered in
+ *  Dialogflow Messenger.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageKnowledgeInfoCard *knowledgeInfoCard;
+
 /** Hands off conversation to a human agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff *liveAgentHandoff;
 
@@ -5214,6 +5496,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  is generated by Dialogflow only and not supposed to be defined by the user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction : GTLRObject
+@end
+
+
+/**
+ *  Represents info card response. If the response contains generative knowledge
+ *  prediction, Dialogflow will return a payload with Infobot Messenger
+ *  compatible info card. Otherwise, the info card response is skipped.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageKnowledgeInfoCard : GTLRObject
 @end
 
 
@@ -5685,6 +5976,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  both are fulfilled.
  */
 @property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  Optional. The description of the transition route. The maximum length is 500
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The unique identifier of an Intent. Format:
@@ -6565,6 +6864,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  A data store connection. It represents a data store in Discovery Engine and
+ *  the type of the contents it contains.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection : GTLRObject
+
+/**
+ *  The full name of the referenced data store. Formats:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  The type of the connected data store.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_DataStoreTypeUnspecified
+ *        Not specified. This value indicates that the data store type is not
+ *        specified, so it will not be used during search. (Value:
+ *        "DATA_STORE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_PublicWeb
+ *        A data store that contains public web content. (Value: "PUBLIC_WEB")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Structured
+ *        A data store that contains structured data (for example FAQ). (Value:
+ *        "STRUCTURED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Unstructured
+ *        A data store that contains unstructured private data. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataStoreType;
+
+@end
+
+
+/**
  *  Metadata for DeleteDocument operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeleteDocumentOperationMetadata : GTLRObject
@@ -7370,6 +7704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
+/** Optional. The Git branch to export the agent to. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequestGitDestination *gitDestination;
+
 /**
  *  Optional. Whether to include BigQuery Export setting.
  *
@@ -7381,12 +7718,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Settings for exporting to a git branch.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequestGitDestination : GTLRObject
+
+/** Commit message for the git push. */
+@property(nonatomic, copy, nullable) NSString *commitMessage;
+
+/** Tracking branch for the git push. */
+@property(nonatomic, copy, nullable) NSString *trackingBranch;
+
+@end
+
+
+/**
  *  The response message for Agents.ExportAgent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentResponse : GTLRObject
 
 /**
- *  Uncompressed raw byte content for agent.
+ *  Uncompressed raw byte content for agent. This field is populated if none of
+ *  `agent_uri` and `git_destination` are specified in ExportAgentRequest.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -7398,6 +7750,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+/**
+ *  Commit SHA of the git push. This field is populated if `git_destination` is
+ *  specified in ExportAgentRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *commitSha;
 
 @end
 
@@ -7559,6 +7917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler *> *eventHandlers;
 
+/** Optional. Knowledge connector configuration. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings *knowledgeConnectorSettings;
+
 /**
  *  The unique identifier of the flow. Format:
  *  `projects//locations//agents//flows/`.
@@ -7573,7 +7934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  for matching the user's first utterances in the flow. * They are inherited
  *  by every page's transition route groups. Transition route groups defined in
  *  the page have higher priority than those defined in the flow.
- *  Format:`projects//locations//agents//flows//transitionRouteGroups/`.
+ *  Format:`projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/` for agent-level
+ *  groups.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *transitionRouteGroups;
 
@@ -7589,6 +7952,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  intent specified are inherited by pages in the flow.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute *> *transitionRoutes;
+
+@end
+
+
+/**
+ *  The flow import strategy used for resource conflict resolution associated
+ *  with an ImportFlowRequest.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy : GTLRObject
+
+/**
+ *  Optional. Import strategy for resource conflict resolution, applied globally
+ *  throughout the flow. It will be applied for all display name conflicts in
+ *  the imported content. If not specified, 'CREATE_NEW' is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyCreateNew
+ *        Create a new resource with a numeric suffix appended to the end of the
+ *        existing display name. (Value: "IMPORT_STRATEGY_CREATE_NEW")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyKeep
+ *        Keep existing resource and discard incoming resource in the content to
+ *        be imported. (Value: "IMPORT_STRATEGY_KEEP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyMerge
+ *        Combine existing and incoming resources when a conflict is
+ *        encountered. (Value: "IMPORT_STRATEGY_MERGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyReplace
+ *        Replace existing resource with incoming resource in the content to be
+ *        imported. (Value: "IMPORT_STRATEGY_REPLACE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyThrowError
+ *        Throw error if a conflict is encountered. (Value:
+ *        "IMPORT_STRATEGY_THROW_ERROR")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyUnspecified
+ *        Unspecified. Treated as 'CREATE_NEW'. (Value:
+ *        "IMPORT_STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *globalImportStrategy;
 
 @end
 
@@ -7964,6 +8363,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *flowContent;
+
+/**
+ *  Optional. Specifies the import strategy used when resolving resource
+ *  conflicts.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy *flowImportStrategy;
 
 /**
  *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
@@ -8440,6 +8845,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. The text for this part. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The Knowledge Connector settings for this page or flow. This includes
+ *  information such as the attached Knowledge Bases, and the way to execute
+ *  fulfillment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings : GTLRObject
+
+/** Optional. List of related data store connections. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection *> *dataStoreConnections;
+
+/**
+ *  Whether Knowledge Connector is enabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The target flow to transition to. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetFlow;
+
+/**
+ *  The target page to transition to. Format:
+ *  `projects//locations//agents//flows//pages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPage;
+
+/**
+ *  The fulfillment to be triggered. When the answers from the Knowledge
+ *  Connector are selected by Dialogflow, you can utitlize the request scoped
+ *  parameter `$request.knowledge.answers` (contains up to the 5 highest
+ *  confidence answers) and `$request.knowledge.questions` (contains the
+ *  corresponding questions) to construct the fulfillment.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment *triggerFulfillment;
 
 @end
 
@@ -9268,6 +9714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Form *form;
 
+/** Optional. Knowledge connector configuration. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings *knowledgeConnectorSettings;
+
 /**
  *  The unique identifier of the page. Required for the Pages.UpdatePage method.
  *  Pages.CreatePage populates the name automatically. Format:
@@ -9276,14 +9725,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Ordered list of `TransitionRouteGroups` associated with the page. Transition
- *  route groups must be unique within a page. * If multiple transition routes
- *  within a page scope refer to the same intent, then the precedence order is:
- *  page's transition route -> page's transition route group -> flow's
- *  transition routes. * If multiple transition route groups within a page
- *  contain the same intent, then the first group in the ordered list takes
- *  precedence.
- *  Format:`projects//locations//agents//flows//transitionRouteGroups/`.
+ *  Ordered list of `TransitionRouteGroups` added to the page. Transition route
+ *  groups must be unique within a page. If the page links both flow-level
+ *  transition route groups and agent-level transition route groups, the
+ *  flow-level ones will have higher priority and will be put before the
+ *  agent-level ones. * If multiple transition routes within a page scope refer
+ *  to the same intent, then the precedence order is: page's transition route ->
+ *  page's transition route group -> flow's transition routes. * If multiple
+ *  transition route groups within a page contain the same intent, then the
+ *  first group in the ordered list takes precedence.
+ *  Format:`projects//locations//agents//flows//transitionRouteGroups/` or
+ *  `projects//locations//agents//transitionRouteGroups/` for agent-level
+ *  groups.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *transitionRouteGroups;
 
@@ -9854,6 +10307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction *endInteraction;
 
+/**
+ *  Represents info card for knowledge answers, to be better rendered in
+ *  Dialogflow Messenger.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard *knowledgeInfoCard;
+
 /** Hands off conversation to a human agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff *liveAgentHandoff;
 
@@ -9880,6 +10339,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  itself does not try to read or process the URI in any way.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio *playAudio;
+
+/**
+ *  Response type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_EntryPrompt
+ *        The response is from an entry prompt in the page. (Value:
+ *        "ENTRY_PROMPT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_HandlerPrompt
+ *        The response is from a transition route or an event handler in the
+ *        page or flow or transition route group. (Value: "HANDLER_PROMPT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_ParameterPrompt
+ *        The response is from form-filling prompt in the page. (Value:
+ *        "PARAMETER_PROMPT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_ResponseType_ResponseTypeUnspecified
+ *        Not specified. (Value: "RESPONSE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *responseType;
 
 /**
  *  A signal that the client should transfer the phone call connected to this
@@ -9941,6 +10418,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  is generated by Dialogflow only and not supposed to be defined by the user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction : GTLRObject
+@end
+
+
+/**
+ *  Represents info card response. If the response contains generative knowledge
+ *  prediction, Dialogflow will return a payload with Infobot Messenger
+ *  compatible info card. Otherwise, the info card response is skipped.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageKnowledgeInfoCard : GTLRObject
 @end
 
 
@@ -10131,6 +10617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
+/** Setting for restoring from a git branch */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequestGitSource *gitSource;
+
 /**
  *  Agent restore mode. If not specified, `KEEP` is assumed.
  *
@@ -10146,6 +10635,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Unspecified. Treated as KEEP. (Value: "RESTORE_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *restoreOption;
+
+@end
+
+
+/**
+ *  Settings for restoring from a git branch
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequestGitSource : GTLRObject
+
+/** tracking branch for the git pull */
+@property(nonatomic, copy, nullable) NSString *trackingBranch;
 
 @end
 
@@ -11002,6 +11502,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *condition;
 
 /**
+ *  Optional. The description of the transition route. The maximum length is 500
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  The unique identifier of an Intent. Format:
  *  `projects//locations//agents//intents/`. Indicates that the transition can
  *  only happen when the given intent is matched. At least one of `intent` or
@@ -11036,7 +11544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  An TransitionRouteGroup represents a group of `TransitionRoutes` to be used
+ *  A TransitionRouteGroup represents a group of `TransitionRoutes` to be used
  *  by a Page.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup : GTLRObject
@@ -11051,7 +11559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The unique identifier of the transition route group.
  *  TransitionRouteGroups.CreateTransitionRouteGroup populates the name
  *  automatically. Format:
- *  `projects//locations//agents//flows//transitionRouteGroups/`.
+ *  `projects//locations//agents//flows//transitionRouteGroups/` .
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11253,6 +11761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_Agent
  *        Agent. (Value: "AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_AgentTransitionRouteGroup
+ *        Agent transition route group. (Value: "AGENT_TRANSITION_ROUTE_GROUP")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_EntityType
  *        Entity type. (Value: "ENTITY_TYPE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage_ResourceType_EntityTypes
@@ -12214,7 +12724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//agent/environments//users//sessions//contexts/`, -
  *  `projects//locations//agent/environments//users//sessions//contexts/`, The
  *  `Context ID` is always converted to lowercase, may only contain characters
- *  in a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is
+ *  in `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is
  *  not specified, we assume default 'draft' environment. If `User ID` is not
  *  specified, we assume default '-' user. The following context names are
  *  reserved for internal use by Dialogflow. You should not use these contexts
@@ -12227,12 +12737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. The collection of parameters associated with this context.
  *  Depending on your protocol or client library language, this is a map,
  *  associative array, symbol table, dictionary, or JSON object composed of a
- *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
- *  value: parameter name - MapValue type: - If parameter's entity type is a
- *  composite entity: map - Else: depending on parameter value type, could be
- *  one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey
+ *  value: parameter name * MapValue type: If parameter's entity type is a
+ *  composite entity then use map, otherwise, depending on the parameter value
+ *  type, it could be one of string, number, boolean, null, list or map. *
+ *  MapValue value: If parameter's entity type is a composite entity then use
+ *  map from composite entity property names to property values, otherwise, use
+ *  parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters *parameters;
 
@@ -12243,12 +12754,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. The collection of parameters associated with this context.
  *  Depending on your protocol or client library language, this is a map,
  *  associative array, symbol table, dictionary, or JSON object composed of a
- *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
- *  value: parameter name - MapValue type: - If parameter's entity type is a
- *  composite entity: map - Else: depending on parameter value type, could be
- *  one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey
+ *  value: parameter name * MapValue type: If parameter's entity type is a
+ *  composite entity then use map, otherwise, depending on the parameter value
+ *  type, it could be one of string, number, boolean, null, list or map. *
+ *  MapValue value: If parameter's entity type is a composite entity then use
+ *  map from composite entity property names to property values, otherwise, use
+ *  parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -12460,12 +12972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters associated with the event. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters *parameters;
 
@@ -12476,12 +12988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters associated with the event. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -12586,7 +13098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Required. The Google Cloud Storage URIs for the output. A URI is of the
- *  form: gs://bucket/object-prefix-or-name Whether a prefix or name is used
+ *  form: `gs://bucket/object-prefix-or-name` Whether a prefix or name is used
  *  depends on the use case. The requesting user must have "write-permission" to
  *  the bucket.
  */
@@ -14313,12 +14825,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of extracted parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_Parameters *parameters;
 
@@ -14385,12 +14897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of extracted parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -14974,7 +15486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//agent/sessions//contexts/`, or
  *  `projects//agent/environments//users//sessions//contexts/`. The `Context ID`
  *  is always converted to lowercase, may only contain characters in
- *  a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is not
+ *  `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is not
  *  specified, we assume default 'draft' environment. If `User ID` is not
  *  specified, we assume default '-' user. The following context names are
  *  reserved for internal use by Dialogflow. You should not use these contexts
@@ -14987,12 +15499,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. The collection of parameters associated with this context.
  *  Depending on your protocol or client library language, this is a map,
  *  associative array, symbol table, dictionary, or JSON object composed of a
- *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
- *  value: parameter name - MapValue type: - If parameter's entity type is a
- *  composite entity: map - Else: depending on parameter value type, could be
- *  one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey
+ *  value: parameter name * MapValue type: If parameter's entity type is a
+ *  composite entity then use map, otherwise, depending on the parameter value
+ *  type, it could be one of string, number, boolean, null, list or map. *
+ *  MapValue value: If parameter's entity type is a composite entity then use
+ *  map from composite entity property names to property values, otherwise, use
+ *  parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters *parameters;
 
@@ -15003,12 +15516,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. The collection of parameters associated with this context.
  *  Depending on your protocol or client library language, this is a map,
  *  associative array, symbol table, dictionary, or JSON object composed of a
- *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
- *  value: parameter name - MapValue type: - If parameter's entity type is a
- *  composite entity: map - Else: depending on parameter value type, could be
- *  one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey
+ *  value: parameter name * MapValue type: If parameter's entity type is a
+ *  composite entity then use map, otherwise, depending on the parameter value
+ *  type, it could be one of string, number, boolean, null, list or map. *
+ *  MapValue value: If parameter's entity type is a composite entity then use
+ *  map from composite entity property names to property values, otherwise, use
+ *  parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -15416,12 +15930,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters associated with the event. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters *parameters;
 
@@ -15432,12 +15946,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters associated with the event. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -15542,7 +16056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The Google Cloud Storage URIs for the output. A URI is of the form:
- *  gs://bucket/object-prefix-or-name Whether a prefix or name is used depends
+ *  `gs://bucket/object-prefix-or-name` Whether a prefix or name is used depends
  *  on the use case. The requesting user must have "write-permission" to the
  *  bucket.
  */
@@ -16871,12 +17385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of extracted parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters *parameters;
 
@@ -16943,12 +17457,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of extracted parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -17752,8 +18266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -17781,8 +18295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

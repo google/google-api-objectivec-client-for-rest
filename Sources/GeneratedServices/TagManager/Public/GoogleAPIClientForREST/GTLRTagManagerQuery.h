@@ -2341,7 +2341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 @end
 
 /**
- *  Moves entities to a GTM Folder.
+ *  Moves entities to a GTM Folder. If {folder_id} in the request path equals 0,
+ *  this will instead move entities out of the folder they currently belong to.
  *
  *  Method: tagmanager.accounts.containers.workspaces.folders.move_entities_to_folder
  *
@@ -2369,7 +2370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Moves entities to a GTM Folder.
+ *  Moves entities to a GTM Folder. If {folder_id} in the request path equals 0,
+ *  this will instead move entities out of the folder they currently belong to.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
  *  @param path GTM Folder's API relative path. Example:

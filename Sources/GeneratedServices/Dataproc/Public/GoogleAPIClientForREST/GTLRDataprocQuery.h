@@ -487,8 +487,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Deletes the batch workload resource. If the batch is not in terminal state,
- *  the delete fails and the response returns FAILED_PRECONDITION.
+ *  Deletes the batch workload resource. If the batch is not in a CANCELLED,
+ *  SUCCEEDED or FAILED State, the delete operation fails and the response
+ *  returns FAILED_PRECONDITION.
  *
  *  Method: dataproc.projects.locations.batches.delete
  *
@@ -506,8 +507,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_Empty.
  *
- *  Deletes the batch workload resource. If the batch is not in terminal state,
- *  the delete fails and the response returns FAILED_PRECONDITION.
+ *  Deletes the batch workload resource. If the batch is not in a CANCELLED,
+ *  SUCCEEDED or FAILED State, the delete operation fails and the response
+ *  returns FAILED_PRECONDITION.
  *
  *  @param name Required. The fully qualified name of the batch to retrieve in
  *    the format
@@ -756,6 +758,397 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create an interactive session asynchronously.
+ *
+ *  Method: dataproc.projects.locations.sessions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsCreate : GTLRDataprocQuery
+
+/** Required. The parent resource where this session will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two CreateSessionRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateSessionRequest)s
+ *  with the same ID, the second request is ignored and the first Session is
+ *  created and stored in the backend is returned.Recommendation: Set this value
+ *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
+ *  value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
+ *  and hyphens (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The ID to use for the session, which becomes the final component
+ *  of the session's resource name.This value must be 4-63 characters. Valid
+ *  characters are /a-z-/.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Create an interactive session asynchronously.
+ *
+ *  @param object The @c GTLRDataproc_Session to include in the query.
+ *  @param parent Required. The parent resource where this session will be
+ *    created.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_Session *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the interactive session resource. If the session is not in terminal
+ *  state, it will be terminated and deleted afterwards.
+ *
+ *  Method: dataproc.projects.locations.sessions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsDelete : GTLRDataprocQuery
+
+/** Required. The name of the session resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two DeleteSessionRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteSessionRequest)s
+ *  with the same ID, the second request is ignored.Recommendation: Set this
+ *  value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Deletes the interactive session resource. If the session is not in terminal
+ *  state, it will be terminated and deleted afterwards.
+ *
+ *  @param name Required. The name of the session resource to delete.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the resource representation for an interactive session.
+ *
+ *  Method: dataproc.projects.locations.sessions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsGet : GTLRDataprocQuery
+
+/** Required. The name of the session to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Session.
+ *
+ *  Gets the resource representation for an interactive session.
+ *
+ *  @param name Required. The name of the session to retrieve.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Inject Credentials in the interactive session.
+ *
+ *  Method: dataproc.projects.locations.sessions.injectCredentials
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials : GTLRDataprocQuery
+
+/** Required. The name of the session resource to inject credentials to. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Inject Credentials in the interactive session.
+ *
+ *  @param object The @c GTLRDataproc_InjectSessionCredentialsRequest to include
+ *    in the query.
+ *  @param session Required. The name of the session resource to inject
+ *    credentials to.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_InjectSessionCredentialsRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
+ *  Lists interactive sessions.
+ *
+ *  Method: dataproc.projects.locations.sessions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsList : GTLRDataprocQuery
+
+/**
+ *  Optional. A filter for the sessions to return in the response.A filter is a
+ *  logical expression constraining the values of various fields in each session
+ *  resource. Filters are case sensitive, and may contain multiple clauses
+ *  combined with logical operators (AND/OR). Supported fields are session_id,
+ *  session_uuid, state, and create_time.e.g. state = ACTIVE and create_time <
+ *  "2023-01-01T00:00:00Z" filters for sessions in state ACTIVE that were
+ *  created before 2023-01-01See
+ *  https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed
+ *  description of the filter syntax and a list of supported comparisons.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of sessions to return in each response. The
+ *  service may return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous ListSessions call. Provide
+ *  this token to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of sessions. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_ListSessionsResponse.
+ *
+ *  Lists interactive sessions.
+ *
+ *  @param parent Required. The parent, which owns this collection of sessions.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Terminates the interactive session.
+ *
+ *  Method: dataproc.projects.locations.sessions.terminate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsTerminate : GTLRDataprocQuery
+
+/** Required. The name of the session resource to terminate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Terminates the interactive session.
+ *
+ *  @param object The @c GTLRDataproc_TerminateSessionRequest to include in the
+ *    query.
+ *  @param name Required. The name of the session resource to terminate.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsTerminate
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_TerminateSessionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create an session template, synchronously.
+ *
+ *  Method: dataproc.projects.locations.sessionTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesCreate : GTLRDataprocQuery
+
+/**
+ *  Required. The parent resource where this session template will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SessionTemplate.
+ *
+ *  Create an session template, synchronously.
+ *
+ *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
+ *  @param parent Required. The parent resource where this session template will
+ *    be created.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_SessionTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a session template.
+ *
+ *  Method: dataproc.projects.locations.sessionTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesDelete : GTLRDataprocQuery
+
+/** Required. The name of the session template resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Empty.
+ *
+ *  Deletes a session template.
+ *
+ *  @param name Required. The name of the session template resource to delete.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the resource representation for a session template.
+ *
+ *  Method: dataproc.projects.locations.sessionTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesGet : GTLRDataprocQuery
+
+/** Required. The name of the session template to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_SessionTemplate.
+ *
+ *  Gets the resource representation for a session template.
+ *
+ *  @param name Required. The name of the session template to retrieve.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists session templates.
+ *
+ *  Method: dataproc.projects.locations.sessionTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList : GTLRDataprocQuery
+
+/**
+ *  Optional. A filter for the session templates to return in the response.
+ *  Filters are case sensitive and have the following syntax:field = value AND
+ *  field = value ...
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of sessions to return in each response. The
+ *  service may return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous ListSessions call. Provide
+ *  this token to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of session templates. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_ListSessionTemplatesResponse.
+ *
+ *  Lists session templates.
+ *
+ *  @param parent Required. The parent, which owns this collection of session
+ *    templates.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the session template, synchronously.Disable check for update_mask,
+ *  because all updates will be full replacements.
+ *
+ *  Method: dataproc.projects.locations.sessionTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch : GTLRDataprocQuery
+
+/** Required. The resource name of the session template. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_SessionTemplate.
+ *
+ *  Updates the session template, synchronously.Disable check for update_mask,
+ *  because all updates will be full replacements.
+ *
+ *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
+ *  @param name Required. The resource name of the session template.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_SessionTemplate *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1700,6 +2093,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  NOT_FOUND) if cluster with specified UUID does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. The graceful termination timeout for the deletion of the cluster.
+ *  Indicate the time the request will wait to complete the running jobs on the
+ *  cluster before its forceful deletion. Default value is 0 indicating that the
+ *  user has not enabled the graceful termination. Value can be between 60
+ *  second and 6 Hours, in case the graceful termination is enabled. (There is
+ *  no separate flag to check the enabling or disabling of graceful termination,
+ *  it can be checked by the values in the field).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulTerminationTimeout;
 
 /**
  *  Required. The ID of the Google Cloud Platform project that the cluster

@@ -22709,6 +22709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  another. *Note*: Moving VMs or disks by using this method might cause
  *  unexpected behavior. For more information, see the [known
  *  issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
+ *  [Deprecated] This method is deprecated. See [moving instance across
+ *  zones](/compute/docs/instances/moving-instance-across-zones) instead.
  *
  *  Method: compute.projects.moveInstance
  *
@@ -22741,6 +22743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  another. *Note*: Moving VMs or disks by using this method might cause
  *  unexpected behavior. For more information, see the [known
  *  issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
+ *  [Deprecated] This method is deprecated. See [moving instance across
+ *  zones](/compute/docs/instances/moving-instance-across-zones) instead.
  *
  *  @param object The @c GTLRCompute_InstanceMoveRequest to include in the
  *    query.
@@ -30427,7 +30431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Patches the specified policy with the data included in the request. To clear
- *  fields in the rule, leave the fields empty and specify them in the
+ *  fields in the policy, leave the fields empty and specify them in the
  *  updateMask. This cannot be used to be update the rules in the policy. Please
  *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
@@ -30465,7 +30469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified policy with the data included in the request. To clear
- *  fields in the rule, leave the fields empty and specify them in the
+ *  fields in the policy, leave the fields empty and specify them in the
  *  updateMask. This cannot be used to be update the rules in the policy. Please
  *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
@@ -33665,6 +33669,65 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Modify the specified resource policy.
+ *
+ *  Method: compute.resourcePolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ResourcePoliciesPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Id of the resource policy to patch. */
+@property(nonatomic, copy, nullable) NSString *resourcePolicy;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Modify the specified resource policy.
+ *
+ *  @param object The @c GTLRCompute_ResourcePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param resourcePolicy Id of the resource policy to patch.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ResourcePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 resourcePolicy:(NSString *)resourcePolicy;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
@@ -33937,6 +34000,54 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param router Name of the Router resource to return.
  *
  *  @return GTLRComputeQuery_RoutersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Retrieves runtime NAT IP information.
+ *
+ *  Method: compute.routers.getNatIpInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGetNatIpInfo : GTLRComputeQuery
+
+/**
+ *  Name of the nat service to filter the NAT IP information. If it is omitted,
+ *  all nats for this router will be returned. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *natName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Name of the Router resource to query for Nat IP information. The name should
+ *  conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_NatIpInfoResponse.
+ *
+ *  Retrieves runtime NAT IP information.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to query for Nat IP information.
+ *    The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersGetNatIpInfo
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -35156,7 +35267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Patches the specified policy with the data included in the request. To clear
- *  fields in the rule, leave the fields empty and specify them in the
+ *  fields in the policy, leave the fields empty and specify them in the
  *  updateMask. This cannot be used to be update the rules in the policy. Please
  *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
@@ -35191,7 +35302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified policy with the data included in the request. To clear
- *  fields in the rule, leave the fields empty and specify them in the
+ *  fields in the policy, leave the fields empty and specify them in the
  *  updateMask. This cannot be used to be update the rules in the policy. Please
  *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
@@ -35208,7 +35319,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Patches a rule at the specified priority.
+ *  Patches a rule at the specified priority. To clear fields in the rule, leave
+ *  the fields empty and specify them in the updateMask.
  *
  *  Method: compute.securityPolicies.patchRule
  *
@@ -35233,7 +35345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches a rule at the specified priority.
+ *  Patches a rule at the specified priority. To clear fields in the rule, leave
+ *  the fields empty and specify them in the updateMask.
  *
  *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
  *  @param project Project ID for this request.

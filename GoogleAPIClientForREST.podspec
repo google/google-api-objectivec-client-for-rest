@@ -104,6 +104,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Advisorynotifications/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Aiplatform' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Aiplatform/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Aiplatform/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AIPlatformNotebooks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AIPlatformNotebooks/**/*.{h,m}'
@@ -353,11 +358,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudDataplex/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudDataplex/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'CloudDebugger' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/CloudDebugger/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/CloudDebugger/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'CloudDeploy' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -799,11 +799,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/GamesConfiguration/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/GamesConfiguration/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'GameServices' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/GameServices/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/GameServices/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'GamesManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/GamesManagement/**/*.{h,m}'
@@ -924,6 +919,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/ManufacturerCenter/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/ManufacturerCenter/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'MapsPlaces' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/MapsPlaces/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/MapsPlaces/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'MigrationCenterAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/MigrationCenterAPI/**/*.{h,m}'
@@ -1033,6 +1033,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Playdeveloperreporting/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Playdeveloperreporting/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'PlayGrouping' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/PlayGrouping/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/PlayGrouping/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'PlayIntegrity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

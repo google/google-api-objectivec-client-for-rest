@@ -1255,47 +1255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: bigquery.rowAccessPolicies.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigquery
- *    @c kGTLRAuthScopeBigqueryCloudPlatform
- */
-@interface GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy : GTLRBigqueryQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRBigquery_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building

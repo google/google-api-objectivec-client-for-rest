@@ -2323,6 +2323,237 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The new custom module's parent. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Creates an Event Threat Detection custom module.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param parent Required. The new custom module's parent. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes an Event Threat Detection custom module.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Event Threat Detection custom modules.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEventThreatDetectionCustomModules` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListEventThreatDetectionCustomModules` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists Event Threat Detection custom modules.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the Event Threat Detection custom module.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Updates an Event Threat Detection custom module.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param name Immutable. The resource name of the Event Threat Detection
+ *    custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.validateCustomModule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the parent to validate the Custom Module under.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse.
+ *
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. Resource name of the parent to validate the Custom
+ *    Module under. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Kicks off an LRO to bulk mute findings for a parent based on a filter. The
  *  parent can be either an organization, folder or project. The findings
  *  matched by the filter will be muted after the LRO is done.
@@ -2960,6 +3191,191 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a ResourceValueConfig for an organization. Maps user's tags to
+ *  difference resource values for use by the attack path simulation.
+ *
+ *  Method: securitycenter.organizations.resourceValueConfigs.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsBatchCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the new ResourceValueConfig's parent. The parent
+ *  field in the CreateResourceValueConfigRequest messages must either be empty
+ *  or match this field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsResponse.
+ *
+ *  Creates a ResourceValueConfig for an organization. Maps user's tags to
+ *  difference resource values for use by the attack path simulation.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest to
+ *    include in the query.
+ *  @param parent Required. Resource name of the new ResourceValueConfig's
+ *    parent. The parent field in the CreateResourceValueConfigRequest messages
+ *    must either be empty or match this field.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a ResourceValueConfig.
+ *
+ *  Method: securitycenter.organizations.resourceValueConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsDelete : GTLRSecurityCommandCenterQuery
+
+/** Required. Name of the ResourceValueConfig to delete */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes a ResourceValueConfig.
+ *
+ *  @param name Required. Name of the ResourceValueConfig to delete
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ResourceValueConfig.
+ *
+ *  Method: securitycenter.organizations.resourceValueConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the resource value config to retrieve. Its format is
+ *  organizations/{organization}/resourceValueConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.
+ *
+ *  Gets a ResourceValueConfig.
+ *
+ *  @param name Required. Name of the resource value config to retrieve. Its
+ *    format is organizations/{organization}/resourceValueConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ResourceValueConfigs.
+ *
+ *  Method: securitycenter.organizations.resourceValueConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The number of results to return. The service may return fewer than this
+ *  value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListResourceValueConfigs` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListResourceValueConfigs` must match the call that
+ *  provided the page token. page_size can be specified, and the new page_size
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns the collection of resource value configs.
+ *  Its format is "organizations/[organization_id]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListResourceValueConfigsResponse.
+ *
+ *  Lists all ResourceValueConfigs.
+ *
+ *  @param parent Required. The parent, which owns the collection of resource
+ *    value configs. Its format is "organizations/[organization_id]"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing ResourceValueConfigs with new rules.
+ *
+ *  Method: securitycenter.organizations.resourceValueConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch : GTLRSecurityCommandCenterQuery
+
+/** Name for the resource value config */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.
+ *
+ *  Updates an existing ResourceValueConfigs with new rules.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+ *    to include in the query.
+ *  @param name Name for the resource value config
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the
  *  given CRM parent, and also creates inherited
  *  SecurityHealthAnalyticsCustomModules for all CRM descendants of the given
@@ -3327,6 +3743,337 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/{project}/securityHealthAnalyticsSettings"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  Method: securitycenter.organizations.simulations.attackExposureResults.attackPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the attack path in the response.
+ *  Supported fields: * `valued_resources` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAttackPathsResponse`; indicates that
+ *  this is a continuation of a prior `ListAttackPaths` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list attack paths. Valid formats:
+ *  "organizations/{organization}",
+ *  "organizations/{organization}/simulations/{simulation}"
+ *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListAttackPathsResponse.
+ *
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  @param parent Required. Name of parent to list attack paths. Valid formats:
+ *    "organizations/{organization}",
+ *    "organizations/{organization}/simulations/{simulation}"
+ *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  Method: securitycenter.organizations.simulations.attackExposureResults.valuedResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the valued resources in the response.
+ *  Supported fields: * `resource_value` supports = * `resource_type` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListValuedResourcesResponse`; indicates that
+ *  this is a continuation of a prior `ListValuedResources` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list valued resources. Valid formats:
+ *  "organizations/{organization}",
+ *  "organizations/{organization}/simulations/{simulation}"
+ *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListValuedResourcesResponse.
+ *
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  @param parent Required. Name of parent to list valued resources. Valid
+ *    formats: "organizations/{organization}",
+ *    "organizations/{organization}/simulations/{simulation}"
+ *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  Method: securitycenter.organizations.simulations.attackPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the attack path in the response.
+ *  Supported fields: * `valued_resources` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAttackPathsResponse`; indicates that
+ *  this is a continuation of a prior `ListAttackPaths` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list attack paths. Valid formats:
+ *  "organizations/{organization}",
+ *  "organizations/{organization}/simulations/{simulation}"
+ *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListAttackPathsResponse.
+ *
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  @param parent Required. Name of parent to list attack paths. Valid formats:
+ *    "organizations/{organization}",
+ *    "organizations/{organization}/simulations/{simulation}"
+ *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get the simulation by name or the latest simulation for the given
+ *  organization.
+ *
+ *  Method: securitycenter.organizations.simulations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The organization name or simulation name of this simulation Valid
+ *  format: "organizations/{organization}/simulations/latest"
+ *  "organizations/{organization}/simulations/{simulation}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Simulation.
+ *
+ *  Get the simulation by name or the latest simulation for the given
+ *  organization.
+ *
+ *  @param name Required. The organization name or simulation name of this
+ *    simulation Valid format: "organizations/{organization}/simulations/latest"
+ *    "organizations/{organization}/simulations/{simulation}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  Method: securitycenter.organizations.simulations.valuedResources.attackPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the attack path in the response.
+ *  Supported fields: * `valued_resources` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAttackPathsResponse`; indicates that
+ *  this is a continuation of a prior `ListAttackPaths` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list attack paths. Valid formats:
+ *  "organizations/{organization}",
+ *  "organizations/{organization}/simulations/{simulation}"
+ *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListAttackPathsResponse.
+ *
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  @param parent Required. Name of parent to list attack paths. Valid formats:
+ *    "organizations/{organization}",
+ *    "organizations/{organization}/simulations/{simulation}"
+ *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  Method: securitycenter.organizations.simulations.valuedResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the valued resources in the response.
+ *  Supported fields: * `resource_value` supports = * `resource_type` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListValuedResourcesResponse`; indicates that
+ *  this is a continuation of a prior `ListValuedResources` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list valued resources. Valid formats:
+ *  "organizations/{organization}",
+ *  "organizations/{organization}/simulations/{simulation}"
+ *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListValuedResourcesResponse.
+ *
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  @param parent Required. Name of parent to list valued resources. Valid
+ *    formats: "organizations/{organization}",
+ *    "organizations/{organization}/simulations/{simulation}"
+ *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

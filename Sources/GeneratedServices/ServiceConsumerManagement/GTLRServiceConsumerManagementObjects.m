@@ -449,7 +449,15 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Control
-@dynamic environment;
+@dynamic environment, methodPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodPolicies" : [GTLRServiceConsumerManagement_MethodPolicy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -706,6 +714,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_FieldPolicy
+//
+
+@implementation GTLRServiceConsumerManagement_FieldPolicy
+@dynamic resourcePermission, resourceType, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_GoSettings
 //
 
@@ -929,6 +947,24 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"options" : [GTLRServiceConsumerManagement_Option class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_MethodPolicy
+//
+
+@implementation GTLRServiceConsumerManagement_MethodPolicy
+@dynamic requestPolicies, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestPolicies" : [GTLRServiceConsumerManagement_FieldPolicy class]
   };
   return map;
 }

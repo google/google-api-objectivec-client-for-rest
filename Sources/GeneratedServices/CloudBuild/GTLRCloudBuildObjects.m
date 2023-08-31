@@ -509,10 +509,10 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic defaultLogsBucketBehavior, diskSizeGb, dynamicSubstitutions, env,
-         logging, logStreamingOption, machineType, pool, requestedVerifyOption,
-         secretEnv, sourceProvenanceHash, substitutionOption, volumes,
-         workerPool;
+@dynamic automapSubstitutions, defaultLogsBucketBehavior, diskSizeGb,
+         dynamicSubstitutions, env, logging, logStreamingOption, machineType,
+         pool, requestedVerifyOption, secretEnv, sourceProvenanceHash,
+         substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -533,9 +533,9 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic allowExitCodes, allowFailure, args, dir, entrypoint, env, exitCode,
-         identifier, name, pullTiming, script, secretEnv, status, timeout,
-         timing, volumes, waitFor;
+@dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
+         entrypoint, env, exitCode, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -634,6 +634,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ConnectedRepository
+//
+
+@implementation GTLRCloudBuild_ConnectedRepository
+@dynamic dir, repository, revision;
 @end
 
 
@@ -1512,7 +1522,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_Source
-@dynamic gitSource, repoSource, storageSource, storageSourceManifest;
+@dynamic connectedRepository, gitSource, repoSource, storageSource,
+         storageSourceManifest;
 @end
 
 

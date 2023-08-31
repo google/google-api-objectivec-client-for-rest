@@ -23,7 +23,11 @@
 @class GTLRContainerAnalysis_AttestationOccurrence;
 @class GTLRContainerAnalysis_BatchCreateNotesRequest_Notes;
 @class GTLRContainerAnalysis_Binding;
+@class GTLRContainerAnalysis_BuildDefinition;
+@class GTLRContainerAnalysis_BuildDefinition_ExternalParameters;
+@class GTLRContainerAnalysis_BuildDefinition_InternalParameters;
 @class GTLRContainerAnalysis_BuilderConfig;
+@class GTLRContainerAnalysis_BuildMetadata;
 @class GTLRContainerAnalysis_BuildNote;
 @class GTLRContainerAnalysis_BuildOccurrence;
 @class GTLRContainerAnalysis_BuildProvenance;
@@ -73,6 +77,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash;
@@ -112,6 +117,7 @@
 @class GTLRContainerAnalysis_ImageNote;
 @class GTLRContainerAnalysis_ImageOccurrence;
 @class GTLRContainerAnalysis_InTotoProvenance;
+@class GTLRContainerAnalysis_InTotoSlsaProvenanceV1;
 @class GTLRContainerAnalysis_InTotoStatement;
 @class GTLRContainerAnalysis_Justification;
 @class GTLRContainerAnalysis_Jwt;
@@ -131,6 +137,8 @@
 @class GTLRContainerAnalysis_Policy;
 @class GTLRContainerAnalysis_Product;
 @class GTLRContainerAnalysis_ProjectRepoId;
+@class GTLRContainerAnalysis_ProvenanceBuilder;
+@class GTLRContainerAnalysis_ProvenanceBuilder_Version;
 @class GTLRContainerAnalysis_Publisher;
 @class GTLRContainerAnalysis_Recipe;
 @class GTLRContainerAnalysis_Recipe_Arguments_Item;
@@ -138,16 +146,22 @@
 @class GTLRContainerAnalysis_RelatedUrl;
 @class GTLRContainerAnalysis_Remediation;
 @class GTLRContainerAnalysis_RepoId;
+@class GTLRContainerAnalysis_ResourceDescriptor;
+@class GTLRContainerAnalysis_ResourceDescriptor_Annotations;
+@class GTLRContainerAnalysis_ResourceDescriptor_Digest;
+@class GTLRContainerAnalysis_RunDetails;
 @class GTLRContainerAnalysis_SbomReferenceIntotoPayload;
 @class GTLRContainerAnalysis_SbomReferenceIntotoPredicate;
 @class GTLRContainerAnalysis_SbomReferenceIntotoPredicate_Digest;
 @class GTLRContainerAnalysis_SBOMReferenceNote;
 @class GTLRContainerAnalysis_SBOMReferenceOccurrence;
+@class GTLRContainerAnalysis_SBOMStatus;
 @class GTLRContainerAnalysis_Signature;
 @class GTLRContainerAnalysis_SlsaBuilder;
 @class GTLRContainerAnalysis_SlsaCompleteness;
 @class GTLRContainerAnalysis_SlsaMetadata;
 @class GTLRContainerAnalysis_SlsaProvenance;
+@class GTLRContainerAnalysis_SlsaProvenanceV1;
 @class GTLRContainerAnalysis_SlsaProvenanceZeroTwo;
 @class GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig;
 @class GTLRContainerAnalysis_SlsaRecipe;
@@ -987,8 +1001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
 /**
  *  Bucket is located in user-owned project in the same region as the build. The
- *  builder service account must have access to create and write to GCS buckets
- *  in the build project.
+ *  builder service account must have access to create and write to Cloud
+ *  Storage buckets in the build project.
  *
  *  Value: "REGIONAL_USER_OWNED_BUCKET"
  */
@@ -1618,6 +1632,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_Remediatio
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Remediation_RemediationType_Workaround;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_SBOMStatus.sbomState
+
+/**
+ *  SBOM scanning has completed.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Complete;
+/**
+ *  SBOM scanning is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Pending;
+/**
+ *  Default unknown state.
+ *
+ *  Value: "SBOM_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
 
 /**
@@ -1897,7 +1933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
- *  number for the vulnerability.
+ *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
+ *  denote CVEs.
  */
 @property(nonatomic, copy, nullable) NSString *cve;
 
@@ -1951,6 +1988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        "UNDER_INVESTIGATION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The vulnerability identifier for this Assessment. Will hold one of common
+ *  identifiers e.g. CVE, GHSA etc.
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerabilityId;
 
 @end
 
@@ -2137,6 +2180,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  GTLRContainerAnalysis_BuildDefinition
+ */
+@interface GTLRContainerAnalysis_BuildDefinition : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *buildType;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildDefinition_ExternalParameters *externalParameters;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildDefinition_InternalParameters *internalParameters;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ResourceDescriptor *> *resolvedDependencies;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_BuildDefinition_ExternalParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_BuildDefinition_ExternalParameters : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_BuildDefinition_InternalParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_BuildDefinition_InternalParameters : GTLRObject
+@end
+
+
+/**
  *  GTLRContainerAnalysis_BuilderConfig
  */
 @interface GTLRContainerAnalysis_BuilderConfig : GTLRObject
@@ -2147,6 +2227,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_BuildMetadata
+ */
+@interface GTLRContainerAnalysis_BuildMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *finishedOn;
+@property(nonatomic, copy, nullable) NSString *invocationId;
+@property(nonatomic, strong, nullable) GTLRDateTime *startedOn;
 
 @end
 
@@ -2173,6 +2265,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  representation as defined in spec.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoProvenance *intotoProvenance;
+
+/**
+ *  In-Toto Slsa Provenance V1 represents a slsa provenance meeting the slsa
+ *  spec, wrapped in an in-toto statement. This allows for direct jsonification
+ *  of a to-spec in-toto slsa statement with a to-spec slsa provenance.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoSlsaProvenanceV1 *inTotoSlsaProvenanceV1;
 
 /**
  *  In-toto Statement representation as defined in spec. The intoto_statement
@@ -2275,7 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  A step in the build pipeline. Next ID: 20
+ *  A step in the build pipeline. Next ID: 21
  */
 @interface GTLRContainerAnalysis_BuildStep : GTLRObject
 
@@ -2306,6 +2405,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  remainder will be used as arguments.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Option to include built-in and custom substitutions as env variables for
+ *  this build step. This option will override the global option in BuildOption.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
 
 /**
  *  Working directory to use when running this step's container. If this value
@@ -3269,6 +3376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
+/** The status of an SBOM generation. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMStatus *sbomStatus;
+
 @end
 
 
@@ -4140,6 +4250,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions : GTLRObject
 
 /**
+ *  Option to include built-in and custom substitutions as env variables for all
+ *  build steps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
+
+/**
  *  Optional. Option to specify how default logs buckets are setup.
  *
  *  Likely values:
@@ -4148,7 +4266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
  *        Bucket is located in user-owned project in the same region as the
  *        build. The builder service account must have access to create and
- *        write to GCS buckets in the build project. (Value:
+ *        write to Cloud Storage buckets in the build project. (Value:
  *        "REGIONAL_USER_OWNED_BUCKET")
  */
 @property(nonatomic, copy, nullable) NSString *defaultLogsBucketBehavior;
@@ -4357,6 +4475,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
+ *  Option to include built-in and custom substitutions as env variables for
+ *  this build step. This option will override the global option in BuildOption.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
+
+/**
  *  Working directory to use when running this step's container. If this value
  *  is a relative path, it is relative to the build's working directory. If this
  *  value is absolute, it may be outside the build's working directory, in which
@@ -4538,6 +4664,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Output only. Stores timing information for pushing the specified image. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+@end
+
+
+/**
+ *  Location of the source in a 2nd-gen Google Cloud Build repository resource.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository : GTLRObject
+
+/** Directory, relative to the source root, in which to run the build. */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. Name of the Google Cloud Build repository, formatted as `projects/
+ *  * /locations/ * /connections/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  The revision to fetch from the Git repository such as a branch, a tag, a
+ *  commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
 
 @end
 
@@ -4862,6 +5011,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Location of the source in a supported storage service.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source : GTLRObject
+
+/**
+ *  Optional. If provided, get the source from this 2nd-gen Google Cloud Build
+ *  repository resource.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository *connectedRepository;
 
 /** If provided, get the source from this Git repository. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource *gitSource;
@@ -5408,6 +5563,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  reproducible). required
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Recipe *recipe;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_InTotoSlsaProvenanceV1
+ */
+@interface GTLRContainerAnalysis_InTotoSlsaProvenanceV1 : GTLRObject
+
+/**
+ *  InToto spec defined at
+ *  https://github.com/in-toto/attestation/tree/main/spec#statement
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaProvenanceV1 *predicate;
+@property(nonatomic, copy, nullable) NSString *predicateType;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Subject *> *subject;
 
 @end
 
@@ -6153,7 +6326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -6161,14 +6334,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRContainerAnalysis_Policy : GTLRObject
@@ -6266,6 +6440,37 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The name of the repo. Leave empty for the default repo. */
 @property(nonatomic, copy, nullable) NSString *repoName;
 
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_ProvenanceBuilder
+ */
+@interface GTLRContainerAnalysis_ProvenanceBuilder : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ResourceDescriptor *> *builderDependencies;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ProvenanceBuilder_Version *version;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_ProvenanceBuilder_Version
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_ProvenanceBuilder_Version : GTLRObject
 @end
 
 
@@ -6433,6 +6638,66 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  GTLRContainerAnalysis_ResourceDescriptor
+ */
+@interface GTLRContainerAnalysis_ResourceDescriptor : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ResourceDescriptor_Annotations *annotations;
+
+/**
+ *  content
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ResourceDescriptor_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *downloadLocation;
+@property(nonatomic, copy, nullable) NSString *mediaType;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_ResourceDescriptor_Annotations
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_ResourceDescriptor_Annotations : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_ResourceDescriptor_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_ResourceDescriptor_Digest : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_RunDetails
+ */
+@interface GTLRContainerAnalysis_RunDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ProvenanceBuilder *builder;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ResourceDescriptor *> *byproducts;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildMetadata *metadata;
+
+@end
+
+
+/**
  *  The actual payload that contains the SBOM Reference data. The payload
  *  follows the intoto statement specification. See
  *  https://github.com/in-toto/attestation/blob/main/spec/v1.0/statement.md for
@@ -6529,6 +6794,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The signatures over the payload. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_EnvelopeSignature *> *signatures;
+
+@end
+
+
+/**
+ *  The status of an SBOM generation.
+ */
+@interface GTLRContainerAnalysis_SBOMStatus : GTLRObject
+
+/**
+ *  If there was an error generating an SBOM, this will indicate what that error
+ *  was.
+ */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/**
+ *  The progress of the SBOM generation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SBOMStatus_SbomState_Complete SBOM scanning
+ *        has completed. (Value: "COMPLETE")
+ *    @arg @c kGTLRContainerAnalysis_SBOMStatus_SbomState_Pending SBOM scanning
+ *        is pending. (Value: "PENDING")
+ *    @arg @c kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified
+ *        Default unknown state. (Value: "SBOM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sbomState;
 
 @end
 
@@ -6708,6 +7000,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  reproducible). required
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaRecipe *recipe;
+
+@end
+
+
+/**
+ *  Keep in sync with schema at
+ *  https://github.com/slsa-framework/slsa/blob/main/docs/provenance/schema/v1/provenance.proto
+ *  Builder renamed to ProvenanceBuilder because of Java conflicts.
+ */
+@interface GTLRContainerAnalysis_SlsaProvenanceV1 : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildDefinition *buildDefinition;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RunDetails *runDetails;
 
 @end
 
@@ -7180,7 +7485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
- *  number for the vulnerability.
+ *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
+ *  denote CVEs.
  */
 @property(nonatomic, copy, nullable) NSString *cve;
 
@@ -7233,6 +7539,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        "UNDER_INVESTIGATION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The vulnerability identifier for this Assessment. Will hold one of common
+ *  identifiers e.g. CVE, GHSA etc.
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerabilityId;
 
 @end
 

@@ -19,6 +19,18 @@ NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_E
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_IncludeOnly = @"INCLUDE_ONLY";
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_InclusionModeUnspecified = @"INCLUSION_MODE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_AttackExposure.state
+NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_Calculated = @"CALCULATED";
+NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_NotCalculated = @"NOT_CALCULATED";
+NSString * const kGTLRSecurityCommandCenter_AttackExposure_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_AttackStepNode.type
+NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAnd = @"NODE_TYPE_AND";
+NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeAttacker = @"NODE_TYPE_ATTACKER";
+NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeDefense = @"NODE_TYPE_DEFENSE";
+NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeOr = @"NODE_TYPE_OR";
+NSString * const kGTLRSecurityCommandCenter_AttackStepNode_Type_NodeTypeUnspecified = @"NODE_TYPE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_AuditLogConfig.logType
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -84,6 +96,11 @@ NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteracti
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.enablementState
+NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Disabled = @"DISABLED";
+NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Enabled = @"ENABLED";
+NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
@@ -145,6 +162,13 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Ru
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None = @"NONE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
@@ -212,6 +236,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Exp
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ImpairDefenses = @"IMPAIR_DEFENSES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_InhibitSystemRecovery = @"INHIBIT_SYSTEM_RECOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
@@ -267,6 +292,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Exploi
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ImpairDefenses = @"IMPAIR_DEFENSES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_InhibitSystemRecovery = @"INHIBIT_SYSTEM_RECOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
@@ -307,6 +333,12 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_AuthTypeUnspecified = @
 NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Group = @"GROUP";
 NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Serviceaccount = @"SERVICEACCOUNT";
 NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
+
+// GTLRSecurityCommandCenter_ValuedResource.resourceValue
+NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueHigh = @"RESOURCE_VALUE_HIGH";
+NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueLow = @"RESOURCE_VALUE_LOW";
+NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueMedium = @"RESOURCE_VALUE_MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -384,6 +416,96 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_AttackExposure
+//
+
+@implementation GTLRSecurityCommandCenter_AttackExposure
+@dynamic attackExposureResult, exposedHighValueResourcesCount,
+         exposedLowValueResourcesCount, exposedMediumValueResourcesCount,
+         latestCalculationTime, score, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AttackPath
+//
+
+@implementation GTLRSecurityCommandCenter_AttackPath
+@dynamic edges, name, pathNodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edges" : [GTLRSecurityCommandCenter_AttackPathEdge class],
+    @"pathNodes" : [GTLRSecurityCommandCenter_AttackPathNode class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AttackPathEdge
+//
+
+@implementation GTLRSecurityCommandCenter_AttackPathEdge
+@dynamic destination, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AttackPathNode
+//
+
+@implementation GTLRSecurityCommandCenter_AttackPathNode
+@dynamic associatedFindings, attackSteps, displayName, resource, resourceType,
+         uuid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associatedFindings" : [GTLRSecurityCommandCenter_PathNodeAssociatedFinding class],
+    @"attackSteps" : [GTLRSecurityCommandCenter_AttackStepNode class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AttackStepNode
+//
+
+@implementation GTLRSecurityCommandCenter_AttackStepNode
+@dynamic descriptionProperty, displayName, labels, type, uuid;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AttackStepNode_Labels
+//
+
+@implementation GTLRSecurityCommandCenter_AttackStepNode_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_AuditConfig
 //
 
@@ -411,6 +533,42 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest
+//
+
+@implementation GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRSecurityCommandCenter_CreateResourceValueConfigRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsResponse
+@dynamic resourceValueConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceValueConfigs" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig class]
   };
   return map;
 }
@@ -528,11 +686,54 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_Container
-@dynamic imageId, labels, name, uri;
+@dynamic createTime, imageId, labels, name, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"labels" : [GTLRSecurityCommandCenter_Label class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_CreateResourceValueConfigRequest
+//
+
+@implementation GTLRSecurityCommandCenter_CreateResourceValueConfigRequest
+@dynamic parent, resourceValueConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_CustomModuleValidationError
+//
+
+@implementation GTLRSecurityCommandCenter_CustomModuleValidationError
+@dynamic descriptionProperty, end, fieldPath, start;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_CustomModuleValidationErrors
+//
+
+@implementation GTLRSecurityCommandCenter_CustomModuleValidationErrors
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRSecurityCommandCenter_CustomModuleValidationError class]
   };
   return map;
 }
@@ -580,7 +781,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_Database
-@dynamic displayName, grantees, name, query, userName;
+@dynamic displayName, grantees, name, query, userName, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -618,6 +819,36 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_EnvironmentVariable
 @dynamic name, val;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_EventThreatDetectionCustomModule
+//
+
+@implementation GTLRSecurityCommandCenter_EventThreatDetectionCustomModule
+@dynamic config, descriptionProperty, displayName, enablementState, lastEditor,
+         name, type, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config
+//
+
+@implementation GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -689,7 +920,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, canonicalName, category, cloudDlpDataProfile,
+@dynamic access, attackExposure, canonicalName, category, cloudDlpDataProfile,
          cloudDlpInspection, compliances, connections, contacts, containers,
          createTime, database, descriptionProperty, eventTime, exfiltration,
          externalSystems, externalUri, files, findingClass, iamBindings,
@@ -1086,6 +1317,43 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+@dynamic createTime, descriptionProperty, name, resourceLabelsSelector,
+         resourceType, resourceValue, scope, tagValues, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse
 //
 
@@ -1314,6 +1582,28 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListAttackPathsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListAttackPathsResponse
+@dynamic attackPaths, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attackPaths" : [GTLRSecurityCommandCenter_AttackPath class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"attackPaths";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListBigQueryExportsResponse
 //
 
@@ -1373,6 +1663,28 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 + (NSString *)collectionItemsKey {
   return @"effectiveSecurityHealthAnalyticsCustomModules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse
+@dynamic eventThreatDetectionCustomModules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventThreatDetectionCustomModules" : [GTLRSecurityCommandCenter_EventThreatDetectionCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"eventThreatDetectionCustomModules";
 }
 
 @end
@@ -1478,6 +1790,28 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListResourceValueConfigsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListResourceValueConfigsResponse
+@dynamic nextPageToken, resourceValueConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceValueConfigs" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resourceValueConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListSecurityHealthAnalyticsCustomModulesResponse
 //
 
@@ -1515,6 +1849,28 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 + (NSString *)collectionItemsKey {
   return @"sources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListValuedResourcesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListValuedResourcesResponse
+@dynamic nextPageToken, totalSize, valuedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"valuedResources" : [GTLRSecurityCommandCenter_ValuedResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"valuedResources";
 }
 
 @end
@@ -1653,6 +2009,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_PathNodeAssociatedFinding
+//
+
+@implementation GTLRSecurityCommandCenter_PathNodeAssociatedFinding
+@dynamic canonicalFinding, findingCategory, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Pod
 //
 
@@ -1690,6 +2056,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Position
+//
+
+@implementation GTLRSecurityCommandCenter_Position
+@dynamic columnNumber, lineNumber;
 @end
 
 
@@ -1750,6 +2126,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ResourceValueConfigMetadata
+//
+
+@implementation GTLRSecurityCommandCenter_ResourceValueConfigMetadata
+@dynamic name;
 @end
 
 
@@ -1866,6 +2252,24 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Simulation
+//
+
+@implementation GTLRSecurityCommandCenter_Simulation
+@dynamic createTime, name, resourceValueConfigsMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceValueConfigsMetadata" : [GTLRSecurityCommandCenter_ResourceValueConfigMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Source
 //
 
@@ -1967,6 +2371,45 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest
+//
+
+@implementation GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest
+@dynamic rawText, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse
+@dynamic errors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ValuedResource
+//
+
+@implementation GTLRSecurityCommandCenter_ValuedResource
+@dynamic displayName, exposedScore, name, resource, resourceType, resourceValue,
+         resourceValueConfigsUsed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceValueConfigsUsed" : [GTLRSecurityCommandCenter_ResourceValueConfigMetadata class]
   };
   return map;
 }

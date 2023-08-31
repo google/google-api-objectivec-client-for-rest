@@ -576,6 +576,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 /**
+ *  There was an issue with the assets in this test.
+ *
+ *  Value: "assetIssue"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AssetIssue;
+/**
  *  The app-under-test has deep links, but none were provided to Robo.
  *
  *  Value: "availableDeepLinks"
@@ -978,6 +984,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
+ *  There was an issue with the assets in this test.
+ */
+@interface GTLRToolResults_AssetIssue : GTLRObject
+@end
+
+
+/**
  *  A suggestion to use deep links for a Robo run.
  */
 @interface GTLRToolResults_AvailableDeepLinks : GTLRObject
@@ -1293,7 +1306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  represent: - a mobile test executed across a range of device configurations
  *  - a jenkins job with a build step followed by a test step The maximum size
  *  of an execution message is 1 MiB. An Execution can be updated until its
- *  state is set to COMPLETE at which point it becomes immutable. Next tag: 17
+ *  state is set to COMPLETE at which point it becomes immutable.
  */
 @interface GTLRToolResults_Execution : GTLRObject
 
@@ -1377,7 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Failed to install the APK.
+ *  Failed to install the App.
  */
 @interface GTLRToolResults_FailedToInstall : GTLRObject
 @end
@@ -2895,7 +2908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  xml logs and returns a TestExecutionStep with updated TestResult(s). - user
  *  update the status of TestExecutionStep with id 100 to COMPLETE A Step can be
  *  updated until its state is set to COMPLETE at which points it becomes
- *  immutable. Next tag: 27
+ *  immutable.
  */
 @interface GTLRToolResults_Step : GTLRObject
 
@@ -3389,6 +3402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Issue is an ANR crash. (Value:
  *        "anr")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_AssetIssue There was an issue with
+ *        the assets in this test. (Value: "assetIssue")
  *    @arg @c kGTLRToolResults_TestIssue_Type_AvailableDeepLinks The
  *        app-under-test has deep links, but none were provided to Robo. (Value:
  *        "availableDeepLinks")

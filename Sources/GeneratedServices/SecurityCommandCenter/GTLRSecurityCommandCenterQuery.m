@@ -1032,6 +1032,144 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_EventThreatDetectionCustomModule class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.customModules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.customModules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_EventThreatDetectionCustomModule class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.customModules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customModules";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.customModules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_EventThreatDetectionCustomModule class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.customModules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:validateCustomModule";
+  GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse class];
+  query.loggingName = @"securitycenter.organizations.eventThreatDetectionSettings.validateCustomModule";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsFindingsBulkMute
 
 @dynamic parent;
@@ -1376,6 +1514,117 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceValueConfigs:batchCreate";
+  GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsResponse class];
+  query.loggingName = @"securitycenter.organizations.resourceValueConfigs.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.resourceValueConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig class];
+  query.loggingName = @"securitycenter.organizations.resourceValueConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceValueConfigs";
+  GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListResourceValueConfigsResponse class];
+  query.loggingName = @"securitycenter.organizations.resourceValueConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig class];
+  query.loggingName = @"securitycenter.organizations.resourceValueConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate
 
 @dynamic parent;
@@ -1539,6 +1788,120 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_ListEffectiveSecurityHealthAnalyticsCustomModulesResponse class];
   query.loggingName = @"securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attackPaths";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListAttackPathsResponse class];
+  query.loggingName = @"securitycenter.organizations.simulations.attackExposureResults.attackPaths.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/valuedResources";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListValuedResourcesResponse class];
+  query.loggingName = @"securitycenter.organizations.simulations.attackExposureResults.valuedResources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attackPaths";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListAttackPathsResponse class];
+  query.loggingName = @"securitycenter.organizations.simulations.attackPaths.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Simulation class];
+  query.loggingName = @"securitycenter.organizations.simulations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attackPaths";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListAttackPathsResponse class];
+  query.loggingName = @"securitycenter.organizations.simulations.valuedResources.attackPaths.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/valuedResources";
+  GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListValuedResourcesResponse class];
+  query.loggingName = @"securitycenter.organizations.simulations.valuedResources.list";
   return query;
 }
 

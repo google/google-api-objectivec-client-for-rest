@@ -95,6 +95,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolic
 // GTLRAndroidManagement_ApplicationPolicy.delegatedScopes
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall = @"BLOCK_UNINSTALL";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertInstall = @"CERT_INSTALL";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertSelection = @"CERT_SELECTION";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified = @"DELEGATED_SCOPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp = @"ENABLE_SYSTEM_APP";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations = @"MANAGED_CONFIGURATIONS";
@@ -128,6 +129,11 @@ NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationState
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed = @"INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed = @"REMOVED";
 
+// GTLRAndroidManagement_ApplicationReport.userFacingType
+NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_NotUserFacing = @"NOT_USER_FACING";
+NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacing = @"USER_FACING";
+NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified = @"USER_FACING_TYPE_UNSPECIFIED";
+
 // GTLRAndroidManagement_BlockAction.blockScope
 NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeDevice = @"BLOCK_SCOPE_DEVICE";
 NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeUnspecified = @"BLOCK_SCOPE_UNSPECIFIED";
@@ -154,6 +160,8 @@ NSString * const kGTLRAndroidManagement_Command_Type_Lock      = @"LOCK";
 NSString * const kGTLRAndroidManagement_Command_Type_Reboot    = @"REBOOT";
 NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership = @"RELINQUISH_OWNERSHIP";
 NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword = @"RESET_PASSWORD";
+NSString * const kGTLRAndroidManagement_Command_Type_StartLostMode = @"START_LOST_MODE";
+NSString * const kGTLRAndroidManagement_Command_Type_StopLostMode = @"STOP_LOST_MODE";
 
 // GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
@@ -186,6 +194,7 @@ NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted = @"DELETED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled = @"DISABLED";
+NSString * const kGTLRAndroidManagement_Device_AppliedState_Lost = @"LOST";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisioning = @"PROVISIONING";
 
 // GTLRAndroidManagement_Device.managementMode
@@ -203,13 +212,42 @@ NSString * const kGTLRAndroidManagement_Device_State_Active    = @"ACTIVE";
 NSString * const kGTLRAndroidManagement_Device_State_Deleted   = @"DELETED";
 NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
+NSString * const kGTLRAndroidManagement_Device_State_Lost      = @"LOST";
 NSString * const kGTLRAndroidManagement_Device_State_Provisioning = @"PROVISIONING";
+
+// GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_AllowConfiguringWifi = @"ALLOW_CONFIGURING_WIFI";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_ConfigureWifiUnspecified = @"CONFIGURE_WIFI_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowAddWifiConfig = @"DISALLOW_ADD_WIFI_CONFIG";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowConfiguringWifi = @"DISALLOW_CONFIGURING_WIFI";
+
+// GTLRAndroidManagement_DeviceConnectivityManagement.tetheringSettings
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_AllowAllTethering = @"ALLOW_ALL_TETHERING";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowAllTethering = @"DISALLOW_ALL_TETHERING";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowWifiTethering = @"DISALLOW_WIFI_TETHERING";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_TetheringSettingsUnspecified = @"TETHERING_SETTINGS_UNSPECIFIED";
 
 // GTLRAndroidManagement_DeviceConnectivityManagement.usbDataAccess
 NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_AllowUsbDataTransfer = @"ALLOW_USB_DATA_TRANSFER";
 NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbDataTransfer = @"DISALLOW_USB_DATA_TRANSFER";
 NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer = @"DISALLOW_USB_FILE_TRANSFER";
 NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified = @"USB_DATA_ACCESS_UNSPECIFIED";
+
+// GTLRAndroidManagement_DeviceConnectivityManagement.wifiDirectSettings
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_AllowWifiDirect = @"ALLOW_WIFI_DIRECT";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_DisallowWifiDirect = @"DISALLOW_WIFI_DIRECT";
+NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_WifiDirectSettingsUnspecified = @"WIFI_DIRECT_SETTINGS_UNSPECIFIED";
+
+// GTLRAndroidManagement_DeviceRadioState.airplaneModeState
+NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled = @"AIRPLANE_MODE_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified = @"AIRPLANE_MODE_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice = @"AIRPLANE_MODE_USER_CHOICE";
+
+// GTLRAndroidManagement_DeviceRadioState.wifiState
+NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled = @"WIFI_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiEnabled = @"WIFI_ENABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUnspecified = @"WIFI_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUserChoice = @"WIFI_STATE_USER_CHOICE";
 
 // GTLRAndroidManagement_DeviceSettings.encryptionStatus
 NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating = @"ACTIVATING";
@@ -320,6 +358,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel = @"ONC_WIFI_API_LEVEL";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig = @"ONC_WIFI_INVALID_ENTERPRISE_CONFIG";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue = @"ONC_WIFI_INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordExpired = @"PASSWORD_POLICIES_PASSWORD_EXPIRED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordNotSufficient = @"PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT";
@@ -504,6 +543,16 @@ NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerDisc
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerManagementEventTypeUnspecified = @"POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown = @"SHUTDOWN";
 
+// GTLRAndroidManagement_ProvisioningInfo.managementMode
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_DeviceOwner = @"DEVICE_OWNER";
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ManagementModeUnspecified = @"MANAGEMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ProfileOwner = @"PROFILE_OWNER";
+
+// GTLRAndroidManagement_ProvisioningInfo.ownership
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_CompanyOwned = @"COMPANY_OWNED";
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_OwnershipUnspecified = @"OWNERSHIP_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned = @"PERSONALLY_OWNED";
+
 // GTLRAndroidManagement_SecurityPosture.devicePosture
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk = @"AT_RISK";
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified = @"POSTURE_UNSPECIFIED";
@@ -514,6 +563,23 @@ NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure = @
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified = @"ALLOW_PERSONAL_USAGE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
+
+// GTLRAndroidManagement_StartLostModeStatus.status
+NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode = @"ALREADY_IN_LOST_MODE";
+NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_ResetPasswordRecently = @"RESET_PASSWORD_RECENTLY";
+NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_Success = @"SUCCESS";
+NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_UserExitLostModeRecently = @"USER_EXIT_LOST_MODE_RECENTLY";
+
+// GTLRAndroidManagement_StopLostModeStatus.status
+NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_NotInLostMode = @"NOT_IN_LOST_MODE";
+NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_Success = @"SUCCESS";
+
+// GTLRAndroidManagement_StopLostModeUserAttemptEvent.status
+NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptFailed = @"ATTEMPT_FAILED";
+NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptSucceeded = @"ATTEMPT_SUCCEEDED";
+NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAndroidManagement_SystemUpdate.type
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic = @"AUTOMATIC";
@@ -548,6 +614,7 @@ NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_CertValidationFa
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_Connect = @"CONNECT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_CryptoSelfTestCompleted = @"CRYPTO_SELF_TEST_COMPLETED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_Dns = @"DNS";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_EnrollmentComplete = @"ENROLLMENT_COMPLETE";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_FilePulled = @"FILE_PULLED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_FilePushed = @"FILE_PUSHED";
@@ -561,11 +628,14 @@ NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_KeyIntegrityViol
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LogBufferSizeCritical = @"LOG_BUFFER_SIZE_CRITICAL";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStarted = @"LOGGING_STARTED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStopped = @"LOGGING_STOPPED";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeLocation = @"LOST_MODE_LOCATION";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall = @"LOST_MODE_OUTGOING_PHONE_CALL";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount = @"MEDIA_MOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount = @"MEDIA_UNMOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_OsShutdown = @"OS_SHUTDOWN";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_OsStartup = @"OS_STARTUP";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_RemoteLock = @"REMOTE_LOCK";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_StopLostModeUserAttempt = @"STOP_LOST_MODE_USER_ATTEMPT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_WipeFailure = @"WIPE_FAILURE";
 
 // GTLRAndroidManagement_WebApp.displayMode
@@ -748,7 +818,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @implementation GTLRAndroidManagement_ApplicationReport
 @dynamic applicationSource, displayName, events, installerPackageName,
          keyedAppStates, packageName, packageSha256Hash,
-         signingKeyCertFingerprints, state, versionCode, versionName;
+         signingKeyCertFingerprints, state, userFacingType, versionCode,
+         versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -953,7 +1024,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_Command
 @dynamic clearAppsDataParams, clearAppsDataStatus, createTime, duration,
-         errorCode, newPassword, resetPasswordFlags, type, userName;
+         errorCode, newPassword, resetPasswordFlags, startLostModeParams,
+         startLostModeStatus, stopLostModeParams, stopLostModeStatus, type,
+         userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1119,7 +1192,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_DeviceConnectivityManagement
-@dynamic usbDataAccess;
+@dynamic configureWifi, tetheringSettings, usbDataAccess, wifiDirectSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DeviceRadioState
+//
+
+@implementation GTLRAndroidManagement_DeviceRadioState
+@dynamic airplaneModeState, wifiState;
 @end
 
 
@@ -1168,6 +1251,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_EnrollmentCompleteEvent
+//
+
+@implementation GTLRAndroidManagement_EnrollmentCompleteEvent
 @end
 
 
@@ -1557,6 +1649,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_Location
+//
+
+@implementation GTLRAndroidManagement_Location
+@dynamic latitude, longitude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_LogBufferSizeCriticalEvent
 //
 
@@ -1579,6 +1681,25 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_LoggingStoppedEvent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_LostModeLocationEvent
+//
+
+@implementation GTLRAndroidManagement_LostModeLocationEvent
+@dynamic batteryLevel, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_LostModeOutgoingPhoneCallEvent
+//
+
+@implementation GTLRAndroidManagement_LostModeOutgoingPhoneCallEvent
 @end
 
 
@@ -1933,8 +2054,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          createWindowsDisabled, credentialsConfigDisabled, crossProfilePolicies,
          dataRoamingDisabled, debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceConnectivityManagement, deviceOwnerLockScreenInfo,
-         encryptionPolicy, ensureVerifyAppsEnabled, factoryResetDisabled,
-         frpAdminEmails, funDisabled, installAppsDisabled,
+         deviceRadioState, encryptionPolicy, ensureVerifyAppsEnabled,
+         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
          installUnknownSourcesAllowed, keyguardDisabled,
          keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
@@ -2029,6 +2150,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_PowerManagementEvent
 @dynamic batteryLevel, createTime, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ProvisioningInfo
+//
+
+@implementation GTLRAndroidManagement_ProvisioningInfo
+@dynamic apiLevel, brand, enterprise, managementMode, model, name, ownership;
 @end
 
 
@@ -2138,6 +2269,27 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_StartLostModeParams
+//
+
+@implementation GTLRAndroidManagement_StartLostModeParams
+@dynamic lostEmailAddress, lostMessage, lostOrganization, lostPhoneNumber,
+         lostStreetAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_StartLostModeStatus
+//
+
+@implementation GTLRAndroidManagement_StartLostModeStatus
+@dynamic status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Status
 //
 
@@ -2179,6 +2331,35 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          hardwareStatusEnabled, memoryInfoEnabled, networkInfoEnabled,
          powerManagementEventsEnabled, softwareInfoEnabled,
          systemPropertiesEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_StopLostModeParams
+//
+
+@implementation GTLRAndroidManagement_StopLostModeParams
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_StopLostModeStatus
+//
+
+@implementation GTLRAndroidManagement_StopLostModeStatus
+@dynamic status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_StopLostModeUserAttemptEvent
+//
+
+@implementation GTLRAndroidManagement_StopLostModeUserAttemptEvent
+@dynamic status;
 @end
 
 
@@ -2258,13 +2439,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic adbShellCommandEvent, adbShellInteractiveEvent, appProcessStartEvent,
          certAuthorityInstalledEvent, certAuthorityRemovedEvent,
          certValidationFailureEvent, connectEvent, cryptoSelfTestCompletedEvent,
-         dnsEvent, eventId, eventTime, eventType, filePulledEvent,
-         filePushedEvent, keyDestructionEvent, keyGeneratedEvent,
-         keyguardDismissAuthAttemptEvent, keyguardDismissedEvent,
-         keyguardSecuredEvent, keyImportEvent, keyIntegrityViolationEvent,
-         logBufferSizeCriticalEvent, loggingStartedEvent, loggingStoppedEvent,
-         mediaMountEvent, mediaUnmountEvent, osShutdownEvent, osStartupEvent,
-         remoteLockEvent, wipeFailureEvent;
+         dnsEvent, enrollmentCompleteEvent, eventId, eventTime, eventType,
+         filePulledEvent, filePushedEvent, keyDestructionEvent,
+         keyGeneratedEvent, keyguardDismissAuthAttemptEvent,
+         keyguardDismissedEvent, keyguardSecuredEvent, keyImportEvent,
+         keyIntegrityViolationEvent, logBufferSizeCriticalEvent,
+         loggingStartedEvent, loggingStoppedEvent, lostModeLocationEvent,
+         lostModeOutgoingPhoneCallEvent, mediaMountEvent, mediaUnmountEvent,
+         osShutdownEvent, osStartupEvent, remoteLockEvent,
+         stopLostModeUserAttemptEvent, wipeFailureEvent;
 @end
 
 

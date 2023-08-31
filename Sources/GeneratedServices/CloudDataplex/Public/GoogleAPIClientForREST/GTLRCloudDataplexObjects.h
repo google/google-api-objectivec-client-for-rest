@@ -45,6 +45,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfo;
@@ -53,9 +55,13 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoStringFieldInfo;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfileFieldProfileInfoTopNValue;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActionsBigQueryExport;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation;
@@ -67,6 +73,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsBigQueryExport;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs;
@@ -74,6 +82,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob;
@@ -434,6 +444,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Conte
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult.state
+
+/**
+ *  The exporting is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Failed;
+/**
+ *  The exporting is skipped due to no valid scan result to export (usually
+ *  caused by scan failed).
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Skipped;
+/**
+ *  The exporting state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_StateUnspecified;
+/**
+ *  The exporting completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult.state
+
+/**
+ *  The exporting is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Failed;
+/**
+ *  The exporting is skipped due to no valid scan result to export (usually
+ *  caused by scan failed).
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Skipped;
+/**
+ *  The exporting state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_StateUnspecified;
+/**
+ *  The exporting completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation.statistic
 
 /**
@@ -460,6 +528,116 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQ
  *  Value: "STATISTIC_UNDEFINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_StatisticUndefined;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult.evalutionType
+
+/**
+ *  The rule evaluation is done for an aggregate of rows.
+ *
+ *  Value: "AGGREGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_Aggregate;
+/**
+ *  An unspecified evaluation type.
+ *
+ *  Value: "EVALUATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_EvaluationTypeUnspecified;
+/**
+ *  The rule evaluation is done at per row level.
+ *
+ *  Value: "PER_ROW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_PerRow;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult.result
+
+/**
+ *  The data quality rule failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_Failed;
+/**
+ *  The data quality rule passed.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_Passed;
+/**
+ *  An unspecified result.
+ *
+ *  Value: "RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_ResultUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult.ruleType
+
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#nonnullexpectation.
+ *
+ *  Value: "NON_NULL_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_NonNullExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rangeexpectation.
+ *
+ *  Value: "RANGE_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RangeExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#regexexpectation.
+ *
+ *  Value: "REGEX_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RegexExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rowconditionexpectation.
+ *
+ *  Value: "ROW_CONDITION_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RowConditionExpectation;
+/**
+ *  An unspecified rule type.
+ *
+ *  Value: "RULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RuleTypeUnspecified;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.
+ *
+ *  Value: "SET_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
+ *
+ *  Value: "STATISTIC_RANGE_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#tableconditionexpectation.
+ *
+ *  Value: "TABLE_CONDITION_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation;
+/**
+ *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#uniquenessexpectation.
+ *
+ *  Value: "UNIQUENESS_EXPECTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_UniquenessExpectation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.state
@@ -543,19 +721,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.state
 
 /**
- *  Data scan was cancelled.
+ *  Data scan job was cancelled.
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled;
 /**
- *  Data scan was unsuccessful.
+ *  Data scan job was createed.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Created;
+/**
+ *  Data scan job was unsuccessful.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed;
 /**
- *  Data scan started.
+ *  Data scan job started.
  *
  *  Value: "STARTED"
  */
@@ -567,7 +751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_StateUnspecified;
 /**
- *  Data scan successfully completed.
+ *  Data scan job successfully completed.
  *
  *  Value: "SUCCEEDED"
  */
@@ -616,6 +800,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult.state
+
+/**
+ *  The exporting is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Failed;
+/**
+ *  The exporting is skipped due to no valid scan result to export (usually
+ *  caused by scan failed).
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Skipped;
+/**
+ *  The exporting state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_StateUnspecified;
+/**
+ *  The exporting completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.state
@@ -2718,6 +2931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult : GTLRObject
 
+/** Output only. The result of post scan actions. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult *postScanActionsResult;
+
 /** The profile information per field. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultProfile *profile;
 
@@ -2730,6 +2946,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** The data scanned for this result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
+
+@end
+
+
+/**
+ *  The result of post scan actions of DataProfileScan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult : GTLRObject
+
+/** Output only. The result of BigQuery export post scan action. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult *bigqueryExportResult;
+
+@end
+
+
+/**
+ *  The result of BigQuery export post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult : GTLRObject
+
+/** Output only. Additional information about the BigQuery exporting. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. Execution state for the BigQuery exporting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Failed
+ *        The exporting is no longer running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Skipped
+ *        The exporting is skipped due to no valid scan result to export
+ *        (usually caused by scan failed). (Value: "SKIPPED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_StateUnspecified
+ *        The exporting state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Succeeded
+ *        The exporting completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2994,6 +3248,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields *includeFields;
 
+/** Optional. Actions to take upon job completion.. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions *postScanActions;
+
 /**
  *  Optional. A filter applied to all rows in a single DataScan job. The filter
  *  needs to be a valid SQL expression for a WHERE clause in BigQuery standard
@@ -3010,6 +3267,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingPercent;
+
+@end
+
+
+/**
+ *  The configuration of post scan actions of DataProfileScan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions : GTLRObject
+
+/**
+ *  Optional. If set, results will be exported to the provided BigQuery table.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActionsBigQueryExport *bigqueryExport;
+
+@end
+
+
+/**
+ *  The configuration of BigQuery export post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActionsBigQueryExport : GTLRObject
+
+/**
+ *  Optional. The BigQuery table to export DataProfileScan results to. Format:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *resultsTable;
 
 @end
 
@@ -3061,6 +3345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSNumber *passed;
 
+/** Output only. The result of post scan actions. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult *postScanActionsResult;
+
 /**
  *  The count of rows processed.
  *
@@ -3073,6 +3360,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** The data scanned for this result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
+
+@end
+
+
+/**
+ *  The result of post scan actions of DataQualityScan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult : GTLRObject
+
+/** Output only. The result of BigQuery export post scan action. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult *bigqueryExportResult;
+
+@end
+
+
+/**
+ *  The result of BigQuery export post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult : GTLRObject
+
+/** Output only. Additional information about the BigQuery exporting. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. Execution state for the BigQuery exporting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Failed
+ *        The exporting is no longer running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Skipped
+ *        The exporting is skipped due to no valid scan result to export
+ *        (usually caused by scan failed). (Value: "SKIPPED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_StateUnspecified
+ *        The exporting state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult_State_Succeeded
+ *        The exporting completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -3163,7 +3488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSNumber *threshold;
 
-/** Aggregate rule which evaluates whether the column has duplicates. */
+/** Row-level rule which evaluates whether each column value is unique. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation *uniquenessExpectation;
 
 @end
@@ -3219,7 +3544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation : GTLRObject
 
-/** A regular expression the column value is expected to match. */
+/** Optional. A regular expression the column value is expected to match. */
 @property(nonatomic, copy, nullable) NSString *regex;
 
 @end
@@ -3290,7 +3615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation : GTLRObject
 
-/** The SQL expression. */
+/** Optional. The SQL expression. */
 @property(nonatomic, copy, nullable) NSString *sqlExpression;
 
 @end
@@ -3301,7 +3626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation : GTLRObject
 
-/** Expected values for the column value. */
+/** Optional. Expected values for the column value. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -3314,19 +3639,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation : GTLRObject
 
 /**
- *  The maximum column statistic value allowed for a row to pass this
+ *  Optional. The maximum column statistic value allowed for a row to pass this
  *  validation.At least one of min_value and max_value need to be provided.
  */
 @property(nonatomic, copy, nullable) NSString *maxValue;
 
 /**
- *  The minimum column statistic value allowed for a row to pass this
+ *  Optional. The minimum column statistic value allowed for a row to pass this
  *  validation.At least one of min_value and max_value need to be provided.
  */
 @property(nonatomic, copy, nullable) NSString *minValue;
 
 /**
- *  The aggregate metric to evaluate.
+ *  Optional. The aggregate metric to evaluate.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation_Statistic_Max
@@ -3341,17 +3666,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *statistic;
 
 /**
- *  Whether column statistic needs to be strictly lesser than ('<') the maximum,
- *  or if equality is allowed.Only relevant if a max_value has been defined.
- *  Default = false.
+ *  Optional. Whether column statistic needs to be strictly lesser than ('<')
+ *  the maximum, or if equality is allowed.Only relevant if a max_value has been
+ *  defined. Default = false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strictMaxEnabled;
 
 /**
- *  Whether column statistic needs to be strictly greater than ('>') the
- *  minimum, or if equality is allowed.Only relevant if a min_value has been
+ *  Optional. Whether column statistic needs to be strictly greater than ('>')
+ *  the minimum, or if equality is allowed.Only relevant if a min_value has been
  *  defined. Default = false.
  *
  *  Uses NSNumber of boolValue.
@@ -3368,7 +3693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation : GTLRObject
 
-/** The SQL expression. */
+/** Optional. The SQL expression. */
 @property(nonatomic, copy, nullable) NSString *sqlExpression;
 
 @end
@@ -3382,9 +3707,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Information about the result of a data quality rule for data quality scan.
+ *  The monitored resource is 'DataScan'.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult : GTLRObject
+
+/** The column which this rule is evaluated against. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/** The data source of the data scan (e.g. BigQuery table name). */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  The number of rows evaluated against the data quality rule. This field is
+ *  only valid for rules of PER_ROW evaluation type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluatedRowCount;
+
+/**
+ *  The evaluation type of the data quality rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_Aggregate
+ *        The rule evaluation is done for an aggregate of rows. (Value:
+ *        "AGGREGATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_EvaluationTypeUnspecified
+ *        An unspecified evaluation type. (Value: "EVALUATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_EvalutionType_PerRow
+ *        The rule evaluation is done at per row level. (Value: "PER_ROW")
+ */
+@property(nonatomic, copy, nullable) NSString *evalutionType;
+
+/** Identifier of the specific data scan job this log entry is for. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The number of rows with null values in the specified column.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullRowCount;
+
+/**
+ *  The number of rows which passed a rule evaluation. This field is only valid
+ *  for rules of PER_ROW evaluation type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passedRowCount;
+
+/**
+ *  The result of the data quality rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_Failed
+ *        The data quality rule failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_Passed
+ *        The data quality rule passed. (Value: "PASSED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_Result_ResultUnspecified
+ *        An unspecified result. (Value: "RESULT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/** The dimension of the data quality rule. */
+@property(nonatomic, copy, nullable) NSString *ruleDimension;
+
+/** The name of the data quality rule. */
+@property(nonatomic, copy, nullable) NSString *ruleName;
+
+/**
+ *  The type of the data quality rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_NonNullExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#nonnullexpectation.
+ *        (Value: "NON_NULL_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RangeExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rangeexpectation.
+ *        (Value: "RANGE_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RegexExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#regexexpectation.
+ *        (Value: "REGEX_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RowConditionExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rowconditionexpectation.
+ *        (Value: "ROW_CONDITION_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RuleTypeUnspecified
+ *        An unspecified rule type. (Value: "RULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.
+ *        (Value: "SET_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
+ *        (Value: "STATISTIC_RANGE_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#tableconditionexpectation.
+ *        (Value: "TABLE_CONDITION_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_UniquenessExpectation
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#uniquenessexpectation.
+ *        (Value: "UNIQUENESS_EXPECTATION")
+ */
+@property(nonatomic, copy, nullable) NSString *ruleType;
+
+/**
+ *  The passing threshold (0.0, 100.0) of the data quality rule.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thresholdPercent;
+
+@end
+
+
+/**
  *  DataQualityScan related setting.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec : GTLRObject
+
+/** Optional. Actions to take upon job completion. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions *postScanActions;
 
 /**
  *  Optional. A filter applied to all rows in a single DataScan job. The filter
@@ -3394,8 +3844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *rowFilter;
 
 /**
- *  The list of rules to evaluate against a data source. At least one rule is
- *  required.
+ *  Required. The list of rules to evaluate against a data source. At least one
+ *  rule is required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rules;
 
@@ -3408,6 +3858,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingPercent;
+
+@end
+
+
+/**
+ *  The configuration of post scan actions of DataQualityScan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions : GTLRObject
+
+/**
+ *  Optional. If set, results will be exported to the provided BigQuery table.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsBigQueryExport *bigqueryExport;
+
+@end
+
+
+/**
+ *  The configuration of BigQuery export post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsBigQueryExport : GTLRObject
+
+/**
+ *  Optional. The BigQuery table to export DataQualityScan results to. Format:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *resultsTable;
 
 @end
 
@@ -3528,9 +4005,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  These messages contain information about the execution of a datascan. The
- *  monitored resource is 'DataScan'
+ *  monitored resource is 'DataScan' Next ID: 13
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent : GTLRObject
+
+/** The time when the data scan job was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Data profile result for data profile type data scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult *dataProfile;
@@ -3556,6 +4036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** The message describing the data scan job event. */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/** The result of post scan actions. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResult *postScanActionsResult;
+
 /**
  *  The scope of the data scan (e.g. full, incremental).
  *
@@ -3580,15 +4063,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled
- *        Data scan was cancelled. (Value: "CANCELLED")
+ *        Data scan job was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Created
+ *        Data scan job was createed. (Value: "CREATED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed
- *        Data scan was unsuccessful. (Value: "FAILED")
+ *        Data scan job was unsuccessful. (Value: "FAILED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Started
- *        Data scan started. (Value: "STARTED")
+ *        Data scan job started. (Value: "STARTED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_StateUnspecified
  *        Unspecified job state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Succeeded
- *        Data scan successfully completed. (Value: "SUCCEEDED")
+ *        Data scan job successfully completed. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3731,6 +4216,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed : GTLRObject
+@end
+
+
+/**
+ *  Post scan actions result for data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResult : GTLRObject
+
+/** The result of BigQuery export post scan action. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult *bigqueryExportResult;
+
+@end
+
+
+/**
+ *  The result of BigQuery export post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult : GTLRObject
+
+/** Additional information about the BigQuery exporting. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Execution state for the BigQuery exporting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Failed
+ *        The exporting is no longer running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Skipped
+ *        The exporting is skipped due to no valid scan result to export
+ *        (usually caused by scan failed). (Value: "SKIPPED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_StateUnspecified
+ *        The exporting state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult_State_Succeeded
+ *        The exporting completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -3883,6 +4406,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *attributeCount;
+
+/**
+ *  Output only. The number of classes in the DataTaxonomy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *classCount;
 
 /** Output only. The time when the DataTaxonomy was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -4275,7 +4805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Environment represents a user-visible compute infrastructure for analytics
- *  within a lake. LINT.IfChange
+ *  within a lake.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Environment : GTLRObject
 
@@ -7132,8 +7662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -7161,8 +7691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For

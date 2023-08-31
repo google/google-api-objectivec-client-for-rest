@@ -18,6 +18,7 @@
 @class GTLRDatastream_BackfillNoneStrategy;
 @class GTLRDatastream_BigQueryDestinationConfig;
 @class GTLRDatastream_BigQueryProfile;
+@class GTLRDatastream_CdcStrategy;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
 @class GTLRDatastream_DatasetTemplate;
@@ -32,14 +33,17 @@
 @class GTLRDatastream_Location;
 @class GTLRDatastream_Location_Labels;
 @class GTLRDatastream_Location_Metadata;
+@class GTLRDatastream_MostRecentStartPosition;
 @class GTLRDatastream_MysqlColumn;
 @class GTLRDatastream_MysqlDatabase;
+@class GTLRDatastream_MysqlLogPosition;
 @class GTLRDatastream_MysqlObjectIdentifier;
 @class GTLRDatastream_MysqlProfile;
 @class GTLRDatastream_MysqlRdbms;
 @class GTLRDatastream_MysqlSourceConfig;
 @class GTLRDatastream_MysqlSslConfig;
 @class GTLRDatastream_MysqlTable;
+@class GTLRDatastream_NextAvailableStartPosition;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
@@ -67,6 +71,7 @@
 @class GTLRDatastream_SourceConfig;
 @class GTLRDatastream_SourceHierarchyDatasets;
 @class GTLRDatastream_SourceObjectIdentifier;
+@class GTLRDatastream_SpecificStartPosition;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
@@ -485,6 +490,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDatastream_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  The strategy that the stream uses for CDC replication.
+ */
+@interface GTLRDatastream_CdcStrategy : GTLRObject
+
+/**
+ *  Optional. Start replicating from the most recent position in the source.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_MostRecentStartPosition *mostRecentStartPosition;
+
+/**
+ *  Optional. Resume replication from the next available position in the source.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_NextAvailableStartPosition *nextAvailableStartPosition;
+
+/** Optional. Start replicating from a specific position in the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpecificStartPosition *specificStartPosition;
+
 @end
 
 
@@ -1100,6 +1126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  CDC strategy to start replicating from the most recent position in the
+ *  source.
+ */
+@interface GTLRDatastream_MostRecentStartPosition : GTLRObject
+@end
+
+
+/**
  *  MySQL Column.
  */
 @interface GTLRDatastream_MysqlColumn : GTLRObject
@@ -1138,11 +1172,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
 
 /**
+ *  Column precision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
  *  Whether or not the column represents a primary key.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *primaryKey;
+
+/**
+ *  Column scale.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scale;
 
 @end
 
@@ -1157,6 +1205,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Tables in the database. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MysqlTable *> *mysqlTables;
+
+@end
+
+
+/**
+ *  MySQL log position
+ */
+@interface GTLRDatastream_MysqlLogPosition : GTLRObject
+
+/** The binary log file name. */
+@property(nonatomic, copy, nullable) NSString *logFile;
+
+/**
+ *  The position within the binary log file. Default is head of file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logPosition;
 
 @end
 
@@ -1310,6 +1376,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  CDC strategy to resume replication from the next available position in the
+ *  source.
+ */
+@interface GTLRDatastream_NextAvailableStartPosition : GTLRObject
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1343,8 +1417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1372,8 +1446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1926,6 +2000,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Request message for running a stream.
+ */
+@interface GTLRDatastream_RunStreamRequest : GTLRObject
+
+/**
+ *  Optional. The CDC strategy of the stream. If not set, the system's default
+ *  value will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_CdcStrategy *cdcStrategy;
+
+@end
+
+
+/**
  *  A single target dataset to which all data will be streamed.
  */
 @interface GTLRDatastream_SingleTargetDataset : GTLRObject
@@ -1987,6 +2075,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** PostgreSQL data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlObjectIdentifier *postgresqlIdentifier;
+
+@end
+
+
+/**
+ *  CDC strategy to start replicating from a specific position in the source.
+ */
+@interface GTLRDatastream_SpecificStartPosition : GTLRObject
+
+/** MySQL specific log position to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlLogPosition *mysqlLogPosition;
 
 @end
 

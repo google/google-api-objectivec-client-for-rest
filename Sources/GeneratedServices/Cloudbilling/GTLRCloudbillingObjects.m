@@ -7,7 +7,7 @@
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects programmatically.
 // Documentation:
-//   https://cloud.google.com/billing/
+//   https://cloud.google.com/billing/docs/apis
 
 #import <GoogleAPIClientForREST/GTLRCloudbillingObjects.h>
 

@@ -45,11 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsCreate : GTLRBackupforGKEQuery
 
 /**
- *  The client-provided short name for the Backup resource. This name must: - be
- *  between 1 and 63 characters long (inclusive) - consist of only lower-case
- *  ASCII letters, numbers, and dashes - start with a lower-case letter - end
- *  with a lower-case letter or number - be unique within the set of Backups in
- *  this BackupPlan
+ *  Optional. The client-provided short name for the Backup resource. This name
+ *  must: - be between 1 and 63 characters long (inclusive) - consist of only
+ *  lower-case ASCII letters, numbers, and dashes - start with a lower-case
+ *  letter - end with a lower-case letter or number - be unique within the set
+ *  of Backups in this BackupPlan
  */
 @property(nonatomic, copy, nullable) NSString *backupId;
 
@@ -86,14 +86,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsDelete : GTLRBackupforGKEQuery
 
 /**
- *  If provided, this value must match the current value of the target Backup's
- *  etag field or the request is rejected.
+ *  Optional. If provided, this value must match the current value of the target
+ *  Backup's etag field or the request is rejected.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, any VolumeBackups below this Backup will also be deleted.
- *  Otherwise, the request will only succeed if the Backup has no VolumeBackups.
+ *  Optional. If set to true, any VolumeBackups below this Backup will also be
+ *  deleted. Otherwise, the request will only succeed if the Backup has no
+ *  VolumeBackups.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -206,26 +207,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListBackups` call.
- *  Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to `ListBackups`
- *  must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackups` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackups` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -270,11 +271,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This is used to specify the fields to be overwritten in the Backup targeted
- *  for update. The values for each of these updated fields will be taken from
- *  the `backup_plan` provided with this request. Field names are relative to
- *  the root of the resource. If no `update_mask` is provided, all fields in
- *  `backup` will be written to the target Backup resource. Note that
+ *  Optional. This is used to specify the fields to be overwritten in the Backup
+ *  targeted for update. The values for each of these updated fields will be
+ *  taken from the `backup_plan` provided with this request. Field names are
+ *  relative to the root of the resource. If no `update_mask` is provided, all
+ *  fields in `backup` will be written to the target Backup resource. Note that
  *  OUTPUT_ONLY and IMMUTABLE fields in `backup` are ignored and are not used to
  *  update the target Backup.
  *
@@ -471,26 +472,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsVolumeBackupsList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListVolumeBackups`
- *  call. Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to
- *  `ListVolumeBackups` must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListVolumeBackups` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListVolumeBackups` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -654,7 +655,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansDelete : GTLRBackupforGKEQuery
 
 /**
- *  If provided, this value must match the current value of the target
+ *  Optional. If provided, this value must match the current value of the target
  *  BackupPlan's etag field or the request is rejected.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -768,26 +769,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListBackupPlans`
- *  call. Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to `ListBackupPlans`
- *  must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupPlans` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackupPlans` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -832,10 +833,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This is used to specify the fields to be overwritten in the BackupPlan
- *  targeted for update. The values for each of these updated fields will be
- *  taken from the `backup_plan` provided with this request. Field names are
- *  relative to the root of the resource (e.g., `description`,
+ *  Optional. This is used to specify the fields to be overwritten in the
+ *  BackupPlan targeted for update. The values for each of these updated fields
+ *  will be taken from the `backup_plan` provided with this request. Field names
+ *  are relative to the root of the resource (e.g., `description`,
  *  `backup_config.include_volume_data`, etc.) If no `update_mask` is provided,
  *  all fields in `backup_plan` will be written to the target BackupPlan
  *  resource. Note that OUTPUT_ONLY and IMMUTABLE fields in `backup_plan` are
@@ -1221,14 +1222,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansDelete : GTLRBackupforGKEQuery
 
 /**
- *  If provided, this value must match the current value of the target
+ *  Optional. If provided, this value must match the current value of the target
  *  RestorePlan's etag field or the request is rejected.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, any Restores below this RestorePlan will also be deleted.
- *  Otherwise, the request will only succeed if the RestorePlan has no Restores.
+ *  Optional. If set to true, any Restores below this RestorePlan will also be
+ *  deleted. Otherwise, the request will only succeed if the RestorePlan has no
+ *  Restores.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -1341,26 +1343,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListRestorePlans`
- *  call. Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to
- *  `ListRestorePlans` must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListRestorePlans` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListRestorePlans` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1405,13 +1407,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This is used to specify the fields to be overwritten in the RestorePlan
- *  targeted for update. The values for each of these updated fields will be
- *  taken from the `restore_plan` provided with this request. Field names are
- *  relative to the root of the resource. If no `update_mask` is provided, all
- *  fields in `restore_plan` will be written to the target RestorePlan resource.
- *  Note that OUTPUT_ONLY and IMMUTABLE fields in `restore_plan` are ignored and
- *  are not used to update the target RestorePlan.
+ *  Optional. This is used to specify the fields to be overwritten in the
+ *  RestorePlan targeted for update. The values for each of these updated fields
+ *  will be taken from the `restore_plan` provided with this request. Field
+ *  names are relative to the root of the resource. If no `update_mask` is
+ *  provided, all fields in `restore_plan` will be written to the target
+ *  RestorePlan resource. Note that OUTPUT_ONLY and IMMUTABLE fields in
+ *  `restore_plan` are ignored and are not used to update the target
+ *  RestorePlan.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1485,14 +1488,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresDelete : GTLRBackupforGKEQuery
 
 /**
- *  If provided, this value must match the current value of the target Restore's
- *  etag field or the request is rejected.
+ *  Optional. If provided, this value must match the current value of the target
+ *  Restore's etag field or the request is rejected.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, any VolumeRestores below this restore will also be deleted.
- *  Otherwise, the request will only succeed if the restore has no
+ *  Optional. If set to true, any VolumeRestores below this restore will also be
+ *  deleted. Otherwise, the request will only succeed if the restore has no
  *  VolumeRestores.
  */
 @property(nonatomic, assign) BOOL force;
@@ -1606,26 +1609,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListRestores` call.
- *  Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to `ListRestores`
- *  must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListRestores` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListRestores` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1670,13 +1673,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This is used to specify the fields to be overwritten in the Restore targeted
- *  for update. The values for each of these updated fields will be taken from
- *  the `restore` provided with this request. Field names are relative to the
- *  root of the resource. If no `update_mask` is provided, all fields in
- *  `restore` will be written to the target Restore resource. Note that
- *  OUTPUT_ONLY and IMMUTABLE fields in `restore` are ignored and are not used
- *  to update the target Restore.
+ *  Optional. This is used to specify the fields to be overwritten in the
+ *  Restore targeted for update. The values for each of these updated fields
+ *  will be taken from the `restore` provided with this request. Field names are
+ *  relative to the root of the resource. If no `update_mask` is provided, all
+ *  fields in `restore` will be written to the target Restore resource. Note
+ *  that OUTPUT_ONLY and IMMUTABLE fields in `restore` are ignored and are not
+ *  used to update the target Restore.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1872,26 +1875,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresVolumeRestoresList : GTLRBackupforGKEQuery
 
-/** Field match expression used to filter the results. */
+/** Optional. Field match expression used to filter the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Field by which to sort the results. */
+/** Optional. Field by which to sort the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The target number of results to return in a single response. If not
- *  specified, a default value will be chosen by the service. Note that the
- *  response may inclue a partial list and a caller should only rely on the
+ *  Optional. The target number of results to return in a single response. If
+ *  not specified, a default value will be chosen by the service. Note that the
+ *  response may include a partial list and a caller should only rely on the
  *  response's next_page_token to determine if there are more instances left to
  *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value of next_page_token received from a previous `ListVolumeRestores`
- *  call. Provide this to retrieve the subsequent page in a multi-page list of
- *  results. When paginating, all other parameters provided to
- *  `ListVolumeRestores` must match the call that provided the page token.
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListVolumeRestores` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListVolumeRestores` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

@@ -28,6 +28,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport = @"ISR_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
@@ -46,6 +47,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_St
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationBooleanOrgPolicyViolation = @"REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListAllowedValuesOrgPolicyViolation = @"REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListDeniedValuesOrgPolicyViolation = @"REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation = @"REMEDIATION_RESOURCE_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation = @"REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationTypeUnspecified = @"REMEDIATION_TYPE_UNSPECIFIED";
 
@@ -66,6 +68,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport = @"ISR_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar = @"ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
@@ -240,13 +243,31 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation
 @dynamic acknowledged, acknowledgementTime, auditLogLink, beginTime, category,
-         descriptionProperty, exceptionAuditLogLink, name,
-         nonCompliantOrgPolicy, remediation, resolveTime, state, updateTime;
+         descriptionProperty, exceptionAuditLogLink, exceptionContexts, name,
+         nonCompliantOrgPolicy, orgPolicyConstraint, remediation, resolveTime,
+         state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exceptionContexts" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext
+@dynamic acknowledgementTime, comment, userName;
 @end
 
 
@@ -398,7 +419,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
-@dynamic dataLogsViewer, remediateFolderViolations;
+@dynamic assuredWorkloadsMonitoring, dataLogsViewer, serviceAccessApprover;
 @end
 
 

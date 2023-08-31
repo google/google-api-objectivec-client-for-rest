@@ -7,7 +7,7 @@
 //   Allows developers to manage billing for their Google Cloud Platform
 //   projects programmatically.
 // Documentation:
-//   https://cloud.google.com/billing/
+//   https://cloud.google.com/billing/docs/apis
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *  This method will return an error if the parent account has not been
- *  provisioned as a reseller account.
+ *  provisioned for subaccounts.
  *
  *  Method: cloudbilling.billingAccounts.create
  *
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *  This method will return an error if the parent account has not been
- *  provisioned as a reseller account.
+ *  provisioned for subaccounts.
  *
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
@@ -187,10 +187,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudbillingQuery_BillingAccountsList : GTLRCloudbillingQuery
 
 /**
- *  Options for how to filter the returned billing accounts. Currently this only
- *  supports filtering for
- *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a single
- *  provided reseller billing account. (e.g.
+ *  Options for how to filter the returned billing accounts. This only supports
+ *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
+ *  under a single provided parent billing account. (e.g.
  *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
  *  algebra and other fields are not currently supported.
  */

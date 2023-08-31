@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See and/or control the devices that you selected
@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/sdm.service"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementSdmService;
+/**
+ *  Authorization scope: See your primary Google Account email address
+ *
+ *  Value "https://www.googleapis.com/auth/userinfo.email"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementUserinfoEmail;
 
 // ----------------------------------------------------------------------------
 //   GTLRSmartDeviceManagementService

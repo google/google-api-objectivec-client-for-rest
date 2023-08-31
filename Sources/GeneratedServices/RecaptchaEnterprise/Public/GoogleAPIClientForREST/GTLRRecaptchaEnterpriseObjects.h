@@ -1312,8 +1312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict *stolenInstrumentVerdict;
 
 /**
- *  Probability (0-1) of this transaction being fraudulent. Summarizes the
- *  combined risk of attack vectors below.
+ *  Probability of this transaction being fraudulent. Summarizes the combined
+ *  risk of attack vectors below. Values are from 0.0 (lowest) to 1.0 (highest).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1328,8 +1328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict : GTLRObject
 
 /**
- *  Probability (0-1) of this transaction attempt being executed in a
- *  behaviorally trustworthy way.
+ *  Probability of this transaction attempt being executed in a behaviorally
+ *  trustworthy way. Values are from 0.0 (lowest) to 1.0 (highest).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1345,8 +1345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict : GTLRObject
 
 /**
- *  Probability (0-1) of this transaction attempt being part of a card testing
- *  attack.
+ *  Probability of this transaction attempt being part of a card testing attack.
+ *  Values are from 0.0 (lowest) to 1.0 (highest).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1362,8 +1362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict : GTLRObject
 
 /**
- *  Probability (0-1) of this transaction being executed with a stolen
- *  instrument.
+ *  Probability of this transaction being executed with a stolen instrument.
+ *  Values are from 0.0 (lowest) to 1.0 (highest).
  *
  *  Uses NSNumber of floatValue.
  */

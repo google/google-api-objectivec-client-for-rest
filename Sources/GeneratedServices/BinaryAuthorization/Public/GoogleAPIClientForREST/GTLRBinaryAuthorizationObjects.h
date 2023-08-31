@@ -19,20 +19,35 @@
 
 @class GTLRBinaryAuthorization_AdmissionRule;
 @class GTLRBinaryAuthorization_AdmissionWhitelistPattern;
+@class GTLRBinaryAuthorization_AttestationAuthenticator;
 @class GTLRBinaryAuthorization_AttestationOccurrence;
+@class GTLRBinaryAuthorization_AttestationSource;
 @class GTLRBinaryAuthorization_Attestor;
 @class GTLRBinaryAuthorization_AttestorPublicKey;
 @class GTLRBinaryAuthorization_Binding;
+@class GTLRBinaryAuthorization_Check;
+@class GTLRBinaryAuthorization_CheckSet;
 @class GTLRBinaryAuthorization_Expr;
+@class GTLRBinaryAuthorization_GkePolicy;
 @class GTLRBinaryAuthorization_IamPolicy;
+@class GTLRBinaryAuthorization_ImageAllowlist;
+@class GTLRBinaryAuthorization_ImageFreshnessCheck;
 @class GTLRBinaryAuthorization_Jwt;
 @class GTLRBinaryAuthorization_PkixPublicKey;
+@class GTLRBinaryAuthorization_PkixPublicKeySet;
+@class GTLRBinaryAuthorization_PlatformPolicy;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
 @class GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules;
 @class GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules;
 @class GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules;
+@class GTLRBinaryAuthorization_Scope;
 @class GTLRBinaryAuthorization_Signature;
+@class GTLRBinaryAuthorization_SimpleSigningAttestationCheck;
+@class GTLRBinaryAuthorization_SlsaCheck;
+@class GTLRBinaryAuthorization_TrustedDirectoryCheck;
 @class GTLRBinaryAuthorization_UserOwnedGrafeasNote;
+@class GTLRBinaryAuthorization_VerificationRule;
+@class GTLRBinaryAuthorization_VulnerabilityCheck;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -259,6 +274,127 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_Verified;
 
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_VerificationRule.trustedBuilder
+
+/**
+ *  Should never happen.
+ *
+ *  Value: "BUILDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_BuilderUnspecified;
+/**
+ *  The whole Google Cloud Build (GCB) builder group, including all GCB builder
+ *  types.
+ *
+ *  Value: "GOOGLE_CLOUD_BUILD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_GoogleCloudBuild;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_VulnerabilityCheck.maximumFixableSeverity
+
+/**
+ *  Allow all severity, even vulnerability with unspecified severity.
+ *
+ *  Value: "ALLOW_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_AllowAll;
+/**
+ *  Block any vulnerability.
+ *
+ *  Value: "BLOCK_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_BlockAll;
+/**
+ *  Allow critical severity and lower.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Critical;
+/**
+ *  Allow high severity and lower.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_High;
+/**
+ *  Allow only low severity and lower.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Low;
+/**
+ *  Not specified.
+ *
+ *  Value: "MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_MaximumAllowedSeverityUnspecified;
+/**
+ *  Allow medium severity and lower.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Medium;
+/**
+ *  Allow only minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Minimal;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_VulnerabilityCheck.maximumUnfixableSeverity
+
+/**
+ *  Allow all severity, even vulnerability with unspecified severity.
+ *
+ *  Value: "ALLOW_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_AllowAll;
+/**
+ *  Block any vulnerability.
+ *
+ *  Value: "BLOCK_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_BlockAll;
+/**
+ *  Allow critical severity and lower.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Critical;
+/**
+ *  Allow high severity and lower.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_High;
+/**
+ *  Allow only low severity and lower.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Low;
+/**
+ *  Not specified.
+ *
+ *  Value: "MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_MaximumAllowedSeverityUnspecified;
+/**
+ *  Allow medium severity and lower.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Medium;
+/**
+ *  Allow only minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Minimal;
+
 /**
  *  An admission rule specifies either that all container images used in a pod
  *  creation request must be attested to by one or more attestors, that all pod
@@ -333,6 +469,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  An attestation authenticator that will be used to verify attestations.
+ *  Typically this is just a set of public keys. Conceptually, an authenticator
+ *  can be treated as always returning either "authenticated" or "not
+ *  authenticated" when presented with a signed attestation (almost always
+ *  assumed to be a [DSSE](https://github.com/secure-systems-lab/dsse)
+ *  attestation). The details of how an authenticator makes this decision are
+ *  specific to the type of 'authenticator' that this message wraps.
+ */
+@interface GTLRBinaryAuthorization_AttestationAuthenticator : GTLRObject
+
+/**
+ *  Optional. A user-provided name for this AttestationAuthenticator. This field
+ *  has no effect on the policy evaluation behavior except to improve
+ *  readability of messages in evaluation results.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. A set of raw PKIX SubjectPublicKeyInfo format public keys. If any
+ *  public key in the set validates the attestation signature, then the
+ *  signature is considered authenticated (i.e. any one key is sufficient to
+ *  authenticate).
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_PkixPublicKeySet *pkixPublicKeySet;
+
+@end
+
+
+/**
  *  Occurrence that represents a single "attestation". The authenticity of an
  *  attestation can be verified using the attached signature. If the verifier
  *  trusts the public key of the signer, then verifying the signature is
@@ -372,6 +537,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  for more details on signature structure and verification.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_Signature *> *signatures;
+
+@end
+
+
+/**
+ *  Specifies the locations for fetching the provenance attestations.
+ */
+@interface GTLRBinaryAuthorization_AttestationSource : GTLRObject
+
+/**
+ *  The ids of the GCP projects storing the SLSA attestations as container
+ *  analysis Occurrences.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisAttestationProjects;
 
 @end
 
@@ -521,6 +700,106 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  A single check to perform against a Pod. Checks are grouped into CheckSets,
+ *  which are defined by the top-level policy.
+ */
+@interface GTLRBinaryAuthorization_Check : GTLRObject
+
+/**
+ *  Optional. A special-case check that always denies. Note that this still only
+ *  applies when the scope of the CheckSet applies and the image isn't exempted
+ *  by an image allowlist. This check is primarily useful for testing, or to set
+ *  the default behavior for all unmatched scopes to "deny".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alwaysDeny;
+
+/**
+ *  Optional. A user-provided name for this Check. This field has no effect on
+ *  the policy evaluation behavior except to improve readability of messages in
+ *  evaluation results.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Images exempted from this Check. If any of the patterns match the
+ *  image url, the check will not be evaluated.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageAllowlist *imageAllowlist;
+
+/**
+ *  Optional. Require that an image is no older than a configured expiration
+ *  time. Image age is determined by its upload time.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageFreshnessCheck *imageFreshnessCheck;
+
+/**
+ *  Optional. Require a SimpleSigning-type attestation for every image in the
+ *  deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_SimpleSigningAttestationCheck *simpleSigningAttestationCheck;
+
+/**
+ *  Optional. Require that an image was built by a trusted builder (such as
+ *  Google Cloud Build or GitHub), meets requirements for Supply chain Levels
+ *  for Software Artifacts (SLSA), and was built from a trusted source code
+ *  repostitory.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_SlsaCheck *slsaCheck;
+
+/** Optional. Require that an image lives in a trusted directory. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_TrustedDirectoryCheck *trustedDirectoryCheck;
+
+/**
+ *  Optional. Require that an image does not contain vulnerabilities that
+ *  violate the configured rules, such as based on severity levels.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_VulnerabilityCheck *vulnerabilityCheck;
+
+@end
+
+
+/**
+ *  A conjunction of policy checks, scoped to a particular namespace or
+ *  Kubernetes service account. In order for evaluation of a CheckSet to return
+ *  "allowed" for a given image in a given Pod, one of the following conditions
+ *  must be satisfied: * The image is explicitly exempted by an entry in
+ *  `image_allowlist`, OR * ALL of the `checks` evaluate to "allowed".
+ */
+@interface GTLRBinaryAuthorization_CheckSet : GTLRObject
+
+/**
+ *  Optional. The checks to apply. The ultimate result of evaluating the check
+ *  set will be "allow" if and only if every check in 'checks' evaluates to
+ *  "allow". If `checks` is empty, the default behavior is "always allow".
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_Check *> *checks;
+
+/**
+ *  Optional. A user-provided name for this CheckSet. This field has no effect
+ *  on the policy evaluation behavior except to improve readability of messages
+ *  in evaluation results.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Images exempted from this CheckSet. If any of the patterns match
+ *  the image being evaluated, no checks in the CheckSet will be evaluated.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageAllowlist *imageAllowlist;
+
+/**
+ *  Optional. The scope to which this CheckSet applies. If unset or an empty
+ *  string (the default), applies to all namespaces and service accounts. See
+ *  the Scope message documentation for details on scoping rules.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Scope *scope;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -580,6 +859,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  A Binary Authorization policy for a GKE cluster. This is one type of policy
+ *  that can occur as a `PlatformPolicy`.
+ */
+@interface GTLRBinaryAuthorization_GkePolicy : GTLRObject
+
+/**
+ *  Optional. The CheckSets to apply, scoped by namespace or namespace and
+ *  service account. Exactly one CheckSet will be evaluated for a given Pod
+ *  (unless the list is empty, in which case the behavior is "always allow"). If
+ *  multiple CheckSets have scopes that match the namespace and service account
+ *  of the Pod being evaluated, only the CheckSet with the MOST SPECIFIC scope
+ *  will match. CheckSets must be listed in order of decreasing specificity,
+ *  i.e. if a scope matches a given service account (which must include the
+ *  namespace), it must come before a CheckSet with a scope matching just that
+ *  namespace. This property is enforced by server-side validation. The purpose
+ *  of this restriction is to ensure that if more than one CheckSet matches a
+ *  given Pod, the CheckSet that will be evaluated will always be the first in
+ *  the list to match (because if any other matches, it must be less specific).
+ *  If `check_sets` is empty, the default behavior is to allow all images. If
+ *  `check_sets` is non-empty, the last `check_sets` entry must always be a
+ *  CheckSet with no scope set, i.e. a catchall to handle any situation not
+ *  caught by the preceding CheckSets.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_CheckSet *> *checkSets;
+
+/**
+ *  Optional. Images exempted from this policy. If any of the patterns match the
+ *  image being evaluated, the rest of the policy will not be evaluated.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageAllowlist *imageAllowlist;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -592,7 +906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -600,14 +914,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRBinaryAuthorization_IamPolicy : GTLRObject
@@ -667,6 +982,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  Images that are exempted from normal checks based on name pattern only.
+ */
+@interface GTLRBinaryAuthorization_ImageAllowlist : GTLRObject
+
+/**
+ *  Required. A disjunction of image patterns to allow. If any of these patterns
+ *  match, then the image is considered exempted by this allowlist.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowPattern;
+
+@end
+
+
+/**
+ *  An image freshness check, which rejects images that were uploaded before the
+ *  set number of days ago to the supported repositories.
+ */
+@interface GTLRBinaryAuthorization_ImageFreshnessCheck : GTLRObject
+
+/**
+ *  Required. The max number of days that is allowed since the image was
+ *  uploaded. Must be greater than zero.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxUploadAgeDays;
+
+@end
+
+
+/**
  *  GTLRBinaryAuthorization_Jwt
  */
 @interface GTLRBinaryAuthorization_Jwt : GTLRObject
@@ -705,6 +1051,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  `ListAttestors` method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for PlatformPolicyManagementService.ListPlatformPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "platformPolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBinaryAuthorization_ListPlatformPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListPlatformPoliciesRequest.page_token field in the subsequent call to the
+ *  `ListPlatformPolicies` method to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of platform policies.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_PlatformPolicy *> *platformPolicies;
 
 @end
 
@@ -787,6 +1161,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *        Not specified. (Value: "SIGNATURE_ALGORITHM_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
+
+@end
+
+
+/**
+ *  A bundle of PKIX public keys, used to authenticate attestation signatures.
+ *  Generally, a signature is considered to be authenticated by a
+ *  PkixPublicKeySet if any of the public keys verify it (i.e. it is an "OR" of
+ *  the keys).
+ */
+@interface GTLRBinaryAuthorization_PkixPublicKeySet : GTLRObject
+
+/** Required. `pkix_public_keys` must have at least one entry. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_PkixPublicKey *> *pkixPublicKeys;
+
+@end
+
+
+/**
+ *  A Binary Authorization platform policy for deployments on various platforms.
+ */
+@interface GTLRBinaryAuthorization_PlatformPolicy : GTLRObject
+
+/**
+ *  Optional. A description comment about the policy.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. GKE platform-specific policy. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_GkePolicy *gkePolicy;
+
+/**
+ *  Output only. The relative resource name of the BinAuthz platform policy, in
+ *  the form of `projects/ * /platforms/ * /policies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Time when the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -937,6 +1352,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  A scope specifier for CheckSets.
+ */
+@interface GTLRBinaryAuthorization_Scope : GTLRObject
+
+/**
+ *  Optional. Matches all Kubernetes service accounts in the provided namespace,
+ *  unless a more specific `kubernetes_service_account` scope already matched.
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesNamespace;
+
+/**
+ *  Optional. Matches a single Kubernetes service account, e.g.
+ *  'my-namespace:my-service-account'. `kubernetes_service_account` scope is
+ *  always more specific than `kubernetes_namespace` scope for the same
+ *  namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesServiceAccount;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRBinaryAuthorization_SetIamPolicyRequest : GTLRObject
@@ -1004,6 +1441,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
+ *  Require a signed [DSSE](https://github.com/secure-systems-lab/dsse)
+ *  attestation with type SimpleSigning.
+ */
+@interface GTLRBinaryAuthorization_SimpleSigningAttestationCheck : GTLRObject
+
+/**
+ *  Required. The authenticators required by this check to verify an
+ *  attestation. Typically this is one or more PKIX public keys for signature
+ *  verification. Only one authenticator needs to consider an attestation
+ *  verified in order for an attestation to be considered fully authenticated.
+ *  In otherwords, this list of authenticators is an "OR" of the authenticator
+ *  results. At least one authenticator is required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_AttestationAuthenticator *> *attestationAuthenticators;
+
+/**
+ *  Optional. The projects where attestations are stored as Container Analysis
+ *  Occurrences. Only one attestation needs to successfully verify an image for
+ *  this check to pass, so a single verified attestation found in any of
+ *  `container_analysis_attestation_projects` is sufficient for the check to
+ *  pass. When fetching Occurrences from Container Analysis, only
+ *  'AttestationOccurrence' kinds are considered. In the future, additional
+ *  Occurrence kinds may be added to the query.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisAttestationProjects;
+
+@end
+
+
+/**
+ *  A SLSA provenance attestation check, which ensures that images are built by
+ *  a trusted builder using source code from its trusted repositories only.
+ */
+@interface GTLRBinaryAuthorization_SlsaCheck : GTLRObject
+
+/**
+ *  Specifies a list of verification rules for the SLSA attestations. An image
+ *  is considered compliant with the SlsaCheck if any of the rules are
+ *  satisfied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_VerificationRule *> *rules;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRBinaryAuthorization_TestIamPermissionsRequest : GTLRObject
@@ -1027,6 +1510,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A trusted directory check, which rejects images that do not come from the
+ *  set of user-configured trusted directories.
+ */
+@interface GTLRBinaryAuthorization_TrustedDirectoryCheck : GTLRObject
+
+/**
+ *  Required. List of trusted directory patterns. A pattern is in the form
+ *  "registry/path/to/directory". The registry domain part is defined as two or
+ *  more dot-separated words, e.g., us.pkg.dev, or gcr.io. Additionally, * can
+ *  be used in three ways as wildcards: 1. leading * to match varying prefixes
+ *  in registry subdomain (useful for location prefixes); 2. trailing * after
+ *  registry/ to match varying endings; 3. trailing ** after registry/ to match
+ *  "/" as well. For example: -- gcr.io/my-project/my-repo is valid to match a
+ *  single directory -- *-docker.pkg.dev/my-project/my-repo or
+ *  *.gcr.io/my-project are valid to match varying prefixes --
+ *  gcr.io/my-project/ * will match all direct directories in my-project --
+ *  gcr.io/my-project/ ** would match all directories in my-project -- gcr.i* is
+ *  not allowed since the registry is not completely specified --
+ *  sub*domain.gcr.io/nginx is not valid because only leading * or trailing *
+ *  are allowed. -- *pkg.dev/my-project/my-repo is not valid because leading *
+ *  can only match subdomain -- **-docker.pkg.dev is not valid because one
+ *  leading * is allowed, and that it cannot match "/"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trustedDirPatterns;
 
 @end
 
@@ -1119,6 +1631,161 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *        "VERIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *result;
+
+@end
+
+
+/**
+ *  Specifies verification rules for evaluating the SLSA attestations including:
+ *  which builders to trust, where to fetch the SLSA attestations generated by
+ *  those builders, and other builder-specific evaluation rules such as which
+ *  source repositories are trusted. An image is considered verified by the rule
+ *  if any of the fetched SLSA attestations is verified.
+ */
+@interface GTLRBinaryAuthorization_VerificationRule : GTLRObject
+
+/**
+ *  Specifies where to fetch the provenances attestations generated by the
+ *  builder (group).
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AttestationSource *attestationSource;
+
+/**
+ *  If true, require the image to be built from a top-level configuration.
+ *  trusted_source_repo patterns specifies the repositories containing this
+ *  configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *configBasedBuildRequired;
+
+/**
+ *  Each verification rule is used for evaluation against provenances generated
+ *  by a specific builder (group). For some of the builders, such as the Google
+ *  Cloud Build, users don't need to explicitly specify their roots of trust in
+ *  the policy since the evaluation service can automatically fetch them based
+ *  on the builder (group).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_BuilderUnspecified
+ *        Should never happen. (Value: "BUILDER_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_VerificationRule_TrustedBuilder_GoogleCloudBuild
+ *        The whole Google Cloud Build (GCB) builder group, including all GCB
+ *        builder types. (Value: "GOOGLE_CLOUD_BUILD")
+ */
+@property(nonatomic, copy, nullable) NSString *trustedBuilder;
+
+/**
+ *  List of trusted source code repository URL patterns. These patterns match
+ *  the full repository URL without its scheme (e.g. "https://"). The patterns
+ *  must not include schemes. For example, the pattern
+ *  "source.cloud.google.com/my-project/my-repo-name" matches the following
+ *  URLs: - "source.cloud.google.com/my-project/my-repo-name" -
+ *  "git+ssh://source.cloud.google.com/my-project/my-repo-name" -
+ *  "https://source.cloud.google.com/my-project/my-repo-name" A pattern matches
+ *  a URL either exactly or with * wildcards. * can be used in only two ways: 1.
+ *  trailing * after hosturi/ to match varying endings; 2. trailing ** after
+ *  hosturi/ to match "/" as well. * and ** can only be used as wildcards and
+ *  can only occur at the end of the pattern after a /. (So it's not possible to
+ *  match a URL that contains literal *.) For example: -
+ *  "github.com/my-project/my-repo" is valid to match a single repo -
+ *  "github.com/my-project/ *" will match all direct repos in my-project -
+ *  "github.com/ **" matches all repos in GitHub
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trustedSourceRepoPatterns;
+
+@end
+
+
+/**
+ *  An image vulnerability check, which rejects images that violate the
+ *  configured vulnerability rules.
+ */
+@interface GTLRBinaryAuthorization_VulnerabilityCheck : GTLRObject
+
+/**
+ *  Optional. A list of specific CVEs to ignore even if the vulnerability level
+ *  violates maximumUnfixableSeverity or maximumFixableSeverity. CVEs are listed
+ *  in the format of Container Analysis note id. For example: - CVE-2021-20305 -
+ *  CVE-2020-10543 The CVEs are applicable regardless of note provider project,
+ *  e.g., an entry of `CVE-2021-20305` will allow vulnerabilities with a note
+ *  name of either `projects/goog-vulnz/notes/CVE-2021-20305` or
+ *  `projects/CUSTOM-PROJECT/notes/CVE-2021-20305`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCves;
+
+/**
+ *  Optional. A list of specific CVEs to always raise warnings about even if the
+ *  vulnerability level meets maximumUnfixableSeverity or
+ *  maximumFixableSeverity. CVEs are listed in the format of Container Analysis
+ *  note id. For example: - CVE-2021-20305 - CVE-2020-10543 The CVEs are
+ *  applicable regardless of note provider project, e.g., an entry of
+ *  `CVE-2021-20305` will block vulnerabilities with a note name of either
+ *  `projects/goog-vulnz/notes/CVE-2021-20305` or
+ *  `projects/CUSTOM-PROJECT/notes/CVE-2021-20305`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockedCves;
+
+/**
+ *  Optional. The projects where vulnerabilities are stored as Container
+ *  Analysis Occurrences. Each project is expressed in the resource format of
+ *  `projects/[PROJECT_ID]`, e.g., projects/my-gcp-project. An attempt will be
+ *  made for each project to fetch vulnerabilities, and all valid
+ *  vulnerabilities will be used to check against the vulnerability policy. If
+ *  no valid scan is found in all projects configured here, an error will be
+ *  returned for the check.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisVulnerabilityProjects;
+
+/**
+ *  Required. The threshold for severity for which a fix is currently available.
+ *  This field is required and must be set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_AllowAll
+ *        Allow all severity, even vulnerability with unspecified severity.
+ *        (Value: "ALLOW_ALL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_BlockAll
+ *        Block any vulnerability. (Value: "BLOCK_ALL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Critical
+ *        Allow critical severity and lower. (Value: "CRITICAL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_High
+ *        Allow high severity and lower. (Value: "HIGH")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Low
+ *        Allow only low severity and lower. (Value: "LOW")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_MaximumAllowedSeverityUnspecified
+ *        Not specified. (Value: "MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Medium
+ *        Allow medium severity and lower. (Value: "MEDIUM")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumFixableSeverity_Minimal
+ *        Allow only minimal severity. (Value: "MINIMAL")
+ */
+@property(nonatomic, copy, nullable) NSString *maximumFixableSeverity;
+
+/**
+ *  Required. The threshold for severity for which a fix isn't currently
+ *  available. This field is required and must be set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_AllowAll
+ *        Allow all severity, even vulnerability with unspecified severity.
+ *        (Value: "ALLOW_ALL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_BlockAll
+ *        Block any vulnerability. (Value: "BLOCK_ALL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Critical
+ *        Allow critical severity and lower. (Value: "CRITICAL")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_High
+ *        Allow high severity and lower. (Value: "HIGH")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Low
+ *        Allow only low severity and lower. (Value: "LOW")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_MaximumAllowedSeverityUnspecified
+ *        Not specified. (Value: "MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Medium
+ *        Allow medium severity and lower. (Value: "MEDIUM")
+ *    @arg @c kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSeverity_Minimal
+ *        Allow only minimal severity. (Value: "MINIMAL")
+ */
+@property(nonatomic, copy, nullable) NSString *maximumUnfixableSeverity;
 
 @end
 

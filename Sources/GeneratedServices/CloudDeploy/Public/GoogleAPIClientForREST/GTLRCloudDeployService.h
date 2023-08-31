@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deploy API (clouddeploy/v1)
+//   Cloud Deploy API (clouddeploy/v1)
 // Documentation:
 //   https://cloud.google.com/deploy/
 
@@ -35,7 +35,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDeployCloudPlatform;
 //
 
 /**
- *  Service for executing Google Cloud Deploy API queries.
+ *  Service for executing Cloud Deploy API queries.
  */
 @interface GTLRCloudDeployService : GTLRService
 

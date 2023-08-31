@@ -279,10 +279,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 // ----------------------------------------------------------------------------
 // GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
 
+/**
+ *  Cross-region internal Application Load Balancer
+ *
+ *  Value: "globalL7ilb"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb;
 /** Value: "none" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None;
-/** Value: "regionalL4ilb" */
+/**
+ *  Regional internal passthrough Network Load Balancer
+ *
+ *  Value: "regionalL4ilb"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb;
+/**
+ *  Regional internal Application Load Balancer
+ *
+ *  Value: "regionalL7ilb"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb;
 
 /**
  *  A Change represents a set of ResourceRecordSet additions and deletions
@@ -783,7 +799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -791,14 +807,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDns_GoogleIamV1Policy : GTLRObject
@@ -2366,10 +2383,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  address/port and region.
  *
  *  Likely values:
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb
+ *        Cross-region internal Application Load Balancer (Value: "globalL7ilb")
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None
  *        Value "none"
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb
- *        Value "regionalL4ilb"
+ *        Regional internal passthrough Network Load Balancer (Value:
+ *        "regionalL4ilb")
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb
+ *        Regional internal Application Load Balancer (Value: "regionalL7ilb")
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancerType;
 

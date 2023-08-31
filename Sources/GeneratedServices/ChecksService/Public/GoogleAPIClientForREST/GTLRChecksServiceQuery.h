@@ -35,14 +35,146 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets an app.
+ *
+ *  Method: checks.accounts.apps.get
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsGet : GTLRChecksServiceQuery
+
+/** Required. Resource name of the app. Example: `accounts/123/apps/456` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_GoogleChecksAccountV1alphaApp.
+ *
+ *  Gets an app.
+ *
+ *  @param name Required. Resource name of the app. Example:
+ *    `accounts/123/apps/456`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the apps under the given account.
+ *
+ *  Method: checks.accounts.apps.list
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsList : GTLRChecksServiceQuery
+
+/**
+ *  Optional. The maximum number of results to return. The server may further
+ *  constrain the maximum number of results returned in a single page. If
+ *  unspecified, the server will decide the number of results to be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous `ListApps` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent account. Example: `accounts/123` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRChecksService_GoogleChecksAccountV1alphaListAppsResponse.
+ *
+ *  Lists the apps under the given account.
+ *
+ *  @param parent Required. The parent account. Example: `accounts/123`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: checks.accounts.apps.operations.cancel
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsOperationsCancel : GTLRChecksServiceQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRChecksService_CancelOperationRequest to include in
+ *    the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRChecksService_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: checks.accounts.apps.operations.delete
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsOperationsDelete : GTLRChecksServiceQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
  *  Method: checks.accounts.apps.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeChecksServiceXapiZoo
  */
 @interface GTLRChecksServiceQuery_AccountsAppsOperationsGet : GTLRChecksServiceQuery
 
@@ -65,7 +197,248 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Analyzes the privacy policy of the given policy URL or content.
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: checks.accounts.apps.operations.list
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsOperationsList : GTLRChecksServiceQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRChecksService_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: checks.accounts.apps.operations.wait
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsOperationsWait : GTLRChecksServiceQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param object The @c GTLRChecksService_WaitOperationRequest to include in
+ *    the query.
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsOperationsWait
+ */
++ (instancetype)queryWithObject:(GTLRChecksService_WaitOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a report. By default, only the name and results_uri fields are
+ *  returned. You can include other fields by listing them in the `fields` URL
+ *  query parameter. For example, `?fields=name,checks` will return the name and
+ *  checks fields.
+ *
+ *  Method: checks.accounts.apps.reports.get
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsReportsGet : GTLRChecksServiceQuery
+
+/**
+ *  Optional. An [AIP-160](https://google.aip.dev/160) filter string to filter
+ *  checks within the report. Only checks that match the filter string are
+ *  included in the response. Example: `state = FAILED`
+ */
+@property(nonatomic, copy, nullable) NSString *checksFilter;
+
+/**
+ *  Required. Resource name of the report. Example:
+ *  `accounts/123/apps/456/reports/789`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_GoogleChecksReportV1alphaReport.
+ *
+ *  Gets a report. By default, only the name and results_uri fields are
+ *  returned. You can include other fields by listing them in the `fields` URL
+ *  query parameter. For example, `?fields=name,checks` will return the name and
+ *  checks fields.
+ *
+ *  @param name Required. Resource name of the report. Example:
+ *    `accounts/123/apps/456/reports/789`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsReportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists reports for the specified app. By default, only the name and
+ *  results_uri fields are returned. You can include other fields by listing
+ *  them in the `fields` URL query parameter. For example,
+ *  `?fields=reports(name,checks)` will return the name and checks fields.
+ *
+ *  Method: checks.accounts.apps.reports.list
+ */
+@interface GTLRChecksServiceQuery_AccountsAppsReportsList : GTLRChecksServiceQuery
+
+/**
+ *  Optional. An [AIP-160](https://google.aip.dev/160) filter string to filter
+ *  checks within reports. Only checks that match the filter string are included
+ *  in the response. Example: `state = FAILED`
+ */
+@property(nonatomic, copy, nullable) NSString *checksFilter;
+
+/**
+ *  Optional. An [AIP-160](https://google.aip.dev/160) filter string to filter
+ *  reports. Example: `appBundle.releaseType = PRE_RELEASE`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of reports to return. If unspecified, at most
+ *  10 reports will be returned. The maximum value is 50; values above 50 will
+ *  be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous `ListReports` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListReports` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Resource name of the app. Example: `accounts/123/apps/456` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRChecksService_GoogleChecksReportV1alphaListReportsResponse.
+ *
+ *  Lists reports for the specified app. By default, only the name and
+ *  results_uri fields are returned. You can include other fields by listing
+ *  them in the `fields` URL query parameter. For example,
+ *  `?fields=reports(name,checks)` will return the name and checks fields.
+ *
+ *  @param parent Required. Resource name of the app. Example:
+ *    `accounts/123/apps/456`
+ *
+ *  @return GTLRChecksServiceQuery_AccountsAppsReportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Analyzes the uploaded app bundle and returns a google.longrunning.Operation
+ *  containing the generated Report. ## Example (upload only) Send a regular
+ *  POST request with the header `X-Goog-Upload-Protocol: raw`. ``` POST
+ *  https://checks.googleapis.com/upload/v1alpha/{parent=accounts/ * /apps/
+ *  *}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: raw
+ *  Content-Length: Content-Type: application/octet-stream ``` ## Example
+ *  (upload with metadata) Send a multipart POST request where the first body
+ *  part contains the metadata JSON and the second body part contains the binary
+ *  upload. Include the header `X-Goog-Upload-Protocol: multipart`. ``` POST
+ *  https://checks.googleapis.com/upload/v1alpha/{parent=accounts/ * /apps/
+ *  *}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: multipart
+ *  Content-Length: ? Content-Type: multipart/related; boundary=BOUNDARY
+ *  --BOUNDARY Content-Type: application/json
+ *  {"code_reference_id":"db5bcc20f94055fb5bc08cbb9b0e7a5530308786"} --BOUNDARY
+ *  --BOUNDARY-- ``` *Note:* Metadata-only requests are not supported.
+ *
+ *  Method: checks.media.upload
+ */
+@interface GTLRChecksServiceQuery_MediaUpload : GTLRChecksServiceQuery
+
+/** Required. Resource name of the app. Example: `accounts/123/apps/456` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Analyzes the uploaded app bundle and returns a google.longrunning.Operation
+ *  containing the generated Report. ## Example (upload only) Send a regular
+ *  POST request with the header `X-Goog-Upload-Protocol: raw`. ``` POST
+ *  https://checks.googleapis.com/upload/v1alpha/{parent=accounts/ * /apps/
+ *  *}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: raw
+ *  Content-Length: Content-Type: application/octet-stream ``` ## Example
+ *  (upload with metadata) Send a multipart POST request where the first body
+ *  part contains the metadata JSON and the second body part contains the binary
+ *  upload. Include the header `X-Goog-Upload-Protocol: multipart`. ``` POST
+ *  https://checks.googleapis.com/upload/v1alpha/{parent=accounts/ * /apps/
+ *  *}/reports:analyzeUpload HTTP/1.1 X-Goog-Upload-Protocol: multipart
+ *  Content-Length: ? Content-Type: multipart/related; boundary=BOUNDARY
+ *  --BOUNDARY Content-Type: application/json
+ *  {"code_reference_id":"db5bcc20f94055fb5bc08cbb9b0e7a5530308786"} --BOUNDARY
+ *  --BOUNDARY-- ``` *Note:* Metadata-only requests are not supported.
+ *
+ *  @param object The @c
+ *    GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest to include
+ *    in the query.
+ *  @param parent Required. Resource name of the app. Example:
+ *    `accounts/123/apps/456`
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    10737418240. Accepted MIME type: * / *
+ *
+ *  @return GTLRChecksServiceQuery_MediaUpload
+ */
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Performs a synchronous analysis of a privacy policy, where the policy
+ *  content is mapped to privacy categories, data types, and purposes.
  *
  *  Method: checks.privacypolicy.analyze
  */
@@ -74,7 +447,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRChecksService_AnalyzePrivacyPolicyResponse.
  *
- *  Analyzes the privacy policy of the given policy URL or content.
+ *  Performs a synchronous analysis of a privacy policy, where the policy
+ *  content is mapped to privacy categories, data types, and purposes.
  *
  *  @param object The @c GTLRChecksService_AnalyzePrivacyPolicyRequest to
  *    include in the query.
@@ -82,6 +456,185 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRChecksServiceQuery_PrivacypolicyAnalyze
  */
 + (instancetype)queryWithObject:(GTLRChecksService_AnalyzePrivacyPolicyRequest *)object;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: checks.projects.privacypolicy.operations.cancel
+ */
+@interface GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsCancel : GTLRChecksServiceQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: checks.projects.privacypolicy.operations.delete
+ */
+@interface GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsDelete : GTLRChecksServiceQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: checks.projects.privacypolicy.operations.get
+ */
+@interface GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsGet : GTLRChecksServiceQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: checks.projects.privacypolicy.operations.list
+ */
+@interface GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsList : GTLRChecksServiceQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRChecksService_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: checks.projects.privacypolicy.operations.wait
+ */
+@interface GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsWait : GTLRChecksServiceQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRChecksServiceQuery_ProjectsPrivacypolicyOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

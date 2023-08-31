@@ -87,6 +87,11 @@ NSString * const kGTLRDataproc_JobStatus_Substate_StaleStatus = @"STALE_STATUS";
 NSString * const kGTLRDataproc_JobStatus_Substate_Submitted   = @"SUBMITTED";
 NSString * const kGTLRDataproc_JobStatus_Substate_Unspecified = @"UNSPECIFIED";
 
+// GTLRDataproc_JupyterConfig.kernel
+NSString * const kGTLRDataproc_JupyterConfig_Kernel_KernelUnspecified = @"KERNEL_UNSPECIFIED";
+NSString * const kGTLRDataproc_JupyterConfig_Kernel_Python     = @"PYTHON";
+NSString * const kGTLRDataproc_JupyterConfig_Kernel_Scala      = @"SCALA";
+
 // GTLRDataproc_LoggingConfig_DriverLogLevels.driverLogLevel
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_All = @"ALL";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Debug = @"DEBUG";
@@ -99,6 +104,7 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trac
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
 // GTLRDataproc_Metric.metricSource
+NSString * const kGTLRDataproc_Metric_MetricSource_Flink       = @"FLINK";
 NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs        = @"HDFS";
 NSString * const kGTLRDataproc_Metric_MetricSource_Hivemetastore = @"HIVEMETASTORE";
 NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2 = @"HIVESERVER2";
@@ -129,11 +135,27 @@ NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoRese
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataproc_Session.state
+NSString * const kGTLRDataproc_Session_State_Active           = @"ACTIVE";
+NSString * const kGTLRDataproc_Session_State_Creating         = @"CREATING";
+NSString * const kGTLRDataproc_Session_State_Failed           = @"FAILED";
+NSString * const kGTLRDataproc_Session_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataproc_Session_State_Terminated       = @"TERMINATED";
+NSString * const kGTLRDataproc_Session_State_Terminating      = @"TERMINATING";
+
 // GTLRDataproc_SessionOperationMetadata.operationType
 NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified = @"SESSION_OPERATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate = @"TERMINATE";
+
+// GTLRDataproc_SessionStateHistory.state
+NSString * const kGTLRDataproc_SessionStateHistory_State_Active = @"ACTIVE";
+NSString * const kGTLRDataproc_SessionStateHistory_State_Creating = @"CREATING";
+NSString * const kGTLRDataproc_SessionStateHistory_State_Failed = @"FAILED";
+NSString * const kGTLRDataproc_SessionStateHistory_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataproc_SessionStateHistory_State_Terminated = @"TERMINATED";
+NSString * const kGTLRDataproc_SessionStateHistory_State_Terminating = @"TERMINATING";
 
 // GTLRDataproc_SoftwareConfig.optionalComponents
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
@@ -715,6 +737,40 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_FlinkJob
+//
+
+@implementation GTLRDataproc_FlinkJob
+@dynamic args, jarFileUris, loggingConfig, mainClass, mainJarFileUri,
+         properties, savepointUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"jarFileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_FlinkJob_Properties
+//
+
+@implementation GTLRDataproc_FlinkJob_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_GceClusterConfig
 //
 
@@ -981,6 +1037,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_InjectSessionCredentialsRequest
+//
+
+@implementation GTLRDataproc_InjectSessionCredentialsRequest
+@dynamic credentialsCiphertext, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_InstanceGroupAutoscalingPolicyConfig
 //
 
@@ -997,7 +1063,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_InstanceGroupConfig
 @dynamic accelerators, diskConfig, imageUri, instanceNames, instanceReferences,
          isPreemptible, machineTypeUri, managedGroupConfig, minCpuPlatform,
-         numInstances, preemptibility;
+         minNumInstances, numInstances, preemptibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1062,9 +1128,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_Job
 @dynamic done, driverControlFilesUri, driverOutputResourceUri,
-         driverSchedulingConfig, hadoopJob, hiveJob, jobUuid, labels, pigJob,
-         placement, prestoJob, pysparkJob, reference, scheduling, sparkJob,
-         sparkRJob, sparkSqlJob, status, statusHistory, trinoJob,
+         driverSchedulingConfig, flinkJob, hadoopJob, hiveJob, jobUuid, labels,
+         pigJob, placement, prestoJob, pysparkJob, reference, scheduling,
+         sparkJob, sparkRJob, sparkSqlJob, status, statusHistory, trinoJob,
          yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1153,6 +1219,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_JobStatus
 @dynamic details, state, stateStartTime, substate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_JupyterConfig
+//
+
+@implementation GTLRDataproc_JupyterConfig
+@dynamic displayName, kernel;
 @end
 
 
@@ -1333,6 +1409,50 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ListSessionsResponse
+//
+
+@implementation GTLRDataproc_ListSessionsResponse
+@dynamic nextPageToken, sessions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sessions" : [GTLRDataproc_Session class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ListSessionTemplatesResponse
+//
+
+@implementation GTLRDataproc_ListSessionTemplatesResponse
+@dynamic nextPageToken, sessionTemplates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sessionTemplates" : [GTLRDataproc_SessionTemplate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessionTemplates";
 }
 
 @end
@@ -1984,6 +2104,40 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_Session
+//
+
+@implementation GTLRDataproc_Session
+@dynamic createTime, creator, environmentConfig, jupyterSession, labels, name,
+         runtimeConfig, runtimeInfo, sessionTemplate, state, stateHistory,
+         stateMessage, stateTime, user, uuid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stateHistory" : [GTLRDataproc_SessionStateHistory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Session_Labels
+//
+
+@implementation GTLRDataproc_Session_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SessionOperationMetadata
 //
 
@@ -2011,6 +2165,46 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SessionOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SessionStateHistory
+//
+
+@implementation GTLRDataproc_SessionStateHistory
+@dynamic state, stateMessage, stateStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SessionTemplate
+//
+
+@implementation GTLRDataproc_SessionTemplate
+@dynamic createTime, creator, descriptionProperty, environmentConfig,
+         jupyterSession, labels, name, runtimeConfig, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SessionTemplate_Labels
+//
+
+@implementation GTLRDataproc_SessionTemplate_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -2378,6 +2572,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_TerminateSessionRequest
+//
+
+@implementation GTLRDataproc_TerminateSessionRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_TestIamPermissionsRequest
 //
 
@@ -2461,7 +2665,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_UsageSnapshot
-@dynamic milliDcu, shuffleStorageGb, snapshotTime;
+@dynamic milliDcu, milliDcuPremium, shuffleStorageGb, shuffleStorageGbPremium,
+         snapshotTime;
 @end
 
 

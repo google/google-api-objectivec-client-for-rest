@@ -79,25 +79,6 @@
 
 @end
 
-@implementation GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersGetAuthenticationConfig
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
-  GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersGetAuthenticationConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCCAIPlatform_AuthenticationConfig class];
-  query.loggingName = @"contactcenteraiplatform.projects.locations.contactCenters.getAuthentication-config";
-  return query;
-}
-
-@end
-
 @implementation GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -139,33 +120,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCCAIPlatform_Operation class];
   query.loggingName = @"contactcenteraiplatform.projects.locations.contactCenters.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersUpdateAuthenticationConfig
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRCCAIPlatform_AuthenticationConfig *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
-  GTLRCCAIPlatformQuery_ProjectsLocationsContactCentersUpdateAuthenticationConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCCAIPlatform_AuthenticationConfig class];
-  query.loggingName = @"contactcenteraiplatform.projects.locations.contactCenters.updateAuthentication-config";
   return query;
 }
 

@@ -50,6 +50,12 @@ NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_Secti
 NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
+// GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse.simLockState
+NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToOtherPartner = @"LOCKED_TO_OTHER_PARTNER";
+NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_LockedToPartner = @"LOCKED_TO_PARTNER";
+NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_SimLockStateUnspecified = @"SIM_LOCK_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse_SimLockState_Unlocked = @"UNLOCKED";
+
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
 NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
@@ -462,6 +468,26 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
   return @"devices";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest
+//
+
+@implementation GTLRAndroidProvisioningPartner_GetDeviceSimLockStateRequest
+@dynamic deviceIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse
+//
+
+@implementation GTLRAndroidProvisioningPartner_GetDeviceSimLockStateResponse
+@dynamic simLockState;
 @end
 
 

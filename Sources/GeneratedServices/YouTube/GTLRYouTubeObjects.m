@@ -867,6 +867,11 @@ NSString * const kGTLRYouTube_ContentRating_YtRating_YtUnspecified = @"ytUnspeci
 NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeAd       = @"cueTypeAd";
 NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeUnspecified = @"cueTypeUnspecified";
 
+// GTLRYouTube_CuepointSchedule.scheduleStrategy
+NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_Concurrent = @"concurrent";
+NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_NonConcurrent = @"nonConcurrent";
+NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_ScheduleStrategyUnspecified = @"scheduleStrategyUnspecified";
+
 // GTLRYouTube_InvideoPosition.cornerPosition
 NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft = @"bottomLeft";
 NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight = @"bottomRight";
@@ -2067,6 +2072,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_CuepointSchedule
+//
+
+@implementation GTLRYouTube_CuepointSchedule
+@dynamic enabled, pauseAdsUntil, repeatInterval, scheduleStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_Entity
 //
 
@@ -2277,7 +2292,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcast
-@dynamic contentDetails, ETag, identifier, kind, snippet, statistics, status;
+@dynamic contentDetails, ETag, identifier, kind, monetizationDetails, snippet,
+         statistics, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2324,6 +2340,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveBroadcastMonetizationDetails
+//
+
+@implementation GTLRYouTube_LiveBroadcastMonetizationDetails
+@dynamic cuepointSchedule;
 @end
 
 

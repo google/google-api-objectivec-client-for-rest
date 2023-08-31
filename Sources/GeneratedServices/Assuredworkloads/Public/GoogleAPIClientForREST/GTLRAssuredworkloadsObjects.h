@@ -13,6 +13,7 @@
 #endif
 
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediationInstructions;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsConsole;
@@ -143,6 +144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar;
 /**
+ *  Assured Workloads for Japan Regions
+ *
+ *  Value: "JP_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport;
+/**
  *  Assured Workloads For US Regions data protection controls
  *
  *  Value: "US_REGIONAL_ACCESS"
@@ -235,6 +242,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListDeniedValuesOrgPolicyViolation;
+/**
+ *  Remediation type for resource violation.
+ *
+ *  Value: "REMEDIATION_RESOURCE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation;
 /**
  *  Remediation type for gcp.restrictCmekCryptoKeyProjects
  *
@@ -349,6 +362,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar;
 /**
+ *  Assured Workloads for Japan Regions
+ *
+ *  Value: "JP_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport;
+/**
  *  Assured Workloads For US Regions data protection controls
  *
  *  Value: "US_REGIONAL_ACCESS"
@@ -417,7 +436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_EkmProvisioningErrorDomainUnspecified;
 /**
- *  Error occurred within the partner’s provisioning cluster.
+ *  Error occurred within the partner's provisioning cluster.
  *
  *  Value: "EXTERNAL_PARTNER_ERROR"
  */
@@ -713,6 +732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport
+ *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -844,7 +865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Workload monitoring Violation. Next Id: 27
+ *  Workload monitoring Violation. Next Id: 28
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation : GTLRObject
 
@@ -893,6 +914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *exceptionAuditLogLink;
 
+/** Output only. List of all the exception detail added for the violation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext *> *exceptionContexts;
+
 /**
  *  Output only. Immutable. Name of the Violation. Format:
  *  organizations/{organization}/locations/{location}/workloads/{workload_id}/violations/{violations_id}
@@ -907,6 +931,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  organizations/{organization_id}/policies/{constraint_name}
  */
 @property(nonatomic, copy, nullable) NSString *nonCompliantOrgPolicy;
+
+/**
+ *  Output only. Immutable. The org-policy-constraint that was incorrectly
+ *  changed, which resulted in this violation.
+ */
+@property(nonatomic, copy, nullable) NSString *orgPolicyConstraint;
 
 /** Output only. Compliance violation remediation */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation *remediation;
@@ -934,6 +964,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** Output only. The last time when the Violation record was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Violation exception detail. Next Id: 6
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext : GTLRObject
+
+/** Timestamp when the violation was acknowledged. */
+@property(nonatomic, strong, nullable) GTLRDateTime *acknowledgementTime;
+
+/**
+ *  Business justification provided towards the acknowledgement of the
+ *  violation.
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/** Name of the user (or service account) who acknowledged the violation. */
+@property(nonatomic, copy, nullable) NSString *userName;
 
 @end
 
@@ -969,6 +1019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Remediation type for list org policy which have denied values in the
  *        monitoring rule (Value:
  *        "REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation
+ *        Remediation type for resource violation. (Value:
+ *        "REMEDIATION_RESOURCE_VIOLATION")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation
  *        Remediation type for gcp.restrictCmekCryptoKeyProjects (Value:
  *        "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION")
@@ -1089,6 +1142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport
+ *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1284,7 +1339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_EkmProvisioningErrorDomainUnspecified
  *        No error domain (Value: "EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalPartnerError
- *        Error occurred within the partner’s provisioning cluster. (Value:
+ *        Error occurred within the partner's provisioning cluster. (Value:
  *        "EXTERNAL_PARTNER_ERROR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningErrorDomain_ExternalUserError
  *        Error occurred with the customer not granting permission/creating
@@ -1368,6 +1423,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions : GTLRObject
 
 /**
+ *  Optional. Allow partner to view violation alerts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assuredWorkloadsMonitoring;
+
+/**
  *  Allow the partner to view inspectability logs and monitoring violations.
  *
  *  Uses NSNumber of boolValue.
@@ -1375,11 +1437,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, strong, nullable) NSNumber *dataLogsViewer;
 
 /**
- *  Allow partner to monitor folder and remediate violations
+ *  Optional. Allow partner to view access approval logs.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *remediateFolderViolations;
+@property(nonatomic, strong, nullable) NSNumber *serviceAccessApprover;
 
 @end
 
@@ -1545,8 +1607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1574,8 +1636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

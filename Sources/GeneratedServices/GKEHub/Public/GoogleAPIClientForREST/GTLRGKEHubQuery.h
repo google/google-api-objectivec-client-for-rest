@@ -1736,6 +1736,195 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a fleet namespace.
+ *
+ *  Method: gkehub.projects.locations.scopes.namespaces.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate : GTLRGKEHubQuery
+
+/**
+ *  Required. The parent (project and location) where the Namespace will be
+ *  created. Specified in the format `projects/ * /locations/ * /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Client chosen ID for the Namespace. `namespace_id` must be a valid
+ *  RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must
+ *  consist of lower case alphanumeric characters or `-` 3. It must start and
+ *  end with an alphanumeric character Which can be expressed as the regex:
+ *  `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *scopeNamespaceId;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates a fleet namespace.
+ *
+ *  @param object The @c GTLRGKEHub_Namespace to include in the query.
+ *  @param parent Required. The parent (project and location) where the
+ *    Namespace will be created. Specified in the format `projects/ *
+ *    /locations/ * /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a fleet namespace.
+ *
+ *  Method: gkehub.projects.locations.scopes.namespaces.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The Namespace resource name in the format `projects/ * /locations/
+ *  * /scopes/ * /namespaces/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Deletes a fleet namespace.
+ *
+ *  @param name Required. The Namespace resource name in the format `projects/ *
+ *    /locations/ * /scopes/ * /namespaces/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details of a fleet namespace.
+ *
+ *  Method: gkehub.projects.locations.scopes.namespaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The Namespace resource name in the format `projects/ * /locations/
+ *  * /scopes/ * /namespaces/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Namespace.
+ *
+ *  Returns the details of a fleet namespace.
+ *
+ *  @param name Required. The Namespace resource name in the format `projects/ *
+ *    /locations/ * /scopes/ * /namespaces/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists fleet namespaces.
+ *
+ *  Method: gkehub.projects.locations.scopes.namespaces.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList : GTLRGKEHubQuery
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListFeatures` which specifies
+ *  the position in the list from where to continue listing the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project and location) where the Features will be
+ *  listed. Specified in the format `projects/ * /locations/ * /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListScopeNamespacesResponse.
+ *
+ *  Lists fleet namespaces.
+ *
+ *  @param parent Required. The parent (project and location) where the Features
+ *    will be listed. Specified in the format `projects/ * /locations/ *
+ *    /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a fleet namespace.
+ *
+ *  Method: gkehub.projects.locations.scopes.namespaces.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch : GTLRGKEHubQuery
+
+/**
+ *  The resource name for the namespace
+ *  `projects/{project}/locations/{location}/namespaces/{namespace}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates a fleet namespace.
+ *
+ *  @param object The @c GTLRGKEHub_Namespace to include in the query.
+ *  @param name The resource name for the namespace
+ *    `projects/{project}/locations/{location}/namespaces/{namespace}`
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a scopes.
  *
  *  Method: gkehub.projects.locations.scopes.patch
@@ -1770,6 +1959,201 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGKEHubQuery_ProjectsLocationsScopesPatch
  */
 + (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Scope RBACRoleBinding.
+ *
+ *  Method: gkehub.projects.locations.scopes.rbacrolebindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate : GTLRGKEHubQuery
+
+/**
+ *  Required. The parent (project and location) where the RBACRoleBinding will
+ *  be created. Specified in the format `projects/ * /locations/ * /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id`
+ *  must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in
+ *  length 2. It must consist of lower case alphanumeric characters or `-` 3. It
+ *  must start and end with an alphanumeric character Which can be expressed as
+ *  the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *rbacrolebindingId;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Creates a Scope RBACRoleBinding.
+ *
+ *  @param object The @c GTLRGKEHub_RBACRoleBinding to include in the query.
+ *  @param parent Required. The parent (project and location) where the
+ *    RBACRoleBinding will be created. Specified in the format `projects/ *
+ *    /locations/ * /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Scope RBACRoleBinding.
+ *
+ *  Method: gkehub.projects.locations.scopes.rbacrolebindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete : GTLRGKEHubQuery
+
+/**
+ *  Required. The RBACRoleBinding resource name in the format `projects/ *
+ *  /locations/ * /scopes/ * /rbacrolebindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Deletes a Scope RBACRoleBinding.
+ *
+ *  @param name Required. The RBACRoleBinding resource name in the format
+ *    `projects/ * /locations/ * /scopes/ * /rbacrolebindings/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the details of a Scope RBACRoleBinding.
+ *
+ *  Method: gkehub.projects.locations.scopes.rbacrolebindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet : GTLRGKEHubQuery
+
+/**
+ *  Required. The RBACRoleBinding resource name in the format `projects/ *
+ *  /locations/ * /scopes/ * /rbacrolebindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGKEHub_RBACRoleBinding.
+ *
+ *  Returns the details of a Scope RBACRoleBinding.
+ *
+ *  @param name Required. The RBACRoleBinding resource name in the format
+ *    `projects/ * /locations/ * /scopes/ * /rbacrolebindings/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Scope RBACRoleBindings.
+ *
+ *  Method: gkehub.projects.locations.scopes.rbacrolebindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList : GTLRGKEHubQuery
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListScopeRBACRoleBindings`
+ *  which specifies the position in the list from where to continue listing the
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project and location) where the Features will be
+ *  listed. Specified in the format `projects/ * /locations/ * /scopes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListScopeRBACRoleBindingsResponse.
+ *
+ *  Lists all Scope RBACRoleBindings.
+ *
+ *  @param parent Required. The parent (project and location) where the Features
+ *    will be listed. Specified in the format `projects/ * /locations/ *
+ *    /scopes/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Scope RBACRoleBinding.
+ *
+ *  Method: gkehub.projects.locations.scopes.rbacrolebindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch : GTLRGKEHubQuery
+
+/**
+ *  The resource name for the rbacrolebinding
+ *  `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *  or
+ *  `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGKEHub_Operation.
+ *
+ *  Updates a Scope RBACRoleBinding.
+ *
+ *  @param object The @c GTLRGKEHub_RBACRoleBinding to include in the query.
+ *  @param name The resource name for the rbacrolebinding
+ *    `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *    or
+ *    `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
                            name:(NSString *)name;
 
 @end

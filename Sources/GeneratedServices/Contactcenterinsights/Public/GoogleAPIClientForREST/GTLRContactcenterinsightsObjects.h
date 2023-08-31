@@ -2256,6 +2256,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Response from export issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelResponse : GTLRObject
+@end
+
+
+/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData : GTLRObject
@@ -2333,6 +2340,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData : GTLRObject
+@end
+
+
+/**
+ *  Response from import issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse : GTLRObject
 @end
 
 
@@ -4521,6 +4535,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Response from export issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelResponse : GTLRObject
+@end
+
+
+/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData : GTLRObject
@@ -4598,6 +4619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData : GTLRObject
+@end
+
+
+/**
+ *  Response from import issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse : GTLRObject
 @end
 
 
@@ -5810,8 +5838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -5839,8 +5867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

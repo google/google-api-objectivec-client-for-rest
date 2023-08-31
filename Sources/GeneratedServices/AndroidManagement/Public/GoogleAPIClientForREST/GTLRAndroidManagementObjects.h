@@ -49,9 +49,11 @@
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceConnectivityManagement;
+@class GTLRAndroidManagement_DeviceRadioState;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_DnsEvent;
+@class GTLRAndroidManagement_EnrollmentCompleteEvent;
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
 @class GTLRAndroidManagement_ExtensionConfig;
@@ -71,9 +73,12 @@
 @class GTLRAndroidManagement_KeyIntegrityViolationEvent;
 @class GTLRAndroidManagement_KioskCustomization;
 @class GTLRAndroidManagement_LaunchAppAction;
+@class GTLRAndroidManagement_Location;
 @class GTLRAndroidManagement_LogBufferSizeCriticalEvent;
 @class GTLRAndroidManagement_LoggingStartedEvent;
 @class GTLRAndroidManagement_LoggingStoppedEvent;
+@class GTLRAndroidManagement_LostModeLocationEvent;
+@class GTLRAndroidManagement_LostModeOutgoingPhoneCallEvent;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate;
 @class GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables;
 @class GTLRAndroidManagement_ManagedProperty;
@@ -112,9 +117,14 @@
 @class GTLRAndroidManagement_SigninDetail;
 @class GTLRAndroidManagement_SoftwareInfo;
 @class GTLRAndroidManagement_SpecificNonComplianceContext;
+@class GTLRAndroidManagement_StartLostModeParams;
+@class GTLRAndroidManagement_StartLostModeStatus;
 @class GTLRAndroidManagement_Status;
 @class GTLRAndroidManagement_Status_Details_Item;
 @class GTLRAndroidManagement_StatusReportingSettings;
+@class GTLRAndroidManagement_StopLostModeParams;
+@class GTLRAndroidManagement_StopLostModeStatus;
+@class GTLRAndroidManagement_StopLostModeUserAttemptEvent;
 @class GTLRAndroidManagement_SystemUpdate;
 @class GTLRAndroidManagement_SystemUpdateInfo;
 @class GTLRAndroidManagement_TelephonyInfo;
@@ -537,6 +547,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertInstall;
 /**
+ *  Grants access to selection of KeyChain certificates on behalf of requesting
+ *  apps. Once granted, the delegated application will start receiving
+ *  DelegatedAdminReceiver#onChoosePrivateKeyAlias(https://developer.android.com/reference/android/app/admin/DelegatedAdminReceiver#onChoosePrivateKeyAlias(android.content.Context,%20android.content.Intent,%20int,%20android.net.Uri,%20java.lang.String)).
+ *  Allows the delegated application to call
+ *  grantKeyPairToApp(https://developer.android.com/reference/android/app/admin/DevicePolicyManager#grantKeyPairToApp(android.content.ComponentName,%20java.lang.String,%20java.lang.String))
+ *  and
+ *  revokeKeyPairFromApp(https://developer.android.com/reference/android/app/admin/DevicePolicyManager#revokeKeyPairFromApp(android.content.ComponentName,%20java.lang.String,%20java.lang.String))
+ *  methods. There can be at most one app that has this delegation.
+ *  choosePrivateKeyRules must be empty and privateKeySelectionEnabled has no
+ *  effect if certificate selection is delegated to an application.
+ *
+ *  Value: "CERT_SELECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertSelection;
+/**
  *  No delegation scope specified.
  *
  *  Value: "DELEGATED_SCOPE_UNSPECIFIED"
@@ -612,7 +637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available;
 /**
  *  The app is blocked and can't be installed. If the app was installed under a
- *  previous policy, it will be uninstalled.
+ *  previous policy, it will be uninstalled. This also blocks its instant app
+ *  functionality.
  *
  *  Value: "BLOCKED"
  */
@@ -727,6 +753,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_Stat
  *  Value: "REMOVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationReport.userFacingType
+
+/**
+ *  App is not user facing.
+ *
+ *  Value: "NOT_USER_FACING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_NotUserFacing;
+/**
+ *  App is user facing.
+ *
+ *  Value: "USER_FACING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacing;
+/**
+ *  App user facing type is unspecified.
+ *
+ *  Value: "USER_FACING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_BlockAction.blockScope
@@ -869,6 +917,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Relinquis
  *  Value: "RESET_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
+/**
+ *  Puts the device into lost mode. Only supported on fully managed devices or
+ *  organization-owned devices with a managed profile. See also
+ *  start_lost_mode_params.
+ *
+ *  Value: "START_LOST_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_StartLostMode;
+/**
+ *  Takes the device out of lost mode. Only supported on fully managed devices
+ *  or organization-owned devices with a managed profile. See also
+ *  stop_lost_mode_params.
+ *
+ *  Value: "STOP_LOST_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_StopLostMode;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
@@ -1029,6 +1093,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_De
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled;
 /**
+ *  The device is lost. This state is only possible on organization-owned
+ *  devices.
+ *
+ *  Value: "LOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Lost;
+/**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
  *
@@ -1113,12 +1184,100 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_DeviceSta
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
 /**
+ *  The device is lost. This state is only possible on organization-owned
+ *  devices.
+ *
+ *  Value: "LOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Lost;
+/**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
  *
  *  Value: "PROVISIONING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
+
+/**
+ *  The user is allowed to configure Wi-Fi. wifiConfigDisabled is ignored.
+ *
+ *  Value: "ALLOW_CONFIGURING_WIFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_AllowConfiguringWifi;
+/**
+ *  Unspecified. Defaults to ALLOW_CONFIGURING_WIFI unless wifiConfigDisabled is
+ *  set to true. If wifiConfigDisabled is set to true, this is equivalent to
+ *  DISALLOW_CONFIGURING_WIFI.
+ *
+ *  Value: "CONFIGURE_WIFI_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_ConfigureWifiUnspecified;
+/**
+ *  Adding new Wi-Fi configurations is disallowed. The user is only able to
+ *  switch between already configured networks. Supported on Android 13 and
+ *  above, on fully managed devices and work profiles on company-owned devices.
+ *  If the setting is not supported, ALLOW_CONFIGURING_WIFI is set. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13. wifiConfigDisabled is ignored.
+ *
+ *  Value: "DISALLOW_ADD_WIFI_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowAddWifiConfig;
+/**
+ *  Disallows configuring Wi-Fi networks. The setting wifiConfigDisabled is
+ *  ignored when this value is set. Supported on fully managed devices and work
+ *  profile on company-owned devices, on all supported API levels. For fully
+ *  managed devices, setting this removes all configured networks and retains
+ *  only the networks configured using openNetworkConfiguration policy. For work
+ *  profiles on company-owned devices, existing configured networks are not
+ *  affected and the user is not allowed to add, remove, or modify Wi-Fi
+ *  networks. Note: If a network connection can't be made at boot time and
+ *  configuring Wi-Fi is disabled then network escape hatch will be shown in
+ *  order to refresh the device policy (see networkEscapeHatchEnabled).
+ *
+ *  Value: "DISALLOW_CONFIGURING_WIFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowConfiguringWifi;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.tetheringSettings
+
+/**
+ *  Allows configuration and use of all forms of tethering.
+ *  tetheringConfigDisabled is ignored.
+ *
+ *  Value: "ALLOW_ALL_TETHERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_AllowAllTethering;
+/**
+ *  Disallows all forms of tethering. Supported on fully managed devices and
+ *  work profile on company-owned devices, on all supported android versions.
+ *  The setting tetheringConfigDisabled is ignored.
+ *
+ *  Value: "DISALLOW_ALL_TETHERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowAllTethering;
+/**
+ *  Disallows the user from using Wi-Fi tethering. Supported on company owned
+ *  devices running Android 13 and above. If the setting is not supported,
+ *  ALLOW_ALL_TETHERING will be set. A nonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 13. tetheringConfigDisabled is
+ *  ignored.
+ *
+ *  Value: "DISALLOW_WIFI_TETHERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowWifiTethering;
+/**
+ *  Unspecified. Defaults to ALLOW_ALL_TETHERING unless tetheringConfigDisabled
+ *  is set to true. If tetheringConfigDisabled is set to true, this is
+ *  equivalent to DISALLOW_ALL_TETHERING.
+ *
+ *  Value: "TETHERING_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_TetheringSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceConnectivityManagement.usbDataAccess
@@ -1158,6 +1317,85 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  *  Value: "USB_DATA_ACCESS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.wifiDirectSettings
+
+/**
+ *  The user is allowed to use Wi-Fi direct.
+ *
+ *  Value: "ALLOW_WIFI_DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_AllowWifiDirect;
+/**
+ *  The user is not allowed to use Wi-Fi direct. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 13.
+ *
+ *  Value: "DISALLOW_WIFI_DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_DisallowWifiDirect;
+/**
+ *  Unspecified. Defaults to ALLOW_WIFI_DIRECT
+ *
+ *  Value: "WIFI_DIRECT_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_WifiDirectSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.airplaneModeState
+
+/**
+ *  Airplane mode is disabled. The user is not allowed to toggle airplane mode
+ *  on. A nonComplianceDetail with API_LEVEL is reported if the Android version
+ *  is less than 9.
+ *
+ *  Value: "AIRPLANE_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled;
+/**
+ *  Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE
+ *
+ *  Value: "AIRPLANE_MODE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified;
+/**
+ *  The user is allowed to toggle airplane mode on or off.
+ *
+ *  Value: "AIRPLANE_MODE_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.wifiState
+
+/**
+ *  Wi-Fi is off and the user is not allowed to turn it on. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "WIFI_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled;
+/**
+ *  Wi-Fi is on and the user is not allowed to turn it off. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "WIFI_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiEnabled;
+/**
+ *  Unspecified. Defaults to WIFI_STATE_USER_CHOICE
+ *
+ *  Value: "WIFI_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUnspecified;
+/**
+ *  User is allowed to enable/disable Wi-Fi.
+ *
+ *  Value: "WIFI_STATE_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceSettings.encryptionStatus
@@ -1721,6 +1959,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  *  Value: "ONC_WIFI_API_LEVEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel;
+/**
+ *  The enterprise Wi-Fi network is missing either the root CA or domain name.
+ *  nonComplianceReason is set to INVALID_VALUE.
+ *
+ *  Value: "ONC_WIFI_INVALID_ENTERPRISE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig;
 /**
  *  There is an incorrect value in ONC Wi-Fi configuration. fieldPath specifies
  *  which field value is incorrect. oncWifiContext is set. nonComplianceReason
@@ -2720,6 +2965,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_E
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ProvisioningInfo.managementMode
+
+/**
+ *  Device owner. Android Device Policy has full control over the device.
+ *
+ *  Value: "DEVICE_OWNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_DeviceOwner;
+/**
+ *  This value is disallowed.
+ *
+ *  Value: "MANAGEMENT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ManagementModeUnspecified;
+/**
+ *  Profile owner. Android Device Policy has control over a managed profile on
+ *  the device.
+ *
+ *  Value: "PROFILE_OWNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ProfileOwner;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ProvisioningInfo.ownership
+
+/**
+ *  Device is company-owned.
+ *
+ *  Value: "COMPANY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_CompanyOwned;
+/**
+ *  Ownership is unspecified.
+ *
+ *  Value: "OWNERSHIP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_OwnershipUnspecified;
+/**
+ *  Device is personally-owned.
+ *
+ *  Value: "PERSONALLY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SecurityPosture.devicePosture
 
 /**
@@ -2770,6 +3060,86 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPers
  *  Value: "PERSONAL_USAGE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_StartLostModeStatus.status
+
+/**
+ *  The device is already in lost mode.
+ *
+ *  Value: "ALREADY_IN_LOST_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode;
+/**
+ *  The device could not be put into lost mode because the admin reset the
+ *  device's password recently.
+ *
+ *  Value: "RESET_PASSWORD_RECENTLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_ResetPasswordRecently;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_StatusUnspecified;
+/**
+ *  The device was put into lost mode.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_Success;
+/**
+ *  The device could not be put into lost mode because the user exited lost mode
+ *  recently.
+ *
+ *  Value: "USER_EXIT_LOST_MODE_RECENTLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_UserExitLostModeRecently;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_StopLostModeStatus.status
+
+/**
+ *  The device is not in lost mode.
+ *
+ *  Value: "NOT_IN_LOST_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_NotInLostMode;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_StatusUnspecified;
+/**
+ *  The device was taken out of lost mode.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeStatus_Status_Success;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_StopLostModeUserAttemptEvent.status
+
+/**
+ *  Indicates that the user's attempt to stop lost mode failed.
+ *
+ *  Value: "ATTEMPT_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptFailed;
+/**
+ *  Indicates that the user successfully stopped lost mode.
+ *
+ *  Value: "ATTEMPT_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptSucceeded;
+/**
+ *  This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SystemUpdate.type
@@ -2966,6 +3336,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_Dns;
 /**
+ *  Indicates enrollment_complete_event has been set.
+ *
+ *  Value: "ENROLLMENT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_EnrollmentComplete;
+/**
  *  This value is not used
  *
  *  Value: "EVENT_TYPE_UNSPECIFIED"
@@ -3044,6 +3420,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStopped;
 /**
+ *  Indicates lostModeLocationEvent has been set.
+ *
+ *  Value: "LOST_MODE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeLocation;
+/**
+ *  Indicates lostModeOutgoingPhoneCallEvent has been set.
+ *
+ *  Value: "LOST_MODE_OUTGOING_PHONE_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall;
+/**
  *  Indicates media_mount_event has been set.
  *
  *  Value: "MEDIA_MOUNT"
@@ -3073,6 +3461,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  *  Value: "REMOTE_LOCK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_RemoteLock;
+/**
+ *  Indicates stopLostModeUserAttemptEvent has been set.
+ *
+ *  Value: "STOP_LOST_MODE_USER_ATTEMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_StopLostModeUserAttempt;
 /**
  *  Indicates wipe_failure_event has been set.
  *
@@ -3545,7 +3939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Policy for an individual app. Note: Application availability on a given
  *  device cannot be changed using this policy if installAppsDisabled is
- *  enabled.
+ *  enabled. The maximum number of applications that you can specify per
+ *  enterprise policy is 3,000.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy : GTLRObject
 
@@ -3651,7 +4046,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, copy, nullable) NSString *defaultPermissionPolicy;
 
-/** The scopes delegated to the app from Android Device Policy. */
+/**
+ *  The scopes delegated to the app from Android Device Policy. These provide
+ *  additional privileges for the applications they are applied to.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegatedScopes;
 
 /**
@@ -3676,7 +4074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        app is available to install. (Value: "AVAILABLE")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked The
  *        app is blocked and can't be installed. If the app was installed under
- *        a previous policy, it will be uninstalled. (Value: "BLOCKED")
+ *        a previous policy, it will be uninstalled. This also blocks its
+ *        instant app functionality. (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
  *        The app is automatically installed and can't be removed by the user.
  *        (Value: "FORCE_INSTALLED")
@@ -3856,6 +4255,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        removed from the device (Value: "REMOVED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Whether the app is user facing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_UserFacingType_NotUserFacing
+ *        App is not user facing. (Value: "NOT_USER_FACING")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacing
+ *        App is user facing. (Value: "USER_FACING")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified
+ *        App user facing type is unspecified. (Value:
+ *        "USER_FACING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userFacingType;
 
 /**
  *  The app version code, which can be used to determine whether one version is
@@ -4285,6 +4698,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetPasswordFlags;
 
 /**
+ *  Parameters for the START_LOST_MODE command to put the device into lost mode.
+ *  See StartLostModeParams. If this is set, then it is suggested that type
+ *  should not be set. In this case, the server automatically sets it to
+ *  START_LOST_MODE. It is also acceptable to explicitly set type to
+ *  START_LOST_MODE.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_StartLostModeParams *startLostModeParams;
+
+/**
+ *  Output only. Status of the START_LOST_MODE command to put the device into
+ *  lost mode. See StartLostModeStatus.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_StartLostModeStatus *startLostModeStatus;
+
+/**
+ *  Parameters for the STOP_LOST_MODE command to take the device out of lost
+ *  mode. See StopLostModeParams. If this is set, then it is suggested that type
+ *  should not be set. In this case, the server automatically sets it to
+ *  STOP_LOST_MODE. It is also acceptable to explicitly set type to
+ *  STOP_LOST_MODE.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_StopLostModeParams *stopLostModeParams;
+
+/**
+ *  Output only. Status of the STOP_LOST_MODE command to take the device out of
+ *  lost mode. See StopLostModeStatus.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_StopLostModeStatus *stopLostModeStatus;
+
+/**
  *  The type of the command.
  *
  *  Likely values:
@@ -4308,6 +4751,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "RELINQUISH_OWNERSHIP")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
  *        password. (Value: "RESET_PASSWORD")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_StartLostMode Puts the device
+ *        into lost mode. Only supported on fully managed devices or
+ *        organization-owned devices with a managed profile. See also
+ *        start_lost_mode_params. (Value: "START_LOST_MODE")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_StopLostMode Takes the device
+ *        out of lost mode. Only supported on fully managed devices or
+ *        organization-owned devices with a managed profile. See also
+ *        stop_lost_mode_params. (Value: "STOP_LOST_MODE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4471,7 +4922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Cross-profile policies applied on the device.
+ *  Controls the data from the work profile that can be accessed from the
+ *  personal profile and vice versa. A nonComplianceDetail with MANAGEMENT_MODE
+ *  is reported if the device does not have a work profile.
  */
 @interface GTLRAndroidManagement_CrossProfilePolicies : GTLRObject
 
@@ -4677,6 +5130,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        This value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Disabled The device is
  *        disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Lost The device is
+ *        lost. This state is only possible on organization-owned devices.
+ *        (Value: "LOST")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Provisioning The device
  *        is being provisioned. Newly enrolled devices are in this state until
  *        they have a policy applied. (Value: "PROVISIONING")
@@ -4860,6 +5316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        value is disallowed. (Value: "DEVICE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Device_State_Disabled The device is
  *        disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Device_State_Lost The device is lost. This
+ *        state is only possible on organization-owned devices. (Value: "LOST")
  *    @arg @c kGTLRAndroidManagement_Device_State_Provisioning The device is
  *        being provisioned. Newly enrolled devices are in this state until they
  *        have a policy applied. (Value: "PROVISIONING")
@@ -4906,6 +5364,70 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_DeviceConnectivityManagement : GTLRObject
 
 /**
+ *  Controls Wi-Fi configuring privileges. Based on the option set, user will
+ *  have either full or limited or no control in configuring Wi-Fi networks.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_AllowConfiguringWifi
+ *        The user is allowed to configure Wi-Fi. wifiConfigDisabled is ignored.
+ *        (Value: "ALLOW_CONFIGURING_WIFI")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_ConfigureWifiUnspecified
+ *        Unspecified. Defaults to ALLOW_CONFIGURING_WIFI unless
+ *        wifiConfigDisabled is set to true. If wifiConfigDisabled is set to
+ *        true, this is equivalent to DISALLOW_CONFIGURING_WIFI. (Value:
+ *        "CONFIGURE_WIFI_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowAddWifiConfig
+ *        Adding new Wi-Fi configurations is disallowed. The user is only able
+ *        to switch between already configured networks. Supported on Android 13
+ *        and above, on fully managed devices and work profiles on company-owned
+ *        devices. If the setting is not supported, ALLOW_CONFIGURING_WIFI is
+ *        set. A nonComplianceDetail with API_LEVEL is reported if the Android
+ *        version is less than 13. wifiConfigDisabled is ignored. (Value:
+ *        "DISALLOW_ADD_WIFI_CONFIG")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowConfiguringWifi
+ *        Disallows configuring Wi-Fi networks. The setting wifiConfigDisabled
+ *        is ignored when this value is set. Supported on fully managed devices
+ *        and work profile on company-owned devices, on all supported API
+ *        levels. For fully managed devices, setting this removes all configured
+ *        networks and retains only the networks configured using
+ *        openNetworkConfiguration policy. For work profiles on company-owned
+ *        devices, existing configured networks are not affected and the user is
+ *        not allowed to add, remove, or modify Wi-Fi networks. Note: If a
+ *        network connection can't be made at boot time and configuring Wi-Fi is
+ *        disabled then network escape hatch will be shown in order to refresh
+ *        the device policy (see networkEscapeHatchEnabled). (Value:
+ *        "DISALLOW_CONFIGURING_WIFI")
+ */
+@property(nonatomic, copy, nullable) NSString *configureWifi;
+
+/**
+ *  Controls tethering settings. Based on the value set, the user is partially
+ *  or fully disallowed from using different forms of tethering.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_AllowAllTethering
+ *        Allows configuration and use of all forms of tethering.
+ *        tetheringConfigDisabled is ignored. (Value: "ALLOW_ALL_TETHERING")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowAllTethering
+ *        Disallows all forms of tethering. Supported on fully managed devices
+ *        and work profile on company-owned devices, on all supported android
+ *        versions. The setting tetheringConfigDisabled is ignored. (Value:
+ *        "DISALLOW_ALL_TETHERING")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowWifiTethering
+ *        Disallows the user from using Wi-Fi tethering. Supported on company
+ *        owned devices running Android 13 and above. If the setting is not
+ *        supported, ALLOW_ALL_TETHERING will be set. A nonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 13.
+ *        tetheringConfigDisabled is ignored. (Value: "DISALLOW_WIFI_TETHERING")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_TetheringSettingsUnspecified
+ *        Unspecified. Defaults to ALLOW_ALL_TETHERING unless
+ *        tetheringConfigDisabled is set to true. If tetheringConfigDisabled is
+ *        set to true, this is equivalent to DISALLOW_ALL_TETHERING. (Value:
+ *        "TETHERING_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tetheringSettings;
+
+/**
  *  Controls what files and/or data can be transferred via USB. Supported only
  *  on company-owned devices.
  *
@@ -4934,6 +5456,69 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "USB_DATA_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *usbDataAccess;
+
+/**
+ *  Controls configuring and using Wi-Fi direct settings. Supported on
+ *  company-owned devices running Android 13 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_AllowWifiDirect
+ *        The user is allowed to use Wi-Fi direct. (Value: "ALLOW_WIFI_DIRECT")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_DisallowWifiDirect
+ *        The user is not allowed to use Wi-Fi direct. A nonComplianceDetail
+ *        with API_LEVEL is reported if the Android version is less than 13.
+ *        (Value: "DISALLOW_WIFI_DIRECT")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_WifiDirectSettingsUnspecified
+ *        Unspecified. Defaults to ALLOW_WIFI_DIRECT (Value:
+ *        "WIFI_DIRECT_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiDirectSettings;
+
+@end
+
+
+/**
+ *  Controls for device radio settings.
+ */
+@interface GTLRAndroidManagement_DeviceRadioState : GTLRObject
+
+/**
+ *  Controls whether airplane mode can be toggled by the user or not
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled
+ *        Airplane mode is disabled. The user is not allowed to toggle airplane
+ *        mode on. A nonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 9. (Value: "AIRPLANE_MODE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified
+ *        Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE (Value:
+ *        "AIRPLANE_MODE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice
+ *        The user is allowed to toggle airplane mode on or off. (Value:
+ *        "AIRPLANE_MODE_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *airplaneModeState;
+
+/**
+ *  Controls current state of Wi-Fi and if user can change its state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled
+ *        Wi-Fi is off and the user is not allowed to turn it on. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "WIFI_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiEnabled
+ *        Wi-Fi is on and the user is not allowed to turn it off. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "WIFI_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUnspecified
+ *        Unspecified. Defaults to WIFI_STATE_USER_CHOICE (Value:
+ *        "WIFI_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUserChoice
+ *        User is allowed to enable/disable Wi-Fi. (Value:
+ *        "WIFI_STATE_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiState;
 
 @end
 
@@ -5115,6 +5700,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAndroidManagement_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents that the device has completed enrollment. User should be in the
+ *  launcher at this point, device at this point will be compliant and all setup
+ *  steps have been completed. Intentionally empty.
+ */
+@interface GTLRAndroidManagement_EnrollmentCompleteEvent : GTLRObject
 @end
 
 
@@ -6015,6 +6609,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  The device location containing the latitude and longitude.
+ */
+@interface GTLRAndroidManagement_Location : GTLRObject
+
+/**
+ *  The latitude position of the location
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  The longitude position of the location
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
  *  The usageLog buffer on the device has reached 90% of its capacity, therefore
  *  older events may be dropped. Intentionally empty.
  */
@@ -6033,6 +6649,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  usageLog policy has been disabled. Intentionally empty.
  */
 @interface GTLRAndroidManagement_LoggingStoppedEvent : GTLRObject
+@end
+
+
+/**
+ *  A lost mode event containing the device location and battery level as a
+ *  percentage.
+ */
+@interface GTLRAndroidManagement_LostModeLocationEvent : GTLRObject
+
+/**
+ *  The battery level as a number between 0 and 100 inclusive
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batteryLevel;
+
+/** The device location */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Location *location;
+
+@end
+
+
+/**
+ *  An event indicating an outgoing phone call has been made when a device is in
+ *  lost mode. Intentionally empty.
+ */
+@interface GTLRAndroidManagement_LostModeOutgoingPhoneCallEvent : GTLRObject
 @end
 
 
@@ -6410,6 +7053,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        version running on the device. fieldPath specifies which field value
  *        is not supported. oncWifiContext is set. nonComplianceReason is set to
  *        API_LEVEL. (Value: "ONC_WIFI_API_LEVEL")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig
+ *        The enterprise Wi-Fi network is missing either the root CA or domain
+ *        name. nonComplianceReason is set to INVALID_VALUE. (Value:
+ *        "ONC_WIFI_INVALID_ENTERPRISE_CONFIG")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue
  *        There is an incorrect value in ONC Wi-Fi configuration. fieldPath
  *        specifies which field value is incorrect. oncWifiContext is set.
@@ -6562,8 +7209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -6591,8 +7238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as Delete, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as Delete, the response is
  *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
  *  the response should be the resource. For other methods, the response should
  *  have the type XxxResponse, where Xxx is the original method name. For
@@ -7274,7 +7921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Rules for determining apps' access to private keys. See ChoosePrivateKeyRule
- *  for details.
+ *  for details. This must be empty if any application has CERT_SELECTION
+ *  delegation scope.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ChoosePrivateKeyRule *> *choosePrivateKeyRules;
 
@@ -7342,6 +7990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** The device owner information to be shown on the lock screen. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *deviceOwnerLockScreenInfo;
+
+/** Covers controls for radio state such as Wi-Fi, bluetooth, and more. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceRadioState *deviceRadioState;
 
 /**
  *  Whether encryption is enabled
@@ -7548,7 +8199,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  suitable network in the last policy and the device boots into an app in lock
  *  task mode, or the user is otherwise unable to reach device settings.Note:
  *  Setting wifiConfigDisabled to true will override this setting under specific
- *  circumstances. Please see wifiConfigDisabled for further details.
+ *  circumstances. Please see wifiConfigDisabled for further details. Setting
+ *  configureWifi to DISALLOW_CONFIGURING_WIFI will override this setting under
+ *  specific circumstances. Please see DISALLOW_CONFIGURING_WIFI for further
+ *  details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7679,7 +8333,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Allows showing UI on a device for a user to choose a private key alias if
  *  there are no matching rules in ChoosePrivateKeyRules. For devices below
- *  Android P, setting this may leave enterprise keys vulnerable.
+ *  Android P, setting this may leave enterprise keys vulnerable. This value
+ *  will have no effect if any application has CERT_SELECTION delegation scope.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7794,7 +8449,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
 /**
- *  Whether configuring tethering and portable hotspots is disabled.
+ *  Whether configuring tethering and portable hotspots is disabled. If
+ *  tetheringSettings is set to anything other than
+ *  TETHERING_SETTINGS_UNSPECIFIED, this setting is ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7859,9 +8516,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  only the networks configured using openNetworkConfiguration. For work
  *  profiles on company-owned devices, existing configured networks are not
  *  affected and the user is not allowed to add, remove, or modify Wi-Fi
- *  networks. Note: If a network connection can't be made at boot time and
- *  configuring Wi-Fi is disabled then network escape hatch will be shown in
- *  order to refresh the device policy (see networkEscapeHatchEnabled).
+ *  networks. If configureWifi is set to anything other than
+ *  CONFIGURE_WIFI_UNSPECIFIED, this setting is ignored. Note: If a network
+ *  connection can't be made at boot time and configuring Wi-Fi is disabled then
+ *  network escape hatch will be shown in order to refresh the device policy
+ *  (see networkEscapeHatchEnabled).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7998,6 +8657,63 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        device shut down. (Value: "SHUTDOWN")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  Information about a device that is available during setup.
+ */
+@interface GTLRAndroidManagement_ProvisioningInfo : GTLRObject
+
+/**
+ *  The API level of the Android platform version running on the device.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *apiLevel;
+
+/** The brand of the device. For example, Google. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/** The name of the enterprise in the form enterprises/{enterprise}. */
+@property(nonatomic, copy, nullable) NSString *enterprise;
+
+/**
+ *  The management mode of the device or profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_DeviceOwner
+ *        Device owner. Android Device Policy has full control over the device.
+ *        (Value: "DEVICE_OWNER")
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ManagementModeUnspecified
+ *        This value is disallowed. (Value: "MANAGEMENT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ProfileOwner
+ *        Profile owner. Android Device Policy has control over a managed
+ *        profile on the device. (Value: "PROFILE_OWNER")
+ */
+@property(nonatomic, copy, nullable) NSString *managementMode;
+
+/** The model of the device. For example, Asus Nexus 7. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  The name of this resource in the form provisioningInfo/{provisioning_info}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Ownership of the managed device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_Ownership_CompanyOwned
+ *        Device is company-owned. (Value: "COMPANY_OWNED")
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_Ownership_OwnershipUnspecified
+ *        Ownership is unspecified. (Value: "OWNERSHIP_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned
+ *        Device is personally-owned. (Value: "PERSONALLY_OWNED")
+ */
+@property(nonatomic, copy, nullable) NSString *ownership;
 
 @end
 
@@ -8263,6 +8979,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Parameters associated with the START_LOST_MODE command to put the device
+ *  into lost mode. At least one of the parameters, not including the
+ *  organization name, must be provided in order for the device to be put into
+ *  lost mode.
+ */
+@interface GTLRAndroidManagement_StartLostModeParams : GTLRObject
+
+/**
+ *  The email address displayed to the user when the device is in lost mode.
+ */
+@property(nonatomic, copy, nullable) NSString *lostEmailAddress;
+
+/** The message displayed to the user when the device is in lost mode. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostMessage;
+
+/**
+ *  The organization name displayed to the user when the device is in lost mode.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostOrganization;
+
+/** The phone number displayed to the user when the device is in lost mode. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostPhoneNumber;
+
+/**
+ *  The street address displayed to the user when the device is in lost mode.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostStreetAddress;
+
+@end
+
+
+/**
+ *  Status of the START_LOST_MODE command to put the device into lost mode.
+ */
+@interface GTLRAndroidManagement_StartLostModeStatus : GTLRObject
+
+/**
+ *  The status. See StartLostModeStatus.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode
+ *        The device is already in lost mode. (Value: "ALREADY_IN_LOST_MODE")
+ *    @arg @c kGTLRAndroidManagement_StartLostModeStatus_Status_ResetPasswordRecently
+ *        The device could not be put into lost mode because the admin reset the
+ *        device's password recently. (Value: "RESET_PASSWORD_RECENTLY")
+ *    @arg @c kGTLRAndroidManagement_StartLostModeStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_StartLostModeStatus_Status_Success The
+ *        device was put into lost mode. (Value: "SUCCESS")
+ *    @arg @c kGTLRAndroidManagement_StartLostModeStatus_Status_UserExitLostModeRecently
+ *        The device could not be put into lost mode because the user exited
+ *        lost mode recently. (Value: "USER_EXIT_LOST_MODE_RECENTLY")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  The Status type defines a logical error model that is suitable for different
  *  programming environments, including REST APIs and RPC APIs. It is used by
  *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
@@ -8390,6 +9165,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *systemPropertiesEnabled;
+
+@end
+
+
+/**
+ *  Parameters associated with the STOP_LOST_MODE command to take the device out
+ *  of lost mode.
+ */
+@interface GTLRAndroidManagement_StopLostModeParams : GTLRObject
+@end
+
+
+/**
+ *  Status of the STOP_LOST_MODE command to take the device out of lost mode.
+ */
+@interface GTLRAndroidManagement_StopLostModeStatus : GTLRObject
+
+/**
+ *  The status. See StopLostModeStatus.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_StopLostModeStatus_Status_NotInLostMode The
+ *        device is not in lost mode. (Value: "NOT_IN_LOST_MODE")
+ *    @arg @c kGTLRAndroidManagement_StopLostModeStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_StopLostModeStatus_Status_Success The
+ *        device was taken out of lost mode. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  A lost mode event indicating the user has attempted to stop lost mode.
+ */
+@interface GTLRAndroidManagement_StopLostModeUserAttemptEvent : GTLRObject
+
+/**
+ *  The status of the attempt to stop lost mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptFailed
+ *        Indicates that the user's attempt to stop lost mode failed. (Value:
+ *        "ATTEMPT_FAILED")
+ *    @arg @c kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_AttemptSucceeded
+ *        Indicates that the user successfully stopped lost mode. (Value:
+ *        "ATTEMPT_SUCCEEDED")
+ *    @arg @c kGTLRAndroidManagement_StopLostModeUserAttemptEvent_Status_StatusUnspecified
+ *        This value is not used. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -8605,6 +9432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DnsEvent *dnsEvent;
 
+/** Device has completed enrollment. Part of AMAPI_LOGS. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EnrollmentCompleteEvent *enrollmentCompleteEvent;
+
 /**
  *  Unique id of the event.
  *
@@ -8645,6 +9475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "CRYPTO_SELF_TEST_COMPLETED")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_Dns Indicates
  *        dns_event has been set. (Value: "DNS")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_EnrollmentComplete
+ *        Indicates enrollment_complete_event has been set. (Value:
+ *        "ENROLLMENT_COMPLETE")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_EventTypeUnspecified
  *        This value is not used (Value: "EVENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_FilePulled
@@ -8679,6 +9512,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStopped
  *        Indicates logging_stopped_event has been set. (Value:
  *        "LOGGING_STOPPED")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeLocation
+ *        Indicates lostModeLocationEvent has been set. (Value:
+ *        "LOST_MODE_LOCATION")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall
+ *        Indicates lostModeOutgoingPhoneCallEvent has been set. (Value:
+ *        "LOST_MODE_OUTGOING_PHONE_CALL")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount
  *        Indicates media_mount_event has been set. (Value: "MEDIA_MOUNT")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount
@@ -8689,6 +9528,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        os_startup_event has been set. (Value: "OS_STARTUP")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_RemoteLock
  *        Indicates remote_lock_event has been set. (Value: "REMOTE_LOCK")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_StopLostModeUserAttempt
+ *        Indicates stopLostModeUserAttemptEvent has been set. (Value:
+ *        "STOP_LOST_MODE_USER_ATTEMPT")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_WipeFailure
  *        Indicates wipe_failure_event has been set. (Value: "WIPE_FAILURE")
  */
@@ -8749,6 +9591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /** usageLog policy has been disabled. Part of SECURITY_LOGS. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_LoggingStoppedEvent *loggingStoppedEvent;
 
+/** A lost mode location update when a device in lost mode. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_LostModeLocationEvent *lostModeLocationEvent;
+
+/** An outgoing phone call has been made when a device in lost mode. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_LostModeOutgoingPhoneCallEvent *lostModeOutgoingPhoneCallEvent;
+
 /** Removable media was mounted. Part of SECURITY_LOGS. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_MediaMountEvent *mediaMountEvent;
 
@@ -8766,6 +9614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  SECURITY_LOGS.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_RemoteLockEvent *remoteLockEvent;
+
+/** An attempt to take a device out of lost mode. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_StopLostModeUserAttemptEvent *stopLostModeUserAttemptEvent;
 
 /**
  *  The work profile or company-owned device failed to wipe when requested. This

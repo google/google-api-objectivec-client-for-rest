@@ -598,7 +598,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Control
-@dynamic environment;
+@dynamic environment, methodPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodPolicies" : [GTLRServiceUsage_MethodPolicy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -917,6 +925,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_FieldPolicy
+//
+
+@implementation GTLRServiceUsage_FieldPolicy
+@dynamic resourcePermission, resourceType, selector;
 @end
 
 
@@ -1347,6 +1365,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"options" : [GTLRServiceUsage_Option class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MethodPolicy
+//
+
+@implementation GTLRServiceUsage_MethodPolicy
+@dynamic requestPolicies, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestPolicies" : [GTLRServiceUsage_FieldPolicy class]
   };
   return map;
 }
@@ -1922,10 +1958,10 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_UpdateConsumerPolicyLROMetadata
+//   GTLRServiceUsage_UpdateConsumerPolicyMetadata
 //
 
-@implementation GTLRServiceUsage_UpdateConsumerPolicyLROMetadata
+@implementation GTLRServiceUsage_UpdateConsumerPolicyMetadata
 @end
 
 

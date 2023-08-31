@@ -25,6 +25,8 @@
 @class GTLRShoppingContent_AccountIdentifier;
 @class GTLRShoppingContent_AccountImageImprovements;
 @class GTLRShoppingContent_AccountImageImprovementsSettings;
+@class GTLRShoppingContent_AccountIssue;
+@class GTLRShoppingContent_AccountIssueImpact;
 @class GTLRShoppingContent_AccountItemUpdates;
 @class GTLRShoppingContent_AccountItemUpdatesSettings;
 @class GTLRShoppingContent_AccountLabel;
@@ -46,12 +48,18 @@
 @class GTLRShoppingContent_AccountTaxTaxRule;
 @class GTLRShoppingContent_AccountUser;
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
+@class GTLRShoppingContent_Action;
+@class GTLRShoppingContent_ActionReason;
 @class GTLRShoppingContent_Address;
+@class GTLRShoppingContent_AlternateDisputeResolution;
 @class GTLRShoppingContent_Amount;
 @class GTLRShoppingContent_AttributionSettings;
 @class GTLRShoppingContent_AttributionSettingsConversionType;
 @class GTLRShoppingContent_BestSellers;
 @class GTLRShoppingContent_Brand;
+@class GTLRShoppingContent_Breakdown;
+@class GTLRShoppingContent_BreakdownRegion;
+@class GTLRShoppingContent_BuiltInSimpleAction;
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
@@ -61,6 +69,7 @@
 @class GTLRShoppingContent_CollectionStatus;
 @class GTLRShoppingContent_CollectionStatusDestinationStatus;
 @class GTLRShoppingContent_CollectionStatusItemLevelIssue;
+@class GTLRShoppingContent_CompetitiveVisibility;
 @class GTLRShoppingContent_ConversionSource;
 @class GTLRShoppingContent_Css;
 @class GTLRShoppingContent_CustomAttribute;
@@ -86,6 +95,7 @@
 @class GTLRShoppingContent_ECommercePlatformLinkInfo;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
+@class GTLRShoppingContent_ExternalAction;
 @class GTLRShoppingContent_FreeListingsProgramStatusRegionStatus;
 @class GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails;
 @class GTLRShoppingContent_GmbAccounts;
@@ -189,6 +199,8 @@
 @class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime;
 @class GTLRShoppingContent_ProductDimension;
 @class GTLRShoppingContent_ProductId;
+@class GTLRShoppingContent_ProductIssue;
+@class GTLRShoppingContent_ProductIssueImpact;
 @class GTLRShoppingContent_ProductProductDetail;
 @class GTLRShoppingContent_ProductsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductsCustomBatchResponseEntry;
@@ -293,6 +305,7 @@
 @class GTLRShoppingContent_UnitInvoice;
 @class GTLRShoppingContent_UnitInvoiceAdditionalCharge;
 @class GTLRShoppingContent_UnitInvoiceTaxLine;
+@class GTLRShoppingContent_UrlSettings;
 @class GTLRShoppingContent_Value;
 @class GTLRShoppingContent_Warehouse;
 @class GTLRShoppingContent_WarehouseBasedDeliveryTime;
@@ -332,6 +345,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpo
  *  Value: "SHOPIFY_ORDER_MANAGEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_AccountIssueImpact.severity
+
+/**
+ *  Causes either an account suspension or an item disapproval. Errors should be
+ *  resolved as soon as possible to ensure items are eligible to appear in
+ *  results again.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Error;
+/**
+ *  Infos are suggested optimizations to increase data quality. Resolving these
+ *  issues is recommended, but not required.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Info;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_SeverityUnspecified;
+/**
+ *  Warnings can negatively impact the performance of ads and can lead to item
+ *  or account suspensions in the future unless the issue is resolved.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountIssueImpact_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_AccountLabel.labelType
@@ -566,6 +611,63 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_ReportGranul
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BestSellers_ReportGranularity_Weekly;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_BuiltInSimpleAction.type
+
+/**
+ *  Open a form where the merchant can add their business registration number.
+ *
+ *  Value: "ADD_BUSINESS_REGISTRATION_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddBusinessRegistrationNumber;
+/**
+ *  Open a form where the merchant can edit their contact information.
+ *
+ *  Value: "ADD_CONTACT_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddContactInfo;
+/**
+ *  Redirect merchant to the part of your application where they can add
+ *  products.
+ *
+ *  Value: "ADD_PRODUCTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddProducts;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "BUILT_IN_SIMPLE_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_BuiltInSimpleActionTypeUnspecified;
+/**
+ *  Redirect merchant to the part of your application where they can claim their
+ *  website.
+ *
+ *  Value: "CLAIM_WEBSITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ClaimWebsite;
+/**
+ *  Open a form where the merchant can edit an attribute. The attribute that
+ *  needs to be updated is specified in attribute_code field of the action.
+ *
+ *  Value: "EDIT_ITEM_ATTRIBUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_EditItemAttribute;
+/**
+ *  Redirect merchant to the part of your application where they can link ads
+ *  account.
+ *
+ *  Value: "LINK_ADS_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount;
+/**
+ *  Redirect merchant to the part of your application where they can verify
+ *  their phone.
+ *
+ *  Value: "VERIFY_PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
 
 /**
@@ -706,6 +808,138 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_Exe
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_CheckoutSettings.effectiveEnrollmentState
+
+/**
+ *  Default enrollment state when enrollment state is not specified.
+ *
+ *  Value: "CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified;
+/**
+ *  Merchant has enrolled into the feature by providing either an account level
+ *  URL or checkout URLs as part of their feed.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Enrolled;
+/**
+ *  Merchant has not enrolled into the feature.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_CheckoutSettings.effectiveReviewState
+
+/**
+ *  Merchant account has been approved. Indicates the data quality checks have
+ *  passed.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Approved;
+/**
+ *  Default review state when review state is not specified.
+ *
+ *  Value: "CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_CheckoutOnMerchantReviewStateUnspecified;
+/**
+ *  Merchant account has been disapproved due to data quality issues.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Disapproved;
+/**
+ *  Merchant provided URLs are being reviewed for data quality issues.
+ *
+ *  Value: "IN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_InReview;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_CheckoutSettings.enrollmentState
+
+/**
+ *  Default enrollment state when enrollment state is not specified.
+ *
+ *  Value: "CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified;
+/**
+ *  Merchant has enrolled into the feature by providing either an account level
+ *  URL or checkout URLs as part of their feed.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Enrolled;
+/**
+ *  Merchant has not enrolled into the feature.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_CheckoutSettings.reviewState
+
+/**
+ *  Merchant account has been approved. Indicates the data quality checks have
+ *  passed.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_Approved;
+/**
+ *  Default review state when review state is not specified.
+ *
+ *  Value: "CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_CheckoutOnMerchantReviewStateUnspecified;
+/**
+ *  Merchant account has been disapproved due to data quality issues.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_Disapproved;
+/**
+ *  Merchant provided URLs are being reviewed for data quality issues.
+ *
+ *  Value: "IN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_InReview;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_CompetitiveVisibility.trafficSource
+
+/**
+ *  Traffic from Ads.
+ *
+ *  Value: "ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Ads;
+/**
+ *  Organic and Ads traffic.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_All;
+/**
+ *  Organic traffic.
+ *
+ *  Value: "ORGANIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Organic;
+/**
+ *  Traffic source is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_ConversionSource.state
 
 /**
@@ -729,6 +963,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_A
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_Pending;
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ConversionSource_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ExternalAction.type
+
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "EXTERNAL_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ExternalAction_Type_ExternalActionTypeUnspecified;
+/**
+ *  Redirect to the form in Help Center where the merchant can request a legal
+ *  appeal for the issue.
+ *
+ *  Value: "LEGAL_APPEAL_IN_HELP_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ExternalAction_Type_LegalAppealInHelpCenter;
+/**
+ *  Redirect to Merchant Center where the merchant can request a review for
+ *  issue related to their account.
+ *
+ *  Value: "REVIEW_ACCOUNT_ISSUE_IN_MERCHANT_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ExternalAction_Type_ReviewAccountIssueInMerchantCenter;
+/**
+ *  Redirect to Merchant Center where the merchant can request a review for
+ *  issue related to their product.
+ *
+ *  Value: "REVIEW_PRODUCT_ISSUE_IN_MERCHANT_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ExternalAction_Type_ReviewProductIssueInMerchantCenter;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_FreeListingsProgramStatus.globalState
@@ -1030,6 +1295,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_Inventory
  *  Value: "OUT_OF_STOCK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductCluster_InventoryStatus_OutOfStock;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductIssueImpact.severity
+
+/**
+ *  Causes either an account suspension or an item disapproval. Errors should be
+ *  resolved as soon as possible to ensure items are eligible to appear in
+ *  results again.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Error;
+/**
+ *  Infos are suggested optimizations to increase data quality. Resolving these
+ *  issues is recommended, but not required.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Info;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_SeverityUnspecified;
+/**
+ *  Warnings can negatively impact the performance of ads and can lead to item
+ *  or account suspensions in the future unless the issue is resolved.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
@@ -1405,6 +1702,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescriptio
  *  Value: "SHORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Short;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RenderAccountIssuesRequestPayload.contentOption
+
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "CONTENT_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_ContentOptionUnspecified;
+/**
+ *  Returns the detail of the issue as a pre-rendered HTML text.
+ *
+ *  Value: "PRE_RENDERED_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_PreRenderedHtml;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RenderProductIssuesRequestPayload.contentOption
+
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "CONTENT_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_ContentOptionUnspecified;
+/**
+ *  Returns the detail of the issue as a pre-rendered HTML text.
+ *
+ *  Value: "PRE_RENDERED_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_PreRenderedHtml;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ReportInteractionRequest.interactionType
@@ -2385,6 +2714,131 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowAutomaticImageImprovements;
+
+@end
+
+
+/**
+ *  An issue affecting specific merchant.
+ */
+@interface GTLRShoppingContent_AccountIssue : GTLRObject
+
+/**
+ *  A list of actionable steps that can be executed to solve the issue. An
+ *  example is requesting a re-review or providing arguments when merchant
+ *  disagrees with the issue. Actions that are supported in (your) third-party
+ *  application can be rendered as buttons and should be available to merchant
+ *  when they expand the issue.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Action *> *actions;
+
+/**
+ *  Clarifies the severity of the issue. The summarizing message, if present,
+ *  should be shown right under the title for each issue. It helps merchants to
+ *  quickly understand the impact of the issue. The detailed breakdown helps the
+ *  merchant to fully understand the impact of the issue. It can be rendered as
+ *  dialog that opens when the merchant mouse over the summarized impact
+ *  statement. Issues with different severity can be styled differently. They
+ *  may use a different color or icon to signal the difference between `ERROR`,
+ *  `WARNING` and `INFO`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIssueImpact *impact;
+
+/**
+ *  Details of the issue as a pre-rendered HTML. HTML elements contain CSS
+ *  classes that can be used to customize the style of the content. Always
+ *  sanitize the HTML before embedding it directly to your application. The
+ *  sanitizer needs to allow basic HTML tags, such as: `div`, `span`, `p`, `a`,
+ *  `ul`, `li`, `table`, `tr`, `td`. For example, you can use
+ *  [DOMPurify](https://www.npmjs.com/package/dompurify). CSS classes: *
+ *  `issue-detail` - top level container for the detail of the issue *
+ *  `callout-banners` - section of the `issue-detail` with callout banners *
+ *  `callout-banner` - single callout banner, inside `callout-banners` *
+ *  `callout-banner-info` - callout with important information (default) *
+ *  `callout-banner-warning` - callout with a warning * `callout-banner-error` -
+ *  callout informing about an error (most severe) * `issue-content` - section
+ *  of the `issue-detail`, contains multiple `content-element` *
+ *  `content-element` - content element such as a list, link or paragraph,
+ *  inside `issue-content` * `root-causes` - unordered list with items
+ *  describing root causes of the issue, inside `issue-content` *
+ *  `root-causes-intro` - intro text before the `root-causes` list, inside
+ *  `issue-content` * `segment` - section of the text, `span` inside paragraph *
+ *  `segment-attribute` - section of the text that represents a product
+ *  attribute, for example 'image\\_link' * `segment-literal` - section of the
+ *  text that contains a special value, for example '0-1000 kg' * `segment-bold`
+ *  - section of the text that should be rendered as bold * `segment-italic` -
+ *  section of the text that should be rendered as italic * `tooltip` - used on
+ *  paragraphs that should be rendered with a tooltip. A section of the text in
+ *  such a paragraph will have a class `tooltip-text` and is intended to be
+ *  shown in a mouse over dialog. If the style is not used, the `tooltip-text`
+ *  section would be shown on a new line, after the main part of the text. *
+ *  `tooltip-text` - marks a section of the text within a `tooltip`, that is
+ *  intended to be shown in a mouse over dialog. * `tooltip-icon` - marks a
+ *  section of the text within a `tooltip`, that can be replaced with a tooltip
+ *  icon, for example '?' or 'i'. By default, this section contains a `br` tag,
+ *  that is separating the main text and the tooltip text when the style is not
+ *  used. * `tooltip-style-question` - the tooltip shows helpful information,
+ *  can use the '?' as an icon. * `tooltip-style-info` - the tooltip adds
+ *  additional information fitting to the context, can use the 'i' as an icon. *
+ *  `content-moderation` - marks the paragraph that explains how the issue was
+ *  identified. * `overlay` - wrapper for the `popup` dialog. It should be set
+ *  to hidden by default. When the dialog is opened, the overlay should switch
+ *  to be visible and cover the rest of the screen to highlight the dialog. *
+ *  `popup` - dialog for showing a long block of content * `popup-close` - a
+ *  button to close the `popup` dialog * `new-element` - Present for new
+ *  elements added to the pre-rendered content in the future. To make sure that
+ *  a new content element does not break your style, you can hide everything
+ *  with this class.
+ */
+@property(nonatomic, copy, nullable) NSString *prerenderedContent;
+
+/** Title of the issue. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Overall impact of the issue.
+ */
+@interface GTLRShoppingContent_AccountIssueImpact : GTLRObject
+
+/**
+ *  Detailed impact breakdown. Explains the types of restriction the issue has
+ *  in different shopping destinations and territory. If present, it should be
+ *  rendered to the merchant. Can be shown as a mouse over dropdown or a dialog.
+ *  Each breakdown item represents a group of regions with the same impact
+ *  details.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Breakdown *> *breakdowns;
+
+/**
+ *  Optional. Message summarizing the overall impact of the issue. If present,
+ *  it should be rendered to the merchant. For example: "Disapproves 90k offers
+ *  in 25 countries"
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The severity of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AccountIssueImpact_Severity_Error Causes
+ *        either an account suspension or an item disapproval. Errors should be
+ *        resolved as soon as possible to ensure items are eligible to appear in
+ *        results again. (Value: "ERROR")
+ *    @arg @c kGTLRShoppingContent_AccountIssueImpact_Severity_Info Infos are
+ *        suggested optimizations to increase data quality. Resolving these
+ *        issues is recommended, but not required. (Value: "INFO")
+ *    @arg @c kGTLRShoppingContent_AccountIssueImpact_Severity_SeverityUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_AccountIssueImpact_Severity_Warning Warnings
+ *        can negatively impact the performance of ads and can lead to item or
+ *        account suspensions in the future unless the issue is resolved.
+ *        (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 @end
 
@@ -3511,6 +3965,82 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  An actionable step that can be executed to solve the issue.
+ */
+@interface GTLRShoppingContent_Action : GTLRObject
+
+/**
+ *  Action implemented and performed in (your) third-party application. The
+ *  application should point the merchant to the place, where they can access
+ *  the corresponding functionality or provide instructions, if the specific
+ *  functionality is not available.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BuiltInSimpleAction *builtinSimpleAction;
+
+/** Label of the action button. */
+@property(nonatomic, copy, nullable) NSString *buttonLabel;
+
+/**
+ *  Action that is implemented and performed outside of (your) third-party
+ *  application. The application needs to redirect the merchant to the external
+ *  location where they can perform the action.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ExternalAction *externalAction;
+
+/**
+ *  Controlling whether the button is active or disabled. The value is 'false'
+ *  when the action was already requested or is not available. If the action is
+ *  not available then a reason will be present. If (your) third-party
+ *  application shows a disabled button for action that is not available, then
+ *  it should also show reasons.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAvailable;
+
+/**
+ *  List of reasons why the action is not available. The list of reasons is
+ *  empty if the action is available. If there is only one reason, it can be
+ *  displayed next to the disabled button. If there are more reasons, all of
+ *  them should be displayed, for example in a pop-up dialog.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ActionReason *> *reasons;
+
+@end
+
+
+/**
+ *  A single reason why the action is not available.
+ */
+@interface GTLRShoppingContent_ActionReason : GTLRObject
+
+/**
+ *  Optional. An action that needs to be performed to solve the problem
+ *  represented by this reason. This action will always be available. Should be
+ *  rendered as a link or button next to the summarizing message. For example,
+ *  the review may be available only once merchant configure all required
+ *  attributes. In such a situation this action can be a link to the form, where
+ *  they can fill the missing attribute to unblock the main action.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Action *action;
+
+/**
+ *  Detailed explanation of the reason. Should be displayed as a hint if
+ *  present.
+ */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Messages summarizing the reason, why the action is not available. For
+ *  example: "Review requested on Jan 03. Review requests can take a few days to
+ *  complete."
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  Request message for the ActivateProgram method.
  */
 @interface GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest : GTLRObject
@@ -3546,6 +4076,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Street-level part of the address. Use `\\n` to add a second line. */
 @property(nonatomic, copy, nullable) NSString *streetAddress;
+
+@end
+
+
+/**
+ *  The Alternate Dispute Resolution (ADR) that may be available to merchants in
+ *  some regions. If present, the link should be shown on the same page as the
+ *  list of issues.
+ */
+@interface GTLRShoppingContent_AlternateDisputeResolution : GTLRObject
+
+/** The label for the alternate dispute resolution link. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The URL pointing to a page, where merchant can request alternative dispute
+ *  resolution with an [external
+ *  body](https://support.google.com/european-union-digital-services-act-redress-options/answer/13535501).
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -3780,6 +4330,104 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  A detailed impact breakdown for a group of regions where the impact of the
+ *  issue on different shopping destinations is the same.
+ */
+@interface GTLRShoppingContent_Breakdown : GTLRObject
+
+/**
+ *  Human readable, localized description of issue's effect on different
+ *  targets. Should be rendered as a list. For example: * "Products not showing
+ *  in ads" * "Products not showing organically"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *details;
+
+/**
+ *  Lists of regions. Should be rendered as a title for this group of details.
+ *  The full list should be shown to merchant. If the list is too long, it is
+ *  recommended to make it expandable.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_BreakdownRegion *> *regions;
+
+@end
+
+
+/**
+ *  Region with code and localized name.
+ */
+@interface GTLRShoppingContent_BreakdownRegion : GTLRObject
+
+/**
+ *  The [CLDR territory code]
+ *  (http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  The localized name of the region. For region with code='001' the value is
+ *  'All countries' or the equivalent in other languages.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Action that is implemented and performed in (your) third-party application.
+ *  Represents various functionality that is expected to be available to
+ *  merchant and will help them with resolving the issue. The application should
+ *  point the merchant to the place, where they can access the corresponding
+ *  functionality. If the functionality is not supported, it is recommended to
+ *  explain the situation to merchant and provide them with instructions how to
+ *  solve the issue.
+ */
+@interface GTLRShoppingContent_BuiltInSimpleAction : GTLRObject
+
+/**
+ *  The attribute that needs to be updated. Present when the type is
+ *  `EDIT_ITEM_ATTRIBUTE`. This field contains a code for attribute, represented
+ *  in snake_case. You can find a list of product's attributes, with their codes
+ *  [here](https://support.google.com/merchants/answer/7052112).
+ */
+@property(nonatomic, copy, nullable) NSString *attributeCode;
+
+/**
+ *  The type of action that represents a functionality that is expected to be
+ *  available in third-party application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_AddBusinessRegistrationNumber
+ *        Open a form where the merchant can add their business registration
+ *        number. (Value: "ADD_BUSINESS_REGISTRATION_NUMBER")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_AddContactInfo Open
+ *        a form where the merchant can edit their contact information. (Value:
+ *        "ADD_CONTACT_INFO")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_AddProducts Redirect
+ *        merchant to the part of your application where they can add products.
+ *        (Value: "ADD_PRODUCTS")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_BuiltInSimpleActionTypeUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "BUILT_IN_SIMPLE_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_ClaimWebsite
+ *        Redirect merchant to the part of your application where they can claim
+ *        their website. (Value: "CLAIM_WEBSITE")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_EditItemAttribute
+ *        Open a form where the merchant can edit an attribute. The attribute
+ *        that needs to be updated is specified in attribute_code field of the
+ *        action. (Value: "EDIT_ITEM_ATTRIBUTE")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount
+ *        Redirect merchant to the part of your application where they can link
+ *        ads account. (Value: "LINK_ADS_ACCOUNT")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone Redirect
+ *        merchant to the part of your application where they can verify their
+ *        phone. (Value: "VERIFY_PHONE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_BusinessDayConfig
  */
 @interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
@@ -3989,6 +4637,110 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  CarrierRate.carrierService.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+@end
+
+
+/**
+ *  `CheckoutSettings` for a specific merchant ID.
+ */
+@interface GTLRShoppingContent_CheckoutSettings : GTLRObject
+
+/**
+ *  Output only. The effective value of enrollment state for a given merchant
+ *  ID. If account level settings are present then this value will be a copy of
+ *  the account level settings. Otherwise, it will have the value of the parent
+ *  account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified
+ *        Default enrollment state when enrollment state is not specified.
+ *        (Value: "CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Enrolled
+ *        Merchant has enrolled into the feature by providing either an account
+ *        level URL or checkout URLs as part of their feed. (Value: "ENROLLED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive
+ *        Merchant has not enrolled into the feature. (Value: "INACTIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveEnrollmentState;
+
+/**
+ *  Output only. The effective value of review state for a given merchant ID. If
+ *  account level settings are present then this value will be a copy of the
+ *  account level settings. Otherwise, it will have the value of the parent
+ *  account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Approved
+ *        Merchant account has been approved. Indicates the data quality checks
+ *        have passed. (Value: "APPROVED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_CheckoutOnMerchantReviewStateUnspecified
+ *        Default review state when review state is not specified. (Value:
+ *        "CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Disapproved
+ *        Merchant account has been disapproved due to data quality issues.
+ *        (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_InReview
+ *        Merchant provided URLs are being reviewed for data quality issues.
+ *        (Value: "IN_REVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveReviewState;
+
+/**
+ *  The effective value of `url_settings` for a given merchant ID. If account
+ *  level settings are present then this value will be a copy of the account
+ *  level settings. Otherwise, it will have the value of the parent account.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_UrlSettings *effectiveUriSettings;
+
+/**
+ *  Output only. Reflects the merchant enrollment state in `Checkout` feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified
+ *        Default enrollment state when enrollment state is not specified.
+ *        (Value: "CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Enrolled
+ *        Merchant has enrolled into the feature by providing either an account
+ *        level URL or checkout URLs as part of their feed. (Value: "ENROLLED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive
+ *        Merchant has not enrolled into the feature. (Value: "INACTIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollmentState;
+
+/**
+ *  Required. The ID of the account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+/**
+ *  Output only. Reflects the merchant review state in `Checkout` feature. This
+ *  is set based on the data quality reviews of the URL provided by the
+ *  merchant. A merchant with enrollment state as `ENROLLED` can be in the
+ *  following review states: `IN_REVIEW`, `APPROVED` or `DISAPPROVED`. A
+ *  merchant must be in an enrollment_state of `ENROLLED` before a review can
+ *  begin for the merchant.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_ReviewState_Approved
+ *        Merchant account has been approved. Indicates the data quality checks
+ *        have passed. (Value: "APPROVED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_ReviewState_CheckoutOnMerchantReviewStateUnspecified
+ *        Default review state when review state is not specified. (Value:
+ *        "CHECKOUT_ON_MERCHANT_REVIEW_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_ReviewState_Disapproved
+ *        Merchant account has been disapproved due to data quality issues.
+ *        (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_ReviewState_InReview
+ *        Merchant provided URLs are being reviewed for data quality issues.
+ *        (Value: "IN_REVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *reviewState;
+
+/** URL settings for cart or checkout URL. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_UrlSettings *uriSettings;
 
 @end
 
@@ -4290,6 +5042,156 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Fields related to [competitive visibility reports]
+ *  (https://support.google.com/merchants/answer/11366442).
+ */
+@interface GTLRShoppingContent_CompetitiveVisibility : GTLRObject
+
+/**
+ *  [Ads / organic ratio]
+ *  (https://support.google.com/merchants/answer/11366442#zippy=%2Cadsfree-ratio)
+ *  shows how often a merchant receives impressions from Shopping ads compared
+ *  to organic traffic. The number is rounded and bucketed. Available only in
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adsOrganicRatio;
+
+/**
+ *  Change in visibility based on impressions with respect to the start of the
+ *  selected time range (or first day with non-zero impressions) for a combined
+ *  set of merchants with highest visibility approximating the market. Available
+ *  only in `CompetitiveVisibilityBenchmarkView`. Cannot be filtered on in the
+ *  'WHERE' clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *categoryBenchmarkVisibilityTrend;
+
+/**
+ *  Google product category ID to calculate the report for, represented in
+ *  [Google's product
+ *  taxonomy](https://support.google.com/merchants/answer/6324436). Required in
+ *  the `SELECT` clause. A `WHERE` condition on
+ *  `competitive_visibility.category_id` is required in the query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *categoryId;
+
+/**
+ *  The country where impression appeared. Required in the `SELECT` clause. A
+ *  `WHERE` condition on `competitive_visibility.country_code` is required in
+ *  the query.
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  Date of this row. Available only in `CompetitiveVisibilityBenchmarkView` and
+ *  `CompetitiveVisibilityCompetitorView`. Required in the `SELECT` clause for
+ *  `CompetitiveVisibilityMarketBenchmarkView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/**
+ *  Domain of your competitor or your domain, if 'is_your_domain' is true.
+ *  Available only in `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Required in the `SELECT` clause for
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Higher position rate shows how often a competitor’s offer got placed in a
+ *  higher position on the page than your offer. Available only in
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *higherPositionRate;
+
+/**
+ *  True if this row contains data for your domain. Available only in
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isYourDomain;
+
+/**
+ *  Page overlap rate describes how frequently competing retailers’ offers are
+ *  shown together with your offers on the same page. Available only in
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageOverlapRate;
+
+/**
+ *  Position of the domain in the top merchants ranking for the selected keys
+ *  (`date`, `category_id`, `country_code`, `listing_type`) based on
+ *  impressions. 1 is the highest. Available only in
+ *  `CompetitiveVisibilityTopMerchantView` and
+ *  `CompetitiveVisibilityCompetitorView`. Cannot be filtered on in the 'WHERE'
+ *  clause.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rank;
+
+/**
+ *  Relative visibility shows how often your competitors’ offers are shown
+ *  compared to your offers. In other words, this is the number of displayed
+ *  impressions of a competitor retailer divided by the number of your displayed
+ *  impressions during a selected time range for a selected product category and
+ *  country. Available only in `CompetitiveVisibilityCompetitorView`. Cannot be
+ *  filtered on in the 'WHERE' clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relativeVisibility;
+
+/**
+ *  Type of impression listing. Required in the `SELECT` clause. Cannot be
+ *  filtered on in the 'WHERE' clause.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Ads
+ *        Traffic from Ads. (Value: "ADS")
+ *    @arg @c kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_All
+ *        Organic and Ads traffic. (Value: "ALL")
+ *    @arg @c kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Organic
+ *        Organic traffic. (Value: "ORGANIC")
+ *    @arg @c kGTLRShoppingContent_CompetitiveVisibility_TrafficSource_Unknown
+ *        Traffic source is unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *trafficSource;
+
+/**
+ *  Change in visibility based on impressions for your domain with respect to
+ *  the start of the selected time range (or first day with non-zero
+ *  impressions). Available only in `CompetitiveVisibilityBenchmarkView`. Cannot
+ *  be filtered on in the 'WHERE' clause.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yourDomainVisibilityTrend;
+
+@end
+
+
+/**
  *  Represents a conversion source owned by a Merchant account. A merchant
  *  account can have up to 200 conversion sources.
  */
@@ -4386,7 +5288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  GTLRShoppingContent_CustomAttribute
+ *  A message that represents custom attributes. Exactly one of `value` or
+ *  `groupValues` must be provided. Maximum allowed number of characters for
+ *  each custom attribute is 10240 (represents sum of characters for name and
+ *  value). Maximum 2500 custom attributes can be set per merchant, with total
+ *  size of 102.4kB.
  */
 @interface GTLRShoppingContent_CustomAttribute : GTLRObject
 
@@ -5387,6 +6293,44 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Action that is implemented and performed outside of the third-party
+ *  application. It should redirect the merchant to the provided URL of an
+ *  external system where they can perform the action. For example to request a
+ *  review in the Merchant Center.
+ */
+@interface GTLRShoppingContent_ExternalAction : GTLRObject
+
+/**
+ *  The type of external action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ExternalAction_Type_ExternalActionTypeUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "EXTERNAL_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ExternalAction_Type_LegalAppealInHelpCenter
+ *        Redirect to the form in Help Center where the merchant can request a
+ *        legal appeal for the issue. (Value: "LEGAL_APPEAL_IN_HELP_CENTER")
+ *    @arg @c kGTLRShoppingContent_ExternalAction_Type_ReviewAccountIssueInMerchantCenter
+ *        Redirect to Merchant Center where the merchant can request a review
+ *        for issue related to their account. (Value:
+ *        "REVIEW_ACCOUNT_ISSUE_IN_MERCHANT_CENTER")
+ *    @arg @c kGTLRShoppingContent_ExternalAction_Type_ReviewProductIssueInMerchantCenter
+ *        Redirect to Merchant Center where the merchant can request a review
+ *        for issue related to their product. (Value:
+ *        "REVIEW_PRODUCT_ISSUE_IN_MERCHANT_CENTER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  URL to external system, for example Merchant Center, where the merchant can
+ *  perform the action.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Response message for GetFreeListingsProgramStatus.
  */
 @interface GTLRShoppingContent_FreeListingsProgramStatus : GTLRObject
@@ -5826,6 +6770,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        "UNCATEGORIZED")
  */
 @property(nonatomic, copy, nullable) NSString *inapplicableReason;
+
+@end
+
+
+/**
+ *  Request message for the `InsertCheckoutSettings` method.
+ */
+@interface GTLRShoppingContent_InsertCheckoutSettingsRequest : GTLRObject
+
+/**
+ *  Required. The `UrlSettings` for the request. The presence of URL settings
+ *  indicates `Checkout` enrollment.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_UrlSettings *uriSettings;
 
 @end
 
@@ -10421,6 +11379,22 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Optional. Supported pickup method for this offer. Unless the value is "not
+ *  supported", this field must be submitted together with `pickupSla`. For
+ *  accepted attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  Optional. Expected date that an order will be ready for pickup relative to
+ *  the order date. Must be submitted together with `pickupMethod`. For accepted
+ *  attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
+
 /** Required. The current price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
@@ -10459,6 +11433,22 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Required. A unique identifier for the item. */
 @property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Optional. Supported pickup method for this offer. Unless the value is "not
+ *  supported", this field must be submitted together with `pickupSla`. For
+ *  accepted attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  Optional. Expected date that an order will be ready for pickup relative to
+ *  the order date. Must be submitted together with `pickupMethod`. For accepted
+ *  attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
 
 /** Required. The current price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
@@ -10504,6 +11494,22 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`content#posInventoryResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Optional. Supported pickup method for this offer. Unless the value is "not
+ *  supported", this field must be submitted together with `pickupSla`. For
+ *  accepted attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  Optional. Expected date that an order will be ready for pickup relative to
+ *  the order date. Must be submitted together with `pickupMethod`. For accepted
+ *  attribute values, see the [local product inventory feed
+ *  specification](https://support.google.com/merchants/answer/3061342).
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
 
 /** Required. The current price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
@@ -11361,6 +12367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The measure and dimension of an item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductUnitPricingMeasure *unitPricingMeasure;
 
+/** URL of the 3D model of the item to provide more visuals. */
+@property(nonatomic, copy, nullable) NSString *virtualModelLink;
+
 @end
 
 
@@ -11612,6 +12621,131 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  `channel:contentLanguage:targetCountry:offerId`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  An issue affecting specific product.
+ */
+@interface GTLRShoppingContent_ProductIssue : GTLRObject
+
+/**
+ *  A list of actionable steps that can be executed to solve the issue. An
+ *  example is requesting a re-review or providing arguments when merchant
+ *  disagrees with the issue. Actions that are supported in (your) third-party
+ *  application can be rendered as buttons and should be available to merchant
+ *  when they expand the issue.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Action *> *actions;
+
+/**
+ *  Clarifies the severity of the issue. The summarizing message, if present,
+ *  should be shown right under the title for each issue. It helps merchants to
+ *  quickly understand the impact of the issue. The detailed breakdown helps the
+ *  merchant to fully understand the impact of the issue. It can be rendered as
+ *  dialog that opens when the merchant mouse over the summarized impact
+ *  statement. Issues with different severity can be styled differently. They
+ *  may use a different color or icon to signal the difference between `ERROR`,
+ *  `WARNING` and `INFO`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductIssueImpact *impact;
+
+/**
+ *  Details of the issue as a pre-rendered HTML. HTML elements contain CSS
+ *  classes that can be used to customize the style of the content. Always
+ *  sanitize the HTML before embedding it directly to your application. The
+ *  sanitizer needs to allow basic HTML tags, such as: `div`, `span`, `p`, `a`,
+ *  `ul`, `li`, `table`, `tr`, `td`. For example, you can use
+ *  [DOMPurify](https://www.npmjs.com/package/dompurify). CSS classes: *
+ *  `issue-detail` - top level container for the detail of the issue *
+ *  `callout-banners` - section of the `issue-detail` with callout banners *
+ *  `callout-banner` - single callout banner, inside `callout-banners` *
+ *  `callout-banner-info` - callout with important information (default) *
+ *  `callout-banner-warning` - callout with a warning * `callout-banner-error` -
+ *  callout informing about an error (most severe) * `issue-content` - section
+ *  of the `issue-detail`, contains multiple `content-element` *
+ *  `content-element` - content element such as a list, link or paragraph,
+ *  inside `issue-content` * `root-causes` - unordered list with items
+ *  describing root causes of the issue, inside `issue-content` *
+ *  `root-causes-intro` - intro text before the `root-causes` list, inside
+ *  `issue-content` * `segment` - section of the text, `span` inside paragraph *
+ *  `segment-attribute` - section of the text that represents a product
+ *  attribute, for example 'image\\_link' * `segment-literal` - section of the
+ *  text that contains a special value, for example '0-1000 kg' * `segment-bold`
+ *  - section of the text that should be rendered as bold * `segment-italic` -
+ *  section of the text that should be rendered as italic * `tooltip` - used on
+ *  paragraphs that should be rendered with a tooltip. A section of the text in
+ *  such a paragraph will have a class `tooltip-text` and is intended to be
+ *  shown in a mouse over dialog. If the style is not used, the `tooltip-text`
+ *  section would be shown on a new line, after the main part of the text. *
+ *  `tooltip-text` - marks a section of the text within a `tooltip`, that is
+ *  intended to be shown in a mouse over dialog. * `tooltip-icon` - marks a
+ *  section of the text within a `tooltip`, that can be replaced with a tooltip
+ *  icon, for example '?' or 'i'. By default, this section contains a `br` tag,
+ *  that is separating the main text and the tooltip text when the style is not
+ *  used. * `tooltip-style-question` - the tooltip shows helpful information,
+ *  can use the '?' as an icon. * `tooltip-style-info` - the tooltip adds
+ *  additional information fitting to the context, can use the 'i' as an icon. *
+ *  `content-moderation` - marks the paragraph that explains how the issue was
+ *  identified. * `overlay` - wrapper for the `popup` dialog. It should be set
+ *  to hidden by default. When the dialog is opened, the overlay should switch
+ *  to be visible and cover the rest of the screen to highlight the dialog. *
+ *  `popup` - dialog for showing a long block of content * `popup-close` - a
+ *  button to close the `popup` dialog * `new-element` - Present for new
+ *  elements added to the pre-rendered content in the future. To make sure that
+ *  a new content element does not break your style, you can hide everything
+ *  with this class.
+ */
+@property(nonatomic, copy, nullable) NSString *prerenderedContent;
+
+/** Title of the issue. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Overall impact of product issue.
+ */
+@interface GTLRShoppingContent_ProductIssueImpact : GTLRObject
+
+/**
+ *  Detailed impact breakdown. Explains the types of restriction the issue has
+ *  in different shopping destinations and territory. If present, it should be
+ *  rendered to the merchant. Can be shown as a mouse over dropdown or a dialog.
+ *  Each breakdown item represents a group of regions with the same impact
+ *  details.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Breakdown *> *breakdowns;
+
+/**
+ *  Optional. Message summarizing the overall impact of the issue. If present,
+ *  it should be rendered to the merchant. For example: "Limits visibility in
+ *  France"
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The severity of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductIssueImpact_Severity_Error Causes
+ *        either an account suspension or an item disapproval. Errors should be
+ *        resolved as soon as possible to ensure items are eligible to appear in
+ *        results again. (Value: "ERROR")
+ *    @arg @c kGTLRShoppingContent_ProductIssueImpact_Severity_Info Infos are
+ *        suggested optimizations to increase data quality. Resolving these
+ *        issues is recommended, but not required. (Value: "INFO")
+ *    @arg @c kGTLRShoppingContent_ProductIssueImpact_Severity_SeverityUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductIssueImpact_Severity_Warning Warnings
+ *        can negatively impact the performance of ads and can lead to item or
+ *        account suspensions in the future unless the issue is resolved.
+ *        (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 @end
 
@@ -13392,6 +14526,99 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  The payload for configuring how the content should be rendered.
+ */
+@interface GTLRShoppingContent_RenderAccountIssuesRequestPayload : GTLRObject
+
+/**
+ *  Optional. How the detailed content should be returned. Default option is to
+ *  return the content as a pre-rendered HTML text.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_ContentOptionUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "CONTENT_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_PreRenderedHtml
+ *        Returns the detail of the issue as a pre-rendered HTML text. (Value:
+ *        "PRE_RENDERED_HTML")
+ */
+@property(nonatomic, copy, nullable) NSString *contentOption;
+
+@end
+
+
+/**
+ *  Response containing support content and actions for listed account issues.
+ */
+@interface GTLRShoppingContent_RenderAccountIssuesResponse : GTLRObject
+
+/**
+ *  The Alternate Dispute Resolution (ADR) contains a link to a page where
+ *  merchant can bring their appeal to an [external
+ *  body](https://support.google.com/european-union-digital-services-act-redress-options/answer/13535501).
+ *  If the ADR is present, it MUST be available to the merchant on the page that
+ *  shows the list with their account issues.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AlternateDisputeResolution *alternateDisputeResolution;
+
+/**
+ *  List of account issues for a given account. This list can be shown with
+ *  compressed, expandable items. In the compressed form, the title and impact
+ *  should be shown for each issue. Once the issue is expanded, the detailed
+ *  content and available actions should be rendered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountIssue *> *issues;
+
+@end
+
+
+/**
+ *  The payload for configuring how the content should be rendered.
+ */
+@interface GTLRShoppingContent_RenderProductIssuesRequestPayload : GTLRObject
+
+/**
+ *  Optional. How the detailed content should be returned. Default option is to
+ *  return the content as a pre-rendered HTML text.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_ContentOptionUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "CONTENT_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_PreRenderedHtml
+ *        Returns the detail of the issue as a pre-rendered HTML text. (Value:
+ *        "PRE_RENDERED_HTML")
+ */
+@property(nonatomic, copy, nullable) NSString *contentOption;
+
+@end
+
+
+/**
+ *  Response containing support content and actions for listed product issues.
+ */
+@interface GTLRShoppingContent_RenderProductIssuesResponse : GTLRObject
+
+/**
+ *  The Alternate Dispute Resolution (ADR) contains a link to a page where
+ *  merchant can bring their appeal to an [external
+ *  body](https://support.google.com/european-union-digital-services-act-redress-options/answer/13535501).
+ *  If present, the link should be shown on the same page as the list of issues.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AlternateDisputeResolution *alternateDisputeResolution;
+
+/**
+ *  List of issues for a given product. This list can be shown with compressed,
+ *  expandable items. In the compressed form, the title and impact should be
+ *  shown for each issue. Once the issue is expanded, the detailed content and
+ *  available actions should be rendered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductIssue *> *issues;
+
+@end
+
+
+/**
  *  Request to report interactions on a recommendation.
  */
 @interface GTLRShoppingContent_ReportInteractionRequest : GTLRObject
@@ -13449,6 +14676,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  set if the merchant queries `BestSellersBrandView`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Brand *brand;
+
+/**
+ *  Competitive visibility fields requested by the merchant in the query. Field
+ *  values are only set if the merchant queries
+ *  `CompetitiveVisibilityTopMerchantView`, `CompetitiveVisibilityBenchmarkView`
+ *  or `CompetitiveVisibilityCompetitorView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_CompetitiveVisibility *competitiveVisibility;
 
 /**
  *  Metrics requested by the merchant in the query. Metric values are only set
@@ -16316,6 +17551,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`otherFeeTax`" - "`sales`"
  */
 @property(nonatomic, copy, nullable) NSString *taxType;
+
+@end
+
+
+/**
+ *  Specifications related to the `Checkout` URL. The `UriTemplate` is of the
+ *  form `https://www.mystore.com/checkout?item_id={id}` where `{id}` will be
+ *  automatically replaced with data from the merchant account with this
+ *  attribute
+ *  [offer_id](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.offer_id)
+ */
+@interface GTLRShoppingContent_UrlSettings : GTLRObject
+
+/**
+ *  URL template when the placeholders are expanded will redirect the buyer to
+ *  the cart page on the merchant website with the selected item in cart.
+ */
+@property(nonatomic, copy, nullable) NSString *cartUriTemplate;
+
+/**
+ *  URL template when the placeholders are expanded will redirect the buyer to
+ *  the merchant checkout page with the item in the cart.
+ */
+@property(nonatomic, copy, nullable) NSString *checkoutUriTemplate;
 
 @end
 

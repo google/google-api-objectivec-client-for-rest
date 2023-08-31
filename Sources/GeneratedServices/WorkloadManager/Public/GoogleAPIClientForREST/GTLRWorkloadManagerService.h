@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Workload Manager API (workloadmanager/v1)
+// Description:
+//   Workload Manager is a service that provides tooling for enterprise
+//   workloads to automate the deployment and validation of your workloads
+//   against best practices and recommendations.
 // Documentation:
 //   https://cloud.google.com/workload-manager/docs
 
@@ -36,6 +40,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkloadManagerCloudPlatform;
 
 /**
  *  Service for executing Workload Manager API queries.
+ *
+ *  Workload Manager is a service that provides tooling for enterprise workloads
+ *  to automate the deployment and validation of your workloads against best
+ *  practices and recommendations.
  */
 @interface GTLRWorkloadManagerService : GTLRService
 

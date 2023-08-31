@@ -420,6 +420,188 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a platform policy, and returns a copy of it. Returns NOT_FOUND if
+ *  the project or platform doesn't exist, INVALID_ARGUMENT if the request is
+ *  malformed, ALREADY_EXISTS if the policy already exists, and INVALID_ARGUMENT
+ *  if the policy contains a platform-specific policy that does not match the
+ *  platform value specified in the URL.
+ *
+ *  Method: binaryauthorization.projects.platforms.policies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesCreate : GTLRBinaryAuthorizationQuery
+
+/** Required. The parent of this platform policy. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The platform policy ID. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
+ *
+ *  Creates a platform policy, and returns a copy of it. Returns NOT_FOUND if
+ *  the project or platform doesn't exist, INVALID_ARGUMENT if the request is
+ *  malformed, ALREADY_EXISTS if the policy already exists, and INVALID_ARGUMENT
+ *  if the policy contains a platform-specific policy that does not match the
+ *  platform value specified in the URL.
+ *
+ *  @param object The @c GTLRBinaryAuthorization_PlatformPolicy to include in
+ *    the query.
+ *  @param parent Required. The parent of this platform policy.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_PlatformPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  Method: binaryauthorization.projects.platforms.policies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Required. The name of the platform policy to delete, in the format
+ *  `projects/ * /platforms/ * /policies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_Empty.
+ *
+ *  Deletes a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  @param name Required. The name of the platform policy to delete, in the
+ *    format `projects/ * /platforms/ * /policies/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  Method: binaryauthorization.projects.platforms.policies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesGet : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Required. The name of the platform policy to retrieve in the format
+ *  `projects/ * /platforms/ * /policies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
+ *
+ *  Gets a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  @param name Required. The name of the platform policy to retrieve in the
+ *    format `projects/ * /platforms/ * /policies/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists platform policies owned by a project in the specified platform.
+ *  Returns INVALID_ARGUMENT if the project or the platform doesn't exist.
+ *
+ *  Method: binaryauthorization.projects.platforms.policies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesList : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Requested page size. The server may return fewer results than requested. If
+ *  unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListPlatformPoliciesResponse.next_page_token returned
+ *  from the previous call to the `ListPlatformPolicies` method.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the platform associated with the platform
+ *  policies using the format `projects/ * /platforms/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_ListPlatformPoliciesResponse.
+ *
+ *  Lists platform policies owned by a project in the specified platform.
+ *  Returns INVALID_ARGUMENT if the project or the platform doesn't exist.
+ *
+ *  @param parent Required. The resource name of the platform associated with
+ *    the platform policies using the format `projects/ * /platforms/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Replaces a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  Method: binaryauthorization.projects.platforms.policies.replacePlatformPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Output only. The relative resource name of the BinAuthz platform policy, in
+ *  the form of `projects/ * /platforms/ * /policies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
+ *
+ *  Replaces a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *
+ *  @param object The @c GTLRBinaryAuthorization_PlatformPolicy to include in
+ *    the query.
+ *  @param name Output only. The relative resource name of the BinAuthz platform
+ *    policy, in the form of `projects/ * /platforms/ * /policies/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_PlatformPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *

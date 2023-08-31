@@ -69,6 +69,33 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.executions.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete
 
 @dynamic ETag, name, validateOnly;

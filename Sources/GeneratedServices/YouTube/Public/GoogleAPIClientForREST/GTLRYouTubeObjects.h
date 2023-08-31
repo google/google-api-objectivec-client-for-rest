@@ -64,6 +64,7 @@
 @class GTLRYouTube_CommentThreadReplies;
 @class GTLRYouTube_CommentThreadSnippet;
 @class GTLRYouTube_ContentRating;
+@class GTLRYouTube_CuepointSchedule;
 @class GTLRYouTube_Entity;
 @class GTLRYouTube_GeoPoint;
 @class GTLRYouTube_I18nLanguage;
@@ -78,6 +79,7 @@
 @class GTLRYouTube_LevelDetails;
 @class GTLRYouTube_LiveBroadcast;
 @class GTLRYouTube_LiveBroadcastContentDetails;
+@class GTLRYouTube_LiveBroadcastMonetizationDetails;
 @class GTLRYouTube_LiveBroadcastSnippet;
 @class GTLRYouTube_LiveBroadcastStatistics;
 @class GTLRYouTube_LiveBroadcastStatus;
@@ -3509,6 +3511,26 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_YtRating_YtUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeAd;
 /** Value: "cueTypeUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_CuepointSchedule.scheduleStrategy
+
+/**
+ *  Strategy to schedule cuepoints at one time for all viewers.
+ *
+ *  Value: "concurrent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_Concurrent;
+/**
+ *  Strategy to schedule cuepoints at an increased rate to allow viewers to
+ *  receive cuepoints when eligible. See go/lcr-non-concurrent-ads for more
+ *  details.
+ *
+ *  Value: "nonConcurrent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_NonConcurrent;
+/** Value: "scheduleStrategyUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrategy_ScheduleStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_InvideoPosition.cornerPosition
@@ -7951,6 +7973,47 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  Schedule to insert cuepoints into a broadcast by ads automator.
+ */
+@interface GTLRYouTube_CuepointSchedule : GTLRObject
+
+/**
+ *  This field is semantically required. If it is set false or not set, other
+ *  fields in this message will be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  If set, automatic cuepoint insertion is paused until this timestamp ("No Ad
+ *  Zone"). The value is specified in ISO 8601 format.
+ */
+@property(nonatomic, copy, nullable) NSString *pauseAdsUntil;
+
+/** Interval frequency that api uses to insert cuepoints automatically. */
+@property(nonatomic, strong, nullable) GTLRDuration *repeatInterval;
+
+/**
+ *  The strategy to use when scheduling cuepoints.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_CuepointSchedule_ScheduleStrategy_Concurrent Strategy
+ *        to schedule cuepoints at one time for all viewers. (Value:
+ *        "concurrent")
+ *    @arg @c kGTLRYouTube_CuepointSchedule_ScheduleStrategy_NonConcurrent
+ *        Strategy to schedule cuepoints at an increased rate to allow viewers
+ *        to receive cuepoints when eligible. See go/lcr-non-concurrent-ads for
+ *        more details. (Value: "nonConcurrent")
+ *    @arg @c kGTLRYouTube_CuepointSchedule_ScheduleStrategy_ScheduleStrategyUnspecified
+ *        Value "scheduleStrategyUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *scheduleStrategy;
+
+@end
+
+
+/**
  *  GTLRYouTube_Entity
  */
 @interface GTLRYouTube_Entity : GTLRObject
@@ -8448,6 +8511,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The monetizationDetails object contains information about the event's
+ *  monetization details.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveBroadcastMonetizationDetails *monetizationDetails;
+
+/**
  *  The snippet object contains basic details about the event, including its
  *  title, description, start time, and end time.
  */
@@ -8707,6 +8776,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The visitorId identifies the visitor. */
 @property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  Monetization settings of a broadcast.
+ */
+@interface GTLRYouTube_LiveBroadcastMonetizationDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRYouTube_CuepointSchedule *cuepointSchedule;
 
 @end
 

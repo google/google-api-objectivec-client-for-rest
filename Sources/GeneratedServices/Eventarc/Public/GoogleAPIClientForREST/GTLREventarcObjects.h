@@ -566,11 +566,11 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @interface GTLREventarc_Destination : GTLRObject
 
 /**
- *  The Cloud Function resource name. Only Cloud Functions V2 is supported.
+ *  The Cloud Function resource name. Cloud Functions V1 and V2 are supported.
  *  Format: `projects/{project}/locations/{location}/functions/{function}` This
- *  is a read-only field. Creating Cloud Functions V2 triggers is only supported
- *  via the Cloud Functions product. An error will be returned if the user sets
- *  this value.
+ *  is a read-only field. Creating Cloud Functions V1/V2 triggers is only
+ *  supported via the Cloud Functions product. An error will be returned if the
+ *  user sets this value.
  */
 @property(nonatomic, copy, nullable) NSString *cloudFunction;
 
@@ -624,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 /**
  *  Optional. The operator used for matching the events with the value of the
  *  filter. If not specified, only events that have an exact key-value pair
- *  specified in the filter are matched. The only allowed value is
- *  `match-path-pattern`.
+ *  specified in the filter are matched. The allowed values are `path_pattern`
+ *  and `match-path-pattern`. `path_pattern` is only allowed for GCFv1 triggers.
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
@@ -887,8 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -916,8 +916,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1235,7 +1235,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1243,14 +1243,15 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLREventarc_Policy : GTLRObject

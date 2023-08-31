@@ -206,7 +206,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 @implementation GTLRServiceControl_AuthenticationInfo
 @dynamic authoritySelector, principalEmail, principalSubject,
          serviceAccountDelegationInfo, serviceAccountKeyName,
-         thirdPartyPrincipal;
+         serviceDelegationHistory, thirdPartyPrincipal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -560,6 +560,48 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 
 @implementation GTLRServiceControl_ServiceAccountDelegationInfo
 @dynamic firstPartyPrincipal, principalSubject, thirdPartyPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ServiceDelegationHistory
+//
+
+@implementation GTLRServiceControl_ServiceDelegationHistory
+@dynamic originalPrincipal, serviceMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceMetadata" : [GTLRServiceControl_ServiceMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ServiceMetadata
+//
+
+@implementation GTLRServiceControl_ServiceMetadata
+@dynamic jobMetadata, principalSubject, serviceDomain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ServiceMetadata_JobMetadata
+//
+
+@implementation GTLRServiceControl_ServiceMetadata_JobMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

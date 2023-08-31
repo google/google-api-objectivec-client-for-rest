@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContainer_AdvancedDatapathObservabilityConfig.relayMode
+NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_Disabled = @"DISABLED";
+NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_ExternalLb = @"EXTERNAL_LB";
+NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_InternalVpcLb = @"INTERNAL_VPC_LB";
+NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified = @"RELAY_MODE_UNSPECIFIED";
+
 // GTLRContainer_AutopilotCompatibilityIssue.incompatibilityType
 NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_AdditionalConfigRequired = @"ADDITIONAL_CONFIG_REQUIRED";
 NSString * const kGTLRContainer_AutopilotCompatibilityIssue_IncompatibilityType_Incompatibility = @"INCOMPATIBILITY";
@@ -149,7 +155,13 @@ NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades = @
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Apiserver = @"APISERVER";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ControllerManager = @"CONTROLLER_MANAGER";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset = @"DAEMONSET";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Deployment = @"DEPLOYMENT";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa = @"HPA";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Pod = @"POD";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Scheduler = @"SCHEDULER";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Statefulset = @"STATEFULSET";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Storage = @"STORAGE";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 
 // GTLRContainer_NetworkConfig.datapathProvider
@@ -345,6 +357,26 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_AdditionalNodeNetworkConfig
+//
+
+@implementation GTLRContainer_AdditionalNodeNetworkConfig
+@dynamic network, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_AdditionalPodNetworkConfig
+//
+
+@implementation GTLRContainer_AdditionalPodNetworkConfig
+@dynamic maxPodsPerNode, secondaryPodRange, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AdditionalPodRangesConfig
 //
 
@@ -372,6 +404,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
          gcsFuseCsiDriverConfig, gkeBackupAgentConfig, horizontalPodAutoscaling,
          httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_AdvancedDatapathObservabilityConfig
+//
+
+@implementation GTLRContainer_AdvancedDatapathObservabilityConfig
+@dynamic enableMetrics, relayMode;
 @end
 
 
@@ -1467,7 +1509,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_MonitoringConfig
-@dynamic componentConfig, managedPrometheusConfig;
+@dynamic advancedDatapathObservabilityConfig, componentConfig,
+         managedPrometheusConfig;
 @end
 
 
@@ -1479,8 +1522,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_NetworkConfig
 @dynamic datapathProvider, defaultSnatStatus, dnsConfig,
          enableFqdnNetworkPolicy, enableIntraNodeVisibility,
-         enableL4ilbSubsetting, gatewayApiConfig, network,
-         networkPerformanceConfig, privateIpv6GoogleAccess,
+         enableL4ilbSubsetting, enableMultiNetworking, gatewayApiConfig,
+         network, networkPerformanceConfig, privateIpv6GoogleAccess,
          serviceExternalIpsConfig, subnetwork;
 @end
 
@@ -1687,9 +1730,19 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeNetworkConfig
-@dynamic createPodRange, enablePrivateNodes, networkPerformanceConfig,
+@dynamic additionalNodeNetworkConfigs, additionalPodNetworkConfigs,
+         createPodRange, enablePrivateNodes, networkPerformanceConfig,
          podCidrOverprovisionConfig, podIpv4CidrBlock, podIpv4RangeUtilization,
          podRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalNodeNetworkConfigs" : [GTLRContainer_AdditionalNodeNetworkConfig class],
+    @"additionalPodNetworkConfigs" : [GTLRContainer_AdditionalPodNetworkConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1850,7 +1903,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_PlacementPolicy
-@dynamic type;
+@dynamic policyName, tpuTopology, type;
 @end
 
 
@@ -2459,11 +2512,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, confidentialNodes, ETag, fastSocket, gcfsConfig, gvnic,
-         imageType, kubeletConfig, labels, linuxNodeConfig, locations,
-         loggingConfig, name, nodeNetworkConfig, nodePoolId, nodeVersion,
-         projectId, resourceLabels, tags, taints, upgradeSettings,
-         windowsNodeConfig, workloadMetadataConfig, zoneProperty;
+@dynamic clusterId, confidentialNodes, diskSizeGb, diskType, ETag, fastSocket,
+         gcfsConfig, gvnic, imageType, kubeletConfig, labels, linuxNodeConfig,
+         locations, loggingConfig, machineType, name, nodeNetworkConfig,
+         nodePoolId, nodeVersion, projectId, resourceLabels, tags, taints,
+         upgradeSettings, windowsNodeConfig, workloadMetadataConfig,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

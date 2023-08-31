@@ -282,6 +282,52 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsGet
+
+@dynamic consumerNetwork, domain, parent, type, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsRecordSets:get";
+  GTLRServiceNetworkingQuery_ServicesDnsRecordSetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_DnsRecordSet class];
+  query.loggingName = @"servicenetworking.services.dnsRecordSets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsList
+
+@dynamic consumerNetwork, parent, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsRecordSets:list";
+  GTLRServiceNetworkingQuery_ServicesDnsRecordSetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_ListDnsRecordSetsResponse class];
+  query.loggingName = @"servicenetworking.services.dnsRecordSets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsRemove
 
 @dynamic parent;
@@ -412,6 +458,44 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
   query.loggingName = @"servicenetworking.services.enableVpcServiceControls";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_GetDnsZoneResponse class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.dnsZones.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsZones:list";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksDnsZonesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_ListDnsZonesResponse class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.dnsZones.list";
   return query;
 }
 

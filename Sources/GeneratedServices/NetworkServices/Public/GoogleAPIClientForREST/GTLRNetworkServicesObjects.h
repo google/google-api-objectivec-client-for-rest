@@ -75,6 +75,7 @@
 @class GTLRNetworkServices_TcpRouteRouteMatch;
 @class GTLRNetworkServices_TcpRouteRouteRule;
 @class GTLRNetworkServices_TlsRoute;
+@class GTLRNetworkServices_TlsRoute_Labels;
 @class GTLRNetworkServices_TlsRouteRouteAction;
 @class GTLRNetworkServices_TlsRouteRouteDestination;
 @class GTLRNetworkServices_TlsRouteRouteMatch;
@@ -879,14 +880,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  Optional. Specifies the proportion of requests forwarded to the backend
- *  referenced by the serviceName field. This is computed as: weight/Sum(weights
- *  in this destination list). For non-zero values, there may be some epsilon
- *  from the exact proportion defined here depending on the precision an
- *  implementation supports. If only one serviceName is specified and it has a
- *  weight greater than 0, 100% of the traffic is forwarded to that backend. If
- *  weights are specified for any one service name, they need to be specified
- *  for all of them. If weights are unspecified for all services, then, traffic
- *  is distributed in equal proportions to all of them.
+ *  referenced by the serviceName field. This is computed as: -
+ *  weight/Sum(weights in this destination list). For non-zero values, there may
+ *  be some epsilon from the exact proportion defined here depending on the
+ *  precision an implementation supports. If only one serviceName is specified
+ *  and it has a weight greater than 0, 100% of the traffic is forwarded to that
+ *  backend. If weights are specified for any one service name, they need to be
+ *  specified for all of them. If weights are unspecified for all services,
+ *  then, traffic is distributed in equal proportions to all of them.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1291,7 +1292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  Specifies the proportion of requests forwarded to the backend referenced by
- *  the serviceName field. This is computed as: weight/Sum(weights in this
+ *  the serviceName field. This is computed as: - weight/Sum(weights in this
  *  destination list). For non-zero values, there may be some epsilon from the
  *  exact proportion defined here depending on the precision an implementation
  *  supports. If only one serviceName is specified and it has a weight greater
@@ -1685,7 +1686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  The specification for modifying the headers of a matching request prior to
- *  delivery of the request to the destination.
+ *  delivery of the request to the destination. If HeaderModifiers are set on
+ *  both the Destination and the RouteAction, they will be merged. Conflicts
+ *  between the two will not be resolved on the configuration.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *requestHeaderModifier;
 
@@ -1700,7 +1703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  The specification for modifying the headers of a response prior to sending
- *  the response back to the client.
+ *  the response back to the client. If HeaderModifiers are set on both the
+ *  Destination and the RouteAction, they will be merged. Conflicts between the
+ *  two will not be resolved on the configuration.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *responseHeaderModifier;
 
@@ -2248,8 +2253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2277,8 +2282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2345,7 +2350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2353,14 +2358,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRNetworkServices_Policy : GTLRObject
@@ -2655,14 +2661,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  Optional. Specifies the proportion of requests forwarded to the backend
- *  referenced by the serviceName field. This is computed as: weight/Sum(weights
- *  in this destination list). For non-zero values, there may be some epsilon
- *  from the exact proportion defined here depending on the precision an
- *  implementation supports. If only one serviceName is specified and it has a
- *  weight greater than 0, 100% of the traffic is forwarded to that backend. If
- *  weights are specified for any one service name, they need to be specified
- *  for all of them. If weights are unspecified for all services, then, traffic
- *  is distributed in equal proportions to all of them.
+ *  referenced by the serviceName field. This is computed as: -
+ *  weight/Sum(weights in this destination list). For non-zero values, there may
+ *  be some epsilon from the exact proportion defined here depending on the
+ *  precision an implementation supports. If only one serviceName is specified
+ *  and it has a weight greater than 0, 100% of the traffic is forwarded to that
+ *  backend. If weights are specified for any one service name, they need to be
+ *  specified for all of them. If weights are unspecified for all services,
+ *  then, traffic is distributed in equal proportions to all of them.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2767,6 +2773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
+/** Optional. Set of label tags associated with the TlsRoute resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_TlsRoute_Labels *labels;
+
 /**
  *  Optional. Meshes defines a list of meshes this TlsRoute is attached to, as
  *  one of the routing rules to route the requests served by the mesh. Each mesh
@@ -2798,6 +2807,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 
 /**
+ *  Optional. Set of label tags associated with the TlsRoute resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_TlsRoute_Labels : GTLRObject
+@end
+
+
+/**
  *  The specifications for routing traffic and applying associated policies.
  */
 @interface GTLRNetworkServices_TlsRouteRouteAction : GTLRObject
@@ -2821,7 +2842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  Optional. Specifies the proportion of requests forwareded to the backend
- *  referenced by the service_name field. This is computed as:
+ *  referenced by the service_name field. This is computed as: -
  *  weight/Sum(weights in destinations) Weights in all destinations does not
  *  need to sum up to 100.
  *

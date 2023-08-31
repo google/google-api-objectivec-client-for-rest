@@ -217,7 +217,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 @implementation GTLRCloudFunctions_BuildConfig
 @dynamic build, dockerRegistry, dockerRepository, entryPoint,
-         environmentVariables, runtime, source, sourceProvenance, workerPool;
+         environmentVariables, runtime, source, sourceProvenance, sourceToken,
+         workerPool;
 @end
 
 
@@ -386,7 +387,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         stages, statusDetail, target, verb;
+         sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -465,7 +466,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         stages, statusDetail, target, verb;
+         sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -544,7 +545,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         stages, statusDetail, target, verb;
+         sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

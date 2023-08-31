@@ -29,6 +29,11 @@ NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeBatch  = @"PROCESSING_MO
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeInteractive = @"PROCESSING_MODE_INTERACTIVE";
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeUnspecified = @"PROCESSING_MODE_UNSPECIFIED";
 
+// GTLRTranscoder_Job.optimization
+NSString * const kGTLRTranscoder_Job_Optimization_Autodetect   = @"AUTODETECT";
+NSString * const kGTLRTranscoder_Job_Optimization_Disabled     = @"DISABLED";
+NSString * const kGTLRTranscoder_Job_Optimization_OptimizationStrategyUnspecified = @"OPTIMIZATION_STRATEGY_UNSPECIFIED";
+
 // GTLRTranscoder_Job.state
 NSString * const kGTLRTranscoder_Job_State_Failed              = @"FAILED";
 NSString * const kGTLRTranscoder_Job_State_Pending             = @"PENDING";
@@ -48,6 +53,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_AdBreak
 @dynamic startTimeOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Aes128Encryption
+//
+
+@implementation GTLRTranscoder_Aes128Encryption
 @end
 
 
@@ -143,6 +157,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_Clearkey
+//
+
+@implementation GTLRTranscoder_Clearkey
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_Color
 //
 
@@ -203,6 +226,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_DrmSystems
+//
+
+@implementation GTLRTranscoder_DrmSystems
+@dynamic clearkey, fairplay, playready, widevine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_EditAtom
 //
 
@@ -235,6 +268,31 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Encryption
+//
+
+@implementation GTLRTranscoder_Encryption
+@dynamic aes128, drmSystems, identifier, mpegCenc, sampleAes,
+         secretManagerKeySource;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Fairplay
+//
+
+@implementation GTLRTranscoder_Fairplay
 @end
 
 
@@ -290,8 +348,9 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Job
-@dynamic config, createTime, endTime, error, inputUri, labels, mode, name,
-         outputUri, startTime, state, templateId, ttlAfterCompletionDays;
+@dynamic batchModePriority, config, createTime, endTime, error, inputUri,
+         labels, mode, name, optimization, outputUri, startTime, state,
+         templateId, ttlAfterCompletionDays;
 @end
 
 
@@ -315,14 +374,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_JobConfig
-@dynamic adBreaks, editList, elementaryStreams, inputs, manifests, muxStreams,
-         output, overlays, pubsubDestination, spriteSheets;
+@dynamic adBreaks, editList, elementaryStreams, encryptions, inputs, manifests,
+         muxStreams, output, overlays, pubsubDestination, spriteSheets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"adBreaks" : [GTLRTranscoder_AdBreak class],
     @"editList" : [GTLRTranscoder_EditAtom class],
     @"elementaryStreams" : [GTLRTranscoder_ElementaryStream class],
+    @"encryptions" : [GTLRTranscoder_Encryption class],
     @"inputs" : [GTLRTranscoder_Input class],
     @"manifests" : [GTLRTranscoder_Manifest class],
     @"muxStreams" : [GTLRTranscoder_MuxStream class],
@@ -425,11 +485,22 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_MpegCommonEncryption
+//
+
+@implementation GTLRTranscoder_MpegCommonEncryption
+@dynamic scheme;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_MuxStream
 //
 
 @implementation GTLRTranscoder_MuxStream
-@dynamic container, elementaryStreams, fileName, key, segmentSettings;
+@dynamic container, elementaryStreams, encryptionId, fileName, key,
+         segmentSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -491,6 +562,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_Playready
+//
+
+@implementation GTLRTranscoder_Playready
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_PreprocessingConfig
 //
 
@@ -506,6 +586,25 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_PubsubDestination
 @dynamic topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_SampleAesEncryption
+//
+
+@implementation GTLRTranscoder_SampleAesEncryption
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_SecretManagerSource
+//
+
+@implementation GTLRTranscoder_SecretManagerSource
+@dynamic secretVersion;
 @end
 
 
@@ -609,6 +708,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 @implementation GTLRTranscoder_Vp9CodecSettings
 @dynamic bitrateBps, crfLevel, frameRate, gopDuration, gopFrameCount,
          heightPixels, pixelFormat, profile, rateControlMode, widthPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Widevine
+//
+
+@implementation GTLRTranscoder_Widevine
 @end
 
 

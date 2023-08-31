@@ -191,6 +191,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeAll;
 /**
+ *  All sub-organizational units and the specified organizational unit (root if
+ *  not specified).
+ *
+ *  Value: "allIncludingParent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeAllIncludingParent;
+/**
  *  Immediate children only (default).
  *
  *  Value: "children"
@@ -2890,6 +2897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @arg @c kGTLRDirectoryTypeAll All sub-organizational units. (Value: "all")
  *    @arg @c kGTLRDirectoryTypeChildren Immediate children only (default).
  *        (Value: "children")
+ *    @arg @c kGTLRDirectoryTypeAllIncludingParent All sub-organizational units
+ *        and the specified organizational unit (root if not specified). (Value:
+ *        "allIncludingParent")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4890,6 +4900,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersInsert : GTLRDirectoryQuery
+
+/**
+ *  Optional. If set to `true`, the option selected for [handling unmanaged user
+ *  accounts](https://support.google.com/a/answer/11112794) will apply. Default:
+ *  `false`
+ */
+@property(nonatomic, assign) BOOL resolveConflictAccount;
 
 /**
  *  Fetches a @c GTLRDirectory_User.

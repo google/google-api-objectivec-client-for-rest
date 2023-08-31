@@ -28,6 +28,7 @@
 @class GTLRSQLAdmin_DatabaseFlags;
 @class GTLRSQLAdmin_DatabaseInstance;
 @class GTLRSQLAdmin_DatabaseInstance_FailoverReplica;
+@class GTLRSQLAdmin_DataCacheConfig;
 @class GTLRSQLAdmin_DemoteMasterConfiguration;
 @class GTLRSQLAdmin_DemoteMasterContext;
 @class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
@@ -59,6 +60,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
+@class GTLRSQLAdmin_PscConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
@@ -918,7 +920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileT
 // GTLRSQLAdmin_ExportContext_BakExportOptions.bakType
 
 /**
- *  default type.
+ *  Default type.
  *
  *  Value: "BAK_TYPE_UNSPECIFIED"
  */
@@ -935,6 +937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Full;
+/**
+ *  Transaction Log backup
+ *
+ *  Value: "TLOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Tlog;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.appliesTo
@@ -1243,7 +1251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileT
 // GTLRSQLAdmin_ImportContext_BakImportOptions.bakType
 
 /**
- *  default type.
+ *  Default type.
  *
  *  Value: "BAK_TYPE_UNSPECIFIED"
  */
@@ -1260,6 +1268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full;
+/**
+ *  Transaction Log backup
+ *
+ *  Value: "TLOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpMapping.type
@@ -1725,6 +1739,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdSsd;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Settings.edition
+
+/**
+ *  The instance did not specify the edition.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_Edition_EditionUnspecified;
+/**
+ *  The instance is an enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_Edition_Enterprise;
+/**
+ *  The instance is an Enterprise Plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_Edition_EnterprisePlus;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.pricingPlan
 
 /**
@@ -1873,6 +1909,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "MISSING_OPTIONAL_PRIVILEGES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges;
+/**
+ *  The replication user is missing parallel import specific privileges. (e.g.
+ *  LOCK TABLES) for MySQL.
+ *
+ *  Value: "MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MysqlParallelImportInsufficientPrivilege;
 /**
  *  No pglogical extension installed on databases, applicable for postgres.
  *
@@ -2560,6 +2603,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
 
+/**
+ *  Optional. (Point-in-time recovery for PostgreSQL only) Clone to an instance
+ *  in the specified zone. If no zone is specified, clone to the same zone as
+ *  the source instance.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredZone;
+
 @end
 
 
@@ -2704,6 +2754,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#connectSettings`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Whether PSC connectivity is enabled for this instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscEnabled;
 
 /**
  *  The cloud region for the instance. For example, `us-central1`,
@@ -2952,6 +3009,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Disk encryption status specific to an instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionStatus *diskEncryptionStatus;
 
+/** Output only. The dns name of the instance. */
+@property(nonatomic, copy, nullable) NSString *dnsName;
+
 /**
  *  This field is deprecated and will be removed from a future version of the
  *  API. Use the `settings.settingsVersion` field instead.
@@ -3033,6 +3093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  apps domain is prefixed if applicable.
  */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/** Output only. The link to service attachment of PSC instance. */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachmentLink;
 
 /**
  *  The geographical region. Can be: * `us-central` (`FIRST_GEN` instances only)
@@ -3161,6 +3224,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#databasesList`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Data cache configurations.
+ */
+@interface GTLRSQLAdmin_DataCacheConfig : GTLRObject
+
+/**
+ *  Whether data cache is enabled for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCacheEnabled;
 
 @end
 
@@ -3403,11 +3481,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_BakTypeUnspecified
- *        default type. (Value: "BAK_TYPE_UNSPECIFIED")
+ *        Default type. (Value: "BAK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Diff
  *        Differential backup. (Value: "DIFF")
  *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Full Full
  *        backup. (Value: "FULL")
+ *    @arg @c kGTLRSQLAdmin_ExportContext_BakExportOptions_BakType_Tlog
+ *        Transaction Log backup (Value: "TLOG")
  */
 @property(nonatomic, copy, nullable) NSString *bakType;
 
@@ -3752,11 +3832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_BakTypeUnspecified
- *        default type. (Value: "BAK_TYPE_UNSPECIFIED")
+ *        Default type. (Value: "BAK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff
  *        Differential backup. (Value: "DIFF")
  *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full Full
  *        backup. (Value: "FULL")
+ *    @arg @c kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog
+ *        Transaction Log backup (Value: "TLOG")
  */
 @property(nonatomic, copy, nullable) NSString *bakType;
 
@@ -3779,6 +3861,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recoveryOnly;
+
+/**
+ *  Optional. StopAt keyword for transaction log import, Applies to Cloud SQL
+ *  for SQL Server only
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *stopAt;
+
+/**
+ *  Optional. StopAtMark keyword for transaction log import, Applies to Cloud
+ *  SQL for SQL Server only
+ */
+@property(nonatomic, copy, nullable) NSString *stopAtMark;
 
 /**
  *  Whether or not the backup set being restored is striped. Applies only to
@@ -4117,6 +4211,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  but it cannot be removed after it is set.
  */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;
+
+/** PSC settings for this instance. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PscConfig *pscConfig;
 
 /**
  *  Whether SSL connections over IP are enforced or not.
@@ -4731,6 +4828,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  PSC settings for a Cloud SQL instance.
+ */
+@interface GTLRSQLAdmin_PscConfig : GTLRObject
+
+/**
+ *  List of consumer projects that are allow-listed for PSC connections to this
+ *  instance. This instance can be connected to with PSC from any network in
+ *  these projects. Each consumer project in this list may be represented by a
+ *  project number (numeric) or by a project id (alphanumeric).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
+
+/**
+ *  Whether PSC connectivity is enabled for this instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscEnabled;
+
+@end
+
+
+/**
  *  Read-replica configuration for connecting to the primary instance.
  */
 @interface GTLRSQLAdmin_ReplicaConfiguration : GTLRObject
@@ -4944,6 +5064,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *databaseReplicationEnabled;
 
+/** Configuration for data cache. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DataCacheConfig *dataCacheConfig;
+
 /**
  *  The size of data disk, in GB. The data disk size minimum is 10GB.
  *
@@ -4978,6 +5101,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Deny maintenance periods */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;
+
+/**
+ *  Optional. The edition of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Settings_Edition_EditionUnspecified The instance did
+ *        not specify the edition. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_Settings_Edition_Enterprise The instance is an
+ *        enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_Settings_Edition_EnterprisePlus The instance is an
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** Insights configuration, for now relevant only for Postgres. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_InsightsConfig *insightsConfig;
@@ -5186,6 +5322,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges
  *        The replication user is missing privileges that are optional. (Value:
  *        "MISSING_OPTIONAL_PRIVILEGES")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MysqlParallelImportInsufficientPrivilege
+ *        The replication user is missing parallel import specific privileges.
+ *        (e.g. LOCK TABLES) for MySQL. (Value:
+ *        "MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled
  *        No pglogical extension installed on databases, applicable for
  *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
@@ -5256,6 +5396,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minimalTargetSizeGb;
+
+@end
+
+
+/**
+ *  Instance get latest recovery time response.
+ */
+@interface GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse : GTLRObject
+
+/** This is always `sql#getLatestRecoveryTime`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Timestamp, identifies the latest recovery time of the source instance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestRecoveryTime;
 
 @end
 

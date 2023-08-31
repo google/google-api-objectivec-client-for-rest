@@ -196,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -231,15 +231,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersDelete : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, the request will be rejected if the latest version of the
+ *  Optional. If set, the request will be rejected if the latest version of the
  *  workstation cluster on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, any workstation configurations and workstations in the workstation
- *  cluster are also deleted. Otherwise, the request only works if the
- *  workstation cluster has no configurations or workstations.
+ *  Optional. If set, any workstation configurations and workstations in the
+ *  workstation cluster are also deleted. Otherwise, the request only works if
+ *  the workstation cluster has no configurations or workstations.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -247,7 +247,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If set, validate the request and preview the review, but do not apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -300,10 +301,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersList : GTLRCloudWorkstationsQuery
 
-/** Maximum number of items to return. */
+/** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** next_page_token value returned from a previous List request, if any. */
+/**
+ *  Optional. next_page_token value returned from a previous List request, if
+ *  any.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. Parent resource name. */
@@ -337,12 +341,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, and the workstation cluster is not found, a new workstation cluster
- *  will be created. In this situation, update_mask is ignored.
+ *  Optional. If set, and the workstation cluster is not found, a new
+ *  workstation cluster will be created. In this situation, update_mask is
+ *  ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this resource. */
+/** Full name of this workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -354,8 +359,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -366,7 +371,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_WorkstationCluster to include in
  *    the query.
- *  @param name Full name of this resource.
+ *  @param name Full name of this workstation cluster.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersPatch
  */
@@ -389,8 +394,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -424,15 +429,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsDelete : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, the request is rejected if the latest version of the workstation
- *  configuration on the server does not have this ETag.
+ *  Optional. If set, the request is rejected if the latest version of the
+ *  workstation configuration on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set, any workstations in the workstation configuration are also deleted.
- *  Otherwise, the request works only if the workstation configuration has no
- *  workstations.
+ *  Optional. If set, any workstations in the workstation configuration are also
+ *  deleted. Otherwise, the request works only if the workstation configuration
+ *  has no workstations.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -440,8 +445,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -543,10 +548,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsList : GTLRCloudWorkstationsQuery
 
-/** Maximum number of items to return. */
+/** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** next_page_token value returned from a previous List request, if any. */
+/**
+ *  Optional. next_page_token value returned from a previous List request, if
+ *  any.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. Parent resource name. */
@@ -580,10 +588,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsListUsable : GTLRCloudWorkstationsQuery
 
-/** Maximum number of items to return. */
+/** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** next_page_token value returned from a previous List request, if any. */
+/**
+ *  Optional. next_page_token value returned from a previous List request, if
+ *  any.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. Parent resource name. */
@@ -618,12 +629,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set and the workstation configuration is not found, a new workstation
- *  configuration will be created. In this situation, update_mask is ignored.
+ *  Optional. If set and the workstation configuration is not found, a new
+ *  workstation configuration will be created. In this situation, update_mask is
+ *  ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this resource. */
+/** Full name of this workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -635,8 +647,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -647,7 +659,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_WorkstationConfig to include in
  *    the query.
- *  @param name Full name of this resource.
+ *  @param name Full name of this workstation configuration.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsPatch
  */
@@ -754,8 +766,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -789,7 +801,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsDelete : GTLRCloudWorkstationsQuery
 
 /**
- *  If set, the request will be rejected if the latest version of the
+ *  Optional. If set, the request will be rejected if the latest version of the
  *  workstation on the server does not have this ETag.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -798,8 +810,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -936,10 +948,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsList : GTLRCloudWorkstationsQuery
 
-/** Maximum number of items to return. */
+/** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** next_page_token value returned from a previous List request, if any. */
+/**
+ *  Optional. next_page_token value returned from a previous List request, if
+ *  any.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. Parent resource name. */
@@ -973,10 +988,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsListUsable : GTLRCloudWorkstationsQuery
 
-/** Maximum number of items to return. */
+/** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** next_page_token value returned from a previous List request, if any. */
+/**
+ *  Optional. next_page_token value returned from a previous List request, if
+ *  any.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. Parent resource name. */
@@ -1011,12 +1029,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsPatch : GTLRCloudWorkstationsQuery
 
 /**
- *  If set and the workstation configuration is not found, a new workstation
- *  configuration is created. In this situation, update_mask is ignored.
+ *  Optional. If set and the workstation configuration is not found, a new
+ *  workstation configuration is created. In this situation, update_mask is
+ *  ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this resource. */
+/** Full name of this workstation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1028,8 +1047,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  If set, validate the request and preview the review, but do not actually
- *  apply it.
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually apply it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -1040,7 +1059,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_Workstation to include in the
  *    query.
- *  @param name Full name of this resource.
+ *  @param name Full name of this workstation.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsPatch
  */

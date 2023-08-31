@@ -19,12 +19,17 @@
 @class GTLRDataform_CodeCompilationConfig_Vars;
 @class GTLRDataform_ColumnDescriptor;
 @class GTLRDataform_CommitAuthor;
+@class GTLRDataform_CommitLogEntry;
+@class GTLRDataform_CommitMetadata;
+@class GTLRDataform_CommitRepositoryChangesRequest_FileOperations;
 @class GTLRDataform_CompilationError;
 @class GTLRDataform_CompilationResult;
 @class GTLRDataform_CompilationResultAction;
 @class GTLRDataform_Declaration;
+@class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
 @class GTLRDataform_Expr;
+@class GTLRDataform_FileOperation;
 @class GTLRDataform_GitRemoteSettings;
 @class GTLRDataform_IncrementalTableConfig;
 @class GTLRDataform_Interval;
@@ -40,8 +45,10 @@
 @class GTLRDataform_RelationDescriptor_BigqueryLabels;
 @class GTLRDataform_ReleaseConfig;
 @class GTLRDataform_Repository;
+@class GTLRDataform_Repository_Labels;
 @class GTLRDataform_ScheduledExecutionRecord;
 @class GTLRDataform_ScheduledReleaseRecord;
+@class GTLRDataform_SshAuthenticationConfig;
 @class GTLRDataform_Status;
 @class GTLRDataform_Status_Details_Item;
 @class GTLRDataform_Target;
@@ -51,6 +58,7 @@
 @class GTLRDataform_WorkflowInvocationAction;
 @class GTLRDataform_Workspace;
 @class GTLRDataform_WorkspaceCompilationOverrides;
+@class GTLRDataform_WriteFile;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -493,6 +501,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Represents a single commit log.
+ */
+@interface GTLRDataform_CommitLogEntry : GTLRObject
+
+/** The commit author for this commit log entry. */
+@property(nonatomic, strong, nullable) GTLRDataform_CommitAuthor *author;
+
+/** The commit message for this commit log entry. */
+@property(nonatomic, copy, nullable) NSString *commitMessage;
+
+/** The commit SHA for this commit log entry. */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/** Commit timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+@end
+
+
+/**
+ *  Represents a Dataform Git commit.
+ */
+@interface GTLRDataform_CommitMetadata : GTLRObject
+
+/** Required. The commit's author. */
+@property(nonatomic, strong, nullable) GTLRDataform_CommitAuthor *author;
+
+/** Optional. The commit's message. */
+@property(nonatomic, copy, nullable) NSString *commitMessage;
+
+@end
+
+
+/**
+ *  `CommitRepositoryChanges` request message.
+ */
+@interface GTLRDataform_CommitRepositoryChangesRequest : GTLRObject
+
+/** Required. The changes to commit to the repository. */
+@property(nonatomic, strong, nullable) GTLRDataform_CommitMetadata *commitMetadata;
+
+/**
+ *  A map to the path of the file to the operation. The path is the ull file
+ *  path including filename, from repository root.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_CommitRepositoryChangesRequest_FileOperations *fileOperations;
+
+/**
+ *  Optional. The commit SHA which must be the repository's current HEAD before
+ *  applying this commit; otherwise this request will fail. If unset, no
+ *  validation on the current HEAD commit SHA is performed.
+ */
+@property(nonatomic, copy, nullable) NSString *requiredHeadCommitSha;
+
+@end
+
+
+/**
+ *  A map to the path of the file to the operation. The path is the ull file
+ *  path including filename, from repository root.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataform_FileOperation. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataform_CommitRepositoryChangesRequest_FileOperations : GTLRObject
+@end
+
+
+/**
  *  `CommitWorkspaceChanges` request message.
  */
 @interface GTLRDataform_CommitWorkspaceChangesRequest : GTLRObject
@@ -669,6 +748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Represents the delete file operation.
+ */
+@interface GTLRDataform_DeleteFile : GTLRObject
+@end
+
+
+/**
  *  Represents a single entry in a directory.
  */
 @interface GTLRDataform_DirectoryEntry : GTLRObject
@@ -800,12 +886,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `FetchRepositoryHistory` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "commits" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_FetchRepositoryHistoryResponse : GTLRCollectionObject
+
+/**
+ *  A list of commit logs, ordered by 'git log' default order.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_CommitLogEntry *> *commits;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Represents a single file operation to the repository.
+ */
+@interface GTLRDataform_FileOperation : GTLRObject
+
+/** Represents the delete operation. */
+@property(nonatomic, strong, nullable) GTLRDataform_DeleteFile *deleteFile;
+
+/** Represents the write operation. */
+@property(nonatomic, strong, nullable) GTLRDataform_WriteFile *writeFile;
+
+@end
+
+
+/**
  *  Controls Git remote configuration for a repository.
  */
 @interface GTLRDataform_GitRemoteSettings : GTLRObject
 
 /**
- *  Required. The name of the Secret Manager secret version to use as an
+ *  Optional. The name of the Secret Manager secret version to use as an
  *  authentication token for Git operations. Must be in the format `projects/ *
  *  /secrets/ * /versions/ *`.
  */
@@ -813,6 +940,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Required. The Git remote's default branch name. */
 @property(nonatomic, copy, nullable) NSString *defaultBranch;
+
+/** Optional. Authentication fields for remote uris using SSH protocol. */
+@property(nonatomic, strong, nullable) GTLRDataform_SshAuthenticationConfig *sshAuthenticationConfig;
 
 /**
  *  Output only. Deprecated: The field does not contain any token status
@@ -943,6 +1073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Optional. The set of action identifiers to include. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *includedTargets;
+
+/** Optional. The service account to run workflow invocations under. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Optional. When set to true, transitive dependencies of included actions will
@@ -1393,7 +1526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -1401,14 +1534,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataform_Policy : GTLRObject
@@ -1556,6 +1690,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `QueryRepositoryDirectoryContents` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "directoryEntries" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDataform_QueryRepositoryDirectoryContentsResponse : GTLRCollectionObject
+
+/**
+ *  List of entries in the directory.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_DirectoryEntry *> *directoryEntries;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  `QueryWorkflowInvocationActions` response message.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1594,6 +1755,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *fileContents;
+
+@end
+
+
+/**
+ *  `ReadRepositoryFile` response message.
+ */
+@interface GTLRDataform_ReadRepositoryFileResponse : GTLRObject
+
+/**
+ *  The file's contents.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
 
 @end
 
@@ -1820,10 +1997,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_Repository : GTLRObject
 
+/** Optional. The repository's user-friendly name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  Optional. If set, configures this repository to be linked to a Git remote.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_GitRemoteSettings *gitRemoteSettings;
+
+/** Optional. Repository user labels. */
+@property(nonatomic, strong, nullable) GTLRDataform_Repository_Labels *labels;
 
 /** Output only. The repository's name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1836,6 +2019,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *npmrcEnvironmentVariablesSecretVersion;
 
+/** Optional. The service account to run workflow invocations under. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Optional. Input only. If set to true, the authenticated user will be granted
+ *  the roles/dataform.admin role on the created repository. To modify access to
+ *  the created repository later apply setIamPolicy from
+ *  https://cloud.google.com/dataform/reference/rest#rest-resource:-v1beta1.projects.locations.repositories
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *setAuthenticatedUserAdmin;
+
 /**
  *  Optional. If set, fields of `workspace_compilation_overrides` override the
  *  default compilation settings that are specified in dataform.json when
@@ -1844,6 +2040,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) GTLRDataform_WorkspaceCompilationOverrides *workspaceCompilationOverrides;
 
+@end
+
+
+/**
+ *  Optional. Repository user labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataform_Repository_Labels : GTLRObject
 @end
 
 
@@ -1929,6 +2137,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Policy *policy;
+
+@end
+
+
+/**
+ *  Configures fields for performing SSH authentication.
+ */
+@interface GTLRDataform_SshAuthenticationConfig : GTLRObject
+
+/**
+ *  Required. Content of a public SSH key to verify an identity of a remote Git
+ *  host.
+ */
+@property(nonatomic, copy, nullable) NSString *hostPublicKey;
+
+/**
+ *  Required. The name of the Secret Manager secret version to use as a ssh
+ *  private key for Git operations. Must be in the format `projects/ * /secrets/
+ *  * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *userPrivateKeySecretVersion;
 
 @end
 
@@ -2239,6 +2468,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Optional. The prefix that should be prepended to all table names. */
 @property(nonatomic, copy, nullable) NSString *tablePrefix;
+
+@end
+
+
+/**
+ *  Represents the write file operation (for files added or modified).
+ */
+@interface GTLRDataform_WriteFile : GTLRObject
+
+/**
+ *  The file's contents.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
 
 @end
 

@@ -223,6 +223,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails
+@dynamic billingCycleCountLimit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload
 //
 
@@ -299,8 +309,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product
-@dynamic name, priceConfigs, regionCodes, subscriptionBillingCycleDuration,
-         titles;
+@dynamic finiteBillingCycleDetails, name, priceConfigs, regionCodes,
+         subscriptionBillingCycleDuration, titles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -434,9 +444,10 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem
-@dynamic amount, descriptionProperty, lineItemFreeTrialEndTime, lineItemIndex,
-         lineItemPromotionSpecs, oneTimeRecurrenceDetails, product,
-         productPayload, recurrenceType, state;
+@dynamic amount, descriptionProperty, finiteBillingCycleDetails,
+         lineItemFreeTrialEndTime, lineItemIndex, lineItemPromotionSpecs,
+         oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

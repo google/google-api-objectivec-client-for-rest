@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse.enrolledSolution
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse_EnrolledSolution_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink.state
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Active = @"ACTIVE";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMerchantCenterAccountLink_State_Failed = @"FAILED";
@@ -509,6 +514,25 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata
 @dynamic model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaEnrollSolutionResponse
+@dynamic enrolledSolution;
 @end
 
 

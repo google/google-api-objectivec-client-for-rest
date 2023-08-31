@@ -113,7 +113,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_Accelerator
-@dynamic count, installGpuDrivers, type;
+@dynamic count, driverVersion, installGpuDrivers, type;
 @end
 
 

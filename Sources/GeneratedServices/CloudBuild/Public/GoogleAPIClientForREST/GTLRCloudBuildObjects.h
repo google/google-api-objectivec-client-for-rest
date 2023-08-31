@@ -33,6 +33,7 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
+@class GTLRCloudBuild_ConnectedRepository;
 @class GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest;
 @class GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest;
 @class GTLRCloudBuild_FailureInfo;
@@ -234,8 +235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnsp
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
 /**
  *  Bucket is located in user-owned project in the same region as the build. The
- *  builder service account must have access to create and write to GCS buckets
- *  in the build project.
+ *  builder service account must have access to create and write to Cloud
+ *  Storage buckets in the build project.
  *
  *  Value: "REGIONAL_USER_OWNED_BUCKET"
  */
@@ -1593,6 +1594,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @interface GTLRCloudBuild_BuildOptions : GTLRObject
 
 /**
+ *  Option to include built-in and custom substitutions as env variables for all
+ *  build steps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
+
+/**
  *  Optional. Option to specify how default logs buckets are setup.
  *
  *  Likely values:
@@ -1601,7 +1610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *    @arg @c kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
  *        Bucket is located in user-owned project in the same region as the
  *        build. The builder service account must have access to create and
- *        write to GCS buckets in the build project. (Value:
+ *        write to Cloud Storage buckets in the build project. (Value:
  *        "REGIONAL_USER_OWNED_BUCKET")
  */
 @property(nonatomic, copy, nullable) NSString *defaultLogsBucketBehavior;
@@ -1788,6 +1797,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  remainder will be used as arguments.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Option to include built-in and custom substitutions as env variables for
+ *  this build step. This option will override the global option in BuildOption.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
 
 /**
  *  Working directory to use when running this step's container. If this value
@@ -2192,6 +2209,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBuild_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Location of the source in a 2nd-gen Google Cloud Build repository resource.
+ */
+@interface GTLRCloudBuild_ConnectedRepository : GTLRObject
+
+/** Directory, relative to the source root, in which to run the build. */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. Name of the Google Cloud Build repository, formatted as `projects/
+ *  * /locations/ * /connections/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  The revision to fetch from the Git repository such as a branch, a tag, a
+ *  commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
 @end
 
 
@@ -3388,8 +3428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3417,8 +3457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3993,6 +4033,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  Location of the source in a supported storage service.
  */
 @interface GTLRCloudBuild_Source : GTLRObject
+
+/**
+ *  Optional. If provided, get the source from this 2nd-gen Google Cloud Build
+ *  repository resource.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ConnectedRepository *connectedRepository;
 
 /** If provided, get the source from this Git repository. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GitSource *gitSource;

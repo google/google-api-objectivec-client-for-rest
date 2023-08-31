@@ -3842,7 +3842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BandedRange : GTLRObject
 
 /**
- *  The id of the banded range.
+ *  The ID of the banded range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4385,7 +4385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
 /**
- *  Zero based index of the series data point.
+ *  The zero-based index of the series data point.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4924,8 +4924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BigQueryDataSourceSpec : GTLRObject
 
 /**
- *  The ID of a BigQuery enabled GCP project with a billing account attached.
- *  For any queries executed against the data source, the project is charged.
+ *  The ID of a BigQuery enabled Google Cloud project with a billing account
+ *  attached. For any queries executed against the data source, the project is
+ *  charged.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -4951,7 +4952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Specifies a BigQuery table definition. Only [native
- *  tables](https://cloud.google.com/bigquery/docs/tables-intro) is allowed.
+ *  tables](https://cloud.google.com/bigquery/docs/tables-intro) are allowed.
  */
 @interface GTLRSheets_BigQueryTableSpec : GTLRObject
 
@@ -5146,7 +5147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The format to apply. Conditional formatting can only apply a subset of
- *  formatting: bold, italic, strikethrough, foreground color & background
+ *  formatting: bold, italic, strikethrough, foreground color and, background
  *  color.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_CellFormat *format;
@@ -6746,7 +6747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Days of the month to refresh. Only 1-28 are supported, mapping to the 1st to
- *  the 28th day. At lesat one day must be specified.
+ *  the 28th day. At least one day must be specified.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6766,8 +6767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Schedule for refreshing the data source. Data sources in the spreadsheet are
  *  refreshed within a time interval. You can specify the start time by clicking
  *  the Scheduled Refresh button in the Sheets editor, but the interval is fixed
- *  at 4 hours. For example, if you specify a start time of 8am , the refresh
- *  will take place between 8am and 12pm every day.
+ *  at 4 hours. For example, if you specify a start time of 8 AM , the refresh
+ *  will take place between 8 AM and 12 PM every day.
  */
 @interface GTLRSheets_DataSourceRefreshSchedule : GTLRObject
 
@@ -7909,7 +7910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_FilterSpec : GTLRObject
 
 /**
- *  The column index.
+ *  The zero-based column index.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9170,7 +9171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_PivotFilterSpec : GTLRObject
 
 /**
- *  The column offset of the source range.
+ *  The zero-based column offset of the source range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9630,7 +9631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  True if this protected range will show a warning when editing. Warning-based
  *  protection means that every user can edit data in the protected range,
  *  except editing will prompt a warning asking the user to confirm the edit.
- *  When writing: if this field is true, then editors is ignored. Additionally,
+ *  When writing: if this field is true, then editors are ignored. Additionally,
  *  if this field is changed from true to false and the `editors` field is not
  *  set (nor included in the field mask), then the editors will be set to all
  *  the editors in the document.
@@ -10281,8 +10282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  properties, if this field is excluded then the sheet is added or moved to
  *  the end of the sheet list. When updating sheet indices or inserting sheets,
  *  movement is considered in "before the move" indexes. For example, if there
- *  were 3 sheets (S1, S2, S3) in order to move S1 ahead of S2 the index would
- *  have to be set to 2. A sheet index update request is ignored if the
+ *  were three sheets (S1, S2, S3) in order to move S1 ahead of S2 the index
+ *  would have to be set to 2. A sheet index update request is ignored if the
  *  requested index is identical to the sheets current index or if the requested
  *  new index is equal to the current sheet index + 1.
  *
@@ -10386,7 +10387,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *backgroundColorStyle;
 
 /**
- *  The column index in the data table on which the filter is applied to.
+ *  The zero-based column index in the data table on which the filter is applied
+ *  to.
  *
  *  Uses NSNumber of intValue.
  */
@@ -10725,7 +10727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *format;
 
 /**
- *  The character index where this run starts.
+ *  The zero-based character index where this run starts, in UTF-16 code units.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11791,13 +11793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The 0-based index of a data point within the series. If data_is_subtotal is
- *  true, the data point at this index is the subtotal. Otherwise, the subtotal
- *  appears after the data point with this index. A series can have multiple
- *  subtotals at arbitrary indices, but subtotals do not affect the indices of
- *  the data points. For example, if a series has three data points, their
- *  indices will always be 0, 1, and 2, regardless of how many subtotals exist
- *  on the series or what data points they are associated with.
+ *  The zero-based index of a data point within the series. If data_is_subtotal
+ *  is true, the data point at this index is the subtotal. Otherwise, the
+ *  subtotal appears after the data point with this index. A series can have
+ *  multiple subtotals at arbitrary indices, but subtotals do not affect the
+ *  indices of the data points. For example, if a series has three data points,
+ *  their indices will always be 0, 1, and 2, regardless of how many subtotals
+ *  exist on the series or what data points they are associated with.
  *
  *  Uses NSNumber of intValue.
  */

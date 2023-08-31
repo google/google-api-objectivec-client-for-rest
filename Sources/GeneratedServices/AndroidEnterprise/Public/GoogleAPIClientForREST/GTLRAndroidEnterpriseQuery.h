@@ -1185,7 +1185,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Requests to remove an app from a device. A call to get or list will still
- *  show the app as installed on the device until it is actually removed.
+ *  show the app as installed on the device until it is actually removed. A
+ *  successful response indicates that a removal request has been sent to the
+ *  device. The call will be considered successful even if the app is not
+ *  present on the device (e.g. it was never installed, or was removed by the
+ *  user).
  *
  *  Method: androidenterprise.installs.delete
  *
@@ -1214,7 +1218,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  be nil. This query does not fetch an object.
  *
  *  Requests to remove an app from a device. A call to get or list will still
- *  show the app as installed on the device until it is actually removed.
+ *  show the app as installed on the device until it is actually removed. A
+ *  successful response indicates that a removal request has been sent to the
+ *  device. The call will be considered successful even if the app is not
+ *  present on the device (e.g. it was never installed, or was removed by the
+ *  user).
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.

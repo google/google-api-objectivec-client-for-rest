@@ -1307,6 +1307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
@@ -1332,6 +1335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_GetRemarketingTagResponse.
  *
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
@@ -1489,6 +1495,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
@@ -1514,6 +1523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_GetRemarketingTagResponse.
  *
+ *  Deprecated. This will be removed in October 2023. For more information, see
+ *  the release notes:
+ *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.

@@ -27,6 +27,12 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backu
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_Scheduled = @"SCHEDULED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Disabled = @"DISABLED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_Enabled = @"ENABLED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_NeedsMaintenance = @"NEEDS_MAINTENANCE";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Creating = @"CREATING";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Deleting = @"DELETING";
@@ -56,6 +62,11 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPS
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready = @"READY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails.sidFilteringState
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Disabled = @"DISABLED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_Enabled = @"ENABLED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails_SidFilteringState_SidFilteringStateUnspecified = @"SID_FILTERING_STATE_UNSPECIFIED";
 
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Connected = @"CONNECTED";
@@ -180,6 +191,33 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"subjectAlternativeName" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CheckMigrationPermissionResponse
+@dynamic onpremDomains, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"onpremDomains" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails class]
   };
   return map;
 }
@@ -842,6 +880,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainDetails
 @dynamic disableSidFiltering, domainName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OnPremDomainSIDDetails
+@dynamic name, sidFilteringState;
 @end
 
 

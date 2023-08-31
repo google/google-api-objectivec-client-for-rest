@@ -299,7 +299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  */
 @property(nonatomic, assign) long long requestId;
 
-/** The number of steps to increment. */
+/** Required. The number of steps to increment. */
 @property(nonatomic, assign) NSInteger stepsToIncrement;
 
 /**
@@ -309,7 +309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  authenticated player.
  *
  *  @param achievementId The ID of the achievement used by this method.
- *  @param stepsToIncrement The number of steps to increment.
+ *  @param stepsToIncrement Required. The number of steps to increment.
  *
  *  @return GTLRGamesQuery_AchievementsIncrement
  */
@@ -427,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
-/** The minimum value to set the steps to. */
+/** Required. The minimum value to set the steps to. */
 @property(nonatomic, assign) NSInteger steps;
 
 /**
@@ -439,7 +439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  modified.
  *
  *  @param achievementId The ID of the achievement used by this method.
- *  @param steps The minimum value to set the steps to.
+ *  @param steps Required. The minimum value to set the steps to.
  *
  *  @return GTLRGamesQuery_AchievementsSetStepsAtLeast
  */
@@ -1068,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_RevisionsCheck : GTLRGamesQuery
 
 /**
- *  The revision of the client SDK used by your application. Format:
+ *  Required. The revision of the client SDK used by your application. Format:
  *  `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are:
  *  * `ANDROID` - Client is running the Android SDK. * `IOS` - Client is running
  *  the iOS SDK. * `WEB_APP` - Client is running as a Web App.
@@ -1080,7 +1080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Checks whether the games client is out of date.
  *
- *  @param clientRevision The revision of the client SDK used by your
+ *  @param clientRevision Required. The revision of the client SDK used by your
  *    application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values
  *    of `PLATFORM_TYPE` are: * `ANDROID` - Client is running the Android SDK. *
  *    `IOS` - Client is running the iOS SDK. * `WEB_APP` - Client is running as
@@ -1248,7 +1248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The time span for the scores and ranks you're requesting.
+ *  Required. The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
  *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
@@ -1269,7 +1269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *  @param collection The collection of scores you're requesting.
- *  @param timeSpan The time span for the scores and ranks you're requesting.
+ *  @param timeSpan Required. The time span for the scores and ranks you're
+ *    requesting.
  *
  *  Likely values for @c collection:
  *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
@@ -1359,7 +1360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, assign) BOOL returnTopIfAbsent;
 
 /**
- *  The time span for the scores and ranks you're requesting.
+ *  Required. The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
  *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
@@ -1380,7 +1381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *  @param collection The collection of scores you're requesting.
- *  @param timeSpan The time span for the scores and ranks you're requesting.
+ *  @param timeSpan Required. The time span for the scores and ranks you're
+ *    requesting.
  *
  *  Likely values for @c collection:
  *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
@@ -1431,12 +1433,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The score you're submitting. The submitted score is ignored if it is worse
- *  than a previously submitted score, where worse depends on the leaderboard
- *  sort order. The meaning of the score value depends on the leaderboard format
- *  type. For fixed-point, the score represents the raw value. For time, the
- *  score represents elapsed time in milliseconds. For currency, the score
- *  represents a value in micro units.
+ *  Required. The score you're submitting. The submitted score is ignored if it
+ *  is worse than a previously submitted score, where worse depends on the
+ *  leaderboard sort order. The meaning of the score value depends on the
+ *  leaderboard format type. For fixed-point, the score represents the raw
+ *  value. For time, the score represents elapsed time in milliseconds. For
+ *  currency, the score represents a value in micro units.
  */
 @property(nonatomic, assign) long long score;
 
@@ -1453,12 +1455,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Submits a score to the specified leaderboard.
  *
  *  @param leaderboardId The ID of the leaderboard.
- *  @param score The score you're submitting. The submitted score is ignored if
- *    it is worse than a previously submitted score, where worse depends on the
- *    leaderboard sort order. The meaning of the score value depends on the
- *    leaderboard format type. For fixed-point, the score represents the raw
- *    value. For time, the score represents elapsed time in milliseconds. For
- *    currency, the score represents a value in micro units.
+ *  @param score Required. The score you're submitting. The submitted score is
+ *    ignored if it is worse than a previously submitted score, where worse
+ *    depends on the leaderboard sort order. The meaning of the score value
+ *    depends on the leaderboard format type. For fixed-point, the score
+ *    represents the raw value. For time, the score represents elapsed time in
+ *    milliseconds. For currency, the score represents a value in micro units.
  *
  *  @return GTLRGamesQuery_ScoresSubmit
  */

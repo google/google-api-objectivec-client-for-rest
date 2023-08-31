@@ -53,8 +53,9 @@ NSString * const kGTLRDirectorySortOrderAscending  = @"ASCENDING";
 NSString * const kGTLRDirectorySortOrderDescending = @"DESCENDING";
 
 // type
-NSString * const kGTLRDirectoryTypeAll      = @"all";
-NSString * const kGTLRDirectoryTypeChildren = @"children";
+NSString * const kGTLRDirectoryTypeAll                = @"all";
+NSString * const kGTLRDirectoryTypeAllIncludingParent = @"allIncludingParent";
+NSString * const kGTLRDirectoryTypeChildren           = @"children";
 
 // viewType
 NSString * const kGTLRDirectoryViewTypeAdminView    = @"admin_view";
@@ -2722,6 +2723,8 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 @end
 
 @implementation GTLRDirectoryQuery_UsersInsert
+
+@dynamic resolveConflictAccount;
 
 + (instancetype)queryWithObject:(GTLRDirectory_User *)object {
   if (object == nil) {
