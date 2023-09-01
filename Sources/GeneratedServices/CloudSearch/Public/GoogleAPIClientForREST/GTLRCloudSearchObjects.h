@@ -3600,13 +3600,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *cardType;
 
 /** Conflicting events card. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickConflictingEventsCardProto *conflictingMeetingsCard;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickConflictingEventsCardProto *conflictingMeetingsCard GTLR_DEPRECATED;
 
 /** Answer card for documents that are applicable to the current query. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList *documentListCard;
 
 /** Documents with mentions. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList *documentsWithMentions;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList *documentsWithMentions GTLR_DEPRECATED;
 
 /** Find meeting time card. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickFindMeetingTimeCardProto *findMeetingTimeCard;
@@ -3618,7 +3618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickGetAndKeepAheadCardProto *getAndKeepAheadCard;
 
 /** Meeting card. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry *meeting;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickAgendaEntry *meeting GTLR_DEPRECATED;
 
 /** Meeting notes card. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickMeetingNotesCardProto *meetingNotesCard;
@@ -3633,7 +3633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PeoplePromotionCard *peoplePromotionCard;
 
 /** Card with recommended documents for the user. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickPersonalizedDocsCardProto *personalizedDocsCard;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickPersonalizedDocsCardProto *personalizedDocsCard GTLR_DEPRECATED;
 
 /** Answer card that represents a single person. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard *personAnswerCard;
@@ -3645,10 +3645,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerRelatedPeopleAnswerCard *relatedPeopleAnswerCard;
 
 /** Shared documents. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList *sharedDocuments;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryList *sharedDocuments GTLR_DEPRECATED;
 
 /** Sahre meeting docs card. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickShareMeetingDocsCardProto *shareMeetingDocsCard;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickShareMeetingDocsCardProto *shareMeetingDocsCard GTLR_DEPRECATED;
 
 /** Answer card for what natural language queries the user can ask. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickAnswerSuggestedQueryAnswerCard *suggestedQueryAnswerCard;
@@ -3811,7 +3811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Provenance_UnknownProvenance
  *        Unknown provenance. (Value: "UNKNOWN_PROVENANCE")
  */
-@property(nonatomic, copy, nullable) NSString *provenance;
+@property(nonatomic, copy, nullable) NSString *provenance GTLR_DEPRECATED;
 
 /**
  *  Justification of why this document is being returned.
@@ -3855,7 +3855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_EnterpriseTopazSidekickCommonDocument_Reason_Unknown
  *        Unknown justification. (Value: "UNKNOWN")
  */
-@property(nonatomic, copy, nullable) NSString *reason;
+@property(nonatomic, copy, nullable) NSString *reason GTLR_DEPRECATED;
 
 /** A sampling of the text from the document. */
 @property(nonatomic, copy, nullable) NSString *snippet;
@@ -3948,7 +3948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  The drive document cosmo id. Client could use the id to build a URL to open
  *  a document. Please use Document.document_id.
  */
-@property(nonatomic, copy, nullable) NSString *documentId;
+@property(nonatomic, copy, nullable) NSString *documentId GTLR_DEPRECATED;
 
 /**
  *  Additional field to identify whether a document is private since scope set
@@ -4123,7 +4123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *gaiaId;
+@property(nonatomic, strong, nullable) NSNumber *gaiaId GTLR_DEPRECATED;
 
 /** The first name. */
 @property(nonatomic, copy, nullable) NSString *givenName;
@@ -4186,7 +4186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_EnterpriseTopazSidekickDocumentGroup_GroupType_UnknownType
  *        Unknown type. (Value: "UNKNOWN_TYPE")
  */
-@property(nonatomic, copy, nullable) NSString *groupType;
+@property(nonatomic, copy, nullable) NSString *groupType GTLR_DEPRECATED;
 
 /** The list of corresponding documents. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_EnterpriseTopazSidekickCommonDocument *> *personalizedDocument;
@@ -4526,7 +4526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_EnterpriseTopazSidekickPeopleAnswerPersonAnswerCard : GTLRObject
 
 /** List of answers. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SafeHtmlProto *> *answer;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SafeHtmlProto *> *answer GTLR_DEPRECATED;
 
 /** List of answers. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_EnterpriseTopazSidekickAnswerAnswerList *answerText;
@@ -4680,7 +4680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *gaiaId;
+@property(nonatomic, strong, nullable) NSNumber *gaiaId GTLR_DEPRECATED;
 
 /**
  *  Whether the invitee is a group.

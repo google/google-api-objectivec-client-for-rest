@@ -5872,7 +5872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Partition : GTLRObject
 
 /** Optional. The etag for this partition. */
-@property(nonatomic, copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag GTLR_DEPRECATED;
 
 /**
  *  Required. Immutable. The location of the entity data within the partition,

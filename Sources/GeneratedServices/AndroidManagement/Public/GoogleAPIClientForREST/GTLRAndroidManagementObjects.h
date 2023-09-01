@@ -4106,7 +4106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *lockTaskAllowed;
+@property(nonatomic, strong, nullable) NSNumber *lockTaskAllowed GTLR_DEPRECATED;
 
 /**
  *  Managed configuration applied to the app. The format for the configuration
@@ -5192,7 +5192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_HardwareStatus *> *hardwareStatusSamples;
 
 /** Deprecated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyComplianceReportTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyComplianceReportTime GTLR_DEPRECATED;
 
 /** The last time the device fetched its policy. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastPolicySyncTime;
@@ -5826,7 +5826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *appAutoApprovalEnabled;
+@property(nonatomic, strong, nullable) NSNumber *appAutoApprovalEnabled GTLR_DEPRECATED;
 
 /** The enterprise contact info of an EMM-managed enterprise. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ContactInfo *contactInfo;
@@ -6908,7 +6908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *meid;
 
 /** Alphabetic name of current registered operator. For example, Vodafone. */
-@property(nonatomic, copy, nullable) NSString *networkOperatorName;
+@property(nonatomic, copy, nullable) NSString *networkOperatorName GTLR_DEPRECATED;
 
 /**
  *  Provides telephony information associated with each SIM card on the device.
@@ -7833,7 +7833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *autoTimeRequired;
+@property(nonatomic, strong, nullable) NSNumber *autoTimeRequired GTLR_DEPRECATED;
 
 /**
  *  Whether applications other than the ones configured in applications are
@@ -7843,7 +7843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *blockApplicationsEnabled;
+@property(nonatomic, strong, nullable) NSNumber *blockApplicationsEnabled GTLR_DEPRECATED;
 
 /**
  *  Whether configuring bluetooth is disabled.
@@ -7910,7 +7910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
+@property(nonatomic, strong, nullable) NSNumber *cameraDisabled GTLR_DEPRECATED;
 
 /**
  *  Whether configuring cell broadcast is disabled.
@@ -7932,7 +7932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  satisfied, all of the mitigating actions for the rules are taken. There is a
  *  maximum limit of 100 rules. Use policy enforcement rules instead.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ComplianceRule *> *complianceRules;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ComplianceRule *> *complianceRules GTLR_DEPRECATED;
 
 /**
  *  Whether creating windows besides app windows is disabled.
@@ -7963,7 +7963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *debuggingFeaturesAllowed;
+@property(nonatomic, strong, nullable) NSNumber *debuggingFeaturesAllowed GTLR_DEPRECATED;
 
 /**
  *  The default permission policy for runtime permission requests.
@@ -8015,7 +8015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *ensureVerifyAppsEnabled;
+@property(nonatomic, strong, nullable) NSNumber *ensureVerifyAppsEnabled GTLR_DEPRECATED;
 
 /**
  *  Whether factory resetting from settings is disabled.
@@ -8052,7 +8052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *installUnknownSourcesAllowed;
+@property(nonatomic, strong, nullable) NSNumber *installUnknownSourcesAllowed GTLR_DEPRECATED;
 
 /**
  *  If true, this disables the Lock Screen
@@ -8252,7 +8252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  is, COMPLEXITY_LOW, COMPLEXITY_MEDIUM, and COMPLEXITY_HIGH, cannot be used
  *  here. unified_lock_settings cannot be used here.
  */
-@property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements GTLR_DEPRECATED;
 
 /**
  *  Explicit permission or group grants or denials for all apps. These values
@@ -8361,7 +8361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *safeBootDisabled;
+@property(nonatomic, strong, nullable) NSNumber *safeBootDisabled GTLR_DEPRECATED;
 
 /**
  *  Whether screen capture is disabled.
@@ -8429,7 +8429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *statusBarDisabled;
+@property(nonatomic, strong, nullable) NSNumber *statusBarDisabled GTLR_DEPRECATED;
 
 /** Status reporting settings */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_StatusReportingSettings *statusReportingSettings;
@@ -8455,7 +8455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *tetheringConfigDisabled;
+@property(nonatomic, strong, nullable) NSNumber *tetheringConfigDisabled GTLR_DEPRECATED;
 
 /**
  *  Whether user uninstallation of applications is disabled. This prevents apps
@@ -8474,7 +8474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *unmuteMicrophoneDisabled;
+@property(nonatomic, strong, nullable) NSNumber *unmuteMicrophoneDisabled GTLR_DEPRECATED;
 
 /** Configuration of device activity logging. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UsageLog *usageLog;
@@ -8485,14 +8485,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *usbFileTransferDisabled;
+@property(nonatomic, strong, nullable) NSNumber *usbFileTransferDisabled GTLR_DEPRECATED;
 
 /**
  *  Whether USB storage is enabled. Deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *usbMassStorageEnabled;
+@property(nonatomic, strong, nullable) NSNumber *usbMassStorageEnabled GTLR_DEPRECATED;
 
 /**
  *  The version of the policy. This is a read-only field. The version is
@@ -8524,14 +8524,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled;
+@property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled GTLR_DEPRECATED;
 
 /**
  *  DEPRECATED - Use wifi_config_disabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *wifiConfigsLockdownEnabled;
+@property(nonatomic, strong, nullable) NSNumber *wifiConfigsLockdownEnabled GTLR_DEPRECATED;
 
 @end
 
@@ -9789,7 +9789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Permissions available to an admin in the embedded UI. An admin must have all
  *  of these permissions in order to view the UI. This field is deprecated.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions GTLR_DEPRECATED;
 
 /**
  *  The token value which is used in the hosting page to generate the iframe

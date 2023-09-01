@@ -669,7 +669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  folders/{folder_id}/policies/{constraint_name}
  *  organizations/{organization_id}/policies/{constraint_name}
  */
-@property(nonatomic, copy, nullable) NSString *nonCompliantOrgPolicy;
+@property(nonatomic, copy, nullable) NSString *nonCompliantOrgPolicy GTLR_DEPRECATED;
 
 @end
 
@@ -936,7 +936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Output only. Immutable. The org-policy-constraint that was incorrectly
  *  changed, which resulted in this violation.
  */
-@property(nonatomic, copy, nullable) NSString *orgPolicyConstraint;
+@property(nonatomic, copy, nullable) NSString *orgPolicyConstraint GTLR_DEPRECATED;
 
 /** Output only. Compliance violation remediation */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation *remediation;
@@ -1210,7 +1210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  2022. In order to create a Keyring, callers should specify,
  *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
  */
-@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings *kmsSettings;
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings *kmsSettings GTLR_DEPRECATED;
 
 /** Optional. Labels applied to the workload. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels *labels;

@@ -1346,7 +1346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *minDeadline;
+@property(nonatomic, strong, nullable) NSNumber *minDeadline GTLR_DEPRECATED;
 
 /**
  *  The number of seconds to wait for the completion of a long running
@@ -1666,7 +1666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Link to automatically generated reference documentation. Example:
  *  https://cloud.google.com/nodejs/docs/reference/asset/latest
  */
-@property(nonatomic, copy, nullable) NSString *referenceDocsUri;
+@property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
 @end
 
@@ -2190,14 +2190,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Implemented). go/predefined-service-groups. Example:
  *  `groups/googleServices`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups GTLR_DEPRECATED;
 
 /**
  *  DEPRECATED: Please use field `values`. Service should have prefix
  *  `services/`. The names of the services that are enabled. Example:
  *  `storage.googleapis.com`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services GTLR_DEPRECATED;
 
 /**
  *  The names of the services or service groups that are enabled. Example:
@@ -2251,7 +2251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  each of the intended aliases. Additional names that this endpoint will be
  *  hosted on.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases GTLR_DEPRECATED;
 
 /**
  *  Allowing
@@ -3775,7 +3775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        The feature is not yet implemented. Users can not use it. (Value:
  *        "UNIMPLEMENTED")
  */
-@property(nonatomic, copy, nullable) NSString *launchStage;
+@property(nonatomic, copy, nullable) NSString *launchStage GTLR_DEPRECATED;
 
 /**
  *  The sampling period of metric data points. For metrics which are written
@@ -4621,7 +4621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** The values removed from the parent consumer policy. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *removedValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removedValues GTLR_DEPRECATED;
 
 @end
 

@@ -1809,7 +1809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  App. The `webId` value is only unique within a `FirebaseProject` and its
  *  associated Apps.
  */
-@property(nonatomic, copy, nullable) NSString *webId;
+@property(nonatomic, copy, nullable) NSString *webId GTLR_DEPRECATED;
 
 @end
 

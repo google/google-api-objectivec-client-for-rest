@@ -3145,7 +3145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @interface GTLRAppengine_ProjectState : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons GTLR_DEPRECATED;
 
 /**
  *  The previous and current reasons for a project state will be sent for a
@@ -3161,7 +3161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  behind a specific state, please consult with CCFE team first
  *  (cloud-ccfe-discuss\@google.com).
  */
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons GTLR_DEPRECATED;
 
 /**
  *  The current state of the project. This state is the culmination of all of

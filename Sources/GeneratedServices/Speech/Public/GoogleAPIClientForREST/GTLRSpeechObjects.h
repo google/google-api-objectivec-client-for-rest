@@ -1404,7 +1404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+@property(nonatomic, strong, nullable) NSNumber *speakerTag GTLR_DEPRECATED;
 
 @end
 
@@ -1513,7 +1513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+@property(nonatomic, strong, nullable) NSNumber *speakerTag GTLR_DEPRECATED;
 
 /**
  *  Time offset relative to the beginning of the audio, and corresponding to the

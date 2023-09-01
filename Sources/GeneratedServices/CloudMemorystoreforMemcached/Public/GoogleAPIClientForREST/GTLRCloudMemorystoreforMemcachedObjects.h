@@ -912,7 +912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+@property(nonatomic, strong, nullable) NSNumber *canReschedule GTLR_DEPRECATED;
 
 /** The scheduled end time for the maintenance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

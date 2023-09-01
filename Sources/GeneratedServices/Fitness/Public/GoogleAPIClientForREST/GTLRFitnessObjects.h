@@ -363,7 +363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) NSNumber *endTimeMillis;
 
 /** DO NOT POPULATE THIS FIELD. It is ignored. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *filteredDataQualityStandard;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filteredDataQualityStandard GTLR_DEPRECATED;
 
 /**
  *  The start of a window of time. Data that intersects with this time window
@@ -523,7 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *computationTimeMillis;
+@property(nonatomic, strong, nullable) NSNumber *computationTimeMillis GTLR_DEPRECATED;
 
 /** The data type defining the format of the values in this data point. */
 @property(nonatomic, copy, nullable) NSString *dataTypeName;
@@ -666,7 +666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  platform, and is ignored in queries. It will be removed in a future version
  *  entirely.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *dataQualityStandard;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataQualityStandard GTLR_DEPRECATED;
 
 /**
  *  A unique identifier for the data stream produced by this data source. The
@@ -718,7 +718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) GTLRFitness_Device *device;
 
 /** An end-user visible name for this data source. */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
 
 /**
  *  A constant describing the type of this data source. Indicates whether this
@@ -901,7 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *hasMoreData;
+@property(nonatomic, strong, nullable) NSNumber *hasMoreData GTLR_DEPRECATED;
 
 /**
  *  The sync token which is used to sync further changes. This will only be

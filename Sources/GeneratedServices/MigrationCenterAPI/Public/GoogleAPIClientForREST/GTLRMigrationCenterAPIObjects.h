@@ -1604,7 +1604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /**
  *  BIOS name. This fields is deprecated. Please use the `id` field instead.
  */
-@property(nonatomic, copy, nullable) NSString *biosName;
+@property(nonatomic, copy, nullable) NSString *biosName GTLR_DEPRECATED;
 
 /**
  *  BIOS ID.
@@ -2637,7 +2637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *rowNumber;
+@property(nonatomic, strong, nullable) NSNumber *rowNumber GTLR_DEPRECATED;
 
 /** The name of the VM in the row. */
 @property(nonatomic, copy, nullable) NSString *vmName;

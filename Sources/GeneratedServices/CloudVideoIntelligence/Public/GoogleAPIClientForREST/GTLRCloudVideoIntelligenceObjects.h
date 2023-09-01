@@ -1603,7 +1603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentAnnotation *explicitAnnotation;
 
 /** Deprecated. Please use `face_detection_annotations` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation *> *faceAnnotations GTLR_DEPRECATED;
 
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation *> *faceDetectionAnnotations;
@@ -3011,7 +3011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation *explicitAnnotation;
 
 /** Deprecated. Please use `face_detection_annotations` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation *> *faceAnnotations GTLR_DEPRECATED;
 
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
@@ -3866,7 +3866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentAnnotation *explicitAnnotation;
 
 /** Deprecated. Please use `face_detection_annotations` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation *> *faceAnnotations GTLR_DEPRECATED;
 
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
@@ -4854,7 +4854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation *explicitAnnotation;
 
 /** Deprecated. Please use `face_detection_annotations` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation *> *faceAnnotations GTLR_DEPRECATED;
 
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
@@ -5429,7 +5429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation *explicitAnnotation;
 
 /** Deprecated. Please use `face_detection_annotations` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation *> *faceAnnotations;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation *> *faceAnnotations GTLR_DEPRECATED;
 
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation *> *faceDetectionAnnotations;

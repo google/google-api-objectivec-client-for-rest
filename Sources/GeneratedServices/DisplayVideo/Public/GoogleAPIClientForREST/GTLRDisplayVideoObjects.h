@@ -26639,7 +26639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *excludeFirstPartyAudience;
+@property(nonatomic, strong, nullable) NSNumber *excludeFirstPartyAudience GTLR_DEPRECATED;
 
 /**
  *  Required. Whether optimized targeting is turned on. This field supports the

@@ -836,7 +836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Prefer to use the `date` field if set. A free-form string representing the
  *  user's birthday. This value is not validated.
  */
-@property(nonatomic, copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *text GTLR_DEPRECATED;
 
 @end
 
@@ -976,7 +976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @interface GTLRPeopleService_ContactGroupMembership : GTLRObject
 
 /** Output only. The contact group ID for the contact group membership. */
-@property(nonatomic, copy, nullable) NSString *contactGroupId;
+@property(nonatomic, copy, nullable) NSString *contactGroupId GTLR_DEPRECATED;
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
@@ -1486,7 +1486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *totalPeople;
+@property(nonatomic, strong, nullable) NSNumber *totalPeople GTLR_DEPRECATED;
 
 @end
 
@@ -1983,7 +1983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *    @arg @c kGTLRPeopleService_Person_AgeRange_TwentyOneOrOlder Twenty-one and
  *        older. (Value: "TWENTY_ONE_OR_OLDER")
  */
-@property(nonatomic, copy, nullable) NSString *ageRange;
+@property(nonatomic, copy, nullable) NSString *ageRange GTLR_DEPRECATED;
 
 /** Output only. The person's age ranges. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_AgeRangeType *> *ageRanges;
@@ -1997,7 +1997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Birthday *> *birthdays;
 
 /** **DEPRECATED**: No data will be returned The person's bragging rights. */
-@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_BraggingRights *> *braggingRights;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_BraggingRights *> *braggingRights GTLR_DEPRECATED;
 
 /** The person's calendar URLs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CalendarUrl *> *calendarUrls;
@@ -2085,19 +2085,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Output only. **DEPRECATED**: No data will be returned The person's
  *  relationship interests.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipInterest *> *relationshipInterests;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipInterest *> *relationshipInterests GTLR_DEPRECATED;
 
 /**
  *  Output only. **DEPRECATED**: No data will be returned The person's
  *  relationship statuses.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses GTLR_DEPRECATED;
 
 /**
  *  **DEPRECATED**: (Please use `person.locations` instead) The person's
  *  residences.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Residence *> *residences;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Residence *> *residences GTLR_DEPRECATED;
 
 /**
  *  The resource name for the person, assigned by the server. An ASCII string in
@@ -2114,7 +2114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  Output only. **DEPRECATED**: No data will be returned The person's taglines.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Tagline *> *taglines;
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Tagline *> *taglines GTLR_DEPRECATED;
 
 /** The person's associated URLs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Url *> *urls;
@@ -2155,7 +2155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Person Person.
  *        (Value: "PERSON")
  */
-@property(nonatomic, copy, nullable) NSString *objectType;
+@property(nonatomic, copy, nullable) NSString *objectType GTLR_DEPRECATED;
 
 /**
  *  Output only. Any former resource names this person has had. Populated only
@@ -2182,7 +2182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *httpStatusCode;
+@property(nonatomic, strong, nullable) NSNumber *httpStatusCode GTLR_DEPRECATED;
 
 /** The person. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_Person *person;

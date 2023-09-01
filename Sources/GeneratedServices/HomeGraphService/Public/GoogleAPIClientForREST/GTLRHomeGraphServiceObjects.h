@@ -401,7 +401,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /** Deprecated. */
-@property(nonatomic, copy, nullable) NSString *followUpToken;
+@property(nonatomic, copy, nullable) NSString *followUpToken GTLR_DEPRECATED;
 
 /**
  *  Required. State of devices to update and notification metadata for devices.

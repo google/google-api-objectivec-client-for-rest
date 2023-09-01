@@ -711,7 +711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_L
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_CustomAccount *customAccount;
 
 /** Authentication using a Google account. */
-@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_GoogleAccount *googleAccount;
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_GoogleAccount *googleAccount GTLR_DEPRECATED;
 
 /** Authentication using Identity-Aware-Proxy (IAP). */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_IapCredential *iapCredential;

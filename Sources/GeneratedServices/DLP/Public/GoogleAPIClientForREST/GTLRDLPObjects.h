@@ -5559,7 +5559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
+@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence GTLR_DEPRECATED;
 
 /** The infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;

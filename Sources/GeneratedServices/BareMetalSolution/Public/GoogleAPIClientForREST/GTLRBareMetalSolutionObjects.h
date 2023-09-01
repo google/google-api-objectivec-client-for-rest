@@ -1043,7 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *interfaceIndex;
+@property(nonatomic, strong, nullable) NSNumber *interfaceIndex GTLR_DEPRECATED;
 
 /** List of logical network interfaces within a logical interface. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_LogicalNetworkInterface *> *logicalNetworkInterfaces;
@@ -1255,7 +1255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /**
  *  Client network address. Filled if InstanceConfig.multivlan_config is false.
  */
-@property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *clientNetwork;
+@property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *clientNetwork GTLR_DEPRECATED;
 
 /**
  *  Whether the instance should be provisioned with Hyperthreading enabled.
@@ -1320,7 +1320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Private network address, if any. Filled if InstanceConfig.multivlan_config
  *  is false.
  */
-@property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *privateNetwork;
+@property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *privateNetwork GTLR_DEPRECATED;
 
 /** List of names of ssh keys used to provision the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sshKeyNames;
@@ -1351,7 +1351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *gcpService;
 
 /** Instance type. Deprecated: use gcp_service. */
-@property(nonatomic, copy, nullable) NSString *instanceType;
+@property(nonatomic, copy, nullable) NSString *instanceType GTLR_DEPRECATED;
 
 /** Location where the quota applies. */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -2442,7 +2442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Email provided to send a confirmation with provisioning config to.
  *  Deprecated in favour of email field in request messages.
  */
-@property(nonatomic, copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email GTLR_DEPRECATED;
 
 /**
  *  A service account to enable customers to access instance credentials upon

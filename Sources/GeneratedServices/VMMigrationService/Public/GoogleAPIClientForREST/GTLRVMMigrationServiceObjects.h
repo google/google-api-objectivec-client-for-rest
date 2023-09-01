@@ -3266,7 +3266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+@property(nonatomic, strong, nullable) NSNumber *progressPercent GTLR_DEPRECATED;
 
 /** The time the replication cycle has started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;

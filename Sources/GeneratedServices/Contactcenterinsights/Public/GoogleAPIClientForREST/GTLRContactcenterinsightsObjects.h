@@ -1639,7 +1639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Dialogflow participant. Format:
  *  projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
  */
-@property(nonatomic, copy, nullable) NSString *dialogflowParticipant;
+@property(nonatomic, copy, nullable) NSString *dialogflowParticipant GTLR_DEPRECATED;
 
 /**
  *  The name of the participant provided by Dialogflow. Format:
@@ -2671,7 +2671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
  */
-@property(nonatomic, copy, nullable) NSString *medium;
+@property(nonatomic, copy, nullable) NSString *medium GTLR_DEPRECATED;
 
 /**
  *  Output only. Number of conversations used in training. Output only.
@@ -3543,7 +3543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  `projects//locations//issueModels//issues/` Deprecated, use
  *  `issue_matches_stats` field instead.
  */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches *issueMatches;
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches *issueMatches GTLR_DEPRECATED;
 
 /**
  *  A map associating each issue resource name with its respective number of
@@ -3903,7 +3903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Dialogflow participant. Format:
  *  projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
  */
-@property(nonatomic, copy, nullable) NSString *dialogflowParticipant;
+@property(nonatomic, copy, nullable) NSString *dialogflowParticipant GTLR_DEPRECATED;
 
 /**
  *  The name of the participant provided by Dialogflow. Format:
@@ -4979,7 +4979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
  */
-@property(nonatomic, copy, nullable) NSString *medium;
+@property(nonatomic, copy, nullable) NSString *medium GTLR_DEPRECATED;
 
 /**
  *  Output only. Number of conversations used in training. Output only.

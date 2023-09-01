@@ -1022,7 +1022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @interface GTLRWorkloadManager_ResourceStatus : GTLRObject
 
 /** Historical: Used before 2023-05-22 the new version of rule id if exists */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *rulesNewerVersions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rulesNewerVersions GTLR_DEPRECATED;
 
 /**
  *  State of the resource

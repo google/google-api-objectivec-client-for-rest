@@ -1785,7 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Engine-based options, such as gce_cluster_config, master_config,
  *  worker_config, secondary_worker_config, and autoscaling_config.
  */
-@property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig GTLR_DEPRECATED;
 
 /**
  *  Optional. Commands to execute on each node after config is completed. By
@@ -2125,7 +2125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. DEPRECATED Specifies the job on which diagnosis is to be
  *  performed. Format: projects/{project}/regions/{region}/jobs/{job}
  */
-@property(nonatomic, copy, nullable) NSString *job;
+@property(nonatomic, copy, nullable) NSString *job GTLR_DEPRECATED;
 
 /**
  *  Optional. Specifies a list of jobs on which diagnosis is to be performed.
@@ -2137,7 +2137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. DEPRECATED Specifies the yarn application on which diagnosis is to
  *  be performed.
  */
-@property(nonatomic, copy, nullable) NSString *yarnApplicationId;
+@property(nonatomic, copy, nullable) NSString *yarnApplicationId GTLR_DEPRECATED;
 
 /**
  *  Optional. Specifies a list of yarn applications on which diagnosis is to be
@@ -2682,7 +2682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. Deprecated. Use gkeClusterTarget. Used only for the deprecated
  *  beta. A target for the deployment.
  */
-@property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget;
+@property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget GTLR_DEPRECATED;
 
 /**
  *  Optional. GKE node pools where workloads will be scheduled. At least one

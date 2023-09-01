@@ -1389,10 +1389,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *numGtagConfigs;
 
 /** Number of macros in the container version. */
-@property(nonatomic, copy, nullable) NSString *numMacros;
+@property(nonatomic, copy, nullable) NSString *numMacros GTLR_DEPRECATED;
 
 /** Number of rules in the container version. */
-@property(nonatomic, copy, nullable) NSString *numRules;
+@property(nonatomic, copy, nullable) NSString *numRules GTLR_DEPRECATED;
 
 /** Number of tags in the container version. */
 @property(nonatomic, copy, nullable) NSString *numTags;
@@ -2644,7 +2644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  not fire. \@mutable tagmanager.accounts.containers.workspaces.tags.create
  *  \@mutable tagmanager.accounts.containers.workspaces.tags.update
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingRuleId GTLR_DEPRECATED;
 
 /**
  *  Blocking trigger IDs. If any of the listed triggers evaluate to true, the
@@ -2676,7 +2676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
  *  tagmanager.accounts.containers.workspaces.tags.update
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *firingRuleId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *firingRuleId GTLR_DEPRECATED;
 
 /**
  *  Firing trigger IDs. A tag will fire when any of the listed triggers are true

@@ -3193,7 +3193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clickThroughUrls;
 
 /** Output only. Shows any corrections that were applied to this creative. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Correction *> *corrections;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Correction *> *corrections GTLR_DEPRECATED;
 
 /**
  *  The buyer-defined creative ID of this creative. Can be used to filter the
@@ -4357,7 +4357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *detailId;
+@property(nonatomic, strong, nullable) NSNumber *detailId GTLR_DEPRECATED;
 
 /** The values of all dimensions associated with metric values in this row. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
@@ -4446,7 +4446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  request error will be returned in the response if you specify multiple
  *  items.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *formats;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *formats GTLR_DEPRECATED;
 
 /**
  *  A user-defined name of the filter set. Filter set names must be unique
@@ -5517,7 +5517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *starRating;
 
 /** The URL to the app store to purchase/download the promoted app. */
-@property(nonatomic, copy, nullable) NSString *storeUrl;
+@property(nonatomic, copy, nullable) NSString *storeUrl GTLR_DEPRECATED;
 
 /** The URL to fetch a native video ad. */
 @property(nonatomic, copy, nullable) NSString *videoUrl;
@@ -5929,7 +5929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
+@property(nonatomic, strong, nullable) NSNumber *isSetupComplete GTLR_DEPRECATED;
 
 /**
  *  Output only. The role of the last user that either updated the proposal or
@@ -6326,7 +6326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PlatformContext *platform;
 
 /** Matches impressions for a particular security type. */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_SecurityContext *securityType;
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_SecurityContext *securityType GTLR_DEPRECATED;
 
 @end
 
@@ -6353,7 +6353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  status=DISAPPROVED. Can be used to filter the response of the creatives.list
  *  method. Deprecated; use disapproval field instead.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Disapproval *> *disapprovalReasons;
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Disapproval *> *disapprovalReasons GTLR_DEPRECATED;
 
 /**
  *  The status of the creative in this context (for example, it has been

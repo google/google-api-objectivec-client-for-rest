@@ -769,7 +769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *scale;
+@property(nonatomic, strong, nullable) NSNumber *scale GTLR_DEPRECATED;
 
 @end
 

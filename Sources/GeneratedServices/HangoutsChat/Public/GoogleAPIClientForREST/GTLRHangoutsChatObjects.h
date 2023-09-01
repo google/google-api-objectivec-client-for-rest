@@ -3012,7 +3012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *endIcon;
 
 /** Deprecated in favor of `startIcon`. */
-@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon GTLR_DEPRECATED;
 
 /** This action is triggered when users click `topLabel` or `bottomLabel`. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
@@ -4441,7 +4441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  and clickable images. Cards are normally displayed below the plain-text body
  *  of the message. `cards` and `cards_v2` can have a maximum size of 32 KB.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards GTLR_DEPRECATED;
 
 /**
  *  An array of
@@ -4889,7 +4889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *threaded;
+@property(nonatomic, strong, nullable) NSNumber *threaded GTLR_DEPRECATED;
 
 /**
  *  Output only. Deprecated: Use `space_type` instead. The type of a space.
@@ -4903,7 +4903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */
-@property(nonatomic, copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type GTLR_DEPRECATED;
 
 @end
 

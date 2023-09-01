@@ -5277,7 +5277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence GTLR_DEPRECATED;
 
 /**
  *  Entity textual description, expressed in its `locale` language.
@@ -5923,7 +5923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence GTLR_DEPRECATED;
 
 /**
  *  Entity textual description, expressed in its `locale` language.
@@ -7489,7 +7489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence GTLR_DEPRECATED;
 
 /**
  *  Entity textual description, expressed in its `locale` language.
@@ -9096,7 +9096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence GTLR_DEPRECATED;
 
 /**
  *  Entity textual description, expressed in its `locale` language.
@@ -10805,7 +10805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) NSNumber *confidence GTLR_DEPRECATED;
 
 /**
  *  Entity textual description, expressed in its `locale` language.

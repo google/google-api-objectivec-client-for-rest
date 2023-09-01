@@ -41570,7 +41570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *port;
+@property(nonatomic, strong, nullable) NSNumber *port GTLR_DEPRECATED;
 
 /**
  *  A named port on a backend instance group representing the port for
@@ -47676,7 +47676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  lowercase letter, or digit, except the last character, which cannot be a
  *  dash.
  */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /**
  *  Specifies a fingerprint for this resource, which is essentially a hash of
@@ -47781,7 +47781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Output Only] Deprecated, please use short name instead. The display name of
  *  the firewall policy of the association.
  */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /** [Output Only] The firewall policy ID of the association. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicyId;
@@ -52560,7 +52560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  image before unpackaging provided by the client when the disk image is
  *  created.
  */
-@property(nonatomic, copy, nullable) NSString *sha1Checksum;
+@property(nonatomic, copy, nullable) NSString *sha1Checksum GTLR_DEPRECATED;
 
 /**
  *  The full Google Cloud Storage URL where the raw disk image archive is
@@ -56684,7 +56684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Output Only] Deprecated, please use short name instead. The display name of
  *  the firewall policy.
  */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /** [Output Only] The name of the firewall policy. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -58098,7 +58098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  with Google or otherwise to debug backend connectivity issues. [Deprecated]
  *  This field is not used.
  */
-@property(nonatomic, copy, nullable) NSString *googleReferenceId;
+@property(nonatomic, copy, nullable) NSString *googleReferenceId GTLR_DEPRECATED;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -62530,7 +62530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  that are legal on this network. This range is a CIDR specification, for
  *  example: 192.168.0.0/16. Provided by the client when the network is created.
  */
-@property(nonatomic, copy, nullable) NSString *IPv4Range;
+@property(nonatomic, copy, nullable) NSString *IPv4Range GTLR_DEPRECATED;
 
 /**
  *  [Output Only] Type of the resource. Always compute#network for networks.
@@ -65422,7 +65422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Output Only] Deprecated, please use short name instead. The display name of
  *  the firewall policy.
  */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /** [Output Only] The name of the firewall policy. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -79688,7 +79688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The URL of a forwarding rule with loadBalancingScheme INTERNAL* that is
  *  serving the endpoint identified by this service attachment.
  */
-@property(nonatomic, copy, nullable) NSString *producerForwardingRule;
+@property(nonatomic, copy, nullable) NSString *producerForwardingRule GTLR_DEPRECATED;
 
 /**
  *  [Output Only] An 128-bit global unique ID of the PSC service attachment.

@@ -905,7 +905,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeOsvData;
+@property(nonatomic, strong, nullable) NSNumber *includeOsvData GTLR_DEPRECATED;
 
 /** The packages to analyze. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_PackageData *> *packages;
@@ -3712,7 +3712,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
  *  denote CVEs.
  */
-@property(nonatomic, copy, nullable) NSString *cve;
+@property(nonatomic, copy, nullable) NSString *cve GTLR_DEPRECATED;
 
 /**
  *  Contains information about the impact of this vulnerability, this will

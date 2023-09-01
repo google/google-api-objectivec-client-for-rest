@@ -4961,7 +4961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  items
@@ -4992,10 +4992,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -5114,7 +5114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of captions that match the request criteria.
@@ -5131,7 +5131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -5264,7 +5264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_CdnSettings : GTLRObject
 
 /** The format of the video stream that you are sending to Youtube. */
-@property(nonatomic, copy, nullable) NSString *format;
+@property(nonatomic, copy, nullable) NSString *format GTLR_DEPRECATED;
 
 /**
  *  The frame rate of the inbound video data.
@@ -5344,7 +5344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The conversionPings object encapsulates information about conversion pings
  *  that need to be respected by the channel.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelConversionPings *conversionPings;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelConversionPings *conversionPings GTLR_DEPRECATED;
 
 /** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -5459,13 +5459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelSettings *channel;
 
 /** Additional experimental branding properties. */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PropertyValue *> *hints;
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PropertyValue *> *hints GTLR_DEPRECATED;
 
 /** Branding properties for branding images. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ImageSettings *image;
 
 /** Branding properties for the watch page. */
-@property(nonatomic, strong, nullable) GTLRYouTube_WatchSettings *watch;
+@property(nonatomic, strong, nullable) GTLRYouTube_WatchSettings *watch GTLR_DEPRECATED;
 
 @end
 
@@ -5490,7 +5490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  playlistItems.insert and playlistItems.delete to add or remove items from
  *  that list.
  */
-@property(nonatomic, copy, nullable) NSString *favorites;
+@property(nonatomic, copy, nullable) NSString *favorites GTLR_DEPRECATED;
 
 /**
  *  The ID of the playlist that contains the channel"s liked videos. Use the
@@ -5511,14 +5511,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  playlistItems.insert and playlistItems.delete to add or remove items from
  *  that list.
  */
-@property(nonatomic, copy, nullable) NSString *watchHistory;
+@property(nonatomic, copy, nullable) NSString *watchHistory GTLR_DEPRECATED;
 
 /**
  *  The ID of the playlist that contains the channel"s watch later playlist. Use
  *  the playlistItems.insert and playlistItems.delete to add or remove items
  *  from that list.
  */
-@property(nonatomic, copy, nullable) NSString *watchLater;
+@property(nonatomic, copy, nullable) NSString *watchLater GTLR_DEPRECATED;
 
 @end
 
@@ -5601,7 +5601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  items
@@ -5632,10 +5632,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -5706,7 +5706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Localizations for different languages */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSection_Localizations *localizations;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSection_Localizations *localizations GTLR_DEPRECATED;
 
 /**
  *  The snippet object contains basic details about the channel section, such as
@@ -5718,7 +5718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The targeting object contains basic targeting settings about the channel
  *  section.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionTargeting *targeting;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionTargeting *targeting GTLR_DEPRECATED;
 
 @end
 
@@ -5764,7 +5764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of ChannelSections that match the request criteria.
@@ -5781,7 +5781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -5792,7 +5792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ChannelSectionLocalization : GTLRObject
 
 /** The localized strings for channel section's title. */
-@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *title GTLR_DEPRECATED;
 
 @end
 
@@ -5809,10 +5809,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /** The language of the channel section's default title and description. */
-@property(nonatomic, copy, nullable) NSString *defaultLanguage;
+@property(nonatomic, copy, nullable) NSString *defaultLanguage GTLR_DEPRECATED;
 
 /** Localized title, read-only. */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionLocalization *localized;
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelSectionLocalization *localized GTLR_DEPRECATED;
 
 /**
  *  The position of the channel section in the channel.
@@ -5832,7 +5832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList Value
  *        "verticalList"
  */
-@property(nonatomic, copy, nullable) NSString *style;
+@property(nonatomic, copy, nullable) NSString *style GTLR_DEPRECATED;
 
 /**
  *  The channel section's title for multiple_playlists and multiple_channels.
@@ -5888,13 +5888,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ChannelSectionTargeting : GTLRObject
 
 /** The country the channel section is targeting. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries GTLR_DEPRECATED;
 
 /** The language the channel section is targeting. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *languages GTLR_DEPRECATED;
 
 /** The region the channel section is targeting. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions GTLR_DEPRECATED;
 
 @end
 
@@ -5910,7 +5910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /** Which content tab users should see when viewing the channel. */
-@property(nonatomic, copy, nullable) NSString *defaultTab;
+@property(nonatomic, copy, nullable) NSString *defaultTab GTLR_DEPRECATED;
 
 /**
  *  Specifies the channel description.
@@ -5920,10 +5920,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** Title for the featured channels tab. */
-@property(nonatomic, copy, nullable) NSString *featuredChannelsTitle;
+@property(nonatomic, copy, nullable) NSString *featuredChannelsTitle GTLR_DEPRECATED;
 
 /** The list of featured channels. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *featuredChannelsUrls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *featuredChannelsUrls GTLR_DEPRECATED;
 
 /** Lists keywords associated with the channel, comma-separated. */
 @property(nonatomic, copy, nullable) NSString *keywords;
@@ -5937,21 +5937,21 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) NSNumber *moderateComments;
 
 /** A prominent color that can be rendered on this channel page. */
-@property(nonatomic, copy, nullable) NSString *profileColor;
+@property(nonatomic, copy, nullable) NSString *profileColor GTLR_DEPRECATED;
 
 /**
  *  Whether the tab to browse the videos should be displayed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *showBrowseView;
+@property(nonatomic, strong, nullable) NSNumber *showBrowseView GTLR_DEPRECATED;
 
 /**
  *  Whether related channels should be proposed.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *showRelatedChannels;
+@property(nonatomic, strong, nullable) NSNumber *showRelatedChannels GTLR_DEPRECATED;
 
 /** Specifies the channel title. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -6129,7 +6129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  A list of Freebase topic IDs associated with the channel. You can retrieve
  *  information about each topic using the Freebase Topic API.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds GTLR_DEPRECATED;
 
 @end
 
@@ -6197,7 +6197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of comments that match the request criteria.
@@ -6222,10 +6222,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** General pagination information. */
 @property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -6389,7 +6389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of comment threads that match the request criteria.
@@ -6414,10 +6414,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** General pagination information. */
 @property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -7066,7 +7066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ContentRating_FmocRating_FmocUnspecified Value
  *        "fmocUnspecified"
  */
-@property(nonatomic, copy, nullable) NSString *fmocRating;
+@property(nonatomic, copy, nullable) NSString *fmocRating GTLR_DEPRECATED;
 
 /**
  *  The video's rating from South Africa's Film and Publication Board.
@@ -8183,7 +8183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of regions where YouTube is available. In this map, the i18n region
@@ -8201,7 +8201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -8230,7 +8230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The URL for the background image shown on the video watch page. The image
  *  should be 1200px by 615px, with a maximum file size of 128k.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *backgroundImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *backgroundImageUrl GTLR_DEPRECATED;
 
 /**
  *  This is generated when a ChannelBanner.Insert request has succeeded for the
@@ -8239,58 +8239,58 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *bannerExternalUrl;
 
 /** Banner image. Desktop size (1060x175). */
-@property(nonatomic, copy, nullable) NSString *bannerImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Mobile size high resolution (1440x395). */
-@property(nonatomic, copy, nullable) NSString *bannerMobileExtraHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileExtraHdImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Mobile size high resolution (1280x360). */
-@property(nonatomic, copy, nullable) NSString *bannerMobileHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileHdImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Mobile size (640x175). */
-@property(nonatomic, copy, nullable) NSString *bannerMobileImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Mobile size low resolution (320x88). */
-@property(nonatomic, copy, nullable) NSString *bannerMobileLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileLowImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Mobile size medium/high resolution (960x263). */
-@property(nonatomic, copy, nullable) NSString *bannerMobileMediumHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerMobileMediumHdImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Tablet size extra high resolution (2560x424). */
-@property(nonatomic, copy, nullable) NSString *bannerTabletExtraHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletExtraHdImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Tablet size high resolution (2276x377). */
-@property(nonatomic, copy, nullable) NSString *bannerTabletHdImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletHdImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Tablet size (1707x283). */
-@property(nonatomic, copy, nullable) NSString *bannerTabletImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletImageUrl GTLR_DEPRECATED;
 
 /** Banner image. Tablet size low resolution (1138x188). */
-@property(nonatomic, copy, nullable) NSString *bannerTabletLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTabletLowImageUrl GTLR_DEPRECATED;
 
 /** Banner image. TV size high resolution (1920x1080). */
-@property(nonatomic, copy, nullable) NSString *bannerTvHighImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvHighImageUrl GTLR_DEPRECATED;
 
 /** Banner image. TV size extra high resolution (2120x1192). */
-@property(nonatomic, copy, nullable) NSString *bannerTvImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvImageUrl GTLR_DEPRECATED;
 
 /** Banner image. TV size low resolution (854x480). */
-@property(nonatomic, copy, nullable) NSString *bannerTvLowImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvLowImageUrl GTLR_DEPRECATED;
 
 /** Banner image. TV size medium resolution (1280x720). */
-@property(nonatomic, copy, nullable) NSString *bannerTvMediumImageUrl;
+@property(nonatomic, copy, nullable) NSString *bannerTvMediumImageUrl GTLR_DEPRECATED;
 
 /** The image map script for the large banner image. */
-@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageImapScript;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageImapScript GTLR_DEPRECATED;
 
 /**
  *  The URL for the 854px by 70px image that appears below the video player in
  *  the expanded video view of the video watch page.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *largeBrandedBannerImageUrl GTLR_DEPRECATED;
 
 /** The image map script for the small banner image. */
-@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageImapScript;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageImapScript GTLR_DEPRECATED;
 
 /**
  *  The URL for the 640px by 70px banner image that appears below the video
@@ -8298,15 +8298,15 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  that appears above the top-left corner of the video player. This is a
  *  25-pixel-high image with a flexible width that cannot exceed 170 pixels.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageUrl;
+@property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *smallBrandedBannerImageUrl GTLR_DEPRECATED;
 
 /**
  *  The URL for a 1px by 1px tracking pixel that can be used to collect
  *  statistics for views of the channel or video pages.
  */
-@property(nonatomic, copy, nullable) NSString *trackingImageUrl;
+@property(nonatomic, copy, nullable) NSString *trackingImageUrl GTLR_DEPRECATED;
 
-@property(nonatomic, copy, nullable) NSString *watchIconImageUrl;
+@property(nonatomic, copy, nullable) NSString *watchIconImageUrl GTLR_DEPRECATED;
 
 @end
 
@@ -8592,7 +8592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableClosedCaptions;
+@property(nonatomic, strong, nullable) NSNumber *enableClosedCaptions GTLR_DEPRECATED;
 
 /**
  *  This setting indicates whether YouTube should enable content encryption for
@@ -8628,7 +8628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableLowLatency;
+@property(nonatomic, strong, nullable) NSNumber *enableLowLatency GTLR_DEPRECATED;
 
 /**
  *  If both this and enable_low_latency are set, they must match. LATENCY_NORMAL
@@ -8741,7 +8741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of broadcasts that match the request criteria.
@@ -8772,10 +8772,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -9260,7 +9260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  items
@@ -9291,10 +9291,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) NSNumber *pollingIntervalMillis;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -9340,7 +9340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  Details about the funding event, this is only set if the type is
  *  'fanFundingEvent'.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails GTLR_DEPRECATED;
 
 /**
  *  Details about the Gift Membership Received event, this is only set if the
@@ -9488,7 +9488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of moderators that match the request criteria.
@@ -9519,10 +9519,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -9898,7 +9898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of live streams that match the request criteria.
@@ -9928,10 +9928,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -10063,7 +10063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of members that match the request criteria.
@@ -10086,10 +10086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -10216,7 +10216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of pricing levels offered by a creator to the fans.
@@ -10233,7 +10233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -10479,7 +10479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  of the playlist.) By default, assume that the video.endTime is the end of
  *  the video.
  */
-@property(nonatomic, copy, nullable) NSString *endAt;
+@property(nonatomic, copy, nullable) NSString *endAt GTLR_DEPRECATED;
 
 /** A user-generated note for this item. */
 @property(nonatomic, copy, nullable) NSString *note;
@@ -10490,7 +10490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  video should start and stop playing when the video is played in the context
  *  of the playlist.) The default value is 0.
  */
-@property(nonatomic, copy, nullable) NSString *startAt;
+@property(nonatomic, copy, nullable) NSString *startAt GTLR_DEPRECATED;
 
 /**
  *  The ID that YouTube uses to uniquely identify a video. To retrieve the video
@@ -10656,7 +10656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of playlists that match the request criteria
@@ -10687,10 +10687,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -10755,7 +10755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /** Keyword tags associated with the playlist. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags GTLR_DEPRECATED;
 
 /**
  *  A map of thumbnail images associated with the playlist. For each object in
@@ -11101,7 +11101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of subscriptions that match the request criteria.
@@ -11131,10 +11131,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -11247,7 +11247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of Super Chat purchases that match the request criteria.
@@ -11270,10 +11270,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -11573,7 +11573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of thumbnails.
@@ -11590,7 +11590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -11692,7 +11692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  [2]
  *  http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoProjectDetails *projectDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoProjectDetails *projectDetails GTLR_DEPRECATED;
 
 /**
  *  The recordingDetails object encapsulates information about the location,
@@ -11817,7 +11817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of valid abuse reasons that are used with `video.ReportAbuse`.
@@ -11834,7 +11834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The `visitorId` identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -11959,7 +11959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of video categories that can be associated with YouTube videos. In
@@ -11992,10 +11992,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -12105,7 +12105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  contentDetails.regionRestriction.allowed property or the
  *  contentDetails.regionRestriction.blocked property.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoContentDetailsRegionRestriction *regionRestriction;
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoContentDetailsRegionRestriction *regionRestriction GTLR_DEPRECATED;
 
 @end
 
@@ -12334,7 +12334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  A list of ratings that match the request criteria.
@@ -12351,7 +12351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -12370,7 +12370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
+@property(nonatomic, copy, nullable) NSString *eventId GTLR_DEPRECATED;
 
 /**
  *  items
@@ -12401,10 +12401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *prevPageToken;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination GTLR_DEPRECATED;
 
 /** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
+@property(nonatomic, copy, nullable) NSString *visitorId GTLR_DEPRECATED;
 
 @end
 
@@ -12800,7 +12800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *favoriteCount;
+@property(nonatomic, strong, nullable) NSNumber *favoriteCount GTLR_DEPRECATED;
 
 /**
  *  The number of users who have indicated that they liked the video by giving

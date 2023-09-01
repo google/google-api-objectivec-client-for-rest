@@ -1827,7 +1827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *        Identifies the unassigned documents. (Value:
  *        "DATASET_SPLIT_UNASSIGNED")
  */
-@property(nonatomic, copy, nullable) NSString *destDatasetType;
+@property(nonatomic, copy, nullable) NSString *destDatasetType GTLR_DEPRECATED;
 
 /**
  *  The destination dataset split type.
@@ -2052,7 +2052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
 /** Id of the document (indexed) managed by Content Warehouse. */
-@property(nonatomic, copy, nullable) NSString *cwDocId;
+@property(nonatomic, copy, nullable) NSString *cwDocId GTLR_DEPRECATED;
 
 /** Required. The Cloud Storage URI where the actual document is stored. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
@@ -2876,7 +2876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextChange *> *textChanges;
 
 /** Styles for the Document.text. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle *> *textStyles;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle *> *textStyles GTLR_DEPRECATED;
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
@@ -3101,7 +3101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph *> *paragraphs;
 
 /** The history of this page. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** A list of visually detected symbols on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol *> *symbols;
@@ -3159,7 +3159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-@property(nonatomic, copy, nullable) NSString *layoutId;
+@property(nonatomic, copy, nullable) NSString *layoutId GTLR_DEPRECATED;
 
 /**
  *  Optional. The type of the layout element that is being referenced if any.
@@ -3210,7 +3210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -3458,7 +3458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -3516,7 +3516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -3553,7 +3553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 /** The history of this table. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -3612,7 +3612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** Text style attributes. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo *styleInfo;
@@ -3777,7 +3777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /** References to the original elements that are replaced. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenanceParent *> *parents;
@@ -3787,7 +3787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *revision;
+@property(nonatomic, strong, nullable) NSNumber *revision GTLR_DEPRECATED;
 
 /**
  *  The type of provenance operation.
@@ -3837,7 +3837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
@@ -3891,7 +3891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent GTLR_DEPRECATED;
 
 /**
  *  The revisions that this revision is based on. Must include all the ids that
@@ -4073,7 +4073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *changedText;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *> *provenance;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *> *provenance GTLR_DEPRECATED;
 
 /**
  *  Provenance of the correction. Text anchor indexing into the Document.text.
@@ -4381,7 +4381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextChange *> *textChanges;
 
 /** Styles for the Document.text. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle *> *textStyles;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle *> *textStyles GTLR_DEPRECATED;
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
@@ -4637,7 +4637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph *> *paragraphs;
 
 /** The history of this page. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** A list of visually detected symbols on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol *> *symbols;
@@ -4695,7 +4695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-@property(nonatomic, copy, nullable) NSString *layoutId;
+@property(nonatomic, copy, nullable) NSString *layoutId GTLR_DEPRECATED;
 
 /**
  *  Optional. The type of the layout element that is being referenced if any.
@@ -4746,7 +4746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -4994,7 +4994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -5052,7 +5052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -5089,7 +5089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 /** The history of this table. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -5148,7 +5148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** Text style attributes. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo *styleInfo;
@@ -5313,7 +5313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /** References to the original elements that are replaced. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenanceParent *> *parents;
@@ -5323,7 +5323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *revision;
+@property(nonatomic, strong, nullable) NSNumber *revision GTLR_DEPRECATED;
 
 /**
  *  The type of provenance operation.
@@ -5373,7 +5373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
@@ -5427,7 +5427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent GTLR_DEPRECATED;
 
 /**
  *  The revisions that this revision is based on. Must include all the ids that
@@ -5609,7 +5609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *changedText;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *> *provenance;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *> *provenance GTLR_DEPRECATED;
 
 /**
  *  Provenance of the correction. Text anchor indexing into the Document.text.
@@ -5911,7 +5911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  response type and metadata as the long-running operation returned by the
  *  ReviewDocument method.
  */
-@property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+@property(nonatomic, copy, nullable) NSString *humanReviewOperation GTLR_DEPRECATED;
 
 /** The status of human review on the processed document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
@@ -6167,7 +6167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
 /** Id of the document (indexed) managed by Content Warehouse. */
-@property(nonatomic, copy, nullable) NSString *cwDocId;
+@property(nonatomic, copy, nullable) NSString *cwDocId GTLR_DEPRECATED;
 
 /** Required. The Cloud Storage URI where the actual document is stored. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
@@ -6776,7 +6776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange *> *textChanges;
 
 /** Styles for the Document.text. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle *> *textStyles;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle *> *textStyles GTLR_DEPRECATED;
 
 /**
  *  Optional. Currently supports Google Cloud Storage URI of the form
@@ -7058,7 +7058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph *> *paragraphs;
 
 /** The history of this page. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** A list of visually detected symbols on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol *> *symbols;
@@ -7116,7 +7116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-@property(nonatomic, copy, nullable) NSString *layoutId;
+@property(nonatomic, copy, nullable) NSString *layoutId GTLR_DEPRECATED;
 
 /**
  *  Optional. The type of the layout element that is being referenced if any.
@@ -7167,7 +7167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -7415,7 +7415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -7473,7 +7473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -7510,7 +7510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 /** The history of this table. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 @end
 
@@ -7569,7 +7569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance GTLR_DEPRECATED;
 
 /** Text style attributes. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo *styleInfo;
@@ -7734,7 +7734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /** References to the original elements that are replaced. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent *> *parents;
@@ -7744,7 +7744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *revision;
+@property(nonatomic, strong, nullable) NSNumber *revision GTLR_DEPRECATED;
 
 /**
  *  The type of provenance operation.
@@ -7794,7 +7794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
+@property(nonatomic, strong, nullable) NSNumber *identifier GTLR_DEPRECATED;
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
@@ -7848,7 +7848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent GTLR_DEPRECATED;
 
 /**
  *  The revisions that this revision is based on. Must include all the ids that
@@ -8190,7 +8190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *changedText;
 
 /** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *> *provenance;
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *> *provenance GTLR_DEPRECATED;
 
 /**
  *  Provenance of the correction. Text anchor indexing into the Document.text.
@@ -8770,7 +8770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *computeStyleInfo;
+@property(nonatomic, strong, nullable) NSNumber *computeStyleInfo GTLR_DEPRECATED;
 
 /**
  *  Enables intelligent document quality scores after OCR. Can help with

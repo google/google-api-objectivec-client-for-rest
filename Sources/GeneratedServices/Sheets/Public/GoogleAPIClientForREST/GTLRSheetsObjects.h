@@ -3886,7 +3886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The first color that is alternating. (Required) Deprecated: Use
  *  first_band_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *firstBandColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *firstBandColor GTLR_DEPRECATED;
 
 /**
  *  The first color that is alternating. (Required) If first_band_color is also
@@ -3900,7 +3900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  depending on the color of the previous row or column. Deprecated: Use
  *  footer_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *footerColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *footerColor GTLR_DEPRECATED;
 
 /**
  *  The color of the last row or column. If this field is not set, the last row
@@ -3918,7 +3918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  and the colors proceed to alternate as they normally would. Deprecated: Use
  *  header_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor GTLR_DEPRECATED;
 
 /**
  *  The color of the first row or column. If this field is set, the first row or
@@ -3934,7 +3934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The second color that is alternating. (Required) Deprecated: Use
  *  second_band_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *secondBandColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *secondBandColor GTLR_DEPRECATED;
 
 /**
  *  The second color that is alternating. (Required) If second_band_color is
@@ -3977,7 +3977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Color to be used, in case baseline value represents a negative change for
  *  key value. This field is optional. Deprecated: Use negative_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *negativeColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *negativeColor GTLR_DEPRECATED;
 
 /**
  *  Color to be used, in case baseline value represents a negative change for
@@ -3996,7 +3996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Color to be used, in case baseline value represents a positive change for
  *  key value. This field is optional. Deprecated: Use positive_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *positiveColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *positiveColor GTLR_DEPRECATED;
 
 /**
  *  Color to be used, in case baseline value represents a positive change for
@@ -4092,7 +4092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The color for elements (such as bars, lines, and points) associated with
  *  this series. If empty, a default color is used. Deprecated: Use color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  The color for elements (such as bars, lines, and points) associated with
@@ -4332,7 +4332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  column index, and the value is the criteria for that column. This field is
  *  deprecated in favor of filter_specs.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_BasicFilter_Criteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_BasicFilter_Criteria *criteria GTLR_DEPRECATED;
 
 /**
  *  The filter criteria per column. Both criteria and filter_specs are populated
@@ -4376,7 +4376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Color of the series data point. If empty, the series default is used.
  *  Deprecated: Use color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  Color of the series data point. If empty, the series default is used. If
@@ -5161,7 +5161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_Border : GTLRObject
 
 /** The color of the border. Deprecated: Use color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  The color of the border. If color is also set, this field takes precedence.
@@ -5197,7 +5197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *width;
+@property(nonatomic, strong, nullable) NSNumber *width GTLR_DEPRECATED;
 
 @end
 
@@ -5228,7 +5228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BubbleChartSpec : GTLRObject
 
 /** The bubble border color. Deprecated: Use bubble_border_color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *bubbleBorderColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *bubbleBorderColor GTLR_DEPRECATED;
 
 /**
  *  The bubble border color. If bubble_border_color is also set, this field
@@ -5506,7 +5506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  The background color of the cell. Deprecated: Use background_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor GTLR_DEPRECATED;
 
 /**
  *  The background color of the cell. If background_color is also set, this
@@ -5884,7 +5884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The background color of the entire chart. Not applicable to Org charts.
  *  Deprecated: Use background_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor GTLR_DEPRECATED;
 
 /**
  *  The background color of the entire chart. Not applicable to Org charts. If
@@ -7742,7 +7742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_EmbeddedObjectBorder : GTLRObject
 
 /** The color of the border. Deprecated: Use color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  The color of the border. If color is also set, this field takes precedence.
@@ -7876,7 +7876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  shown. Mutually exclusive with visible_foreground_color. Deprecated: Use
  *  visible_background_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleBackgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleBackgroundColor GTLR_DEPRECATED;
 
 /**
  *  The background fill color to filter by; only cells with this fill color are
@@ -7891,7 +7891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  shown. Mutually exclusive with visible_background_color. Deprecated: Use
  *  visible_foreground_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleForegroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleForegroundColor GTLR_DEPRECATED;
 
 /**
  *  The foreground color to filter by; only cells with this foreground color are
@@ -7935,7 +7935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  column index, and the value is the criteria for that column. This field is
  *  deprecated in favor of filter_specs.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_FilterView_Criteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_FilterView_Criteria *criteria GTLR_DEPRECATED;
 
 /**
  *  The filter criteria for showing/hiding values per column. Both criteria and
@@ -8452,7 +8452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The color of the column representing this series in each bucket. This field
  *  is optional. Deprecated: Use bar_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *barColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *barColor GTLR_DEPRECATED;
 
 /**
  *  The color of the column representing this series in each bucket. This field
@@ -8530,7 +8530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  The color this interpolation point should use. Deprecated: Use color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  The color this interpolation point should use. If color is also set, this
@@ -8904,7 +8904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *labels;
 
 /** The color of the org chart nodes. Deprecated: Use node_color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *nodeColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *nodeColor GTLR_DEPRECATED;
 
 /**
  *  The color of the org chart nodes. If node_color is also set, this field
@@ -8938,7 +8938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The color of the selected org chart nodes. Deprecated: Use
  *  selected_node_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *selectedNodeColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *selectedNodeColor GTLR_DEPRECATED;
 
 /**
  *  The color of the selected org chart nodes. If selected_node_color is also
@@ -9384,7 +9384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  key of `0` will have the filter for column `C`, whereas the key `1` is for
  *  column `D`. This field is deprecated in favor of filter_specs.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_PivotTable_Criteria *criteria;
+@property(nonatomic, strong, nullable) GTLRSheets_PivotTable_Criteria *criteria GTLR_DEPRECATED;
 
 /** Output only. The data execution status for data source pivot tables. */
 @property(nonatomic, strong, nullable) GTLRSheets_DataExecutionStatus *dataExecutionStatus;
@@ -10323,7 +10323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *sheetType;
 
 /** The color of the tab in the UI. Deprecated: Use tab_color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *tabColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *tabColor GTLR_DEPRECATED;
 
 /**
  *  The color of the tab in the UI. If tab_color is also set, this field takes
@@ -10378,7 +10378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  The background color of the slicer. Deprecated: Use background_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor GTLR_DEPRECATED;
 
 /**
  *  The background color of the slicer. If background_color is also set, this
@@ -10455,7 +10455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  to the top. Mutually exclusive with foreground_color. Deprecated: Use
  *  background_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor GTLR_DEPRECATED;
 
 /**
  *  The background fill color to sort by; cells with this fill color are sorted
@@ -10480,7 +10480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  to the top. Mutually exclusive with background_color. Deprecated: Use
  *  foreground_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor GTLR_DEPRECATED;
 
 /**
  *  The foreground color to sort by; cells with this foreground color are sorted
@@ -10675,7 +10675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  The foreground color of the text. Deprecated: Use foreground_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor GTLR_DEPRECATED;
 
 /**
  *  The foreground color of the text. If foreground_color is also set, this
@@ -10914,7 +10914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  maxValue. Defaults to #109618 if not specified. Deprecated: Use
  *  max_value_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *maxValueColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *maxValueColor GTLR_DEPRECATED;
 
 /**
  *  The background color for cells with a color value greater than or equal to
@@ -10928,7 +10928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  minValue and maxValue. Defaults to #efe6dc if not specified. Deprecated: Use
  *  mid_value_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *midValueColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *midValueColor GTLR_DEPRECATED;
 
 /**
  *  The background color for cells with a color value at the midpoint between
@@ -10942,7 +10942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  minValue. Defaults to #dc3912 if not specified. Deprecated: Use
  *  min_value_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *minValueColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *minValueColor GTLR_DEPRECATED;
 
 /**
  *  The background color for cells with a color value less than or equal to
@@ -10955,7 +10955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  The background color for cells that have no color data associated with them.
  *  Defaults to #000000 if not specified. Deprecated: Use no_data_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *noDataColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *noDataColor GTLR_DEPRECATED;
 
 /**
  *  The background color for cells that have no color data associated with them.
@@ -10998,7 +10998,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  The background color for header cells. Deprecated: Use header_color_style.
  */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor GTLR_DEPRECATED;
 
 /**
  *  The background color for header cells. If header_color is also set, this
@@ -11763,7 +11763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_WaterfallChartColumnStyle : GTLRObject
 
 /** The color of the column. Deprecated: Use color_style. */
-@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color GTLR_DEPRECATED;
 
 /**
  *  The color of the column. If color is also set, this field takes precedence.

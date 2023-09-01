@@ -2394,7 +2394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Service account authorized for the instance. */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
 
 /** URI of a Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *uri;

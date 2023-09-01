@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canCreateTeamDrives;
+@property(nonatomic, strong, nullable) NSNumber *canCreateTeamDrives GTLR_DEPRECATED;
 
 /** A list of themes that are supported for shared drives. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_About_DriveThemes_Item *> *driveThemes;
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_About_StorageQuota *storageQuota;
 
 /** Deprecated: Use `driveThemes` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDrive_About_TeamDriveThemes_Item *> *teamDriveThemes;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_About_TeamDriveThemes_Item *> *teamDriveThemes GTLR_DEPRECATED;
 
 /** The authenticated user. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *user;
@@ -238,17 +238,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_About_TeamDriveThemes_Item : GTLRObject
 
 /** Deprecated: Use `driveThemes/backgroundImageLink` instead. */
-@property(nonatomic, copy, nullable) NSString *backgroundImageLink;
+@property(nonatomic, copy, nullable) NSString *backgroundImageLink GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveThemes/colorRgb` instead. */
-@property(nonatomic, copy, nullable) NSString *colorRgb;
+@property(nonatomic, copy, nullable) NSString *colorRgb GTLR_DEPRECATED;
 
 /**
  *  Deprecated: Use `driveThemes/id` instead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(nonatomic, copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier GTLR_DEPRECATED;
 
 @end
 
@@ -295,16 +295,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *removed;
 
 /** Deprecated: Use `drive` instead. */
-@property(nonatomic, strong, nullable) GTLRDrive_TeamDrive *teamDrive;
+@property(nonatomic, strong, nullable) GTLRDrive_TeamDrive *teamDrive GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /** The time of this change (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 /** Deprecated: Use `changeType` instead. */
-@property(nonatomic, copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *type GTLR_DEPRECATED;
 
 @end
 
@@ -1314,7 +1314,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *starred;
 
 /** Deprecated: Output only. Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /**
  *  Output only. A short-lived link to the file's thumbnail, if available.
@@ -1383,7 +1383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *viewersCanCopyContent;
+@property(nonatomic, strong, nullable) NSNumber *viewersCanCopyContent GTLR_DEPRECATED;
 
 /**
  *  Output only. A link for downloading the content of the file in a browser.
@@ -1486,7 +1486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canChangeViewersCanCopyContent;
+@property(nonatomic, strong, nullable) NSNumber *canChangeViewersCanCopyContent GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can comment on this file.
@@ -1557,7 +1557,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction;
+@property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can add or modify content restrictions
@@ -1596,7 +1596,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can move children of this folder
@@ -1613,14 +1613,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenWithinTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canMoveChildrenWithinTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Deprecated: Output only. Use `canMoveItemOutOfDrive` instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveItemIntoTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemIntoTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can move this item outside of this
@@ -1636,7 +1636,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can move this item within this drive.
@@ -1653,7 +1653,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveItemWithinTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canMoveItemWithinTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Deprecated: Output only. Use `canMoveItemWithinDrive` or
@@ -1661,7 +1661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canMoveTeamDriveItem;
+@property(nonatomic, strong, nullable) NSNumber *canMoveTeamDriveItem GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can read the shared drive to which
@@ -1693,7 +1693,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canReadTeamDrive;
+@property(nonatomic, strong, nullable) NSNumber *canReadTeamDrive GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether the current user can remove children from this folder.
@@ -2444,7 +2444,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *role;
 
 /** Output only. Deprecated: Output only. Use `permissionDetails` instead. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_TeamDrivePermissionDetails_Item *> *teamDrivePermissionDetails;
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_TeamDrivePermissionDetails_Item *> *teamDrivePermissionDetails GTLR_DEPRECATED;
 
 /**
  *  The type of the grantee. Valid values are: * `user` * `group` * `domain` *
@@ -2509,18 +2509,18 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *inherited;
+@property(nonatomic, strong, nullable) NSNumber *inherited GTLR_DEPRECATED;
 
 /** Deprecated: Output only. Use `permissionDetails/inheritedFrom` instead. */
-@property(nonatomic, copy, nullable) NSString *inheritedFrom;
+@property(nonatomic, copy, nullable) NSString *inheritedFrom GTLR_DEPRECATED;
 
 /** Deprecated: Output only. Use `permissionDetails/role` instead. */
-@property(nonatomic, copy, nullable) NSString *role;
+@property(nonatomic, copy, nullable) NSString *role GTLR_DEPRECATED;
 
 /**
  *  Deprecated: Output only. Use `permissionDetails/permissionType` instead.
  */
-@property(nonatomic, copy, nullable) NSString *teamDrivePermissionType;
+@property(nonatomic, copy, nullable) NSString *teamDrivePermissionType GTLR_DEPRECATED;
 
 @end
 
@@ -3073,7 +3073,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
+@property(nonatomic, strong, nullable) NSNumber *canRemoveChildren GTLR_DEPRECATED;
 
 /**
  *  Whether the current user can rename files or folders in this Team Drive.

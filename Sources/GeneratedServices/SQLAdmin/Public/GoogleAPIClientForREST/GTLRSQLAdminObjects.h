@@ -2888,7 +2888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
+@property(nonatomic, strong, nullable) NSNumber *currentDiskSize GTLR_DEPRECATED;
 
 /**
  *  Output only. Stores the current database version running on the instance
@@ -3055,7 +3055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The IPv6 address assigned to the instance. (Deprecated) This property was
  *  applicable only to First Generation instances.
  */
-@property(nonatomic, copy, nullable) NSString *ipv6Address;
+@property(nonatomic, copy, nullable) NSString *ipv6Address GTLR_DEPRECATED;
 
 /** This is always `sql#instance`. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -3073,7 +3073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxDiskSize;
+@property(nonatomic, strong, nullable) NSNumber *maxDiskSize GTLR_DEPRECATED;
 
 /** Name of the Cloud SQL instance. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3496,7 +3496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *copyOnly NS_RETURNS_NOT_RETAINED;
+@property(nonatomic, strong, nullable) NSNumber *copyOnly GTLR_DEPRECATED NS_RETURNS_NOT_RETAINED;
 
 /**
  *  Whether or not the backup can be used as a differential base copy_only
@@ -4282,7 +4282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The App Engine application to follow, it must be in the same region as the
  *  Cloud SQL instance. WARNING: Changing this might restart the instance.
  */
-@property(nonatomic, copy, nullable) NSString *followGaeApplication;
+@property(nonatomic, copy, nullable) NSString *followGaeApplication GTLR_DEPRECATED;
 
 /** This is always `sql#locationPreference`. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -4995,7 +4995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The App Engine app IDs that can access this instance. (Deprecated) Applied
  *  to First Generation instances only.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications GTLR_DEPRECATED;
 
 /**
  *  Availability type. Potential values: * `ZONAL`: The instance serves data
@@ -5051,7 +5051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *crashSafeReplicationEnabled;
+@property(nonatomic, strong, nullable) NSNumber *crashSafeReplicationEnabled GTLR_DEPRECATED;
 
 /** The database flags passed to the instance at startup. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DatabaseFlags *> *databaseFlags;
@@ -5178,7 +5178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        replication mode for First Generation instances. It is the default
  *        value. (Value: "SYNCHRONOUS")
  */
-@property(nonatomic, copy, nullable) NSString *replicationType;
+@property(nonatomic, copy, nullable) NSString *replicationType GTLR_DEPRECATED;
 
 /**
  *  The version of instance settings. This is a required field for update method
@@ -5584,7 +5584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canDefer;
+@property(nonatomic, strong, nullable) NSNumber *canDefer GTLR_DEPRECATED;
 
 /**
  *  If the scheduled maintenance can be rescheduled.
@@ -6025,7 +6025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Unused. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
+@property(nonatomic, copy, nullable) NSString *nextPageToken GTLR_DEPRECATED;
 
 @end
 

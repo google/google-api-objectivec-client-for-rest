@@ -1195,7 +1195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_ConsumerPscConnection : GTLRObject
 
 /** The most recent error during operating this connection. */
-@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error GTLR_DEPRECATED;
 
 /**
  *  Output only. The error info for the latest error during operating this
@@ -2814,7 +2814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *consumerTargetProject;
 
 /** The most recent error during operating this connection. */
-@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error;
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error GTLR_DEPRECATED;
 
 /**
  *  Output only. The error info for the latest error during operating this

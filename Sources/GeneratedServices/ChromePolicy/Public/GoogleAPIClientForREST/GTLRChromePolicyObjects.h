@@ -833,7 +833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty GTLR_DEPRECATED;
 
 /**
  *  Output only. The name of the field for associated with this description.

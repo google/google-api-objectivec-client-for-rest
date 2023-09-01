@@ -1760,7 +1760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
 /** This field deprecated; please use `pool.name` instead. */
-@property(nonatomic, copy, nullable) NSString *workerPool;
+@property(nonatomic, copy, nullable) NSString *workerPool GTLR_DEPRECATED;
 
 @end
 
@@ -2618,7 +2618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @interface GTLRCloudBuild_GitHubEnterpriseSecrets : GTLRObject
 
 /** The resource name for the OAuth client ID secret in Secret Manager. */
-@property(nonatomic, copy, nullable) NSString *oauthClientIdName;
+@property(nonatomic, copy, nullable) NSString *oauthClientIdName GTLR_DEPRECATED;
 
 /**
  *  The resource name for the OAuth client ID secret version in Secret Manager.
@@ -2626,7 +2626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *oauthClientIdVersionName;
 
 /** The resource name for the OAuth secret in Secret Manager. */
-@property(nonatomic, copy, nullable) NSString *oauthSecretName;
+@property(nonatomic, copy, nullable) NSString *oauthSecretName GTLR_DEPRECATED;
 
 /**
  *  The resource name for the OAuth secret secret version in Secret Manager.
@@ -2634,13 +2634,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *oauthSecretVersionName;
 
 /** The resource name for the private key secret. */
-@property(nonatomic, copy, nullable) NSString *privateKeyName;
+@property(nonatomic, copy, nullable) NSString *privateKeyName GTLR_DEPRECATED;
 
 /** The resource name for the private key secret version. */
 @property(nonatomic, copy, nullable) NSString *privateKeyVersionName;
 
 /** The resource name for the webhook secret in Secret Manager. */
-@property(nonatomic, copy, nullable) NSString *webhookSecretName;
+@property(nonatomic, copy, nullable) NSString *webhookSecretName GTLR_DEPRECATED;
 
 /**
  *  The resource name for the webhook secret secret version in Secret Manager.
@@ -2668,7 +2668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *installationId;
+@property(nonatomic, strong, nullable) NSNumber *installationId GTLR_DEPRECATED;
 
 /**
  *  Name of the repository. For example: The name for

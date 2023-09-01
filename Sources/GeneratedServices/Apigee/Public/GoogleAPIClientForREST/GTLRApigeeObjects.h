@@ -4499,7 +4499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  name already has comma before join, we may get wrong splits. Please use
  *  individual_names.
  */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
 
 @end
 
@@ -5558,7 +5558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23
  *        `/23` CIDR range. Supported for evaluation only. (Value: "SLASH_23")
  */
-@property(nonatomic, copy, nullable) NSString *peeringCidrRange;
+@property(nonatomic, copy, nullable) NSString *peeringCidrRange GTLR_DEPRECATED;
 
 /** Output only. Port number of the exposed Apigee endpoint. */
 @property(nonatomic, copy, nullable) NSString *port;
@@ -6937,7 +6937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  data storage. For valid values, see [Create an Apigee
  *  organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
  */
-@property(nonatomic, copy, nullable) NSString *analyticsRegion;
+@property(nonatomic, copy, nullable) NSString *analyticsRegion GTLR_DEPRECATED;
 
 /**
  *  Cloud KMS key name used for encrypting API consumer data. Required for US/EU
@@ -7152,7 +7152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        Subscription to Apigee is free, limited, and used for evaluation
  *        purposes only. (Value: "TRIAL")
  */
-@property(nonatomic, copy, nullable) NSString *subscriptionType;
+@property(nonatomic, copy, nullable) NSString *subscriptionType GTLR_DEPRECATED;
 
 /**
  *  Not used by Apigee.
@@ -7196,7 +7196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  DEPRECATED: Use `project_id`. An Apigee Organization is mapped to a single
  *  project.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds GTLR_DEPRECATED;
 
 @end
 
@@ -7953,7 +7953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        balance. **Note**: Not supported by Apigee at this time. (Value:
  *        "PREPAID")
  */
-@property(nonatomic, copy, nullable) NSString *paymentFundingModel;
+@property(nonatomic, copy, nullable) NSString *paymentFundingModel GTLR_DEPRECATED;
 
 /** Details of the revenue sharing model. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RevenueShareRange *> *revenueShareRates;

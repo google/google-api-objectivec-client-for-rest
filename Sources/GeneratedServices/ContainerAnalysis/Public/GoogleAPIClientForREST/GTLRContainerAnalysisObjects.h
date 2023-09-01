@@ -1936,7 +1936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
  *  denote CVEs.
  */
-@property(nonatomic, copy, nullable) NSString *cve;
+@property(nonatomic, copy, nullable) NSString *cve GTLR_DEPRECATED;
 
 /**
  *  Contains information about the impact of this vulnerability, this will
@@ -4418,7 +4418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume *> *volumes;
 
 /** This field deprecated; please use `pool.name` instead. */
-@property(nonatomic, copy, nullable) NSString *workerPool;
+@property(nonatomic, copy, nullable) NSString *workerPool GTLR_DEPRECATED;
 
 @end
 
@@ -7488,7 +7488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  number for the vulnerability. Deprecated: Use vulnerability_id instead to
  *  denote CVEs.
  */
-@property(nonatomic, copy, nullable) NSString *cve;
+@property(nonatomic, copy, nullable) NSString *cve GTLR_DEPRECATED;
 
 /**
  *  Contains information about the impact of this vulnerability, this will

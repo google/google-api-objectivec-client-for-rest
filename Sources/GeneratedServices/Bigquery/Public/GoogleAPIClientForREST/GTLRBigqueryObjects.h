@@ -2434,7 +2434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_ArimaForecastingMetrics : GTLRObject
 
 /** Arima model fitting metrics. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaFittingMetrics *> *arimaFittingMetrics;
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaFittingMetrics *> *arimaFittingMetrics GTLR_DEPRECATED;
 
 /**
  *  Repeated as there can be many metric sets (one for each model) in auto-arima
@@ -2448,19 +2448,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *hasDrift;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *hasDrift GTLR_DEPRECATED;
 
 /** Non-seasonal order. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaOrder *> *nonSeasonalOrder;
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaOrder *> *nonSeasonalOrder GTLR_DEPRECATED;
 
 /**
  *  Seasonal periods. Repeated because multiple periods are supported for one
  *  time series.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods GTLR_DEPRECATED;
 
 /** Id to differentiate different time series for the large-scale case. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesId;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesId GTLR_DEPRECATED;
 
 @end
 
@@ -6862,7 +6862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *bestTrialId;
+@property(nonatomic, strong, nullable) NSNumber *bestTrialId GTLR_DEPRECATED;
 
 /**
  *  Output only. The time when this model was created, in millisecs since the
@@ -10582,7 +10582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *trainingStartTime;
+@property(nonatomic, strong, nullable) NSNumber *trainingStartTime GTLR_DEPRECATED;
 
 /**
  *  The model id in the [Vertex AI Model

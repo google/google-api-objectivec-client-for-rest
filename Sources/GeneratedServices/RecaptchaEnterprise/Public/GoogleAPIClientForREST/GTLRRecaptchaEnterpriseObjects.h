@@ -793,7 +793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Username of the account that is being verified. Deprecated. Customers should
  *  now provide the hashed account ID field in Event.
  */
-@property(nonatomic, copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
 @end
 

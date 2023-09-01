@@ -307,7 +307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /**
  *  Blobstore v2 info, set if reference_type is BLOBSTORE_REF and it refers to a
@@ -597,7 +597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  calculating the hash. As of 2011/01/21, "MD5" is the only possible value for
  *  this field. New values may be added at any time.
  */
-@property(nonatomic, copy, nullable) NSString *algorithm;
+@property(nonatomic, copy, nullable) NSString *algorithm GTLR_DEPRECATED;
 
 /**
  *  Use object_id instead.
@@ -605,7 +605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef;
+@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef GTLR_DEPRECATED;
 
 /**
  *  Blobstore v1 reference, set if reference_type is BLOBSTORE_REF This should
@@ -616,7 +616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /**
  *  Blobstore v2 info, set if reference_type is BLOBSTORE_REF and it refers to a
@@ -692,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
-@property(nonatomic, copy, nullable) NSString *hashProperty;
+@property(nonatomic, copy, nullable) NSString *hashProperty GTLR_DEPRECATED;
 
 /**
  *  For Scotty uploads only. If a user sends a hash code and the backend has

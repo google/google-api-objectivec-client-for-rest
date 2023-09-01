@@ -319,7 +319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *bypassProxyNotification;
+@property(nonatomic, strong, nullable) NSNumber *bypassProxyNotification GTLR_DEPRECATED;
 
 /**
  *  The [notification's channel
