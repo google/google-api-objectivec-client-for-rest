@@ -286,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
  */
-@property(nonatomic, copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
@@ -671,7 +671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
  */
-@property(nonatomic, copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
@@ -1491,7 +1491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *        limited job description data for steps, labels and environment.
  *        (Value: "JOB_VIEW_DESCRIPTION")
  */
-@property(nonatomic, copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.

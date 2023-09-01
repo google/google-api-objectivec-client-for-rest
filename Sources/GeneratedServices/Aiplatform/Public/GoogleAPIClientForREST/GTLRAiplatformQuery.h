@@ -2571,7 +2571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  An expression for filtering the Annotations that will be returned per
  *  DataItem. * `annotation_spec_id` - for = or !=.
  */
-@property(nonatomic, copy, nullable) NSString *annotationsFilter;
+@property(nonatomic, copy, nullable) NSString *annotationsFilter GTLR_DEPRECATED;
 
 /**
  *  If set, only up to this many of Annotations will be returned per
@@ -2615,7 +2615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending.
  */
-@property(nonatomic, copy, nullable) NSString *orderBy;
+@property(nonatomic, copy, nullable) NSString *orderBy GTLR_DEPRECATED;
 
 /**
  *  A comma-separated list of annotation fields to order by, sorted in ascending
@@ -2654,7 +2654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  `projects/{project}/locations/{location}/datasets/{dataset}/savedQueries/{saved_query}`
  *  All of the search will be done in the context of this SavedQuery.
  */
-@property(nonatomic, copy, nullable) NSString *savedQuery;
+@property(nonatomic, copy, nullable) NSString *savedQuery GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1SearchDataItemsResponse.
@@ -7912,7 +7912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresDelete : GTLRAiplatformQuery
 
 /** Deprecated: Field is no longer supported. */
-@property(nonatomic, assign) BOOL force;
+@property(nonatomic, assign) BOOL force GTLR_DEPRECATED;
 
 /**
  *  Required. The resource name of the MetadataStore to delete. Format:

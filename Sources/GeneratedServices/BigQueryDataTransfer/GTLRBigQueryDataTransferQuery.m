@@ -36,6 +36,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRBigQueryDataTransferQuery
 
 @dynamic fields;
@@ -787,3 +790,5 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 }
 
 @end
+
+#pragma clang diagnostic pop

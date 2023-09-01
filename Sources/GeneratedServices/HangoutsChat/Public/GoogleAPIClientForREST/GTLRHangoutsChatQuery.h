@@ -852,7 +852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [Start or reply to a message
  *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
-@property(nonatomic, copy, nullable) NSString *threadKey;
+@property(nonatomic, copy, nullable) NSString *threadKey GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.

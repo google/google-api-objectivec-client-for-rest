@@ -1193,7 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /** Return content in specified language */
-@property(nonatomic, copy, nullable) NSString *hl;
+@property(nonatomic, copy, nullable) NSString *hl GTLR_DEPRECATED;
 
 /**
  *  Return the ChannelSections with the given IDs for Stubby or Apiary.
@@ -5073,7 +5073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identifier;
 
-@property(nonatomic, copy, nullable) NSString *locale;
+@property(nonatomic, copy, nullable) NSString *locale GTLR_DEPRECATED;
 
 /**
  *  maxHeight

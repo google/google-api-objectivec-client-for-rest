@@ -33,6 +33,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRComputeQuery
 
 @dynamic fields;
@@ -19759,3 +19762,5 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 }
 
 @end
+
+#pragma clang diagnostic pop

@@ -474,7 +474,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -504,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete : GTLRCloudBuildQuery
 
 /** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId;
+@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
 
 /**
  *  This field should contain the name of the enterprise config resource. For
@@ -514,7 +514,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -542,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet : GTLRCloudBuildQuery
 
 /** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId;
+@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
 
 /**
  *  This field should contain the name of the enterprise config resource. For
@@ -552,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
@@ -586,7 +586,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.
@@ -1238,7 +1238,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -1268,7 +1268,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete : GTLRCloudBuildQuery
 
 /** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId;
+@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
 
 /**
  *  This field should contain the name of the enterprise config resource. For
@@ -1278,7 +1278,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
@@ -1306,7 +1306,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet : GTLRCloudBuildQuery
 
 /** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId;
+@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
 
 /**
  *  This field should contain the name of the enterprise config resource. For
@@ -1316,7 +1316,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
@@ -1350,7 +1350,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.

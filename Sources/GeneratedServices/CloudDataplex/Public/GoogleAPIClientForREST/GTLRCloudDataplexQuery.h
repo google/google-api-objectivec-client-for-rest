@@ -4875,7 +4875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesPartitionsDelete : GTLRCloudDataplexQuery
 
 /** Optional. The etag associated with the partition. */
-@property(nonatomic, copy, nullable) NSString *ETag;
+@property(nonatomic, copy, nullable) NSString *ETag GTLR_DEPRECATED;
 
 /**
  *  Required. The resource name of the partition. format:

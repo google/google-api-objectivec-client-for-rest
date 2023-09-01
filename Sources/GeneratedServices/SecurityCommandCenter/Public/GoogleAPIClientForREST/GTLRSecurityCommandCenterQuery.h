@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
@@ -79,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsList : GTLRSecurityCommandCenterQuery
 
 /**
@@ -1829,6 +1831,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
@@ -1865,6 +1868,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsList : GTLRSecurityCommandCenterQuery
 
 /**
@@ -2013,6 +2017,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsRunDiscovery : GTLRSecurityCommandCenterQuery
 
 /**
@@ -4875,6 +4880,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup : GTLRSecurityCommandCenterQuery
 
 /**
@@ -4911,6 +4917,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsList : GTLRSecurityCommandCenterQuery
 
 /**

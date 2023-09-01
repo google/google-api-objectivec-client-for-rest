@@ -118,10 +118,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_StartPageToken.
@@ -199,7 +199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL includeTeamDriveItems;
+@property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
  *  The maximum number of changes to return per page.
@@ -246,10 +246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_ChangeList.
@@ -335,7 +335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL includeTeamDriveItems;
+@property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
  *  The maximum number of changes to return per page.
@@ -382,10 +382,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_Channel.
@@ -970,7 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -1074,7 +1074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Whether to use the uploaded content as indexable text.
@@ -1138,7 +1138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1156,7 +1156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1195,7 +1195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1353,7 +1353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_File.
@@ -1430,7 +1430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @arg @c kGTLRDriveCorpusUser Files owned by or shared to the user. (Value:
  *        "user")
  */
-@property(nonatomic, copy, nullable) NSString *corpus;
+@property(nonatomic, copy, nullable) NSString *corpus GTLR_DEPRECATED;
 
 /** ID of the shared drive to search. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -1459,7 +1459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL includeTeamDriveItems;
+@property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
  *  A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder',
@@ -1513,10 +1513,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /** Deprecated: Use `driveId` instead. */
-@property(nonatomic, copy, nullable) NSString *teamDriveId;
+@property(nonatomic, copy, nullable) NSString *teamDriveId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_FileList.
@@ -1651,7 +1651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1699,7 +1699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Whether to use the uploaded content as indexable text.
@@ -1787,7 +1787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRDrive_Channel.
@@ -1825,7 +1825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1860,7 +1860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
@@ -1929,7 +1929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Issue the request as a domain administrator; if set to true, then the
@@ -1992,7 +1992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Issue the request as a domain administrator; if set to true, then the
@@ -2071,7 +2071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Issue the request as a domain administrator; if set to true, then the
@@ -2139,7 +2139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL supportsTeamDrives;
+@property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Whether to transfer ownership to the specified user and downgrade the

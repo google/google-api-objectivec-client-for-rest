@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the cluster to delete. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster) of the cluster to delete. Specified in
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the cluster to retrieve. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster) of the cluster to retrieve. Specified
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_Cluster.
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -385,7 +385,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_ListClustersResponse.
@@ -488,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
@@ -501,14 +501,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the node pool to delete. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -518,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -549,7 +549,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to get.
@@ -562,14 +562,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the node pool. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -579,7 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_NodePool.
@@ -610,7 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The parent (project, location, cluster name) where the node pools will be
@@ -623,7 +623,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -633,7 +633,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_ListNodePoolsResponse.
@@ -906,6 +906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLocations : GTLRContainerQuery
 
 /**
@@ -1295,7 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -1305,7 +1306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_ServerConfig.
@@ -1375,14 +1376,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deprecated. The server-assigned `name` of the operation. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *operationId;
+@property(nonatomic, copy, nullable) NSString *operationId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -1392,7 +1393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
@@ -1430,7 +1431,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -1440,7 +1441,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRContainer_ListOperationsResponse.
@@ -1905,6 +1906,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRContainerQuery_ProjectsZonesClustersLocations : GTLRContainerQuery
 
 /**

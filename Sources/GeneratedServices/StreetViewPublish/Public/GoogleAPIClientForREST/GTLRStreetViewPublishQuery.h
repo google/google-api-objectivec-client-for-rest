@@ -482,7 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
  */
-@property(nonatomic, copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_Operation.

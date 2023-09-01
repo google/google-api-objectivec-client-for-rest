@@ -11,6 +11,9 @@
 
 #import <GoogleAPIClientForREST/GTLRSecurityCommandCenterQuery.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRSecurityCommandCenterQuery
 
 @dynamic fields;
@@ -3118,3 +3121,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop

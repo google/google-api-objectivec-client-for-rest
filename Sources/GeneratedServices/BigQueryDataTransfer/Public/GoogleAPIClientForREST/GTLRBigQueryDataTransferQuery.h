@@ -1052,6 +1052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 
 /**
@@ -1641,6 +1642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns : GTLRBigQueryDataTransferQuery
 
 /**
