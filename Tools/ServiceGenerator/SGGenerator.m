@@ -2780,7 +2780,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         }
         [hd appendUnwrappedFormat:@"Value: \"%@\"", value];
         [subParts addObject:hd.string];
-        BOOL deprecated = tuple.count == 3 ? [tuple[2] boolValue] : NO;
+        BOOL deprecated = [tuple[2] boolValue];
         NSString *maybeDeprecated = deprecated ? kDeprecatedSuffix : @"";
         line = [NSString stringWithFormat:@"%@ NSString * const %@%@;\n",
                 kExternPrefix, name, maybeDeprecated];
@@ -3133,8 +3133,8 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 // Returns a dictionary keyed by the "grouping" where the objects are the
 // values keyed by the constant name. i.e. --
 //   { 'scope': {
-//       'kGTLRServiceScopeSpam': [ '@spam', 'description' ],
-//       'kGTLRServiceScopeBlah': [ '@blah', 'description' ]
+//       'kGTLRServiceScopeSpam': [ '@spam', 'description', @NO ],
+//       'kGTLRServiceScopeBlah': [ '@blah', 'description', @YES ]
 //      }
 //   }
 - (NSDictionary *)sg_objectEnumsMap {
@@ -3195,11 +3195,13 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     NSMutableDictionary *groupMap = [NSMutableDictionary dictionary];
     [worker setObject:groupMap forKey:groupName];
     NSArray *enumDescriptions = schema.enumDescriptions;
+    NSArray *enumDeprecateds = schema.enumDeprecated;
     for (NSUInteger i = 0; i < enumProperty.count; ++i) {
       NSString *enumValue = enumProperty[i];
       NSString *enumDescription = (i < enumDescriptions.count ? enumDescriptions[i] : @"");
+      NSNumber *enumDeprecated = (i < enumDeprecateds.count ? enumDeprecateds[i] : @NO);
       NSString *constName = ConstantName(groupPrefix, enumValue);
-      [groupMap setObject:@[ enumValue, enumDescription ]
+      [groupMap setObject:@[ enumValue, enumDescription, enumDeprecated ]
                    forKey:constName];
     }
     [schema sg_setProperty:groupMap forKey:kEnumMapKey];
