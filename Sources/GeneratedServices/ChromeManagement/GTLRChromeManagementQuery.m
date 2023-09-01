@@ -12,8 +12,6 @@
 
 #import <GoogleAPIClientForREST/GTLRChromeManagementQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRChromeManagementObjects.h>
-
 // ----------------------------------------------------------------------------
 // Constants
 
@@ -297,6 +295,71 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.parent = parent;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryEventsResponse class];
   query.loggingName = @"chromemanagement.customers.telemetry.events.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/telemetry/notificationConfigs";
+  GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig class];
+  query.loggingName = @"chromemanagement.customers.telemetry.notificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.customers.telemetry.notificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/telemetry/notificationConfigs";
+  GTLRChromeManagementQuery_CustomersTelemetryNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryNotificationConfigsResponse class];
+  query.loggingName = @"chromemanagement.customers.telemetry.notificationConfigs.list";
   return query;
 }
 

@@ -13739,8 +13739,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The ID of the targeting option assigned to the location list. Must
- *  be of type TARGETING_TYPE_GEO_REGION.
+ *  Required. The ID of the targeting option assigned to the location list.
+ *  Assigned locations can only be modified in TARGETING_LOCATION_TYPE_REGIONAL
+ *  location lists. When creating or deleting assigned locations, this value
+ *  must be of type TARGETING_TYPE_GEO_REGION.
  */
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
@@ -15289,7 +15291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Response message for BulkListCampaignAssignedTargetingOptions.
+ *  GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "assignedTargetingOptions" property. If returned as the result of
@@ -15319,7 +15321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Response message for BulkListInsertionOrderAssignedTargetingOptions.
+ *  GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "assignedTargetingOptions" property. If returned as the result of
@@ -23382,7 +23384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Response message for ListInsertionOrderAssignedTargetingOptions.
+ *  GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "assignedTargetingOptions" property. If returned as the result of
@@ -28063,7 +28065,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
- *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM` If not using an
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM` *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` If not using an
  *  applicable strategy, the value of this field will be 0.
  *
  *  Uses NSNumber of longLongValue.

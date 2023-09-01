@@ -1890,7 +1890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 /**
  *  The resource name of the finalized deal. Format:
- *  `buyers/{accountId}/finalizeddeals/{finalizedDealId}`
+ *  `buyers/{accountId}/finalizedDeals/{finalizedDealId}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -60,7 +60,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice;
@@ -751,6 +754,42 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "USB_REMOVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
+
+/**
+ *  Triggered when a audio devices run out of buffer data for more than 5
+ *  seconds.
+ *
+ *  Value: "AUDIO_SEVERE_UNDERRUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AudioSevereUnderrun;
+/**
+ *  Event type unknown.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified;
+/**
+ *  Triggered when a new HTTPS latency problem was detected or the device has
+ *  recovered form an existing HTTPS latency problem.
+ *
+ *  Value: "NETWORK_HTTPS_LATENCY_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkHttpsLatencyChange;
+/**
+ *  Triggered when USB devices are added.
+ *
+ *  Value: "USB_ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbAdded;
+/**
+ *  Triggered when USB devices are removed.
+ *
+ *  Value: "USB_REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbRemoved;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
@@ -2525,6 +2564,33 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response message for listing notification configs for a customer.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "telemetryNotificationConfigs" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryNotificationConfigsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The telemetry notification configs from the specified customer.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig *> *telemetryNotificationConfigs;
+
+@end
+
+
+/**
  *  Response message for listing telemetry users for a customer.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3190,6 +3256,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Configures how the telemetry events should be filtered.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter : GTLRObject
+
+/**
+ *  Only sends the notifications for events of these types. Must not be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
+
+@end
+
+
+/**
  *  Https latency routine is run periodically and
  *  `TelemetryHttpsLatencyChangeEvent` is triggered if a latency problem was
  *  detected or if the device has recovered from a latency problem. * Granular
@@ -3213,6 +3292,60 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        HTTPS latency recovered from a problem. (Value: "RECOVERY")
  */
 @property(nonatomic, copy, nullable) NSString *httpsLatencyState;
+
+@end
+
+
+/**
+ *  Configuration to receive notifications of telemetry data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig : GTLRObject
+
+/** Output only. Google Workspace customer that owns the resource. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Only send notifications for telemetry data matching this filter. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter *filter;
+
+/** The pubsub topic to which notifications are published to. */
+@property(nonatomic, copy, nullable) NSString *googleCloudPubsubTopic;
+
+/** Output only. Resource name of the notification configuration. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Configures how the telemetry data should be filtered.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter : GTLRObject
+
+/**
+ *  If set, only sends notifications for telemetry data coming from this device.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  If set, only sends notifications for telemetry data coming from devices in
+ *  this org unit.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceOrgUnitId;
+
+/** Only sends notifications for the telemetry events matching this filter. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter *telemetryEventNotificationFilter;
+
+/**
+ *  If set, only sends notifications for telemetry data coming from devices
+ *  owned by this user.
+ */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/**
+ *  If set, only sends notifications for telemetry data coming from devices
+ *  owned by users in this org unit.
+ */
+@property(nonatomic, copy, nullable) NSString *userOrgUnitId;
 
 @end
 
@@ -3510,6 +3643,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *vid;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRChromeManagement_GoogleProtobufEmpty : GTLRObject
 @end
 
 
