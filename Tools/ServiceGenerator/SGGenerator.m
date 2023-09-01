@@ -2768,9 +2768,9 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     if (maxLen > 45) maxLen = 45;
 
     for (__strong NSString *name in names) {
-      NSArray *pair = [enumGroup objectForKey:name];
-      NSString *value = [pair objectAtIndex:0];
-      NSString *desc = [pair objectAtIndex:1];
+      NSArray *tuple = [enumGroup objectForKey:name];
+      NSString *value = tuple[0];
+      NSString *desc = tuple[1];
       NSString *line;
       if (mode == kGenerateInterface) {
         SGHeaderDoc *hd = [[SGHeaderDoc alloc] initWithAutoOneLine:YES];
@@ -2780,9 +2780,10 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         }
         [hd appendUnwrappedFormat:@"Value: \"%@\"", value];
         [subParts addObject:hd.string];
-        line = [NSString stringWithFormat:@"%@ NSString * const %@;\n",
-                kExternPrefix, name];
-
+        BOOL deprecated = tuple.count == 3 ? [tuple[2] boolValue] : NO;
+        NSString *maybeDeprecated = deprecated ? kDeprecatedSuffix : @"";
+        line = [NSString stringWithFormat:@"%@ NSString * const %@%@;\n",
+                kExternPrefix, name, maybeDeprecated];
       } else {
         line = [NSString stringWithFormat:@"NSString * const %-*s = @\"%@\";\n",
                 (int)maxLen, name.UTF8String, value];
@@ -3048,8 +3049,8 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 // Returns a dictionary keyed by the "grouping" where the objects are the
 // values keyed by the constant name. i.e. --
 //   { 'scope': {
-//       'kGTLRServiceScopeSpam': [ '@spam', @'description' ],
-//       'kGTLRServiceScopeBlah': [ '@blah', @'description' ]
+//       'kGTLRServiceScopeSpam': [ '@spam', @'description', @YES ],
+//       'kGTLRServiceScopeBlah': [ '@blah', @'description', @NO ]
 //      }
 //   }
 - (NSDictionary *)sg_queryEnumsMap {
@@ -3086,22 +3087,38 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         [worker setObject:groupMap forKey:param.sg_objcName];
       }
       NSArray *enumDescriptions = param.enumDescriptions;
+      NSArray *enumDeprecateds = param.enumDeprecated;
       for (NSUInteger i = 0; i < enumProperty.count; ++i) {
         NSString *enumValue = enumProperty[i];
         NSString *enumDescription = (i < enumDescriptions.count ? enumDescriptions[i] : @"");
+        NSNumber *enumDeprecated = (i < enumDeprecateds.count ? enumDeprecateds[i] : @NO);
         NSString *constName = [param sg_constantNamed:enumValue];
         NSArray *previousValue = [groupMap objectForKey:constName];
         if (previousValue) {
-          if (![[previousValue objectAtIndex:1] isEqual:enumDescription]) {
-            // The constant is comment to a few methods, but the descriptions
-            // aren't the same. Clear it out so the constant won't have any
-            // explanation text, and instead the text will only be on the
-            // query method where it can be properly scoped.
-            [groupMap setObject:@[ enumValue, @"" ]
+          NSString *prevDescription = previousValue[1];
+          BOOL descMatches = [prevDescription isEqual:enumDescription];
+          NSNumber *prevDeprecated = previousValue[2];
+          BOOL deprecatedMatches = [prevDeprecated isEqual:enumDeprecated];
+          if (!descMatches || !deprecatedMatches) {
+            // If the deprecations don't match, clear that so it won't get
+            // annotated.
+            if (!deprecatedMatches) {
+              NSString *msg =
+                  [NSString stringWithFormat:@"Collecting enum values, '%@' on method '%@' has value '%@' with a different deprecation status than on other methods, can't annotated it.",
+                   param.sg_name, param.sg_method.sg_name, enumValue];
+              enumDeprecated = @NO;
+              [self.sg_generator addInfo:msg];
+            }
+            // If the descriptions don't match, clear it out so the constant
+            // won't get a comment (the comment on specific usages will still
+            // have a comment).
+            [groupMap setObject:@[ enumValue,
+                                   (descMatches ? enumDescription : @""),
+                                   enumDeprecated ]
                          forKey:constName];
           }
         } else {
-          [groupMap setObject:@[ enumValue, enumDescription ]
+          [groupMap setObject:@[ enumValue, enumDescription, enumDeprecated ]
                        forKey:constName];
         }
       }
