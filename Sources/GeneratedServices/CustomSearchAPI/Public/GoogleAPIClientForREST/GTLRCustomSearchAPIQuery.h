@@ -252,13 +252,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISafeActive;
  *
  *  Value: "high"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISafeHigh;
+FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISafeHigh GTLR_DEPRECATED;
 /**
  *  Deprecated, equivalent to "active".
  *
  *  Value: "medium"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISafeMedium;
+FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISafeMedium GTLR_DEPRECATED;
 /**
  *  Turn SafeSearch off.
  *
