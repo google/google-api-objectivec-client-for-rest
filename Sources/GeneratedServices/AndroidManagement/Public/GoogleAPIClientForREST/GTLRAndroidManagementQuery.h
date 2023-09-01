@@ -135,7 +135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Set this to field to true for all EMM-managed enterprises
  *  (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises).
  */
-@property(nonatomic, assign) BOOL agreementAccepted;
+@property(nonatomic, assign) BOOL agreementAccepted GTLR_DEPRECATED;
 
 /**
  *  The enterprise token appended to the callback URL. Set this when creating a

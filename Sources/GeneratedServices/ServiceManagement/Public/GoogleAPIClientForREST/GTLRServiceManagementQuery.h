@@ -741,7 +741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Include services consumed by the specified consumer. The Google Service
  *  Management implementation accepts the following forms: - project:
  */
-@property(nonatomic, copy, nullable) NSString *consumerId;
+@property(nonatomic, copy, nullable) NSString *consumerId GTLR_DEPRECATED;
 
 /**
  *  The max number of items to include in the response list. Page size is 50 if

@@ -189,7 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  Optional. This field is deprecated and should not be used for specifying the
  *  revision ID. The revision ID should be specified via the `name` parameter.
  */
-@property(nonatomic, copy, nullable) NSString *revisionId;
+@property(nonatomic, copy, nullable) NSString *revisionId GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRPubsub_Schema.

@@ -2369,7 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @interface GTLRAndroidPublisherQuery_InappproductsList : GTLRAndroidPublisherQuery
 
 /** Deprecated and ignored. The page size is determined by the server. */
-@property(nonatomic, assign) NSUInteger maxResults;
+@property(nonatomic, assign) NSUInteger maxResults GTLR_DEPRECATED;
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2377,7 +2377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Deprecated and ignored. Set the `token` parameter to retrieve the next page.
  */
-@property(nonatomic, assign) NSUInteger startIndex;
+@property(nonatomic, assign) NSUInteger startIndex GTLR_DEPRECATED;
 
 /** Pagination token. If empty, list starts at the first product. */
 @property(nonatomic, copy, nullable) NSString *token;

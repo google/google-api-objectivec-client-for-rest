@@ -920,6 +920,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationBigquery
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsSearchAssignments : GTLRBigQueryReservationQuery
 
 /** The maximum number of items to return per page. */

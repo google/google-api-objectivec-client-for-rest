@@ -926,6 +926,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
  *    @c kGTLRAuthScopeFirebaseappcheckFirebase
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangeSafetyNetToken : GTLRFirebaseappcheckQuery
 
 /**
@@ -1459,6 +1460,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
  *    @c kGTLRAuthScopeFirebaseappcheckFirebase
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet : GTLRFirebaseappcheckQuery
 
 /**
@@ -1503,6 +1505,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
  *    @c kGTLRAuthScopeFirebaseappcheckFirebase
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet : GTLRFirebaseappcheckQuery
 
 /**
@@ -1537,6 +1540,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
  *    @c kGTLRAuthScopeFirebaseappcheckFirebase
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch : GTLRFirebaseappcheckQuery
 
 /**

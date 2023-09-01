@@ -22718,6 +22718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRComputeQuery_ProjectsMoveInstance : GTLRComputeQuery
 
 /** Project ID for this request. */
