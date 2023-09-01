@@ -37,6 +37,7 @@ static NSString *kForcedNameCommentKey            = @"forcedNameComment";
 static NSString *kCapObjCNameKey                  = @"capObjCName";
 static NSString *kAllResourcesKey                 = @"allResources";
 static NSString *kAllMethodsKey                   = @"allMethods";
+static NSString *kHasDeprecatedMethodKey          = @"hasDeprecatedMethodKey";
 static NSString *kQueryEnumsMapKey                = @"queryEnumsMap";
 static NSString *kObjectEnumsMapKey               = @"objectEnumsMap";
 static NSString *kAllSchemasKey                   = @"allSchemas";
@@ -69,6 +70,11 @@ static NSString *kSuppressDocumentationWarningsBegin =
 static NSString *kSuppressDocumentationWarningsEnd =
   @"#pragma clang diagnostic pop\n";
 
+// Discovery doesn't provide a message (just a boolean), simple annotation is
+// all that is possible.
+static NSString *kDeprecatedSuffix = @" GTLR_DEPRECATED";
+static NSString *kDeprecatedWithNewline = @"GTLR_DEPRECATED\n";
+
 typedef enum {
   kGenerateInterface = 1,
   kGenerateImplementation
@@ -92,6 +98,7 @@ typedef enum {
 
 @interface GTLRDiscovery_RestDescription (SGGeneratorAdditions)
 @property(readonly) NSArray *sg_allMethods;
+@property(readonly) BOOL sg_hasDeprecatedMethod;
 @property(readonly) NSDictionary *sg_queryEnumsMap;
 @property(readonly) NSDictionary *sg_objectEnumsMap;
 @property(readonly) NSArray *sg_allSchemas;
@@ -1218,8 +1225,19 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:header];
   }
 
+  BOOL hasDeprecatedMethod = self.api.sg_hasDeprecatedMethod;
+  if (hasDeprecatedMethod) {
+    [parts addObject:
+     @"#pragma clang diagnostic push\n"
+     @"#pragma clang diagnostic ignored \"-Wdeprecated-implementations\"\n"];
+  }
+
   NSString *queryClassStr = [self generateQueryClassesForMode:kGenerateImplementation];
   [parts addObject:queryClassStr];
+
+  if (hasDeprecatedMethod) {
+    [parts addObject:@"#pragma clang diagnostic pop\n"];
+  }
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1498,15 +1516,17 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         extraAttributes =
           [extraAttributes stringByAppendingFormat:@", getter=valueOf_%@", paramObjCName];
       }
+      NSString *maybeDeprecated = param.deprecated.boolValue ? kDeprecatedSuffix : @"";
       NSString *clangDirective = @"";
       if ((asPtr || [objcType isEqual:@"id"])
           && [_notRetainedPredicate evaluateWithObject:paramObjCName]) {
         clangDirective = @" NS_RETURNS_NOT_RETAINED";
       }
-      NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@;\n",
+      NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@%@;\n",
                                   objcPropertySemantics, extraAttributes, objcType,
                                 (asPtr ? @" *" : @" "),
                                 paramObjCName,
+                                maybeDeprecated,
                                 clangDirective];
       if (hd.hasText) {
         [parts addObject:hd.string];
@@ -1757,8 +1777,11 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         }
       }
 
-      atBlock = [NSString stringWithFormat:@"%@@interface %@ : %@\n",
-                 classHDoc.string, queryClassName, self.objcQueryBaseClassName];
+      atBlock = [NSString stringWithFormat:@"%@%@@interface %@ : %@\n",
+                 classHDoc.string,
+                 (method.deprecated.boolValue ? kDeprecatedWithNewline : @""),
+                 queryClassName,
+                 self.objcQueryBaseClassName];
     } else {
       atBlock = [NSString stringWithFormat:@"@implementation %@\n", queryClassName];
     }
@@ -1853,6 +1876,12 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
       }
       if (!param.required.boolValue) {
         continue;
+      }
+      if (param.deprecated.boolValue) {
+        NSString *msg =
+            [NSString stringWithFormat:@"Method %@ has required param '%@' that is also deprecated, no way to annotate that.",
+             method.identifier, param.sg_name];
+        [self addInfo:msg];
       }
       hasRequiredParams = YES;
       NSString *objcType = nil;
@@ -2998,6 +3027,22 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     [self sg_setProperty:result forKey:kAllMethodsKey];
   }
   return result;
+}
+
+- (BOOL)sg_hasDeprecatedMethod {
+  NSNumber *result = [self sg_propertyForKey:kHasDeprecatedMethodKey];
+  if (result == nil) {
+    result = @NO;
+    for (GTLRDiscovery_RestMethod *method in self.sg_allMethods) {
+      if (method.deprecated.boolValue) {
+        result = @YES;
+        break;
+      }
+    }
+
+    [self sg_setProperty:result forKey:kHasDeprecatedMethodKey];
+  }
+  return [result boolValue];
 }
 
 // Returns a dictionary keyed by the "grouping" where the objects are the
