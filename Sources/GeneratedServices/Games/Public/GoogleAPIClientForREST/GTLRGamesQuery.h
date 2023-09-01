@@ -49,7 +49,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionCollectionUnspecified;
  *
  *  Value: "CONNECTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected GTLR_DEPRECATED;
 /**
  *  List only scores of friends.
  *
@@ -80,14 +80,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionScoreCollectionUnspecifie
  *
  *  Value: "SOCIAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial GTLR_DEPRECATED;
 /**
  *  Retrieve a list of players in the user's social graph that are visible to
  *  this game.
  *
  *  Value: "VISIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // endPointType
@@ -145,7 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
  *
  *  Value: "SOCIAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // platformType
