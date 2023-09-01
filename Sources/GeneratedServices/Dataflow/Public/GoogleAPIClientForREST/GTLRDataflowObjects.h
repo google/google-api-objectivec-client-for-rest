@@ -1861,13 +1861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *percentComplete;
+@property(nonatomic, strong, nullable) NSNumber *percentComplete GTLR_DEPRECATED;
 
 /** Obsolete. */
-@property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
+@property(nonatomic, strong, nullable) GTLRDataflow_Position *position GTLR_DEPRECATED;
 
 /** Obsolete. */
-@property(nonatomic, strong, nullable) GTLRDuration *remainingTime;
+@property(nonatomic, strong, nullable) GTLRDuration *remainingTime GTLR_DEPRECATED;
 
 @end
 
@@ -4381,7 +4381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  DEPRECATED. The location of the persistent state for this range, as a
  *  persistent directory in the worker local filesystem.
  */
-@property(nonatomic, copy, nullable) NSString *deprecatedPersistentDirectory;
+@property(nonatomic, copy, nullable) NSString *deprecatedPersistentDirectory GTLR_DEPRECATED;
 
 /** The end (exclusive) of the key range. */
 @property(nonatomic, copy, nullable) NSString *end;
@@ -6575,7 +6575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *desiredShardSizeBytes;
+@property(nonatomic, strong, nullable) NSNumber *desiredShardSizeBytes GTLR_DEPRECATED;
 
 @end
 
@@ -6636,7 +6636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *outcome;
 
 /** DEPRECATED in favor of bundles. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SourceSplitShard *> *shards;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SourceSplitShard *> *shards GTLR_DEPRECATED;
 
 @end
 
@@ -8340,10 +8340,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_ApproximateSplitRequest *splitRequest;
 
 /** DEPRECATED in favor of split_request. */
-@property(nonatomic, strong, nullable) GTLRDataflow_ApproximateProgress *suggestedStopPoint;
+@property(nonatomic, strong, nullable) GTLRDataflow_ApproximateProgress *suggestedStopPoint GTLR_DEPRECATED;
 
 /** Obsolete, always empty. */
-@property(nonatomic, strong, nullable) GTLRDataflow_Position *suggestedStopPosition;
+@property(nonatomic, strong, nullable) GTLRDataflow_Position *suggestedStopPosition GTLR_DEPRECATED;
 
 @end
 
@@ -8386,10 +8386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Status *> *errors;
 
 /** DEPRECATED in favor of counter_updates. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MetricUpdate *> *metricUpdates;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MetricUpdate *> *metricUpdates GTLR_DEPRECATED;
 
 /** DEPRECATED in favor of reported_progress. */
-@property(nonatomic, strong, nullable) GTLRDataflow_ApproximateProgress *progress;
+@property(nonatomic, strong, nullable) GTLRDataflow_ApproximateProgress *progress GTLR_DEPRECATED;
 
 /** The worker's progress through this WorkItem. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ApproximateReportedProgress *reportedProgress;
@@ -8414,7 +8414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDuration *requestedLeaseDuration;
 
 /** DEPRECATED in favor of dynamic_source_split. */
-@property(nonatomic, strong, nullable) GTLRDataflow_SourceFork *sourceFork;
+@property(nonatomic, strong, nullable) GTLRDataflow_SourceFork *sourceFork GTLR_DEPRECATED;
 
 /**
  *  If the work item represented a SourceOperationRequest, and the work is

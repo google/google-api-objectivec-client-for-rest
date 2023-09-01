@@ -4321,7 +4321,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  field is empty. The `inventory_item` value specifies the latest
  *  `SoftwarePackage` available to the VM that fixes the vulnerability.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *availableInventoryItemIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableInventoryItemIds GTLR_DEPRECATED;
 
 /** The timestamp for when the vulnerability was first detected. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -4338,7 +4338,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  values might not display in VM inventory. For some distros, this field may
  *  be empty.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *installedInventoryItemIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *installedInventoryItemIds GTLR_DEPRECATED;
 
 /**
  *  List of items affected by the vulnerability.

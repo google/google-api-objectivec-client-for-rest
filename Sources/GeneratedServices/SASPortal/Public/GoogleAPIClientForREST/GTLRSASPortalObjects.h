@@ -404,7 +404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @property(nonatomic, strong, nullable) GTLRSASPortal_DeviceConfig *activeConfig;
 
 /** Output only. Current channels with scores. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_ChannelWithScore *> *currentChannels;
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_ChannelWithScore *> *currentChannels GTLR_DEPRECATED;
 
 /**
  *  Device parameters that can be overridden by both SAS Portal and SAS
@@ -654,7 +654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *nrqzValidated;
+@property(nonatomic, strong, nullable) NSNumber *nrqzValidated GTLR_DEPRECATED;
 
 /** Output only. National Radio Quiet Zone validation info. */
 @property(nonatomic, strong, nullable) GTLRSASPortal_NrqzValidation *nrqzValidation;

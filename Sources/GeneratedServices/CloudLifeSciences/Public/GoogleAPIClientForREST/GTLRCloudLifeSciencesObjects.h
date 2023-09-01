@@ -1540,7 +1540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  contained in the container being executed, and must be one of the drivers
  *  hosted in the `nvidia-drivers-us-public` bucket on Google Cloud Storage.
  */
-@property(nonatomic, copy, nullable) NSString *nvidiaDriverVersion;
+@property(nonatomic, copy, nullable) NSString *nvidiaDriverVersion GTLR_DEPRECATED;
 
 /**
  *  If true, allocate a preemptible VM.

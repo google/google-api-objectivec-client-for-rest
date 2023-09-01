@@ -617,7 +617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /** # gdata.* are outside protos with mising documentation */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Blobstore2Info *blobstore2Info;
@@ -978,7 +978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_Media : GTLRObject
 
 /** # gdata.* are outside protos with mising documentation */
-@property(nonatomic, copy, nullable) NSString *algorithm;
+@property(nonatomic, copy, nullable) NSString *algorithm GTLR_DEPRECATED;
 
 /**
  *  # gdata.* are outside protos with mising documentation
@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef;
+@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef GTLR_DEPRECATED;
 
 /**
  *  # gdata.* are outside protos with mising documentation
@@ -994,7 +994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /** # gdata.* are outside protos with mising documentation */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Blobstore2Info *blobstore2Info;
@@ -1049,7 +1049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
-@property(nonatomic, copy, nullable) NSString *hashProperty;
+@property(nonatomic, copy, nullable) NSString *hashProperty GTLR_DEPRECATED;
 
 /**
  *  # gdata.* are outside protos with mising documentation

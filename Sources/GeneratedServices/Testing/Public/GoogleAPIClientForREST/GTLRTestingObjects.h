@@ -1259,14 +1259,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxDepth;
+@property(nonatomic, strong, nullable) NSNumber *maxDepth GTLR_DEPRECATED;
 
 /**
  *  The max number of steps Robo can execute. Default is no limit.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxSteps;
+@property(nonatomic, strong, nullable) NSNumber *maxSteps GTLR_DEPRECATED;
 
 /**
  *  A set of directives Robo should apply during the crawl. This allows users to
@@ -2422,7 +2422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  in the environment. The package is available at
  *  https://maven.google.com/web/index.html#com.android.support.test:orchestrator.
  */
-@property(nonatomic, copy, nullable) NSString *orchestratorVersion;
+@property(nonatomic, copy, nullable) NSString *orchestratorVersion GTLR_DEPRECATED;
 
 @end
 
@@ -2670,7 +2670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *durationSeconds;
+@property(nonatomic, strong, nullable) NSNumber *durationSeconds GTLR_DEPRECATED;
 
 @end
 
@@ -3112,7 +3112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  was sunsetted on 2020-01-01. Systrace is no longer supported in the Cloud
  *  Testing API, and no Systrace file will be provided in the results.
  */
-@property(nonatomic, strong, nullable) GTLRTesting_SystraceSetup *systrace;
+@property(nonatomic, strong, nullable) GTLRTesting_SystraceSetup *systrace GTLR_DEPRECATED;
 
 @end
 

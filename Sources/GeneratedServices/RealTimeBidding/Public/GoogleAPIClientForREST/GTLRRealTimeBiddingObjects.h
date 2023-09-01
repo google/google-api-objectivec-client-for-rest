@@ -1952,7 +1952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /**
  *  All restricted categories for the ads that may be shown from this creative.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories GTLR_DEPRECATED;
 
 /**
  *  Output only. The version of the creative. Version for a new creative is 1
@@ -1960,7 +1960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version GTLR_DEPRECATED;
 
 /** A video creative. */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_VideoContent *video;

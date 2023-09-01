@@ -1050,7 +1050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeTeamDrives;
+@property(nonatomic, strong, nullable) NSNumber *includeTeamDrives GTLR_DEPRECATED;
 
 /**
  *  Search the current version of the Drive file, but export the contents of the
@@ -1362,7 +1362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeTeamDriveFiles;
+@property(nonatomic, strong, nullable) NSNumber *includeTeamDriveFiles GTLR_DEPRECATED;
 
 @end
 
@@ -2077,7 +2077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Search the data in the
  *        Team Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
  */
-@property(nonatomic, copy, nullable) NSString *searchMethod;
+@property(nonatomic, copy, nullable) NSString *searchMethod GTLR_DEPRECATED;
 
 /** Required when **SearchMethod** is **SHARED_DRIVE**. */
 @property(nonatomic, strong, nullable) GTLRVault_SharedDriveInfo *sharedDriveInfo;
@@ -2092,7 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /** Required when **SearchMethod** is **TEAM_DRIVE**. */
-@property(nonatomic, strong, nullable) GTLRVault_TeamDriveInfo *teamDriveInfo;
+@property(nonatomic, strong, nullable) GTLRVault_TeamDriveInfo *teamDriveInfo GTLR_DEPRECATED;
 
 /**
  *  Service-specific [search
@@ -2284,7 +2284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  List of Team Drive IDs, as provided by the [Drive
  *  API](https://developers.google.com/drive).
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *teamDriveIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *teamDriveIds GTLR_DEPRECATED;
 
 @end
 

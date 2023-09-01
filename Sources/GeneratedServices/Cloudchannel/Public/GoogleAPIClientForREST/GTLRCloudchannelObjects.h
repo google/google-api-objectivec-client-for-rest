@@ -1909,7 +1909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *assignedUnits;
+@property(nonatomic, strong, nullable) NSNumber *assignedUnits GTLR_DEPRECATED;
 
 /** Association information to other entitlements. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1AssociationInfo *associationInfo;
@@ -1927,7 +1927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  partner or reseller. Required for distributors. Deprecated:
  *  `channel_partner_id` has been moved to the Customer.
  */
-@property(nonatomic, copy, nullable) NSString *channelPartnerId;
+@property(nonatomic, copy, nullable) NSString *channelPartnerId GTLR_DEPRECATED;
 
 /**
  *  Commitment settings for a commitment-based Offer. Required for commitment
@@ -1946,7 +1946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxUnits;
+@property(nonatomic, strong, nullable) NSNumber *maxUnits GTLR_DEPRECATED;
 
 /**
  *  Output only. Resource name of an entitlement in the form:
@@ -1962,7 +1962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *numUnits;
+@property(nonatomic, strong, nullable) NSNumber *numUnits GTLR_DEPRECATED;
 
 /**
  *  Required. The offer resource name for which the entitlement is to be
@@ -2243,7 +2243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *disableCommitment;
+@property(nonatomic, strong, nullable) NSNumber *disableCommitment GTLR_DEPRECATED;
 
 /**
  *  If false, the plan will be completed at the end date.
@@ -2269,7 +2269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentOption_PaymentOptionUnspecified
  *        Not used. (Value: "PAYMENT_OPTION_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *paymentOption;
+@property(nonatomic, copy, nullable) NSString *paymentOption GTLR_DEPRECATED;
 
 /**
  *  Describes how a reseller will be billed.

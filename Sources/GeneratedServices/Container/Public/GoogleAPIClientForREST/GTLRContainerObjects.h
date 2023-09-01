@@ -2030,7 +2030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  more information, see:
  *  https://cloud.google.com/kubernetes-engine/docs/concepts/dashboards
  */
-@property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard;
+@property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard GTLR_DEPRECATED;
 
 /**
  *  Configuration for NetworkPolicy. This only tracks whether the addon is
@@ -2235,7 +2235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To
  *  unset the min cpu platform field pass "automatic" as field value.
  */
-@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform GTLR_DEPRECATED;
 
 /** Scopes that are used by NAP when creating node pools. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
@@ -2325,7 +2325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled GTLR_DEPRECATED;
 
 /**
  *  Mode of operation for binauthz policy evaluation. If unspecified, defaults
@@ -2432,14 +2432,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The server-assigned `name` of the operation. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *operationId;
+@property(nonatomic, copy, nullable) NSString *operationId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -2449,7 +2449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -2583,7 +2583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *currentNodeCount;
+@property(nonatomic, strong, nullable) NSNumber *currentNodeCount GTLR_DEPRECATED;
 
 /**
  *  [Output only] Deprecated, use
@@ -2592,7 +2592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
  */
-@property(nonatomic, copy, nullable) NSString *currentNodeVersion;
+@property(nonatomic, copy, nullable) NSString *currentNodeVersion GTLR_DEPRECATED;
 
 /** Configuration of etcd encryption. */
 @property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *databaseEncryption;
@@ -2691,10 +2691,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *initialNodeCount;
+@property(nonatomic, strong, nullable) NSNumber *initialNodeCount GTLR_DEPRECATED;
 
 /** Deprecated. Use node_pools.instance_group_urls. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls GTLR_DEPRECATED;
 
 /** Configuration for cluster IP allocation. */
 @property(nonatomic, strong, nullable) GTLRContainer_IPAllocationPolicy *ipAllocationPolicy;
@@ -2806,7 +2806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  node pool, see `node_pool.config`) If unspecified, the defaults are used.
  *  This field is deprecated, use node_pool.config instead.
  */
-@property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig;
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig GTLR_DEPRECATED;
 
 /**
  *  [Output only] The size of the address space on each node for hosting
@@ -2911,7 +2911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  [Output only] Deprecated. Use conditions instead. Additional information
  *  about the current status of this cluster, if available.
  */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
+@property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
  *  The name of the Google Compute Engine
@@ -2943,7 +2943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -3321,7 +3321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster name) of the cluster to complete IP
@@ -3334,7 +3334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -3344,7 +3344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -3441,7 +3441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -3451,7 +3451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -3465,7 +3465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /** Required. The node pool to create. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePool *nodePool;
@@ -3481,7 +3481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -3491,7 +3491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -4034,7 +4034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *additionalPodRangesConfig;
 
 /** This field is deprecated, use cluster_ipv4_cidr_block. */
-@property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr GTLR_DEPRECATED;
 
 /**
  *  The IP address range for the cluster pod IPs. If this field is set, then
@@ -4088,7 +4088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *ipv6AccessType;
 
 /** This field is deprecated, use node_ipv4_cidr_block. */
-@property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr GTLR_DEPRECATED;
 
 /**
  *  The IP address range of the instance IPs in this cluster. This is applicable
@@ -4113,7 +4113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_PodCIDROverprovisionConfig *podCidrOverprovisionConfig;
 
 /** This field is deprecated, use services_ipv4_cidr_block. */
-@property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
+@property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr GTLR_DEPRECATED;
 
 /**
  *  The IP address range of the services IPs in this cluster. If blank, a range
@@ -4616,7 +4616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  recommended authentication methods, see:
  *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
-@property(nonatomic, copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password GTLR_DEPRECATED;
 
 /**
  *  The username to use for HTTP basic authentication to the master endpoint.
@@ -4627,7 +4627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  see:
  *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
-@property(nonatomic, copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
 @end
 
@@ -5599,7 +5599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  [Output only] Deprecated. Use conditions instead. Additional information
  *  about the current status of this node pool instance, if available.
  */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
+@property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
  *  Output only. [Output only] Update info contains relevant information during
@@ -5797,7 +5797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Which conditions caused the current cluster state. Deprecated. Use field
  *  error instead.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *clusterConditions;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *clusterConditions GTLR_DEPRECATED;
 
 /** Detailed operation progress, if available. */
 @property(nonatomic, copy, nullable) NSString *detail;
@@ -5827,7 +5827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Which conditions caused the current node pool state. Deprecated. Use field
  *  error instead.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *nodepoolConditions;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *nodepoolConditions GTLR_DEPRECATED;
 
 /**
  *  The operation type.
@@ -5964,7 +5964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Output only. If an error has occurred, a textual description of the error.
  *  Deprecated. Use the field error instead.
  */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
+@property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
  *  Server-defined URI for the target of the operation. The format of this is a
@@ -5985,7 +5985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6412,7 +6412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to rollback. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node poll to
@@ -6425,14 +6425,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the node pool to rollback. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Option for rollback to ignore the PodDisruptionBudget. Default value is
@@ -6450,7 +6450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6624,7 +6624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster) of the cluster to set addons.
@@ -6637,7 +6637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -6647,7 +6647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6663,7 +6663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. The fingerprint of the previous set of labels for this resource,
@@ -6686,7 +6686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /** Required. The labels to set for that cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SetLabelsRequest_ResourceLabels *resourceLabels;
@@ -6699,7 +6699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6726,7 +6726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to update. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. Whether ABAC authorization will be enabled in the cluster.
@@ -6746,7 +6746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -6756,7 +6756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6770,7 +6770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. The desired list of Google Compute Engine
@@ -6793,7 +6793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -6803,7 +6803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6817,7 +6817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. The logging service the cluster should use to write logs.
@@ -6841,7 +6841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -6851,7 +6851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6922,7 +6922,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster) of the cluster to set auth. Specified
@@ -6935,7 +6935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /** Required. A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *update;
@@ -6948,7 +6948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -6962,7 +6962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. The monitoring service the cluster should use to write metrics.
@@ -6987,7 +6987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -6997,7 +6997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7011,7 +7011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster name) of the cluster to set networking
@@ -7027,7 +7027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -7037,7 +7037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7054,7 +7054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to set
@@ -7067,14 +7067,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the node pool to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -7084,7 +7084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7099,7 +7099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to update. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /** Required. NodeManagement configuration for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
@@ -7115,14 +7115,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the node pool to update. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -7132,7 +7132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7146,7 +7146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to update. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
@@ -7166,14 +7166,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the node pool to update. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -7183,7 +7183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7280,7 +7280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster. This field has been deprecated and
  *  replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster name) of the cluster to start IP
@@ -7293,7 +7293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Whether to rotate credentials during IP rotation.
@@ -7310,7 +7310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7497,7 +7497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_StatusCondition_Code_Unknown UNKNOWN indicates a
  *        generic condition. (Value: "UNKNOWN")
  */
-@property(nonatomic, copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code GTLR_DEPRECATED;
 
 /** Human-friendly representation of the condition */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -7536,7 +7536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  The name (project, location, cluster) of the cluster to update. Specified in
@@ -7549,7 +7549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /** Required. A description of the update. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterUpdate *update;
@@ -7562,7 +7562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7588,7 +7588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Required. The Kubernetes version to change the master to. Users may specify
@@ -7612,7 +7612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -7622,7 +7622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 
@@ -7636,7 +7636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *clusterId;
+@property(nonatomic, copy, nullable) NSString *clusterId GTLR_DEPRECATED;
 
 /**
  *  Confidential nodes config. All the nodes in the node pool will be
@@ -7730,7 +7730,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Deprecated. The name of the node pool to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *nodePoolId;
+@property(nonatomic, copy, nullable) NSString *nodePoolId GTLR_DEPRECATED;
 
 /**
  *  Required. The Kubernetes version to change the nodes to (typically an
@@ -7748,7 +7748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
-@property(nonatomic, copy, nullable) NSString *projectId;
+@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  The resource labels for the node pool to use to annotate any related Google
@@ -7787,7 +7787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
+@property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
 
 @end
 

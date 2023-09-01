@@ -626,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *deviceModelName;
 
 /** Device language code setting. */
-@property(nonatomic, copy, nullable) NSString *languageCode;
+@property(nonatomic, copy, nullable) NSString *languageCode GTLR_DEPRECATED;
 
 /**
  *  Device language code setting obtained by executing JavaScript code in
@@ -639,7 +639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *  different format than iOS WebView. For example WebView returns en_US, but
  *  iOS returns en-US. Field below will return raw value returned by iOS.
  */
-@property(nonatomic, copy, nullable) NSString *languageCodeRaw;
+@property(nonatomic, copy, nullable) NSString *languageCodeRaw GTLR_DEPRECATED;
 
 /**
  *  Device display resolution height.
@@ -757,7 +757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *  to set up Dynamic Link domain associated with your Firebase project.
  *  Required if missing domain_uri_prefix.
  */
-@property(nonatomic, copy, nullable) NSString *dynamicLinkDomain;
+@property(nonatomic, copy, nullable) NSString *dynamicLinkDomain GTLR_DEPRECATED;
 
 /**
  *  iOS related information. See iOS related parameters in the
@@ -1159,7 +1159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @interface GTLRFirebaseDynamicLinks_GooglePlayAnalytics : GTLRObject
 
 /** Deprecated; FDL SDK does not process nor log it. */
-@property(nonatomic, copy, nullable) NSString *gclid;
+@property(nonatomic, copy, nullable) NSString *gclid GTLR_DEPRECATED;
 
 /**
  *  Campaign name; used for keyword analysis to identify a specific product

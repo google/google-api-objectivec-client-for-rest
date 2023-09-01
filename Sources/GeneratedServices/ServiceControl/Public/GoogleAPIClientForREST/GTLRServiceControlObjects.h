@@ -356,7 +356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  *  Deprecated. Use the `metadata` field instead. Other service-specific data
  *  about the request, response, and other activities.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_AuditLog_ServiceData *serviceData;
+@property(nonatomic, strong, nullable) GTLRServiceControl_AuditLog_ServiceData *serviceData GTLR_DEPRECATED;
 
 /**
  *  The name of the API service performing the operation. For example,

@@ -1115,7 +1115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *returnImmediately;
+@property(nonatomic, strong, nullable) NSNumber *returnImmediately GTLR_DEPRECATED;
 
 @end
 

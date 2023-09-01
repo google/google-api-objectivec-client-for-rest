@@ -1978,7 +1978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *        notifications for message changes relating to labelIds specified.
  *        (Value: "include")
  */
-@property(nonatomic, copy, nullable) NSString *labelFilterAction;
+@property(nonatomic, copy, nullable) NSString *labelFilterAction GTLR_DEPRECATED;
 
 /**
  *  Filtering behavior of `labelIds list` specified. This field replaces

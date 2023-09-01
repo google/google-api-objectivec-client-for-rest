@@ -1111,7 +1111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+@property(nonatomic, strong, nullable) NSNumber *canReschedule GTLR_DEPRECATED;
 
 /**
  *  Output only. The end time of any upcoming scheduled maintenance for this
@@ -1322,7 +1322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *deleteResource;
+@property(nonatomic, strong, nullable) NSNumber *deleteResource GTLR_DEPRECATED;
 
 /**
  *  Excluisive action returned by the CLH.

@@ -14577,7 +14577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_NoLeedCertification
  *        Not certified. (Value: "NO_LEED_CERTIFICATION")
  */
-@property(nonatomic, copy, nullable) NSString *leedCertification;
+@property(nonatomic, copy, nullable) NSString *leedCertification GTLR_DEPRECATED;
 
 /**
  *  LEED certification exception. Deprecated: this field is no longer populated.
@@ -14597,7 +14597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *        Amenity or service is unavailable due to ongoing work orders. (Value:
  *        "UNDER_CONSTRUCTION")
  */
-@property(nonatomic, copy, nullable) NSString *leedCertificationException;
+@property(nonatomic, copy, nullable) NSString *leedCertificationException GTLR_DEPRECATED;
 
 @end
 

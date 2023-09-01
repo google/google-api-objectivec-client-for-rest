@@ -893,7 +893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 /**
  *  Sets of materials that appear on the "about" page of this course. Read-only.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_CourseMaterialSet *> *courseMaterialSets;
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_CourseMaterialSet *> *courseMaterialSets GTLR_DEPRECATED;
 
 /**
  *  State of the course. If unspecified, the default state is `PROVISIONED`.

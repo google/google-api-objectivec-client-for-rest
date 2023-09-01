@@ -2900,7 +2900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Deprecated and unset. */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo GTLR_DEPRECATED;
 
 /** Pagination token, to handle a number of products that is over one page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;

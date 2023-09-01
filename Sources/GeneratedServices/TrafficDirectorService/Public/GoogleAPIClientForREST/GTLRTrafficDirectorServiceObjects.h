@@ -526,7 +526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *
  *  Uses NSNumber of unsignedIntValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxProgramSize;
+@property(nonatomic, strong, nullable) NSNumber *maxProgramSize GTLR_DEPRECATED;
 
 @end
 
@@ -639,7 +639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  by Envoy in management server RPCs. This field is deprecated in favor of the
  *  user_agent_name and user_agent_version values.
  */
-@property(nonatomic, copy, nullable) NSString *buildVersion;
+@property(nonatomic, copy, nullable) NSString *buildVersion GTLR_DEPRECATED;
 
 /**
  *  Client feature support list. These are well known features described in the
@@ -1070,7 +1070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  field has been deprecated in favor of `safe_regex` as it is not safe for use
  *  with untrusted input in all cases.
  */
-@property(nonatomic, copy, nullable) NSString *regex;
+@property(nonatomic, copy, nullable) NSString *regex GTLR_DEPRECATED;
 
 /** The input string must match the regular expression specified here. */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_RegexMatcher *safeRegex;

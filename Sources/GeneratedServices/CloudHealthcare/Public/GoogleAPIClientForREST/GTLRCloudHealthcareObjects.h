@@ -2623,7 +2623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  message attributes contain a map with a string describing the action that
  *  has triggered the notification. For example, "action":"CreateResource".
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig GTLR_DEPRECATED;
 
 /**
  *  Specifies where and whether to send notifications upon changes to a FHIR

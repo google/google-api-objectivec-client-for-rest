@@ -2551,7 +2551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly Apps are
  *        auto-updated over WiFi only. (Value: "wifiOnly")
  */
-@property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
+@property(nonatomic, copy, nullable) NSString *autoUpdatePolicy GTLR_DEPRECATED;
 
 /**
  *  Whether the device reports app states to the EMM. The default value is

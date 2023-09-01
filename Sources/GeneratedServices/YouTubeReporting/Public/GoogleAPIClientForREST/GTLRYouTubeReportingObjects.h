@@ -213,7 +213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /** gdata */
 @property(nonatomic, strong, nullable) GTLRYouTubeReporting_GdataBlobstore2Info *blobstore2Info;
@@ -434,7 +434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @interface GTLRYouTubeReporting_GdataMedia : GTLRObject
 
 /** gdata */
-@property(nonatomic, copy, nullable) NSString *algorithm;
+@property(nonatomic, copy, nullable) NSString *algorithm GTLR_DEPRECATED;
 
 /**
  *  gdata
@@ -442,7 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef;
+@property(nonatomic, copy, nullable) NSString *bigstoreObjectRef GTLR_DEPRECATED;
 
 /**
  *  gdata
@@ -450,7 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *blobRef;
+@property(nonatomic, copy, nullable) NSString *blobRef GTLR_DEPRECATED;
 
 /** gdata */
 @property(nonatomic, strong, nullable) GTLRYouTubeReporting_GdataBlobstore2Info *blobstore2Info;
@@ -505,7 +505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
-@property(nonatomic, copy, nullable) NSString *hashProperty;
+@property(nonatomic, copy, nullable) NSString *hashProperty GTLR_DEPRECATED;
 
 /**
  *  gdata

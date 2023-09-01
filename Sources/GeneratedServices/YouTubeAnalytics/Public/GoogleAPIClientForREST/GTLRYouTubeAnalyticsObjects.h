@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
  *    @arg @c kGTLRYouTubeAnalytics_Errors_Code_ServiceUnavailable Value
  *        "SERVICE_UNAVAILABLE"
  */
-@property(nonatomic, copy, nullable) NSString *code;
+@property(nonatomic, copy, nullable) NSString *code GTLR_DEPRECATED;
 
 /** Specific error description and codes */
 @property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ErrorProto *> *error;

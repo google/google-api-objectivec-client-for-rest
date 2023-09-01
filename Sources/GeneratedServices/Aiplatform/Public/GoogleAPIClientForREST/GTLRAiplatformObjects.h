@@ -6802,7 +6802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enablePrivateServiceConnect;
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateServiceConnect GTLR_DEPRECATED;
 
 /**
  *  Customer-managed encryption key spec for an Endpoint. If set, this Endpoint
@@ -10189,7 +10189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enablePrivateServiceConnect;
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateServiceConnect GTLR_DEPRECATED;
 
 /**
  *  Used to perform consistent read-modify-write updates. If not set, a blind
@@ -13595,7 +13595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableRestrictedImageTraining;
+@property(nonatomic, strong, nullable) NSNumber *enableRestrictedImageTraining GTLR_DEPRECATED;
 
 /**
  *  Customer-managed encryption key options for a NasJob. If this is set, then
@@ -14365,7 +14365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  2.0.0 or lower, such as pipelines built using Kubeflow Pipelines SDK 1.8 or
  *  lower.
  */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_Parameters *parameters;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_Parameters *parameters GTLR_DEPRECATED;
 
 /**
  *  The runtime parameters of the PipelineJob. The parameters will be passed

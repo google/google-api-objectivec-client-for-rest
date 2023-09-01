@@ -963,7 +963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *        used successfully to authenticate against the Git remote. (Value:
  *        "VALID")
  */
-@property(nonatomic, copy, nullable) NSString *tokenStatus;
+@property(nonatomic, copy, nullable) NSString *tokenStatus GTLR_DEPRECATED;
 
 /** Required. The Git remote's URL. */
 @property(nonatomic, copy, nullable) NSString *url;

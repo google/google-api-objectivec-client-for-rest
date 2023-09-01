@@ -1724,7 +1724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  identifiers or project numbers from which to retrieve log entries. Example:
  *  "my-project-1A".
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds GTLR_DEPRECATED;
 
 /**
  *  Required. Names of one or more parent resources from which to retrieve log
@@ -2185,7 +2185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Output only. Deprecated. This field is not used by Logging. Any value
  *  written to it is cleared.
  */
-@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata *metadata;
+@property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata *metadata GTLR_DEPRECATED;
 
 /**
  *  Optional. Information about an operation associated with the log entry, if
@@ -2675,7 +2675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *    @arg @c kGTLRLogging_LogMetric_Version_V1 Logging API v1. (Value: "V1")
  *    @arg @c kGTLRLogging_LogMetric_Version_V2 Logging API v2. (Value: "V2")
  */
-@property(nonatomic, copy, nullable) NSString *version;
+@property(nonatomic, copy, nullable) NSString *version GTLR_DEPRECATED;
 
 @end
 
@@ -2804,7 +2804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        An unspecified format version that will default to V2. (Value:
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *outputVersionFormat;
+@property(nonatomic, copy, nullable) NSString *outputVersionFormat GTLR_DEPRECATED;
 
 /**
  *  Output only. The last update timestamp of the sink.This field may not be
@@ -3153,7 +3153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        The feature is not yet implemented. Users can not use it. (Value:
  *        "UNIMPLEMENTED")
  */
-@property(nonatomic, copy, nullable) NSString *launchStage;
+@property(nonatomic, copy, nullable) NSString *launchStage GTLR_DEPRECATED;
 
 /**
  *  The sampling period of metric data points. For metrics which are written

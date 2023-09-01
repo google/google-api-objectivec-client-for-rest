@@ -2417,7 +2417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  This can be a mute configuration name or any identifier for mute/unmute of
  *  findings based on the filter.
  */
-@property(nonatomic, copy, nullable) NSString *muteAnnotation;
+@property(nonatomic, copy, nullable) NSString *muteAnnotation GTLR_DEPRECATED;
 
 @end
 
@@ -3931,7 +3931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /** The human readable name to be displayed for the mute config. */
-@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /**
  *  Required. An expression that defines the filter to apply across

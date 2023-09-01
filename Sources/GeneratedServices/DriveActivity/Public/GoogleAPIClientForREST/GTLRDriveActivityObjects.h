@@ -1031,10 +1031,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
 
 /** This field is deprecated; please use the `driveFile` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file GTLR_DEPRECATED;
 
 /** This field is deprecated; please use the `driveFolder` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder GTLR_DEPRECATED;
 
 /**
  *  The MIME type of the Drive item. See
@@ -1068,10 +1068,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
 
 /** This field is deprecated; please use the `driveFile` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_File *file GTLR_DEPRECATED;
 
 /** This field is deprecated; please use the `driveFolder` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder GTLR_DEPRECATED;
 
 /** The target Drive item. The format is `items/ITEM_ID`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1345,7 +1345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveReference *drive;
 
 /** This field is deprecated; please use the `drive` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive GTLR_DEPRECATED;
 
 /** The user that owns the Drive item. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_User *user;
@@ -1741,7 +1741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_FileComment *fileComment;
 
 /** This field is deprecated; please use the `drive` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDrive *teamDrive;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDrive *teamDrive GTLR_DEPRECATED;
 
 @end
 
@@ -1758,7 +1758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveItemReference *driveItem;
 
 /** This field is deprecated; please use the `drive` field instead. */
-@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive;
+@property(nonatomic, strong, nullable) GTLRDriveActivity_TeamDriveReference *teamDrive GTLR_DEPRECATED;
 
 @end
 

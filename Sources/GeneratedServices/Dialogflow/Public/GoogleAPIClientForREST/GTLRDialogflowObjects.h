@@ -3671,7 +3671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
+@property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging GTLR_DEPRECATED;
 
 /** Git integration settings for this agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings *gitIntegrationSettings;
@@ -6203,7 +6203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ParameterMapping *parameterMapping;
 
 /** The password for HTTP Basic authentication. */
-@property(nonatomic, copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password GTLR_DEPRECATED;
 
 /**
  *  Optional. Defines a custom JSON object as request body to send to flexible
@@ -6221,7 +6221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** The user name for HTTP Basic authentication. */
-@property(nonatomic, copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
 /**
  *  Optional. Type of the webhook.
@@ -10104,7 +10104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `display_name`. This field is deprecated, please use QueryResult.match
  *  instead.
  */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Intent *intent;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Intent *intent GTLR_DEPRECATED;
 
 /**
  *  The intent detection confidence. Values range from 0.0 (completely
@@ -10117,7 +10117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *intentDetectionConfidence;
+@property(nonatomic, strong, nullable) NSNumber *intentDetectionConfidence GTLR_DEPRECATED;
 
 /**
  *  The language that was triggered during intent detection. See [Language
@@ -11753,7 +11753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResourceName *> *resourceNames;
 
 /** The names of the resources where the message is found. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources GTLR_DEPRECATED;
 
 /**
  *  The type of the resources where the message is found.
@@ -12050,7 +12050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ParameterMapping *parameterMapping;
 
 /** The password for HTTP Basic authentication. */
-@property(nonatomic, copy, nullable) NSString *password;
+@property(nonatomic, copy, nullable) NSString *password GTLR_DEPRECATED;
 
 /**
  *  Optional. Defines a custom JSON object as request body to send to flexible
@@ -12068,7 +12068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** The user name for HTTP Basic authentication. */
-@property(nonatomic, copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
 /**
  *  Optional. Type of the webhook.
@@ -13250,7 +13250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *mlEnabled;
+@property(nonatomic, strong, nullable) NSNumber *mlEnabled GTLR_DEPRECATED;
 
 /**
  *  Optional. The unique identifier of this intent. Required for

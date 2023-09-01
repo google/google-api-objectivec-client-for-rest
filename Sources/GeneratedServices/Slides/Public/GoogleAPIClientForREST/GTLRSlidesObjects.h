@@ -4355,7 +4355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        connectors, including straight connector 1. The is the default
  *        category when one is not specified. (Value: "STRAIGHT")
  */
-@property(nonatomic, copy, nullable) NSString *lineCategory;
+@property(nonatomic, copy, nullable) NSString *lineCategory GTLR_DEPRECATED;
 
 /**
  *  A user-supplied object ID. If you specify an ID, it must be unique among all
@@ -6985,7 +6985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        image may be smaller than the size of the shape. This is the default
  *        method when one is not specified. (Value: "CENTER_INSIDE")
  */
-@property(nonatomic, copy, nullable) NSString *replaceMethod;
+@property(nonatomic, copy, nullable) NSString *replaceMethod GTLR_DEPRECATED;
 
 @end
 

@@ -1560,7 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *allowVerticalScale;
+@property(nonatomic, strong, nullable) NSNumber *allowVerticalScale GTLR_DEPRECATED;
 
 /**
  *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
@@ -2409,7 +2409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  successfully synced the repo The time format is specified in
  *  https://golang.org/pkg/time/#Time.String
  */
-@property(nonatomic, copy, nullable) NSString *lastSync;
+@property(nonatomic, copy, nullable) NSString *lastSync GTLR_DEPRECATED;
 
 /** Timestamp type of when ACM last successfully synced the repo */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSyncTime;
@@ -4848,7 +4848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        will manually configure the control plane (e.g. via CLI, or via the
  *        ControlPlaneRevision KRM API) (Value: "MANUAL")
  */
-@property(nonatomic, copy, nullable) NSString *controlPlane;
+@property(nonatomic, copy, nullable) NSString *controlPlane GTLR_DEPRECATED;
 
 /**
  *  Enables automatic Service Mesh management.

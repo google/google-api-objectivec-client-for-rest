@@ -737,7 +737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Output only. Deprecated. Use tenant_project_id instead to extract the tenant
  *  project ID.
  */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
 
 /** Output only. Endpoint on which the Data Fusion UI is accessible. */
 @property(nonatomic, copy, nullable) NSString *serviceEndpoint;

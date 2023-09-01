@@ -1015,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *    @arg @c kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql The type of
  *        the source database is MySQL. (Value: "MYSQL")
  */
-@property(nonatomic, copy, nullable) NSString *databaseType;
+@property(nonatomic, copy, nullable) NSString *databaseType GTLR_DEPRECATED;
 
 /**
  *  A Cloud Storage object or folder URI that specifies the source from which to
@@ -1024,7 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /** The name of the source database. */
-@property(nonatomic, copy, nullable) NSString *sourceDatabase;
+@property(nonatomic, copy, nullable) NSString *sourceDatabase GTLR_DEPRECATED;
 
 /**
  *  Optional. The type of the database dump. If unspecified, defaults to MYSQL.

@@ -589,7 +589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *installGpuDrivers;
+@property(nonatomic, strong, nullable) NSNumber *installGpuDrivers GTLR_DEPRECATED;
 
 /**
  *  The accelerator type. For example, "nvidia-tesla-t4". See `gcloud compute
@@ -758,7 +758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_AgentMetadata : GTLRObject
 
 /** When the VM agent started. Use agent_startup_time instead. */
-@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime GTLR_DEPRECATED;
 
 /**
  *  Full name of the entity that created this vm. For MIG, this path is:
@@ -2604,7 +2604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Environment *environment;
 
 /** Deprecated: please use environment(non-plural) instead. */
-@property(nonatomic, strong, nullable) GTLRCloudBatch_TaskSpec_Environments *environments;
+@property(nonatomic, strong, nullable) GTLRCloudBatch_TaskSpec_Environments *environments GTLR_DEPRECATED;
 
 /**
  *  Lifecycle management schema when any task in a task group is failed.

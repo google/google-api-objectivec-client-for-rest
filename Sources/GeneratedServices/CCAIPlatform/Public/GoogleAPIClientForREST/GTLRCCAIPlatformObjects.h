@@ -324,7 +324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *contactCenterCountLimit;
+@property(nonatomic, strong, nullable) NSNumber *contactCenterCountLimit GTLR_DEPRECATED;
 
 /**
  *  Deprecated: Use the Quota fields instead. Reflects the count sum of contact
@@ -332,7 +332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *contactCenterCountSum;
+@property(nonatomic, strong, nullable) NSNumber *contactCenterCountSum GTLR_DEPRECATED;
 
 /** Quota details per contact center instance type. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Quota *> *quotas;
@@ -738,7 +738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 @property(nonatomic, copy, nullable) NSString *ssoUri;
 
 /** Email address of the first admin users. */
-@property(nonatomic, copy, nullable) NSString *userEmail;
+@property(nonatomic, copy, nullable) NSString *userEmail GTLR_DEPRECATED;
 
 @end
 

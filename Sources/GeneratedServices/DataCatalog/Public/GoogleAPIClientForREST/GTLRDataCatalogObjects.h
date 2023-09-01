@@ -2996,7 +2996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includePublicTagTemplates;
+@property(nonatomic, strong, nullable) NSNumber *includePublicTagTemplates GTLR_DEPRECATED;
 
 /**
  *  Optional. The list of locations to search within. If empty, all locations

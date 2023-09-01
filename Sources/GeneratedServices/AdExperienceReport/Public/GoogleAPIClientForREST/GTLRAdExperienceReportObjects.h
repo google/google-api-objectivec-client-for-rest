@@ -172,7 +172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Regio
  *  The site's regions on this platform. No longer populated, because there is
  *  no longer any semantic difference between sites in different regions.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *region;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *region GTLR_DEPRECATED;
 
 /**
  *  A link to the full Ad Experience Report for the site on this platform.. Not

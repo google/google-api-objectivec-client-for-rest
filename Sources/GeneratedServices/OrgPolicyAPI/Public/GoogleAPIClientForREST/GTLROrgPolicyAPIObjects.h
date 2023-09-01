@@ -395,7 +395,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy : GTLRObject
 
 /** Deprecated. */
-@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec *alternate;
+@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec *alternate GTLR_DEPRECATED;
 
 /**
  *  Dry-run policy. Audit-only policy, can be used to monitor how the policy

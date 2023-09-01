@@ -2700,10 +2700,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReply : GTLRObject
 
 /** References in the reply. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference *> *references;
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference *> *references GTLR_DEPRECATED;
 
 /** DEPRECATED: use `summary` instead. Text reply. */
-@property(nonatomic, copy, nullable) NSString *reply;
+@property(nonatomic, copy, nullable) NSString *reply GTLR_DEPRECATED;
 
 /** Summary based on search results. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary *summary;
@@ -3169,7 +3169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxSnippetCount;
+@property(nonatomic, strong, nullable) NSNumber *maxSnippetCount GTLR_DEPRECATED;
 
 /**
  *  [DEPRECATED] This field is deprecated and will have no affect on the
@@ -3177,7 +3177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *referenceOnly;
+@property(nonatomic, strong, nullable) NSNumber *referenceOnly GTLR_DEPRECATED;
 
 /**
  *  If `true`, then return snippet. If no snippet can be generated, we return

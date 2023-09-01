@@ -8300,7 +8300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *targetSpendMicros;
+@property(nonatomic, strong, nullable) NSNumber *targetSpendMicros GTLR_DEPRECATED;
 
 @end
 

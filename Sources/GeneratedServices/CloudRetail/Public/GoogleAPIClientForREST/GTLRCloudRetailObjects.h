@@ -1871,7 +1871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
 /** Deprecated. This field is never set. */
-@property(nonatomic, copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId GTLR_DEPRECATED;
 
 /**
  *  Count of entries that were processed successfully.
@@ -2967,7 +2967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
 /** Deprecated. This field is never set. */
-@property(nonatomic, copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId GTLR_DEPRECATED;
 
 /**
  *  Count of entries that were processed successfully.
@@ -3880,7 +3880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  Recent searches are deduplicated. More recent searches will be reserved when
  *  duplication happens.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult *> *recentSearchResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult *> *recentSearchResults GTLR_DEPRECATED;
 
 @end
 
@@ -4210,7 +4210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *indexable;
+@property(nonatomic, strong, nullable) NSNumber *indexable GTLR_DEPRECATED;
 
 /**
  *  The numerical values of this custom attribute. For example, `[2.3, 15.4]`
@@ -4233,7 +4233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *searchable;
+@property(nonatomic, strong, nullable) NSNumber *searchable GTLR_DEPRECATED;
 
 /**
  *  The textual values of this custom attribute. For example, `["yellow",
@@ -4480,7 +4480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
 /** Deprecated. This field is never set. */
-@property(nonatomic, copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId GTLR_DEPRECATED;
 
 /**
  *  Count of entries that were processed successfully.
@@ -4540,7 +4540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, copy, nullable) NSString *reconciliationMode;
 
 /** Deprecated. This field has no effect. */
-@property(nonatomic, copy, nullable) NSString *requestId;
+@property(nonatomic, copy, nullable) NSString *requestId GTLR_DEPRECATED;
 
 /**
  *  Indicates which fields in the provided imported `products` to update. If not
@@ -5141,7 +5141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /** This field is not used; leave it unset. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken GTLR_DEPRECATED;
 
 /**
  *  Additional domain specific parameters for the predictions. Allowed values: *
@@ -5711,7 +5711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *
  *  String format is a comma-separated list of fields.
  */
-@property(nonatomic, copy, nullable) NSString *retrievableFields;
+@property(nonatomic, copy, nullable) NSString *retrievableFields GTLR_DEPRECATED;
 
 /**
  *  The size of the product. To represent different size systems or size types,
@@ -6660,7 +6660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  dynamically generated facets. Notice that only textual facets can be
  *  dynamically generated.
  */
-@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec;
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec GTLR_DEPRECATED;
 
 /**
  *  The entity for customers that may run multiple different entities, domains,

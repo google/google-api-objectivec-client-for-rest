@@ -11001,7 +11001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Plain text description of this product (deprecated: Please use product_title
  *  instead).
  */
-@property(nonatomic, copy, nullable) NSString *productDescription;
+@property(nonatomic, copy, nullable) NSString *productDescription GTLR_DEPRECATED;
 
 /**
  *  Required. The Content API REST ID of the product, in the form
@@ -11020,12 +11020,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /** Merchant SKU for this item (deprecated). */
-@property(nonatomic, copy, nullable) NSString *sku;
+@property(nonatomic, copy, nullable) NSString *sku GTLR_DEPRECATED;
 
 /**
  *  Universal product code for this item (deprecated: Please use GTIN instead).
  */
-@property(nonatomic, copy, nullable) NSString *upc;
+@property(nonatomic, copy, nullable) NSString *upc GTLR_DEPRECATED;
 
 @end
 
@@ -13105,7 +13105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Deprecated. Destination approval status in `targetCountry` of the offer.
  */
-@property(nonatomic, copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *status GTLR_DEPRECATED;
 
 @end
 
@@ -13145,7 +13145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeAttributes;
+@property(nonatomic, strong, nullable) NSNumber *includeAttributes GTLR_DEPRECATED;
 
 /**
  *  The ID of the managing account.
@@ -13868,7 +13868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  String representation of the promotion display dates. Deprecated. Use
  *  `promotion_display_time_period` instead.
  */
-@property(nonatomic, copy, nullable) NSString *promotionDisplayDates;
+@property(nonatomic, copy, nullable) NSString *promotionDisplayDates GTLR_DEPRECATED;
 
 /** `TimePeriod` representation of the promotion's display dates. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionDisplayTimePeriod;
@@ -13877,7 +13877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  String representation of the promotion effective dates. Deprecated. Use
  *  `promotion_effective_time_period` instead.
  */
-@property(nonatomic, copy, nullable) NSString *promotionEffectiveDates;
+@property(nonatomic, copy, nullable) NSString *promotionEffectiveDates GTLR_DEPRECATED;
 
 /**
  *  Required. `TimePeriod` representation of the promotion's effective dates.
@@ -14744,7 +14744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *applicationCount;
 
 /** Stats specific to buybox winning rules for product report (deprecated). */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats *buyboxWinningProductStats;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats *buyboxWinningProductStats GTLR_DEPRECATED;
 
 /**
  *  Date of the stats in this report. The report starts and ends according to
@@ -15048,7 +15048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_RepricingRuleReport : GTLRObject
 
 /** Stats specific to buybox winning rules for rule report (deprecated). */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats *buyboxWinningRuleStats;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats *buyboxWinningRuleStats GTLR_DEPRECATED;
 
 /**
  *  Date of the stats in this report. The report starts and ends according to

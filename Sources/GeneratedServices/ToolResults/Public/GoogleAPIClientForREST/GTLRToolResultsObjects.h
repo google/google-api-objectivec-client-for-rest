@@ -3394,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /** Deprecated in favor of stack trace fields inside specific warnings. */
-@property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
+@property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace GTLR_DEPRECATED;
 
 /**
  *  Type of issue. Required.

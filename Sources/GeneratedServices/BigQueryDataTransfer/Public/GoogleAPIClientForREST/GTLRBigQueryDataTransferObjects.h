@@ -424,7 +424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *supportsMultipleTransfers;
+@property(nonatomic, strong, nullable) NSNumber *supportsMultipleTransfers GTLR_DEPRECATED;
 
 /**
  *  Deprecated. This field has no effect.
@@ -439,7 +439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *        Invalid or Unknown transfer type placeholder. (Value:
  *        "TRANSFER_TYPE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *transferType;
+@property(nonatomic, copy, nullable) NSString *transferType GTLR_DEPRECATED;
 
 /**
  *  The number of seconds to wait for an update from the data source before the

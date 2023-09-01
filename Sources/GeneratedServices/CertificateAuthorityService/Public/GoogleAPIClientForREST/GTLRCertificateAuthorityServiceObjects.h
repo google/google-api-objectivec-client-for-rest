@@ -2741,7 +2741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *deleteResource;
+@property(nonatomic, strong, nullable) NSNumber *deleteResource GTLR_DEPRECATED;
 
 /**
  *  Excluisive action returned by the CLH.

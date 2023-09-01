@@ -2091,7 +2091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *indexed;
+@property(nonatomic, strong, nullable) NSNumber *indexed GTLR_DEPRECATED;
 
 /**
  *  The number of URLs in the sitemap (of the content type).

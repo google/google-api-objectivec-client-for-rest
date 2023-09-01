@@ -4813,7 +4813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        The feature is not yet implemented. Users can not use it. (Value:
  *        "UNIMPLEMENTED")
  */
-@property(nonatomic, copy, nullable) NSString *launchStage;
+@property(nonatomic, copy, nullable) NSString *launchStage GTLR_DEPRECATED;
 
 /**
  *  The sampling period of metric data points. For metrics which are written
@@ -5444,7 +5444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The tiers that support this notification channel; the project service tier
  *  must be one of the supported_tiers.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedTiers;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedTiers GTLR_DEPRECATED;
 
 /**
  *  The type of notification channel, such as "email" and "sms". To view the
@@ -6736,7 +6736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  InternalCheckers configured for the project that owns this
  *  UptimeCheckConfig.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers GTLR_DEPRECATED;
 
 /**
  *  If this is true, then checks are made only from the 'internal_checkers'. If
@@ -6746,7 +6746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isInternal;
+@property(nonatomic, strong, nullable) NSNumber *isInternal GTLR_DEPRECATED;
 
 /**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)

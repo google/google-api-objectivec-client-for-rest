@@ -1229,7 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  field. The related assets of the asset of one relationship type. One asset
  *  only represents one type of relationship.
  */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_RelatedAssets *relatedAssets;
+@property(nonatomic, strong, nullable) GTLRCloudAsset_RelatedAssets *relatedAssets GTLR_DEPRECATED;
 
 /** A representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
@@ -5227,7 +5227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  for backward compatible purposes. To search against the `kms_key`: * Use a
  *  field query. Example: `kmsKey:key` * Use a free text query. Example: `key`
  */
-@property(nonatomic, copy, nullable) NSString *kmsKey;
+@property(nonatomic, copy, nullable) NSString *kmsKey GTLR_DEPRECATED;
 
 /**
  *  The Cloud KMS

@@ -177,7 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The form factor the emulation should use. This field is deprecated,
  *  form_factor should be used instead.
  */
-@property(nonatomic, copy, nullable) NSString *emulatedFormFactor;
+@property(nonatomic, copy, nullable) NSString *emulatedFormFactor GTLR_DEPRECATED;
 
 /**
  *  How Lighthouse should interpret this run in regards to scoring performance
