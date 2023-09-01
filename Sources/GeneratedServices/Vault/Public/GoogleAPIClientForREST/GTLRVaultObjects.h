@@ -566,7 +566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SitesUrl;
  *
  *  Value: "TEAM_DRIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.searchMethod
@@ -625,7 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SitesUrl;
  *
  *  Value: "TEAM_DRIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_VoiceExportOptions.exportFormat

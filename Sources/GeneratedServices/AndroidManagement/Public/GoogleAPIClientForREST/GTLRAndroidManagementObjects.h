@@ -1513,7 +1513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  *
  *  Value: "COMPLIANCE_REPORT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport GTLR_DEPRECATED;
 /**
  *  A notification sent when a device enrolls.
  *
@@ -2454,7 +2454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_
  *
  *  Value: "BLACKLIST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist GTLR_DEPRECATED;
 /**
  *  All Play Store apps are available for installation in the personal profile,
  *  except those whose installType is BLOCKED in personalApplications.
@@ -2720,7 +2720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisable
  *
  *  Value: "BATTERY_SAVING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving GTLR_DEPRECATED;
 /**
  *  On Android 8 and below, all location detection methods are enabled,
  *  including GPS, networks, and other sensors. On Android 9 and above, this is
@@ -2728,7 +2728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Ba
  *
  *  Value: "HIGH_ACCURACY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy GTLR_DEPRECATED;
 /**
  *  Disable location setting on the device.
  *
@@ -2760,14 +2760,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Lo
  *
  *  Value: "OFF"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off GTLR_DEPRECATED;
 /**
  *  On Android 8 and below, only GPS and other sensors are enabled. On Android 9
  *  and above, this is equivalent to LOCATION_ENFORCED.
  *
  *  Value: "SENSORS_ONLY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.microphoneAccess

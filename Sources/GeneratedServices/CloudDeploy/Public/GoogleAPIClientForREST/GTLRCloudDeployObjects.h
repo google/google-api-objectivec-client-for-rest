@@ -162,7 +162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
 /**
  *  Resource deleted.
  *
@@ -390,7 +390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
 /**
  *  Resource deleted.
  *
@@ -586,7 +586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Typ
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
 /**
  *  Resource deleted.
  *
@@ -792,7 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
 /**
  *  Resource deleted.
  *
@@ -866,7 +866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
 /**
  *  Resource deleted.
  *

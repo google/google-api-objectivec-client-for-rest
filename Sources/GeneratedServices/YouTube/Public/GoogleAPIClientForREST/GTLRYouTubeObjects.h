@@ -361,9 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Chann
 /** Value: "completedEvents" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents;
 /** Value: "likedPlaylists" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists GTLR_DEPRECATED;
 /** Value: "likes" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes GTLR_DEPRECATED;
 /** Value: "liveEvents" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LiveEvents;
 /** Value: "multipleChannels" */
@@ -373,13 +373,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Multi
 /** Value: "popularUploads" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PopularUploads;
 /** Value: "postedPlaylists" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedPlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedPlaylists GTLR_DEPRECATED;
 /** Value: "postedVideos" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedVideos;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedVideos GTLR_DEPRECATED;
 /** Value: "recentActivity" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentActivity;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentActivity GTLR_DEPRECATED;
 /** Value: "recentPosts" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentPosts;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentPosts GTLR_DEPRECATED;
 /** Value: "recentUploads" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentUploads;
 /** Value: "singlePlaylist" */
@@ -2256,19 +2256,19 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfA;
  *
  *  Value: "lsfBo"
  */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfBo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfBo GTLR_DEPRECATED;
 /**
  *  D
  *
  *  Value: "lsfD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfD;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfD GTLR_DEPRECATED;
 /**
  *  R
  *
  *  Value: "lsfR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfR GTLR_DEPRECATED;
 /**
  *  SU
  *
@@ -2276,7 +2276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfR;
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfSu;
 /** Value: "lsfUnrated" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfUnrated GTLR_DEPRECATED;
 /** Value: "lsfUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfUnspecified;
 
@@ -3536,11 +3536,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_CuepointSchedule_ScheduleStrateg
 // GTLRYouTube_InvideoPosition.cornerPosition
 
 /** Value: "bottomLeft" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft GTLR_DEPRECATED;
 /** Value: "bottomRight" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight GTLR_DEPRECATED;
 /** Value: "topLeft" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopLeft;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopLeft GTLR_DEPRECATED;
 /** Value: "topRight" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopRight;
 

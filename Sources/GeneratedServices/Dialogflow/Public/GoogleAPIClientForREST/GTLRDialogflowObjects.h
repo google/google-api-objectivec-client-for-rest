@@ -2569,7 +2569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
  *
  *  Value: "TEMPLATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template GTLR_DEPRECATED;
 /**
  *  Not specified. This value should never be used.
  *
@@ -3338,7 +3338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
  *
  *  Value: "TEMPLATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template GTLR_DEPRECATED;
 /**
  *  Not specified. This value should never be used.
  *

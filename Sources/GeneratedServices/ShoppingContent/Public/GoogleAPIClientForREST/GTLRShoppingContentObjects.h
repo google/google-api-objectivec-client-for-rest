@@ -344,7 +344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpo
  *
  *  Value: "SHOPIFY_ORDER_MANAGEMENT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_AccountIssueImpact.severity

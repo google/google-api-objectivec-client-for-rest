@@ -427,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissio
  *
  *  Value: "CAN_ACCESS_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp GTLR_DEPRECATED;
 /**
  *  Manage policy related pages.
  *

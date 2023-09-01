@@ -123,7 +123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReas
  *
  *  Value: "DEPROVISION_REASON_DOMAIN_MOVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove GTLR_DEPRECATED;
 /**
  *  A reason was not required. For example, the licenses were returned to the
  *  customer's license pool.
@@ -137,7 +137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReas
  *
  *  Value: "DEPROVISION_REASON_OTHER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonOther GTLR_DEPRECATED;
 /**
  *  The device was deprovisioned by the Repair Service Center. Can only be set
  *  by Repair Service Center during RMA.
@@ -165,7 +165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReas
  *
  *  Value: "DEPROVISION_REASON_SERVICE_EXPIRATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonServiceExpiration GTLR_DEPRECATED;
 /**
  *  The deprovision reason is unknown.
  *
@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReas
  *
  *  Value: "DEPROVISION_REASON_UPGRADE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonUpgrade GTLR_DEPRECATED;
 /**
  *  ChromeOS Flex upgrade transfer. This is a ChromeOS Flex device that you are
  *  replacing with a Chromebook within a year.

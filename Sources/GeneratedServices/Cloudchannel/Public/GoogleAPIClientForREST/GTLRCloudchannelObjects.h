@@ -226,7 +226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1E
  *
  *  Value: "CANCELED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Canceled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Canceled GTLR_DEPRECATED;
 /**
  *  The entitlement reached end of term and was not renewed. After an
  *  entitlement is `COMPLETE`, its status will not change. Deprecated: This is
@@ -235,14 +235,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1E
  *
  *  Value: "COMPLETE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Complete GTLR_DEPRECATED;
 /**
  *  The entitlement is pending. Deprecated: This is represented as
  *  ProvisioningState=SUSPENDED and suspensionReason=PENDING_TOS_ACCEPTANCE
  *
  *  Value: "PENDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Pending GTLR_DEPRECATED;
 /**
  *  Not used.
  *

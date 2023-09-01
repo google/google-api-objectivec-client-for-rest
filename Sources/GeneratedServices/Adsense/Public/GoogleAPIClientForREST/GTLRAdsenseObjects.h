@@ -179,7 +179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_ContentAdsSettings_Type_Feed;
  *
  *  Value: "LINK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAdsense_ContentAdsSettings_Type_Link;
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_ContentAdsSettings_Type_Link GTLR_DEPRECATED;
 /**
  *  Matched content unit.
  *

@@ -115,7 +115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Date;
  *
  *  Value: "DATETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Datetime;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Datetime GTLR_DEPRECATED;
 /**
  *  Decimal type.
  *
@@ -145,7 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Float;
  *
  *  Value: "INT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Int;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Int GTLR_DEPRECATED;
 /**
  *  Integer type.
  *
@@ -163,7 +163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_JavaObject;
  *
  *  Value: "LONG"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Long;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Long GTLR_DEPRECATED;
 /**
  *  Long Nvarchar type.
  *
@@ -259,7 +259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Sqlxml;
  *
  *  Value: "STRING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_String;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_String GTLR_DEPRECATED;
 /**
  *  Struct type.
  *
@@ -301,7 +301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Tinyint;
  *
  *  Value: "UUID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Uuid;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Field_DataType_Uuid GTLR_DEPRECATED;
 /**
  *  Varbinary type.
  *
@@ -389,7 +389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Date;
  *
  *  Value: "DATETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Datetime;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Datetime GTLR_DEPRECATED;
 /**
  *  Decimal type.
  *
@@ -419,7 +419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Float
  *
  *  Value: "INT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Int;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Int GTLR_DEPRECATED;
 /**
  *  Integer type.
  *
@@ -437,7 +437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_JavaO
  *
  *  Value: "LONG"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Long;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Long GTLR_DEPRECATED;
 /**
  *  Long Nvarchar type.
  *
@@ -533,7 +533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Sqlxm
  *
  *  Value: "STRING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_String;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_String GTLR_DEPRECATED;
 /**
  *  Struct type.
  *
@@ -575,7 +575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Tinyi
  *
  *  Value: "UUID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Uuid;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Uuid GTLR_DEPRECATED;
 /**
  *  Varbinary type.
  *
@@ -663,7 +663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Date;
  *
  *  Value: "DATETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Datetime;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Datetime GTLR_DEPRECATED;
 /**
  *  Decimal type.
  *
@@ -693,7 +693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Float
  *
  *  Value: "INT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Int;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Int GTLR_DEPRECATED;
 /**
  *  Integer type.
  *
@@ -711,7 +711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_JavaO
  *
  *  Value: "LONG"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Long;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Long GTLR_DEPRECATED;
 /**
  *  Long Nvarchar type.
  *
@@ -807,7 +807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Sqlxm
  *
  *  Value: "STRING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_String;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_String GTLR_DEPRECATED;
 /**
  *  Struct type.
  *
@@ -849,7 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Tinyi
  *
  *  Value: "UUID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Uuid;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_QueryParameter_DataType_Uuid GTLR_DEPRECATED;
 /**
  *  Varbinary type.
  *
@@ -937,7 +937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Date;
  *
  *  Value: "DATETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Datetime;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Datetime GTLR_DEPRECATED;
 /**
  *  Decimal type.
  *
@@ -967,7 +967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Float
  *
  *  Value: "INT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Int;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Int GTLR_DEPRECATED;
 /**
  *  Integer type.
  *
@@ -985,7 +985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_JavaO
  *
  *  Value: "LONG"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Long;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Long GTLR_DEPRECATED;
 /**
  *  Long Nvarchar type.
  *
@@ -1081,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Sqlxm
  *
  *  Value: "STRING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_String;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_String GTLR_DEPRECATED;
 /**
  *  Struct type.
  *
@@ -1123,7 +1123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Tinyi
  *
  *  Value: "UUID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Uuid;
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Uuid GTLR_DEPRECATED;
 /**
  *  Varbinary type.
  *

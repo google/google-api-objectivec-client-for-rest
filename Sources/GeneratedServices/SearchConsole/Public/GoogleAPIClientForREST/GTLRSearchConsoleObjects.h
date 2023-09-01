@@ -912,13 +912,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_AtomFeed;
 /** Value: "NOT_SITEMAP" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_NotSitemap;
 /** Value: "OCEANFRONT" */
-FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_Oceanfront;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_Oceanfront GTLR_DEPRECATED;
 /**
  *  Unsupported sitemap types.
  *
  *  Value: "PATTERN_SITEMAP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_PatternSitemap;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_PatternSitemap GTLR_DEPRECATED;
 /** Value: "RSS_FEED" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemap_Type_RssFeed;
 /** Value: "SITEMAP" */
@@ -936,7 +936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_And
  *
  *  Value: "DATA_FEED_ELEMENT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_DataFeedElement;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_DataFeedElement GTLR_DEPRECATED;
 /** Value: "IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Image;
 /** Value: "IOS_APP" */
@@ -950,7 +950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_New
  *
  *  Value: "PATTERN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Pattern;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Pattern GTLR_DEPRECATED;
 /** Value: "VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Video;
 /** Value: "WEB" */

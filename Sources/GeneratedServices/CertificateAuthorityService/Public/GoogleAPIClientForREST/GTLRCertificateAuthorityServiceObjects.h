@@ -490,7 +490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOp
  *
  *  Value: "DELETE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete GTLR_DEPRECATED;
 /**
  *  This resource could not be repaired but the repair should be tried again at
  *  a later time. This can happen if there is a dependency that needs to be

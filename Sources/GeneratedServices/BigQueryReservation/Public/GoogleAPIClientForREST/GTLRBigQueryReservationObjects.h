@@ -136,7 +136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *
  *  Value: "ANNUAL_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_AnnualFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_AnnualFlatRate GTLR_DEPRECATED;
 /**
  *  Invalid plan value. Requests with this value will be rejected with error
  *  code `google.rpc.Code.INVALID_ARGUMENT`.
@@ -158,7 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *
  *  Value: "FLEX_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate GTLR_DEPRECATED;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
@@ -173,7 +173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *
  *  Value: "MONTHLY_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_MonthlyFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_MonthlyFlatRate GTLR_DEPRECATED;
 /**
  *  Should only be used for `renewal_plan` and is only meaningful if edition is
  *  specified to values other than EDITION_UNSPECIFIED. Otherwise
@@ -201,7 +201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *
  *  Value: "TRIAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
@@ -220,7 +220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  *
  *  Value: "ANNUAL_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_AnnualFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_AnnualFlatRate GTLR_DEPRECATED;
 /**
  *  Invalid plan value. Requests with this value will be rejected with error
  *  code `google.rpc.Code.INVALID_ARGUMENT`.
@@ -242,7 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  *
  *  Value: "FLEX_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate GTLR_DEPRECATED;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
@@ -257,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  *
  *  Value: "MONTHLY_FLAT_RATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_MonthlyFlatRate;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_MonthlyFlatRate GTLR_DEPRECATED;
 /**
  *  Should only be used for `renewal_plan` and is only meaningful if edition is
  *  specified to values other than EDITION_UNSPECIFIED. Otherwise
@@ -285,7 +285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  *
  *  Value: "TRIAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.state

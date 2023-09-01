@@ -96,7 +96,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventSta
  *
  *  Value: "DESKTOP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop GTLR_DEPRECATED;
 /**
  *  Unspecified platform.
  *

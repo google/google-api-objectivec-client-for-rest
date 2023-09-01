@@ -72,7 +72,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_Err
  *
  *  Value: "URL_IS_VALID_AMP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsValidAmp;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsValidAmp GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest.lookupStrategy

@@ -2723,49 +2723,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *
  *  Value: "SDF_VERSION_3_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31 GTLR_DEPRECATED;
 /**
  *  SDF version 4
  *
  *  Value: "SDF_VERSION_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4 GTLR_DEPRECATED;
 /**
  *  SDF version 4.1
  *
  *  Value: "SDF_VERSION_4_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion41;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion41 GTLR_DEPRECATED;
 /**
  *  SDF version 4.2
  *
  *  Value: "SDF_VERSION_4_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion42;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion42 GTLR_DEPRECATED;
 /**
  *  SDF version 5.
  *
  *  Value: "SDF_VERSION_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion5;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion5 GTLR_DEPRECATED;
 /**
  *  SDF version 5.1
  *
  *  Value: "SDF_VERSION_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51 GTLR_DEPRECATED;
 /**
  *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52 GTLR_DEPRECATED;
 /**
  *  SDF version 5.3
  *
  *  Value: "SDF_VERSION_5_3"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53 GTLR_DEPRECATED;
 /**
  *  SDF version 5.4
  *
@@ -6555,7 +6555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
  *
  *  Value: "ACTIVITY_BASED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased GTLR_DEPRECATED;
 /**
  *  Default value when type is not specified or is unknown.
  *
@@ -6588,7 +6588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_
  *
  *  Value: "FREQUENCY_CAP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap GTLR_DEPRECATED;
 /**
  *  Subtype of third party audience type.
  *
@@ -7470,7 +7470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps GTLR_DEPRECATED;
 /**
  *  Life-Event type Google audience.
  *
@@ -7482,7 +7482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeNewMobileDevices;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeNewMobileDevices GTLR_DEPRECATED;
 /**
  *  Default value when type is not specified or is unknown.
  *
@@ -8124,7 +8124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOpt
  *
  *  Value: "BILLABLE_OUTCOME_PAY_PER_CLICK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick GTLR_DEPRECATED;
 /**
  *  Pay per impressions.
  *
@@ -8136,7 +8136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutc
  *
  *  Value: "BILLABLE_OUTCOME_PAY_PER_VIEWABLE_IMPRESSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerViewableImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerViewableImpression GTLR_DEPRECATED;
 /**
  *  Unspecified billable outcome.
  *
@@ -10626,7 +10626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerRevenueModel_MarkupT
  *
  *  Value: "PARTNER_REVENUE_MODEL_MARKUP_TYPE_MEDIA_COST_MARKUP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerRevenueModel_MarkupType_PartnerRevenueModelMarkupTypeMediaCostMarkup;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerRevenueModel_MarkupType_PartnerRevenueModelMarkupTypeMediaCostMarkup GTLR_DEPRECATED;
 /**
  *  Calculate the partner revenue based on a percentage surcharge of its total
  *  media cost, which includes all partner costs and data costs.
@@ -11104,49 +11104,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_Synta
  *
  *  Value: "SDF_VERSION_3_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 GTLR_DEPRECATED;
 /**
  *  SDF version 4
  *
  *  Value: "SDF_VERSION_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 GTLR_DEPRECATED;
 /**
  *  SDF version 4.1
  *
  *  Value: "SDF_VERSION_4_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion41;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion41 GTLR_DEPRECATED;
 /**
  *  SDF version 4.2
  *
  *  Value: "SDF_VERSION_4_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion42;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion42 GTLR_DEPRECATED;
 /**
  *  SDF version 5.
  *
  *  Value: "SDF_VERSION_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion5;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion5 GTLR_DEPRECATED;
 /**
  *  SDF version 5.1
  *
  *  Value: "SDF_VERSION_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51 GTLR_DEPRECATED;
 /**
  *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 GTLR_DEPRECATED;
 /**
  *  SDF version 5.3
  *
  *  Value: "SDF_VERSION_5_3"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 GTLR_DEPRECATED;
 /**
  *  SDF version 5.4
  *
@@ -11180,49 +11180,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_3_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31 GTLR_DEPRECATED;
 /**
  *  SDF version 4
  *
  *  Value: "SDF_VERSION_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4 GTLR_DEPRECATED;
 /**
  *  SDF version 4.1
  *
  *  Value: "SDF_VERSION_4_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion41;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion41 GTLR_DEPRECATED;
 /**
  *  SDF version 4.2
  *
  *  Value: "SDF_VERSION_4_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion42;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion42 GTLR_DEPRECATED;
 /**
  *  SDF version 5.
  *
  *  Value: "SDF_VERSION_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion5;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion5 GTLR_DEPRECATED;
 /**
  *  SDF version 5.1
  *
  *  Value: "SDF_VERSION_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51 GTLR_DEPRECATED;
 /**
  *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52 GTLR_DEPRECATED;
 /**
  *  SDF version 5.3
  *
  *  Value: "SDF_VERSION_5_3"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 GTLR_DEPRECATED;
 /**
  *  SDF version 5.4
  *
@@ -11614,7 +11614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_Ti
  *
  *  Value: "BALANCED_EXPANSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion GTLR_DEPRECATED;
 /**
  *  Optimized targeting is on.
  *
@@ -11626,13 +11626,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_Ta
  *
  *  Value: "MORE_EXPANSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MoreExpansion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MoreExpansion GTLR_DEPRECATED;
 /**
  *  If used, will automatically be set to `LEAST_EXPANSION`.
  *
  *  Value: "MOST_EXPANSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MostExpansion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_MostExpansion GTLR_DEPRECATED;
 /**
  *  Optimized targeting is off.
  *
@@ -11644,7 +11644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_Ta
  *
  *  Value: "SOME_EXPANSION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_SomeExpansion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_SomeExpansion GTLR_DEPRECATED;
 /**
  *  The optimized targeting setting is not specified or is unknown in this
  *  version.

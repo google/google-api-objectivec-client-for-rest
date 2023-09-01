@@ -333,32 +333,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Default;
  *
  *  Value: "GPLUS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Gplus;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Gplus GTLR_DEPRECATED;
 /**
  *  Initials.
  *
  *  Value: "INITIALS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Initials;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Initials GTLR_DEPRECATED;
 /**
  *  Maiden name or birth family name. Used when the person's family name has
  *  changed as a result of marriage.
  *
  *  Value: "MAIDEN_NAME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_MaidenName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_MaidenName GTLR_DEPRECATED;
 /**
  *  A professional affiliation or other name; for example, `Dr. Smith.`
  *
  *  Value: "OTHER_NAME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_OtherName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_OtherName GTLR_DEPRECATED;
 /**
  *  A shorter version of the person's name.
  *
  *  Value: "SHORT_NAME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Person.ageRange

@@ -98,7 +98,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified;
 /** Value: "PASSWORD" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password GTLR_DEPRECATED;
 /**
  *  User must use their secure key 2nd factor device.
  *

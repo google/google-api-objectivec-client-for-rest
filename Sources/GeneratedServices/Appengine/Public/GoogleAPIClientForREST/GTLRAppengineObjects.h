@@ -705,14 +705,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Unhide;
  *
  *  Value: "ABORT_DEACTIVATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_AbortDeactivation;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_AbortDeactivation GTLR_DEPRECATED;
 /**
  *  When a customer activates an API CCFE notifies the CLH and sets the project
  *  to the ON state.
  *
  *  Value: "ACTIVATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_Activation;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_Activation GTLR_DEPRECATED;
 /**
  *  If the deactivation is followed through with, service management needs to
  *  finish deactivation. Commit is a reason to put the project in a DELETED
@@ -720,7 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_Acti
  *
  *  Value: "COMMIT_DEACTIVATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_CommitDeactivation;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_CommitDeactivation GTLR_DEPRECATED;
 /**
  *  When a customer deactivates and API service management starts a two-step
  *  process to perform the deactivation. The first step is to prepare. Prepare
@@ -728,7 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_Comm
  *
  *  Value: "PREPARE_DEACTIVATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_PrepareDeactivation;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceManagement_PrepareDeactivation GTLR_DEPRECATED;
 /**
  *  Due to various reasons CCFE might proactively restate a project state to a
  *  CLH to ensure that the CLH and CCFE are both aware of the project state.
