@@ -50,7 +50,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  *
  *  Value: "LOSS_OF_VOICE_OF_MERCHANT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_LossOfVoiceOfMerchant;
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_LossOfVoiceOfMerchant GTLR_DEPRECATED;
 /**
  *  A new answer is added to the location. The notification will provide the
  *  resource name of question and answer.

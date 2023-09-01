@@ -1113,7 +1113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoRe
  *
  *  Value: "AUTO_UPGRADE_NODES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes GTLR_DEPRECATED;
 /**
  *  The cluster is being created. The cluster should be assumed to be unusable
  *  until the operation finishes. In the event of the operation failing, the
@@ -1172,25 +1172,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Resize
  *
  *  Value: "SET_LABELS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels GTLR_DEPRECATED;
 /**
  *  Unused. Updating maintenance policy uses UPDATE_CLUSTER.
  *
  *  Value: "SET_MAINTENANCE_POLICY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy GTLR_DEPRECATED;
 /**
  *  Unused. Updating master auth uses UPDATE_CLUSTER.
  *
  *  Value: "SET_MASTER_AUTH"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth GTLR_DEPRECATED;
 /**
  *  Unused. Updating network policy uses UPDATE_CLUSTER.
  *
  *  Value: "SET_NETWORK_POLICY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy GTLR_DEPRECATED;
 /**
  *  The node pool's manamagent field is being updated. These operations only
  *  update metadata and may be concurrent with most other operations.

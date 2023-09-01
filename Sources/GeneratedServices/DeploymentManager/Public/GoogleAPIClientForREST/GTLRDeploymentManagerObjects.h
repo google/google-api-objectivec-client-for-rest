@@ -172,7 +172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *
  *  Value: "FIELD_VALUE_OVERRIDEN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden GTLR_DEPRECATED;
 /**
  *  The operation involved use of an injected kernel, which is deprecated.
  *
@@ -356,7 +356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *
  *  Value: "FIELD_VALUE_OVERRIDEN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden GTLR_DEPRECATED;
 /**
  *  The operation involved use of an injected kernel, which is deprecated.
  *
@@ -614,7 +614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *
  *  Value: "FIELD_VALUE_OVERRIDEN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden GTLR_DEPRECATED;
 /**
  *  The operation involved use of an injected kernel, which is deprecated.
  *

@@ -527,7 +527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAnswe
  *
  *  Value: "AGENDA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Agenda;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Agenda GTLR_DEPRECATED;
 /**
  *  A group of agenda-events (meeting, conflicts)
  *
@@ -539,37 +539,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "CHANGELISTS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Changelists;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Changelists GTLR_DEPRECATED;
 /**
  *  Any group of meetings for the day that are overlapping.
  *
  *  Value: "CONFLICTING_MEETINGS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ConflictingMeetings;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ConflictingMeetings GTLR_DEPRECATED;
 /**
  *  Create notes for a meeting specified in the request.
  *
  *  Value: "CREATE_NOTES_FOR_MEETING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeeting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeeting GTLR_DEPRECATED;
 /**
  *  Create notes for meeting query.
  *
  *  Value: "CREATE_NOTES_FOR_MEETING_REQUEST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeetingRequest;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CreateNotesForMeetingRequest GTLR_DEPRECATED;
 /**
  *  News about your SFDC customers.
  *
  *  Value: "CUSTOMER_NEWS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CustomerNews;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_CustomerNews GTLR_DEPRECATED;
 /**
  *  Represents a set of users that the requesting user has low affinity with.
  *
  *  Value: "DISCOVER_PEOPLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DiscoverPeople;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DiscoverPeople GTLR_DEPRECATED;
 /**
  *  Documents that match the user's query (e.g. sheets shared with me).
  *
@@ -581,7 +581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "DOMAIN_TRENDING_DOCS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DomainTrendingDocs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_DomainTrendingDocs GTLR_DEPRECATED;
 /**
  *  Find a time for two people to meet.
  *
@@ -606,26 +606,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "HOMEPAGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Homepage;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Homepage GTLR_DEPRECATED;
 /**
  *  All cards related to the homepage-v3 (agenda-group, WIP, etc...)
  *
  *  Value: "HOMEPAGE_V3"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_HomepageV3;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_HomepageV3 GTLR_DEPRECATED;
 /**
  *  A meeting. When requesting meetings, the service will return a MEETING card
  *  for each meeting the user has in his agenda.
  *
  *  Value: "MEETINGS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Meetings;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Meetings GTLR_DEPRECATED;
 /**
  *  The user's next non-declined meeting.
  *
  *  Value: "NEXT_MEETING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_NextMeeting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_NextMeeting GTLR_DEPRECATED;
 /**
  *  People Search promotion card.
  *
@@ -638,7 +638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "PERSONALIZED_DOCS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PersonalizedDocs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_PersonalizedDocs GTLR_DEPRECATED;
 /**
  *  Answer card for a single person (e.g. what is x's phone number).
  *
@@ -663,7 +663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "SHARE_MEETING_DOCS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ShareMeetingDocs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_ShareMeetingDocs GTLR_DEPRECATED;
 /**
  *  A help card that provides examples of queries the user can ask.
  *
@@ -675,13 +675,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "SUMMARY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Summary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_Summary GTLR_DEPRECATED;
 /**
  *  Documents that are trending in your team (i.e., Stay in the Loop).
  *
  *  Value: "TEAM_TRENDING_DOCS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TeamTrendingDocs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TeamTrendingDocs GTLR_DEPRECATED;
 /**
  *  Third party answer card.
  *
@@ -696,7 +696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "TRENDING_DOCS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TrendingDocs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_TrendingDocs GTLR_DEPRECATED;
 /**
  *  The default type, an unknown card type.
  *
@@ -709,7 +709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssis
  *
  *  Value: "UPCOMING_TRIP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_UpcomingTrip;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickAssistCardProto_CardType_UpcomingTrip GTLR_DEPRECATED;
 /**
  *  The documents that you were recently working on.
  *
@@ -1279,7 +1279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocum
 // GTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry.category
 
 /** Value: "ACTIONABLE" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Actionable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Actionable GTLR_DEPRECATED;
 /**
  *  Document has been edited.
  *
@@ -1306,7 +1306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocum
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_MentionViewed;
 /** Value: "REPLIED" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Replied;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnterpriseTopazSidekickDocumentPerCategoryListDocumentPerCategoryListEntry_Category_Replied GTLR_DEPRECATED;
 /**
  *  Share categories. Consists of documents that have been explicitly shared
  *  with the user. Document has been viewed.

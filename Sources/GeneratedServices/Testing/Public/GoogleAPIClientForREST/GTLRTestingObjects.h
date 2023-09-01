@@ -782,7 +782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
  *
  *  Value: "TEST_ONLY_APK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk GTLR_DEPRECATED;
 /**
  *  Not enough test quota to run the executions in this matrix.
  *

@@ -278,7 +278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_Ext
  *
  *  Value: "FIRST_GEN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen GTLR_DEPRECATED;
 /**
  *  V2 speckle instance.
  *
@@ -300,13 +300,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_Sql
  *
  *  Value: "MYSQL_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.5.
  *
  *  Value: "MYSQL_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.6.
  *
@@ -354,7 +354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *
  *  Value: "MYSQL_8_0_29"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029 GTLR_DEPRECATED;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 30.
  *
@@ -532,7 +532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_Ex
  *
  *  Value: "FIRST_GEN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen GTLR_DEPRECATED;
 /**
  *  V2 speckle instance.
  *
@@ -554,13 +554,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_Sq
  *
  *  Value: "MYSQL_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.5.
  *
  *  Value: "MYSQL_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.6.
  *
@@ -608,7 +608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *
  *  Value: "MYSQL_8_0_29"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029 GTLR_DEPRECATED;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 30.
  *
@@ -823,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintena
  *
  *  Value: "ONLINE_MAINTENANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance GTLR_DEPRECATED;
 /**
  *  The instance is being created.
  *
@@ -952,13 +952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_BakExportOptions_
  *
  *  Value: "MYSQL_5_1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.5.
  *
  *  Value: "MYSQL_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55 GTLR_DEPRECATED;
 /**
  *  The database version is MySQL 5.6.
  *
@@ -1006,7 +1006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028;
  *
  *  Value: "MYSQL_8_0_29"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029 GTLR_DEPRECATED;
 /**
  *  The database major version is MySQL 8.0 and the minor version is 30.
  *
@@ -1350,7 +1350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AutoRestart;
 /** Value: "BACKUP" */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup GTLR_DEPRECATED;
 /**
  *  Performs instance backup.
  *
@@ -1374,7 +1374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Create;
  *
  *  Value: "CREATE_CLONE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone GTLR_DEPRECATED;
 /**
  *  Creates a database in the Cloud SQL instance.
  *
@@ -1394,7 +1394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateR
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser;
 /** Value: "DEFER_MAINTENANCE" */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance GTLR_DEPRECATED;
 /**
  *  Deletes a Cloud SQL instance.
  *
@@ -1437,7 +1437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DemoteM
  *
  *  Value: "ENABLE_PRIVATE_IP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp GTLR_DEPRECATED;
 /**
  *  Exports data from a Cloud SQL instance to a Cloud Storage bucket.
  *
@@ -1508,7 +1508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume;
 /** Value: "SNAPSHOT" */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot GTLR_DEPRECATED;
 /**
  *  Unknown operation type.
  *
@@ -1655,7 +1655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Never
  *
  *  Value: "ON_DEMAND"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_OnDemand;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_OnDemand GTLR_DEPRECATED;
 /**
  *  Unknown activation plan.
  *
@@ -1718,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_R
  *
  *  Value: "OBSOLETE_LOCAL_SSD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd GTLR_DEPRECATED;
 /**
  *  An HDD data disk.
  *

@@ -1048,7 +1048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  *
  *  Value: "STACKDRIVER_ONLY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_StackdriverOnly;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_StackdriverOnly GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.logStreamingOption

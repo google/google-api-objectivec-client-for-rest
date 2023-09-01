@@ -2606,7 +2606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *
  *  Value: "AD_GROUP_ELIGIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupEligible;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup_EngineStatus_AdGroupEligible GTLR_DEPRECATED;
 /**
  *  No ads are running for this ad group, because the ad group's end date has
  *  passed.
@@ -2856,7 +2856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *
  *  Value: "AD_GROUP_AD_ELIGIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdEligible;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdEligible GTLR_DEPRECATED;
 /**
  *  Baidu: Creative was not approved.
  *
@@ -2880,7 +2880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *
  *  Value: "AD_GROUP_AD_ON_HOLD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdOnHold;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd_EngineStatus_AdGroupAdOnHold GTLR_DEPRECATED;
 /**
  *  Baidu: Creative is invalid on mobile device but valid on desktop.
  *
@@ -3060,7 +3060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *
  *  Value: "AD_GROUP_CRITERION_ELIGIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_EngineStatus_AdGroupCriterionEligible;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_EngineStatus_AdGroupCriterionEligible GTLR_DEPRECATED;
 /**
  *  Baidu: Bid or quality too low to be displayed.
  *
@@ -3110,7 +3110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  *
  *  Value: "AD_GROUP_CRITERION_ON_HOLD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_EngineStatus_AdGroupCriterionOnHold;
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_EngineStatus_AdGroupCriterionOnHold GTLR_DEPRECATED;
 /**
  *  Baidu: The landing page for one device is invalid, while the landing page
  *  for the other device is valid.

@@ -54,7 +54,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Bette
  *
  *  Value: "WARNING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.filterStatus

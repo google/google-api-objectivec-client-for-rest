@@ -282,7 +282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_None;
  *
  *  Value: "STACKDRIVER_ONLY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logStreamingOption

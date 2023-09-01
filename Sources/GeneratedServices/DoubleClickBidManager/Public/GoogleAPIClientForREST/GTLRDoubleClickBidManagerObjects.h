@@ -172,7 +172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Ye
  *
  *  Value: "AUDIENCE_COMPOSITION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition;
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition GTLR_DEPRECATED;
 /**
  *  Floodlight report.
  *

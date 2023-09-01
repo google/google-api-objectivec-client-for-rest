@@ -329,7 +329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyR
  *
  *  Value: "REDIRECTION_FROM_GCR_IO_FINALIZED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized;
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized GTLR_DEPRECATED;
 /**
  *  No redirection status has been set.
  *

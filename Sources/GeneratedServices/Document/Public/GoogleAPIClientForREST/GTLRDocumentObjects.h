@@ -615,19 +615,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  *
  *  Value: "EVAL_APPROVED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved GTLR_DEPRECATED;
 /**
  *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested GTLR_DEPRECATED;
 /**
  *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped GTLR_DEPRECATED;
 /**
  *  Operation type unspecified. If no operation is specified a provenance entry
  *  is simply used to match against a `parent`.
@@ -835,19 +835,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  *
  *  Value: "EVAL_APPROVED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved GTLR_DEPRECATED;
 /**
  *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested GTLR_DEPRECATED;
 /**
  *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped GTLR_DEPRECATED;
 /**
  *  Operation type unspecified. If no operation is specified a provenance entry
  *  is simply used to match against a `parent`.
@@ -1336,19 +1336,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  *
  *  Value: "EVAL_APPROVED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved GTLR_DEPRECATED;
 /**
  *  Deprecated. Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested GTLR_DEPRECATED;
 /**
  *  Deprecated. Element is skipped in the validation process.
  *
  *  Value: "EVAL_SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped GTLR_DEPRECATED;
 /**
  *  Operation type unspecified. If no operation is specified a provenance entry
  *  is simply used to match against a `parent`.

@@ -124,7 +124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Con
  *
  *  Value: "ERIGON_EMBEDDED_CONSENSUS_LAYER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_ConsensusClient_ErigonEmbeddedConsensusLayer;
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_ConsensusClient_ErigonEmbeddedConsensusLayer GTLR_DEPRECATED;
 /**
  *  Consensus client implementation written in Rust, maintained by Sigma Prime.
  *  See [Lighthouse - Sigma Prime](https://lighthouse.sigmaprime.io/) for
