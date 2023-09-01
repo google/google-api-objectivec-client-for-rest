@@ -2522,14 +2522,16 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
           extraAttributes =
             [extraAttributes stringByAppendingFormat:@", getter=valueOf_%@", propertyObjCName];
         }
+        NSString *maybeDeprecated = property.deprecated.boolValue ? kDeprecatedSuffix : @"";
         NSString *clangDirective = @"";
         if ([_notRetainedPredicate evaluateWithObject:propertyObjCName]) {
           clangDirective = @" NS_RETURNS_NOT_RETAINED";
         }
-        NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@;\n",
+        NSString *propertyLine = [NSString stringWithFormat:@"@property(nonatomic, %@%@) %@%@%@%@%@;\n",
                                   objcPropertySemantics, extraAttributes, objcType,
                                   (asPtr ? @" *" : @" "),
-                                  propertyObjCName, clangDirective];
+                                  propertyObjCName,
+                                  maybeDeprecated, clangDirective];
 
         if (hd.hasText) {
           if (!lastLineWasBlank) {
