@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// includeExtraData
+NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataNone = @"INCLUDE_EXTRA_DATA_NONE";
+NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataUnspecified = @"INCLUDE_EXTRA_DATA_UNSPECIFIED";
+NSString * const kGTLRAppengineIncludeExtraDataIncludeGoogleGeneratedMetadata = @"INCLUDE_GOOGLE_GENERATED_METADATA";
+
 // overrideStrategy
 NSString * const kGTLRAppengineOverrideStrategyOverride        = @"OVERRIDE";
 NSString * const kGTLRAppengineOverrideStrategyStrict          = @"STRICT";
@@ -473,7 +478,7 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @implementation GTLRAppengineQuery_AppsGet
 
-@dynamic appsId;
+@dynamic appsId, includeExtraData;
 
 + (instancetype)queryWithAppsId:(NSString *)appsId {
   NSArray *pathParams = @[ @"appsId" ];

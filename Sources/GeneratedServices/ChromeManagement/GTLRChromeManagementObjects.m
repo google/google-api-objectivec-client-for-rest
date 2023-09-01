@@ -151,6 +151,13 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_Ev
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded = @"USB_ADDED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved = @"USB_REMOVED";
 
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbAdded = @"USB_ADDED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbRemoved = @"USB_REMOVED";
+
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_HttpsLatencyStateUnspecified = @"HTTPS_LATENCY_STATE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Problem = @"PROBLEM";
@@ -765,6 +772,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryNotificationConfigsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryNotificationConfigsResponse
+@dynamic nextPageToken, telemetryNotificationConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"telemetryNotificationConfigs" : [GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"telemetryNotificationConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryUsersResponse
 //
 
@@ -1002,11 +1031,50 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter
+@dynamic eventTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent
 @dynamic httpsLatencyRoutineData, httpsLatencyState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig
+@dynamic customer, filter, googleCloudPubsubTopic, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter
+@dynamic deviceId, deviceOrgUnitId, telemetryEventNotificationFilter, userEmail,
+         userOrgUnitId;
 @end
 
 
@@ -1140,6 +1208,15 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleProtobufEmpty
+//
+
+@implementation GTLRChromeManagement_GoogleProtobufEmpty
 @end
 
 

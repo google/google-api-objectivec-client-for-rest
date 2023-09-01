@@ -1601,9 +1601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  A group is a set of spokes to which you can apply policies. Each group of
- *  spokes has its own route table. For each group, you can also set different
- *  rules for whether spokes can be automatically attached to the hub.
+ *  A group represents a subset of spokes attached to a hub.
  */
 @interface GTLRNetworkconnectivity_Group : GTLRObject
 
@@ -3480,7 +3478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The name of the group that this spoke is associated with. */
+/** Optional. The name of the group that this spoke is associated with. */
 @property(nonatomic, copy, nullable) NSString *group;
 
 /** Immutable. The name of the hub that this spoke is attached to. */

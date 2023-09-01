@@ -27,6 +27,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// includeExtraData
+
+/**
+ *  Do not return any extra data
+ *
+ *  Value: "INCLUDE_EXTRA_DATA_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataNone;
+/**
+ *  Unspecified: No extra data will be returned
+ *
+ *  Value: "INCLUDE_EXTRA_DATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataUnspecified;
+/**
+ *  Return GGCM associated with the resources
+ *
+ *  Value: "INCLUDE_GOOGLE_GENERATED_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineIncludeExtraDataIncludeGoogleGeneratedMetadata;
+
+// ----------------------------------------------------------------------------
 // overrideStrategy
 
 /**
@@ -879,6 +901,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  apps/myapp.
  */
 @property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  Options to include extra data
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineIncludeExtraDataIncludeExtraDataUnspecified
+ *        Unspecified: No extra data will be returned (Value:
+ *        "INCLUDE_EXTRA_DATA_UNSPECIFIED")
+ *    @arg @c kGTLRAppengineIncludeExtraDataIncludeExtraDataNone Do not return
+ *        any extra data (Value: "INCLUDE_EXTRA_DATA_NONE")
+ *    @arg @c kGTLRAppengineIncludeExtraDataIncludeGoogleGeneratedMetadata
+ *        Return GGCM associated with the resources (Value:
+ *        "INCLUDE_GOOGLE_GENERATED_METADATA")
+ */
+@property(nonatomic, copy, nullable) NSString *includeExtraData;
 
 /**
  *  Fetches a @c GTLRAppengine_Application.

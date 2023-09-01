@@ -299,13 +299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch;
 /**
- *  iSDK performs a server lookup by device fingerprint upon a dev API call.
+ *  iSDK performs a server lookup by device heuristics upon a dev API call.
  *
  *  Value: "EXPLICIT_WEAK_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch;
 /**
- *  iSDK performs a server lookup by device fingerprint in the background when
+ *  iSDK performs a server lookup by device heuristics in the background when
  *  app is first-opened; no API called by developer.
  *
  *  Value: "IMPLICIT_WEAK_MATCH"
@@ -344,14 +344,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.attributionConfidence
 
 /**
- *  Default confidence, match based on fingerprint
+ *  Default confidence, match based on device heuristics.
  *
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default;
 /**
  *  Unique confidence, match based on "unique match link to check" or other
- *  means
+ *  means.
  *
  *  Value: "UNIQUE"
  */
@@ -364,7 +364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence;
 /**
  *  Weak confidence, more than one matching link found or link suspected to be
- *  false positive
+ *  false positive.
  *
  *  Value: "WEAK"
  */
@@ -928,10 +928,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *        iSDK performs a strong match only if weak match is found upon a dev
  *        API call. (Value: "EXPLICIT_STRONG_AFTER_WEAK_MATCH")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch
- *        iSDK performs a server lookup by device fingerprint upon a dev API
+ *        iSDK performs a server lookup by device heuristics upon a dev API
  *        call. (Value: "EXPLICIT_WEAK_MATCH")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch
- *        iSDK performs a server lookup by device fingerprint in the background
+ *        iSDK performs a server lookup by device heuristics in the background
  *        when app is first-opened; no API called by developer. (Value:
  *        "IMPLICIT_WEAK_MATCH")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod
@@ -944,8 +944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  Possible unique matched link that server need to check before performing
- *  fingerprint match. If passed link is short server need to expand the link.
- *  If link is long server need to vslidate the link.
+ *  device heuristics match. If passed link is short server need to expand the
+ *  link. If link is long server need to vslidate the link.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueMatchLinkToCheck;
 
@@ -982,21 +982,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default
- *        Default confidence, match based on fingerprint (Value: "DEFAULT")
+ *        Default confidence, match based on device heuristics. (Value:
+ *        "DEFAULT")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique
  *        Unique confidence, match based on "unique match link to check" or
- *        other means (Value: "UNIQUE")
+ *        other means. (Value: "UNIQUE")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence
  *        Unset. (Value: "UNKNOWN_ATTRIBUTION_CONFIDENCE")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak
  *        Weak confidence, more than one matching link found or link suspected
- *        to be false positive (Value: "WEAK")
+ *        to be false positive. (Value: "WEAK")
  */
 @property(nonatomic, copy, nullable) NSString *attributionConfidence;
 
 /**
- *  The deep-link attributed post-install via one of several techniques
- *  (fingerprint, copy unique).
+ *  The deep-link attributed post-install via one of several techniques (device
+ *  heuristics, copy unique).
  */
 @property(nonatomic, copy, nullable) NSString *deepLink;
 
@@ -1018,8 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *fallbackLink;
 
 /**
- *  Invitation ID attributed post-install via one of several techniques
- *  (fingerprint, copy unique).
+ *  Invitation ID attributed post-install via one of several techniques (device
+ *  heuristics, copy unique).
  */
 @property(nonatomic, copy, nullable) NSString *invitationId;
 
@@ -1040,7 +1041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  Entire FDL (short or long) attributed post-install via one of several
- *  techniques (fingerprint, copy unique).
+ *  techniques (device heuristics, copy unique).
  */
 @property(nonatomic, copy, nullable) NSString *requestedLink;
 

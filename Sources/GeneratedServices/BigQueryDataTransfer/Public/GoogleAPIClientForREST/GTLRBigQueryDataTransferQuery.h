@@ -761,9 +761,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *  Where `config_id` is usually a uuid, even though it is not guaranteed or
- *  required. The name is ignored when creating a transfer config.
+ *  form either
+ *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
+ *  `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
+ *  usually a UUID, even though it is not guaranteed or required. The name is
+ *  ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -807,10 +809,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config. Transfer config names
- *    have the form
- *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *    Where `config_id` is usually a uuid, even though it is not guaranteed or
- *    required. The name is ignored when creating a transfer config.
+ *    have the form either
+ *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
+ *    `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
+ *    usually a UUID, even though it is not guaranteed or required. The name is
+ *    ignored when creating a transfer config.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch
  */
@@ -1347,9 +1350,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *  Where `config_id` is usually a uuid, even though it is not guaranteed or
- *  required. The name is ignored when creating a transfer config.
+ *  form either
+ *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
+ *  `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
+ *  usually a UUID, even though it is not guaranteed or required. The name is
+ *  ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1393,10 +1398,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config. Transfer config names
- *    have the form
- *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *    Where `config_id` is usually a uuid, even though it is not guaranteed or
- *    required. The name is ignored when creating a transfer config.
+ *    have the form either
+ *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
+ *    `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
+ *    usually a UUID, even though it is not guaranteed or required. The name is
+ *    ignored when creating a transfer config.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch
  */
