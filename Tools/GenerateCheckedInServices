@@ -17,6 +17,11 @@ if [[ $# -ge 1 && ( "$1" == "--no-brief" ) ]] ; then
   BRIEF_MODE=
   shift
 fi
+GENERATE_PREFERRED="yes"
+if [[ $# -ge 1 && ( "$1" == "--no-preferred" ) ]] ; then
+  GENERATE_PREFERRED="no"
+  shift
+fi
 readonly EXTRA_OPTS=$*
 
 # -----------------------------------------------------------------------------
@@ -48,37 +53,39 @@ SERVICE_GENERATOR_COMMAND=(
     --guessFormattedNames
     --httpHeader X-User-IP:0.0.0.0
     ${BRIEF_MODE}
-    ${EXTRA_OPTS}
+    # Cloud has a service named "Batch", which means GTLRBatchQuery would be the
+    # base of the Query classes and thus conflict with the batching support, so
+    # override the name to avoid the issues.
+    --formattedName batch=CloudBatch
+
+    # Include a filter so there are no warnings/infos during normal generation.
+    --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
+)
+
+if [[ "${GENERATE_PREFERRED}" == "yes" ]] ; then
+  SERVICE_GENERATOR_COMMAND+=(
     # Generate everything flagged as preferred.
     --generatePreferred
+
     # At least one server from preferred is returning content-type: text/html.
     --parseTextHTMLReplies
-)
 
-SERVICE_GENERATOR_COMMAND+=(
-  # The Admin SDK is odd, it is a bunch of 'admin' apis with different versions
-  # to "group" them (https://www.googleapis.com/discovery/v1/apis?name=admin);
-  # so only one gets marked as preferred. To generate all of it we have to
-  # manually fetch anything not preferred which means updating this if there are
-  # changes. admin:reports_v1 is currently the preferred one in discovery.
-  'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1'
-  'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
+    # The Admin SDK is odd, it is a bunch of 'admin' apis with different versions
+    # to "group" them (https://www.googleapis.com/discovery/v1/apis?name=admin);
+    # so only one gets marked as preferred. To generate all of it we have to
+    # manually fetch anything not preferred which means updating this if there are
+    # changes. admin:reports_v1 is currently the preferred one in discovery.
+    'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1'
+    'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
 
-  # Cloud has a service named "Batch", which means GTLRBatchQuery would be the
-  # base of the Query classes and thus conflict with the batching support, so
-  # override the name to avoid the issues.
-  --formattedName batch=CloudBatch
-
-  # Not sure why this is in discovery, turn it off.
-  --skip prod_tt_sasportal
-
-  # Include a filter so there are no warnings/infos during normal generation.
-  --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
-)
+    # Not sure why this is in discovery, turn it off.
+    --skip prod_tt_sasportal
+  )
+fi
 
 # Away it goes...
 Banner "Running the ServiceGenerator..."
-"${SERVICE_GENERATOR_COMMAND[@]}"
+"${SERVICE_GENERATOR_COMMAND[@]}" ${EXTRA_OPTS}
 
 # -----------------------------------------------------------------------------
 
