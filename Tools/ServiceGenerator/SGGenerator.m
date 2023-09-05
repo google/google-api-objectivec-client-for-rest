@@ -31,6 +31,7 @@ static NSString *kFatalGeneration = @"FatalGeneration";
 static NSString *kWrappedMethodKey                = @"wrappedMethod";
 static NSString *kWrappedSchemaKey                = @"wrappedSchema";
 static NSString *kWrappedResourceKey              = @"wrappedResource";
+static NSString *kHasDeprecatedParentKey          = @"hasDeprecatedParent";
 static NSString *kNameKey                         = @"name";
 static NSString *kObjCNameKey                     = @"objcName";
 static NSString *kForcedNameCommentKey            = @"forcedNameComment";
@@ -158,6 +159,7 @@ typedef enum {
 @property(readonly) NSArray *sg_sortedParametersWithRequest;
 @property(readonly) NSString *sg_resumableUploadPathOverride;
 @property(readonly) NSString *sg_simpleUploadPathOverride;
+@property(readonly) BOOL sg_deprecated;
 @end
 
 @interface GTLRDiscovery_RestMethod_Request (SGGeneratorAdditions)
@@ -380,8 +382,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
       // a property so we have it.  While we're at it, also give resources
       // pointers to their parents.
       [self adornSchemas:self.api.schemas parentSchema:nil];
-      [self adornResources:self.api.resources parentResource:nil];
-      [self adornMethods:self.api.methods parentResource:nil];
+      [self adornResources:self.api.resources parentResource:nil deprecatedParent:NO];
+      [self adornMethods:self.api.methods parentResource:nil deprecatedParent:NO];
 
       // Adorn the top level parameters.
       for (NSString *paramName in self.api.parameters.additionalProperties) {
@@ -541,7 +543,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 #pragma mark - Init helpers
 
 - (void)adornMethods:(GTLRObject *)methods
-      parentResource:(GTLRDiscovery_RestResource *)parentResource {
+      parentResource:(GTLRDiscovery_RestResource *)parentResource
+    deprecatedParent:(BOOL)deprecatedParent {
   NSValue *generatorAsValue = [NSValue valueWithNonretainedObject:self];
   NSValue *parentResourceAsValue = [NSValue valueWithNonretainedObject:parentResource];
 
@@ -558,6 +561,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     if (parentResource) {
       [method sg_setProperty:parentResourceAsValue forKey:kWrappedResourceKey];
     }
+    [method sg_setProperty:[NSNumber numberWithBool:deprecatedParent]
+                      forKey:kHasDeprecatedParentKey];
 
     NSString *methodID = method.identifier;
     [method.response sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
@@ -594,24 +599,36 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
 - (void)adornResource:(GTLRDiscovery_RestResource *)resource
                  name:(NSString *)resourceName
-       parentResource:(GTLRDiscovery_RestResource *)parentResource {
+       parentResource:(GTLRDiscovery_RestResource *)parentResource
+     deprecatedParent:(BOOL)deprecatedParent {
   if (resource == nil) return;
 
   [resource sg_setProperty:resourceName forKey:kNameKey];
-  [resource sg_setProperty:[NSValue valueWithNonretainedObject:parentResource]
-                    forKey:kWrappedResourceKey];
+  if (parentResource) {
+    [resource sg_setProperty:[NSValue valueWithNonretainedObject:parentResource]
+                      forKey:kWrappedResourceKey];
+  }
   [resource sg_setProperty:[NSValue valueWithNonretainedObject:self]
                     forKey:kWrappedGeneratorKey];
+  [resource sg_setProperty:[NSNumber numberWithBool:deprecatedParent]
+                    forKey:kHasDeprecatedParentKey];
+
+  deprecatedParent |= resource.deprecated.boolValue;
 
   // Sub-resources.
-  [self adornResources:resource.resources parentResource:resource];
+  [self adornResources:resource.resources
+        parentResource:resource
+      deprecatedParent:deprecatedParent];
 
   // Methods.
-  [self adornMethods:resource.methods parentResource:resource];
+  [self adornMethods:resource.methods
+      parentResource:resource
+    deprecatedParent:deprecatedParent];
 }
 
 - (void)adornResources:(GTLRObject *)resources
-        parentResource:(GTLRDiscovery_RestResource *)parentResource {
+        parentResource:(GTLRDiscovery_RestResource *)parentResource
+      deprecatedParent:(BOOL)deprecatedParent {
 
   // Schemas could be GTLRDiscovery_RestDescriptionResources or
   // GTLRDiscovery_RestResourceResources.
@@ -620,7 +637,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
         [resources.additionalProperties objectForKey:resourceName];
     [self adornResource:resource
                    name:resourceName
-         parentResource:parentResource];
+         parentResource:parentResource
+       deprecatedParent:deprecatedParent];
   }
 }
 
@@ -1779,7 +1797,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 
       atBlock = [NSString stringWithFormat:@"%@%@@interface %@ : %@\n",
                  classHDoc.string,
-                 (method.deprecated.boolValue ? kDeprecatedWithNewline : @""),
+                 (method.sg_deprecated ? kDeprecatedWithNewline : @""),
                  queryClassName,
                  self.objcQueryBaseClassName];
     } else {
@@ -3037,7 +3055,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   if (result == nil) {
     result = @NO;
     for (GTLRDiscovery_RestMethod *method in self.sg_allMethods) {
-      if (method.deprecated.boolValue) {
+      if (method.sg_deprecated) {
         result = @YES;
         break;
       }
@@ -4597,6 +4615,19 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // Set in sg_calculateMediaPaths.
   NSString *result = [self sg_propertyForKey:kSimpleUploadPathOverrideKey];
   return result;
+}
+
+- (BOOL)sg_deprecated {
+  // Was the method directly marked as deprecated.
+  if (self.deprecated.boolValue) {
+    return YES;
+  }
+  // Check if this method is off a resource (or transitive resource chain) that
+  // is marked deprecated.
+  if ([[self sg_propertyForKey:kHasDeprecatedParentKey] boolValue]) {
+    return YES;
+  }
+  return NO;
 }
 
 @end
