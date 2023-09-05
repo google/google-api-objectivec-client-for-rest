@@ -33,9 +33,6 @@ enum {
   // Playlist pop-up menu item tags.
   kUploadsTag = 0,
   kLikesTag = 1,
-  kFavoritesTag = 2,
-  kWatchHistoryTag = 3,
-  kWatchLaterTag = 4
 };
 
 // This is the URL shown users after completing the OAuth flow. This is an information page only and
@@ -331,9 +328,6 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   switch(tag) {
     case kUploadsTag:      playlistID = _myPlaylists.uploads; break;
     case kLikesTag:        playlistID = _myPlaylists.likes; break;
-    case kFavoritesTag:    playlistID = _myPlaylists.favorites; break;
-    case kWatchHistoryTag: playlistID = _myPlaylists.watchHistory; break;
-    case kWatchLaterTag:   playlistID = _myPlaylists.watchLater; break;
     default: NSAssert(0, @"Unexpected tag: %ld", tag);
   }
 
