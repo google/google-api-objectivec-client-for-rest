@@ -1168,7 +1168,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
   if (file.trashed.boolValue) {
     [title insertString:@"\u2717 " atIndex:0]; // X character
   }
-  if (file.viewersCanCopyContent.boolValue) {
+  if (file.copyRequiresWriterPermission.boolValue) {
     [title appendString:@" \u21DF"]; // crossed down arrow character
   }
   return title;
