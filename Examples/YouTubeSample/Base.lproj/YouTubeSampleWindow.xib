@@ -270,15 +270,6 @@ Gw
                                     <menuItem title="Likes" tag="1" id="431">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="Favorites" tag="2" id="434">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="Watch History" tag="3" id="435">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                    <menuItem title="Watch Later" tag="4" id="432">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>
