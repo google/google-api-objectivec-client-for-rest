@@ -63,14 +63,6 @@ static NSString *kCommonPrettyPrintQueryParamsKey = @"commonPrettyPrintQueryPara
 static NSString *kEnumMapKey                      = @"enumMap";
 
 
-static NSString *kSuppressDocumentationWarningsBegin =
-  @"// Generated comments include content from the discovery document; avoid them\n"
-  @"// causing warnings since clang's checks are some what arbitrary.\n"
-  @"#pragma clang diagnostic push\n"
-  @"#pragma clang diagnostic ignored \"-Wdocumentation\"\n";
-static NSString *kSuppressDocumentationWarningsEnd =
-  @"#pragma clang diagnostic pop\n";
-
 // Discovery doesn't provide a message (just a boolean), simple annotation is
 // all that is possible.
 static NSString *kDeprecatedSuffix = @" GTLR_DEPRECATED";
@@ -922,7 +914,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   NSString *versionCheck = [self headerVersionCheck];
   [parts addObject:versionCheck];
 
-  [parts addObject:kSuppressDocumentationWarningsBegin];
+  SGClangDirectives *clangDirectives = [SGClangDirectives disabledDocumentation];
+  [parts addObject:clangDirectives.start];
 
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
@@ -985,7 +978,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
 
-  [parts addObject:kSuppressDocumentationWarningsEnd];
+  [parts addObject:clangDirectives.end];
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1182,7 +1175,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:objectsImport];
   }
 
-  [parts addObject:kSuppressDocumentationWarningsBegin];
+  SGClangDirectives *clangDirectives = [SGClangDirectives disabledDocumentation];
+  [parts addObject:clangDirectives.start];
 
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
@@ -1205,7 +1199,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
 
-  [parts addObject:kSuppressDocumentationWarningsEnd];
+  [parts addObject:clangDirectives.end];
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1243,18 +1237,17 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:header];
   }
 
-  BOOL hasDeprecatedMethod = self.api.sg_hasDeprecatedMethod;
-  if (hasDeprecatedMethod) {
-    [parts addObject:
-     @"#pragma clang diagnostic push\n"
-     @"#pragma clang diagnostic ignored \"-Wdeprecated-implementations\"\n"];
+  SGClangDirectives *clangDirectives = [[SGClangDirectives alloc] init];
+  clangDirectives.disableDeprecatedImplementations = self.api.sg_hasDeprecatedMethod;
+  if (clangDirectives.hasDirectives) {
+    [parts addObject:clangDirectives.start];
   }
 
   NSString *queryClassStr = [self generateQueryClassesForMode:kGenerateImplementation];
   [parts addObject:queryClassStr];
 
-  if (hasDeprecatedMethod) {
-    [parts addObject:@"#pragma clang diagnostic pop\n"];
+  if (clangDirectives.hasDirectives) {
+    [parts addObject:clangDirectives.end];
   }
 
   return [parts componentsJoinedByString:@"\n"];
@@ -1293,7 +1286,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObject:[subParts componentsJoinedByString:@""]];
   }
 
-  [parts addObject:kSuppressDocumentationWarningsBegin];
+  SGClangDirectives *clangDirectives = [SGClangDirectives disabledDocumentation];
+  [parts addObject:clangDirectives.start];
 
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
 
@@ -1326,7 +1320,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
 
-  [parts addObject:kSuppressDocumentationWarningsEnd];
+  [parts addObject:clangDirectives.end];
 
   return [parts componentsJoinedByString:@"\n"];
 }

@@ -69,6 +69,27 @@
 @end
 
 
+@interface SGClangDirectives : NSObject
+
+// -Wdeprecated-implementations
+@property BOOL disableDeprecatedImplementations;
+// -Wdocumentation
+@property BOOL disableDocumentation;
+
+// Create a new instance with disableDocumentation set to YES;
++ (instancetype)disabledDocumentation;
+
+// If there are any directives enabled.
+@property(readonly) BOOL hasDirectives;
+
+// The string with the start directive block.
+@property(readonly) NSString *start;
+// The string with the end directive block.
+@property(readonly) NSString *end;
+
+@end
+
+
 @interface SGUtils : NSObject
 
 // This does its best to convert the strings (from discovery) into usable
