@@ -681,6 +681,7 @@ typedef NS_OPTIONS(NSInteger, SGCDFlags) {
   SGCDFlagsNone                       = 0,
   SGCDFlagsDocumentation              = 1 << 0,
   SGCDFlagsDeprecatedImplementations  = 1 << 1,
+  SGCDFlagsDeprecatedDeclarations     = 1 << 2,
 };
 
 @implementation SGClangDirectives {
@@ -698,6 +699,14 @@ typedef NS_OPTIONS(NSInteger, SGCDFlags) {
 
 - (void)setDisableDeprecatedImplementations:(BOOL)value {
   SET_FLAG(SGCDFlagsDeprecatedImplementations, value);
+}
+
+- (BOOL)disableDeprecatedDeclarations {
+  return IS_FLAG_SET(SGCDFlagsDeprecatedDeclarations);
+}
+
+- (void)setDisableDeprecatedDeclarations:(BOOL)value {
+  SET_FLAG(SGCDFlagsDeprecatedDeclarations, value);
 }
 
 - (BOOL)disableDocumentation {
@@ -738,6 +747,11 @@ typedef NS_OPTIONS(NSInteger, SGCDFlags) {
      @"#pragma clang diagnostic ignored \"-Wdocumentation\"\n"];
   } else {
     [result appendString:@"#pragma clang diagnostic push\n"];
+  }
+
+  if (self.disableDeprecatedDeclarations) {
+    [result appendString:
+     @"#pragma clang diagnostic ignored \"-Wdeprecated-declarations\"\n"];
   }
 
   if (self.disableDeprecatedImplementations) {
