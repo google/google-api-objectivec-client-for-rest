@@ -143,6 +143,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -4999,6 +5000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  backward-compatibility. The server will never populate this message in
  *  responses. The detailed related assets with the `relationship_type`.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudAsset_RelatedAssets : GTLRObject
 
 /** The peer resources of the relationship. */
@@ -5044,6 +5046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  responses. The relationship attributes which include `type`,
  *  `source_resource_type`, `target_resource_type` and `action`.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudAsset_RelationshipAttributes : GTLRObject
 
 /** The detail of the relationship, e.g. `contains`, `attaches` */

@@ -143,6 +143,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -3718,6 +3719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  level on the device doesn't meet a minimum requirement. There can only be
  *  one rule with this type of condition per policy.
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidManagement_ApiLevelCondition : GTLRObject
 
 /**
@@ -4807,6 +4809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  compliant with its policy. Other mitigating actions may optionally be taken
  *  as well, depending on the field values in the rule.
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidManagement_ComplianceRule : GTLRObject
 
 /**
@@ -7092,6 +7095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  NonComplianceDetailCondition match the corresponding NonComplianceDetail
  *  fields.
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidManagement_NonComplianceDetailCondition : GTLRObject
 
 /**

@@ -41,6 +41,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -933,6 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_L
 /**
  *  Describes authentication configuration that uses a Google account.
  */
+GTLR_DEPRECATED
 @interface GTLRWebSecurityScanner_GoogleAccount : GTLRObject
 
 /**

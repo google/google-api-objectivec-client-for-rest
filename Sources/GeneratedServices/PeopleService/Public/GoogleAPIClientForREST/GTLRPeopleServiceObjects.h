@@ -72,6 +72,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -844,6 +845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  **DEPRECATED**: No data will be returned A person's bragging rights.
  */
+GTLR_DEPRECATED
 @interface GTLRPeopleService_BraggingRights : GTLRObject
 
 /** Metadata about the bragging rights. */
@@ -2323,6 +2325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  **DEPRECATED**: No data will be returned A person's relationship interest .
  */
+GTLR_DEPRECATED
 @interface GTLRPeopleService_RelationshipInterest : GTLRObject
 
 /**
@@ -2348,6 +2351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  **DEPRECATED**: No data will be returned A person's relationship status.
  */
+GTLR_DEPRECATED
 @interface GTLRPeopleService_RelationshipStatus : GTLRObject
 
 /**
@@ -2374,6 +2378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  **DEPRECATED**: Please use `person.locations` instead. A person's past or
  *  current residence.
  */
+GTLR_DEPRECATED
 @interface GTLRPeopleService_Residence : GTLRObject
 
 /**
@@ -2604,6 +2609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  **DEPRECATED**: No data will be returned A brief one-line description of the
  *  person.
  */
+GTLR_DEPRECATED
 @interface GTLRPeopleService_Tagline : GTLRObject
 
 /** Metadata about the tagline. */

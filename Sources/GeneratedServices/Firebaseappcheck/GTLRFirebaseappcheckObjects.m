@@ -19,6 +19,10 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off = @"OFF";
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Unenforced = @"UNENFORCED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig
@@ -480,3 +484,5 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 
 @implementation GTLRFirebaseappcheck_GoogleProtobufEmpty
 @end
+
+#pragma clang diagnostic pop

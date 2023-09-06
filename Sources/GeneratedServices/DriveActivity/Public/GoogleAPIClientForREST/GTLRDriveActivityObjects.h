@@ -83,6 +83,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1168,6 +1169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  This item is deprecated; please see `DriveFile` instead.
  */
+GTLR_DEPRECATED
 @interface GTLRDriveActivity_File : GTLRObject
 @end
 
@@ -1207,6 +1209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  This item is deprecated; please see `DriveFolder` instead.
  */
+GTLR_DEPRECATED
 @interface GTLRDriveActivity_Folder : GTLRObject
 
 /**
@@ -1766,6 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  This item is deprecated; please see `Drive` instead.
  */
+GTLR_DEPRECATED
 @interface GTLRDriveActivity_TeamDrive : GTLRObject
 
 /** This field is deprecated; please see `Drive.name` instead. */
@@ -1783,6 +1787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  This item is deprecated; please see `DriveReference` instead.
  */
+GTLR_DEPRECATED
 @interface GTLRDriveActivity_TeamDriveReference : GTLRObject
 
 /** This field is deprecated; please see `DriveReference.name` instead. */

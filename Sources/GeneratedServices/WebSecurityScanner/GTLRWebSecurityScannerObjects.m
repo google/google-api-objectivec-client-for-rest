@@ -132,6 +132,10 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_CompleteRequestBody = @"COMPLETE_REQUEST_BODY";
 NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified = @"LOCATION_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRWebSecurityScanner_Authentication
@@ -554,3 +558,5 @@ NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified
 @implementation GTLRWebSecurityScanner_Xxe
 @dynamic payloadLocation, payloadValue;
 @end
+
+#pragma clang diagnostic pop

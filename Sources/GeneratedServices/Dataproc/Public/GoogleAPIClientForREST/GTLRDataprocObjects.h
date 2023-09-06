@@ -167,6 +167,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -4320,6 +4321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Deprecated. Used only for the deprecated beta. A full, namespace-isolated
  *  deployment target for an existing GKE cluster.
  */
+GTLR_DEPRECATED
 @interface GTLRDataproc_NamespacedGkeDeploymentTarget : GTLRObject
 
 /** Optional. A namespace within the GKE cluster to deploy into. */

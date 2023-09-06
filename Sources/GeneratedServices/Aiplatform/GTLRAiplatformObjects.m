@@ -565,6 +565,10 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_StateUnspeci
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Stopping = @"STOPPING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Succeeded = @"SUCCEEDED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAiplatform_GoogleApiHttpBody
@@ -10178,3 +10182,5 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Succeeded = 
 @implementation GTLRAiplatform_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
 @end
+
+#pragma clang diagnostic pop

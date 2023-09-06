@@ -68,6 +68,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -441,6 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRServiceControl_AuditLog_ServiceData : GTLRObject
 @end
 

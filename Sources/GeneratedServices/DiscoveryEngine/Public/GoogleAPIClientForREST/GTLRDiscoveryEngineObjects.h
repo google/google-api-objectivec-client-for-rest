@@ -101,6 +101,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2714,6 +2715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Defines reference in reply.
  */
+GTLR_DEPRECATED
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference : GTLRObject
 
 /** Anchor text. */

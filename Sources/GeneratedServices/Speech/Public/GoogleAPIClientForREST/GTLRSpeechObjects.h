@@ -40,6 +40,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1156,6 +1157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /**
  *  Description of audio data to be recognized.
  */
+GTLR_DEPRECATED
 @interface GTLRSpeech_RecognitionMetadata : GTLRObject
 
 /**

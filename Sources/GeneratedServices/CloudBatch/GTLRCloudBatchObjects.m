@@ -107,6 +107,10 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_StateUnspecified = @"STATE_UNS
 NSString * const kGTLRCloudBatch_TaskStatus_State_Succeeded    = @"SUCCEEDED";
 NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudBatch_Accelerator
@@ -1145,3 +1149,5 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 }
 
 @end
+
+#pragma clang diagnostic pop

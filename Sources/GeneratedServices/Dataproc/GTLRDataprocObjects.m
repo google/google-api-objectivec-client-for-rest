@@ -208,6 +208,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Running   = @"RUNNING";
 NSString * const kGTLRDataproc_YarnApplication_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDataproc_AcceleratorConfig
@@ -2821,3 +2825,5 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_YarnApplication
 @dynamic name, progress, state, trackingUrl;
 @end
+
+#pragma clang diagnostic pop

@@ -129,6 +129,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -3749,6 +3750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  An internal checker allows Uptime checks to run on private/internal GCP
  *  resources.
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoring_InternalChecker : GTLRObject
 
 /**

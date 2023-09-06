@@ -55,6 +55,10 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDe
 NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone = @"SMARTPHONE";
 NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @"VEHICLE";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSpeech_ABNFGrammar
@@ -519,3 +523,5 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 @implementation GTLRSpeech_WordInfo
 @dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
+
+#pragma clang diagnostic pop

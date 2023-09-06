@@ -141,6 +141,10 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_CoveredDataUnspecified = @"
 NSString * const kGTLRVault_VoiceOptions_CoveredData_TextMessages = @"TEXT_MESSAGES";
 NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRVault_AccountCount
@@ -1032,3 +1036,5 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 }
 
 @end
+
+#pragma clang diagnostic pop

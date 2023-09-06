@@ -615,6 +615,10 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Sequential = @"SEQUE
 NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Stacked = @"STACKED";
 NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified = @"WATERFALL_STACKED_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSheets_AddBandingRequest
@@ -3749,3 +3753,5 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 }
 
 @end
+
+#pragma clang diagnostic pop

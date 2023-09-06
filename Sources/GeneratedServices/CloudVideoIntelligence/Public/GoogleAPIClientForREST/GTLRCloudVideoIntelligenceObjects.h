@@ -191,6 +191,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1049,6 +1050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation : GTLRObject
 
 /** All video frames where a face was detected. */
@@ -1093,6 +1095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceFrame : GTLRObject
 
 /**
@@ -1892,6 +1895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation : GTLRObject
 
 /** All video frames where a face was detected. */
@@ -1965,6 +1969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceFrame : GTLRObject
 
 /**
@@ -2457,6 +2462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation : GTLRObject
 
 /** All video frames where a face was detected. */
@@ -2501,6 +2507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceFrame : GTLRObject
 
 /**
@@ -3312,6 +3319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation : GTLRObject
 
 /** All video frames where a face was detected. */
@@ -3356,6 +3364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceFrame : GTLRObject
 
 /**
@@ -4226,6 +4235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation : GTLRObject
 
 /** All video frames where a face was detected. */
@@ -4270,6 +4280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /**
  *  Deprecated. No effect.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceFrame : GTLRObject
 
 /**
