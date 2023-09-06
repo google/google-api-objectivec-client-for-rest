@@ -52,6 +52,7 @@ static NSString *kWrappedGeneratorKey             = @"wrappedGenerator";
 static NSString *kReturnsSchemaParameterKey       = @"returnsSchema";
 static NSString *kAllMethodObjectParametersKey    = @"allMethodObjectParameters";
 static NSString *kAllMethodObjectParameterRefsKey = @"allMethodObjectParameterRefs";
+static NSString *kHasDeprecatedSchemaKey          = @"hasDeprecatedSchemaKey";
 static NSString *kCleanedRootURLStringKey         = @"cleanedRootURLString";
 static NSString *kResumableUploadPathKey          = @"resumableUploadPath";
 static NSString *kSimpleUploadPathKey             = @"simpleUploadPath";
@@ -96,6 +97,7 @@ typedef enum {
 @property(readonly) NSDictionary *sg_objectEnumsMap;
 @property(readonly) NSArray *sg_allSchemas;
 @property(readonly) NSArray *sg_topLevelObjectSchemas;
+@property(readonly) BOOL sg_hasDeprecatedSchema;
 @property(readonly) NSArray *sg_allMethodObjectParameterReferences;
 @property(readonly) NSString *sg_resumableUploadPath;
 @property(readonly) NSString *sg_simpleUploadPath;
@@ -1287,6 +1289,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   }
 
   SGClangDirectives *clangDirectives = [SGClangDirectives disabledDocumentation];
+  clangDirectives.disableDeprecatedDeclarations = self.api.sg_hasDeprecatedSchema;
   [parts addObject:clangDirectives.start];
 
   [parts addObject:@"NS_ASSUME_NONNULL_BEGIN\n"];
@@ -1339,6 +1342,14 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     [parts addObjectsFromArray:blocks];
   }
 
+  SGClangDirectives *clangDirectives = [[SGClangDirectives alloc] init];
+  BOOL hasDeprecatedSchema = self.api.sg_hasDeprecatedSchema;
+  clangDirectives.disableDeprecatedImplementations = hasDeprecatedSchema;
+  clangDirectives.disableDeprecatedDeclarations = hasDeprecatedSchema;
+  if (clangDirectives.hasDirectives) {
+    [parts addObject:clangDirectives.start];
+  }
+
   NSMutableArray *classParts = [NSMutableArray array];
   for (GTLRDiscovery_JsonSchema *schema in self.api.sg_topLevelObjectSchemas) {
     NSString *objectClassStr = [self generateObjectClassForSchema:schema
@@ -1353,6 +1364,10 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   // Two blank lines between classes.
   [parts addObject:[classParts componentsJoinedByString:@"\n\n"]];
+
+  if (clangDirectives.hasDirectives) {
+    [parts addObject:clangDirectives.end];
+  }
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -2403,8 +2418,9 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     } else if (isTopLevelArrayResult) {
       baseClass = kResultArrayClass;
     }
-    atBlock = [NSString stringWithFormat:@"@interface %@ : %@\n",
-               schemaClassName, baseClass];
+    NSString *maybeDeprecated = schema.deprecated.boolValue ? kDeprecatedWithNewline : @"";
+    atBlock = [NSString stringWithFormat:@"%@@interface %@ : %@\n",
+               maybeDeprecated, schemaClassName, baseClass];
   } else {
     atBlock = [NSString stringWithFormat:@"@implementation %@\n",
                schemaClassName];
@@ -3311,6 +3327,37 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     [self sg_setProperty:result forKey:kTopLevelObjectSchemasKey];
   }
   return result;
+}
+
+- (BOOL)sg_hasDeprecatedSchema {
+  // This could be expanded to deal with if there are referenced as types
+  // on other schema vs. queries to only add the guards when needed, but
+  // for now just generally insert them when any schema was deprecated.
+  NSNumber *result = [self sg_propertyForKey:kHasDeprecatedSchemaKey];
+  if (result == nil) {
+    BOOL hasDeprecated = NO;
+
+    for (GTLRDiscovery_JsonSchema *schema in self.sg_topLevelObjectSchemas) {
+      if (schema.deprecated.boolValue) {
+        hasDeprecated = YES;
+        break;
+      }
+
+      for (GTLRDiscovery_JsonSchema *subSchema in schema.sg_childObjectSchemas) {
+        if (subSchema.deprecated.boolValue) {
+          hasDeprecated = YES;
+          break;
+        }
+      }
+      if (hasDeprecated) {
+        break;
+      }
+    }
+
+    result = [NSNumber numberWithBool:hasDeprecated];
+    [self sg_setProperty:result forKey:kHasDeprecatedSchemaKey];
+  }
+  return [result boolValue];
 }
 
 // These are resolved schema references in the method parameters (refs or

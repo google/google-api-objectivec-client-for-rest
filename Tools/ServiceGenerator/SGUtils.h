@@ -73,6 +73,8 @@
 
 // -Wdeprecated-implementations
 @property BOOL disableDeprecatedImplementations;
+// -Wdeprecated-declarations
+@property BOOL disableDeprecatedDeclarations;
 // -Wdocumentation
 @property BOOL disableDocumentation;
 
