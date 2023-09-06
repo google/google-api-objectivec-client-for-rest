@@ -677,6 +677,83 @@ static BOOL AppearsToBePrefixed(NSString *str) {
 
 @end
 
+typedef NS_OPTIONS(NSInteger, SGCDFlags) {
+  SGCDFlagsNone                       = 0,
+  SGCDFlagsDocumentation              = 1 << 0,
+  SGCDFlagsDeprecatedImplementations  = 1 << 1,
+};
+
+@implementation SGClangDirectives {
+  SGCDFlags _flags;
+}
+
+#define IS_FLAG_SET(x) ((_flags & (x)) != 0)
+#define SET_FLAG(x, v) do { _flags = (_flags & ~(x)) | ((v) ? (x) : 0); } while (0)
+
+// Public methods
+
+- (BOOL)disableDeprecatedImplementations {
+  return IS_FLAG_SET(SGCDFlagsDeprecatedImplementations);
+}
+
+- (void)setDisableDeprecatedImplementations:(BOOL)value {
+  SET_FLAG(SGCDFlagsDeprecatedImplementations, value);
+}
+
+- (BOOL)disableDocumentation {
+  return IS_FLAG_SET(SGCDFlagsDocumentation);
+}
+
+- (void)setDisableDocumentation:(BOOL)value {
+  SET_FLAG(SGCDFlagsDocumentation, value);
+}
+
+#undef IS_FLAG_SET
+#undef SET_FLAG
+
++ (instancetype)disabledDocumentation {
+  SGClangDirectives *result = [[self alloc] init];
+  result.disableDocumentation = YES;
+  return result;
+}
+
+- (BOOL)hasDirectives {
+  return _flags != SGCDFlagsNone;
+}
+
+- (NSString *)start {
+  if (!self.hasDirectives) {
+    return @"";
+  }
+
+  NSMutableString *result = [NSMutableString string];
+
+  // Minimize generated file churn, always put -Wdocumentation at the top and
+  // keep the 'push" in the middle.
+  if (self.disableDocumentation) {
+    [result appendString:
+     @"// Generated comments include content from the discovery document; avoid them\n"
+     @"// causing warnings since clang's checks are some what arbitrary.\n"
+     @"#pragma clang diagnostic push\n"
+     @"#pragma clang diagnostic ignored \"-Wdocumentation\"\n"];
+  } else {
+    [result appendString:@"#pragma clang diagnostic push\n"];
+  }
+
+  if (self.disableDeprecatedImplementations) {
+    [result appendString:
+     @"#pragma clang diagnostic ignored \"-Wdeprecated-implementations\"\n"];
+  }
+
+  return result;
+}
+
+- (NSString *)end {
+  return self.hasDirectives ? @"#pragma clang diagnostic pop\n" : @"";
+}
+
+@end
+
 @implementation NSMutableString (SGUtils)
 
 - (void)sg_appendWrappedLinesFromString:(NSString *)str
