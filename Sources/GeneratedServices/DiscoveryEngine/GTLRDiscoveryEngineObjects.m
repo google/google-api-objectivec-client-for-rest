@@ -97,6 +97,10 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_PotentialPolicyViolation = @"POTENTIAL_POLICY_VIOLATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_SummarySkippedReasonUnspecified = @"SUMMARY_SKIPPED_REASON_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDiscoveryEngine_GoogleApiHttpBody
@@ -1872,3 +1876,5 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 @implementation GTLRDiscoveryEngine_GoogleTypeDate
 @dynamic day, month, year;
 @end
+
+#pragma clang diagnostic pop

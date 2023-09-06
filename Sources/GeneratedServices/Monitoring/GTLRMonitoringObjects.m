@@ -301,6 +301,10 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Money = @"MONEY";
 NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_String = @"STRING";
 NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRMonitoring_Aggregation
@@ -2204,3 +2208,5 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 @dynamic goodBadMetricFilter, goodTotalRatioThreshold, metricMeanInRange,
          metricSumInRange, windowPeriod;
 @end
+
+#pragma clang diagnostic pop

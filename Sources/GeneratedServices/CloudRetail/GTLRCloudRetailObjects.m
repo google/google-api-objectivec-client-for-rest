@@ -238,6 +238,10 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudRetail_GoogleApiHttpBody
@@ -3279,3 +3283,5 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 @implementation GTLRCloudRetail_GoogleTypeDate
 @dynamic day, month, year;
 @end
+
+#pragma clang diagnostic pop

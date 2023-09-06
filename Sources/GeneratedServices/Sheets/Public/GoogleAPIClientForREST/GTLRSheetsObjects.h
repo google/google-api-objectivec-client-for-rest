@@ -247,6 +247,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -4363,6 +4364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRSheets_BasicFilter_Criteria : GTLRObject
 @end
 
@@ -7985,6 +7987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRSheets_FilterView_Criteria : GTLRObject
 @end
 
@@ -9436,6 +9439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        -additionalPropertyForName: to get the list of properties and then
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRSheets_PivotTable_Criteria : GTLRObject
 @end
 

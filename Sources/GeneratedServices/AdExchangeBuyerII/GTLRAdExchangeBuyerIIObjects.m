@@ -482,6 +482,10 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pos
 NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Postroll = @"POSTROLL";
 NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Preroll = @"PREROLL";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAdExchangeBuyerII_AbsoluteDateRange
@@ -2125,3 +2129,5 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 @implementation GTLRAdExchangeBuyerII_WatchCreativeRequest
 @dynamic topic;
 @end
+
+#pragma clang diagnostic pop

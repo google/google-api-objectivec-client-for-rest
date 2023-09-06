@@ -134,6 +134,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -3923,6 +3924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 /**
  *  Recent search of this user.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult : GTLRObject
 
 /** The recent search query. */

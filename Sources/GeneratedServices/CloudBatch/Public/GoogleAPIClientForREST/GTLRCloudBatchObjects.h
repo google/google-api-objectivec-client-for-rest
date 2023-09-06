@@ -85,6 +85,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2656,6 +2657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudBatch_TaskSpec_Environments : GTLRObject
 @end
 

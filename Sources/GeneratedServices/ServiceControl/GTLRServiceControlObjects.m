@@ -31,6 +31,10 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_CustomConstraint =
 NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_ListConstraint = @"LIST_CONSTRAINT";
 NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRServiceControl_Api
@@ -784,3 +788,5 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 @implementation GTLRServiceControl_ViolationInfo
 @dynamic checkedValue, constraint, errorMessage, policyType;
 @end
+
+#pragma clang diagnostic pop

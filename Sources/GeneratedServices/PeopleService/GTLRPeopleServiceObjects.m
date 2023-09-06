@@ -107,6 +107,10 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPeopleService_Address
@@ -1137,3 +1141,5 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 @implementation GTLRPeopleService_UserDefined
 @dynamic key, metadata, value;
 @end
+
+#pragma clang diagnostic pop

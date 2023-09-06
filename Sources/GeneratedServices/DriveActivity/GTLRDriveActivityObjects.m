@@ -109,6 +109,10 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_TrashAutoPurge = @"TRASH_AU
 NSString * const kGTLRDriveActivity_SystemEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELETION";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDriveActivity_Action
@@ -869,3 +873,5 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 }
 
 @end
+
+#pragma clang diagnostic pop

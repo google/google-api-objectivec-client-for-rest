@@ -150,6 +150,10 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Invalid = @"INVAL
 NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Present = @"PRESENT";
 NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUnspecified = @"PRIOR_ASSET_STATE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudAsset_AccessSelector
@@ -2308,3 +2312,5 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 @implementation GTLRCloudAsset_ZypperPatch
 @dynamic category, patchName, severity, summary;
 @end
+
+#pragma clang diagnostic pop

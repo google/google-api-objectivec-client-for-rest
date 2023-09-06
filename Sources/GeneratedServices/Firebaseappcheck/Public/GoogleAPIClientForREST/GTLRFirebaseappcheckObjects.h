@@ -31,6 +31,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -205,6 +206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 /**
  *  Response message for the BatchGetSafetyNetConfigs method.
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse : GTLRObject
 
 /** SafetyNetConfigs retrieved. */
@@ -580,6 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 /**
  *  Request message for the ExchangeSafetyNetToken method.
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest : GTLRObject
 
 /**
@@ -888,6 +891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Firebase Console or programmatically via the [Firebase Management
  *  Service](https://firebase.google.com/docs/projects/api/reference/rest/v11/projects.androidApps.sha/create).
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig : GTLRObject
 
 /**

@@ -451,6 +451,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14407,6 +14408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_Parameters : GTLRObject
 @end
 

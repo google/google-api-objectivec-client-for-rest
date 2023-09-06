@@ -168,6 +168,10 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_AnyOf = @"ANY_OF";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_PhraseMatchRuleGroupTypeUnspecified = @"PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Analysis
@@ -2615,3 +2619,5 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 }
 
 @end
+
+#pragma clang diagnostic pop
