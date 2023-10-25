@@ -738,8 +738,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleProfile
-@dynamic connectionAttributes, databaseService, hostname, password, port,
-         username;
+@dynamic connectionAttributes, databaseService, hostname, oracleSslConfig,
+         password, port, username;
 @end
 
 
@@ -801,6 +801,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_OracleSourceConfig
 @dynamic dropLargeObjects, excludeObjects, includeObjects,
          maxConcurrentBackfillTasks, maxConcurrentCdcTasks, streamLargeObjects;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleSslConfig
+//
+
+@implementation GTLRDatastream_OracleSslConfig
+@dynamic caCertificate, caCertificateSet;
 @end
 
 
@@ -1125,8 +1135,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_Stream
 @dynamic backfillAll, backfillNone, createTime, customerManagedEncryptionKey,
-         destinationConfig, displayName, errors, labels, name, sourceConfig,
-         state, updateTime;
+         destinationConfig, displayName, errors, labels, lastRecoveryTime, name,
+         sourceConfig, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

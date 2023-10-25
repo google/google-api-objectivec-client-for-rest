@@ -28,6 +28,15 @@
 @class GTLRVMMigrationService_AwsVmDetails;
 @class GTLRVMMigrationService_AwsVmDetails_Tags;
 @class GTLRVMMigrationService_AwsVmsDetails;
+@class GTLRVMMigrationService_AzureDiskDetails;
+@class GTLRVMMigrationService_AzureSourceDetails;
+@class GTLRVMMigrationService_AzureSourceDetails_MigrationResourcesUserTags;
+@class GTLRVMMigrationService_AzureSourceVmDetails;
+@class GTLRVMMigrationService_AzureVmDetails;
+@class GTLRVMMigrationService_AzureVmDetails_Tags;
+@class GTLRVMMigrationService_AzureVmsDetails;
+@class GTLRVMMigrationService_BootDiskDefaults;
+@class GTLRVMMigrationService_ClientSecretCredentials;
 @class GTLRVMMigrationService_CloneJob;
 @class GTLRVMMigrationService_CloneStep;
 @class GTLRVMMigrationService_ComputeEngineDisksTargetDefaults;
@@ -44,6 +53,15 @@
 @class GTLRVMMigrationService_CutoverStep;
 @class GTLRVMMigrationService_CycleStep;
 @class GTLRVMMigrationService_DatacenterConnector;
+@class GTLRVMMigrationService_Disk;
+@class GTLRVMMigrationService_DiskImageDefaults;
+@class GTLRVMMigrationService_DisksMigrationDisksTargetDefaults;
+@class GTLRVMMigrationService_DisksMigrationDisksTargetDetails;
+@class GTLRVMMigrationService_DisksMigrationVmTargetDefaults;
+@class GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Labels;
+@class GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata;
+@class GTLRVMMigrationService_DisksMigrationVmTargetDetails;
+@class GTLRVMMigrationService_Encryption;
 @class GTLRVMMigrationService_Group;
 @class GTLRVMMigrationService_InitializingReplicationStep;
 @class GTLRVMMigrationService_InstantiatingMigratedVMStep;
@@ -59,6 +77,8 @@
 @class GTLRVMMigrationService_Operation;
 @class GTLRVMMigrationService_Operation_Metadata;
 @class GTLRVMMigrationService_Operation_Response;
+@class GTLRVMMigrationService_OSDescription;
+@class GTLRVMMigrationService_OSDisk;
 @class GTLRVMMigrationService_PersistentDisk;
 @class GTLRVMMigrationService_PersistentDiskDefaults;
 @class GTLRVMMigrationService_PersistentDiskDefaults_AdditionalLabels;
@@ -78,6 +98,8 @@
 @class GTLRVMMigrationService_TargetProject;
 @class GTLRVMMigrationService_UpgradeStatus;
 @class GTLRVMMigrationService_UtilizationReport;
+@class GTLRVMMigrationService_VmAttachmentDetails;
+@class GTLRVMMigrationService_VmCapabilities;
 @class GTLRVMMigrationService_VmUtilizationInfo;
 @class GTLRVMMigrationService_VmUtilizationMetrics;
 @class GTLRVMMigrationService_VmwareDiskDetails;
@@ -288,6 +310,161 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsVmDetails_Virtuali
  *  Value: "VM_VIRTUALIZATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_VmVirtualizationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureSourceDetails.state
+
+/**
+ *  The source exists and its credentials were verified.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Active;
+/**
+ *  The source is available but might not be usable yet due to invalid
+ *  credentials or another reason. The error message will contain further
+ *  details.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Failed;
+/**
+ *  The state was not sampled by the health checks yet.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Pending;
+/**
+ *  The state is unknown. This is used for API compatibility only and is not
+ *  used by the system.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureSourceVmDetails.firmware
+
+/**
+ *  The firmware is BIOS.
+ *
+ *  Value: "BIOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios;
+/**
+ *  The firmware is EFI.
+ *
+ *  Value: "EFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Efi;
+/**
+ *  The firmware is unknown.
+ *
+ *  Value: "FIRMWARE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureVmDetails.bootOption
+
+/**
+ *  The boot option is BIOS.
+ *
+ *  Value: "BIOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Bios;
+/**
+ *  The boot option is unknown.
+ *
+ *  Value: "BOOT_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_BootOptionUnspecified;
+/**
+ *  The boot option is UEFI.
+ *
+ *  Value: "EFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Efi;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AzureVmDetails.powerState
+
+/**
+ *  The VM is deallocated.
+ *
+ *  Value: "DEALLOCATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocated;
+/**
+ *  The VM is deallocating.
+ *
+ *  Value: "DEALLOCATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocating;
+/**
+ *  Power state is not specified.
+ *
+ *  Value: "POWER_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_PowerStateUnspecified;
+/**
+ *  The VM is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Running;
+/**
+ *  The VM is starting.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Starting;
+/**
+ *  The VM is stopped.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopped;
+/**
+ *  The VM is stopping.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopping;
+/**
+ *  The VM's power state is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_BootDiskDefaults.diskType
+
+/**
+ *  An alternative to SSD persistent disks that balance performance and cost.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced;
+/**
+ *  SSD hard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeSsd;
+/**
+ *  A Standard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeStandard;
+/**
+ *  An unspecified disk type. Will be used as STANDARD.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_CloneJob.state
@@ -728,19 +905,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Sta
 // GTLRVMMigrationService_MigrationError.code
 
 /**
- *  Migrate for Compute encountered an error during appliance upgrade.
+ *  Migrate to Virtual Machines encountered an error during appliance upgrade.
  *
  *  Value: "APPLIANCE_UPGRADE_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeError;
 /**
- *  Migrate for Compute encountered an error in clone operation.
+ *  Migrate to Virtual Machines encountered an error in clone operation.
  *
  *  Value: "CLONE_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_CloneError;
 /**
- *  Migrate for Compute encountered an error in cutover operation.
+ *  Migrate to Virtual Machines encountered an error in cutover operation.
  *
  *  Value: "CUTOVER_ERROR"
  */
@@ -752,38 +929,41 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified;
 /**
- *  Migrate for Compute encountered an error during OS adaptation.
+ *  Migrate to Virtual Machines encountered an error during OS adaptation.
  *
  *  Value: "OS_ADAPTATION_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError;
 /**
- *  Migrate for Compute encountered an error during source data operation.
+ *  Migrate to Virtual Machines encountered an error during source data
+ *  operation.
  *
  *  Value: "SOURCE_REPLICATION_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceReplicationError;
 /**
- *  Migrate for Compute encountered an error while validating replication source
- *  health.
+ *  Migrate to Virtual Machines encountered an error while validating
+ *  replication source health.
  *
  *  Value: "SOURCE_VALIDATION_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceValidationError;
 /**
- *  Migrate for Compute encountered an error during target data operation.
+ *  Migrate to Virtual Machines encountered an error during target data
+ *  operation.
  *
  *  Value: "TARGET_REPLICATION_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_TargetReplicationError;
 /**
- *  Migrate for Compute encountered an unknown error.
+ *  Migrate to Virtual Machines encountered an unknown error.
  *
  *  Value: "UNKNOWN_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_UnknownError;
 /**
- *  Migrate for Compute encountered an error during utilization report creation.
+ *  Migrate to Virtual Machines encountered an error during utilization report
+ *  creation.
  *
  *  Value: "UTILIZATION_REPORT_ERROR"
  */
@@ -973,6 +1153,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_UtilizationReport_Tim
  *  Value: "YEAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Year;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_VmCapabilities.osCapabilities
+
+/**
+ *  gVNIC virtual NIC driver supported.
+ *
+ *  Value: "OS_CAPABILITY_GVNIC_NETWORK_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityGvnicNetworkInterface;
+/**
+ *  NVMe driver installed and the VM can use NVMe PD or local SSD.
+ *
+ *  Value: "OS_CAPABILITY_NVME_STORAGE_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityNvmeStorageAccess;
+/**
+ *  This is for API compatibility only and is not in use.
+ *
+ *  Value: "OS_CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_VmwareSourceVmDetails.firmware
@@ -1298,6 +1500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *firmware;
 
+/**
+ *  Output only. Information about VM capabilities needed for some Compute
+ *  Engine features.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_VmCapabilities *vmCapabilitiesInfo;
+
 @end
 
 
@@ -1459,6 +1667,302 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  The details of an Azure VM disk.
+ */
+@interface GTLRVMMigrationService_AzureDiskDetails : GTLRObject
+
+/** Azure disk ID. */
+@property(nonatomic, copy, nullable) NSString *diskId;
+
+/**
+ *  The ordinal number of the disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskNumber;
+
+/**
+ *  Size in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
+ *  AzureSourceDetails message describes a specific source details for the Azure
+ *  source type.
+ */
+@interface GTLRVMMigrationService_AzureSourceDetails : GTLRObject
+
+/**
+ *  Immutable. The Azure location (region) that the source VMs will be migrated
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *azureLocation;
+
+/** Azure Credentials using tenant ID, client ID and secret. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ClientSecretCredentials *clientSecretCreds;
+
+/**
+ *  Output only. Provides details on the state of the Source in case of an
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Status *error;
+
+/**
+ *  User specified tags to add to every M2VM generated resource in Azure. These
+ *  tags will be set in addition to the default tags that are set as part of the
+ *  migration process. The tags must not begin with the reserved prefix `m4ce`
+ *  or `m2vm`.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AzureSourceDetails_MigrationResourcesUserTags *migrationResourcesUserTags;
+
+/**
+ *  Output only. The ID of the Azure resource group that contains all resources
+ *  related to the migration process of this source.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceGroupId;
+
+/**
+ *  Output only. State of the source as determined by the health check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureSourceDetails_State_Active The source
+ *        exists and its credentials were verified. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceDetails_State_Failed The source
+ *        is available but might not be usable yet due to invalid credentials or
+ *        another reason. The error message will contain further details.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceDetails_State_Pending The state
+ *        was not sampled by the health checks yet. (Value: "PENDING")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified
+ *        The state is unknown. This is used for API compatibility only and is
+ *        not used by the system. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Immutable. Azure subscription ID. */
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+@end
+
+
+/**
+ *  User specified tags to add to every M2VM generated resource in Azure. These
+ *  tags will be set in addition to the default tags that are set as part of the
+ *  migration process. The tags must not begin with the reserved prefix `m4ce`
+ *  or `m2vm`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_AzureSourceDetails_MigrationResourcesUserTags : GTLRObject
+@end
+
+
+/**
+ *  Represent the source Azure VM details.
+ */
+@interface GTLRVMMigrationService_AzureSourceVmDetails : GTLRObject
+
+/**
+ *  The total size of the disks being migrated in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
+
+/** The disks attached to the source VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AzureDiskDetails *> *disks;
+
+/**
+ *  The firmware type of the source VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios The
+ *        firmware is BIOS. (Value: "BIOS")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Efi The
+ *        firmware is EFI. (Value: "EFI")
+ *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified
+ *        The firmware is unknown. (Value: "FIRMWARE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *firmware;
+
+/**
+ *  Output only. Information about VM capabilities needed for some Compute
+ *  Engine features.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_VmCapabilities *vmCapabilitiesInfo;
+
+@end
+
+
+/**
+ *  AwsVmDetails describes a VM in AWS.
+ */
+@interface GTLRVMMigrationService_AzureVmDetails : GTLRObject
+
+/**
+ *  The VM Boot Option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_BootOption_Bios The boot
+ *        option is BIOS. (Value: "BIOS")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_BootOption_BootOptionUnspecified
+ *        The boot option is unknown. (Value: "BOOT_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_BootOption_Efi The boot
+ *        option is UEFI. (Value: "EFI")
+ */
+@property(nonatomic, copy, nullable) NSString *bootOption;
+
+/**
+ *  The total size of the storage allocated to the VM in MB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *committedStorageMb;
+
+/** The VM's ComputerName. */
+@property(nonatomic, copy, nullable) NSString *computerName;
+
+/**
+ *  The number of cpus the VM has.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCount;
+
+/**
+ *  The number of disks the VM has, including OS disk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskCount;
+
+/** Description of the data disks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Disk *> *disks;
+
+/**
+ *  The memory size of the VM in MB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryMb;
+
+/** Description of the OS. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_OSDescription *osDescription;
+
+/** Description of the OS disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_OSDisk *osDisk;
+
+/**
+ *  The power state of the VM at the moment list was taken.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocated The
+ *        VM is deallocated. (Value: "DEALLOCATED")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocating The
+ *        VM is deallocating. (Value: "DEALLOCATING")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_PowerStateUnspecified
+ *        Power state is not specified. (Value: "POWER_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Running The VM
+ *        is running. (Value: "RUNNING")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Starting The VM
+ *        is starting. (Value: "STARTING")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopped The VM
+ *        is stopped. (Value: "STOPPED")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopping The VM
+ *        is stopping. (Value: "STOPPING")
+ *    @arg @c kGTLRVMMigrationService_AzureVmDetails_PowerState_Unknown The VM's
+ *        power state is unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *powerState;
+
+/** The tags of the VM. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AzureVmDetails_Tags *tags;
+
+/** The VM full path in Azure. */
+@property(nonatomic, copy, nullable) NSString *vmId;
+
+/** VM size as configured in Azure. Determines the VM's hardware spec. */
+@property(nonatomic, copy, nullable) NSString *vmSize;
+
+@end
+
+
+/**
+ *  The tags of the VM.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_AzureVmDetails_Tags : GTLRObject
+@end
+
+
+/**
+ *  AzureVmsDetails describes VMs in Azure.
+ */
+@interface GTLRVMMigrationService_AzureVmsDetails : GTLRObject
+
+/** The details of the Azure VMs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AzureVmDetails *> *details;
+
+@end
+
+
+/**
+ *  BootDiskDefaults hold information about the boot disk of a VM.
+ */
+@interface GTLRVMMigrationService_BootDiskDefaults : GTLRObject
+
+/**
+ *  Optional. Specifies a unique device name of your choice that is reflected
+ *  into the /dev/disk/by-id/google-* tree of a Linux operating system running
+ *  within the instance. If not specified, the server chooses a default device
+ *  name to apply to this disk, in the form persistent-disk-x, where x is a
+ *  number assigned by Google Compute Engine. This field is only applicable for
+ *  persistent disks.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceName;
+
+/** Optional. The name of the disk. */
+@property(nonatomic, copy, nullable) NSString *diskName;
+
+/**
+ *  Optional. The type of disk provisioning to use for the VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced
+ *        An alternative to SSD persistent disks that balance performance and
+ *        cost. (Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeSsd
+ *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
+ *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeStandard
+ *        A Standard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD")
+ *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified
+ *        An unspecified disk type. Will be used as STANDARD. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/** Optional. The encryption to apply to the boot disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
+/** The image to use when creating the disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskImageDefaults *image;
+
+@end
+
+
+/**
  *  Request message for 'CancelCloneJob' request.
  */
 @interface GTLRVMMigrationService_CancelCloneJobRequest : GTLRObject
@@ -1476,6 +1980,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRVMMigrationService_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Message describing Azure Credentials using tenant ID, client ID and secret.
+ */
+@interface GTLRVMMigrationService_ClientSecretCredentials : GTLRObject
+
+/** Azure client ID. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Input only. Azure client secret. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/** Azure tenant ID. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
 @end
 
 
@@ -1582,11 +2103,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** The details of each Persistent Disk to create. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_PersistentDiskDefaults *> *disks;
 
+/** Details of the disk only migration target. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationDisksTargetDefaults *disksTargetDefaults;
+
 /**
  *  The full path of the resource of type TargetProject which represents the
  *  Compute Engine project in which to create the Persistent Disks.
  */
 @property(nonatomic, copy, nullable) NSString *targetProject;
+
+/** Details of the VM migration target. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationVmTargetDefaults *vmTargetDefaults;
 
 /**
  *  The zone in which to create the Persistent Disks.
@@ -1606,6 +2133,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** The details of each created Persistent Disk. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_PersistentDisk *> *disks;
+
+/** Details of the disks-only migration target. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationDisksTargetDetails *disksTargetDetails;
+
+/** Details for the VM the migrated data disks are attached to. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationVmTargetDetails *vmTargetDetails;
 
 @end
 
@@ -1655,6 +2188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** Optional. Immutable. The encryption to apply to the VM disks. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
 
 /** The hostname to assign to the VM. */
 @property(nonatomic, copy, nullable) NSString *hostname;
@@ -1792,6 +2328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** Optional. The encryption to apply to the VM disks. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
 
 /** The hostname to assign to the VM. */
 @property(nonatomic, copy, nullable) NSString *hostname;
@@ -2184,6 +2723,152 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  A message describing a data disk.
+ */
+@interface GTLRVMMigrationService_Disk : GTLRObject
+
+/**
+ *  The disk's Logical Unit Number (LUN).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lun;
+
+/** The disk name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The disk size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
+ *  Contains details about the image source used to create the disk.
+ */
+@interface GTLRVMMigrationService_DiskImageDefaults : GTLRObject
+
+/** Required. The Image resource used when creating the disk. */
+@property(nonatomic, copy, nullable) NSString *sourceImage;
+
+@end
+
+
+/**
+ *  Details for a disk only migration.
+ */
+@interface GTLRVMMigrationService_DisksMigrationDisksTargetDefaults : GTLRObject
+@end
+
+
+/**
+ *  Details for a disks-only migration.
+ */
+@interface GTLRVMMigrationService_DisksMigrationDisksTargetDetails : GTLRObject
+@end
+
+
+/**
+ *  Details for creation of a VM that migrated data disks will be attached to.
+ */
+@interface GTLRVMMigrationService_DisksMigrationVmTargetDefaults : GTLRObject
+
+/** Optional. Additional licenses to assign to the VM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
+
+/** Optional. Details of the boot disk of the VM. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_BootDiskDefaults *bootDiskDefaults;
+
+/**
+ *  Optional. Compute instance scheduling information (if empty default is
+ *  used).
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeScheduling *computeScheduling;
+
+/** Optional. The encryption to apply to the VM. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
+/** Optional. The hostname to assign to the VM. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Optional. A map of labels to associate with the VM. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Labels *labels;
+
+/** Required. The machine type to create the VM with. */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. The machine type series to create the VM with. For presentation
+ *  only.
+ */
+@property(nonatomic, copy, nullable) NSString *machineTypeSeries;
+
+/** Optional. The metadata key/value pairs to assign to the VM. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata *metadata;
+
+/** Optional. NICs to attach to the VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_NetworkInterface *> *networkInterfaces;
+
+/** Optional. A list of network tags to associate with the VM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
+
+/**
+ *  Optional. Defines whether the instance has Secure Boot enabled. This can be
+ *  set to true only if the VM boot option is EFI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secureBoot;
+
+/** Optional. The service account to associate the VM with. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Required. The name of the VM to create. */
+@property(nonatomic, copy, nullable) NSString *vmName;
+
+@end
+
+
+/**
+ *  Optional. A map of labels to associate with the VM.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata key/value pairs to assign to the VM.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Details for the VM created VM as part of disks migration.
+ */
+@interface GTLRVMMigrationService_DisksMigrationVmTargetDetails : GTLRObject
+
+/** Output only. The URI of the Compute Engine VM. */
+@property(nonatomic, copy, nullable) NSString *vmUri;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2194,12 +2879,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Encryption message describes the details of the applied encryption.
+ */
+@interface GTLRVMMigrationService_Encryption : GTLRObject
+
+/**
+ *  Required. The name of the encryption key that is stored in Google Cloud KMS.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+@end
+
+
+/**
  *  Response message for fetchInventory.
  */
 @interface GTLRVMMigrationService_FetchInventoryResponse : GTLRObject
 
 /** The description of the VMs in a Source of type AWS. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsVmsDetails *awsVms;
+
+/** The description of the VMs in a Source of type Azure. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AzureVmsDetails *azureVms;
 
 /**
  *  Output only. A token, which can be sent as `page_token` to retrieve the next
@@ -2711,6 +3412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Output only. Details of the VM from an AWS source. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceVmDetails *awsSourceVmDetails;
 
+/** Output only. Details of the VM from an Azure source. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AzureSourceVmDetails *azureSourceVmDetails;
+
 /** Details of the target Persistent Disks in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineDisksTargetDefaults *computeEngineDisksTargetDefaults;
 
@@ -2877,34 +3581,35 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeError
- *        Migrate for Compute encountered an error during appliance upgrade.
- *        (Value: "APPLIANCE_UPGRADE_ERROR")
- *    @arg @c kGTLRVMMigrationService_MigrationError_Code_CloneError Migrate for
- *        Compute encountered an error in clone operation. (Value:
+ *        Migrate to Virtual Machines encountered an error during appliance
+ *        upgrade. (Value: "APPLIANCE_UPGRADE_ERROR")
+ *    @arg @c kGTLRVMMigrationService_MigrationError_Code_CloneError Migrate to
+ *        Virtual Machines encountered an error in clone operation. (Value:
  *        "CLONE_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_CutoverError Migrate
- *        for Compute encountered an error in cutover operation. (Value:
+ *        to Virtual Machines encountered an error in cutover operation. (Value:
  *        "CUTOVER_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified
  *        Default value. This value is not used. (Value:
  *        "ERROR_CODE_UNSPECIFIED")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError
- *        Migrate for Compute encountered an error during OS adaptation. (Value:
- *        "OS_ADAPTATION_ERROR")
+ *        Migrate to Virtual Machines encountered an error during OS adaptation.
+ *        (Value: "OS_ADAPTATION_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_SourceReplicationError
- *        Migrate for Compute encountered an error during source data operation.
- *        (Value: "SOURCE_REPLICATION_ERROR")
+ *        Migrate to Virtual Machines encountered an error during source data
+ *        operation. (Value: "SOURCE_REPLICATION_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_SourceValidationError
- *        Migrate for Compute encountered an error while validating replication
- *        source health. (Value: "SOURCE_VALIDATION_ERROR")
+ *        Migrate to Virtual Machines encountered an error while validating
+ *        replication source health. (Value: "SOURCE_VALIDATION_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_TargetReplicationError
- *        Migrate for Compute encountered an error during target data operation.
- *        (Value: "TARGET_REPLICATION_ERROR")
+ *        Migrate to Virtual Machines encountered an error during target data
+ *        operation. (Value: "TARGET_REPLICATION_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_UnknownError Migrate
- *        for Compute encountered an unknown error. (Value: "UNKNOWN_ERROR")
+ *        to Virtual Machines encountered an unknown error. (Value:
+ *        "UNKNOWN_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_UtilizationReportError
- *        Migrate for Compute encountered an error during utilization report
- *        creation. (Value: "UTILIZATION_REPORT_ERROR")
+ *        Migrate to Virtual Machines encountered an error during utilization
+ *        report creation. (Value: "UTILIZATION_REPORT_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -3101,6 +3806,48 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  A message describing the VM's OS. Including OS, Publisher, Offer and Plan if
+ *  applicable.
+ */
+@interface GTLRVMMigrationService_OSDescription : GTLRObject
+
+/** OS offer. */
+@property(nonatomic, copy, nullable) NSString *offer;
+
+/** OS plan. */
+@property(nonatomic, copy, nullable) NSString *plan;
+
+/** OS publisher. */
+@property(nonatomic, copy, nullable) NSString *publisher;
+
+/** OS type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A message describing the OS disk.
+ */
+@interface GTLRVMMigrationService_OSDisk : GTLRObject
+
+/** The disk's full name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The disk's size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** The disk's type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Request message for 'PauseMigration' request.
  */
 @interface GTLRVMMigrationService_PauseMigrationRequest : GTLRObject
@@ -3153,12 +3900,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
+/** Optional. The encryption to apply to the disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
 /**
  *  Required. The ordinal number of the source VM disk.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sourceDiskNumber;
+
+/**
+ *  Optional. Details for attachment of the disk to a VM. Used when the disk is
+ *  set to be attacked to a target VM.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_VmAttachmentDetails *vmAttachmentDetails;
 
 @end
 
@@ -3393,6 +4149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** AWS type source details. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceDetails *aws;
 
+/** Azure type source details. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AzureSourceDetails *azure;
+
 /** Output only. The create time timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3402,6 +4161,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Immutable. The encryption details of the source data stored by the
+ *  service.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
 
 /** The labels of the source. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Source_Labels *labels;
@@ -3518,7 +4283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Output only. The name of the target project. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The target project ID (number) or project name. */
+/** Required. The target project ID (number) or project name. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /** Output only. The last time the target project resource was updated. */
@@ -3667,6 +4432,42 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  report. In that case all other fields are ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_VmUtilizationInfo *> *vms;
+
+@end
+
+
+/**
+ *  Details for attachment of the disk to a VM.
+ */
+@interface GTLRVMMigrationService_VmAttachmentDetails : GTLRObject
+
+/**
+ *  Optional. Specifies a unique device name of your choice that is reflected
+ *  into the /dev/disk/by-id/google-* tree of a Linux operating system running
+ *  within the instance. If not specified, the server chooses a default device
+ *  name to apply to this disk, in the form persistent-disk-x, where x is a
+ *  number assigned by Google Compute Engine. This field is only applicable for
+ *  persistent disks.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceName;
+
+@end
+
+
+/**
+ *  Migrating VM source information about the VM capabilities needed for some
+ *  Compute Engine features.
+ */
+@interface GTLRVMMigrationService_VmCapabilities : GTLRObject
+
+/** Output only. The last time OS capabilities list was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastOsCapabilitiesUpdateTime;
+
+/**
+ *  Output only. Unordered list. List of certain VM OS capabilities needed for
+ *  some Compute Engine features.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *osCapabilities;
 
 @end
 
@@ -3833,6 +4634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        The firmware is unknown. (Value: "FIRMWARE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *firmware;
+
+/**
+ *  Output only. Information about VM capabilities needed for some Compute
+ *  Engine features.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_VmCapabilities *vmCapabilitiesInfo;
 
 @end
 

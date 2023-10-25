@@ -347,6 +347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttribu
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_Omsdk10;
 /**
+ *  The creative is considered a playable display creative.
+ *
+ *  Value: "RENDERING_PLAYABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RenderingPlayable;
+/**
  *  The creative can dynamically resize to fill a variety of slot sizes.
  *
  *  Value: "RENDERING_SIZELESS_ADX"
@@ -612,6 +618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_
  *  Value: "OMSDK_1_0"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_Omsdk10;
+/**
+ *  The creative is considered a playable display creative.
+ *
+ *  Value: "RENDERING_PLAYABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RenderingPlayable;
 /**
  *  The creative can dynamically resize to fill a variety of slot sizes.
  *
@@ -2435,10 +2447,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_GetRemarketingTagResponse : GTLRObject
 
 /**
- *  A HTML tag that can be placed on the advertiser's page to add users to a
- *  user list. For more information and code samples on using snippet on your
- *  website refer to [Tag your site for remarketing](
- *  https://support.google.com/google-ads/answer/2476688).
+ *  An HTML tag that can be placed on the advertiser's page to add users to a
+ *  user list. For more information and code samples on using snippets on your
+ *  website, refer to [Tag your site for
+ *  remarketing](https://support.google.com/google-ads/answer/2476688).
  */
 @property(nonatomic, copy, nullable) NSString *snippet;
 
@@ -2714,8 +2726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /**
  *  The continuation page token to send back to the server in a subsequent
  *  request. Due to a currently known issue, it is recommended that the caller
- *  keep invoking the list method till the time a next page token is not
- *  returned (even if the result set is empty).
+ *  keep invoking the list method until the time a next page token is not
+ *  returned, even if the result set is empty.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

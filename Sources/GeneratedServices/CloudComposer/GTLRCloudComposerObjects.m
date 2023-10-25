@@ -115,7 +115,12 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_DatabaseConfig
-@dynamic machineType;
+@dynamic machineType, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
 @end
 
 
@@ -172,7 +177,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_Environment
-@dynamic config, createTime, labels, name, state, updateTime, uuid;
+@dynamic config, createTime, labels, name, satisfiesPzs, state, storageConfig,
+         updateTime, uuid;
 @end
 
 
@@ -702,6 +708,26 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_StorageConfig
+//
+
+@implementation GTLRCloudComposer_StorageConfig
+@dynamic bucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_TriggererResource
+//
+
+@implementation GTLRCloudComposer_TriggererResource
+@dynamic count, cpu, memoryGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_WebServerConfig
 //
 
@@ -754,5 +780,5 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_WorkloadsConfig
-@dynamic scheduler, webServer, worker;
+@dynamic scheduler, triggerer, webServer, worker;
 @end

@@ -491,7 +491,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -506,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkDismissed
  */
@@ -967,7 +967,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -982,7 +982,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkDismissed
  */
@@ -1535,7 +1535,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1550,7 +1550,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkDismissed
  */
@@ -2150,7 +2150,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed : GTLRRecommenderQuery
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2165,7 +2165,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationDismissedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkDismissed
  */

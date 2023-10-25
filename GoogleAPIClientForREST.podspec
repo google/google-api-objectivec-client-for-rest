@@ -204,6 +204,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AuthorizedBuyersMarketplace/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AuthorizedBuyersMarketplace/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Backupdr' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Backupdr/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Backupdr/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'BackupforGKE' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/BackupforGKE/**/*.{h,m}'
@@ -218,6 +223,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/BeyondCorp/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/BeyondCorp/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'BigLakeService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/BigLakeService/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/BigLakeService/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -318,6 +328,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Classroom/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Classroom/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'CloudAlloyDBAdmin' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudAlloyDBAdmin/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudAlloyDBAdmin/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'CloudAsset' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -1084,6 +1099,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/PubsubLite/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/PubsubLite/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'RapidMigrationAssessment' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/RapidMigrationAssessment/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/RapidMigrationAssessment/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'RealTimeBidding' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/RealTimeBidding/**/*.{h,m}'
@@ -1323,6 +1343,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/VMMigrationService/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/VMMigrationService/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'VMwareEngine' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/VMwareEngine/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/VMwareEngine/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Webfonts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

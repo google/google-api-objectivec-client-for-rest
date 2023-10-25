@@ -967,13 +967,27 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_AsyncBatchAnnotateFilesRequest
-@dynamic parent, requests;
+@dynamic labels, parent, requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requests" : [GTLRVision_AsyncAnnotateFileRequest class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncBatchAnnotateFilesRequest_Labels
+//
+
+@implementation GTLRVision_AsyncBatchAnnotateFilesRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1003,13 +1017,27 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_AsyncBatchAnnotateImagesRequest
-@dynamic outputConfig, parent, requests;
+@dynamic labels, outputConfig, parent, requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requests" : [GTLRVision_AnnotateImageRequest class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_AsyncBatchAnnotateImagesRequest_Labels
+//
+
+@implementation GTLRVision_AsyncBatchAnnotateImagesRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1031,13 +1059,27 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_BatchAnnotateFilesRequest
-@dynamic parent, requests;
+@dynamic labels, parent, requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requests" : [GTLRVision_AnnotateFileRequest class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_BatchAnnotateFilesRequest_Labels
+//
+
+@implementation GTLRVision_BatchAnnotateFilesRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1067,13 +1109,27 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_BatchAnnotateImagesRequest
-@dynamic parent, requests;
+@dynamic labels, parent, requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requests" : [GTLRVision_AnnotateImageRequest class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_BatchAnnotateImagesRequest_Labels
+//
+
+@implementation GTLRVision_BatchAnnotateImagesRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

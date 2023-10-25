@@ -1007,6 +1007,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a `Rollout` to roll back the specified target.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.rollbackTarget
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget : GTLRCloudDeployQuery
+
+/**
+ *  Required. The `DeliveryPipeline` for which the rollback `Rollout` should be
+ *  created. Format should be
+ *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_RollbackTargetResponse.
+ *
+ *  Creates a `Rollout` to roll back the specified target.
+ *
+ *  @param object The @c GTLRCloudDeploy_RollbackTargetRequest to include in the
+ *    query.
+ *  @param name Required. The `DeliveryPipeline` for which the rollback
+ *    `Rollout` should be created. Format should be
+ *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_RollbackTargetRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.

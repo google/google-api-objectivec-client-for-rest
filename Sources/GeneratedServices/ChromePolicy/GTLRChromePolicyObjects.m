@@ -15,12 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle.policyApiLifecycleStage
-NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiCurrent = @"API_CURRENT";
-NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiDeprecated = @"API_DEPRECATED";
-NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiDevelopment = @"API_DEVELOPMENT";
-NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiPreview = @"API_PREVIEW";
-NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiUnspecified = @"API_UNSPECIFIED";
+// GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle.policyApiLifecycleStage
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiCurrent = @"API_CURRENT";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiDeprecated = @"API_DEPRECATED";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiDevelopment = @"API_DEVELOPMENT";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiPreview = @"API_PREVIEW";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiUnspecified = @"API_UNSPECIFIED";
 
 // GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema.validTargetResources
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_Group = @"GROUP";
@@ -51,29 +51,6 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeSint64 = 
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeString = @"TYPE_STRING";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint32 = @"TYPE_UINT32";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = @"TYPE_UINT64";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
-//
-
-@implementation GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
-@dynamic deprecatedInFavorOf, descriptionProperty, endSupport,
-         policyApiLifecycleStage;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"deprecatedInFavorOf" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -370,6 +347,30 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint
 @dynamic maximum, minimum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle
+@dynamic deprecatedInFavorOf, descriptionProperty, endSupport,
+         policyApiLifecycleStage, scheduledToDeprecatePolicies;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deprecatedInFavorOf" : [NSString class],
+    @"scheduledToDeprecatePolicies" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -801,7 +802,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_Proto2FileDescriptorProto
-@dynamic enumType, messageType, name, package, syntax;
+@dynamic editionDeprecated, enumType, messageType, name, package, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

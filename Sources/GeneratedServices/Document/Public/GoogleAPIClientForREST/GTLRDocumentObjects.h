@@ -204,7 +204,9 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1OcrConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1OcrConfigHints;
+@class GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector;
 @class GTLRDocument_GoogleCloudDocumentaiV1Processor;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
@@ -1737,10 +1739,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus : GTLRObject
 
 /**
+ *  The document id of the auto-labeled document. This will replace the gcs_uri.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
+
+/**
  *  The gcs_uri of the auto-labeling document, which uniquely identifies a
  *  dataset document.
  */
-@property(nonatomic, copy, nullable) NSString *gcsUri;
+@property(nonatomic, copy, nullable) NSString *gcsUri GTLR_DEPRECATED;
 
 /** The status of the document auto-labeling. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
@@ -8765,12 +8772,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advancedOcrOptions;
 
 /**
- *  Turn on font id model and returns font style information. Use
- *  PremiumFeatures.compute_style_info instead.
+ *  Turn on font identification model and return font style information.
+ *  Deprecated, use PremiumFeatures.compute_style_info instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *computeStyleInfo GTLR_DEPRECATED;
+
+/**
+ *  Turn off character box detector in OCR engine. Character box detection is
+ *  enabled by default in OCR 2.0 (and later) processors.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableCharacterBoxesDetection;
 
 /**
  *  Enables intelligent document quality scores after OCR. Can help with
@@ -8799,6 +8814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Hints for the OCR model. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfigHints *hints;
 
+/** Configurations for premium OCR features. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures *premiumFeatures;
+
 @end
 
 
@@ -8821,15 +8839,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Configurations for premium OCR features.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures : GTLRObject
+
+/**
+ *  Turn on font identification model and return font style information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeStyleInfo;
+
+/**
+ *  Turn on the model that can extract LaTeX math formulas.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMathOcr;
+
+/**
+ *  Turn on selection mark detector in OCR engine. Only available in OCR 2.0
+ *  (and later) processors.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSelectionMarkDetection;
+
+@end
+
+
+/**
  *  Options for Process API
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions : GTLRObject
+
+/**
+ *  Only process certain pages from the end, same as above.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromEnd;
+
+/**
+ *  Only process certain pages from the start. Process all if the document has
+ *  fewer pages.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromStart;
+
+/** Which pages to process (1-indexed). */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector *individualPageSelector;
 
 /**
  *  Only applicable to `OCR_PROCESSOR`. Returns error if set on other processor
  *  types.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfig *ocrConfig;
+
+@end
+
+
+/**
+ *  A list of individual page numbers.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector : GTLRObject
+
+/**
+ *  Optional. Indices of the pages (starting from 1).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *pages;
 
 @end
 
@@ -9181,7 +9262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  The display name of the document, it supports all Unicode characters except
  *  the following: `*`, `?`, `[`, `]`, `%`, `{`, `}`,`'`, `\\"`, `,` `~`, `=`
- *  and `:` are reserved. If not specified, a default ID will be generated.
+ *  and `:` are reserved. If not specified, a default ID is generated.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

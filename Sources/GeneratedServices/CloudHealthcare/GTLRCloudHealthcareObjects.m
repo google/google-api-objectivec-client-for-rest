@@ -655,6 +655,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_DicomStoreMetrics
+//
+
+@implementation GTLRCloudHealthcare_DicomStoreMetrics
+@dynamic blobStorageSizeBytes, instanceCount, name, seriesCount,
+         structuredStorageSizeBytes, studyCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_Empty
 //
 
@@ -1226,6 +1237,34 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_Hl7V2StoreMetric
+//
+
+@implementation GTLRCloudHealthcare_Hl7V2StoreMetric
+@dynamic count, messageType, structuredStorageSizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_Hl7V2StoreMetrics
+//
+
+@implementation GTLRCloudHealthcare_Hl7V2StoreMetrics
+@dynamic metrics, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRCloudHealthcare_Hl7V2StoreMetric class]
+  };
+  return map;
 }
 
 @end
@@ -2135,6 +2174,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_SeriesMetrics
+//
+
+@implementation GTLRCloudHealthcare_SeriesMetrics
+@dynamic blobStorageSizeBytes, instanceCount, series,
+         structuredStorageSizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SetIamPolicyRequest
 //
 
@@ -2214,6 +2264,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_StudyMetrics
+//
+
+@implementation GTLRCloudHealthcare_StudyMetrics
+@dynamic blobStorageSizeBytes, instanceCount, seriesCount,
+         structuredStorageSizeBytes, study;
 @end
 
 

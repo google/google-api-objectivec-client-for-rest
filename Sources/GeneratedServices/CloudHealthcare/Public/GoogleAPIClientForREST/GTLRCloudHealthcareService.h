@@ -22,8 +22,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Read, write and manage healthcare data
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-healthcare"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudHealthcareCloudHealthcare;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

@@ -1174,8 +1174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /**
  *  Immutable. Pod name. Pod is an independent part of infrastructure. Instance
- *  can be connected to the assets (networks, volumes) allocated in the same pod
- *  only.
+ *  can only be connected to the assets (networks, volumes) allocated in the
+ *  same pod.
  */
 @property(nonatomic, copy, nullable) NSString *pod;
 
@@ -1270,7 +1270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
-@property(nonatomic, copy, nullable) NSString *identifier;
+@property(nonatomic, copy, nullable) NSString *identifier GTLR_DEPRECATED;
 
 /**
  *  Instance type. [Available
@@ -1285,7 +1285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface *> *logicalInterfaces;
 
-/** Output only. The name of the instance config. */
+/** The name of the instance config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1322,7 +1322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *privateNetwork GTLR_DEPRECATED;
 
-/** List of names of ssh keys used to provision the instance. */
+/** Optional. List of names of ssh keys used to provision the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sshKeyNames;
 
 /**
@@ -1929,7 +1929,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. Pod name. */
+/**
+ *  Immutable. Pod name. Pod is an independent part of infrastructure. Network
+ *  can only be connected to the assets (instances, nfsshares) allocated in the
+ *  same pod.
+ */
 @property(nonatomic, copy, nullable) NSString *pod;
 
 /**
@@ -1976,8 +1980,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** The vlan id of the Network. */
 @property(nonatomic, copy, nullable) NSString *vlanId;
 
-/** The vrf for the Network. */
+/**
+ *  The Vrf for the Network. Use this only if a new Vrf needs to be created.
+ */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_VRF *vrf;
+
+/**
+ *  Optional. The name of a pre-existing Vrf that the network should be attached
+ *  to. Format is `vrfs/{vrf}`.
+ */
+@property(nonatomic, copy, nullable) NSString *vrfAttachment;
 
 @end
 
@@ -2259,6 +2271,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *nfsShareId;
 
 /**
+ *  Immutable. Pod name. Pod is an independent part of infrastructure. NFSShare
+ *  can only be connected to the assets (networks, instances) allocated in the
+ *  same pod.
+ */
+@property(nonatomic, copy, nullable) NSString *pod;
+
+/**
  *  The requested size, in GiB.
  *
  *  Uses NSNumber of longLongValue.
@@ -2467,6 +2486,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** Networks to be created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_NetworkConfig *> *networks;
+
+/**
+ *  Optional. Pod name. Pod is an independent part of infrastructure. Instance
+ *  can be connected to the assets (networks, volumes, nfsshares) allocated in
+ *  the same pod only.
+ */
+@property(nonatomic, copy, nullable) NSString *pod;
 
 /**
  *  Output only. State of ProvisioningConfig.
@@ -3016,7 +3042,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *performanceTier;
 
-/** Immutable. Pod name. */
+/**
+ *  Immutable. Pod name. Pod is an independent part of infrastructure. Volume
+ *  can only be connected to the instances allocated in the same pod.
+ */
 @property(nonatomic, copy, nullable) NSString *pod;
 
 /**

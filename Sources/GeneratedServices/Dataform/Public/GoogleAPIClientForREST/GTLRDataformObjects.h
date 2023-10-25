@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Dataform API (dataform/v1beta1)
+// Description:
+//   Service to develop, version control, and operationalize SQL pipelines in
+//   BigQuery.
 // Documentation:
 //   https://cloud.google.com/dataform/docs
 
@@ -543,7 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, strong, nullable) GTLRDataform_CommitMetadata *commitMetadata;
 
 /**
- *  A map to the path of the file to the operation. The path is the ull file
+ *  A map to the path of the file to the operation. The path is the full file
  *  path including filename, from repository root.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_CommitRepositoryChangesRequest_FileOperations *fileOperations;
@@ -559,7 +562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
- *  A map to the path of the file to the operation. The path is the ull file
+ *  A map to the path of the file to the operation. The path is the full file
  *  path including filename, from repository root.
  *
  *  @note This class is documented as having more properties of

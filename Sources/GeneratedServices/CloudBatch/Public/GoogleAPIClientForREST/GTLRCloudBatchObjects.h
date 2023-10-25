@@ -1230,7 +1230,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /**
  *  Volumes to mount (bind mount) from the host machine files or directories
  *  into the container, formatted to match docker run's --volume option, e.g.
- *  /foo:/bar, or /foo:/bar:ro
+ *  /foo:/bar, or /foo:/bar:ro If the `TaskSpec.Volumes` field is specified but
+ *  this field is not, Batch will mount each volume from the host machine to the
+ *  container with the same mount path by default. In this case, the default
+ *  mount option for containers will be read-only (ro) for existing persistent
+ *  disks and read-write (rw) for other volume types, regardless of the original
+ *  mount options specified in `TaskSpec.Volumes`. If you need different mount
+ *  settings, you can explicitly configure them in this field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *volumes;
 
@@ -1247,8 +1253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Local SSDs are available through both "SCSI" and "NVMe" interfaces. If not
- *  indicated, "NVMe" will be the default one for local ssds. We only support
- *  "SCSI" for persistent disks now.
+ *  indicated, "NVMe" will be the default one for local ssds. This field is
+ *  ignored for persistent disks as the interface is chosen automatically. See
+ *  https://cloud.google.com/compute/docs/disks/persistent-disks#choose_an_interface.
  */
 @property(nonatomic, copy, nullable) NSString *diskInterface;
 
@@ -1261,7 +1268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  supported for a boot disk: * `batch-debian`: use Batch Debian images. *
  *  `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch
  *  Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS
- *  images.
+ *  images. * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -1423,6 +1430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        VM. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *provisioningModel;
+
+/**
+ *  Optional. If specified, VMs will consume only the specified reservation. If
+ *  not specified (default), VMs will consume any applicable reservation.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
 
 @end
 
@@ -2227,6 +2240,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** Tasks assigned to the agent */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AgentTask *> *tasks;
 
+/**
+ *  If true, the cloud logging for batch agent will use batch.googleapis.com/Job
+ *  as monitored resource for Batch job related logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useBatchMonitoredResource;
+
 @end
 
 
@@ -2262,6 +2283,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /** Container runnable. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Container *container;
+
+/**
+ *  Optional. DisplayName is an optional field that can be provided by the
+ *  caller. If provided, it will be used in logs and other outputs to identify
+ *  the script, making it easier for users to understand the logs. If not
+ *  provided the index of the runnable will be used for outputs.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Environment variables for this Runnable (overrides variables set for the
@@ -2490,7 +2519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Max number of tasks that can run in parallel. Default to min(task_count,
- *  1000). Field parallelism must be 1 if the scheduling_policy is IN_ORDER.
+ *  parallel tasks per job limit). See: [Job
+ *  Limits](https://cloud.google.com/batch/quotas#job_limits). Field parallelism
+ *  must be 1 if the scheduling_policy is IN_ORDER.
  *
  *  Uses NSNumber of longLongValue.
  */

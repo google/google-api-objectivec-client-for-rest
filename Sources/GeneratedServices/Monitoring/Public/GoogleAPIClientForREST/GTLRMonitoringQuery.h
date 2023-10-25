@@ -4659,7 +4659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Optional. The ServiceLevelObjective id to use for this
  *  ServiceLevelObjective. If omitted, an id will be generated instead. Must
- *  match the pattern [a-z0-9\\-]+
+ *  match the pattern ^[a-zA-Z0-9-_:.]+$
  */
 @property(nonatomic, copy, nullable) NSString *serviceLevelObjectiveId;
 

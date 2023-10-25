@@ -1504,6 +1504,25 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGetGenerativeSettings
+
+@dynamic languageCode, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGetGenerativeSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings class];
+  query.loggingName = @"dialogflow.projects.locations.agents.getGenerativeSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGetValidationResult
 
 @dynamic languageCode, name;
@@ -1569,6 +1588,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsExport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/intents:export";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.intents.export";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsGet
 
 @dynamic languageCode, name;
@@ -1583,6 +1629,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Intent class];
   query.loggingName = @"dialogflow.projects.locations.agents.intents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/intents:import";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.intents.import";
   return query;
 }
 
@@ -2289,6 +2362,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup class];
   query.loggingName = @"dialogflow.projects.locations.agents.transitionRouteGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsUpdateGenerativeSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsUpdateGenerativeSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings class];
+  query.loggingName = @"dialogflow.projects.locations.agents.updateGenerativeSettings";
   return query;
 }
 

@@ -2588,6 +2588,15 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *hashDigest;
 
+/**
+ *  The list of licenses found that are related to a given package. Note that
+ *  licenses may also be stored on the BinarySourceInfo. If there is no
+ *  BinarySourceInfo (because there's no concept of source vs binary), then it
+ *  will be stored here, while if there are BinarySourceInfos, it will be stored
+ *  there, as one source can have multiple binaries with different licenses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
 /** The maintainer of the package. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Maintainer *maintainer;
 
@@ -2772,6 +2781,14 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  GTLROnDemandScanning_PackageVersion
  */
 @interface GTLROnDemandScanning_PackageVersion : GTLRObject
+
+/**
+ *  The licenses associated with this package. Note that this has to go on the
+ *  PackageVersion level, because we can have cases with images with the same
+ *  source having different licences. E.g. in Alpine, musl and musl-utils both
+ *  have the same origin musl, but have different sets of licenses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, copy, nullable) NSString *version;
@@ -3831,6 +3848,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
+/** Occurrence-specific extra details about the vulnerability. */
+@property(nonatomic, copy, nullable) NSString *extraDetails;
 
 /**
  *  Output only. Whether at least one of the affected packages has a fix

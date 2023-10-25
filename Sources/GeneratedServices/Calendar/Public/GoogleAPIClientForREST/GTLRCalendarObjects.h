@@ -966,11 +966,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specific type of the event. Read-only. Possible values are:
+ *  Specific type of the event. This cannot be modified after the event is
+ *  created. Possible values are:
  *  - "default" - A regular event or not further specified.
  *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
- *  - "workingLocation" - A working location event. Developer Preview.
+ *  - "workingLocation" - A working location event. Currently, only "default "
+ *  and "workingLocation" events can be created using the API. Extended support
+ *  for other event types will be made available in later releases.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1193,7 +1196,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
-/** Working Location event data. Developer Preview. */
+/** Working location event data. */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties *workingLocationProperties;
 
 @end
@@ -1691,9 +1694,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCalendar_EventWorkingLocationProperties_OfficeLocation *officeLocation;
 
 /**
- *  Indicates what kind of location this is. Any details are specified in a
- *  sub-field of the specified name (but which may be missing if empty). Any
- *  other fields are ignored.
+ *  Type of the working location. Possible values are:
+ *  - "homeOffice" - The user is working at home.
+ *  - "officeLocation" - The user is working from an office.
+ *  - "customLocation" - The user is working from a custom location. Any details
+ *  are specified in a sub-field of the specified name, but this field may be
+ *  missing if empty. Any other fields are ignored.
+ *  Required when adding working location properties.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1722,16 +1729,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
-/** An optional arbitrary desk identifier. */
+/** An optional desk identifier. */
 @property(nonatomic, copy, nullable) NSString *deskId;
 
-/** An optional arbitrary floor identifier. */
+/** An optional floor identifier. */
 @property(nonatomic, copy, nullable) NSString *floorId;
 
-/** An optional arbitrary floor section identifier. */
+/** An optional floor section identifier. */
 @property(nonatomic, copy, nullable) NSString *floorSectionId;
 
-/** An optional extra label for additional information. */
+/**
+ *  The office name that's displayed in Calendar Web and Mobile clients. We
+ *  recommend you reference a building name in the organization's Resources
+ *  database.
+ */
 @property(nonatomic, copy, nullable) NSString *label;
 
 @end

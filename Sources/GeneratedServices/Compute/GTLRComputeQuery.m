@@ -45,7 +45,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_AcceleratorTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -122,7 +122,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_AddressesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -313,7 +313,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_AutoscalersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -623,6 +623,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_BackendBucketsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{resource}/getIamPolicy";
+  GTLRComputeQuery_BackendBucketsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.backendBuckets.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendBucketsInsert
 
 @dynamic project, requestId;
@@ -731,6 +754,68 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_BackendBucketsSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{resource}/setIamPolicy";
+  GTLRComputeQuery_BackendBucketsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.backendBuckets.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_BackendBucketsTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{resource}/testIamPermissions";
+  GTLRComputeQuery_BackendBucketsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.backendBuckets.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendBucketsUpdate
 
 @dynamic backendBucket, project, requestId;
@@ -796,7 +881,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_BackendServicesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -984,6 +1069,25 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_BackendServicesListUsable
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/listUsable";
+  GTLRComputeQuery_BackendServicesListUsable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_BackendServiceListUsable class];
+  query.loggingName = @"compute.backendServices.listUsable";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendServicesPatch
 
 @dynamic backendService, project, requestId;
@@ -1108,6 +1212,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_BackendServicesTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{resource}/testIamPermissions";
+  GTLRComputeQuery_BackendServicesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.backendServices.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_BackendServicesUpdate
 
 @dynamic backendService, project, requestId;
@@ -1179,7 +1314,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_DisksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1751,7 +1886,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_DiskTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2527,7 +2662,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_ForwardingRulesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3268,7 +3403,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_GlobalOperationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3552,7 +3687,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4393,7 +4528,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupManagersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5062,7 +5197,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5391,7 +5526,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstancesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6354,6 +6489,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSetSecurityPolicy
+
+@dynamic instance, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetSecurityPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setSecurityPolicy";
+  GTLRComputeQuery_InstancesSetSecurityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.setSecurityPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesSetServiceAccount
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -6848,7 +7020,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceTemplatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7045,7 +7217,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InterconnectAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7381,6 +7553,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.interconnect = interconnect;
   query.expectedObjectClass = [GTLRCompute_InterconnectsGetDiagnosticsResponse class];
   query.loggingName = @"compute.interconnects.getDiagnostics";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsGetMacsecConfig
+
+@dynamic interconnect, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect {
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}/getMacsecConfig";
+  GTLRComputeQuery_InterconnectsGetMacsecConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_InterconnectsGetMacsecConfigResponse class];
+  query.loggingName = @"compute.interconnects.getMacsecConfig";
   return query;
 }
 
@@ -7905,7 +8100,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_MachineTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7982,7 +8177,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NetworkAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -8129,6 +8324,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworkAttachmentsPatch
+
+@dynamic networkAttachment, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+              networkAttachment:(NSString *)networkAttachment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkAttachment", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkAttachments/{networkAttachment}";
+  GTLRComputeQuery_NetworkAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.networkAttachment = networkAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkAttachments.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworkAttachmentsSetIamPolicy
 
 @dynamic project, region, resource;
@@ -8198,7 +8426,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NetworkEdgeSecurityServicesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -8340,7 +8568,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NetworkEndpointGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9369,7 +9597,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NodeGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9793,7 +10021,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NodeTemplatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10009,7 +10237,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NodeTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10086,7 +10314,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_PacketMirroringsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10711,7 +10939,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11196,6 +11424,30 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionBackendServicesListUsable
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/listUsable";
+  GTLRComputeQuery_RegionBackendServicesListUsable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_BackendServiceListUsable class];
+  query.loggingName = @"compute.regionBackendServices.listUsable";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionBackendServicesPatch
 
 @dynamic backendService, project, region, requestId;
@@ -11262,6 +11514,72 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionBackendServicesSetSecurityPolicy
+
+@dynamic backendService, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 backendService:(NSString *)backendService {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"backendService", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}/setSecurityPolicy";
+  GTLRComputeQuery_RegionBackendServicesSetSecurityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.backendService = backendService;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionBackendServices.setSecurityPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionBackendServicesTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{resource}/testIamPermissions";
+  GTLRComputeQuery_RegionBackendServicesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.regionBackendServices.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionBackendServicesUpdate
 
 @dynamic backendService, project, region, requestId;
@@ -11298,7 +11616,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_RegionCommitmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13139,6 +13457,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsAttachNetworkEndpoints
+
+@dynamic networkEndpointGroup, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionNetworkEndpointGroupsAttachEndpointsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           networkEndpointGroup:(NSString *)networkEndpointGroup {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsAttachNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.attachNetworkEndpoints";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionNetworkEndpointGroupsDelete
 
 @dynamic networkEndpointGroup, project, region, requestId;
@@ -13159,6 +13510,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.networkEndpointGroup = networkEndpointGroup;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionNetworkEndpointGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsDetachNetworkEndpoints
+
+@dynamic networkEndpointGroup, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionNetworkEndpointGroupsDetachEndpointsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           networkEndpointGroup:(NSString *)networkEndpointGroup {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsDetachNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.detachNetworkEndpoints";
   return query;
 }
 
@@ -13239,6 +13623,32 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupList class];
   query.loggingName = @"compute.regionNetworkEndpointGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsListNetworkEndpoints
+
+@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
+         region, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup {
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsListNetworkEndpoints *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.listNetworkEndpoints";
   return query;
 }
 
@@ -13925,6 +14335,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionSecurityPoliciesAddRule
+
+@dynamic project, region, securityPolicy, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 securityPolicy:(NSString *)securityPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/addRule";
+  GTLRComputeQuery_RegionSecurityPoliciesAddRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSecurityPolicies.addRule";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionSecurityPoliciesDelete
 
 @dynamic project, region, requestId, securityPolicy;
@@ -13970,6 +14413,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.securityPolicy = securityPolicy;
   query.expectedObjectClass = [GTLRCompute_SecurityPolicy class];
   query.loggingName = @"compute.regionSecurityPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSecurityPoliciesGetRule
+
+@dynamic priority, project, region, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/getRule";
+  GTLRComputeQuery_RegionSecurityPoliciesGetRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_SecurityPolicyRule class];
+  query.loggingName = @"compute.regionSecurityPolicies.getRule";
   return query;
 }
 
@@ -14032,7 +14500,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionSecurityPoliciesPatch
 
-@dynamic project, region, requestId, securityPolicy;
+@dynamic project, region, requestId, securityPolicy, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
                         project:(NSString *)project
@@ -14058,6 +14526,64 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.securityPolicy = securityPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionSecurityPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSecurityPoliciesPatchRule
+
+@dynamic priority, project, region, securityPolicy, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 securityPolicy:(NSString *)securityPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/patchRule";
+  GTLRComputeQuery_RegionSecurityPoliciesPatchRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSecurityPolicies.patchRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSecurityPoliciesRemoveRule
+
+@dynamic priority, project, region, securityPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"securityPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/removeRule";
+  GTLRComputeQuery_RegionSecurityPoliciesRemoveRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.securityPolicy = securityPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSecurityPolicies.removeRule";
   return query;
 }
 
@@ -15026,7 +15552,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_ReservationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -15351,7 +15877,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_ResourcePoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -15600,7 +16126,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_RoutersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16023,7 +16549,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_SecurityPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16176,7 +16702,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesPatch
 
-@dynamic project, requestId, securityPolicy;
+@dynamic project, requestId, securityPolicy, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
                         project:(NSString *)project
@@ -16207,7 +16733,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesPatchRule
 
-@dynamic priority, project, securityPolicy, validateOnly;
+@dynamic priority, project, securityPolicy, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
                         project:(NSString *)project
@@ -16293,7 +16819,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_ServiceAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16750,7 +17276,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_SslCertificatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16862,7 +17388,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_SslPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -17024,7 +17550,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_SubnetworksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -17481,7 +18007,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetHttpProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -17655,7 +18181,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetHttpsProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -17953,7 +18479,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetInstancesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -18091,6 +18617,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_TargetInstancesSetSecurityPolicy
+
+@dynamic project, requestId, targetInstance, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                 targetInstance:(NSString *)targetInstance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetInstance", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/targetInstances/{targetInstance}/setSecurityPolicy";
+  GTLRComputeQuery_TargetInstancesSetSecurityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.targetInstance = targetInstance;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetInstances.setSecurityPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_TargetPoolsAddHealthCheck
 
 @dynamic project, region, requestId, targetPool;
@@ -18160,7 +18723,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetPoolsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -18409,6 +18972,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.targetPool = targetPool;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.targetPools.setBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetPoolsSetSecurityPolicy
+
+@dynamic project, region, requestId, targetPool;
+
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     targetPool:(NSString *)targetPool {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"targetPool"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/setSecurityPolicy";
+  GTLRComputeQuery_TargetPoolsSetSecurityPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.targetPool = targetPool;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetPools.setSecurityPolicy";
   return query;
 }
 
@@ -18664,7 +19260,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetTcpProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -18838,7 +19434,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_TargetVpnGatewaysAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -18996,7 +19592,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_UrlMapsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -19232,7 +19828,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_VpnGatewaysAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -19448,7 +20044,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_VpnTunnelsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+         returnPartialSuccess, serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

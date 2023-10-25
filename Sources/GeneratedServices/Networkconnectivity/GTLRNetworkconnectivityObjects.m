@@ -194,6 +194,26 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_AcceptHubSpokeRequest
+//
+
+@implementation GTLRNetworkconnectivity_AcceptHubSpokeRequest
+@dynamic requestId, spokeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_AcceptHubSpokeResponse
+//
+
+@implementation GTLRNetworkconnectivity_AcceptHubSpokeResponse
+@dynamic spoke;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_AcceptSpokeRequest
 //
 
@@ -1103,6 +1123,26 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 @implementation GTLRNetworkconnectivity_PscConnection
 @dynamic consumerAddress, consumerForwardingRule, consumerTargetProject, error,
          errorInfo, errorType, gceOperation, pscConnectionId, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RejectHubSpokeRequest
+//
+
+@implementation GTLRNetworkconnectivity_RejectHubSpokeRequest
+@dynamic details, requestId, spokeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RejectHubSpokeResponse
+//
+
+@implementation GTLRNetworkconnectivity_RejectHubSpokeResponse
+@dynamic spoke;
 @end
 
 

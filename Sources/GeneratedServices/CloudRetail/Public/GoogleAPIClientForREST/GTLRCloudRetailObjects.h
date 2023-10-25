@@ -53,6 +53,9 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource;
 @class GTLRCloudRetail_GoogleCloudRetailV2Catalog;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue;
 @class GTLRCloudRetail_GoogleCloudRetailV2ColorInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes;
@@ -96,9 +99,12 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels;
@@ -3712,6 +3718,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  */
 @property(nonatomic, copy, nullable) NSString *exactSearchableOption;
 
+/** Contains facet options. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig *facetConfig;
+
 /**
  *  When AttributesConfig.attribute_config_level is
  *  CATALOG_LEVEL_ATTRIBUTE_CONFIG, if INDEXABLE_ENABLED attribute values are
@@ -3814,6 +3823,102 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        from attribute that is not in_use. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Possible options for the facet that corresponds to the current attribute
+ *  config.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig : GTLRObject
+
+/**
+ *  If you don't set the facet SearchRequest.FacetSpec.FacetKey.intervals in the
+ *  request to a numerical attribute, then we use the computed intervals with
+ *  rounded bounds obtained from all its product numerical attribute values. The
+ *  computed intervals might not be ideal for some attributes. Therefore, we
+ *  give you the option to overwrite them with the facet_intervals field. The
+ *  maximum of facet intervals per CatalogAttribute is 40. Each interval must
+ *  have a lower bound or an upper bound. If both bounds are provided, then the
+ *  lower bound must be smaller or equal than the upper bound.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Interval *> *facetIntervals;
+
+/**
+ *  Each instance represents a list of attribute values to ignore as facet
+ *  values for a specific time range. The maximum number of instances per
+ *  CatalogAttribute is 25.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues *> *ignoredFacetValues;
+
+/**
+ *  Each instance replaces a list of facet values by a merged facet value. If a
+ *  facet value is not in any list, then it will stay the same. To avoid
+ *  conflicts, only paths of length 1 are accepted. In other words, if
+ *  "dark_blue" merged into "BLUE", then the latter can't merge into "blues"
+ *  because this would create a path of length 2. The maximum number of
+ *  instances of MergedFacetValue per CatalogAttribute is 100. This feature is
+ *  available only for textual custom attributes.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue *> *mergedFacetValues;
+
+@end
+
+
+/**
+ *  Facet values to ignore on facets during the specified time range for the
+ *  given SearchResponse.Facet.key attribute.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues : GTLRObject
+
+/**
+ *  If start time is empty and end time is not empty, then ignore these facet
+ *  values before end time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Time range for the current list of facet values to ignore. If multiple time
+ *  ranges are specified for an facet value for the current attribute, consider
+ *  all of them. If both are empty, ignore always. If start time and end time
+ *  are set, then start time must be before end time. If start time is not empty
+ *  and end time is empty, then will ignore these facet values after the start
+ *  time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  List of facet values to ignore for the following time range. The facet
+ *  values are the same as the attribute values. There is a limit of 10 values
+ *  per instance of IgnoredFacetValues. Each value can have at most 128
+ *  characters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Replaces a set of textual facet values by the same (possibly different)
+ *  merged facet value. Each facet value should appear at most once as a value
+ *  per CatalogAttribute. This feature is available only for textual custom
+ *  attributes.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue : GTLRObject
+
+/**
+ *  All the previous values are replaced by this merged facet value. This
+ *  merged_value must be non-empty and can have up to 128 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *mergedValue;
+
+/**
+ *  All the facet values that are replaces by the same merged_value that
+ *  follows. The maximum number of values per MergedFacetValue is 25. Each value
+ *  can have up to 128 characters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -4079,6 +4184,12 @@ GTLR_DEPRECATED
  *  time range matches.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange *> *activeTimeRange;
+
+/**
+ *  Used to support browse uses cases. A list (up to 10 entries) of categories
+ *  or departments. The format should be the same as UserEvent.page_categories;
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
 /**
  *  A list (up to 10 entries) of terms to match the query on. If not specified,
@@ -6428,6 +6539,9 @@ GTLR_DEPRECATED
 /** Filters results. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction *filterAction;
 
+/** Force returns an attribute as a facet in the request. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetAction *forceReturnFacetAction;
+
 /** Ignores specific terms from query during search. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction *ignoreAction;
 
@@ -6439,6 +6553,9 @@ GTLR_DEPRECATED
 
 /** Redirects a shopper to a specific page. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction *redirectAction;
+
+/** Remove an attribute as a facet in the request (if present). */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction *removeFacetAction;
 
 /** Replaces specific terms in the query. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction *replacementAction;
@@ -6534,6 +6651,55 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Force returns an attribute/facet in the request around a certain position or
+ *  above. * Rule Condition: - Must specify non-empty Condition.query_terms (for
+ *  search only) or Condition.page_categories (for browse only), but can't
+ *  specify both. * Action Inputs: attribute name, position * Action Result:
+ *  Will force return a facet key around a certain position or above if the
+ *  condition is satisfied. Example: Suppose the query is "shoes", the
+ *  Condition.query_terms is "shoes", the
+ *  ForceReturnFacetAction.FacetPositionAdjustment.attribute_name is "size" and
+ *  the ForceReturnFacetAction.FacetPositionAdjustment.position is 8. Two cases:
+ *  a) The facet key "size" is not already in the top 8 slots, then the facet
+ *  "size" will appear at a position close to 8. b) The facet key "size" in
+ *  among the top 8 positions in the request, then it will stay at its current
+ *  rank.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetAction : GTLRObject
+
+/**
+ *  Each instance corresponds to a force return attribute for the given
+ *  condition. There can't be more 3 instances here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment *> *facetPositionAdjustments;
+
+@end
+
+
+/**
+ *  Each facet position adjustment consists of a single attribute name (i.e.
+ *  facet key) along with a specified position.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment : GTLRObject
+
+/**
+ *  The attribute name to force return as a facet. Each attribute name should be
+ *  a valid attribute name, be non-empty and contain at most 80 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *attributeName;
+
+/**
+ *  This is the position in the request as explained above. It should be
+ *  strictly positive be at most 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *position;
+
+@end
+
+
+/**
  *  Prevents a term in the query from being used in search. Example: Don't
  *  search for "shoddy".
  */
@@ -6580,6 +6746,28 @@ GTLR_DEPRECATED
 
 /** URL must have length equal or less than 2000 characters. */
 @property(nonatomic, copy, nullable) NSString *redirectUri;
+
+@end
+
+
+/**
+ *  Removes an attribute/facet in the request if is present. * Rule Condition: -
+ *  Must specify non-empty Condition.query_terms (for search only) or
+ *  Condition.page_categories (for browse only), but can't specify both. *
+ *  Action Input: attribute name * Action Result: Will remove the attribute (as
+ *  a facet) from the request if it is present. Example: Suppose the query is
+ *  "shoes", the Condition.query_terms is "shoes" and the attribute name "size",
+ *  then facet key "size" will be removed from the request (if it is present).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction : GTLRObject
+
+/**
+ *  The attribute names (i.e. facet keys) to remove from the dynamic facets (if
+ *  present in the request). There can't be more 3 attribute names. Each
+ *  attribute name should be a valid attribute name, be non-empty and contain at
+ *  most 80 characters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributeNames;
 
 @end
 

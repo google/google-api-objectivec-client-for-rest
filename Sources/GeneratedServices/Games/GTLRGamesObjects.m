@@ -16,23 +16,19 @@
 // Constants
 
 // GTLRGames_AchievementDefinition.achievementType
-NSString * const kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified = @"ACHIEVEMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRGames_AchievementDefinition_AchievementType_Incremental = @"INCREMENTAL";
 NSString * const kGTLRGames_AchievementDefinition_AchievementType_Standard = @"STANDARD";
 
 // GTLRGames_AchievementDefinition.initialState
 NSString * const kGTLRGames_AchievementDefinition_InitialState_Hidden = @"HIDDEN";
-NSString * const kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified = @"INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGames_AchievementDefinition_InitialState_Revealed = @"REVEALED";
 NSString * const kGTLRGames_AchievementDefinition_InitialState_Unlocked = @"UNLOCKED";
 
 // GTLRGames_AchievementRevealResponse.currentState
-NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified = @"REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Revealed = @"REVEALED";
 NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Unlocked = @"UNLOCKED";
 
 // GTLRGames_AchievementUpdateRequest.updateType
-NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified = @"ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED";
 NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Increment = @"INCREMENT";
 NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Reveal = @"REVEAL";
 NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_SetStepsAtLeast = @"SET_STEPS_AT_LEAST";
@@ -42,15 +38,12 @@ NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Unlock = @"UNLOC
 NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Hidden = @"HIDDEN";
 NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Revealed = @"REVEALED";
 NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked = @"UNLOCKED";
-NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified = @"UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED";
 
 // GTLRGames_Application.enabledFeatures
-NSString * const kGTLRGames_Application_EnabledFeatures_ApplicationFeatureUnspecified = @"APPLICATION_FEATURE_UNSPECIFIED";
 NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots = @"SNAPSHOTS";
 
 // GTLRGames_EventBatchRecordFailure.failureCause
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated = @"ALREADY_UPDATED";
-NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified = @"EVENT_FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh = @"RECORD_RATE_HIGH";
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodExpired = @"TIME_PERIOD_EXPIRED";
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodLong = @"TIME_PERIOD_LONG";
@@ -58,63 +51,63 @@ NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodShort
 NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TooLarge = @"TOO_LARGE";
 
 // GTLRGames_EventDefinition.visibility
-NSString * const kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified = @"EVENT_VISIBILITY_UNSPECIFIED";
 NSString * const kGTLRGames_EventDefinition_Visibility_Hidden  = @"HIDDEN";
 NSString * const kGTLRGames_EventDefinition_Visibility_Revealed = @"REVEALED";
 
 // GTLRGames_EventRecordFailure.failureCause
-NSString * const kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified = @"EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRGames_EventRecordFailure_FailureCause_InvalidUpdateValue = @"INVALID_UPDATE_VALUE";
 NSString * const kGTLRGames_EventRecordFailure_FailureCause_NotFound = @"NOT_FOUND";
 
 // GTLRGames_Instance.platformType
-NSString * const kGTLRGames_Instance_PlatformType_Android      = @"ANDROID";
-NSString * const kGTLRGames_Instance_PlatformType_Ios          = @"IOS";
-NSString * const kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified = @"PLATFORM_TYPE_UNSPECIFIED";
-NSString * const kGTLRGames_Instance_PlatformType_WebApp       = @"WEB_APP";
+NSString * const kGTLRGames_Instance_PlatformType_Android = @"ANDROID";
+NSString * const kGTLRGames_Instance_PlatformType_Ios     = @"IOS";
+NSString * const kGTLRGames_Instance_PlatformType_WebApp  = @"WEB_APP";
 
 // GTLRGames_Leaderboard.order
-NSString * const kGTLRGames_Leaderboard_Order_LargerIsBetter   = @"LARGER_IS_BETTER";
-NSString * const kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified = @"SCORE_ORDER_UNSPECIFIED";
-NSString * const kGTLRGames_Leaderboard_Order_SmallerIsBetter  = @"SMALLER_IS_BETTER";
+NSString * const kGTLRGames_Leaderboard_Order_LargerIsBetter  = @"LARGER_IS_BETTER";
+NSString * const kGTLRGames_Leaderboard_Order_SmallerIsBetter = @"SMALLER_IS_BETTER";
 
 // GTLRGames_LeaderboardEntry.timeSpan
-NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_AllTime  = @"ALL_TIME";
-NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Daily    = @"DAILY";
-NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
-NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly   = @"WEEKLY";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_AllTime = @"ALL_TIME";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Daily   = @"DAILY";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly  = @"WEEKLY";
+
+// GTLRGames_LinkPersonaRequest.cardinalityConstraint
+NSString * const kGTLRGames_LinkPersonaRequest_CardinalityConstraint_OnePersonaToOnePlayer = @"ONE_PERSONA_TO_ONE_PLAYER";
+
+// GTLRGames_LinkPersonaRequest.conflictingLinksResolutionPolicy
+NSString * const kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_CreateNewLink = @"CREATE_NEW_LINK";
+NSString * const kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_KeepExistingLinks = @"KEEP_EXISTING_LINKS";
+
+// GTLRGames_LinkPersonaResponse.state
+NSString * const kGTLRGames_LinkPersonaResponse_State_LinkCreated = @"LINK_CREATED";
+NSString * const kGTLRGames_LinkPersonaResponse_State_PersonaOrPlayerAlreadyLinked = @"PERSONA_OR_PLAYER_ALREADY_LINKED";
 
 // GTLRGames_Player.friendStatus
 NSString * const kGTLRGames_Player_FriendStatus_Friend         = @"FRIEND";
-NSString * const kGTLRGames_Player_FriendStatus_FriendStatusUnspecified = @"FRIEND_STATUS_UNSPECIFIED";
 NSString * const kGTLRGames_Player_FriendStatus_NoRelationship = @"NO_RELATIONSHIP";
 
 // GTLRGames_PlayerAchievement.achievementState
 NSString * const kGTLRGames_PlayerAchievement_AchievementState_Hidden = @"HIDDEN";
 NSString * const kGTLRGames_PlayerAchievement_AchievementState_Revealed = @"REVEALED";
-NSString * const kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRGames_PlayerAchievement_AchievementState_Unlocked = @"UNLOCKED";
 
 // GTLRGames_PlayerLeaderboardScore.timeSpan
 NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_AllTime = @"ALL_TIME";
 NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily = @"DAILY";
-NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
 NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Weekly = @"WEEKLY";
 
 // GTLRGames_PlayerScore.timeSpan
-NSString * const kGTLRGames_PlayerScore_TimeSpan_AllTime       = @"ALL_TIME";
-NSString * const kGTLRGames_PlayerScore_TimeSpan_Daily         = @"DAILY";
-NSString * const kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
-NSString * const kGTLRGames_PlayerScore_TimeSpan_Weekly        = @"WEEKLY";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_AllTime = @"ALL_TIME";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_Daily   = @"DAILY";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_Weekly  = @"WEEKLY";
 
 // GTLRGames_PlayerScoreResponse.beatenScoreTimeSpans
 NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_AllTime = @"ALL_TIME";
 NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Daily = @"DAILY";
-NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
 NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Weekly = @"WEEKLY";
 
 // GTLRGames_ProfileSettings.friendsListVisibility
-NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified = @"FRIENDS_LIST_VISIBILITY_UNSPECIFIED";
 NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired = @"REQUEST_REQUIRED";
 NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable = @"UNAVAILABLE";
 NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible = @"VISIBLE";
@@ -123,11 +116,9 @@ NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible = @"VI
 NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Deprecated = @"DEPRECATED";
 NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Invalid = @"INVALID";
 NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok = @"OK";
-NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified = @"REVISION_STATUS_UNSPECIFIED";
 
 // GTLRGames_Snapshot.type
-NSString * const kGTLRGames_Snapshot_Type_SaveGame             = @"SAVE_GAME";
-NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_TYPE_UNSPECIFIED";
+NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
@@ -935,6 +926,27 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_LinkPersonaRequest
+//
+
+@implementation GTLRGames_LinkPersonaRequest
+@dynamic cardinalityConstraint, conflictingLinksResolutionPolicy, expireTime,
+         persona, sessionId, token, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_LinkPersonaResponse
+//
+
+@implementation GTLRGames_LinkPersonaResponse
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_MetagameConfig
 //
 
@@ -1288,6 +1300,54 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_RecallToken
+//
+
+@implementation GTLRGames_RecallToken
+@dynamic expireTime, multiPlayerPersona, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_ResetPersonaRequest
+//
+
+@implementation GTLRGames_ResetPersonaRequest
+@dynamic persona;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_ResetPersonaResponse
+//
+
+@implementation GTLRGames_ResetPersonaResponse
+@dynamic unlinked;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_RetrievePlayerTokensResponse
+//
+
+@implementation GTLRGames_RetrievePlayerTokensResponse
+@dynamic tokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tokens" : [GTLRGames_RecallToken class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_RevisionCheckResponse
 //
 
@@ -1434,4 +1494,24 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_UnlinkPersonaRequest
+//
+
+@implementation GTLRGames_UnlinkPersonaRequest
+@dynamic persona, sessionId, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_UnlinkPersonaResponse
+//
+
+@implementation GTLRGames_UnlinkPersonaResponse
+@dynamic unlinked;
 @end

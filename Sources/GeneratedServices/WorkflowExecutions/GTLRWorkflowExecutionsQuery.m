@@ -28,6 +28,25 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @end
 
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCallbacksList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/callbacks";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCallbacksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_ListCallbacksResponse class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.callbacks.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCancel
 
 @dynamic name;
@@ -77,6 +96,25 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRWorkflowExecutions_Execution class];
   query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsExportData
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:exportData";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsExportData *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_ExportDataResponse class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.exportData";
   return query;
 }
 

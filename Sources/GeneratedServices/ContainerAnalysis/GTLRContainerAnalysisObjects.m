@@ -297,6 +297,11 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256 = @"SHA256";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha512 = @"SHA512";
 
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource.sourceFetcher
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher = @"GCS_FETCHER";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_Gsutil = @"GSUTIL";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_SourceFetcherUnspecified = @"SOURCE_FETCHER_UNSPECIFIED";
+
 // GTLRContainerAnalysis_Justification.justificationType
 NSString * const kGTLRContainerAnalysis_Justification_JustificationType_ComponentNotPresent = @"COMPONENT_NOT_PRESENT";
 NSString * const kGTLRContainerAnalysis_Justification_JustificationType_InlineMitigationsAlreadyExist = @"INLINE_MITIGATIONS_ALREADY_EXIST";
@@ -1647,7 +1652,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance
-@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource,
+@dynamic fileHashes, resolvedConnectedRepository, resolvedGitSource,
+         resolvedRepoSource, resolvedStorageSource,
          resolvedStorageSourceManifest;
 @end
 
@@ -1672,7 +1678,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource
-@dynamic bucket, generation, object;
+@dynamic bucket, generation, object, sourceFetcher;
 @end
 
 
@@ -3034,8 +3040,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
-         fixAvailable, longDescription, packageIssue, relatedUrls, severity,
-         shortDescription, type, vexAssessment;
+         extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
+         severity, shortDescription, type, vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

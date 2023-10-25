@@ -144,24 +144,57 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsUpdateNeedReboot = @"OS_UPDATE_NEED_REBOOT";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified = @"UPDATE_STATE_UNSPECIFIED";
 
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.colorMode
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_BlackAndWhite = @"BLACK_AND_WHITE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_Color = @"COLOR";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_ColorModeUnspecified = @"COLOR_MODE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.duplexMode
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_DuplexModeUnspecified = @"DUPLEX_MODE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_OneSided = @"ONE_SIDED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedLongEdge = @"TWO_SIDED_LONG_EDGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedShortEdge = @"TWO_SIDED_SHORT_EDGE";
+
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.state
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Failed = @"FAILED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Printed = @"PRINTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange = @"NETWORK_STATE_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded = @"USB_ADDED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved = @"USB_REMOVED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_VpnConnectionStateChange = @"VPN_CONNECTION_STATE_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthLow = @"WIFI_SIGNAL_STRENGTH_LOW";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthRecovered = @"WIFI_SIGNAL_STRENGTH_RECOVERED";
 
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AudioSevereUnderrun = @"AUDIO_SEVERE_UNDERRUN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkHttpsLatencyChange = @"NETWORK_HTTPS_LATENCY_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkStateChange = @"NETWORK_STATE_CHANGE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbAdded = @"USB_ADDED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbRemoved = @"USB_REMOVED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_VpnConnectionStateChange = @"VPN_CONNECTION_STATE_CHANGE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_WifiSignalStrengthLow = @"WIFI_SIGNAL_STRENGTH_LOW";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_WifiSignalStrengthRecovered = @"WIFI_SIGNAL_STRENGTH_RECOVERED";
 
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_HttpsLatencyStateUnspecified = @"HTTPS_LATENCY_STATE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Problem = @"PROBLEM";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Recovery = @"RECOVERY";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent.connectionState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connected = @"CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connecting = @"CONNECTING";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NetworkConnectionStateUnspecified = @"NETWORK_CONNECTION_STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NotConnected = @"NOT_CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Online = @"ONLINE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal = @"PORTAL";
 
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel = @"THUNDERBOLT_SECURITY_DP_ONLY_LEVEL";
@@ -485,6 +518,50 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse
+@dynamic nextPageToken, printerReports, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printerReports" : [GTLRChromeManagement_GoogleChromeManagementV1PrinterReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printerReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse
+@dynamic nextPageToken, totalSize, userPrintReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userPrintReports" : [GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userPrintReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1CpuInfo
 //
 
@@ -601,6 +678,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 @implementation GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo
 @dynamic deviceId, displayName, isInternal, refreshRate, resolutionHeight,
          resolutionWidth;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1EnumeratePrintJobsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1EnumeratePrintJobsResponse
+@dynamic nextPageToken, printJobs, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printJobs" : [GTLRChromeManagement_GoogleChromeManagementV1PrintJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printJobs";
+}
+
 @end
 
 
@@ -916,6 +1015,33 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1PrinterReport
+@dynamic deviceCount, jobCount, printer, printerId, printerModel, userCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1PrintJob
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1PrintJob
+@dynamic colorMode, completeTime, copyCount, createTime, documentPageCount,
+         duplexMode, identifier, printer, printerId, state, title, userEmail,
+         userId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1StorageInfo
 //
 
@@ -1025,7 +1151,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent
 @dynamic audioSevereUnderrunEvent, device, eventType, httpsLatencyChangeEvent,
-         name, reportTime, usbPeripheralsEvent, user;
+         name, networkStateChangeEvent, reportTime, usbPeripheralsEvent, user,
+         vpnConnectionStateChangeEvent, wifiSignalStrengthEvent;
 @end
 
 
@@ -1054,6 +1181,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent
 @dynamic httpsLatencyRoutineData, httpsLatencyState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent
+@dynamic connectionState, guid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent
+@dynamic guid, signalStrengthDbm;
 @end
 
 
@@ -1208,6 +1355,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
+@dynamic deviceCount, jobCount, printerCount, userEmail, userId;
 @end
 
 

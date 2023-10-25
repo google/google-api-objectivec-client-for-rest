@@ -92,7 +92,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 //
 
 @implementation GTLRBlockchainNodeEngine_ConnectionInfo
-@dynamic endpointInfo;
+@dynamic endpointInfo, serviceAttachment;
 @end
 
 
@@ -112,8 +112,9 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 //
 
 @implementation GTLRBlockchainNodeEngine_EthereumDetails
-@dynamic additionalEndpoints, apiEnableAdmin, apiEnableDebug, consensusClient,
-         executionClient, gethDetails, network, nodeType;
+@dynamic additionalEndpoints, apiEnableAdmin, apiEnableDebug,
+         beaconFeeRecipient, consensusClient, executionClient, gethDetails,
+         network, nodeType;
 @end
 
 

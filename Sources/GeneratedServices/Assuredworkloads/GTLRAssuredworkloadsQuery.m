@@ -52,6 +52,32 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsAnalyzeWorkloadMove
+
+@dynamic assetTypes, pageSize, pageToken, project, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithTarget:(NSString *)target {
+  NSArray *pathParams = @[ @"target" ];
+  NSString *pathURITemplate = @"v1/{+target}:analyzeWorkloadMove";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsAnalyzeWorkloadMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.target = target;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AnalyzeWorkloadMoveResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.analyzeWorkloadMove";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsCreate
 
 @dynamic externalId, parent;

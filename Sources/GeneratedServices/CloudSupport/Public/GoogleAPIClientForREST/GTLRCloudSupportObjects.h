@@ -850,7 +850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @interface GTLRCloudSupport_EscalateCaseRequest : GTLRObject
 
-/** The escalation object to be sent with the escalation request. */
+/** The escalation information to be sent with the escalation request. */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Escalation *escalation;
 
 @end
@@ -898,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_ListAttachmentsResponse : GTLRCollectionObject
 
 /**
- *  The list of attachments associated with the given case.
+ *  The list of attachments associated with a case.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -906,9 +906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_Attachment *> *attachments;
 
 /**
- *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of subsequent `cases.attachments.list` requests. If
- *  unspecified, there are no more results to retrieve.
+ *  A token to retrieve the next page of results. Set this in the `page_token`
+ *  field of subsequent `cases.attachments.list` requests. If unspecified, there
+ *  are no more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -926,8 +926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_ListCasesResponse : GTLRCollectionObject
 
 /**
- *  The list of cases associated with the Google Cloud Resource, after any
- *  filters have been applied.
+ *  The list of cases associated with the parent after any filters have been
+ *  applied.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -935,9 +935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_Case *> *cases;
 
 /**
- *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of the subsequent `ListCasesRequest` message that is
- *  issued. If unspecified, there are no more results to retrieve.
+ *  A token to retrieve the next page of results. Set this in the `page_token`
+ *  field of subsequent `cases.list` requests. If unspecified, there are no more
+ *  results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -955,7 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_ListCommentsResponse : GTLRCollectionObject
 
 /**
- *  The list of Comments associated with the given Case.
+ *  List of the comments associated with the case.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -963,9 +963,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_Comment *> *comments;
 
 /**
- *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of subsequent `ListCommentsRequest` message that is
- *  issued. If unspecified, there are no more results to retrieve.
+ *  A token to retrieve the next page of results. Set this in the `page_token`
+ *  field of subsequent `cases.comments.list` requests. If unspecified, there
+ *  are no more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1212,9 +1212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_CaseClassification *> *caseClassifications;
 
 /**
- *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of subsequent `SearchCaseClassificationsRequest` message
- *  that is issued. If unspecified, there are no more results to retrieve.
+ *  A token to retrieve the next page of results. Set this in the `page_token`
+ *  field of subsequent `caseClassifications.list` requests. If unspecified,
+ *  there are no more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1232,8 +1232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_SearchCasesResponse : GTLRCollectionObject
 
 /**
- *  The list of cases associated with the Google Cloud Resource, after any
- *  filters have been applied.
+ *  The list of cases associated with the parent after any filters have been
+ *  applied.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1241,9 +1241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_Case *> *cases;
 
 /**
- *  A token to retrieve the next page of results. This should be set in the
- *  `page_token` field of subsequent `SearchCaseRequest` message that is issued.
- *  If unspecified, there are no more results to retrieve.
+ *  A token to retrieve the next page of results. Set this in the `page_token`
+ *  field of subsequent `cases.search` requests. If unspecified, there are no
+ *  more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

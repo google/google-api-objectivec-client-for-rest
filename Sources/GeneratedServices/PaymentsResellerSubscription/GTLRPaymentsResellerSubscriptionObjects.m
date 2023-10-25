@@ -43,6 +43,11 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelRetail = @"CHANNEL_RETAIL";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product.productType
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeBundleSubscription = @"PRODUCT_TYPE_BUNDLE_SUBSCRIPTION";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeSubscription = @"PRODUCT_TYPE_SUBSCRIPTION";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeUnspecified = @"PRODUCT_TYPE_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial = @"PROMOTION_TYPE_FREE_TRIAL";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeIntroductoryPricing = @"PROMOTION_TYPE_INTRODUCTORY_PRICING";
@@ -100,6 +105,11 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately = @"BILLING_CYCLE_SPEC_START_IMMEDIATELY";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified = @"BILLING_CYCLE_SPEC_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_ProductBundleDetails.entitlementMode
+NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeFull = @"ENTITLEMENT_MODE_FULL";
+NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeIncremental = @"ENTITLEMENT_MODE_INCREMENTAL";
+NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeUnspecified = @"ENTITLEMENT_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount
@@ -146,6 +156,33 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest
+@dynamic lineItemEntitlementDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItemEntitlementDetails" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails
+@dynamic lineItemIndex, products;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -309,8 +346,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product
-@dynamic finiteBillingCycleDetails, name, priceConfigs, regionCodes,
-         subscriptionBillingCycleDuration, titles;
+@dynamic bundleDetails, finiteBillingCycleDetails, name, priceConfigs,
+         productType, regionCodes, subscriptionBillingCycleDuration, titles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -321,6 +358,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement
+@dynamic product;
 @end
 
 
@@ -444,7 +491,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem
-@dynamic amount, descriptionProperty, finiteBillingCycleDetails,
+@dynamic amount, bundleDetails, descriptionProperty, finiteBillingCycleDetails,
          lineItemFreeTrialEndTime, lineItemIndex, lineItemPromotionSpecs,
          oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
          state;
@@ -460,6 +507,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails
+@dynamic product, userAccountLinkedTime;
 @end
 
 
@@ -537,4 +594,40 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 @implementation GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText
 @dynamic languageCode, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_ProductBundleDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_ProductBundleDetails
+@dynamic bundleElements, entitlementMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bundleElements" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails
+@dynamic bundleElementDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bundleElementDetails" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails class]
+  };
+  return map;
+}
+
 @end

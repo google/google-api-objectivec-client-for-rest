@@ -50,6 +50,8 @@ NSString * const kGTLRAuthScopeStorageDevstorageReadWrite   = @"https://www.goog
     @"storage#hmacKey" : [GTLRStorage_HmacKey class],
     @"storage#hmacKeyMetadata" : [GTLRStorage_HmacKeyMetadata class],
     @"storage#hmacKeysMetadata" : [GTLRStorage_HmacKeysMetadata class],
+    @"storage#managedFolder" : [GTLRStorage_ManagedFolder class],
+    @"storage#managedFolders" : [GTLRStorage_ManagedFolders class],
     @"storage#notification" : [GTLRStorage_Notification class],
     @"storage#notifications" : [GTLRStorage_Notifications class],
     @"storage#object" : [GTLRStorage_Object class],

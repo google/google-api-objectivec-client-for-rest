@@ -2979,6 +2979,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Gets the generative settings for the agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.getGenerativeSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGetGenerativeSettings : GTLRDialogflowQuery
+
+/** Required. Language code of the generative settings. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. Format: `projects//locations//agents//generativeSettings`. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings.
+ *
+ *  Gets the generative settings for the agent.
+ *
+ *  @param name Required. Format:
+ *    `projects//locations//agents//generativeSettings`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGetGenerativeSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest agent validation result. Agent validation is performed when
  *  ValidateAgent is called.
  *
@@ -3098,6 +3129,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Exports the selected intents. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportIntentsMetadata - `response`: ExportIntentsResponse
+ *
+ *  Method: dialogflow.projects.locations.agents.intents.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsExport : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the parent agent to export intents. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Exports the selected intents. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportIntentsMetadata - `response`: ExportIntentsResponse
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the parent agent to export intents.
+ *    Format: `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsExport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Retrieves the specified intent.
  *
  *  Method: dialogflow.projects.locations.agents.intents.get
@@ -3135,6 +3207,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports the specified intents into the agent. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportIntentsMetadata - `response`: ImportIntentsResponse
+ *
+ *  Method: dialogflow.projects.locations.agents.intents.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsImport : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to import the intents into. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Imports the specified intents into the agent. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportIntentsMetadata - `response`: ImportIntentsResponse
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest to include in
+ *    the query.
+ *  @param parent Required. The agent to import the intents into. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsImport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -4557,6 +4670,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTransitionRouteGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the generative settings for the agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.updateGenerativeSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsUpdateGenerativeSettings : GTLRDialogflowQuery
+
+/** Format: `projects//locations//agents//generativeSettings`. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields get updated. If the mask is not
+ *  present, all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings.
+ *
+ *  Updates the generative settings for the agent.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings to include in
+ *    the query.
+ *  @param name Format: `projects//locations//agents//generativeSettings`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsUpdateGenerativeSettings
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings *)object
                            name:(NSString *)name;
 
 @end

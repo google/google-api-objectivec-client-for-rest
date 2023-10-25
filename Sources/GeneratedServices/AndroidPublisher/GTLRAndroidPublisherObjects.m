@@ -19,6 +19,7 @@
 NSString * const kGTLRAndroidPublisher_Abi_Alias_Arm64V8a      = @"ARM64_V8A";
 NSString * const kGTLRAndroidPublisher_Abi_Alias_Armeabi       = @"ARMEABI";
 NSString * const kGTLRAndroidPublisher_Abi_Alias_ArmeabiV7a    = @"ARMEABI_V7A";
+NSString * const kGTLRAndroidPublisher_Abi_Alias_Riscv64       = @"RISCV64";
 NSString * const kGTLRAndroidPublisher_Abi_Alias_UnspecifiedCpuArchitecture = @"UNSPECIFIED_CPU_ARCHITECTURE";
 NSString * const kGTLRAndroidPublisher_Abi_Alias_X86           = @"X86";
 NSString * const kGTLRAndroidPublisher_Abi_Alias_X8664         = @"X86_64";
@@ -72,6 +73,7 @@ NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_Tran
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent = @"CAN_MANAGE_APP_CONTENT";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks = @"CAN_MANAGE_DEEPLINKS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
@@ -148,6 +150,7 @@ NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxhdpi = @"XXH
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxxhdpi = @"XXXHDPI";
 
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_OptOutPriceIncrease = @"OPT_OUT_PRICE_INCREASE";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified = @"PRICE_CHANGE_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceDecrease = @"PRICE_DECREASE";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceIncrease = @"PRICE_INCREASE";
@@ -216,6 +219,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChang
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal = @"CAN_MANAGE_DEEPLINKS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";

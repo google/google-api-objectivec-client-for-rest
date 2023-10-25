@@ -325,6 +325,10 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_SkuNotEligible = @"SKU_NOT_ELIGIBLE";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_SkuSuspended = @"SKU_SUSPENDED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudchannel_GoogleCloudChannelV1ActivateEntitlementRequest
@@ -2249,3 +2253,5 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 }
 
 @end
+
+#pragma clang diagnostic pop

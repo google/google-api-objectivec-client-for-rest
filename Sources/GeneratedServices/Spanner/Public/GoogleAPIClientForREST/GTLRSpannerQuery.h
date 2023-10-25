@@ -2188,6 +2188,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Batches the supplied mutation groups in a collection of efficient
+ *  transactions. All mutations in a group are committed atomically. However,
+ *  mutations across groups can be committed non-atomically in an unspecified
+ *  order and thus, they must be independent of each other. Partial failure is
+ *  possible, i.e., some groups may have been committed successfully, while some
+ *  may have failed. The results of individual batches are streamed into the
+ *  response as the batches are applied. BatchWrite requests are not replay
+ *  protected, meaning that each mutation group may be applied more than once.
+ *  Replays of non-idempotent mutations may have undesirable effects. For
+ *  example, replays of an insert mutation may produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it may result in
+ *  additional rows being added to the mutation's table. We recommend
+ *  structuring your mutation groups to be idempotent to avoid this issue.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.batchWrite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchWrite : GTLRSpannerQuery
+
+/** Required. The session in which the batch request is to be run. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRSpanner_BatchWriteResponse.
+ *
+ *  Batches the supplied mutation groups in a collection of efficient
+ *  transactions. All mutations in a group are committed atomically. However,
+ *  mutations across groups can be committed non-atomically in an unspecified
+ *  order and thus, they must be independent of each other. Partial failure is
+ *  possible, i.e., some groups may have been committed successfully, while some
+ *  may have failed. The results of individual batches are streamed into the
+ *  response as the batches are applied. BatchWrite requests are not replay
+ *  protected, meaning that each mutation group may be applied more than once.
+ *  Replays of non-idempotent mutations may have undesirable effects. For
+ *  example, replays of an insert mutation may produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it may result in
+ *  additional rows being added to the mutation's table. We recommend
+ *  structuring your mutation groups to be idempotent to avoid this issue.
+ *
+ *  @param object The @c GTLRSpanner_BatchWriteRequest to include in the query.
+ *  @param session Required. The session in which the batch request is to be
+ *    run.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchWrite
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_BatchWriteRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
  *  Begins a new transaction. This step can often be skipped: Read, ExecuteSql
  *  and Commit can begin a new transaction as a side-effect.
  *

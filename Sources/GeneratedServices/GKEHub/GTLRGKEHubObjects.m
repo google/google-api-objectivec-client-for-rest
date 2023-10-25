@@ -191,6 +191,52 @@ NSString * const kGTLRGKEHub_Origin_Type_FleetOutOfSync  = @"FLEET_OUT_OF_SYNC";
 NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_Origin_Type_User            = @"USER";
 
+// GTLRGKEHub_PolicyControllerHubConfig.installSpec
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecDetached = @"INSTALL_SPEC_DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecEnabled = @"INSTALL_SPEC_ENABLED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecNotInstalled = @"INSTALL_SPEC_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecSuspended = @"INSTALL_SPEC_SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecUnspecified = @"INSTALL_SPEC_UNSPECIFIED";
+
+// GTLRGKEHub_PolicyControllerMembershipState.state
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_ClusterError = @"CLUSTER_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Decommissioning = @"DECOMMISSIONING";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Detached = @"DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_HubError = @"HUB_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Updating = @"UPDATING";
+
+// GTLRGKEHub_PolicyControllerMonitoringConfig.backends
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_CloudMonitoring = @"CLOUD_MONITORING";
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_MonitoringBackendUnspecified = @"MONITORING_BACKEND_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_Prometheus = @"PROMETHEUS";
+
+// GTLRGKEHub_PolicyControllerOnClusterState.state
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_ClusterError = @"CLUSTER_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Decommissioning = @"DECOMMISSIONING";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Detached = @"DETACHED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_HubError = @"HUB_ERROR";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Updating = @"UPDATING";
+
+// GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig.podAffinity
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AffinityUnspecified = @"AFFINITY_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AntiAffinity = @"ANTI_AFFINITY";
+NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_NoAffinity = @"NO_AFFINITY";
+
+// GTLRGKEHub_PolicyControllerTemplateLibraryConfig.installation
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_All = @"ALL";
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_InstallationUnspecified = @"INSTALLATION_UNSPECIFIED";
+NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled = @"NOT_INSTALLED";
+
 // GTLRGKEHub_RBACRoleBindingLifecycleState.code
 NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_RBACRoleBindingLifecycleState_Code_Creating = @"CREATING";
@@ -376,6 +422,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_CommonFleetDefaultMemberConfigSpec
+@dynamic configmanagement, policycontroller;
 @end
 
 
@@ -1067,7 +1114,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_IdentityServiceAzureADConfig
 @dynamic clientId, clientSecret, encryptedClientSecret, kubectlRedirectUri,
-         tenant, userClaim;
+         tenant;
 @end
 
 
@@ -1473,7 +1520,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic configmanagement, fleetobservability, identityservice, mesh, origin;
+@dynamic configmanagement, fleetobservability, identityservice, mesh, origin,
+         policycontroller;
 @end
 
 
@@ -1484,7 +1532,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_MembershipFeatureState
 @dynamic appdevexperience, configmanagement, fleetobservability,
-         identityservice, servicemesh, state;
+         identityservice, policycontroller, servicemesh, state;
 @end
 
 
@@ -1671,6 +1719,232 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_PolicyControllerBundleInstallSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerBundleInstallSpec
+@dynamic exemptedNamespaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerHubConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerHubConfig
+@dynamic auditIntervalSeconds, constraintViolationLimit, deploymentConfigs,
+         exemptableNamespaces, installSpec, logDeniesEnabled, monitoring,
+         mutationEnabled, policyContent, referentialRulesEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptableNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs
+//
+
+@implementation GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerMembershipSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerMembershipSpec
+@dynamic policyControllerHubConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerMembershipState
+//
+
+@implementation GTLRGKEHub_PolicyControllerMembershipState
+@dynamic componentStates, policyContentState, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerMembershipState_ComponentStates
+//
+
+@implementation GTLRGKEHub_PolicyControllerMembershipState_ComponentStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerOnClusterState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerMonitoringConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerMonitoringConfig
+@dynamic backends;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backends" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerOnClusterState
+//
+
+@implementation GTLRGKEHub_PolicyControllerOnClusterState
+@dynamic details, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentSpec
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentSpec
+@dynamic bundles, templateLibrary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerBundleInstallSpec class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentState
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentState
+@dynamic bundleStates, referentialSyncConfigState, templateLibraryState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_PolicyControllerOnClusterState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig
+@dynamic containerResources, podAffinity, podAntiAffinity, podTolerations,
+         replicaCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"podTolerations" : [GTLRGKEHub_PolicyControllerToleration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerResourceList
+//
+
+@implementation GTLRGKEHub_PolicyControllerResourceList
+@dynamic cpu, memory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerResourceRequirements
+//
+
+@implementation GTLRGKEHub_PolicyControllerResourceRequirements
+@dynamic limits, requests;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerTemplateLibraryConfig
+//
+
+@implementation GTLRGKEHub_PolicyControllerTemplateLibraryConfig
+@dynamic installation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_PolicyControllerToleration
+//
+
+@implementation GTLRGKEHub_PolicyControllerToleration
+@dynamic effect, key, operatorProperty, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_RBACRoleBinding
 //
 
@@ -1740,8 +2014,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_Scope
-@dynamic allMemberships, createTime, deleteTime, labels, name, namespaceLabels,
-         state, uid, updateTime;
+@dynamic createTime, deleteTime, labels, name, namespaceLabels, state, uid,
+         updateTime;
 @end
 
 

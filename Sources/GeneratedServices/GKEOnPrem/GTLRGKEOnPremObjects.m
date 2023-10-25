@@ -1674,7 +1674,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_UpgradeDependency
-@dynamic currentVersion, localName, resourceName, targetVersion;
+@dynamic currentVersion, membership, resourceName, targetVersion;
 @end
 
 
@@ -1769,7 +1769,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
          bootstrapClusterMembership, controlPlaneNode, createTime,
          descriptionProperty, endpoint, ETag, fleet, imageType, loadBalancer,
          localName, name, networkConfig, onPremVersion, platformConfig,
-         reconciling, state, status, uid, updateTime, vcenter;
+         preparedSecrets, reconciling, state, status, uid, updateTime, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1873,6 +1873,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig
+@dynamic enabled;
 @end
 
 
@@ -2318,7 +2328,15 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareVersionInfo
-@dynamic hasDependencies, isInstalled, version;
+@dynamic dependencies, hasDependencies, isInstalled, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencies" : [GTLRGKEOnPrem_UpgradeDependency class]
+  };
+  return map;
+}
+
 @end
 
 

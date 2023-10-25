@@ -934,8 +934,9 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
-@dynamic dateRanges, dimensionFilter, dimensions, limit, metricFilter, metrics,
-         offset, orderBys, returnEntityQuota, timeZone;
+@dynamic dateRanges, dimensionFilter, dimensions, expandGroups, includeAllUsers,
+         limit, metricFilter, metrics, offset, orderBys, returnEntityQuota,
+         timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

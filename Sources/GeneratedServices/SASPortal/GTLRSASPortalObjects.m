@@ -621,6 +621,7 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 //
 
 @implementation GTLRSASPortal_SetupSasAnalyticsRequest
+@dynamic userId;
 @end
 
 

@@ -390,6 +390,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Upgrades the Memcache instance to a newer memcached engine version specified
+ *  in the request.
+ *
+ *  Method: memcache.projects.locations.instances.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
+ */
+@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpgrade : GTLRCloudMemorystoreforMemcachedQuery
+
+/**
+ *  Required. Memcache instance resource name using the form:
+ *  `projects/{project}/locations/{location}/instances/{instance}` where
+ *  `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
+ *
+ *  Upgrades the Memcache instance to a newer memcached engine version specified
+ *  in the request.
+ *
+ *  @param object The @c
+ *    GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest
+ *    to include in the query.
+ *  @param name Required. Memcache instance resource name using the form:
+ *    `projects/{project}/locations/{location}/instances/{instance}` where
+ *    `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: memcache.projects.locations.list

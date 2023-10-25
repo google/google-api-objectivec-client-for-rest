@@ -276,7 +276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  Optional. The usage of the synthesized audio to be reported.
+ *  Optional. Deprecated. The usage of the synthesized audio to be reported.
  *
  *  Likely values:
  *    @arg @c kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline For
@@ -291,7 +291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        Request with reported usage unspecified will be rejected. (Value:
  *        "REPORTED_USAGE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *reportedUsage;
+@property(nonatomic, copy, nullable) NSString *reportedUsage GTLR_DEPRECATED;
 
 @end
 

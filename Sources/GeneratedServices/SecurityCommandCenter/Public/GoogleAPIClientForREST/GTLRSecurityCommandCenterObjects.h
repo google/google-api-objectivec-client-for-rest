@@ -43,6 +43,7 @@
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_Empty;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
 @class GTLRSecurityCommandCenter_EventThreatDetectionCustomModule;
 @class GTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Config;
@@ -86,14 +87,17 @@
 @class GTLRSecurityCommandCenter_Label;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
+@class GTLRSecurityCommandCenter_LoadBalancer;
 @class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
 @class GTLRSecurityCommandCenter_Node;
 @class GTLRSecurityCommandCenter_NodePool;
 @class GTLRSecurityCommandCenter_NotificationConfig;
+@class GTLRSecurityCommandCenter_Object;
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
+@class GTLRSecurityCommandCenter_OrgPolicy;
 @class GTLRSecurityCommandCenter_PathNodeAssociatedFinding;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
@@ -107,7 +111,11 @@
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_SecurityPosture;
 @class GTLRSecurityCommandCenter_ServiceAccountDelegationInfo;
+@class GTLRSecurityCommandCenter_SimulatedResource;
+@class GTLRSecurityCommandCenter_SimulatedResource_ResourceData;
+@class GTLRSecurityCommandCenter_SimulatedResult;
 @class GTLRSecurityCommandCenter_Source;
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
@@ -575,6 +583,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  *  Value: "OBSERVATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation;
+/**
+ *  Describes a potential security risk due to a change in the security posture.
+ *
+ *  Value: "POSTURE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_PostureViolation;
 /**
  *  Describes an error that prevents some SCC functionality.
  *
@@ -3088,6 +3102,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ExfilResource *> *targets;
 
+/**
+ *  Total exfiltrated bytes processed for the entire job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalExfiltratedBytes;
+
 @end
 
 
@@ -3309,6 +3330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Observation
  *        Describes a security observation that is for informational purposes.
  *        (Value: "OBSERVATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_PostureViolation
+ *        Describes a potential security risk due to a change in the security
+ *        posture. (Value: "POSTURE_VIOLATION")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SccError Describes
  *        an error that prevents some SCC functionality. (Value: "SCC_ERROR")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
@@ -3336,6 +3360,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** Kubernetes resources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Kubernetes *kubernetes;
+
+/** The load balancers associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_LoadBalancer *> *loadBalancers;
 
 /**
  *  MITRE ATT&CK tactics and techniques related to this finding. See:
@@ -3390,6 +3417,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, copy, nullable) NSString *nextSteps;
 
 /**
+ *  Contains information about the org policies associated with the finding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_OrgPolicy *> *orgPolicies;
+
+/**
  *  The relative resource name of the source the finding belongs to. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  This field is immutable after creation time. For example:
@@ -3422,6 +3454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  finding.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks *securityMarks;
+
+/** The security posture associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityPosture *securityPosture;
 
 /**
  *  The severity of the finding. This field is managed by the source that writes
@@ -3884,13 +3919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assignees;
 
 /**
- *  The most recent time when the corresponding finding's ticket/tracker was
- *  updated in the external system.
+ *  The time when the case was last updated, as reported by the external system.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *externalSystemUpdateTime;
 
 /**
- *  Identifier that's used to track the given finding in the external system.
+ *  The identifier that's used to track the finding's corresponding case in the
+ *  external system.
  */
 @property(nonatomic, copy, nullable) NSString *externalUid;
 
@@ -3903,8 +3938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Most recent status of the corresponding finding's ticket/tracker in the
- *  external system.
+ *  The most recent status of the finding's corresponding case, as reported by
+ *  the external system.
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -3960,6 +3995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  "organizations/{organization}/muteConfigs/{mute_config}"
  *  "folders/{folder}/muteConfigs/{mute_config}"
  *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4354,8 +4392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
- *  A resource value config is a mapping configuration of user's tag values to
- *  resource values. Used by the attack path simulation.
+ *  A resource value config (RVC) is a mapping configuration of user's resources
+ *  to resource values. Used in Attack path simulations.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
 
@@ -5030,6 +5068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Node *> *nodes;
 
+/** Kubernetes objects related to the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Object *> *objects;
+
 /**
  *  Kubernetes
  *  [Pods](https://cloud.google.com/kubernetes-engine/docs/concepts/pod)
@@ -5532,6 +5573,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Contains information related to the load balancer associated with the
+ *  finding.
+ */
+@interface GTLRSecurityCommandCenter_LoadBalancer : GTLRObject
+
+/** The name of the load balancer associated with the finding. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A signature corresponding to memory page hashes.
  */
 @interface GTLRSecurityCommandCenter_MemoryHashSignature : GTLRObject
@@ -5686,6 +5739,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Kubernetes object related to the finding, uniquely identified by GKNN. Used
+ *  if the object Kind is not one of Pod, Node, NodePool, Binding, or
+ *  AccessReview.
+ */
+@interface GTLRSecurityCommandCenter_Object : GTLRObject
+
+/** Kubernetes object group, such as "policy.k8s.io/v1". */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** Kubernetes object kind, such as “Namespace”. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Kubernetes object name. For details see
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/names/.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Kubernetes object namespace. Must be a valid DNS label. Named "ns" to avoid
+ *  collision with C++ namespace keyword. For details see
+ *  https://kubernetes.io/docs/tasks/administer-cluster/namespaces/.
+ */
+@property(nonatomic, copy, nullable) NSString *ns;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -5788,6 +5870,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The relative resource name of the settings. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example: "organizations/{organization_id}/organizationSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Contains information about the org policies associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_OrgPolicy : GTLRObject
+
+/**
+ *  The resource name of the org policy. Example:
+ *  "organizations/{organization_id}/policies/{constraint_name}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6240,6 +6336,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Represents a posture that is deployed on Google Cloud by the Security
+ *  Command Center Posture Management service. A posture contains one or more
+ *  policy sets. A policy set is a group of policies that enforce a set of
+ *  security rules on Google Cloud.
+ */
+@interface GTLRSecurityCommandCenter_SecurityPosture : GTLRObject
+
+/**
+ *  The name of the policy that has been updated, for example,
+ *  `projects/{project_id}/policies/{constraint_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *changedPolicy;
+
+/**
+ *  Name of the posture, for example,
+ *  `organizations/{org_id}/locations/{location}/postures/{posture_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The name of the posture deployment, for example,
+ *  `projects/{project_id}/posturedeployments/{posture_deployment_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *postureDeployment;
+
+/**
+ *  The project, folder, or organization on which the posture is deployed, for
+ *  example, `projects/{project_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *postureDeploymentResource;
+
+/** The version of the posture, for example, `c7cfa2a8`. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
  *  Identity delegation history of an authenticated service account.
  */
 @interface GTLRSecurityCommandCenter_ServiceAccountDelegationInfo : GTLRObject
@@ -6335,6 +6469,87 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Manually constructed resource. If the custom module only evaluates against
+ *  the resource data, the iam_policy_data field can be omitted, and vice versa.
+ */
+@interface GTLRSecurityCommandCenter_SimulatedResource : GTLRObject
+
+/** Optional. A representation of the IAM policy. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Policy *iamPolicyData;
+
+/**
+ *  Optional. A representation of the GCP resource. Should match the GCP
+ *  resource JSON format.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SimulatedResource_ResourceData *resourceData;
+
+/** Required. The type of the resource, e.g. `compute.googleapis.com/Disk`. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Optional. A representation of the GCP resource. Should match the GCP
+ *  resource JSON format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_SimulatedResource_ResourceData : GTLRObject
+@end
+
+
+/**
+ *  Possible test result.
+ */
+@interface GTLRSecurityCommandCenter_SimulatedResult : GTLRObject
+
+/** Error encountered during the test. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Status *error;
+
+/**
+ *  Finding that would be published for the test case, if a violation is
+ *  detected.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding *finding;
+
+/** Indicates that the test case does not trigger any violation. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Empty *noViolation;
+
+@end
+
+
+/**
+ *  Request message to simulate a CustomConfig against a given test resource.
+ *  Maximum size of the request is 4 MB by default.
+ */
+@interface GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest : GTLRObject
+
+/** Required. The user specified custom configuration to test. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
+
+/** Required. Resource data to simulate custom module against. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SimulatedResource *resource;
+
+@end
+
+
+/**
+ *  Response message for simulating a SecurityHealthAnalyticsCustomModule
+ *  against a given resource.
+ */
+@interface GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse : GTLRObject
+
+/** Result for test case in the corresponding request. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SimulatedResult *result;
+
+@end
+
+
+/**
  *  Attack path simulation
  */
 @interface GTLRSecurityCommandCenter_Simulation : GTLRObject
@@ -6362,9 +6577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @interface GTLRSecurityCommandCenter_Source : GTLRObject
 
 /**
- *  The canonical name of the finding. It's either
+ *  The canonical name of the finding source. It's either
  *  "organizations/{organization_id}/sources/{source_id}",
- *  "folders/{folder_id}/sources/{source_id}" or
+ *  "folders/{folder_id}/sources/{source_id}", or
  *  "projects/{project_number}/sources/{source_id}", depending on the closest
  *  CRM ancestor of the resource associated with the finding.
  */

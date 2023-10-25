@@ -1625,7 +1625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_Telec
  *
  *  Value: "TELECOMMUTE_EXCLUDED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded GTLR_DEPRECATED;
 /**
  *  Exclude telecommute jobs.
  *
@@ -2226,7 +2226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Custom field values with parenthesis, brackets and special symbols are not
  *  searchable as-is, and those keyword queries must be surrounded by quotes.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *keywordSearchableJobCustomAttributes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keywordSearchableJobCustomAttributes GTLR_DEPRECATED;
 
 /**
  *  Required during company update. The resource name for a company. This is
@@ -3057,7 +3057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *    @arg @c kGTLRCloudTalentSolution_Job_Visibility_VisibilityUnspecified
  *        Default value. (Value: "VISIBILITY_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *visibility;
+@property(nonatomic, copy, nullable) NSString *visibility GTLR_DEPRECATED;
 
 @end
 
@@ -3936,8 +3936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -3965,8 +3965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -4242,7 +4242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *disableKeywordMatch;
+@property(nonatomic, strong, nullable) NSNumber *disableKeywordMatch GTLR_DEPRECATED;
 
 /**
  *  Controls whether highly similar jobs are returned next to each other in the

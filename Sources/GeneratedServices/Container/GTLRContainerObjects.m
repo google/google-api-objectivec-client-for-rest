@@ -215,6 +215,7 @@ NSString * const kGTLRContainer_Operation_OperationType_CreateCluster = @"CREATE
 NSString * const kGTLRContainer_Operation_OperationType_CreateNodePool = @"CREATE_NODE_POOL";
 NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster = @"DELETE_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool = @"DELETE_NODE_POOL";
+NSString * const kGTLRContainer_Operation_OperationType_FleetFeatureUpgrade = @"FLEET_FEATURE_UPGRADE";
 NSString * const kGTLRContainer_Operation_OperationType_RepairCluster = @"REPAIR_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_ResizeCluster = @"RESIZE_CLUSTER";
 NSString * const kGTLRContainer_Operation_OperationType_SetLabels = @"SET_LABELS";
@@ -647,11 +648,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
          monitoringService, name, network, networkConfig, networkPolicy,
          nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
-         nodePools, notificationConfig, privateClusterConfig, releaseChannel,
-         resourceLabels, resourceUsageExportConfig, securityPostureConfig,
-         selfLink, servicesIpv4Cidr, shieldedNodes, status, statusMessage,
-         subnetwork, tpuIpv4CidrBlock, verticalPodAutoscaling,
-         workloadIdentityConfig, zoneProperty;
+         nodePools, notificationConfig, parentProductConfig,
+         privateClusterConfig, releaseChannel, resourceLabels,
+         resourceUsageExportConfig, securityPostureConfig, selfLink,
+         servicesIpv4Cidr, shieldedNodes, status, statusMessage, subnetwork,
+         tpuIpv4CidrBlock, verticalPodAutoscaling, workloadIdentityConfig,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -739,13 +741,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMeshCertificates, desiredMonitoringConfig,
          desiredMonitoringService, desiredNetworkPerformanceConfig,
-         desiredNodePoolAutoConfigNetworkTags, desiredNodePoolAutoscaling,
-         desiredNodePoolId, desiredNodePoolLoggingConfig, desiredNodeVersion,
-         desiredNotificationConfig, desiredPrivateClusterConfig,
-         desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredSecurityPostureConfig,
-         desiredServiceExternalIpsConfig, desiredShieldedNodes,
-         desiredStackType, desiredVerticalPodAutoscaling,
+         desiredNodePoolAutoConfigNetworkTags,
+         desiredNodePoolAutoConfigResourceManagerTags,
+         desiredNodePoolAutoscaling, desiredNodePoolId,
+         desiredNodePoolLoggingConfig, desiredNodeVersion,
+         desiredNotificationConfig, desiredParentProductConfig,
+         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredSecurityPostureConfig, desiredServiceExternalIpsConfig,
+         desiredShieldedNodes, desiredStackType, desiredVerticalPodAutoscaling,
          desiredWorkloadIdentityConfig, enableK8sBetaApis, ETag,
          removedAdditionalPodRangesConfig;
 
@@ -1610,9 +1614,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          imageType, kubeletConfig, labels, linuxNodeConfig,
          localNvmeSsdBlockConfig, localSsdCount, loggingConfig, machineType,
          metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
-         reservationAffinity, resourceLabels, sandboxConfig, serviceAccount,
-         shieldedInstanceConfig, soleTenantConfig, spot, tags, taints,
-         windowsNodeConfig, workloadMetadataConfig;
+         reservationAffinity, resourceLabels, resourceManagerTags,
+         sandboxConfig, serviceAccount, shieldedInstanceConfig,
+         soleTenantConfig, spot, tags, taints, windowsNodeConfig,
+         workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1780,7 +1785,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodePoolAutoConfig
-@dynamic networkTags;
+@dynamic networkTags, resourceManagerTags;
 @end
 
 
@@ -1892,6 +1897,30 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
     @"stages" : [GTLRContainer_OperationProgress class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ParentProductConfig
+//
+
+@implementation GTLRContainer_ParentProductConfig
+@dynamic labels, productName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ParentProductConfig_Labels
+//
+
+@implementation GTLRContainer_ParentProductConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2046,6 +2075,30 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ResourceLimit
 @dynamic maximum, minimum, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceManagerTags
+//
+
+@implementation GTLRContainer_ResourceManagerTags
+@dynamic tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceManagerTags_Tags
+//
+
+@implementation GTLRContainer_ResourceManagerTags_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2515,9 +2568,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic clusterId, confidentialNodes, diskSizeGb, diskType, ETag, fastSocket,
          gcfsConfig, gvnic, imageType, kubeletConfig, labels, linuxNodeConfig,
          locations, loggingConfig, machineType, name, nodeNetworkConfig,
-         nodePoolId, nodeVersion, projectId, resourceLabels, tags, taints,
-         upgradeSettings, windowsNodeConfig, workloadMetadataConfig,
-         zoneProperty;
+         nodePoolId, nodeVersion, projectId, resourceLabels,
+         resourceManagerTags, tags, taints, upgradeSettings, windowsNodeConfig,
+         workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

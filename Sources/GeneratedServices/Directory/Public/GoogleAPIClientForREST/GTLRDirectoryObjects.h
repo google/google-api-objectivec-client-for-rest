@@ -3356,15 +3356,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Determines if a sub-organizational unit can inherit the settings of the
  *  parent organization. The default value is `false`, meaning a
  *  sub-organizational unit inherits the settings of the nearest parent
- *  organizational unit. We recommend using the default value because setting
- *  `block_inheritance` to `true` can have _unintended consequences_. For more
+ *  organizational unit. This field is deprecated. Setting it to `true` is no
+ *  longer supported and can have _unintended consequences_. For more
  *  information about inheritance and users in an organization structure, see
  *  the [administration help
  *  center](https://support.google.com/a/answer/4352075).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *blockInheritance;
+@property(nonatomic, strong, nullable) NSNumber *blockInheritance GTLR_DEPRECATED;
 
 /**
  *  Description of the organizational unit.

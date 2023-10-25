@@ -482,7 +482,13 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Entity
-@dynamic changeStatus, client, folder, tag, transformation, trigger, variable;
+@dynamic builtInVariable, changeStatus, client, customTemplate, folder,
+         gtagConfig, tag, transformation, trigger, variable, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
 @end
 
 

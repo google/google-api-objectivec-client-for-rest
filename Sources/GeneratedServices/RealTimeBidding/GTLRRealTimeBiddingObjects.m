@@ -68,6 +68,7 @@ NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonInterstitia
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonSkippableInstreamVideo = @"NON_SKIPPABLE_INSTREAM_VIDEO";
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonVpaid = @"NON_VPAID";
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_Omsdk10 = @"OMSDK_1_0";
+NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RenderingPlayable = @"RENDERING_PLAYABLE";
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeFlash = @"RICH_MEDIA_CAPABILITY_TYPE_FLASH";
 NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeHtml5 = @"RICH_MEDIA_CAPABILITY_TYPE_HTML5";
@@ -116,6 +117,7 @@ NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NonSkippableInstreamVideo = @"NON_SKIPPABLE_INSTREAM_VIDEO";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NonVpaid = @"NON_VPAID";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_Omsdk10 = @"OMSDK_1_0";
+NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RenderingPlayable = @"RENDERING_PLAYABLE";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeFlash = @"RICH_MEDIA_CAPABILITY_TYPE_FLASH";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeHtml5 = @"RICH_MEDIA_CAPABILITY_TYPE_HTML5";

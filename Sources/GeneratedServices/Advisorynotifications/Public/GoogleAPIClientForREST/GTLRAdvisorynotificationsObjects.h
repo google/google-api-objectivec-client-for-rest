@@ -20,6 +20,8 @@
 @class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Message;
 @class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1MessageBody;
 @class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification;
+@class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings;
+@class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings_NotificationSettings;
 @class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Subject;
 @class GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Text;
 
@@ -250,6 +252,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
 /** The subject line of the notification. */
 @property(nonatomic, strong, nullable) GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Subject *subject;
 
+@end
+
+
+/**
+ *  Settings for each NotificationType.
+ */
+@interface GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings : GTLRObject
+
+/**
+ *  Whether the associated NotificationType is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Settings for Advisory Notifications.
+ */
+@interface GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings : GTLRObject
+
+/**
+ *  Required. Fingerprint for optimistic concurrency returned in Get requests.
+ *  Must be provided for Update requests. If the value provided does not match
+ *  the value known to the server, ABORTED will be thrown, and the client should
+ *  retry the read-modify-write cycle.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the settings to retrieve. Format:
+ *  organizations/{organization}/locations/{location}/settings.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Map of each notification type and its settings to get/set all
+ *  settings at once. The server will validate the value for each notification
+ *  type.
+ */
+@property(nonatomic, strong, nullable) GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings_NotificationSettings *notificationSettings;
+
+@end
+
+
+/**
+ *  Required. Map of each notification type and its settings to get/set all
+ *  settings at once. The server will validate the value for each notification
+ *  type.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings_NotificationSettings : GTLRObject
 @end
 
 

@@ -60,6 +60,7 @@
 @class GTLRShoppingContent_Breakdown;
 @class GTLRShoppingContent_BreakdownRegion;
 @class GTLRShoppingContent_BuiltInSimpleAction;
+@class GTLRShoppingContent_BuiltInSimpleActionAdditionalContent;
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
@@ -111,6 +112,7 @@
 @class GTLRShoppingContent_LiaAboutPageSettings;
 @class GTLRShoppingContent_LiaCountrySettings;
 @class GTLRShoppingContent_LiaInventorySettings;
+@class GTLRShoppingContent_LiaOmnichannelExperience;
 @class GTLRShoppingContent_LiaOnDisplayToOrderSettings;
 @class GTLRShoppingContent_LiaPosDataProvider;
 @class GTLRShoppingContent_LiaSettings;
@@ -653,12 +655,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_EditItemAttribute;
 /**
+ *  Redirect merchant from the product issues to the diagnostic page with their
+ *  account issues in your application. This action will be returned only for
+ *  product issues that are caused by an account issue and thus merchant should
+ *  resolve the problem on the account level.
+ *
+ *  Value: "FIX_ACCOUNT_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_FixAccountIssue;
+/**
  *  Redirect merchant to the part of your application where they can link ads
  *  account.
  *
  *  Value: "LINK_ADS_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount;
+/**
+ *  Show additional content to the merchant. This action will be used for
+ *  example to deliver a justification from national authority.
+ *
+ *  Value: "SHOW_ADDITIONAL_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ShowAdditionalContent;
 /**
  *  Redirect merchant to the part of your application where they can verify
  *  their phone.
@@ -732,6 +750,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active;
+/**
+ *  The program cannot be further reactivated or paused. See more about [Buy on
+ *  Google](https://support.google.com/merchants/answer/7679273).
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Deprecated;
 /**
  *  Merchant is eligible for onboarding to a given program in a specific region
  *  code.
@@ -2781,14 +2806,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  can use the '?' as an icon. * `tooltip-style-info` - the tooltip adds
  *  additional information fitting to the context, can use the 'i' as an icon. *
  *  `content-moderation` - marks the paragraph that explains how the issue was
- *  identified. * `overlay` - wrapper for the `popup` dialog. It should be set
- *  to hidden by default. When the dialog is opened, the overlay should switch
- *  to be visible and cover the rest of the screen to highlight the dialog. *
- *  `popup` - dialog for showing a long block of content * `popup-close` - a
- *  button to close the `popup` dialog * `new-element` - Present for new
- *  elements added to the pre-rendered content in the future. To make sure that
- *  a new content element does not break your style, you can hide everything
- *  with this class.
+ *  identified. * `new-element` - Present for new elements added to the
+ *  pre-rendered content in the future. To make sure that a new content element
+ *  does not break your style, you can hide everything with this class.
  */
 @property(nonatomic, copy, nullable) NSString *prerenderedContent;
 
@@ -4384,6 +4404,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_BuiltInSimpleAction : GTLRObject
 
 /**
+ *  Long text from an external source that should be available to the merchant.
+ *  Present when the type is `SHOW_ADDITIONAL_CONTENT`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BuiltInSimpleActionAdditionalContent *additionalContent;
+
+/**
  *  The attribute that needs to be updated. Present when the type is
  *  `EDIT_ITEM_ATTRIBUTE`. This field contains a code for attribute, represented
  *  in snake_case. You can find a list of product's attributes, with their codes
@@ -4415,14 +4441,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        Open a form where the merchant can edit an attribute. The attribute
  *        that needs to be updated is specified in attribute_code field of the
  *        action. (Value: "EDIT_ITEM_ATTRIBUTE")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_FixAccountIssue
+ *        Redirect merchant from the product issues to the diagnostic page with
+ *        their account issues in your application. This action will be returned
+ *        only for product issues that are caused by an account issue and thus
+ *        merchant should resolve the problem on the account level. (Value:
+ *        "FIX_ACCOUNT_ISSUE")
  *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount
  *        Redirect merchant to the part of your application where they can link
  *        ads account. (Value: "LINK_ADS_ACCOUNT")
+ *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_ShowAdditionalContent
+ *        Show additional content to the merchant. This action will be used for
+ *        example to deliver a justification from national authority. (Value:
+ *        "SHOW_ADDITIONAL_CONTENT")
  *    @arg @c kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone Redirect
  *        merchant to the part of your application where they can verify their
  *        phone. (Value: "VERIFY_PHONE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Long text from external source.
+ */
+@interface GTLRShoppingContent_BuiltInSimpleActionAdditionalContent : GTLRObject
+
+/** Long text organized into paragraphs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paragraphs;
+
+/** Title of the additional content; */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -4509,6 +4559,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active
  *        Merchant's program participation is active for a specific region code.
  *        (Value: "ACTIVE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Deprecated
+ *        The program cannot be further reactivated or paused. See more about
+ *        [Buy on Google](https://support.google.com/merchants/answer/7679273).
+ *        (Value: "DEPRECATED")
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible
  *        Merchant is eligible for onboarding to a given program in a specific
  *        region code. (Value: "ELIGIBLE")
@@ -6890,6 +6944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** LIA inventory verification settings. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaInventorySettings *inventory;
 
+/** The omnichannel experience configured for this country. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaOmnichannelExperience *omnichannelExperience;
+
 /** LIA "On Display To Order" settings. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaOnDisplayToOrderSettings *onDisplayToOrder;
 
@@ -6928,6 +6985,31 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`active`" - "`inactive`" - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Omnichannel experience details.
+ */
+@interface GTLRShoppingContent_LiaOmnichannelExperience : GTLRObject
+
+/** The CLDR country code (for example, "US"). */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The Local Store Front (LSF) type for this country. Acceptable values are: -
+ *  "`ghlsf`" (Google-Hosted Local Store Front) - "`mhlsfBasic`"
+ *  (Merchant-Hosted Local Store Front Basic) - "`mhlsfFull`" (Merchant-Hosted
+ *  Local Store Front Full) More details about these types can be found here.
+ */
+@property(nonatomic, copy, nullable) NSString *lsfType;
+
+/**
+ *  The Pickup types for this country. Acceptable values are: - "`pickupToday`"
+ *  - "`pickupLater`"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pickupTypes;
 
 @end
 
@@ -7064,6 +7146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
+ *  The omnichannel experience for a country. Required only for
+ *  SetOmnichannelExperience.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaOmnichannelExperience *omnichannelExperience;
+
+/**
  *  The ID of POS data provider. Required only for SetPosProvider.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -7119,6 +7207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** The retrieved or updated Lia settings. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaSettings *liaSettings;
+
+/** The updated omnichannel experience for a country. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LiaOmnichannelExperience *omnichannelExperience;
 
 /** The list of POS data providers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PosDataProviders *> *posDataProviders;
@@ -12688,14 +12779,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  can use the '?' as an icon. * `tooltip-style-info` - the tooltip adds
  *  additional information fitting to the context, can use the 'i' as an icon. *
  *  `content-moderation` - marks the paragraph that explains how the issue was
- *  identified. * `overlay` - wrapper for the `popup` dialog. It should be set
- *  to hidden by default. When the dialog is opened, the overlay should switch
- *  to be visible and cover the rest of the screen to highlight the dialog. *
- *  `popup` - dialog for showing a long block of content * `popup-close` - a
- *  button to close the `popup` dialog * `new-element` - Present for new
- *  elements added to the pre-rendered content in the future. To make sure that
- *  a new content element does not break your style, you can hide everything
- *  with this class.
+ *  identified. * `new-element` - Present for new elements added to the
+ *  pre-rendered content in the future. To make sure that a new content element
+ *  does not break your style, you can hide everything with this class.
  */
 @property(nonatomic, copy, nullable) NSString *prerenderedContent;
 
@@ -14832,8 +14918,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Represents a repricing rule. A repricing rule is used by shopping serving to
- *  adjust transactable offer prices if conditions are met.
+ *  *Deprecated*: New merchants can't start using this resource. Represents a
+ *  repricing rule. A repricing rule is used by shopping serving to adjust
+ *  transactable offer prices if conditions are met.
  */
 @interface GTLRShoppingContent_RepricingRule : GTLRObject
 
@@ -14845,8 +14932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. Immutable. [CLDR country
- *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
- *  (e.g. "US").
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) (for
+ *  example, "US").
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -14938,7 +15025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *percentageDelta;
 
-/** The price delta against the COGS. E.g. 2 means $2 more of the COGS. */
+/**
+ *  The price delta against the COGS. For example, 2 means $2 more of the COGS.
+ */
 @property(nonatomic, copy, nullable) NSString *priceDelta;
 
 @end
@@ -15035,7 +15124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  String attributes, as long as such attribute of an offer is one of the
  *  string attribute values, the offer is considered as passing the matcher. The
  *  string matcher checks an offer for inclusivity in the string attributes, not
- *  equality. Only literal string matching is supported, no regex.
+ *  equality. Only literal string matching is supported, no regular expressions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *strAttributes;
 
@@ -16292,7 +16381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Type of locations this service ships orders to. Acceptable values are: -
- *  "`delivery`" - "`pickup`" - "`local_delivery`"
+ *  "`delivery`" - "`pickup`" - "`local_delivery`" - "`collection_point`"
  */
 @property(nonatomic, copy, nullable) NSString *shipmentType;
 

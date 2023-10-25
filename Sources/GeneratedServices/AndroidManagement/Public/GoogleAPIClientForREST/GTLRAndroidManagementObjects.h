@@ -550,11 +550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
 /**
  *  Grants access to selection of KeyChain certificates on behalf of requesting
  *  apps. Once granted, the delegated application will start receiving
- *  DelegatedAdminReceiver#onChoosePrivateKeyAlias(https://developer.android.com/reference/android/app/admin/DelegatedAdminReceiver#onChoosePrivateKeyAlias(android.content.Context,%20android.content.Intent,%20int,%20android.net.Uri,%20java.lang.String)).
- *  Allows the delegated application to call
- *  grantKeyPairToApp(https://developer.android.com/reference/android/app/admin/DevicePolicyManager#grantKeyPairToApp(android.content.ComponentName,%20java.lang.String,%20java.lang.String))
- *  and
- *  revokeKeyPairFromApp(https://developer.android.com/reference/android/app/admin/DevicePolicyManager#revokeKeyPairFromApp(android.content.ComponentName,%20java.lang.String,%20java.lang.String))
+ *  DelegatedAdminReceiver#onChoosePrivateKeyAlias
+ *  (https://developer.android.com/reference/android/app/admin/DelegatedAdminReceiver#onChoosePrivateKeyAlias%28android.content.Context,%20android.content.Intent,%20int,%20android.net.Uri,%20java.lang.String%29).
+ *  Allows the delegated application to call grantKeyPairToApp
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#grantKeyPairToApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
+ *  and revokeKeyPairFromApp
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#revokeKeyPairFromApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
  *  methods. There can be at most one app that has this delegation.
  *  choosePrivateKeyRules must be empty and privateKeySelectionEnabled has no
  *  effect if certificate selection is delegated to an application.
@@ -1016,21 +1017,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_C
 // GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
 
 /**
- *  Default. Allows work profile contacts to appear in personal profile contact
- *  searches and incoming calls
+ *  Default. Allows apps in the personal profile to access work profile contacts
+ *  including contact searches and incoming calls.When this is set, personal
+ *  apps specified in exemptions_to_show_work_contacts_in_personal_profile are
+ *  blocklisted and can not access work profile contacts directly.Supported on
+ *  Android 7.0 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 7.0.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed;
 /**
- *  Prevents work profile contacts from appearing in personal profile contact
- *  searches and incoming calls
+ *  Prevents personal apps from accessing work profile contacts and looking up
+ *  work contacts.When this is set, personal apps specified in
+ *  exemptions_to_show_work_contacts_in_personal_profile are allowlisted and can
+ *  access work profile contacts directly.Supported on Android 7.0 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 7.0.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed;
 /**
- *  Unspecified. Defaults to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED.
+ *  Prevents most personal apps from accessing work profile contacts including
+ *  contact searches and incoming calls, except for the OEM default Dialer,
+ *  Messages, and Contacts apps. Neither user-configured Dialer, Messages, and
+ *  Contacts apps, nor any other system or play installed apps, will be able to
+ *  query work contacts directly.When this is set, personal apps specified in
+ *  exemptions_to_show_work_contacts_in_personal_profile are allowlisted and can
+ *  access work profile contacts.Supported on Android 14 and above. If this is
+ *  set on a device with Android version less than 14, the behaviour falls back
+ *  to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED and a
+ *  nonComplianceDetail with API_LEVEL is reported.
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowedExceptSystem;
+/**
+ *  Unspecified. Defaults to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED.When
+ *  this is set, exemptions_to_show_work_contacts_in_personal_profile must not
+ *  be set.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED"
  */
@@ -1354,7 +1380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled;
 /**
- *  Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE
+ *  Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE.
  *
  *  Value: "AIRPLANE_MODE_STATE_UNSPECIFIED"
  */
@@ -1365,6 +1391,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Airpl
  *  Value: "AIRPLANE_MODE_USER_CHOICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.cellularTwoGState
+
+/**
+ *  Cellular 2G is disabled. The user is not allowed to toggle cellular 2G on
+ *  via settings. A nonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 14.
+ *
+ *  Value: "CELLULAR_TWO_G_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGDisabled;
+/**
+ *  Unspecified. Defaults to CELLULAR_TWO_G_USER_CHOICE.
+ *
+ *  Value: "CELLULAR_TWO_G_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGStateUnspecified;
+/**
+ *  The user is allowed to toggle cellular 2G on or off.
+ *
+ *  Value: "CELLULAR_TWO_G_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
+
+/**
+ *  Ultra wideband is disabled. The user is not allowed to toggle ultra wideband
+ *  on via settings. A nonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 14.
+ *
+ *  Value: "ULTRA_WIDEBAND_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled;
+/**
+ *  Unspecified. Defaults to ULTRA_WIDEBAND_USER_CHOICE.
+ *
+ *  Value: "ULTRA_WIDEBAND_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified;
+/**
+ *  The user is allowed to toggle ultra wideband on or off.
+ *
+ *  Value: "ULTRA_WIDEBAND_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceRadioState.wifiState
@@ -2427,7 +2501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Available;
 /**
- *  The app is blocked and can't be installed in the personal profile.
+ *  The app is blocked and can't be installed in the personal profile. If the
+ *  app was previously installed in the device, it will be uninstalled.
  *
  *  Value: "BLOCKED"
  */
@@ -2699,6 +2774,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisable
  *  Value: "NOTIFICATIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications;
+/**
+ *  Disable all shortcuts on secure keyguard screen on Android 14 and above.
+ *
+ *  Value: "SHORTCUTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Shortcuts;
 /**
  *  Ignore trust agent state on secure keyguard screens.
  *
@@ -4978,22 +5059,62 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *crossProfileDataSharing;
 
 /**
- *  Whether contacts stored in the work profile can be shown in personal profile
- *  contact searches and incoming calls.
+ *  List of apps which are excluded from the ShowWorkContactsInPersonalProfile
+ *  setting. For this to be set, ShowWorkContactsInPersonalProfile must be set
+ *  to one of the following values:
+ *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. In this case, these
+ *  exemptions act as a blocklist.
+ *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED. In this case, these
+ *  exemptions act as an allowlist.
+ *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM. In this
+ *  case, these exemptions act as an allowlist, in addition to the already
+ *  allowlisted system apps.Supported on Android 14 and above. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 14.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *exemptionsToShowWorkContactsInPersonalProfile;
+
+/**
+ *  Whether personal apps can access contacts stored in the work profile.See
+ *  also exemptions_to_show_work_contacts_in_personal_profile.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed
- *        Default. Allows work profile contacts to appear in personal profile
- *        contact searches and incoming calls (Value:
+ *        Default. Allows apps in the personal profile to access work profile
+ *        contacts including contact searches and incoming calls.When this is
+ *        set, personal apps specified in
+ *        exemptions_to_show_work_contacts_in_personal_profile are blocklisted
+ *        and can not access work profile contacts directly.Supported on Android
+ *        7.0 and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 7.0. (Value:
  *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed
- *        Prevents work profile contacts from appearing in personal profile
- *        contact searches and incoming calls (Value:
+ *        Prevents personal apps from accessing work profile contacts and
+ *        looking up work contacts.When this is set, personal apps specified in
+ *        exemptions_to_show_work_contacts_in_personal_profile are allowlisted
+ *        and can access work profile contacts directly.Supported on Android 7.0
+ *        and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 7.0. (Value:
  *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowedExceptSystem
+ *        Prevents most personal apps from accessing work profile contacts
+ *        including contact searches and incoming calls, except for the OEM
+ *        default Dialer, Messages, and Contacts apps. Neither user-configured
+ *        Dialer, Messages, and Contacts apps, nor any other system or play
+ *        installed apps, will be able to query work contacts directly.When this
+ *        is set, personal apps specified in
+ *        exemptions_to_show_work_contacts_in_personal_profile are allowlisted
+ *        and can access work profile contacts.Supported on Android 14 and
+ *        above. If this is set on a device with Android version less than 14,
+ *        the behaviour falls back to
+ *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED and a
+ *        nonComplianceDetail with API_LEVEL is reported. (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM")
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified
  *        Unspecified. Defaults to
- *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. (Value:
- *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED")
+ *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED.When this is set,
+ *        exemptions_to_show_work_contacts_in_personal_profile must not be set.
+ *        (Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *showWorkContactsInPersonalProfile;
 
@@ -5486,7 +5607,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_DeviceRadioState : GTLRObject
 
 /**
- *  Controls whether airplane mode can be toggled by the user or not
+ *  Controls whether airplane mode can be toggled by the user or not.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled
@@ -5494,13 +5615,50 @@ GTLR_DEPRECATED
  *        mode on. A nonComplianceDetail with API_LEVEL is reported if the
  *        Android version is less than 9. (Value: "AIRPLANE_MODE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified
- *        Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE (Value:
+ *        Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE. (Value:
  *        "AIRPLANE_MODE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice
  *        The user is allowed to toggle airplane mode on or off. (Value:
  *        "AIRPLANE_MODE_USER_CHOICE")
  */
 @property(nonatomic, copy, nullable) NSString *airplaneModeState;
+
+/**
+ *  Controls whether cellular 2G setting can be toggled by the user or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGDisabled
+ *        Cellular 2G is disabled. The user is not allowed to toggle cellular 2G
+ *        on via settings. A nonComplianceDetail with API_LEVEL is reported if
+ *        the Android version is less than 14. (Value:
+ *        "CELLULAR_TWO_G_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGStateUnspecified
+ *        Unspecified. Defaults to CELLULAR_TWO_G_USER_CHOICE. (Value:
+ *        "CELLULAR_TWO_G_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice
+ *        The user is allowed to toggle cellular 2G on or off. (Value:
+ *        "CELLULAR_TWO_G_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *cellularTwoGState;
+
+/**
+ *  Controls the state of the ultra wideband setting and whether the user can
+ *  toggle it on or off.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled
+ *        Ultra wideband is disabled. The user is not allowed to toggle ultra
+ *        wideband on via settings. A nonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 14. (Value:
+ *        "ULTRA_WIDEBAND_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified
+ *        Unspecified. Defaults to ULTRA_WIDEBAND_USER_CHOICE. (Value:
+ *        "ULTRA_WIDEBAND_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandUserChoice
+ *        The user is allowed to toggle ultra wideband on or off. (Value:
+ *        "ULTRA_WIDEBAND_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *ultraWidebandState;
 
 /**
  *  Controls current state of Wi-Fi and if user can change its state.
@@ -5971,16 +6129,16 @@ GTLR_DEPRECATED
 /**
  *  A system freeze period. When a device’s clock is within the freeze period,
  *  all incoming system updates (including security patches) are blocked and
- *  won’t be installed. When a device is outside the freeze period, normal
- *  update behavior applies. Leap years are ignored in freeze period
- *  calculations, in particular: * If Feb. 29th is set as the start or end date
- *  of a freeze period, the freeze period will start or end on Feb. 28th
- *  instead. * When a device’s system clock reads Feb. 29th, it’s treated as
- *  Feb. 28th. * When calculating the number of days in a freeze period or the
- *  time between two freeze periods, Feb. 29th is ignored and not counted as a
- *  day.Note: For Freeze Periods to take effect, SystemUpdateType cannot be
- *  specified as SYSTEM_UPDATE_TYPE_UNSPECIFIED, because freeze periods require
- *  a defined policy to be specified.
+ *  won’t be installed.When the device is outside any set freeze periods, the
+ *  normal policy behavior (automatic, windowed, or postponed) applies.Leap
+ *  years are ignored in freeze period calculations, in particular: If Feb. 29th
+ *  is set as the start or end date of a freeze period, the freeze period will
+ *  start or end on Feb. 28th instead. When a device’s system clock reads Feb.
+ *  29th, it’s treated as Feb. 28th. When calculating the number of days in a
+ *  freeze period or the time between two freeze periods, Feb. 29th is ignored
+ *  and not counted as a day.Note: For Freeze Periods to take effect,
+ *  SystemUpdateType cannot be specified as SYSTEM_UPDATE_TYPE_UNSPECIFIED,
+ *  because freeze periods require a defined policy to be specified.
  */
 @interface GTLRAndroidManagement_FreezePeriod : GTLRObject
 
@@ -7672,8 +7830,9 @@ GTLR_DEPRECATED
  *        The app is available to install in the personal profile. (Value:
  *        "AVAILABLE")
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked
- *        The app is blocked and can't be installed in the personal profile.
- *        (Value: "BLOCKED")
+ *        The app is blocked and can't be installed in the personal profile. If
+ *        the app was previously installed in the device, it will be
+ *        uninstalled. (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified
  *        Unspecified. Defaults to AVAILABLE. (Value:
  *        "INSTALL_TYPE_UNSPECIFIED")
@@ -7703,8 +7862,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
 
 /**
- *  Controls how long the work profile can stay off. The duration must be at
- *  least 3 days.
+ *  Controls how long the work profile can stay off. The minimum duration must
+ *  be at least 3 days. Other details are as follows: - If the duration is set
+ *  to 0, the feature is turned off. - If the duration is set to a value smaller
+ *  than the minimum duration, the feature returns an error. *Note:* If you want
+ *  to avoid personal profiles being suspended during long periods of off-time,
+ *  you can temporarily set a large value for this parameter.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8836,7 +8999,22 @@ GTLR_DEPRECATED
 
 
 /**
- *  A resource containing sign in details for an enterprise.
+ *  A resource containing sign in details for an enterprise. Use enterprises to
+ *  manage SigninDetails for a given enterprise.For an enterprise, we can have
+ *  any number of SigninDetails that is uniquely identified by combination of
+ *  the following three fields (signin_url, allow_personal_usage, token_tag).
+ *  One cannot create two SigninDetails with the same (signin_url,
+ *  allow_personal_usage, token_tag). (token_tag is an optional field).Patch:
+ *  The operation updates the current list of SigninDetails with the new list of
+ *  SigninDetails. If the stored SigninDetail configuration is passed, it
+ *  returns the same signin_enrollment_token and qr_code. If we pass multiple
+ *  identical SigninDetail configurations that are not stored, it will store the
+ *  first one amongst those SigninDetail configurations. if the configuration
+ *  already exists we cannot request it more than once in a particular patch API
+ *  call, otherwise it will give a duplicate key error and the whole operation
+ *  will fail. If we remove certain SigninDetail configuration from the request
+ *  then it will get removed from the storage. We can then request another
+ *  signin_enrollment_token and qr_code for the same SigninDetail configuration.
  */
 @interface GTLRAndroidManagement_SigninDetail : GTLRObject
 
@@ -8884,6 +9062,11 @@ GTLR_DEPRECATED
  *  https://enterprise.google.com/android/enroll/invalid for a failed login.
  */
 @property(nonatomic, copy, nullable) NSString *signinUrl;
+
+/**
+ *  An EMM-specified metadata to distinguish between instances of SigninDetail.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenTag;
 
 @end
 

@@ -966,6 +966,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchWrite
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRSpanner_BatchWriteRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:batchWrite";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRSpanner_BatchWriteResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.batchWrite";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction
 
 @dynamic session;

@@ -54,6 +54,125 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 
 @end
 
+@implementation GTLRTestingQuery_ProjectsDeviceSessionsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTesting_CancelDeviceSessionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRTestingQuery_ProjectsDeviceSessionsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTesting_Empty class];
+  query.loggingName = @"testing.projects.deviceSessions.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRTestingQuery_ProjectsDeviceSessionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTesting_DeviceSession *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deviceSessions";
+  GTLRTestingQuery_ProjectsDeviceSessionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTesting_DeviceSession class];
+  query.loggingName = @"testing.projects.deviceSessions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTestingQuery_ProjectsDeviceSessionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRTestingQuery_ProjectsDeviceSessionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTesting_DeviceSession class];
+  query.loggingName = @"testing.projects.deviceSessions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTestingQuery_ProjectsDeviceSessionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deviceSessions";
+  GTLRTestingQuery_ProjectsDeviceSessionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTesting_ListDeviceSessionsResponse class];
+  query.loggingName = @"testing.projects.deviceSessions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTestingQuery_ProjectsDeviceSessionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRTesting_DeviceSession *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRTestingQuery_ProjectsDeviceSessionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTesting_DeviceSession class];
+  query.loggingName = @"testing.projects.deviceSessions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRTestingQuery_ProjectsTestMatricesCancel
 
 @dynamic projectId, testMatrixId;

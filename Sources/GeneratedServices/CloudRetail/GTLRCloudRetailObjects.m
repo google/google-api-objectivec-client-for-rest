@@ -1534,8 +1534,64 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute
-@dynamic dynamicFacetableOption, exactSearchableOption, indexableOption, inUse,
-         key, retrievableOption, searchableOption, type;
+@dynamic dynamicFacetableOption, exactSearchableOption, facetConfig,
+         indexableOption, inUse, key, retrievableOption, searchableOption, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig
+@dynamic facetIntervals, ignoredFacetValues, mergedFacetValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facetIntervals" : [GTLRCloudRetail_GoogleCloudRetailV2Interval class],
+    @"ignoredFacetValues" : [GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues class],
+    @"mergedFacetValues" : [GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues
+@dynamic endTime, startTime, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue
+@dynamic mergedValue, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1650,11 +1706,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Condition
-@dynamic activeTimeRange, queryTerms;
+@dynamic activeTimeRange, pageCategories, queryTerms;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRange" : [GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange class],
+    @"pageCategories" : [NSString class],
     @"queryTerms" : [GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm class]
   };
   return map;
@@ -2604,7 +2661,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Rule
 @dynamic boostAction, condition, doNotAssociateAction, filterAction,
-         ignoreAction, onewaySynonymsAction, redirectAction, replacementAction,
+         forceReturnFacetAction, ignoreAction, onewaySynonymsAction,
+         redirectAction, removeFacetAction, replacementAction,
          twowaySynonymsAction;
 @end
 
@@ -2646,6 +2704,34 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction
 @dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetAction
+@dynamic facetPositionAdjustments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facetPositionAdjustments" : [GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment
+@dynamic attributeName, position;
 @end
 
 
@@ -2694,6 +2780,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction
 @dynamic redirectUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction
+@dynamic attributeNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributeNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

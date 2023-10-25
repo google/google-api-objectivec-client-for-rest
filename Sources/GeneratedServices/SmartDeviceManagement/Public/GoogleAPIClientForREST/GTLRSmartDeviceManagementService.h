@@ -26,17 +26,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementCloudPlatform;
+/**
  *  Authorization scope: See and/or control the devices that you selected
  *
  *  Value "https://www.googleapis.com/auth/sdm.service"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementSdmService;
-/**
- *  Authorization scope: See your primary Google Account email address
- *
- *  Value "https://www.googleapis.com/auth/userinfo.email"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementUserinfoEmail;
 
 // ----------------------------------------------------------------------------
 //   GTLRSmartDeviceManagementService

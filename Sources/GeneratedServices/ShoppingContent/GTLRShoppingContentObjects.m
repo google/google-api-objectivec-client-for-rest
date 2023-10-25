@@ -78,7 +78,9 @@ NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_AddProducts = @"A
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_BuiltInSimpleActionTypeUnspecified = @"BUILT_IN_SIMPLE_ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ClaimWebsite = @"CLAIM_WEBSITE";
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_EditItemAttribute = @"EDIT_ITEM_ATTRIBUTE";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_FixAccountIssue = @"FIX_ACCOUNT_ISSUE";
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount = @"LINK_ADS_ACCOUNT";
+NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ShowAdditionalContent = @"SHOW_ADDITIONAL_CONTENT";
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone = @"VERIFY_PHONE";
 
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
@@ -95,6 +97,7 @@ NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChanne
 
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active = @"ACTIVE";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Deprecated = @"DEPRECATED";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible = @"ELIGIBLE";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview = @"ELIGIBLE_FOR_REVIEW";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible = @"NOT_ELIGIBLE";
@@ -1405,7 +1408,25 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_BuiltInSimpleAction
-@dynamic attributeCode, type;
+@dynamic additionalContent, attributeCode, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_BuiltInSimpleActionAdditionalContent
+//
+
+@implementation GTLRShoppingContent_BuiltInSimpleActionAdditionalContent
+@dynamic paragraphs, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paragraphs" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2411,7 +2432,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_LiaCountrySettings
 @dynamic about, country, hostedLocalStorefrontActive, inventory,
-         onDisplayToOrder, posDataProvider, storePickupActive;
+         omnichannelExperience, onDisplayToOrder, posDataProvider,
+         storePickupActive;
 @end
 
 
@@ -2423,6 +2445,24 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 @implementation GTLRShoppingContent_LiaInventorySettings
 @dynamic inventoryVerificationContactEmail, inventoryVerificationContactName,
          inventoryVerificationContactStatus, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LiaOmnichannelExperience
+//
+
+@implementation GTLRShoppingContent_LiaOmnichannelExperience
+@dynamic country, lsfType, pickupTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pickupTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2495,8 +2535,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_LiasettingsCustomBatchRequestEntry
 @dynamic accountId, batchId, contactEmail, contactName, country, gmbEmail,
-         liaSettings, merchantId, method, posDataProviderId,
-         posExternalAccountId;
+         liaSettings, merchantId, method, omnichannelExperience,
+         posDataProviderId, posExternalAccountId;
 @end
 
 
@@ -2530,7 +2570,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_LiasettingsCustomBatchResponseEntry
-@dynamic batchId, errors, gmbAccounts, kind, liaSettings, posDataProviders;
+@dynamic batchId, errors, gmbAccounts, kind, liaSettings, omnichannelExperience,
+         posDataProviders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -947,38 +947,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: gkebackup.projects.locations.deleteOperations
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBackupforGKECloudPlatform
- */
-@interface GTLRBackupforGKEQuery_ProjectsLocationsDeleteOperations : GTLRBackupforGKEQuery
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRBackupforGKE_Empty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRBackupforGKEQuery_ProjectsLocationsDeleteOperations
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Gets information about a location.
  *
  *  Method: gkebackup.projects.locations.get
@@ -1096,6 +1064,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBackupforGKE_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: gkebackup.projects.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsOperationsDelete : GTLRBackupforGKEQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

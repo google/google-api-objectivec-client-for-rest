@@ -174,7 +174,8 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 @implementation GTLRAccessApproval_Settings
 @dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
          enrolledServices, invalidKeyVersion, name, notificationEmails,
-         preferNoBroadApprovalRequests, preferredRequestExpirationDays;
+         notificationPubsubTopic, preferNoBroadApprovalRequests,
+         preferredRequestExpirationDays;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

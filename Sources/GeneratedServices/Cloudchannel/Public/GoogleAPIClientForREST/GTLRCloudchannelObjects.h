@@ -112,6 +112,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -5104,9 +5105,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Applies the repricing configuration at the channel partner level. Only
- *  ChannelPartnerRepricingConfig supports this value.
+ *  ChannelPartnerRepricingConfig supports this value. Deprecated: This is no
+ *  longer supported. Use RepricingConfig.entitlement_granularity instead.
  */
-@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity *channelPartnerGranularity;
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity *channelPartnerGranularity GTLR_DEPRECATED;
 
 /**
  *  The conditional overrides to apply for this configuration. If you list
@@ -5154,8 +5156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Applies the repricing configuration at the channel partner level. The
  *  channel partner value is derived from the resource name. Takes an empty json
- *  object.
+ *  object. Deprecated: This is no longer supported. Use
+ *  RepricingConfig.EntitlementGranularity instead.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity : GTLRObject
 @end
 

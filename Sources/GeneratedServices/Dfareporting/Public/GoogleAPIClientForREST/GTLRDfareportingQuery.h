@@ -190,6 +190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingFloodlightActivityGroupTypeS
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccount;
 /** Value: "OBJECT_ACCOUNT_BILLING_FEATURE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccountBillingFeature;
+/** Value: "OBJECT_ACCOUNT_CONVERSION_DOMAIN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccountConversionDomain;
 /** Value: "OBJECT_AD" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAd;
 /** Value: "OBJECT_ADVERTISER" */
@@ -210,6 +212,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingProfi
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCampaign;
 /** Value: "OBJECT_CONTENT_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectContentCategory;
+/** Value: "OBJECT_CONVERSION_DOMAIN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectConversionDomain;
 /** Value: "OBJECT_CREATIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreative;
 /** Value: "OBJECT_CREATIVE_ASSET" */
@@ -3047,6 +3051,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        "OBJECT_FLOODLIGHT_DV360_LINK"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiserCustomerLink Value
  *        "OBJECT_ADVERTISER_CUSTOMER_LINK"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectConversionDomain Value
+ *        "OBJECT_CONVERSION_DOMAIN"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAccountConversionDomain Value
+ *        "OBJECT_ACCOUNT_CONVERSION_DOMAIN"
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 

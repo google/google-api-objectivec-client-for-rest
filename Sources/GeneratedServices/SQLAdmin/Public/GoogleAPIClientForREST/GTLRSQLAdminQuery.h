@@ -1021,6 +1021,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_InstancesPromoteReplica : GTLRSQLAdminQuery
 
+/**
+ *  Set to true if the promote operation should attempt to re-add the original
+ *  primary as a replica when it comes back online. Otherwise, if this value is
+ *  false or not set, the original primary will be a standalone instance.
+ */
+@property(nonatomic, assign) BOOL failover;
+
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -1277,6 +1284,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instance Cloud SQL read replica instance name.
  *
  *  @return GTLRSQLAdminQuery_InstancesStopReplica
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Switches over from the primary instance to the replica instance.
+ *
+ *  Method: sql.instances.switchover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesSwitchover : GTLRSQLAdminQuery
+
+/**
+ *  Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum
+ *  of all database operations. Default value is 10 minutes and can be modified
+ *  to a maximum value of 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *dbTimeout;
+
+/** Cloud SQL read replica instance name. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the replica. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Switches over from the primary instance to the replica instance.
+ *
+ *  @param project ID of the project that contains the replica.
+ *  @param instance Cloud SQL read replica instance name.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesSwitchover
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;

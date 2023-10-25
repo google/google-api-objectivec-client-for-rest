@@ -148,7 +148,7 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_CseIdentity
-@dynamic emailAddress, primaryKeyPairId;
+@dynamic emailAddress, primaryKeyPairId, signAndEncryptKeyPairs;
 @end
 
 
@@ -178,7 +178,7 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_CsePrivateKeyMetadata
-@dynamic kaclsKeyMetadata, privateKeyMetadataId;
+@dynamic hardwareKeyMetadata, kaclsKeyMetadata, privateKeyMetadataId;
 @end
 
 
@@ -277,6 +277,21 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 
 @implementation GTLRGmail_ForwardingAddress
 @dynamic forwardingEmail, verificationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_HardwareKeyMetadata
+//
+
+@implementation GTLRGmail_HardwareKeyMetadata
+@dynamic descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -796,6 +811,16 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 @implementation GTLRGmail_SendAs
 @dynamic displayName, isDefault, isPrimary, replyToAddress, sendAsEmail,
          signature, smtpMsa, treatAsAlias, verificationStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_SignAndEncryptKeyPairs
+//
+
+@implementation GTLRGmail_SignAndEncryptKeyPairs
+@dynamic encryptionKeyPairId, signingKeyPairId;
 @end
 
 

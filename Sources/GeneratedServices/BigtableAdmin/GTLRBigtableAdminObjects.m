@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRBigtableAdmin_AppProfile.priority
+NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityHigh = @"PRIORITY_HIGH";
+NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityLow = @"PRIORITY_LOW";
+NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityMedium = @"PRIORITY_MEDIUM";
+NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
 // GTLRBigtableAdmin_AuditLogConfig.logType
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -67,6 +73,12 @@ NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_RestoreSourceTypeUnsp
 NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_Backup = @"BACKUP";
 NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_RestoreSourceTypeUnspecified = @"RESTORE_SOURCE_TYPE_UNSPECIFIED";
 
+// GTLRBigtableAdmin_StandardIsolation.priority
+NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityHigh = @"PRIORITY_HIGH";
+NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityLow = @"PRIORITY_LOW";
+NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityMedium = @"PRIORITY_MEDIUM";
+NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
 // GTLRBigtableAdmin_Table.granularity
 NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis   = @"MILLIS";
 NSString * const kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified = @"TIMESTAMP_GRANULARITY_UNSPECIFIED";
@@ -84,8 +96,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_AppProfile
-@dynamic descriptionProperty, ETag, multiClusterRoutingUseAny, name,
-         singleClusterRouting;
+@dynamic descriptionProperty, ETag, multiClusterRoutingUseAny, name, priority,
+         singleClusterRouting, standardIsolation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -807,7 +819,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ModifyColumnFamiliesRequest
-@dynamic ignoreWarnings, modifications;
+@dynamic modifications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1005,6 +1017,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Split
 @dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_StandardIsolation
+//
+
+@implementation GTLRBigtableAdmin_StandardIsolation
+@dynamic priority;
 @end
 
 

@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest.memcacheVersion
+NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache15 = @"MEMCACHE_1_5";
+NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache1615 = @"MEMCACHE_1_6_15";
+NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_MemcacheVersionUnspecified = @"MEMCACHE_VERSION_UNSPECIFIED";
+
 // GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
 NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
@@ -25,11 +30,13 @@ NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorMan
 
 // GTLRCloudMemorystoreforMemcached_Instance.memcacheVersion
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15 = @"MEMCACHE_1_5";
+NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache1615 = @"MEMCACHE_1_6_15";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified = @"MEMCACHE_VERSION_UNSPECIFIED";
 
 // GTLRCloudMemorystoreforMemcached_Instance.state
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Creating = @"CREATING";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_MemcacheVersionUpgrading = @"MEMCACHE_VERSION_UPGRADING";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance = @"PERFORMING_MAINTENANCE";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -43,6 +50,11 @@ NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_ZoneDist
 NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudMemorystoreforMemcached_Node.memcacheVersion
+NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache15 = @"MEMCACHE_1_5";
+NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache1615 = @"MEMCACHE_1_6_15";
+NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_MemcacheVersionUnspecified = @"MEMCACHE_VERSION_UNSPECIFIED";
 
 // GTLRCloudMemorystoreforMemcached_Node.state
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Creating = @"CREATING";
@@ -205,6 +217,16 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest
+@dynamic memcacheVersion;
 @end
 
 
@@ -710,7 +732,8 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_Node
-@dynamic host, nodeId, parameters, port, state, zoneProperty;
+@dynamic host, memcacheFullVersion, memcacheVersion, nodeId, parameters, port,
+         state, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -539,6 +539,140 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Deletes an existing mute config.
+ *
+ *  Method: securitycenter.folders.locations.muteConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to delete. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes an existing mute config.
+ *
+ *  @param name Required. Name of the mute config to delete. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a mute config.
+ *
+ *  Method: securitycenter.folders.locations.muteConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to retrieve. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Gets a mute config.
+ *
+ *  @param name Required. Name of the mute config to retrieve. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a mute config.
+ *
+ *  Method: securitycenter.folders.locations.muteConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  This field will be ignored if provided on config creation. Format
+ *  "organizations/{organization}/muteConfigs/{mute_config}"
+ *  "folders/{folder}/muteConfigs/{mute_config}"
+ *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Updates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param name This field will be ignored if provided on config creation.
+ *    Format "organizations/{organization}/muteConfigs/{mute_config}"
+ *    "folders/{folder}/muteConfigs/{mute_config}"
+ *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a mute config.
  *
  *  Method: securitycenter.folders.muteConfigs.create
@@ -596,8 +730,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to delete. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -608,8 +745,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to delete. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsDelete
  */
@@ -630,8 +770,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to retrieve. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -643,8 +786,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsGet
  */
@@ -718,6 +864,9 @@ GTLR_DEPRECATED
  *  "organizations/{organization}/muteConfigs/{mute_config}"
  *  "folders/{folder}/muteConfigs/{mute_config}"
  *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -742,6 +891,9 @@ GTLR_DEPRECATED
  *    Format "organizations/{organization}/muteConfigs/{mute_config}"
  *    "folders/{folder}/muteConfigs/{mute_config}"
  *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsPatch
  */
@@ -1245,6 +1397,45 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.simulate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The relative resource name of the organization, project, or
+ *  folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  An example is: "organizations/{organization_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse.
+ *
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. The relative resource name of the organization,
+ *    project, or folder. See:
+ *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *    An example is: "organizations/{organization_id}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesSimulate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -2628,6 +2819,140 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Deletes an existing mute config.
+ *
+ *  Method: securitycenter.organizations.locations.muteConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to delete. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes an existing mute config.
+ *
+ *  @param name Required. Name of the mute config to delete. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a mute config.
+ *
+ *  Method: securitycenter.organizations.locations.muteConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to retrieve. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Gets a mute config.
+ *
+ *  @param name Required. Name of the mute config to retrieve. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a mute config.
+ *
+ *  Method: securitycenter.organizations.locations.muteConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  This field will be ignored if provided on config creation. Format
+ *  "organizations/{organization}/muteConfigs/{mute_config}"
+ *  "folders/{folder}/muteConfigs/{mute_config}"
+ *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Updates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param name This field will be ignored if provided on config creation.
+ *    Format "organizations/{organization}/muteConfigs/{mute_config}"
+ *    "folders/{folder}/muteConfigs/{mute_config}"
+ *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a mute config.
  *
  *  Method: securitycenter.organizations.muteConfigs.create
@@ -2685,8 +3010,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to delete. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2697,8 +3025,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to delete. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsDelete
  */
@@ -2719,8 +3050,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to retrieve. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2732,8 +3066,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsGet
  */
@@ -2807,6 +3144,9 @@ GTLR_DEPRECATED
  *  "organizations/{organization}/muteConfigs/{mute_config}"
  *  "folders/{folder}/muteConfigs/{mute_config}"
  *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2831,6 +3171,9 @@ GTLR_DEPRECATED
  *    Format "organizations/{organization}/muteConfigs/{mute_config}"
  *    "folders/{folder}/muteConfigs/{mute_config}"
  *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsPatch
  */
@@ -3664,6 +4007,45 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.simulate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The relative resource name of the organization, project, or
+ *  folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  An example is: "organizations/{organization_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse.
+ *
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. The relative resource name of the organization,
+ *    project, or folder. See:
+ *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *    An example is: "organizations/{organization_id}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesSimulate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -5376,6 +5758,140 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Deletes an existing mute config.
+ *
+ *  Method: securitycenter.projects.locations.muteConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to delete. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes an existing mute config.
+ *
+ *  @param name Required. Name of the mute config to delete. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a mute config.
+ *
+ *  Method: securitycenter.projects.locations.muteConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the mute config to retrieve. Its format is
+ *  organizations/{organization}/muteConfigs/{config_id},
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Gets a mute config.
+ *
+ *  @param name Required. Name of the mute config to retrieve. Its format is
+ *    organizations/{organization}/muteConfigs/{config_id},
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a mute config.
+ *
+ *  Method: securitycenter.projects.locations.muteConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  This field will be ignored if provided on config creation. Format
+ *  "organizations/{organization}/muteConfigs/{mute_config}"
+ *  "folders/{folder}/muteConfigs/{mute_config}"
+ *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Updates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param name This field will be ignored if provided on config creation.
+ *    Format "organizations/{organization}/muteConfigs/{mute_config}"
+ *    "folders/{folder}/muteConfigs/{mute_config}"
+ *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a mute config.
  *
  *  Method: securitycenter.projects.muteConfigs.create
@@ -5433,8 +5949,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to delete. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5445,8 +5964,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to delete. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsDelete
  */
@@ -5467,8 +5989,11 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the mute config to retrieve. Its format is
  *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id}, or
- *  projects/{project}/muteConfigs/{config_id}
+ *  folders/{folder}/muteConfigs/{config_id},
+ *  projects/{project}/muteConfigs/{config_id},
+ *  organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *  projects/{project}/locations/global/muteConfigs/{config_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5480,8 +6005,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
  *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id}, or
- *    projects/{project}/muteConfigs/{config_id}
+ *    folders/{folder}/muteConfigs/{config_id},
+ *    projects/{project}/muteConfigs/{config_id},
+ *    organizations/{organization}/locations/global/muteConfigs/{config_id},
+ *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
+ *    projects/{project}/locations/global/muteConfigs/{config_id}.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsGet
  */
@@ -5555,6 +6083,9 @@ GTLR_DEPRECATED
  *  "organizations/{organization}/muteConfigs/{mute_config}"
  *  "folders/{folder}/muteConfigs/{mute_config}"
  *  "projects/{project}/muteConfigs/{mute_config}"
+ *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5579,6 +6110,9 @@ GTLR_DEPRECATED
  *    Format "organizations/{organization}/muteConfigs/{mute_config}"
  *    "folders/{folder}/muteConfigs/{mute_config}"
  *    "projects/{project}/muteConfigs/{mute_config}"
+ *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
+ *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
+ *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsPatch
  */
@@ -6082,6 +6616,45 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.simulate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The relative resource name of the organization, project, or
+ *  folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  An example is: "organizations/{organization_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse.
+ *
+ *  Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. The relative resource name of the organization,
+ *    project, or folder. See:
+ *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *    An example is: "organizations/{organization_id}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesSimulate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

@@ -327,7 +327,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus
-@dynamic gcsUri, status;
+@dynamic documentId, gcsUri, status;
 @end
 
 
@@ -3988,8 +3988,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1OcrConfig
-@dynamic advancedOcrOptions, computeStyleInfo, enableImageQualityScores,
-         enableNativePdfParsing, enableSymbol, hints;
+@dynamic advancedOcrOptions, computeStyleInfo, disableCharacterBoxesDetection,
+         enableImageQualityScores, enableNativePdfParsing, enableSymbol, hints,
+         premiumFeatures;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4021,11 +4022,39 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures
+@dynamic computeStyleInfo, enableMathOcr, enableSelectionMarkDetection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions
-@dynamic ocrConfig;
+@dynamic fromEnd, fromStart, individualPageSelector, ocrConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector
+@dynamic pages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pages" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

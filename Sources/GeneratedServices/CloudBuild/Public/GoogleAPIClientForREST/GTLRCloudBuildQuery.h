@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Build API (cloudbuild/v1)
+//   Cloud Build API (cloudbuild/v2)
 // Description:
 //   Creates and manages builds on Google Cloud Platform.
 // Documentation:
@@ -23,6 +23,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// refType
+
+/**
+ *  To fetch branches.
+ *
+ *  Value: "BRANCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeBranch;
+/**
+ *  No type specified.
+ *
+ *  Value: "REF_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeRefTypeUnspecified;
+/**
+ *  To fetch tags.
+ *
+ *  Value: "TAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Cloud Build query classes.
  */
@@ -34,1543 +63,634 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReceiveGitHubDotComWebhook is called when the API receives a github.com
- *  webhook.
+ *  Creates a Connection.
  *
- *  Method: cloudbuild.githubDotComWebhook.receive
+ *  Method: cloudbuild.projects.locations.connections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_GithubDotComWebhookReceive : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsCreate : GTLRCloudBuildQuery
 
 /**
- *  For GitHub Enterprise webhooks, this key is used to associate the webhook
- *  request with the GitHubEnterpriseConfig to use for validation.
+ *  Required. The ID to use for the Connection, which will become the final
+ *  component of the Connection's resource name. Names must be unique
+ *  per-project per-location. Allows alphanumeric characters and any of
+ *  -._~%!$&'()*+,;=\@.
  */
-@property(nonatomic, copy, nullable) NSString *webhookKey;
+@property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  ReceiveGitHubDotComWebhook is called when the API receives a github.com
- *  webhook.
- *
- *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
- *
- *  @return GTLRCloudBuildQuery_GithubDotComWebhookReceive
+ *  Required. Project and location where the connection will be created. Format:
+ *  `projects/ * /locations/ *`.
  */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object;
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Creates a Connection.
+ *
+ *  @param object The @c GTLRCloudBuild_Connection to include in the query.
+ *  @param parent Required. Project and location where the connection will be
+ *    created. Format: `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_Connection *)object
+                         parent:(NSString *)parent;
 
 @end
 
 /**
- *  ReceiveRegionalWebhook is called when the API receives a regional GitHub
- *  webhook.
+ *  Deletes a single connection.
  *
- *  Method: cloudbuild.locations.regionalWebhook
+ *  Method: cloudbuild.projects.locations.connections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_LocationsRegionalWebhook : GTLRCloudBuildQuery
-
-/** Required. The location where the webhook should be sent. */
-@property(nonatomic, copy, nullable) NSString *location;
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsDelete : GTLRCloudBuildQuery
 
 /**
- *  For GitHub Enterprise webhooks, this key is used to associate the webhook
- *  request with the GitHubEnterpriseConfig to use for validation.
+ *  The current etag of the connection. If an etag is provided and does not
+ *  match the current etag of the connection, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Connection to delete. Format: `projects/ *
+ *  /locations/ * /connections/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Deletes a single connection.
+ *
+ *  @param name Required. The name of the Connection to delete. Format:
+ *    `projects/ * /locations/ * /connections/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  FetchLinkableRepositories get repositories from SCM that are accessible and
+ *  could be added to the connection.
+ *
+ *  Method: cloudbuild.projects.locations.connections.fetchLinkableRepositories
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsFetchLinkableRepositories : GTLRCloudBuildQuery
+
+/**
+ *  Required. The name of the Connection. Format: `projects/ * /locations/ *
+ *  /connections/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/** Number of results to return in the list. Default to 20. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page start. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_FetchLinkableRepositoriesResponse.
+ *
+ *  FetchLinkableRepositories get repositories from SCM that are accessible and
+ *  could be added to the connection.
+ *
+ *  @param connection Required. The name of the Connection. Format: `projects/ *
+ *    /locations/ * /connections/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsFetchLinkableRepositories
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithConnection:(NSString *)connection;
+
+@end
+
+/**
+ *  Gets details of a single connection.
+ *
+ *  Method: cloudbuild.projects.locations.connections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsGet : GTLRCloudBuildQuery
+
+/**
+ *  Required. The name of the Connection to retrieve. Format: `projects/ *
+ *  /locations/ * /connections/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Connection.
+ *
+ *  Gets details of a single connection.
+ *
+ *  @param name Required. The name of the Connection to retrieve. Format:
+ *    `projects/ * /locations/ * /connections/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: cloudbuild.projects.locations.connections.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsGetIamPolicy : GTLRCloudBuildQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Connections in a given project and location.
+ *
+ *  Method: cloudbuild.projects.locations.connections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsList : GTLRCloudBuildQuery
+
+/** Number of results to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page start. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of Connections. Format:
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListConnectionsResponse.
+ *
+ *  Lists Connections in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    Connections. Format: `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single connection.
+ *
+ *  Method: cloudbuild.projects.locations.connections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsPatch : GTLRCloudBuildQuery
+
+/**
+ *  If set to true, and the connection is not found a new connection will be
+ *  created. In this situation `update_mask` is ignored. The creation will
+ *  succeed only if the input connection has all the necessary information (e.g
+ *  a github_config with both user_oauth_token and installation_id properties).
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  The current etag of the connection. If an etag is provided and does not
+ *  match the current etag of the connection, update will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Immutable. The resource name of the connection, in the format
+ *  `projects/{project}/locations/{location}/connections/{connection_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Updates a single connection.
+ *
+ *  @param object The @c GTLRCloudBuild_Connection to include in the query.
+ *  @param name Immutable. The resource name of the connection, in the format
+ *    `projects/{project}/locations/{location}/connections/{connection_id}`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_Connection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  ProcessWebhook is called by the external SCM for notifying of events.
+ *
+ *  Method: cloudbuild.projects.locations.connections.processWebhook
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsProcessWebhook : GTLRCloudBuildQuery
+
+/**
+ *  Required. Project and location where the webhook will be received. Format:
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Arbitrary additional key to find the maching repository for a webhook event
+ *  if needed.
  */
 @property(nonatomic, copy, nullable) NSString *webhookKey;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Empty.
  *
- *  ReceiveRegionalWebhook is called when the API receives a regional GitHub
- *  webhook.
+ *  ProcessWebhook is called by the external SCM for notifying of events.
  *
  *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
- *  @param location Required. The location where the webhook should be sent.
+ *  @param parent Required. Project and location where the webhook will be
+ *    received. Format: `projects/ * /locations/ *`.
  *
- *  @return GTLRCloudBuildQuery_LocationsRegionalWebhook
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsProcessWebhook
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
-                       location:(NSString *)location;
-
-@end
-
-/**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Method: cloudbuild.operations.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_OperationsCancel : GTLRCloudBuildQuery
-
-/** The name of the operation resource to be cancelled. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  @param object The @c GTLRCloudBuild_CancelOperationRequest to include in the
- *    query.
- *  @param name The name of the operation resource to be cancelled.
- *
- *  @return GTLRCloudBuildQuery_OperationsCancel
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_CancelOperationRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: cloudbuild.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_OperationsGet : GTLRCloudBuildQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRCloudBuildQuery_OperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Approves or rejects a pending build. If approved, the returned LRO will be
- *  analogous to the LRO returned from a CreateBuild call. If rejected, the
- *  returned LRO will be immediately done.
- *
- *  Method: cloudbuild.projects.builds.approve
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsApprove : GTLRCloudBuildQuery
-
-/**
- *  Required. Name of the target build. For example:
- *  "projects/{$project_id}/builds/{$build_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Approves or rejects a pending build. If approved, the returned LRO will be
- *  analogous to the LRO returned from a CreateBuild call. If rejected, the
- *  returned LRO will be immediately done.
- *
- *  @param object The @c GTLRCloudBuild_ApproveBuildRequest to include in the
- *    query.
- *  @param name Required. Name of the target build. For example:
- *    "projects/{$project_id}/builds/{$build_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsApprove
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_ApproveBuildRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Cancels a build in progress.
- *
- *  Method: cloudbuild.projects.builds.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsCancel : GTLRCloudBuildQuery
-
-/**
- *  Required. ID of the build.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Build.
- *
- *  Cancels a build in progress.
- *
- *  @param object The @c GTLRCloudBuild_CancelBuildRequest to include in the
- *    query.
- *  @param projectId Required. ID of the project.
- *  @param identifier Required. ID of the build.
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsCancel
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_CancelBuildRequest *)object
-                      projectId:(NSString *)projectId
-                     identifier:(NSString *)identifier;
-
-@end
-
-/**
- *  Starts a build with the specified configuration. This method returns a
- *  long-running `Operation`, which includes the build ID. Pass the build ID to
- *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
- *
- *  Method: cloudbuild.projects.builds.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsCreate : GTLRCloudBuildQuery
-
-/**
- *  The parent resource where this build will be created. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Starts a build with the specified configuration. This method returns a
- *  long-running `Operation`, which includes the build ID. Pass the build ID to
- *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
- *
- *  @param object The @c GTLRCloudBuild_Build to include in the query.
- *  @param projectId Required. ID of the project.
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
-                      projectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Returns information about a previously requested build. The `Build` that is
- *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
- *  and timing information.
- *
- *  Method: cloudbuild.projects.builds.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsGet : GTLRCloudBuildQuery
-
-/**
- *  Required. ID of the build.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  The name of the `Build` to retrieve. Format:
- *  `projects/{project}/locations/{location}/builds/{build}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Build.
- *
- *  Returns information about a previously requested build. The `Build` that is
- *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
- *  and timing information.
- *
- *  @param projectId Required. ID of the project.
- *  @param identifier Required. ID of the build.
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                        identifier:(NSString *)identifier;
-
-@end
-
-/**
- *  Lists previously requested builds. Previously requested builds may still be
- *  in-progress, or may have finished successfully or unsuccessfully.
- *
- *  Method: cloudbuild.projects.builds.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsList : GTLRCloudBuildQuery
-
-/** The raw filter text to constrain the results. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Number of results to return in the list. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  The page token for the next page of Builds. If unspecified, the first page
- *  of results is returned. If the token is rejected for any reason,
- *  INVALID_ARGUMENT will be thrown. In this case, the token should be
- *  discarded, and pagination should be restarted from the first page of
- *  results. See https://google.aip.dev/158 for more.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  The parent of the collection of `Builds`. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBuildsResponse.
- *
- *  Lists previously requested builds. Previously requested builds may still be
- *  in-progress, or may have finished successfully or unsuccessfully.
- *
- *  @param projectId Required. ID of the project.
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Creates a new build based on the specified build. This method creates a new
- *  build using the original build request, which may or may not result in an
- *  identical build. For triggered builds: * Triggered builds resolve to a
- *  precise revision; therefore a retry of a triggered build will result in a
- *  build that uses the same revision. For non-triggered builds that specify
- *  `RepoSource`: * If the original build built from the tip of a branch, the
- *  retried build will build from the tip of that branch, which may not be the
- *  same revision as the original build. * If the original build specified a
- *  commit sha or revision ID, the retried build will use the identical source.
- *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Cloud Storage without specifying the generation of the object,
- *  the new build will use the current object, which may be different from the
- *  original build source. * If the original build pulled source from Cloud
- *  Storage and specified the generation of the object, the new build will
- *  attempt to use the same object, which may or may not be available depending
- *  on the bucket's lifecycle management settings.
- *
- *  Method: cloudbuild.projects.builds.retry
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsBuildsRetry : GTLRCloudBuildQuery
-
-/**
- *  Required. Build ID of the original build.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Creates a new build based on the specified build. This method creates a new
- *  build using the original build request, which may or may not result in an
- *  identical build. For triggered builds: * Triggered builds resolve to a
- *  precise revision; therefore a retry of a triggered build will result in a
- *  build that uses the same revision. For non-triggered builds that specify
- *  `RepoSource`: * If the original build built from the tip of a branch, the
- *  retried build will build from the tip of that branch, which may not be the
- *  same revision as the original build. * If the original build specified a
- *  commit sha or revision ID, the retried build will use the identical source.
- *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Cloud Storage without specifying the generation of the object,
- *  the new build will use the current object, which may be different from the
- *  original build source. * If the original build pulled source from Cloud
- *  Storage and specified the generation of the object, the new build will
- *  attempt to use the same object, which may or may not be available depending
- *  on the bucket's lifecycle management settings.
- *
- *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
- *    query.
- *  @param projectId Required. ID of the project.
- *  @param identifier Required. Build ID of the original build.
- *
- *  @return GTLRCloudBuildQuery_ProjectsBuildsRetry
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
-                      projectId:(NSString *)projectId
-                     identifier:(NSString *)identifier;
-
-@end
-
-/**
- *  Create an association between a GCP project and a GitHub Enterprise server.
- *
- *  Method: cloudbuild.projects.githubEnterpriseConfigs.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate : GTLRCloudBuildQuery
-
-/**
- *  Optional. The ID to use for the GithubEnterpriseConfig, which will become
- *  the final component of the GithubEnterpriseConfig's resource name.
- *  ghe_config_id must meet the following requirements: + They must contain only
- *  alphanumeric characters and dashes. + They can be 1-64 characters long. +
- *  They must begin and end with an alphanumeric character
- */
-@property(nonatomic, copy, nullable) NSString *gheConfigId;
-
-/**
- *  Name of the parent project. For example: projects/{$project_number} or
- *  projects/{$project_id}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Create an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
- *    query.
- *  @param parent Name of the parent project. For example:
- *    projects/{$project_number} or projects/{$project_id}
- *
- *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Delete an association between a GCP project and a GitHub Enterprise server.
+ *  Fetches read token of a given repository.
  *
- *  Method: cloudbuild.projects.githubEnterpriseConfigs.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete : GTLRCloudBuildQuery
-
-/** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
-
-/**
- *  This field should contain the name of the enterprise config resource. For
- *  example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Delete an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param name This field should contain the name of the enterprise config
- *    resource. For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieve a GitHubEnterpriseConfig.
- *
- *  Method: cloudbuild.projects.githubEnterpriseConfigs.get
+ *  Method: cloudbuild.projects.locations.connections.repositories.accessReadToken
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet : GTLRCloudBuildQuery
-
-/** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesAccessReadToken : GTLRCloudBuildQuery
 
 /**
- *  This field should contain the name of the enterprise config resource. For
- *  example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
+ *  Required. The resource name of the repository in the format `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`.
  */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
+@property(nonatomic, copy, nullable) NSString *repository;
 
 /**
- *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
+ *  Fetches a @c GTLRCloudBuild_FetchReadTokenResponse.
  *
- *  Retrieve a GitHubEnterpriseConfig.
+ *  Fetches read token of a given repository.
  *
- *  @param name This field should contain the name of the enterprise config
- *    resource. For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List all GitHubEnterpriseConfigs for a given project.
- *
- *  Method: cloudbuild.projects.githubEnterpriseConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsList : GTLRCloudBuildQuery
-
-/**
- *  Name of the parent project. For example: projects/{$project_number} or
- *  projects/{$project_id}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.
- *
- *  List all GitHubEnterpriseConfigs for a given project.
- *
- *  @param parent Name of the parent project. For example:
- *    projects/{$project_number} or projects/{$project_id}
- *
- *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsList
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Update an association between a GCP project and a GitHub Enterprise server.
- *
- *  Method: cloudbuild.projects.githubEnterpriseConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch : GTLRCloudBuildQuery
-
-/**
- *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Update an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
+ *  @param object The @c GTLRCloudBuild_FetchReadTokenRequest to include in the
  *    query.
- *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
+ *  @param repository Required. The resource name of the repository in the
+ *    format `projects/ * /locations/ * /connections/ * /repositories/ *`.
  *
- *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesAccessReadToken
  */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRCloudBuild_FetchReadTokenRequest *)object
+                     repository:(NSString *)repository;
 
 @end
 
 /**
- *  Batch connecting Bitbucket Server repositories to Cloud Build.
+ *  Fetches read/write token of a given repository.
  *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.connectedRepositories.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsConnectedRepositoriesBatchCreate : GTLRCloudBuildQuery
-
-/**
- *  The name of the `BitbucketServerConfig` that added connected repository.
- *  Format:
- *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Batch connecting Bitbucket Server repositories to Cloud Build.
- *
- *  @param object The @c
- *    GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest to
- *    include in the query.
- *  @param parent The name of the `BitbucketServerConfig` that added connected
- *    repository. Format:
- *    `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsConnectedRepositoriesBatchCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a new `BitbucketServerConfig`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.create
+ *  Method: cloudbuild.projects.locations.connections.repositories.accessReadWriteToken
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsCreate : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesAccessReadWriteToken : GTLRCloudBuildQuery
 
 /**
- *  Optional. The ID to use for the BitbucketServerConfig, which will become the
- *  final component of the BitbucketServerConfig's resource name.
- *  bitbucket_server_config_id must meet the following requirements: + They must
- *  contain only alphanumeric characters and dashes. + They can be 1-64
- *  characters long. + They must begin and end with an alphanumeric character.
+ *  Required. The resource name of the repository in the format `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`.
  */
-@property(nonatomic, copy, nullable) NSString *bitbucketServerConfigId;
-
-/** Required. Name of the parent resource. */
-@property(nonatomic, copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *repository;
 
 /**
- *  Fetches a @c GTLRCloudBuild_Operation.
+ *  Fetches a @c GTLRCloudBuild_FetchReadWriteTokenResponse.
  *
- *  Creates a new `BitbucketServerConfig`. This API is experimental.
+ *  Fetches read/write token of a given repository.
  *
- *  @param object The @c GTLRCloudBuild_BitbucketServerConfig to include in the
- *    query.
- *  @param parent Required. Name of the parent resource.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BitbucketServerConfig *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Delete a `BitbucketServerConfig`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsDelete : GTLRCloudBuildQuery
-
-/** Required. The config resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Delete a `BitbucketServerConfig`. This API is experimental.
- *
- *  @param name Required. The config resource name.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieve a `BitbucketServerConfig`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsGet : GTLRCloudBuildQuery
-
-/** Required. The config resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BitbucketServerConfig.
- *
- *  Retrieve a `BitbucketServerConfig`. This API is experimental.
- *
- *  @param name Required. The config resource name.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List all `BitbucketServerConfigs` for a given project. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsList : GTLRCloudBuildQuery
-
-/**
- *  The maximum number of configs to return. The service may return fewer than
- *  this value. If unspecified, at most 50 configs will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListBitbucketServerConfigsRequest`
- *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to `ListBitbucketServerConfigsRequest` must match
- *  the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Name of the parent resource. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBitbucketServerConfigsResponse.
- *
- *  List all `BitbucketServerConfigs` for a given project. This API is
- *  experimental.
- *
- *  @param parent Required. Name of the parent resource.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates an existing `BitbucketServerConfig`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsPatch : GTLRCloudBuildQuery
-
-/** The resource name for the config. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Updates an existing `BitbucketServerConfig`. This API is experimental.
- *
- *  @param object The @c GTLRCloudBuild_BitbucketServerConfig to include in the
- *    query.
- *  @param name The resource name for the config.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BitbucketServerConfig *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Remove a Bitbucket Server repository from a given BitbucketServerConfig's
- *  connected repositories. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.removeBitbucketServerConnectedRepository
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsRemoveBitbucketServerConnectedRepository : GTLRCloudBuildQuery
-
-/**
- *  Required. The name of the `BitbucketServerConfig` to remove a connected
- *  repository. Format:
- *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
- */
-@property(nonatomic, copy, nullable) NSString *config;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  Remove a Bitbucket Server repository from a given BitbucketServerConfig's
- *  connected repositories. This API is experimental.
- *
- *  @param object The @c
- *    GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest to include
- *    in the query.
- *  @param config Required. The name of the `BitbucketServerConfig` to remove a
- *    connected repository. Format:
- *    `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsRemoveBitbucketServerConnectedRepository
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest *)object
-                         config:(NSString *)config;
-
-@end
-
-/**
- *  List all repositories for a given `BitbucketServerConfig`. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.repos.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsReposList : GTLRCloudBuildQuery
-
-/**
- *  The maximum number of configs to return. The service may return fewer than
- *  this value. The maximum value is 1000; values above 1000 will be coerced to
- *  1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous
- *  `ListBitbucketServerRepositoriesRequest` call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to
- *  `ListBitbucketServerConfigsRequest` must match the call that provided the
- *  page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Name of the parent resource. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBitbucketServerRepositoriesResponse.
- *
- *  List all repositories for a given `BitbucketServerConfig`. This API is
- *  experimental.
- *
- *  @param parent Required. Name of the parent resource.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsReposList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Approves or rejects a pending build. If approved, the returned LRO will be
- *  analogous to the LRO returned from a CreateBuild call. If rejected, the
- *  returned LRO will be immediately done.
- *
- *  Method: cloudbuild.projects.locations.builds.approve
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsApprove : GTLRCloudBuildQuery
-
-/**
- *  Required. Name of the target build. For example:
- *  "projects/{$project_id}/builds/{$build_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Approves or rejects a pending build. If approved, the returned LRO will be
- *  analogous to the LRO returned from a CreateBuild call. If rejected, the
- *  returned LRO will be immediately done.
- *
- *  @param object The @c GTLRCloudBuild_ApproveBuildRequest to include in the
- *    query.
- *  @param name Required. Name of the target build. For example:
- *    "projects/{$project_id}/builds/{$build_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsApprove
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_ApproveBuildRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Cancels a build in progress.
- *
- *  Method: cloudbuild.projects.locations.builds.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Build` to cancel. Format:
- *  `projects/{project}/locations/{location}/builds/{build}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Build.
- *
- *  Cancels a build in progress.
- *
- *  @param object The @c GTLRCloudBuild_CancelBuildRequest to include in the
- *    query.
- *  @param name The name of the `Build` to cancel. Format:
- *    `projects/{project}/locations/{location}/builds/{build}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_CancelBuildRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Starts a build with the specified configuration. This method returns a
- *  long-running `Operation`, which includes the build ID. Pass the build ID to
- *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
- *
- *  Method: cloudbuild.projects.locations.builds.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate : GTLRCloudBuildQuery
-
-/**
- *  The parent resource where this build will be created. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Starts a build with the specified configuration. This method returns a
- *  long-running `Operation`, which includes the build ID. Pass the build ID to
- *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
- *
- *  @param object The @c GTLRCloudBuild_Build to include in the query.
- *  @param parent The parent resource where this build will be created. Format:
- *    `projects/{project}/locations/{location}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Returns information about a previously requested build. The `Build` that is
- *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
- *  and timing information.
- *
- *  Method: cloudbuild.projects.locations.builds.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsGet : GTLRCloudBuildQuery
-
-/**
- *  Required. ID of the build.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  The name of the `Build` to retrieve. Format:
- *  `projects/{project}/locations/{location}/builds/{build}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Build.
- *
- *  Returns information about a previously requested build. The `Build` that is
- *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
- *  and timing information.
- *
- *  @param name The name of the `Build` to retrieve. Format:
- *    `projects/{project}/locations/{location}/builds/{build}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists previously requested builds. Previously requested builds may still be
- *  in-progress, or may have finished successfully or unsuccessfully.
- *
- *  Method: cloudbuild.projects.locations.builds.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsList : GTLRCloudBuildQuery
-
-/** The raw filter text to constrain the results. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Number of results to return in the list. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  The page token for the next page of Builds. If unspecified, the first page
- *  of results is returned. If the token is rejected for any reason,
- *  INVALID_ARGUMENT will be thrown. In this case, the token should be
- *  discarded, and pagination should be restarted from the first page of
- *  results. See https://google.aip.dev/158 for more.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  The parent of the collection of `Builds`. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBuildsResponse.
- *
- *  Lists previously requested builds. Previously requested builds may still be
- *  in-progress, or may have finished successfully or unsuccessfully.
- *
- *  @param parent The parent of the collection of `Builds`. Format:
- *    `projects/{project}/locations/{location}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a new build based on the specified build. This method creates a new
- *  build using the original build request, which may or may not result in an
- *  identical build. For triggered builds: * Triggered builds resolve to a
- *  precise revision; therefore a retry of a triggered build will result in a
- *  build that uses the same revision. For non-triggered builds that specify
- *  `RepoSource`: * If the original build built from the tip of a branch, the
- *  retried build will build from the tip of that branch, which may not be the
- *  same revision as the original build. * If the original build specified a
- *  commit sha or revision ID, the retried build will use the identical source.
- *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Cloud Storage without specifying the generation of the object,
- *  the new build will use the current object, which may be different from the
- *  original build source. * If the original build pulled source from Cloud
- *  Storage and specified the generation of the object, the new build will
- *  attempt to use the same object, which may or may not be available depending
- *  on the bucket's lifecycle management settings.
- *
- *  Method: cloudbuild.projects.locations.builds.retry
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Build` to retry. Format:
- *  `projects/{project}/locations/{location}/builds/{build}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Creates a new build based on the specified build. This method creates a new
- *  build using the original build request, which may or may not result in an
- *  identical build. For triggered builds: * Triggered builds resolve to a
- *  precise revision; therefore a retry of a triggered build will result in a
- *  build that uses the same revision. For non-triggered builds that specify
- *  `RepoSource`: * If the original build built from the tip of a branch, the
- *  retried build will build from the tip of that branch, which may not be the
- *  same revision as the original build. * If the original build specified a
- *  commit sha or revision ID, the retried build will use the identical source.
- *  For builds that specify `StorageSource`: * If the original build pulled
- *  source from Cloud Storage without specifying the generation of the object,
- *  the new build will use the current object, which may be different from the
- *  original build source. * If the original build pulled source from Cloud
- *  Storage and specified the generation of the object, the new build will
- *  attempt to use the same object, which may or may not be available depending
- *  on the bucket's lifecycle management settings.
- *
- *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
- *    query.
- *  @param name The name of the `Build` to retry. Format:
- *    `projects/{project}/locations/{location}/builds/{build}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Create an association between a GCP project and a GitHub Enterprise server.
- *
- *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate : GTLRCloudBuildQuery
-
-/**
- *  Optional. The ID to use for the GithubEnterpriseConfig, which will become
- *  the final component of the GithubEnterpriseConfig's resource name.
- *  ghe_config_id must meet the following requirements: + They must contain only
- *  alphanumeric characters and dashes. + They can be 1-64 characters long. +
- *  They must begin and end with an alphanumeric character
- */
-@property(nonatomic, copy, nullable) NSString *gheConfigId;
-
-/**
- *  Name of the parent project. For example: projects/{$project_number} or
- *  projects/{$project_id}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Create an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
- *    query.
- *  @param parent Name of the parent project. For example:
- *    projects/{$project_number} or projects/{$project_id}
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Delete an association between a GCP project and a GitHub Enterprise server.
- *
- *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete : GTLRCloudBuildQuery
-
-/** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
-
-/**
- *  This field should contain the name of the enterprise config resource. For
- *  example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Delete an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param name This field should contain the name of the enterprise config
- *    resource. For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieve a GitHubEnterpriseConfig.
- *
- *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet : GTLRCloudBuildQuery
-
-/** Unique identifier of the `GitHubEnterpriseConfig` */
-@property(nonatomic, copy, nullable) NSString *configId GTLR_DEPRECATED;
-
-/**
- *  This field should contain the name of the enterprise config resource. For
- *  example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
- *
- *  Retrieve a GitHubEnterpriseConfig.
- *
- *  @param name This field should contain the name of the enterprise config
- *    resource. For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List all GitHubEnterpriseConfigs for a given project.
- *
- *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsList : GTLRCloudBuildQuery
-
-/**
- *  Name of the parent project. For example: projects/{$project_number} or
- *  projects/{$project_id}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** ID of the project */
-@property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.
- *
- *  List all GitHubEnterpriseConfigs for a given project.
- *
- *  @param parent Name of the parent project. For example:
- *    projects/{$project_number} or projects/{$project_id}
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsList
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Update an association between a GCP project and a GitHub Enterprise server.
- *
- *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch : GTLRCloudBuildQuery
-
-/**
- *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Update an association between a GCP project and a GitHub Enterprise server.
- *
- *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
- *    query.
- *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example:
- *    "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Batch connecting GitLab repositories to Cloud Build. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.connectedRepositories.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsConnectedRepositoriesBatchCreate : GTLRCloudBuildQuery
-
-/**
- *  The name of the `GitLabConfig` that adds connected repositories. Format:
- *  `projects/{project}/locations/{location}/gitLabConfigs/{config}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Batch connecting GitLab repositories to Cloud Build. This API is
- *  experimental.
- *
- *  @param object The @c
- *    GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest to include in
+ *  @param object The @c GTLRCloudBuild_FetchReadWriteTokenRequest to include in
  *    the query.
- *  @param parent The name of the `GitLabConfig` that adds connected
- *    repositories. Format:
- *    `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ *  @param repository Required. The resource name of the repository in the
+ *    format `projects/ * /locations/ * /connections/ * /repositories/ *`.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsConnectedRepositoriesBatchCreate
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesAccessReadWriteToken
  */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest *)object
-                         parent:(NSString *)parent;
++ (instancetype)queryWithObject:(GTLRCloudBuild_FetchReadWriteTokenRequest *)object
+                     repository:(NSString *)repository;
 
 @end
 
 /**
- *  Creates a new `GitLabConfig`. This API is experimental
+ *  Creates multiple repositories inside a connection.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.create
+ *  Method: cloudbuild.projects.locations.connections.repositories.batchCreate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsCreate : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesBatchCreate : GTLRCloudBuildQuery
 
 /**
- *  Optional. The ID to use for the GitLabConfig, which will become the final
- *  component of the GitLabConfig’s resource name. gitlab_config_id must meet
- *  the following requirements: + They must contain only alphanumeric characters
- *  and dashes. + They can be 1-64 characters long. + They must begin and end
- *  with an alphanumeric character
+ *  Required. The connection to contain all the repositories being created.
+ *  Format: projects/ * /locations/ * /connections/ * The parent field in the
+ *  CreateRepositoryRequest messages must either be empty or match this field.
  */
-@property(nonatomic, copy, nullable) NSString *gitlabConfigId;
-
-/** Required. Name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Creates a new `GitLabConfig`. This API is experimental
+ *  Creates multiple repositories inside a connection.
  *
- *  @param object The @c GTLRCloudBuild_GitLabConfig to include in the query.
- *  @param parent Required. Name of the parent resource.
+ *  @param object The @c GTLRCloudBuild_BatchCreateRepositoriesRequest to
+ *    include in the query.
+ *  @param parent Required. The connection to contain all the repositories being
+ *    created. Format: projects/ * /locations/ * /connections/ * The parent
+ *    field in the CreateRepositoryRequest messages must either be empty or
+ *    match this field.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsCreate
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesBatchCreate
  */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitLabConfig *)object
++ (instancetype)queryWithObject:(GTLRCloudBuild_BatchCreateRepositoriesRequest *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Delete a `GitLabConfig`. This API is experimental
+ *  Creates a Repository.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.delete
+ *  Method: cloudbuild.projects.locations.connections.repositories.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsDelete : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesCreate : GTLRCloudBuildQuery
 
-/** Required. The config resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
+/**
+ *  Required. The connection to contain the repository. If the request is part
+ *  of a BatchCreateRepositoriesRequest, this field should be empty or match the
+ *  parent specified there.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the repository, which will become the final
+ *  component of the repository's resource name. This ID should be unique in the
+ *  connection. Allows alphanumeric characters and any of -._~%!$&'()*+,;=\@.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryId;
 
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Delete a `GitLabConfig`. This API is experimental
+ *  Creates a Repository.
  *
- *  @param name Required. The config resource name.
+ *  @param object The @c GTLRCloudBuild_Repository to include in the query.
+ *  @param parent Required. The connection to contain the repository. If the
+ *    request is part of a BatchCreateRepositoriesRequest, this field should be
+ *    empty or match the parent specified there.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsDelete
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesCreate
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRCloudBuild_Repository *)object
+                         parent:(NSString *)parent;
 
 @end
 
 /**
- *  Retrieves a `GitLabConfig`. This API is experimental
+ *  Deletes a single repository.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.get
+ *  Method: cloudbuild.projects.locations.connections.repositories.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsGet : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesDelete : GTLRCloudBuildQuery
 
-/** Required. The config resource name. */
+/**
+ *  The current etag of the repository. If an etag is provided and does not
+ *  match the current etag of the repository, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Repository to delete. Format: `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** If set, validate the request, but do not actually post it. */
+@property(nonatomic, assign) BOOL validateOnly;
+
 /**
- *  Fetches a @c GTLRCloudBuild_GitLabConfig.
+ *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Retrieves a `GitLabConfig`. This API is experimental
+ *  Deletes a single repository.
  *
- *  @param name Required. The config resource name.
+ *  @param name Required. The name of the Repository to delete. Format:
+ *    `projects/ * /locations/ * /connections/ * /repositories/ *`.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsGet
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  List all `GitLabConfigs` for a given project. This API is experimental
+ *  Fetch the list of branches or tags for a given repository.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.list
+ *  Method: cloudbuild.projects.locations.connections.repositories.fetchGitRefs
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsList : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesFetchGitRefs : GTLRCloudBuildQuery
 
-/**
- *  The maximum number of configs to return. The service may return fewer than
- *  this value. If unspecified, at most 50 configs will be returned. The maximum
- *  value is 1000;, values above 1000 will be coerced to 1000.
- */
+/** Optional. Number of results to return in the list. Default to 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  A page token, received from a previous ‘ListGitlabConfigsRequest’ call.
- *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to ‘ListGitlabConfigsRequest’ must match the call that
- *  provided the page token.
- */
+/** Optional. Page start. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Name of the parent resource */
+/**
+ *  Type of refs to fetch
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuildRefTypeRefTypeUnspecified No type specified.
+ *        (Value: "REF_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuildRefTypeTag To fetch tags. (Value: "TAG")
+ *    @arg @c kGTLRCloudBuildRefTypeBranch To fetch branches. (Value: "BRANCH")
+ */
+@property(nonatomic, copy, nullable) NSString *refType;
+
+/**
+ *  Required. The resource name of the repository in the format `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_FetchGitRefsResponse.
+ *
+ *  Fetch the list of branches or tags for a given repository.
+ *
+ *  @param repository Required. The resource name of the repository in the
+ *    format `projects/ * /locations/ * /connections/ * /repositories/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesFetchGitRefs
+ */
++ (instancetype)queryWithRepository:(NSString *)repository;
+
+@end
+
+/**
+ *  Gets details of a single repository.
+ *
+ *  Method: cloudbuild.projects.locations.connections.repositories.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesGet : GTLRCloudBuildQuery
+
+/**
+ *  Required. The name of the Repository to retrieve. Format: `projects/ *
+ *  /locations/ * /connections/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Repository.
+ *
+ *  Gets details of a single repository.
+ *
+ *  @param name Required. The name of the Repository to retrieve. Format:
+ *    `projects/ * /locations/ * /connections/ * /repositories/ *`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Repositories in a given connection.
+ *
+ *  Method: cloudbuild.projects.locations.connections.repositories.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesList : GTLRCloudBuildQuery
+
+/**
+ *  A filter expression that filters resources listed in the response.
+ *  Expressions must follow API improvement proposal
+ *  [AIP-160](https://google.aip.dev/160). e.g.
+ *  `remote_uri:"https://github.com*"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Number of results to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page start. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of Repositories. Format:
+ *  `projects/ * /locations/ * /connections/ *`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRCloudBuild_ListGitLabConfigsResponse.
+ *  Fetches a @c GTLRCloudBuild_ListRepositoriesResponse.
  *
- *  List all `GitLabConfigs` for a given project. This API is experimental
+ *  Lists Repositories in a given connection.
  *
- *  @param parent Required. Name of the parent resource
+ *  @param parent Required. The parent, which owns this collection of
+ *    Repositories. Format: `projects/ * /locations/ * /connections/ *`.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsList
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1581,119 +701,161 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing `GitLabConfig`. This API is experimental
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.patch
+ *  Method: cloudbuild.projects.locations.connections.setIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsPatch : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsSetIamPolicy : GTLRCloudBuildQuery
 
-/** The resource name for the config. */
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRCloudBuild_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: cloudbuild.projects.locations.connections.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsTestIamPermissions : GTLRCloudBuildQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudBuild_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsConnectionsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: cloudbuild.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGet : GTLRCloudBuildQuery
+
+/** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
+ *  Fetches a @c GTLRCloudBuild_Location.
  *
- *  String format is a comma-separated list of fields.
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGet
  */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Updates an existing `GitLabConfig`. This API is experimental
- *
- *  @param object The @c GTLRCloudBuild_GitLabConfig to include in the query.
- *  @param name The resource name for the config.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_GitLabConfig *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Remove a GitLab repository from a given GitLabConfig's connected
- *  repositories. This API is experimental.
+ *  Lists information about the supported locations for this service.
  *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.removeGitLabConnectedRepository
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsRemoveGitLabConnectedRepository : GTLRCloudBuildQuery
-
-/**
- *  Required. The name of the `GitLabConfig` to remove a connected repository.
- *  Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}`
- */
-@property(nonatomic, copy, nullable) NSString *config;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  Remove a GitLab repository from a given GitLabConfig's connected
- *  repositories. This API is experimental.
- *
- *  @param object The @c GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
- *    to include in the query.
- *  @param config Required. The name of the `GitLabConfig` to remove a connected
- *    repository. Format:
- *    `projects/{project}/locations/{location}/gitLabConfigs/{config}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsRemoveGitLabConnectedRepository
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest *)object
-                         config:(NSString *)config;
-
-@end
-
-/**
- *  List all repositories for a given `GitLabConfig`. This API is experimental
- *
- *  Method: cloudbuild.projects.locations.gitLabConfigs.repos.list
+ *  Method: cloudbuild.projects.locations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
-@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsReposList : GTLRCloudBuildQuery
+@interface GTLRCloudBuildQuery_ProjectsLocationsList : GTLRCloudBuildQuery
 
 /**
- *  The maximum number of repositories to return. The service may return fewer
- *  than this value.
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous ListGitLabRepositoriesRequest` call.
- *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListGitLabRepositoriesRequest` must match the call
- *  that provided the page token.
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Name of the parent resource. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
 /**
- *  Fetches a @c GTLRCloudBuild_ListGitLabRepositoriesResponse.
+ *  Fetches a @c GTLRCloudBuild_ListLocationsResponse.
  *
- *  List all repositories for a given `GitLabConfig`. This API is experimental
+ *  Lists information about the supported locations for this service.
  *
- *  @param parent Required. Name of the parent resource.
+ *  @param name The resource that owns the locations collection, if applicable.
  *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsReposList
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1769,827 +931,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudBuildQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Creates a new `BuildTrigger`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.triggers.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate : GTLRCloudBuildQuery
-
-/**
- *  The parent resource where this trigger will be created. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project for which to configure automatic builds. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Creates a new `BuildTrigger`. This API is experimental.
- *
- *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param parent The parent resource where this trigger will be created.
- *    Format: `projects/{project}/locations/{location}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.locations.triggers.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to delete. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. ID of the `BuildTrigger` to delete. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  @param name The name of the `Trigger` to delete. Format:
- *    `projects/{project}/locations/{location}/triggers/{trigger}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns information about a `BuildTrigger`. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.triggers.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersGet : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to retrieve. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Returns information about a `BuildTrigger`. This API is experimental.
- *
- *  @param name The name of the `Trigger` to retrieve. Format:
- *    `projects/{project}/locations/{location}/triggers/{trigger}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists existing `BuildTrigger`s. This API is experimental.
- *
- *  Method: cloudbuild.projects.locations.triggers.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersList : GTLRCloudBuildQuery
-
-/** Number of results to return in the list. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Token to provide to skip to a particular spot in the list. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  The parent of the collection of `Triggers`. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project for which to list BuildTriggers. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBuildTriggersResponse.
- *
- *  Lists existing `BuildTrigger`s. This API is experimental.
- *
- *  @param parent The parent of the collection of `Triggers`. Format:
- *    `projects/{project}/locations/{location}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.locations.triggers.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch : GTLRCloudBuildQuery
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  The `Trigger` name with format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`, where
- *  {trigger} is a unique identifier generated by the service.
- */
-@property(nonatomic, copy, nullable) NSString *resourceName;
-
-/** Required. ID of the `BuildTrigger` to update. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param resourceName The `Trigger` name with format:
- *    `projects/{project}/locations/{location}/triggers/{trigger}`, where
- *    {trigger} is a unique identifier generated by the service.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
-                   resourceName:(NSString *)resourceName;
-
-@end
-
-/**
- *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
- *  global trigger, use the POST request that includes the location endpoint in
- *  the path (ex.
- *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
- *  POST request that does not include the location endpoint in the path can
- *  only be used when running global triggers.
- *
- *  Method: cloudbuild.projects.locations.triggers.run
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersRun : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to run. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
- *  global trigger, use the POST request that includes the location endpoint in
- *  the path (ex.
- *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
- *  POST request that does not include the location endpoint in the path can
- *  only be used when running global triggers.
- *
- *  @param object The @c GTLRCloudBuild_RunBuildTriggerRequest to include in the
- *    query.
- *  @param name The name of the `Trigger` to run. Format:
- *    `projects/{project}/locations/{location}/triggers/{trigger}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersRun
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RunBuildTriggerRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
- *  webhook request targeted at a specific trigger.
- *
- *  Method: cloudbuild.projects.locations.triggers.webhook
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook : GTLRCloudBuildQuery
-
-/**
- *  The name of the `ReceiveTriggerWebhook` to retrieve. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Project in which the specified trigger lives */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Secret token used for authorization if an OAuth token isn't provided. */
-@property(nonatomic, copy, nullable) NSString *secret;
-
-/** Name of the trigger to run the payload against */
-@property(nonatomic, copy, nullable) NSString *trigger;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ReceiveTriggerWebhookResponse.
- *
- *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
- *  webhook request targeted at a specific trigger.
- *
- *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
- *  @param name The name of the `ReceiveTriggerWebhook` to retrieve. Format:
- *    `projects/{project}/locations/{location}/triggers/{trigger}`
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates a `WorkerPool`.
- *
- *  Method: cloudbuild.projects.locations.workerPools.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate : GTLRCloudBuildQuery
-
-/**
- *  Required. The parent resource where this worker pool will be created.
- *  Format: `projects/{project}/locations/{location}`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  If set, validate the request and preview the response, but do not actually
- *  post it.
- */
-@property(nonatomic, assign) BOOL validateOnly;
-
-/**
- *  Required. Immutable. The ID to use for the `WorkerPool`, which will become
- *  the final component of the resource name. This value should be 1-63
- *  characters, and valid characters are /a-z-/.
- */
-@property(nonatomic, copy, nullable) NSString *workerPoolId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Creates a `WorkerPool`.
- *
- *  @param object The @c GTLRCloudBuild_WorkerPool to include in the query.
- *  @param parent Required. The parent resource where this worker pool will be
- *    created. Format: `projects/{project}/locations/{location}`.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a `WorkerPool`.
- *
- *  Method: cloudbuild.projects.locations.workerPools.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete : GTLRCloudBuildQuery
-
-/**
- *  If set to true, and the `WorkerPool` is not found, the request will succeed
- *  but no action will be taken on the server.
- */
-@property(nonatomic, assign) BOOL allowMissing;
-
-/**
- *  Optional. If provided, it must match the server's etag on the workerpool for
- *  the request to be processed.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Required. The name of the `WorkerPool` to delete. Format:
- *  `projects/{project}/locations/{location}/workerPools/{workerPool}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If set, validate the request and preview the response, but do not actually
- *  post it.
- */
-@property(nonatomic, assign) BOOL validateOnly;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Deletes a `WorkerPool`.
- *
- *  @param name Required. The name of the `WorkerPool` to delete. Format:
- *    `projects/{project}/locations/{location}/workerPools/{workerPool}`.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns details of a `WorkerPool`.
- *
- *  Method: cloudbuild.projects.locations.workerPools.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet : GTLRCloudBuildQuery
-
-/**
- *  Required. The name of the `WorkerPool` to retrieve. Format:
- *  `projects/{project}/locations/{location}/workerPools/{workerPool}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudBuild_WorkerPool.
- *
- *  Returns details of a `WorkerPool`.
- *
- *  @param name Required. The name of the `WorkerPool` to retrieve. Format:
- *    `projects/{project}/locations/{location}/workerPools/{workerPool}`.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists `WorkerPool`s.
- *
- *  Method: cloudbuild.projects.locations.workerPools.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList : GTLRCloudBuildQuery
-
-/**
- *  The maximum number of `WorkerPool`s to return. The service may return fewer
- *  than this value. If omitted, the server will use a sensible default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListWorkerPools` call. Provide this
- *  to retrieve the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent of the collection of `WorkerPools`. Format:
- *  `projects/{project}/locations/{location}`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListWorkerPoolsResponse.
- *
- *  Lists `WorkerPool`s.
- *
- *  @param parent Required. The parent of the collection of `WorkerPools`.
- *    Format: `projects/{project}/locations/{location}`.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a `WorkerPool`.
- *
- *  Method: cloudbuild.projects.locations.workerPools.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch : GTLRCloudBuildQuery
-
-/**
- *  Output only. The resource name of the `WorkerPool`, with format
- *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The
- *  value of `{worker_pool}` is provided by `worker_pool_id` in
- *  `CreateWorkerPool` request and the value of `{location}` is determined by
- *  the endpoint accessed.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  A mask specifying which fields in `worker_pool` to update.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  If set, validate the request and preview the response, but do not actually
- *  post it.
- */
-@property(nonatomic, assign) BOOL validateOnly;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Updates a `WorkerPool`.
- *
- *  @param object The @c GTLRCloudBuild_WorkerPool to include in the query.
- *  @param name Output only. The resource name of the `WorkerPool`, with format
- *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The
- *    value of `{worker_pool}` is provided by `worker_pool_id` in
- *    `CreateWorkerPool` request and the value of `{location}` is determined by
- *    the endpoint accessed.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates a new `BuildTrigger`. This API is experimental.
- *
- *  Method: cloudbuild.projects.triggers.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersCreate : GTLRCloudBuildQuery
-
-/**
- *  The parent resource where this trigger will be created. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project for which to configure automatic builds. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Creates a new `BuildTrigger`. This API is experimental.
- *
- *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param projectId Required. ID of the project for which to configure
- *    automatic builds.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersCreate
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
-                      projectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.triggers.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersDelete : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to delete. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. ID of the `BuildTrigger` to delete. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  @param projectId Required. ID of the project that owns the trigger.
- *  @param triggerId Required. ID of the `BuildTrigger` to delete.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersDelete
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         triggerId:(NSString *)triggerId;
-
-@end
-
-/**
- *  Returns information about a `BuildTrigger`. This API is experimental.
- *
- *  Method: cloudbuild.projects.triggers.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersGet : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to retrieve. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Returns information about a `BuildTrigger`. This API is experimental.
- *
- *  @param projectId Required. ID of the project that owns the trigger.
- *  @param triggerId Required. Identifier (`id` or `name`) of the `BuildTrigger`
- *    to get.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         triggerId:(NSString *)triggerId;
-
-@end
-
-/**
- *  Lists existing `BuildTrigger`s. This API is experimental.
- *
- *  Method: cloudbuild.projects.triggers.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersList : GTLRCloudBuildQuery
-
-/** Number of results to return in the list. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Token to provide to skip to a particular spot in the list. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  The parent of the collection of `Triggers`. Format:
- *  `projects/{project}/locations/{location}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. ID of the project for which to list BuildTriggers. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListBuildTriggersResponse.
- *
- *  Lists existing `BuildTrigger`s. This API is experimental.
- *
- *  @param projectId Required. ID of the project for which to list
- *    BuildTriggers.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  Method: cloudbuild.projects.triggers.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersPatch : GTLRCloudBuildQuery
-
-/** Required. ID of the project that owns the trigger. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. ID of the `BuildTrigger` to update. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Update mask for the resource. If this is set, the server will only update
- *  the fields specified in the field mask. Otherwise, a full update of the
- *  mutable resource fields will be performed.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudBuild_BuildTrigger.
- *
- *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
- *  experimental.
- *
- *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param projectId Required. ID of the project that owns the trigger.
- *  @param triggerId Required. ID of the `BuildTrigger` to update.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
-                      projectId:(NSString *)projectId
-                      triggerId:(NSString *)triggerId;
-
-@end
-
-/**
- *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
- *  global trigger, use the POST request that includes the location endpoint in
- *  the path (ex.
- *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
- *  POST request that does not include the location endpoint in the path can
- *  only be used when running global triggers.
- *
- *  Method: cloudbuild.projects.triggers.run
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersRun : GTLRCloudBuildQuery
-
-/**
- *  The name of the `Trigger` to run. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. ID of the trigger. */
-@property(nonatomic, copy, nullable) NSString *triggerId;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Operation.
- *
- *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
- *  global trigger, use the POST request that includes the location endpoint in
- *  the path (ex.
- *  v1/projects/{projectId}/locations/{region}/triggers/{triggerId}:run). The
- *  POST request that does not include the location endpoint in the path can
- *  only be used when running global triggers.
- *
- *  @param object The @c GTLRCloudBuild_RepoSource to include in the query.
- *  @param projectId Required. ID of the project.
- *  @param triggerId Required. ID of the trigger.
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersRun
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
-                      projectId:(NSString *)projectId
-                      triggerId:(NSString *)triggerId;
-
-@end
-
-/**
- *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
- *  webhook request targeted at a specific trigger.
- *
- *  Method: cloudbuild.projects.triggers.webhook
- */
-@interface GTLRCloudBuildQuery_ProjectsTriggersWebhook : GTLRCloudBuildQuery
-
-/**
- *  The name of the `ReceiveTriggerWebhook` to retrieve. Format:
- *  `projects/{project}/locations/{location}/triggers/{trigger}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Project in which the specified trigger lives */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Secret token used for authorization if an OAuth token isn't provided. */
-@property(nonatomic, copy, nullable) NSString *secret;
-
-/** Name of the trigger to run the payload against */
-@property(nonatomic, copy, nullable) NSString *trigger;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ReceiveTriggerWebhookResponse.
- *
- *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
- *  webhook request targeted at a specific trigger.
- *
- *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
- *  @param projectId Project in which the specified trigger lives
- *  @param trigger Name of the trigger to run the payload against
- *
- *  @return GTLRCloudBuildQuery_ProjectsTriggersWebhook
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
-                      projectId:(NSString *)projectId
-                        trigger:(NSString *)trigger;
-
-@end
-
-/**
- *  ReceiveWebhook is called when the API receives a GitHub webhook.
- *
- *  Method: cloudbuild.webhook
- */
-@interface GTLRCloudBuildQuery_V1Webhook : GTLRCloudBuildQuery
-
-/**
- *  For GitHub Enterprise webhooks, this key is used to associate the webhook
- *  request with the GitHubEnterpriseConfig to use for validation.
- */
-@property(nonatomic, copy, nullable) NSString *webhookKey;
-
-/**
- *  Fetches a @c GTLRCloudBuild_Empty.
- *
- *  ReceiveWebhook is called when the API receives a GitHub webhook.
- *
- *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
- *
- *  @return GTLRCloudBuildQuery_V1Webhook
- */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object;
 
 @end
 

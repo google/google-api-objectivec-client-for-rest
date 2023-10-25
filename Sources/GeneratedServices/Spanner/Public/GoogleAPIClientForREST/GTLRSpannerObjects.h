@@ -36,6 +36,7 @@
 @class GTLRSpanner_Field;
 @class GTLRSpanner_FreeInstanceMetadata;
 @class GTLRSpanner_GetPolicyOptions;
+@class GTLRSpanner_IndexAdvice;
 @class GTLRSpanner_IndexedHotKey;
 @class GTLRSpanner_IndexedHotKey_SparseHotKeys;
 @class GTLRSpanner_IndexedKeyRangeInfos;
@@ -57,6 +58,7 @@
 @class GTLRSpanner_MetricMatrix;
 @class GTLRSpanner_MetricMatrixRow;
 @class GTLRSpanner_Mutation;
+@class GTLRSpanner_MutationGroup;
 @class GTLRSpanner_Operation;
 @class GTLRSpanner_Operation_Metadata;
 @class GTLRSpanner_Operation_Response;
@@ -71,6 +73,7 @@
 @class GTLRSpanner_PlanNode_Metadata;
 @class GTLRSpanner_Policy;
 @class GTLRSpanner_PrefixNode;
+@class GTLRSpanner_QueryAdvisorResult;
 @class GTLRSpanner_QueryOptions;
 @class GTLRSpanner_QueryPlan;
 @class GTLRSpanner_ReadOnly;
@@ -1067,6 +1070,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The freshly created sessions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Session *> *session;
+
+@end
+
+
+/**
+ *  The request for BatchWrite.
+ */
+@interface GTLRSpanner_BatchWriteRequest : GTLRObject
+
+/** Required. The groups of mutations to be applied. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_MutationGroup *> *mutationGroups;
+
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
+@end
+
+
+/**
+ *  The result of applying a batch of mutations.
+ */
+@interface GTLRSpanner_BatchWriteResponse : GTLRObject
+
+/**
+ *  The commit timestamp of the transaction that applied this batch. Present if
+ *  `status` is `OK`, absent otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTimestamp;
+
+/**
+ *  The mutation groups applied in this batch. The values index into the
+ *  `mutation_groups` field in the corresponding `BatchWriteRequest`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *indexes;
+
+/** An `OK` status indicates success. Any other status indicates a failure. */
+@property(nonatomic, strong, nullable) GTLRSpanner_Status *status;
 
 @end
 
@@ -2343,6 +2385,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Recommendation to add new indexes to run queries more efficiently.
+ */
+@interface GTLRSpanner_IndexAdvice : GTLRObject
+
+/**
+ *  Optional. DDL statements to add new indexes that will improve the query.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ddl;
+
+/**
+ *  Optional. Estimated latency improvement factor. For example if the query
+ *  currently takes 500 ms to run and the estimated latency with new indexes is
+ *  100 ms this field will be 5.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *improvementFactor;
+
+@end
+
+
+/**
  *  A message representing a (sparse) collection of hot keys for specific key
  *  buckets.
  */
@@ -3458,6 +3522,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  A group of mutations to be committed together. Related mutations should be
+ *  placed in a group. For example, two mutations inserting rows with the same
+ *  primary key prefix in both parent and child tables are related.
+ */
+@interface GTLRSpanner_MutationGroup : GTLRObject
+
+/** Required. The mutations in this group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Mutation *> *mutations;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -3753,11 +3830,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The query request to generate partitions for. The request will
- *  fail if the query is not root partitionable. The query plan of a root
- *  partitionable query has a single distributed union operator. A distributed
- *  union operator conceptually divides one or more tables into multiple splits,
- *  remotely evaluates a subquery independently on each split, and then unions
- *  all results. This must not contain DML commands, such as INSERT, UPDATE, or
+ *  fail if the query is not root partitionable. For a query to be root
+ *  partitionable, it needs to satisfy a few conditions. For example, the first
+ *  operator in the query execution plan must be a distributed union operator.
+ *  For more information about other conditions, see [Read data in
+ *  parallel](https://cloud.google.com/spanner/docs/reads#read_data_in_parallel).
+ *  The query request must not contain DML commands, such as INSERT, UPDATE, or
  *  DELETE. Use ExecuteStreamingSql with a PartitionedDml transaction for large,
  *  partition-friendly DML operations.
  */
@@ -4083,6 +4161,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Output of query advisor analysis.
+ */
+@interface GTLRSpanner_QueryAdvisorResult : GTLRObject
+
+/**
+ *  Optional. Index Recommendation for a query. This is an optional field and
+ *  the recommendation will only be available when the recommendation guarantees
+ *  significant improvement in query performance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_IndexAdvice *> *indexAdvice;
+
+@end
+
+
+/**
  *  Query optimizer configuration.
  */
 @interface GTLRSpanner_QueryOptions : GTLRObject
@@ -4135,6 +4228,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  `plan_nodes`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_PlanNode *> *planNodes;
+
+/**
+ *  Optional. The advices/recommendations for a query. Currently this field will
+ *  be serving index recommendations for a query.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_QueryAdvisorResult *queryAdvice;
 
 @end
 

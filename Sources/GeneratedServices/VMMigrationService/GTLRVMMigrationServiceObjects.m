@@ -55,6 +55,38 @@ NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_Hvm = @
 NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_Paravirtual = @"PARAVIRTUAL";
 NSString * const kGTLRVMMigrationService_AwsVmDetails_VirtualizationType_VmVirtualizationTypeUnspecified = @"VM_VIRTUALIZATION_TYPE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AzureSourceDetails.state
+NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Active = @"ACTIVE";
+NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Pending = @"PENDING";
+NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AzureSourceVmDetails.firmware
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios = @"BIOS";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Efi = @"EFI";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AzureVmDetails.bootOption
+NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Bios = @"BIOS";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_BootOptionUnspecified = @"BOOT_OPTION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Efi = @"EFI";
+
+// GTLRVMMigrationService_AzureVmDetails.powerState
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocated = @"DEALLOCATED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Deallocating = @"DEALLOCATING";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_PowerStateUnspecified = @"POWER_STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Starting = @"STARTING";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopped = @"STOPPED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Stopping = @"STOPPING";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Unknown = @"UNKNOWN";
+
+// GTLRVMMigrationService_BootDiskDefaults.diskType
+NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
+NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
+NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
+
 // GTLRVMMigrationService_CloneJob.state
 NSString * const kGTLRVMMigrationService_CloneJob_State_Active = @"ACTIVE";
 NSString * const kGTLRVMMigrationService_CloneJob_State_AdaptingOs = @"ADAPTING_OS";
@@ -194,6 +226,11 @@ NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Month = @"M
 NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_TimeFrameUnspecified = @"TIME_FRAME_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Week = @"WEEK";
 NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Year = @"YEAR";
+
+// GTLRVMMigrationService_VmCapabilities.osCapabilities
+NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityGvnicNetworkInterface = @"OS_CAPABILITY_GVNIC_NETWORK_INTERFACE";
+NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityNvmeStorageAccess = @"OS_CAPABILITY_NVME_STORAGE_ACCESS";
+NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified = @"OS_CAPABILITY_UNSPECIFIED";
 
 // GTLRVMMigrationService_VmwareSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios = @"BIOS";
@@ -335,7 +372,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware;
+@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -406,6 +443,120 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_AzureDiskDetails
+//
+
+@implementation GTLRVMMigrationService_AzureDiskDetails
+@dynamic diskId, diskNumber, sizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureSourceDetails
+//
+
+@implementation GTLRVMMigrationService_AzureSourceDetails
+@dynamic azureLocation, clientSecretCreds, error, migrationResourcesUserTags,
+         resourceGroupId, state, subscriptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureSourceDetails_MigrationResourcesUserTags
+//
+
+@implementation GTLRVMMigrationService_AzureSourceDetails_MigrationResourcesUserTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureSourceVmDetails
+//
+
+@implementation GTLRVMMigrationService_AzureSourceVmDetails
+@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disks" : [GTLRVMMigrationService_AzureDiskDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureVmDetails
+//
+
+@implementation GTLRVMMigrationService_AzureVmDetails
+@dynamic bootOption, committedStorageMb, computerName, cpuCount, diskCount,
+         disks, memoryMb, osDescription, osDisk, powerState, tags, vmId, vmSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disks" : [GTLRVMMigrationService_Disk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureVmDetails_Tags
+//
+
+@implementation GTLRVMMigrationService_AzureVmDetails_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AzureVmsDetails
+//
+
+@implementation GTLRVMMigrationService_AzureVmsDetails
+@dynamic details;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRVMMigrationService_AzureVmDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_BootDiskDefaults
+//
+
+@implementation GTLRVMMigrationService_BootDiskDefaults
+@dynamic deviceName, diskName, diskType, encryption, image;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CancelCloneJobRequest
 //
 
@@ -428,6 +579,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ClientSecretCredentials
+//
+
+@implementation GTLRVMMigrationService_ClientSecretCredentials
+@dynamic clientId, clientSecret, tenantId;
 @end
 
 
@@ -467,7 +628,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineDisksTargetDefaults
-@dynamic disks, targetProject, zoneProperty;
+@dynamic disks, disksTargetDefaults, targetProject, vmTargetDefaults,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -489,7 +651,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineDisksTargetDetails
-@dynamic disks;
+@dynamic disks, disksTargetDetails, vmTargetDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -508,7 +670,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
 @dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, hostname, labels, licenseType, machineType,
+         diskType, encryption, hostname, labels, licenseType, machineType,
          machineTypeSeries, metadata, networkInterfaces, networkTags,
          secureBoot, serviceAccount, targetProject, vmName, zoneProperty;
 
@@ -563,7 +725,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDetails
 @dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, hostname, labels, licenseType, machineType,
+         diskType, encryption, hostname, labels, licenseType, machineType,
          machineTypeSeries, metadata, networkInterfaces, networkTags, project,
          secureBoot, serviceAccount, vmName, zoneProperty;
 
@@ -695,6 +857,104 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_Disk
+//
+
+@implementation GTLRVMMigrationService_Disk
+@dynamic lun, name, sizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskImageDefaults
+//
+
+@implementation GTLRVMMigrationService_DiskImageDefaults
+@dynamic sourceImage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationDisksTargetDefaults
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationDisksTargetDefaults
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationDisksTargetDetails
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationDisksTargetDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationVmTargetDefaults
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationVmTargetDefaults
+@dynamic additionalLicenses, bootDiskDefaults, computeScheduling, encryption,
+         hostname, labels, machineType, machineTypeSeries, metadata,
+         networkInterfaces, networkTags, secureBoot, serviceAccount, vmName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalLicenses" : [NSString class],
+    @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
+    @"networkTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Labels
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationVmTargetDefaults_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DisksMigrationVmTargetDetails
+//
+
+@implementation GTLRVMMigrationService_DisksMigrationVmTargetDetails
+@dynamic vmUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_Empty
 //
 
@@ -704,11 +964,21 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_Encryption
+//
+
+@implementation GTLRVMMigrationService_Encryption
+@dynamic kmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_FetchInventoryResponse
 //
 
 @implementation GTLRVMMigrationService_FetchInventoryResponse
-@dynamic awsVms, nextPageToken, updateTime, vmwareVms;
+@dynamic awsVms, azureVms, nextPageToken, updateTime, vmwareVms;
 @end
 
 
@@ -1075,12 +1345,12 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_MigratingVm
-@dynamic awsSourceVmDetails, computeEngineDisksTargetDefaults,
-         computeEngineTargetDefaults, createTime, currentSyncInfo,
-         cutoverForecast, descriptionProperty, displayName, error, group,
-         labels, lastReplicationCycle, lastSync, name, policy, recentCloneJobs,
-         recentCutoverJobs, sourceVmId, state, stateTime, updateTime,
-         vmwareSourceVmDetails;
+@dynamic awsSourceVmDetails, azureSourceVmDetails,
+         computeEngineDisksTargetDefaults, computeEngineTargetDefaults,
+         createTime, currentSyncInfo, cutoverForecast, descriptionProperty,
+         displayName, error, group, labels, lastReplicationCycle, lastSync,
+         name, policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
+         stateTime, updateTime, vmwareSourceVmDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1208,6 +1478,26 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_OSDescription
+//
+
+@implementation GTLRVMMigrationService_OSDescription
+@dynamic offer, plan, publisher, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_OSDisk
+//
+
+@implementation GTLRVMMigrationService_OSDisk
+@dynamic name, sizeGb, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_PauseMigrationRequest
 //
 
@@ -1231,7 +1521,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_PersistentDiskDefaults
-@dynamic additionalLabels, diskName, diskType, sourceDiskNumber;
+@dynamic additionalLabels, diskName, diskType, encryption, sourceDiskNumber,
+         vmAttachmentDetails;
 @end
 
 
@@ -1374,7 +1665,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_Source
-@dynamic aws, createTime, descriptionProperty, labels, name, updateTime, vmware;
+@dynamic aws, azure, createTime, descriptionProperty, encryption, labels, name,
+         updateTime, vmware;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1504,6 +1796,34 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_VmAttachmentDetails
+//
+
+@implementation GTLRVMMigrationService_VmAttachmentDetails
+@dynamic deviceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_VmCapabilities
+//
+
+@implementation GTLRVMMigrationService_VmCapabilities
+@dynamic lastOsCapabilitiesUpdateTime, osCapabilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"osCapabilities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_VmUtilizationInfo
 //
 
@@ -1550,7 +1870,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware;
+@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

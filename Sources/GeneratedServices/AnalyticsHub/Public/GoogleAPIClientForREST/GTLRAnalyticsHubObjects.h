@@ -377,7 +377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *primaryContact;
 
 /**
- *  Required. Configurable data sharing environment option for a data exchange.
+ *  Optional. Configurable data sharing environment option for a data exchange.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_SharingEnvironmentConfig *sharingEnvironmentConfig;
 
@@ -890,22 +890,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Represents the metadata of the long-running operation.
+ *  Represents the metadata of a long-running operation in Analytics Hub.
  */
 @interface GTLRAnalyticsHub_OperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
 /** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -913,8 +903,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
 /** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
+@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
  *  Output only. Server-defined resource path for the target of the operation.
@@ -1238,8 +1238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  A subscription represents a subscribers' access to a particular set of
  *  published data. It contains references to associated listings, data
- *  exchanges, and linked datasets. TODO(b/267528977) Consider port the new
- *  resource to v1beta1 and dataexchange APIs.
+ *  exchanges, and linked datasets.
  */
 @interface GTLRAnalyticsHub_Subscription : GTLRObject
 

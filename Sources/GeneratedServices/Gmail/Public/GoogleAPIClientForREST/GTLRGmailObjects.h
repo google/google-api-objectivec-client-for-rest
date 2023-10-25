@@ -24,6 +24,7 @@
 @class GTLRGmail_FilterAction;
 @class GTLRGmail_FilterCriteria;
 @class GTLRGmail_ForwardingAddress;
+@class GTLRGmail_HardwareKeyMetadata;
 @class GTLRGmail_History;
 @class GTLRGmail_HistoryLabelAdded;
 @class GTLRGmail_HistoryLabelRemoved;
@@ -37,6 +38,7 @@
 @class GTLRGmail_MessagePartBody;
 @class GTLRGmail_MessagePartHeader;
 @class GTLRGmail_SendAs;
+@class GTLRGmail_SignAndEncryptKeyPairs;
 @class GTLRGmail_SmimeInfo;
 @class GTLRGmail_SmtpMsa;
 @class GTLRGmail_Thread;
@@ -506,6 +508,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
 /** If a key pair is associated, the ID of the key pair, CseKeyPair. */
 @property(nonatomic, copy, nullable) NSString *primaryKeyPairId;
 
+/**
+ *  The configuration of a CSE identity that uses different key pairs for
+ *  signing and encryption.
+ */
+@property(nonatomic, strong, nullable) GTLRGmail_SignAndEncryptKeyPairs *signAndEncryptKeyPairs;
+
 @end
 
 
@@ -581,6 +589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *  Metadata for a private key instance.
  */
 @interface GTLRGmail_CsePrivateKeyMetadata : GTLRObject
+
+/** Metadata for hardware keys. */
+@property(nonatomic, strong, nullable) GTLRGmail_HardwareKeyMetadata *hardwareKeyMetadata;
 
 /**
  *  Metadata for a private key instance managed by an external key access
@@ -796,6 +807,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *        "verificationStatusUnspecified")
  */
 @property(nonatomic, copy, nullable) NSString *verificationStatus;
+
+@end
+
+
+/**
+ *  Metadata for hardware keys.
+ */
+@interface GTLRGmail_HardwareKeyMetadata : GTLRObject
+
+/**
+ *  Description about the hardware key.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @end
 
@@ -1753,6 +1779,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *        "verificationStatusUnspecified")
  */
 @property(nonatomic, copy, nullable) NSString *verificationStatus;
+
+@end
+
+
+/**
+ *  The configuration of a CSE identity that uses different key pairs for
+ *  signing and encryption.
+ */
+@interface GTLRGmail_SignAndEncryptKeyPairs : GTLRObject
+
+/** The ID of the CseKeyPair that encrypts signed outgoing mail. */
+@property(nonatomic, copy, nullable) NSString *encryptionKeyPairId;
+
+/** The ID of the CseKeyPair that signs outgoing mail. */
+@property(nonatomic, copy, nullable) NSString *signingKeyPairId;
 
 @end
 

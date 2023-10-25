@@ -751,15 +751,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData
 //
 
@@ -798,15 +789,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse
 @end
 
 
@@ -1117,6 +1099,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig
+@dynamic speechRecognizer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelMetadata
 //
 
@@ -1161,7 +1153,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest
-@dynamic conversation, conversationId, parent, redactionConfig;
+@dynamic conversation, conversationId, parent, redactionConfig, speechConfig;
 @end
 
 
@@ -1860,15 +1852,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData
 //
 
@@ -1907,15 +1890,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse
 @end
 
 
@@ -2374,7 +2348,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings
 @dynamic analysisConfig, conversationTtl, createTime, languageCode, name,
-         pubsubNotificationSettings, redactionConfig, updateTime;
+         pubsubNotificationSettings, redactionConfig, speechConfig, updateTime;
 @end
 
 
@@ -2462,6 +2436,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
+@dynamic speechRecognizer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelMetadata
 //
 
@@ -2506,7 +2490,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest
-@dynamic conversation, conversationId, parent, redactionConfig;
+@dynamic conversation, conversationId, parent, redactionConfig, speechConfig;
 @end
 
 

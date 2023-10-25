@@ -142,6 +142,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AuthorizedBuyersMarketplace"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Backupdr",
+            targets: ["GoogleAPIClientForREST_Backupdr"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_BackupforGKE",
             targets: ["GoogleAPIClientForREST_BackupforGKE"]
         ),
@@ -152,6 +156,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_BeyondCorp",
             targets: ["GoogleAPIClientForREST_BeyondCorp"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_BigLakeService",
+            targets: ["GoogleAPIClientForREST_BigLakeService"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Bigquery",
@@ -232,6 +240,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Classroom",
             targets: ["GoogleAPIClientForREST_Classroom"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CloudAlloyDBAdmin",
+            targets: ["GoogleAPIClientForREST_CloudAlloyDBAdmin"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudAsset",
@@ -846,6 +858,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_PubsubLite"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_RapidMigrationAssessment",
+            targets: ["GoogleAPIClientForREST_RapidMigrationAssessment"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_RealTimeBidding",
             targets: ["GoogleAPIClientForREST_RealTimeBidding"]
         ),
@@ -1036,6 +1052,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_VMMigrationService",
             targets: ["GoogleAPIClientForREST_VMMigrationService"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_VMwareEngine",
+            targets: ["GoogleAPIClientForREST_VMwareEngine"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Webfonts",
@@ -1289,6 +1309,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Backupdr",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Backupdr",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_BackupforGKE",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/BackupforGKE",
@@ -1304,6 +1330,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_BeyondCorp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/BeyondCorp",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BigLakeService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/BigLakeService",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1424,6 +1456,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Classroom",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Classroom",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudAlloyDBAdmin",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudAlloyDBAdmin",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2345,6 +2383,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_RapidMigrationAssessment",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/RapidMigrationAssessment",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_RealTimeBidding",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/RealTimeBidding",
@@ -2630,6 +2674,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_VMMigrationService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/VMMigrationService",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_VMwareEngine",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/VMwareEngine",
             publicHeadersPath: "Public"
         ),
         .target(

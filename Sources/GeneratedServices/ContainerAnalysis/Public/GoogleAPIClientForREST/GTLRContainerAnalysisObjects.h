@@ -1296,6 +1296,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha512;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource.sourceFetcher
+
+/**
+ *  Use the Cloud Storage Fetcher tool to download the source file.
+ *
+ *  Value: "GCS_FETCHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher;
+/**
+ *  Use the "gsutil" tool to download the source file.
+ *
+ *  Value: "GSUTIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_Gsutil;
+/**
+ *  Unspecified defaults to GSUTIL.
+ *
+ *  Value: "SOURCE_FETCHER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_SourceFetcherUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Justification.justificationType
 
 /**
@@ -4898,7 +4920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  corresponding to build step indices. [Cloud
  *  Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can
  *  produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first
- *  4KB of data is stored.
+ *  50KB of data is stored.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5057,6 +5079,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes *fileHashes;
 
 /**
+ *  Output only. A copy of the build's `source.connected_repository`, if exists,
+ *  with any revisions resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository *resolvedConnectedRepository;
+
+/**
+ *  Output only. A copy of the build's `source.git_source`, if exists, with any
+ *  revisions resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource *resolvedGitSource;
+
+/**
  *  A copy of the build's `source.repo_source`, if exists, with any revisions
  *  resolved.
  */
@@ -5120,6 +5154,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Optional. Option to specify the tool to fetch the source file for the build.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher
+ *        Use the Cloud Storage Fetcher tool to download the source file.
+ *        (Value: "GCS_FETCHER")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_Gsutil
+ *        Use the "gsutil" tool to download the source file. (Value: "GSUTIL")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_SourceFetcherUnspecified
+ *        Unspecified defaults to GSUTIL. (Value: "SOURCE_FETCHER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceFetcher;
 
 @end
 
@@ -7737,6 +7785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
+/** Occurrence-specific extra details about the vulnerability. */
+@property(nonatomic, copy, nullable) NSString *extraDetails;
 
 /**
  *  Output only. Whether at least one of the affected packages has a fix

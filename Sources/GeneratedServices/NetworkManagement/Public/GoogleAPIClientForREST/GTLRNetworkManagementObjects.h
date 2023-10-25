@@ -30,6 +30,7 @@
 @class GTLRNetworkManagement_ConnectivityTest_Labels;
 @class GTLRNetworkManagement_DeliverInfo;
 @class GTLRNetworkManagement_DropInfo;
+@class GTLRNetworkManagement_EdgeLocation;
 @class GTLRNetworkManagement_Endpoint;
 @class GTLRNetworkManagement_EndpointInfo;
 @class GTLRNetworkManagement_Expr;
@@ -39,6 +40,8 @@
 @class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_InstanceInfo;
+@class GTLRNetworkManagement_LatencyDistribution;
+@class GTLRNetworkManagement_LatencyPercentile;
 @class GTLRNetworkManagement_LoadBalancerBackend;
 @class GTLRNetworkManagement_LoadBalancerInfo;
 @class GTLRNetworkManagement_Location;
@@ -49,6 +52,7 @@
 @class GTLRNetworkManagement_Operation_Metadata;
 @class GTLRNetworkManagement_Operation_Response;
 @class GTLRNetworkManagement_Policy;
+@class GTLRNetworkManagement_ProbingDetails;
 @class GTLRNetworkManagement_ReachabilityDetails;
 @class GTLRNetworkManagement_RouteInfo;
 @class GTLRNetworkManagement_Status;
@@ -602,6 +606,111 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConn
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_Endpoint.forwardingRuleTarget
+
+/**
+ *  Forwarding rule target is unknown.
+ *
+ *  Value: "FORWARDING_RULE_TARGET_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_ForwardingRuleTargetUnspecified;
+/**
+ *  Compute Engine instance for protocol forwarding.
+ *
+ *  Value: "INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Instance;
+/**
+ *  Load Balancer. The specific type can be found from load_balancer_type.
+ *
+ *  Value: "LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_LoadBalancer;
+/**
+ *  Forwarding Rule is a Private Service Connect endpoint.
+ *
+ *  Value: "PSC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Psc;
+/**
+ *  Classic Cloud VPN Gateway.
+ *
+ *  Value: "VPN_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_VpnGateway;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_Endpoint.loadBalancerType
+
+/**
+ *  Global external HTTP(S) load balancer.
+ *
+ *  Value: "HTTPS_ADVANCED_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsAdvancedLoadBalancer;
+/**
+ *  Global external HTTP(S) load balancer (classic)
+ *
+ *  Value: "HTTPS_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsLoadBalancer;
+/**
+ *  Internal HTTP(S) load balancer.
+ *
+ *  Value: "INTERNAL_HTTPS_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalHttpsLoadBalancer;
+/**
+ *  Internal regional TCP proxy load balancer.
+ *
+ *  Value: "INTERNAL_TCP_PROXY_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalTcpProxyLoadBalancer;
+/**
+ *  Target-pool based external TCP/UDP Network load balancer.
+ *
+ *  Value: "LEGACY_NETWORK_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_LegacyNetworkLoadBalancer;
+/**
+ *  Forwarding rule points to a different target than a load balancer or a load
+ *  balancer type is unknown.
+ *
+ *  Value: "LOAD_BALANCER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_LoadBalancerTypeUnspecified;
+/**
+ *  External TCP/UDP Network load balancer.
+ *
+ *  Value: "NETWORK_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_NetworkLoadBalancer;
+/**
+ *  Regional external HTTP(S) load balancer.
+ *
+ *  Value: "REGIONAL_HTTPS_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_RegionalHttpsLoadBalancer;
+/**
+ *  External SSL proxy load balancer.
+ *
+ *  Value: "SSL_PROXY_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_SslProxyLoadBalancer;
+/**
+ *  External TCP proxy load balancer.
+ *
+ *  Value: "TCP_PROXY_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpProxyLoadBalancer;
+/**
+ *  Internal TCP/UDP load balancer.
+ *
+ *  Value: "TCP_UDP_INTERNAL_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpUdpInternalLoadBalancer;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Endpoint.networkType
 
 /**
@@ -864,6 +973,66 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
  *  Value: "TCP_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_ProbingDetails.abortCause
+
+/**
+ *  No valid source endpoint could be derived from the request.
+ *
+ *  Value: "NO_SOURCE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_NoSourceLocation;
+/**
+ *  The user lacks permission to access some of the network resources required
+ *  to run the test.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_PermissionDenied;
+/**
+ *  No reason was specified.
+ *
+ *  Value: "PROBING_ABORT_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_ProbingAbortCauseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_ProbingDetails.result
+
+/**
+ *  No result was specified.
+ *
+ *  Value: "PROBING_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_ProbingResultUnspecified;
+/**
+ *  Less than 95% of packets reached the destination.
+ *
+ *  Value: "REACHABILITY_INCONSISTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_ReachabilityInconsistent;
+/**
+ *  At least 95% of packets reached the destination.
+ *
+ *  Value: "REACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Reachable;
+/**
+ *  Reachability could not be determined. Possible reasons are: * The user lacks
+ *  permission to access some of the network resources required to run the test.
+ *  * No valid source endpoint could be derived from the request. * An internal
+ *  error occurred.
+ *
+ *  Value: "UNDETERMINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Undetermined;
+/**
+ *  No packets reached the destination.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ReachabilityDetails.result
@@ -1699,6 +1868,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The probing details of this test from the latest run, present
+ *  for applicable tests only. The details are updated when creating a new test,
+ *  updating an existing test, or triggering a one-time rerun of an existing
+ *  test.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_ProbingDetails *probingDetails;
+
 /** IP Protocol of the test. When not provided, "TCP" is assumed. */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
@@ -1959,6 +2136,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  Representation of a network edge location as per
+ *  https://cloud.google.com/vpc/docs/edge-locations.
+ */
+@interface GTLRNetworkManagement_EdgeLocation : GTLRObject
+
+/** Name of the metropolitan area. */
+@property(nonatomic, copy, nullable) NSString *metropolitanArea;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2002,6 +2191,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
 
 /**
+ *  Output only. Specifies the type of the target of the forwarding rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_ForwardingRuleTargetUnspecified
+ *        Forwarding rule target is unknown. (Value:
+ *        "FORWARDING_RULE_TARGET_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Instance
+ *        Compute Engine instance for protocol forwarding. (Value: "INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_LoadBalancer
+ *        Load Balancer. The specific type can be found from load_balancer_type.
+ *        (Value: "LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Psc
+ *        Forwarding Rule is a Private Service Connect endpoint. (Value: "PSC")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_VpnGateway
+ *        Classic Cloud VPN Gateway. (Value: "VPN_GATEWAY")
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRuleTarget;
+
+/**
  *  A cluster URI for [Google Kubernetes Engine
  *  master](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
  */
@@ -2013,9 +2221,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /**
  *  The IP address of the endpoint, which can be an external or internal IP. An
  *  IPv6 address is only allowed when the test's destination is a [global load
- *  balancer VIP](/load-balancing/docs/load-balancing-overview).
+ *  balancer
+ *  VIP](https://cloud.google.com/load-balancing/docs/load-balancing-overview).
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Output only. ID of the load balancer the forwarding rule points to. Empty
+ *  for forwarding rules not related to load balancers.
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerId;
+
+/**
+ *  Output only. Type of the load balancer the forwarding rule points to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsAdvancedLoadBalancer
+ *        Global external HTTP(S) load balancer. (Value:
+ *        "HTTPS_ADVANCED_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsLoadBalancer
+ *        Global external HTTP(S) load balancer (classic) (Value:
+ *        "HTTPS_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalHttpsLoadBalancer
+ *        Internal HTTP(S) load balancer. (Value:
+ *        "INTERNAL_HTTPS_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalTcpProxyLoadBalancer
+ *        Internal regional TCP proxy load balancer. (Value:
+ *        "INTERNAL_TCP_PROXY_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_LegacyNetworkLoadBalancer
+ *        Target-pool based external TCP/UDP Network load balancer. (Value:
+ *        "LEGACY_NETWORK_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_LoadBalancerTypeUnspecified
+ *        Forwarding rule points to a different target than a load balancer or a
+ *        load balancer type is unknown. (Value:
+ *        "LOAD_BALANCER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_NetworkLoadBalancer
+ *        External TCP/UDP Network load balancer. (Value:
+ *        "NETWORK_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_RegionalHttpsLoadBalancer
+ *        Regional external HTTP(S) load balancer. (Value:
+ *        "REGIONAL_HTTPS_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_SslProxyLoadBalancer
+ *        External SSL proxy load balancer. (Value: "SSL_PROXY_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpProxyLoadBalancer
+ *        External TCP proxy load balancer. (Value: "TCP_PROXY_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpUdpInternalLoadBalancer
+ *        Internal TCP/UDP load balancer. (Value:
+ *        "TCP_UDP_INTERNAL_LOAD_BALANCER")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
 /** A Compute Engine network URI. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -2398,6 +2652,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of a Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Describes measured latency distribution.
+ */
+@interface GTLRNetworkManagement_LatencyDistribution : GTLRObject
+
+/** Representative latency percentiles. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_LatencyPercentile *> *latencyPercentiles;
+
+@end
+
+
+/**
+ *  Latency percentile rank and value.
+ */
+@interface GTLRNetworkManagement_LatencyPercentile : GTLRObject
+
+/**
+ *  percent-th percentile of latency observed, in microseconds. Fraction of
+ *  percent/100 of samples have latency lower or equal to the value of this
+ *  field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latencyMicros;
+
+/**
+ *  Percentage of samples this data point applies to.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percent;
 
 @end
 
@@ -2856,6 +3145,93 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Results of active probing from the last run of the test.
+ */
+@interface GTLRNetworkManagement_ProbingDetails : GTLRObject
+
+/**
+ *  The reason probing was aborted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_AbortCause_NoSourceLocation
+ *        No valid source endpoint could be derived from the request. (Value:
+ *        "NO_SOURCE_LOCATION")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_AbortCause_PermissionDenied
+ *        The user lacks permission to access some of the network resources
+ *        required to run the test. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_AbortCause_ProbingAbortCauseUnspecified
+ *        No reason was specified. (Value: "PROBING_ABORT_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *abortCause;
+
+/**
+ *  The EdgeLocation from which a packet destined for/originating from the
+ *  internet will egress/ingress the Google network. This will only be populated
+ *  for a connectivity test which has an internet destination/source address.
+ *  The absence of this field *must not* be used as an indication that the
+ *  destination/source is part of the Google network.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_EdgeLocation *destinationEgressLocation;
+
+/**
+ *  The source and destination endpoints derived from the test input and used
+ *  for active probing.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpointInfo;
+
+/**
+ *  Details about an internal failure or the cancellation of active probing.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_Status *error;
+
+/**
+ *  Latency as measured by active probing in one direction: from the source to
+ *  the destination endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_LatencyDistribution *probingLatency;
+
+/**
+ *  The overall result of active probing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_Result_ProbingResultUnspecified
+ *        No result was specified. (Value: "PROBING_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_Result_ReachabilityInconsistent
+ *        Less than 95% of packets reached the destination. (Value:
+ *        "REACHABILITY_INCONSISTENT")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_Result_Reachable At least
+ *        95% of packets reached the destination. (Value: "REACHABLE")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_Result_Undetermined
+ *        Reachability could not be determined. Possible reasons are: * The user
+ *        lacks permission to access some of the network resources required to
+ *        run the test. * No valid source endpoint could be derived from the
+ *        request. * An internal error occurred. (Value: "UNDETERMINED")
+ *    @arg @c kGTLRNetworkManagement_ProbingDetails_Result_Unreachable No
+ *        packets reached the destination. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/**
+ *  Number of probes sent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sentProbeCount;
+
+/**
+ *  Number of probes that reached the destination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successfulProbeCount;
+
+/** The time that reachability was assessed through active probing. */
+@property(nonatomic, strong, nullable) GTLRDateTime *verifyTime;
 
 @end
 

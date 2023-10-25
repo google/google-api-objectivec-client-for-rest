@@ -1553,6 +1553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @interface GTLRTagManager_Entity : GTLRObject
 
+/** The built in variable being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_BuiltInVariable *builtInVariable;
+
 /**
  *  Represents how the entity has been changed in the workspace.
  *
@@ -1573,8 +1576,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The client being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Client *client;
 
+/** The custom template being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_CustomTemplate *customTemplate;
+
 /** The folder being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Folder *folder;
+
+/** The gtag config being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_GtagConfig *gtagConfig;
 
 /** The tag being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Tag *tag;
@@ -1587,6 +1596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** The variable being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Variable *variable;
+
+/**
+ *  The zone being represented by the entity.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Zone *zoneProperty;
 
 @end
 

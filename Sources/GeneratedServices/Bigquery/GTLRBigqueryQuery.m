@@ -62,7 +62,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsGet
 
-@dynamic datasetId, projectId;
+@dynamic datasetId, datasetView, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId {

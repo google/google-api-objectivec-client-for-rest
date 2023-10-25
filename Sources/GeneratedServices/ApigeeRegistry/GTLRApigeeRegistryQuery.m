@@ -1927,6 +1927,83 @@
 
 @end
 
+@implementation GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRApigeeRegistry_Policy class];
+  query.loggingName = @"apigeeregistry.projects.locations.documents.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRApigeeRegistry_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRApigeeRegistry_Policy class];
+  query.loggingName = @"apigeeregistry.projects.locations.documents.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRApigeeRegistry_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRApigeeRegistryQuery_ProjectsLocationsDocumentsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRApigeeRegistry_TestIamPermissionsResponse class];
+  query.loggingName = @"apigeeregistry.projects.locations.documents.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsGet
 
 @dynamic name;

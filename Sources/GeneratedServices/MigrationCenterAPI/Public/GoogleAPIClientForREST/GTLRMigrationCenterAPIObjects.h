@@ -2217,14 +2217,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
- *  An insight about an asset (experimental insight)
+ *  A generic insight about an asset.
  */
 @interface GTLRMigrationCenterAPI_GenericInsight : GTLRObject
 
 /**
  *  Output only. Additional information about the insight, each entry can be a
  *  logical entry and must make sense if it is displayed with line breaks
- *  between each entry. Text can contain md style links
+ *  between each entry. Text can contain md style links.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalInformation;
 
@@ -2273,13 +2273,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The description of the resource.
+ *  Optional. The description of the group.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** User-friendly display name. */
+/** Optional. User-friendly display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Labels as key value pairs. */
@@ -2563,7 +2563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Output only. The timestamp when the import job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** User-friendly display name. Maximum length is 63 characters. */
+/** Optional. User-friendly display name. Maximum length is 256 characters. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Output only. The report with the results of running the import job. */
@@ -3661,7 +3661,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Network usage sample. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkUsageSample *network;
 
-/** Time the sample was If omitted, the frame report time will be used. */
+/**
+ *  Time the sample was collected. If omitted, the frame report time will be
+ *  used.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *sampleTime;
 
 @end
@@ -4042,12 +4045,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Count of the number of assets in this group which are also included in
- *  another group within the same report.
+ *  This field is deprecated, do not rely on it having a value.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *overlappingAssetCount;
+@property(nonatomic, strong, nullable) NSNumber *overlappingAssetCount GTLR_DEPRECATED;
 
 /** Findings for each of the PreferenceSets for this group. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ReportSummaryGroupPreferenceSetFinding *> *preferenceSetFindings;
@@ -4462,6 +4464,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Describes the Migration Center settings related to the project.
  */
 @interface GTLRMigrationCenterAPI_Settings : GTLRObject
+
+/**
+ *  Disable Cloud Logging for the Migration Center API. Users are billed for the
+ *  logs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableCloudLogging;
 
 /** Output only. The name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;

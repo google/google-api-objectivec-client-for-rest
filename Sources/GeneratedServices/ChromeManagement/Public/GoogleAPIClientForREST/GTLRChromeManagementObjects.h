@@ -53,6 +53,8 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1PrintJob;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -62,6 +64,8 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
@@ -73,6 +77,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -720,6 +725,84 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.colorMode
+
+/**
+ *  Black and white.
+ *
+ *  Value: "BLACK_AND_WHITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_BlackAndWhite;
+/**
+ *  Color.
+ *
+ *  Value: "COLOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_Color;
+/**
+ *  Unspecified.
+ *
+ *  Value: "COLOR_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_ColorModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.duplexMode
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DUPLEX_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_DuplexModeUnspecified;
+/**
+ *  One-sided.
+ *
+ *  Value: "ONE_SIDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_OneSided;
+/**
+ *  Two-sided flipping over long edge.
+ *
+ *  Value: "TWO_SIDED_LONG_EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedLongEdge;
+/**
+ *  Two-sided flipping over short edge.
+ *
+ *  Value: "TWO_SIDED_SHORT_EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedShortEdge;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1PrintJob.state
+
+/**
+ *  Print job was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Cancelled;
+/**
+ *  Print job failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Failed;
+/**
+ *  The document was successfully printed.
+ *
+ *  Value: "PRINTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Printed;
+/**
+ *  Print job is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
 
 /**
@@ -743,6 +826,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange;
 /**
+ *  Triggered immediately on any changes to a network connection.
+ *
+ *  Value: "NETWORK_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange;
+/**
  *  Triggered when USB devices are added.
  *
  *  Value: "USB_ADDED"
@@ -754,6 +843,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "USB_REMOVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved;
+/**
+ *  Triggered on changes to VPN connections.
+ *
+ *  Value: "VPN_CONNECTION_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_VpnConnectionStateChange;
+/**
+ *  Triggered when connected WiFi network signal strength drops below -70dBm.
+ *
+ *  Value: "WIFI_SIGNAL_STRENGTH_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthLow;
+/**
+ *  Triggered when connected WiFi network signal strength is recovered from a
+ *  signal drop.
+ *
+ *  Value: "WIFI_SIGNAL_STRENGTH_RECOVERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthRecovered;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
@@ -779,6 +887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkHttpsLatencyChange;
 /**
+ *  Triggered immediately on any changes to a network connection.
+ *
+ *  Value: "NETWORK_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkStateChange;
+/**
  *  Triggered when USB devices are added.
  *
  *  Value: "USB_ADDED"
@@ -790,6 +904,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "USB_REMOVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_UsbRemoved;
+/**
+ *  Triggered on changes to VPN connections.
+ *
+ *  Value: "VPN_CONNECTION_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_VpnConnectionStateChange;
+/**
+ *  Triggered when connected WiFi network signal strength drops below -70dBm.
+ *
+ *  Value: "WIFI_SIGNAL_STRENGTH_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_WifiSignalStrengthLow;
+/**
+ *  Triggered when connected WiFi network signal strength is recovered from a
+ *  signal drop.
+ *
+ *  Value: "WIFI_SIGNAL_STRENGTH_RECOVERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_WifiSignalStrengthRecovered;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent.httpsLatencyState
@@ -812,6 +945,48 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "RECOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryHttpsLatencyChangeEvent_HttpsLatencyState_Recovery;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent.connectionState
+
+/**
+ *  The network is connected and not in a detected portal state, but internet
+ *  connectivity may not be available.
+ *
+ *  Value: "CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connected;
+/**
+ *  The network is in the process of connecting.
+ *
+ *  Value: "CONNECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connecting;
+/**
+ *  Network connection state unspecified.
+ *
+ *  Value: "NETWORK_CONNECTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NetworkConnectionStateUnspecified;
+/**
+ *  The network is not connected.
+ *
+ *  Value: "NOT_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NotConnected;
+/**
+ *  The network is connected and internet connectivity is available.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Online;
+/**
+ *  The network is connected but a portal state was detected. Internet
+ *  connectivity may be limited.
+ *
+ *  Value: "PORTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
@@ -1784,6 +1959,71 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing a summary printing report for each printer from the
+ *  specified organizational unit for the requested time interval.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "printerReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse : GTLRCollectionObject
+
+/** Pagination token for requesting the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of PrinterReports matching request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PrinterReport *> *printerReports;
+
+/**
+ *  Total number of printers matching request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a summary printing report for each user that has
+ *  initiated a print job with a printer from the specified organizational unit
+ *  during the requested time interval.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userPrintReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse : GTLRCollectionObject
+
+/** Pagination token for requesting the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total number of users matching request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  List of UserPrintReports matching request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport *> *userPrintReports;
+
+@end
+
+
+/**
  *  CPU specifications for the device * This field provides device information,
  *  which is static and will not change over time. * Data for this field is
  *  controlled via policy:
@@ -2193,6 +2433,40 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resolutionWidth;
+
+@end
+
+
+/**
+ *  Response containing a list of print jobs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "printJobs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1EnumeratePrintJobsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be used in a subsequent request to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of requested print jobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PrintJob *> *printJobs;
+
+/**
+ *  Total number of print jobs matching request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -2979,6 +3253,142 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Report for CountPrintJobsByPrinter, contains statistics on printer usage.
+ *  Contains the total number of print jobs initiated with this printer, the
+ *  number of users and the number of devices that have initiated at least one
+ *  print job with this printer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1PrinterReport : GTLRObject
+
+/**
+ *  Number of chrome devices that have been used to send print jobs to the
+ *  specified printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceCount;
+
+/**
+ *  Number of print jobs sent to the printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobCount;
+
+/** Printer name. */
+@property(nonatomic, copy, nullable) NSString *printer;
+
+/** Printer API ID. */
+@property(nonatomic, copy, nullable) NSString *printerId;
+
+/** Printer model. */
+@property(nonatomic, copy, nullable) NSString *printerModel;
+
+/**
+ *  Number of users that have sent print jobs to the printer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userCount;
+
+@end
+
+
+/**
+ *  Represents a request to print a document that has been submitted to a
+ *  printer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1PrintJob : GTLRObject
+
+/**
+ *  Color mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_BlackAndWhite
+ *        Black and white. (Value: "BLACK_AND_WHITE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_Color
+ *        Color. (Value: "COLOR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_ColorMode_ColorModeUnspecified
+ *        Unspecified. (Value: "COLOR_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *colorMode;
+
+/** Print job completion timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/**
+ *  Number of copies.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copyCount NS_RETURNS_NOT_RETAINED;
+
+/** Print job creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Number of pages in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentPageCount;
+
+/**
+ *  Duplex mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_DuplexModeUnspecified
+ *        Unspecified. (Value: "DUPLEX_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_OneSided
+ *        One-sided. (Value: "ONE_SIDED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedLongEdge
+ *        Two-sided flipping over long edge. (Value: "TWO_SIDED_LONG_EDGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_DuplexMode_TwoSidedShortEdge
+ *        Two-sided flipping over short edge. (Value: "TWO_SIDED_SHORT_EDGE")
+ */
+@property(nonatomic, copy, nullable) NSString *duplexMode;
+
+/**
+ *  Unique ID of the print job.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Name of the printer used for printing. */
+@property(nonatomic, copy, nullable) NSString *printer;
+
+/** API ID of the printer used for printing. */
+@property(nonatomic, copy, nullable) NSString *printerId;
+
+/**
+ *  The final state of the job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Cancelled
+ *        Print job was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Failed
+ *        Print job failed. (Value: "FAILED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_Printed
+ *        The document was successfully printed. (Value: "PRINTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified
+ *        Print job is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The primary e-mail address of the user who submitted the print job. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/** The unique Directory API ID of the user who submitted the print job. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -3224,10 +3634,22 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Triggered when a new HTTPS latency problem was detected or the device
  *        has recovered form an existing HTTPS latency problem. (Value:
  *        "NETWORK_HTTPS_LATENCY_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange
+ *        Triggered immediately on any changes to a network connection. (Value:
+ *        "NETWORK_STATE_CHANGE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded
  *        Triggered when USB devices are added. (Value: "USB_ADDED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved
  *        Triggered when USB devices are removed. (Value: "USB_REMOVED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_VpnConnectionStateChange
+ *        Triggered on changes to VPN connections. (Value:
+ *        "VPN_CONNECTION_STATE_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthLow
+ *        Triggered when connected WiFi network signal strength drops below
+ *        -70dBm. (Value: "WIFI_SIGNAL_STRENGTH_LOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_WifiSignalStrengthRecovered
+ *        Triggered when connected WiFi network signal strength is recovered
+ *        from a signal drop. (Value: "WIFI_SIGNAL_STRENGTH_RECOVERED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -3240,6 +3662,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Resource name of the event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Payload for network connection state change event. Present only
+ *  when `event_type` is `NETWORK_STATE_CHANGE`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent *networkStateChangeEvent;
+
 /** Timestamp that represents when the event was reported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
 
@@ -3251,6 +3679,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Information about the user associated with the event. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserInfo *user;
+
+/**
+ *  Output only. Payload for VPN connection state change event. Present only
+ *  when `event_type` is `VPN_CONNECTION_STATE_CHANGE`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent *vpnConnectionStateChangeEvent;
+
+/**
+ *  Output only. Payload for WiFi signal strength events. Present only when
+ *  `event_type` is `WIFI_SIGNAL_STRENGTH_LOW` or
+ *  `WIFI_SIGNAL_STRENGTH_RECOVERED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent *wifiSignalStrengthEvent;
 
 @end
 
@@ -3292,6 +3733,61 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        HTTPS latency recovered from a problem. (Value: "RECOVERY")
  */
 @property(nonatomic, copy, nullable) NSString *httpsLatencyState;
+
+@end
+
+
+/**
+ *  `TelemetryNetworkConnectionStateChangeEvent` is triggered on network
+ *  connection state changes. * Granular permission needed:
+ *  TELEMETRY_API_NETWORK_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent : GTLRObject
+
+/**
+ *  Current connection state of the network.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connected
+ *        The network is connected and not in a detected portal state, but
+ *        internet connectivity may not be available. (Value: "CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Connecting
+ *        The network is in the process of connecting. (Value: "CONNECTING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NetworkConnectionStateUnspecified
+ *        Network connection state unspecified. (Value:
+ *        "NETWORK_CONNECTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_NotConnected
+ *        The network is not connected. (Value: "NOT_CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Online
+ *        The network is connected and internet connectivity is available.
+ *        (Value: "ONLINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal
+ *        The network is connected but a portal state was detected. Internet
+ *        connectivity may be limited. (Value: "PORTAL")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionState;
+
+/** Unique identifier of the network. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
+@end
+
+
+/**
+ *  `TelemetryNetworkSignalStrengthEvent` is triggered on WiFi signal strength
+ *  events. * Granular permission needed: TELEMETRY_API_NETWORK_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent : GTLRObject
+
+/** Unique identifier of the network. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
+/**
+ *  Signal strength RSSI value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalStrengthDbm;
 
 @end
 
@@ -3642,6 +4138,44 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vid;
+
+@end
+
+
+/**
+ *  Report for CountPrintJobsByUser, contains printing statistics for a user.
+ *  Contains the number of printers, the number of devices used to initiate
+ *  print jobs, and the number of print jobs initiated.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport : GTLRObject
+
+/**
+ *  Number of chrome devices that have been used to initiate print jobs by the
+ *  user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceCount;
+
+/**
+ *  Number of print jobs initiated by the user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobCount;
+
+/**
+ *  Number of printers used by the user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *printerCount;
+
+/** The primary e-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/** The unique Directory API ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

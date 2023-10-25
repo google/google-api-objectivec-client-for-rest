@@ -721,10 +721,11 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_DocumentStyle
 @dynamic background, defaultFooterId, defaultHeaderId, evenPageFooterId,
-         evenPageHeaderId, firstPageFooterId, firstPageHeaderId, marginBottom,
-         marginFooter, marginHeader, marginLeft, marginRight, marginTop,
-         pageNumberStart, pageSize, useCustomHeaderFooterMargins,
-         useEvenPageHeaderFooter, useFirstPageHeaderFooter;
+         evenPageHeaderId, firstPageFooterId, firstPageHeaderId,
+         flipPageOrientation, marginBottom, marginFooter, marginHeader,
+         marginLeft, marginRight, marginTop, pageNumberStart, pageSize,
+         useCustomHeaderFooterMargins, useEvenPageHeaderFooter,
+         useFirstPageHeaderFooter;
 @end
 
 
@@ -737,10 +738,11 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic backgroundSuggestionState, defaultFooterIdSuggested,
          defaultHeaderIdSuggested, evenPageFooterIdSuggested,
          evenPageHeaderIdSuggested, firstPageFooterIdSuggested,
-         firstPageHeaderIdSuggested, marginBottomSuggested,
-         marginFooterSuggested, marginHeaderSuggested, marginLeftSuggested,
-         marginRightSuggested, marginTopSuggested, pageNumberStartSuggested,
-         pageSizeSuggestionState, useCustomHeaderFooterMarginsSuggested,
+         firstPageHeaderIdSuggested, flipPageOrientationSuggested,
+         marginBottomSuggested, marginFooterSuggested, marginHeaderSuggested,
+         marginLeftSuggested, marginRightSuggested, marginTopSuggested,
+         pageNumberStartSuggested, pageSizeSuggestionState,
+         useCustomHeaderFooterMarginsSuggested,
          useEvenPageHeaderFooterSuggested, useFirstPageHeaderFooterSuggested;
 @end
 
@@ -1885,9 +1887,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @implementation GTLRDocs_SectionStyle
 @dynamic columnProperties, columnSeparatorStyle, contentDirection,
          defaultFooterId, defaultHeaderId, evenPageFooterId, evenPageHeaderId,
-         firstPageFooterId, firstPageHeaderId, marginBottom, marginFooter,
-         marginHeader, marginLeft, marginRight, marginTop, pageNumberStart,
-         sectionType, useFirstPageHeaderFooter;
+         firstPageFooterId, firstPageHeaderId, flipPageOrientation,
+         marginBottom, marginFooter, marginHeader, marginLeft, marginRight,
+         marginTop, pageNumberStart, sectionType, useFirstPageHeaderFooter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -15,8 +15,9 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeGames             = @"https://www.googleapis.com/auth/games";
-NSString * const kGTLRAuthScopeGamesDriveAppdata = @"https://www.googleapis.com/auth/drive.appdata";
+NSString * const kGTLRAuthScopeGames                 = @"https://www.googleapis.com/auth/games";
+NSString * const kGTLRAuthScopeGamesAndroidpublisher = @"https://www.googleapis.com/auth/androidpublisher";
+NSString * const kGTLRAuthScopeGamesDriveAppdata     = @"https://www.googleapis.com/auth/drive.appdata";
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

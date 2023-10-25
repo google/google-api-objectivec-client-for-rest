@@ -776,13 +776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Optional. A unique ID used to identify the request. If the service receives
- *  two CreateSessionRequest
+ *  two CreateSessionRequests
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateSessionRequest)s
- *  with the same ID, the second request is ignored and the first Session is
- *  created and stored in the backend is returned.Recommendation: Set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
- *  and hyphens (-). The maximum length is 40 characters.
+ *  with the same ID, the second request is ignored, and the first Session is
+ *  created and stored in the backend.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -811,7 +811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Deletes the interactive session resource. If the session is not in terminal
- *  state, it will be terminated and deleted afterwards.
+ *  state, it is terminated, and then deleted.
  *
  *  Method: dataproc.projects.locations.sessions.delete
  *
@@ -839,7 +839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Deletes the interactive session resource. If the session is not in terminal
- *  state, it will be terminated and deleted afterwards.
+ *  state, it is terminated, and then deleted.
  *
  *  @param name Required. The name of the session resource to delete.
  *
@@ -876,36 +876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Inject Credentials in the interactive session.
- *
- *  Method: dataproc.projects.locations.sessions.injectCredentials
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataprocCloudPlatform
- */
-@interface GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials : GTLRDataprocQuery
-
-/** Required. The name of the session resource to inject credentials to. */
-@property(nonatomic, copy, nullable) NSString *session;
-
-/**
- *  Fetches a @c GTLRDataproc_Operation.
- *
- *  Inject Credentials in the interactive session.
- *
- *  @param object The @c GTLRDataproc_InjectSessionCredentialsRequest to include
- *    in the query.
- *  @param session Required. The name of the session resource to inject
- *    credentials to.
- *
- *  @return GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials
- */
-+ (instancetype)queryWithObject:(GTLRDataproc_InjectSessionCredentialsRequest *)object
-                        session:(NSString *)session;
-
-@end
-
-/**
  *  Lists interactive sessions.
  *
  *  Method: dataproc.projects.locations.sessions.list
@@ -919,12 +889,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Optional. A filter for the sessions to return in the response.A filter is a
  *  logical expression constraining the values of various fields in each session
  *  resource. Filters are case sensitive, and may contain multiple clauses
- *  combined with logical operators (AND/OR). Supported fields are session_id,
- *  session_uuid, state, and create_time.e.g. state = ACTIVE and create_time <
- *  "2023-01-01T00:00:00Z" filters for sessions in state ACTIVE that were
- *  created before 2023-01-01See
+ *  combined with logical operators (AND, OR). Supported fields are session_id,
+ *  session_uuid, state, and create_time.Example: state = ACTIVE and create_time
+ *  < "2023-01-01T00:00:00Z" is a filter for sessions in an ACTIVE state that
+ *  were created before 2023-01-01.See
  *  https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed
- *  description of the filter syntax and a list of supported comparisons.
+ *  description of the filter syntax and a list of supported comparators.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -990,7 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Create an session template, synchronously.
+ *  Create a session template synchronously.
  *
  *  Method: dataproc.projects.locations.sessionTemplates.create
  *
@@ -1007,7 +977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_SessionTemplate.
  *
- *  Create an session template, synchronously.
+ *  Create a session template synchronously.
  *
  *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
  *  @param parent Required. The parent resource where this session template will
@@ -1101,7 +1071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent, which owns this collection of session templates. */
+/** Required. The parent that owns this collection of session templates. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1109,7 +1079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Lists session templates.
  *
- *  @param parent Required. The parent, which owns this collection of session
+ *  @param parent Required. The parent that owns this collection of session
  *    templates.
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList
@@ -1123,8 +1093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Updates the session template, synchronously.Disable check for update_mask,
- *  because all updates will be full replacements.
+ *  Updates the session template synchronously.
  *
  *  Method: dataproc.projects.locations.sessionTemplates.patch
  *
@@ -1139,8 +1108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_SessionTemplate.
  *
- *  Updates the session template, synchronously.Disable check for update_mask,
- *  because all updates will be full replacements.
+ *  Updates the session template synchronously.
  *
  *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
  *  @param name Required. The resource name of the session template.
@@ -2411,6 +2379,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  projects/{project}/regions/{region}/clusters/{cluster}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. operation id of the parent operation sending the create request
+ */
+@property(nonatomic, copy, nullable) NSString *parentOperationId;
 
 /**
  *  Optional. A unique ID used to identify the request. If the server receives

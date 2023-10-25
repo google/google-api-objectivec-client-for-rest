@@ -897,7 +897,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  New organizations do not necessarily appear at the end of the results, and
  *  may take a small amount of time to appear. Search will only return
  *  organizations on which the user has the permission
- *  `resourcemanager.organizations.get`
+ *  `resourcemanager.organizations.get` or has super admin privileges.
  *
  *  Method: cloudresourcemanager.organizations.search
  *
@@ -943,7 +943,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  New organizations do not necessarily appear at the end of the results, and
  *  may take a small amount of time to appear. Search will only return
  *  organizations on which the user has the permission
- *  `resourcemanager.organizations.get`
+ *  `resourcemanager.organizations.get` or has super admin privileges.
  *
  *  @return GTLRCloudResourceManagerQuery_OrganizationsSearch
  *
@@ -1356,7 +1356,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Search for projects that the caller has both `resourcemanager.projects.get`
+ *  Search for projects that the caller has the `resourcemanager.projects.get`
  *  permission on, and also satisfy the specified query. This method returns
  *  projects in an unspecified order. This method is eventually consistent with
  *  project mutations; this means that a newly created project may not appear in
@@ -1415,7 +1415,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_SearchProjectsResponse.
  *
- *  Search for projects that the caller has both `resourcemanager.projects.get`
+ *  Search for projects that the caller has the `resourcemanager.projects.get`
  *  permission on, and also satisfy the specified query. This method returns
  *  projects in an unspecified order. This method is eventually consistent with
  *  project mutations; this means that a newly created project may not appear in

@@ -118,6 +118,16 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_CmekConfig
+//
+
+@implementation GTLRCloudTasks_CmekConfig
+@dynamic kmsKey, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_CreateTaskRequest
 //
 

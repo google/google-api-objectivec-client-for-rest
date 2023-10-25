@@ -1787,10 +1787,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -1870,10 +1870,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -2028,7 +2028,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  entries to Logging. This method is used, directly or indirectly, by the
  *  Logging agent (fluentd) and all logging libraries configured to use Logging.
  *  A single request may contain log entries for a maximum of 1000 different
- *  resources (projects, organizations, billing accounts or folders)
+ *  resource names (projects, organizations, billing accounts or folders), where
+ *  the resource name for a log entry is determined from its logName field.
  *
  *  Method: logging.entries.write
  *
@@ -2046,7 +2047,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  entries to Logging. This method is used, directly or indirectly, by the
  *  Logging agent (fluentd) and all logging libraries configured to use Logging.
  *  A single request may contain log entries for a maximum of 1000 different
- *  resources (projects, organizations, billing accounts or folders)
+ *  resource names (projects, organizations, billing accounts or folders), where
+ *  the resource name for a log entry is determined from its logName field.
  *
  *  @param object The @c GTLRLogging_WriteLogEntriesRequest to include in the
  *    query.
@@ -4041,10 +4043,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -4124,10 +4126,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -7179,10 +7181,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -7262,10 +7264,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -9417,10 +9419,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -9500,10 +9502,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -9787,10 +9789,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A service account provided by the caller that will be used to
- *  write the log entries. Must be of format serviceAccount:some\@email. This
- *  can only be specified if writing to a destination outside the sink's
- *  project. If not specified, a p4 service account will automatically be
- *  generated.
+ *  write the log entries. The format must be serviceAccount:some\@email. This
+ *  field can only be specified if you are routing logs to a destination outside
+ *  this sink's project. If not specified, a Logging service account will
+ *  automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 

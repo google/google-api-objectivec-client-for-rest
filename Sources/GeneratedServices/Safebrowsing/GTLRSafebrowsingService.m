@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing API (safebrowsing/v4)
+//   Safe Browsing API (safebrowsing/v5)
 // Description:
 //   Enables client applications to check web resources (most commonly URLs)
 //   against Google-generated lists of unsafe web resources. The Safe Browsing

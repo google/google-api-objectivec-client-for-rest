@@ -238,6 +238,16 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_Date
+//
+
+@implementation GTLRCloudFunctions_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_EventFilter
 //
 
@@ -824,7 +834,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_Runtime
-@dynamic displayName, environment, name, stage, warnings;
+@dynamic decommissionDate, deprecationDate, displayName, environment, name,
+         stage, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

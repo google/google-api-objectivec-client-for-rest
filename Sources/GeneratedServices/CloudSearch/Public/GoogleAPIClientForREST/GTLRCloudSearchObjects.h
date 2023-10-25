@@ -8239,8 +8239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MatchRange *> *matchRanges;
 
 /**
- *  The snippet of the document. The snippet of the document. May contain
- *  escaped HTML character that should be unescaped prior to rendering.
+ *  The snippet of the document. May contain escaped HTML character that should
+ *  be unescaped prior to rendering.
  */
 @property(nonatomic, copy, nullable) NSString *snippet;
 

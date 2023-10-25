@@ -80,6 +80,13 @@ NSString * const kGTLRBigquery_HparamTuningTrial_Status_StoppedEarly = @"STOPPED
 NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified = @"TRIAL_STATUS_UNSPECIFIED";
 
+// GTLRBigquery_JobCreationReason.code
+NSString * const kGTLRBigquery_JobCreationReason_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_JobCreationReason_Code_LargeResults = @"LARGE_RESULTS";
+NSString * const kGTLRBigquery_JobCreationReason_Code_LongRunning = @"LONG_RUNNING";
+NSString * const kGTLRBigquery_JobCreationReason_Code_Other    = @"OTHER";
+NSString * const kGTLRBigquery_JobCreationReason_Code_Requested = @"REQUESTED";
+
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
 NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus       = @"ARIMA_PLUS";
@@ -135,6 +142,11 @@ NSString * const kGTLRBigquery_Routine_RoutineType_Procedure   = @"PROCEDURE";
 NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction = @"SCALAR_FUNCTION";
 NSString * const kGTLRBigquery_Routine_RoutineType_TableValuedFunction = @"TABLE_VALUED_FUNCTION";
+
+// GTLRBigquery_Routine.securityMode
+NSString * const kGTLRBigquery_Routine_SecurityMode_Definer    = @"DEFINER";
+NSString * const kGTLRBigquery_Routine_SecurityMode_Invoker    = @"INVOKER";
+NSString * const kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified = @"SECURITY_MODE_UNSPECIFIED";
 
 // GTLRBigquery_StandardSqlDataType.typeKind
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array = @"ARRAY";
@@ -420,11 +432,29 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_AggregationThresholdPolicy
+//
+
+@implementation GTLRBigquery_AggregationThresholdPolicy
+@dynamic privacyUnitColumns, threshold;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"privacyUnitColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Argument
 //
 
 @implementation GTLRBigquery_Argument
-@dynamic argumentKind, dataType, mode, name;
+@dynamic argumentKind, dataType, isAggregate, mode, name;
 @end
 
 
@@ -910,11 +940,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @implementation GTLRBigquery_CsvOptions
 @dynamic allowJaggedRows, allowQuotedNewlines, encoding, fieldDelimiter,
          nullMarker, preserveAsciiControlCharacters, quote, skipLeadingRows;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"nullMarker" : @"null_marker" };
-}
-
 @end
 
 
@@ -1565,8 +1590,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_Job
-@dynamic configuration, ETag, identifier, jobReference, kind, selfLink,
-         statistics, status, userEmail;
+@dynamic configuration, ETag, identifier, jobCreationReason, jobReference, kind,
+         selfLink, statistics, status, userEmail;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1729,6 +1754,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_JobCreationReason
+//
+
+@implementation GTLRBigquery_JobCreationReason
+@dynamic code;
 @end
 
 
@@ -2226,6 +2261,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_PrivacyPolicy
+//
+
+@implementation GTLRBigquery_PrivacyPolicy
+@dynamic aggregationThresholdPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ProjectList
 //
 
@@ -2357,9 +2402,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_QueryRequest
 @dynamic connectionProperties, continuous, createSession, defaultDataset,
-         dryRun, kind, labels, location, maximumBytesBilled, maxResults,
-         parameterMode, preserveNulls, query, queryParameters, requestId,
-         timeoutMs, useLegacySql, useQueryCache;
+         dryRun, jobCreationMode, kind, labels, location, maximumBytesBilled,
+         maxResults, parameterMode, preserveNulls, query, queryParameters,
+         requestId, timeoutMs, useLegacySql, useQueryCache;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2392,9 +2437,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_QueryResponse
-@dynamic cacheHit, dmlStats, errors, jobComplete, jobReference, kind,
-         numDmlAffectedRows, pageToken, rows, schema, sessionInfo,
-         totalBytesProcessed, totalRows;
+@dynamic cacheHit, dmlStats, errors, jobComplete, jobCreationReason,
+         jobReference, kind, numDmlAffectedRows, pageToken, queryId, rows,
+         schema, sessionInfo, totalBytesProcessed, totalRows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2504,7 +2549,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @dynamic arguments, creationTime, dataGovernanceType, definitionBody,
          descriptionProperty, determinismLevel, ETag, importedLibraries,
          language, lastModifiedTime, remoteFunctionOptions, returnTableType,
-         returnType, routineReference, routineType, sparkOptions, strictMode;
+         returnType, routineReference, routineType, securityMode, sparkOptions,
+         strictMode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2672,15 +2718,6 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_SparkLoggingInfo
 @dynamic projectId, resourceType;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"projectId" : @"project_id",
-    @"resourceType" : @"resource_type"
-  };
-  return map;
-}
-
 @end
 
 
@@ -2843,9 +2880,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          numLongTermBytes, numLongTermLogicalBytes, numLongTermPhysicalBytes,
          numPartitions, numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
          numTotalLogicalBytes, numTotalPhysicalBytes, rangePartitioning,
-         requirePartitionFilter, schema, selfLink, snapshotDefinition,
-         streamingBuffer, tableConstraints, tableReference, timePartitioning,
-         type, view;
+         requirePartitionFilter, resourceTags, schema, selfLink,
+         snapshotDefinition, streamingBuffer, tableConstraints, tableReference,
+         timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2865,6 +2902,20 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_Table_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_Table_ResourceTags
+//
+
+@implementation GTLRBigquery_Table_ResourceTags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

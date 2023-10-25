@@ -13,6 +13,23 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRedis_Cluster.authorizationMode
+NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeDisabled = @"AUTH_MODE_DISABLED";
+NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeIamAuth = @"AUTH_MODE_IAM_AUTH";
+NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeUnspecified = @"AUTH_MODE_UNSPECIFIED";
+
+// GTLRCloudRedis_Cluster.state
+NSString * const kGTLRCloudRedis_Cluster_State_Active          = @"ACTIVE";
+NSString * const kGTLRCloudRedis_Cluster_State_Creating        = @"CREATING";
+NSString * const kGTLRCloudRedis_Cluster_State_Deleting        = @"DELETING";
+NSString * const kGTLRCloudRedis_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Cluster_State_Updating        = @"UPDATING";
+
+// GTLRCloudRedis_Cluster.transitEncryptionMode
+NSString * const kGTLRCloudRedis_Cluster_TransitEncryptionMode_TransitEncryptionModeDisabled = @"TRANSIT_ENCRYPTION_MODE_DISABLED";
+NSString * const kGTLRCloudRedis_Cluster_TransitEncryptionMode_TransitEncryptionModeServerAuthentication = @"TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION";
+NSString * const kGTLRCloudRedis_Cluster_TransitEncryptionMode_TransitEncryptionModeUnspecified = @"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED";
+
 // GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified = @"DATA_PROTECTION_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss = @"FORCE_DATA_LOSS";
@@ -85,6 +102,66 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Sunday = @"SUNDAY";
 NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Thursday = @"THURSDAY";
 NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Tuesday = @"TUESDAY";
 NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_CertChain
+//
+
+@implementation GTLRCloudRedis_CertChain
+@dynamic certificates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_CertificateAuthority
+//
+
+@implementation GTLRCloudRedis_CertificateAuthority
+@dynamic managedServerCa, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Cluster
+//
+
+@implementation GTLRCloudRedis_Cluster
+@dynamic authorizationMode, createTime, discoveryEndpoints, name, pscConfigs,
+         pscConnections, replicaCount, shardCount, sizeGb, state, stateInfo,
+         transitEncryptionMode, uid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveryEndpoints" : [GTLRCloudRedis_DiscoveryEndpoint class],
+    @"pscConfigs" : [GTLRCloudRedis_PscConfig class],
+    @"pscConnections" : [GTLRCloudRedis_PscConnection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_DiscoveryEndpoint
+//
+
+@implementation GTLRCloudRedis_DiscoveryEndpoint
+@dynamic address, port, pscConfig;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -268,6 +345,29 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ListClustersResponse
+//
+
+@implementation GTLRCloudRedis_ListClustersResponse
+@dynamic clusters, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusters" : [GTLRCloudRedis_Cluster class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"clusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ListInstancesResponse
 //
 
@@ -405,6 +505,24 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ManagedCertificateAuthority
+//
+
+@implementation GTLRCloudRedis_ManagedCertificateAuthority
+@dynamic caCerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caCerts" : [GTLRCloudRedis_CertChain class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_NodeInfo
 //
 
@@ -462,6 +580,17 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_OperationMetadata
+//
+
+@implementation GTLRCloudRedis_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_OutputConfig
 //
 
@@ -483,6 +612,26 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_PscConfig
+//
+
+@implementation GTLRCloudRedis_PscConfig
+@dynamic network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_PscConnection
+//
+
+@implementation GTLRCloudRedis_PscConnection
+@dynamic address, forwardingRule, network, projectId, pscConnectionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ReconciliationOperationMetadata
 //
 
@@ -498,6 +647,16 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_RescheduleMaintenanceRequest
 @dynamic rescheduleType, scheduleTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_StateInfo
+//
+
+@implementation GTLRCloudRedis_StateInfo
+@dynamic updateInfo;
 @end
 
 
@@ -550,6 +709,16 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_TlsCertificate
 @dynamic cert, createTime, expireTime, serialNumber, sha1Fingerprint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_UpdateInfo
+//
+
+@implementation GTLRCloudRedis_UpdateInfo
+@dynamic targetReplicaCount, targetShardCount;
 @end
 
 

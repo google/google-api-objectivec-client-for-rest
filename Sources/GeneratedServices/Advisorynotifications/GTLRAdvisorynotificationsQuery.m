@@ -10,8 +10,6 @@
 
 #import <GoogleAPIClientForREST/GTLRAdvisorynotificationsQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRAdvisorynotificationsObjects.h>
-
 // ----------------------------------------------------------------------------
 // Constants
 
@@ -27,6 +25,25 @@ NSString * const kGTLRAdvisorynotificationsViewNotificationViewUnspecified = @"N
 @implementation GTLRAdvisorynotificationsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRAdvisorynotificationsQuery_OrganizationsLocationsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAdvisorynotificationsQuery_OrganizationsLocationsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings class];
+  query.loggingName = @"advisorynotifications.organizations.locations.getSettings";
+  return query;
+}
 
 @end
 
@@ -63,6 +80,33 @@ NSString * const kGTLRAdvisorynotificationsViewNotificationViewUnspecified = @"N
   query.parent = parent;
   query.expectedObjectClass = [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1ListNotificationsResponse class];
   query.loggingName = @"advisorynotifications.organizations.locations.notifications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdvisorynotificationsQuery_OrganizationsLocationsUpdateSettings
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAdvisorynotificationsQuery_OrganizationsLocationsUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings class];
+  query.loggingName = @"advisorynotifications.organizations.locations.updateSettings";
   return query;
 }
 

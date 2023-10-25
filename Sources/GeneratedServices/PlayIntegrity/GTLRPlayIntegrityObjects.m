@@ -44,13 +44,13 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity = @"MEETS_WEAK_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
-// GTLRPlayIntegrity_GuidanceDetails.userRemediation
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_GetUnmodifiedApp = @"GET_UNMODIFIED_APP";
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_InstallAppFromPlay = @"INSTALL_APP_FROM_PLAY";
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_LockBootloader = @"LOCK_BOOTLOADER";
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_RestoreFactoryRom = @"RESTORE_FACTORY_ROM";
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_SignIntoGoogleAccount = @"SIGN_INTO_GOOGLE_ACCOUNT";
-NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserRemediation = @"UNKNOWN_USER_REMEDIATION";
+// GTLRPlayIntegrity_UserRemediationDetails.remediation
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp = @"GET_UNMODIFIED_APP";
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay = @"INSTALL_APP_FROM_PLAY";
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader = @"LOCK_BOOTLOADER";
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom = @"RESTORE_FACTORY_ROM";
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount = @"SIGN_INTO_GOOGLE_ACCOUNT";
+NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation = @"UNKNOWN_USER_REMEDIATION";
 
 // ----------------------------------------------------------------------------
 //
@@ -135,11 +135,11 @@ NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserR
 //
 
 @implementation GTLRPlayIntegrity_GuidanceDetails
-@dynamic userRemediation;
+@dynamic userRemediationDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"userRemediation" : [NSString class]
+    @"userRemediationDetails" : [GTLRPlayIntegrity_UserRemediationDetails class]
   };
   return map;
 }
@@ -175,4 +175,14 @@ NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserR
 @implementation GTLRPlayIntegrity_TokenPayloadExternal
 @dynamic accountDetails, appIntegrity, deviceIntegrity, guidanceDetails,
          requestDetails, testingDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_UserRemediationDetails
+//
+
+@implementation GTLRPlayIntegrity_UserRemediationDetails
+@dynamic remediation;
 @end

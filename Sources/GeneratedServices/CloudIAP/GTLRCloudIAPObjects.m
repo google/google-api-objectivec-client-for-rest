@@ -298,7 +298,15 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_OAuthSettings
-@dynamic loginHint;
+@dynamic loginHint, programmaticClients;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"programmaticClients" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -374,7 +382,21 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_Resource
-@dynamic labels, name, service, type;
+@dynamic expectedNextState, labels, name, service, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_Resource_ExpectedNextState
+//
+
+@implementation GTLRCloudIAP_Resource_ExpectedNextState
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

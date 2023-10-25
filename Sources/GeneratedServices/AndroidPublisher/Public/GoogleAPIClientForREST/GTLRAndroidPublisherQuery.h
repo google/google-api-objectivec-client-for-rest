@@ -608,7 +608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
  *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    1258291200. Accepted MIME type: application/octet-stream
+ *    1677721600. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */
@@ -3472,8 +3472,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Refunds a user's subscription or in-app purchase order. Orders older than 1
- *  year cannot be refunded.
+ *  Refunds a user's subscription or in-app purchase order. Orders older than 3
+ *  years cannot be refunded.
  *
  *  Method: androidpublisher.orders.refund
  *
@@ -3506,8 +3506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Refunds a user's subscription or in-app purchase order. Orders older than 1
- *  year cannot be refunded.
+ *  Refunds a user's subscription or in-app purchase order. Orders older than 3
+ *  years cannot be refunded.
  *
  *  @param packageName The package name of the application for which this
  *    subscription or in-app item was purchased (for example, 'com.some.thing').

@@ -135,7 +135,7 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_Destination
-@dynamic cloudFunction, cloudRun, gke, workflow;
+@dynamic cloudFunction, cloudRun, gke, httpEndpoint, networkConfig, workflow;
 @end
 
 
@@ -343,6 +343,16 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_HttpEndpoint
+//
+
+@implementation GTLREventarc_HttpEndpoint
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_ListChannelConnectionsResponse
 //
 
@@ -490,6 +500,16 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_NetworkConfig
+//
+
+@implementation GTLREventarc_NetworkConfig
+@dynamic networkAttachment;
 @end
 
 

@@ -28,6 +28,7 @@
 @class GTLRCloudAsset_ConditionEvaluation;
 @class GTLRCloudAsset_Date;
 @class GTLRCloudAsset_EffectiveIamPolicy;
+@class GTLRCloudAsset_EffectiveTagDetails;
 @class GTLRCloudAsset_Explanation;
 @class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
@@ -71,6 +72,7 @@
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy;
@@ -81,6 +83,8 @@
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork;
 @class GTLRCloudAsset_IamPolicyAnalysis;
 @class GTLRCloudAsset_IamPolicyAnalysisOutputConfig;
 @class GTLRCloudAsset_IamPolicyAnalysisQuery;
@@ -120,6 +124,7 @@
 @class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
 @class GTLRCloudAsset_ResourceSearchResult_Labels;
 @class GTLRCloudAsset_ResourceSearchResult_Relationships;
+@class GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks;
 @class GTLRCloudAsset_ResourceSelector;
 @class GTLRCloudAsset_SavedQuery;
 @class GTLRCloudAsset_SavedQuery_Labels;
@@ -128,6 +133,7 @@
 @class GTLRCloudAsset_Status_Details_Item;
 @class GTLRCloudAsset_TableFieldSchema;
 @class GTLRCloudAsset_TableSchema;
+@class GTLRCloudAsset_Tag;
 @class GTLRCloudAsset_TemporalAsset;
 @class GTLRCloudAsset_TimeWindow;
 @class GTLRCloudAsset_VersionedPackage;
@@ -516,6 +522,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  Value: "IDENTITY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_IdentityTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom.sourceRestriction
+
+/**
+ *  Enforcement preference disabled, will not enforce traffic restrictions based
+ *  on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionDisabled;
+/**
+ *  Enforcement preference enabled, traffic restrictions will be enforced based
+ *  on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionEnabled;
+/**
+ *  Enforcement preference unspecified, will not enforce traffic restrictions
+ *  based on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom.identityType
@@ -1642,6 +1673,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  policies[i+1] exists.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_PolicyInfo *> *policies;
+
+@end
+
+
+/**
+ *  The effective tags and the ancestor resources from which they were
+ *  inherited.
+ */
+@interface GTLRCloudAsset_EffectiveTagDetails : GTLRObject
+
+/**
+ *  The [full resource
+ *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
+ *  the ancestor from which an effective_tag is inherited, according to [tag
+ *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
+ */
+@property(nonatomic, copy, nullable) NSString *attachedResource;
+
+/**
+ *  The effective tags inherited from the attached_resource. Note that tags with
+ *  the same key but different values may attach to resources at a different
+ *  hierarchy levels. The lower hierarchy tag value will overwrite the higher
+ *  hierarchy tag value of the same tag key. In this case, the tag value at the
+ *  higher hierarchy level will be removed. For more information, see [tag
+ *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Tag *> *effectiveTags;
 
 @end
 
@@ -3129,17 +3187,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The scopes of a policy define which resources an ACM policy can restrict,
- *  and where ACM resources can be referenced. For example, a policy with
- *  scopes=["folders/123"] has the following behavior: - vpcsc perimeters can
- *  only restrict projects within folders/123 - access levels can only be
- *  referenced by resources within folders/123. If empty, there are no
- *  limitations on which resources can be restricted by an ACM policy, and there
- *  are no limitations on where ACM resources can be referenced. Only one policy
- *  can include a given scope (attempting to create a second policy which
- *  includes "folders/123" will result in an error). Currently, scopes cannot be
- *  modified after a policy is created. Currently, policies can only have a
- *  single scope. Format: list of `folders/{folder_number}` or
+ *  The scopes of the AccessPolicy. Scopes define which resources a policy can
+ *  restrict and where its resources can be referenced. For example, policy A
+ *  with `scopes=["folders/123"]` has the following behavior: - ServicePerimeter
+ *  can only restrict projects within `folders/123`. - ServicePerimeter within
+ *  policy A can only reference access levels defined within policy A. - Only
+ *  one policy can include a given scope; thus, attempting to create a second
+ *  policy which includes `folders/123` will result in an error. If no scopes
+ *  are provided, then any resource within the organization can be restricted.
+ *  Scopes cannot be modified after a policy is created. Policies can only have
+ *  a single scope. Format: list of `folders/{folder_number}` or
  *  `projects/{project_number}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
@@ -3259,6 +3316,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
+/**
+ *  The request must originate from one of the provided VPC networks in Google
+ *  Cloud. Cannot specify this field together with `ip_subnetworks`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource *> *vpcNetworkSources;
+
 @end
 
 
@@ -3362,6 +3425,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *identityType;
 
+/**
+ *  Whether to enforce traffic restrictions based on `sources` field. If the
+ *  `sources` fields is non-empty, then this field must be set to
+ *  `SOURCE_RESTRICTION_ENABLED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionDisabled
+ *        Enforcement preference disabled, will not enforce traffic restrictions
+ *        based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_DISABLED")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionEnabled
+ *        Enforcement preference enabled, traffic restrictions will be enforced
+ *        based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_ENABLED")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionUnspecified
+ *        Enforcement preference unspecified, will not enforce traffic
+ *        restrictions based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRestriction;
+
+/**
+ *  Sources that this EgressPolicy authorizes access from. If this field is not
+ *  empty, then `source_restriction` must be set to
+ *  `SOURCE_RESTRICTION_ENABLED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource *> *sources;
+
 @end
 
 
@@ -3392,6 +3483,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  cause this EgressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo *egressTo;
+
+@end
+
+
+/**
+ *  The source that EgressPolicy authorizes access from inside the
+ *  ServicePerimeter to somewhere outside the ServicePerimeter boundaries.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource : GTLRObject
+
+/**
+ *  An AccessLevel resource name that allows protected resources inside the
+ *  ServicePerimeters to access outside the ServicePerimeter boundaries.
+ *  AccessLevels listed must be in the same policy as this ServicePerimeter.
+ *  Referencing a nonexistent AccessLevel will cause an error. If an AccessLevel
+ *  name is not specified, only resources within the perimeter can be accessed
+ *  through Google Cloud calls with request origins within the perimeter.
+ *  Example: `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If a single `*`
+ *  is specified for `access_level`, then all EgressSources will be allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *accessLevel;
 
 @end
 
@@ -3790,6 +3902,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRestriction;
+
+@end
+
+
+/**
+ *  The originating network source in Google Cloud.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource : GTLRObject
+
+/** Sub-segment ranges of a VPC network. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork *vpcSubnetwork;
+
+@end
+
+
+/**
+ *  Sub-segment ranges inside of a VPC Network.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork : GTLRObject
+
+/**
+ *  Required. Network name. If the network is not part of the organization, the
+ *  `compute.network.get` permission must be granted to the caller. Format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NETWORK_NAME}`
+ *  Example:
+ *  `//compute.googleapis.com/projects/my-project/global/networks/network-1`
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  CIDR block IP subnetwork specification. The IP address must be an IPv4
+ *  address and can be a public or private IP address. Note that for a CIDR IP
+ *  address block, the specified IP address portion must be properly truncated
+ *  (i.e. all the host bits must be zero) or the input is considered malformed.
+ *  For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. If empty,
+ *  all IP addresses are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vpcIpSubnetworks;
 
 @end
 
@@ -5209,6 +5359,20 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  The effective tags on this resource. All of the tags that are both attached
+ *  to and inherited by a resource are collectively called the effective tags.
+ *  For more information, see [tag
+ *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
+ *  To search against the `effective_tags`: * Use a field query. Example: -
+ *  `effectiveTagKeys:"123456789/env*"` - `effectiveTagKeys="123456789/env"` -
+ *  `effectiveTagKeys:"env"` - `effectiveTagValues:"env"` -
+ *  `effectiveTagValues:"env/prod"` - `effectiveTagValues:"123456789/env/prod*"`
+ *  - `effectiveTagValues="123456789/env/prod"` -
+ *  `effectiveTagValueIds="tagValues/456"`
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
+
+/**
  *  The folder(s) that this resource belongs to, in the form of
  *  folders/{FOLDER_NUMBER}. This field is available when the resource belongs
  *  to one or more folders. To search against `folders`: * Use a field query.
@@ -5330,6 +5494,18 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Relationships *relationships;
 
 /**
+ *  The actual content of Security Command Center security marks associated with
+ *  the asset. Note that both staging & prod SecurityMarks are attached on prod
+ *  resources. In CAS preprod/prod, both staging & prod SecurityMarks are
+ *  ingested and returned in the following `security_marks` map. In that case,
+ *  the prefix "staging." will be added to the keys of all the staging marks. To
+ *  search against SCC SecurityMarks field: * Use a field query: - query by a
+ *  given key value pair. Example: `sccSecurityMarks.foo=bar` - query by a given
+ *  key's existence. Example: `sccSecurityMarks.foo:*`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks *sccSecurityMarks;
+
+/**
  *  The state of this resource. Different resources types have different state
  *  definitions that are mapped from various fields of different resource types.
  *  This field is available only when the resource's Protobuf contains it.
@@ -5347,28 +5523,43 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. To
- *  search against the `tagKeys`: * Use a field query. Example: -
- *  `tagKeys:"123456789/env*"` - `tagKeys="123456789/env"` - `tagKeys:"env"` *
- *  Use a free text query. Example: - `env`
+ *  This field is only present for the purpose of backward compatibility. Please
+ *  use the `tags` field instead. TagKey namespaced names, in the format of
+ *  {ORG_ID}/{TAG_KEY_SHORT_NAME}. To search against the `tagKeys`: * Use a
+ *  field query. Example: - `tagKeys:"123456789/env*"` -
+ *  `tagKeys="123456789/env"` - `tagKeys:"env"` * Use a free text query.
+ *  Example: - `env`
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeys;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeys GTLR_DEPRECATED;
 
 /**
- *  TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}. To search against
- *  the `tagValueIds`: * Use a field query. Example: -
- *  `tagValueIds="tagValues/456"`
+ *  The tags directly attached to this resource. To search against the `tags`: *
+ *  Use a field query. Example: - `tagKeys:"123456789/env*"` -
+ *  `tagKeys="123456789/env"` - `tagKeys:"env"` - `tagValues:"env"` -
+ *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
+ *  `tagValues="123456789/env/prod"` - `tagValueIds="tagValues/456"` * Use a
+ *  free text query. Example: - `env/prod`
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValueIds;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Tag *> *tags;
 
 /**
- *  TagValue namespaced names, in the format of
+ *  This field is only present for the purpose of backward compatibility. Please
+ *  use the `tags` field instead. TagValue IDs, in the format of
+ *  tagValues/{TAG_VALUE_ID}. To search against the `tagValueIds`: * Use a field
+ *  query. Example: - `tagValueIds="tagValues/456"` * Use a free text query.
+ *  Example: - `456`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValueIds GTLR_DEPRECATED;
+
+/**
+ *  This field is only present for the purpose of backward compatibility. Please
+ *  use the `tags` field instead. TagValue namespaced names, in the format of
  *  {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}. To search against the
  *  `tagValues`: * Use a field query. Example: - `tagValues:"env"` -
  *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
  *  `tagValues="123456789/env/prod"` * Use a free text query. Example: - `prod`
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues GTLR_DEPRECATED;
 
 /**
  *  The last update timestamp of this resource, at which the resource was last
@@ -5450,6 +5641,25 @@ GTLR_DEPRECATED
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAsset_ResourceSearchResult_Relationships : GTLRObject
+@end
+
+
+/**
+ *  The actual content of Security Command Center security marks associated with
+ *  the asset. Note that both staging & prod SecurityMarks are attached on prod
+ *  resources. In CAS preprod/prod, both staging & prod SecurityMarks are
+ *  ingested and returned in the following `security_marks` map. In that case,
+ *  the prefix "staging." will be added to the keys of all the staging marks. To
+ *  search against SCC SecurityMarks field: * Use a field query: - query by a
+ *  given key value pair. Example: `sccSecurityMarks.foo=bar` - query by a given
+ *  key's existence. Example: `sccSecurityMarks.foo:*`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks : GTLRObject
 @end
 
 
@@ -5738,6 +5948,27 @@ GTLR_DEPRECATED
 
 /** Describes the fields in a table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_TableFieldSchema *> *fields;
+
+@end
+
+
+/**
+ *  The key and value for a
+ *  [tag](https://cloud.google.com/resource-manager/docs/tags/tags-overview),
+ */
+@interface GTLRCloudAsset_Tag : GTLRObject
+
+/** TagKey namespaced name, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. */
+@property(nonatomic, copy, nullable) NSString *tagKey;
+
+/**
+ *  TagValue namespaced name, in the format of
+ *  {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
+ */
+@property(nonatomic, copy, nullable) NSString *tagValue;
+
+/** TagValue ID, in the format of tagValues/{TAG_VALUE_ID}. */
+@property(nonatomic, copy, nullable) NSString *tagValueId;
 
 @end
 

@@ -733,7 +733,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 @implementation GTLRBareMetalSolution_Network
 @dynamic cidr, gatewayIp, identifier, ipAddress, jumboFramesEnabled, labels,
          macAddress, mountPoints, name, pod, reservations, servicesCidr, state,
-         type, vlanId, vrf;
+         type, vlanId, vrf, vrfAttachment;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -853,8 +853,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_NfsShare
-@dynamic allowedClients, identifier, labels, name, nfsShareId, requestedSizeGib,
-         state, storageType, volume;
+@dynamic allowedClients, identifier, labels, name, nfsShareId, pod,
+         requestedSizeGib, state, storageType, volume;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -953,8 +953,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_ProvisioningConfig
 @dynamic cloudConsoleUri, customId, email, handoverServiceAccount, instances,
-         location, name, networks, state, statusMessage, ticketId, updateTime,
-         volumes, vpcScEnabled;
+         location, name, networks, pod, state, statusMessage, ticketId,
+         updateTime, volumes, vpcScEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

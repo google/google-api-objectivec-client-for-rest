@@ -25,6 +25,10 @@
 @class GTLRConnectors_Field;
 @class GTLRConnectors_Field_AdditionalDetails;
 @class GTLRConnectors_InputParameter;
+@class GTLRConnectors_InputParameter_AdditionalDetails;
+@class GTLRConnectors_JsonSchema;
+@class GTLRConnectors_JsonSchema_AdditionalDetails;
+@class GTLRConnectors_JsonSchema_Properties;
 @class GTLRConnectors_Query;
 @class GTLRConnectors_QueryParameter;
 @class GTLRConnectors_Reference;
@@ -590,6 +594,280 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Varbi
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_Varchar;
 
 // ----------------------------------------------------------------------------
+// GTLRConnectors_JsonSchema.jdbcType
+
+/**
+ *  Array type.
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Array;
+/**
+ *  Big int type.
+ *
+ *  Value: "BIGINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Bigint;
+/**
+ *  Binary type.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Binary;
+/**
+ *  Bit type.
+ *
+ *  Value: "BIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Bit;
+/**
+ *  Blob type.
+ *
+ *  Value: "BLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Blob;
+/**
+ *  Boolean type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Boolean;
+/**
+ *  Char type.
+ *
+ *  Value: "CHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Char;
+/**
+ *  Clob type.
+ *
+ *  Value: "CLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Clob;
+/**
+ *  Datalink type.
+ *
+ *  Value: "DATALINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Datalink;
+/**
+ *  Datatype unspecified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_DataTypeUnspecified;
+/**
+ *  Date type.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Date;
+/**
+ *  Deprecated Datetime type.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Datetime GTLR_DEPRECATED;
+/**
+ *  Decimal type.
+ *
+ *  Value: "DECIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Decimal;
+/**
+ *  Distinct type keyword.
+ *
+ *  Value: "DISTINCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Distinct;
+/**
+ *  Double type.
+ *
+ *  Value: "DOUBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Double;
+/**
+ *  Float type.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Float;
+/**
+ *  Deprecated Int type, use INTEGER type instead.
+ *
+ *  Value: "INT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Int GTLR_DEPRECATED;
+/**
+ *  Integer type.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Integer;
+/**
+ *  Java object type.
+ *
+ *  Value: "JAVA_OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_JavaObject;
+/**
+ *  Deprecated Long type, use BIGINT type instead.
+ *
+ *  Value: "LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Long GTLR_DEPRECATED;
+/**
+ *  Long Nvarchar type.
+ *
+ *  Value: "LONGNVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longnvarchar;
+/**
+ *  Long Varbinary type.
+ *
+ *  Value: "LONGVARBINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longvarbinary;
+/**
+ *  Long varchar type.
+ *
+ *  Value: "LONGVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longvarchar;
+/**
+ *  Nchar type.
+ *
+ *  Value: "NCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nchar;
+/**
+ *  Nclob type.
+ *
+ *  Value: "NCLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nclob;
+/**
+ *  Null type.
+ *
+ *  Value: "NULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Null;
+/**
+ *  Numeric type.
+ *
+ *  Value: "NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Numeric;
+/**
+ *  Nvarchar type.
+ *
+ *  Value: "NVARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nvarchar;
+/**
+ *  Other type.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Other;
+/**
+ *  Real type.
+ *
+ *  Value: "REAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Real;
+/**
+ *  Ref type.
+ *
+ *  Value: "REF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Ref;
+/**
+ *  Ref_cursor type.
+ *
+ *  Value: "REF_CURSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_RefCursor;
+/**
+ *  Row ID type.
+ *
+ *  Value: "ROWID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Rowid;
+/**
+ *  Small int type.
+ *
+ *  Value: "SMALLINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Smallint;
+/**
+ *  SQLXML type.
+ *
+ *  Value: "SQLXML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Sqlxml;
+/**
+ *  Deprecated string type, use VARCHAR type instead.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_String GTLR_DEPRECATED;
+/**
+ *  Struct type.
+ *
+ *  Value: "STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Struct;
+/**
+ *  Time type.
+ *
+ *  Value: "TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Time;
+/**
+ *  Timestamp type.
+ *
+ *  Value: "TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Timestamp;
+/**
+ *  Timestamp with timezone type.
+ *
+ *  Value: "TIMESTAMP_WITH_TIMEZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_TimestampWithTimezone;
+/**
+ *  Time with timezone type.
+ *
+ *  Value: "TIME_WITH_TIMEZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_TimeWithTimezone;
+/**
+ *  Tiny int type.
+ *
+ *  Value: "TINYINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Tinyint;
+/**
+ *  Deprecated UUID type, use VARCHAR instead.
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Uuid GTLR_DEPRECATED;
+/**
+ *  Varbinary type.
+ *
+ *  Value: "VARBINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varbinary;
+/**
+ *  Varchar type.
+ *
+ *  Value: "VARCHAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varchar;
+
+// ----------------------------------------------------------------------------
 // GTLRConnectors_QueryParameter.dataType
 
 /**
@@ -1143,11 +1421,27 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @interface GTLRConnectors_Action : GTLRObject
 
+/**
+ *  Brief Description of action
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display Name of action to be shown on client side */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** JsonSchema representation of this actions's input schema */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *inputJsonSchema;
+
 /** List containing input parameter metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_InputParameter *> *inputParameters;
 
 /** Name of the action. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** JsonSchema representation of this actions's result schema */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *resultJsonSchema;
 
 /** List containing the metadata of result fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_ResultMetadata *> *resultMetadata;
@@ -1208,6 +1502,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  *  List containing metadata information about each field of the entity type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Field *> *fields;
+
+/** JsonSchema representation of this entity's schema */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *jsonSchema;
 
 /** The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1425,6 +1722,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** JsonSchema of the field, applicable only if field is of type `STRUCT` */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *jsonSchema;
+
 /**
  *  The following boolean field specifies if the current Field acts as a primary
  *  key or id if the parent is of type entity.
@@ -1470,6 +1770,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  *  executing an Action.
  */
 @interface GTLRConnectors_InputParameter : GTLRObject
+
+/**
+ *  The following map contains fields that are not explicitly mentioned
+ *  above,this give connectors the flexibility to add new metadata fields.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_InputParameter_AdditionalDetails *additionalDetails;
 
 /**
  *  The data type of the Parameter
@@ -1583,6 +1889,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  JsonSchema of the parameter, applicable only if parameter is of type
+ *  `STRUCT`
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *jsonSchema;
+
 /** Name of the Parameter. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1593,6 +1905,206 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @property(nonatomic, strong, nullable) NSNumber *nullable;
 
+@end
+
+
+/**
+ *  The following map contains fields that are not explicitly mentioned
+ *  above,this give connectors the flexibility to add new metadata fields.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_InputParameter_AdditionalDetails : GTLRObject
+@end
+
+
+/**
+ *  JsonSchema representation of schema metadata
+ */
+@interface GTLRConnectors_JsonSchema : GTLRObject
+
+/**
+ *  Additional details apart from standard json schema fields, this gives
+ *  flexibility to store metadata about the schema
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_AdditionalDetails *additionalDetails;
+
+/**
+ *  The default value of the field or object described by this schema.
+ *
+ *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id defaultProperty;
+
+/**
+ *  A description of this schema.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Possible values for an enumeration. This works in conjunction with `type` to
+ *  represent types with a fixed set of legal values
+ *
+ *  Remapped to 'enumProperty' to avoid language reserved word 'enum'.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *enumProperty;
+
+/**
+ *  Format of the value as per
+ *  https://json-schema.org/understanding-json-schema/reference/string.html#format
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Schema that applies to array values, applicable only if this is of type
+ *  `array`.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *items;
+
+/**
+ *  JDBC datatype of the field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Array Array type. (Value:
+ *        "ARRAY")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Bigint Big int type. (Value:
+ *        "BIGINT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Binary Binary type. (Value:
+ *        "BINARY")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Bit Bit type. (Value: "BIT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Blob Blob type. (Value:
+ *        "BLOB")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Boolean Boolean type. (Value:
+ *        "BOOLEAN")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Char Char type. (Value:
+ *        "CHAR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Clob Clob type. (Value:
+ *        "CLOB")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Datalink Datalink type.
+ *        (Value: "DATALINK")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_DataTypeUnspecified Datatype
+ *        unspecified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Date Date type. (Value:
+ *        "DATE")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Datetime Deprecated Datetime
+ *        type. (Value: "DATETIME")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Decimal Decimal type. (Value:
+ *        "DECIMAL")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Distinct Distinct type
+ *        keyword. (Value: "DISTINCT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Double Double type. (Value:
+ *        "DOUBLE")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Float Float type. (Value:
+ *        "FLOAT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Int Deprecated Int type, use
+ *        INTEGER type instead. (Value: "INT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Integer Integer type. (Value:
+ *        "INTEGER")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_JavaObject Java object type.
+ *        (Value: "JAVA_OBJECT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Long Deprecated Long type, use
+ *        BIGINT type instead. (Value: "LONG")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Longnvarchar Long Nvarchar
+ *        type. (Value: "LONGNVARCHAR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Longvarbinary Long Varbinary
+ *        type. (Value: "LONGVARBINARY")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Longvarchar Long varchar type.
+ *        (Value: "LONGVARCHAR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Nchar Nchar type. (Value:
+ *        "NCHAR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Nclob Nclob type. (Value:
+ *        "NCLOB")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Null Null type. (Value:
+ *        "NULL")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Numeric Numeric type. (Value:
+ *        "NUMERIC")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Nvarchar Nvarchar type.
+ *        (Value: "NVARCHAR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Other Other type. (Value:
+ *        "OTHER")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Real Real type. (Value:
+ *        "REAL")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Ref Ref type. (Value: "REF")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_RefCursor Ref_cursor type.
+ *        (Value: "REF_CURSOR")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Rowid Row ID type. (Value:
+ *        "ROWID")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Smallint Small int type.
+ *        (Value: "SMALLINT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Sqlxml SQLXML type. (Value:
+ *        "SQLXML")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_String Deprecated string type,
+ *        use VARCHAR type instead. (Value: "STRING")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Struct Struct type. (Value:
+ *        "STRUCT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Time Time type. (Value:
+ *        "TIME")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Timestamp Timestamp type.
+ *        (Value: "TIMESTAMP")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_TimestampWithTimezone
+ *        Timestamp with timezone type. (Value: "TIMESTAMP_WITH_TIMEZONE")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_TimeWithTimezone Time with
+ *        timezone type. (Value: "TIME_WITH_TIMEZONE")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Tinyint Tiny int type. (Value:
+ *        "TINYINT")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Uuid Deprecated UUID type, use
+ *        VARCHAR instead. (Value: "UUID")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Varbinary Varbinary type.
+ *        (Value: "VARBINARY")
+ *    @arg @c kGTLRConnectors_JsonSchema_JdbcType_Varchar Varchar type. (Value:
+ *        "VARCHAR")
+ */
+@property(nonatomic, copy, nullable) NSString *jdbcType;
+
+/**
+ *  The child schemas, applicable only if this is of type `object`. The key is
+ *  the name of the property and the value is the json schema that describes
+ *  that property
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_Properties *properties;
+
+/** Whether this property is required. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *required;
+
+/** JSON Schema Validation: A Vocabulary for Structural Validation of JSON */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *type;
+
+@end
+
+
+/**
+ *  Additional details apart from standard json schema fields, this gives
+ *  flexibility to store metadata about the schema
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_AdditionalDetails : GTLRObject
+@end
+
+
+/**
+ *  The child schemas, applicable only if this is of type `object`. The key is
+ *  the name of the property and the value is the json schema that describes
+ *  that property
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_JsonSchema. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_Properties : GTLRObject
 @end
 
 
@@ -1816,7 +2328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  */
 @property(nonatomic, copy, nullable) NSString *dataType;
 
-@property(nonatomic, copy, nullable) NSString *value;
+/**
+ *  value
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
 
 @end
 
@@ -1944,6 +2461,11 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ResultMetadata_DataType_Varch
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  JsonSchema of the result, applicable only if parameter is of type `STRUCT`
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *jsonSchema;
 
 /** Name of the metadata field. */
 @property(nonatomic, copy, nullable) NSString *name;

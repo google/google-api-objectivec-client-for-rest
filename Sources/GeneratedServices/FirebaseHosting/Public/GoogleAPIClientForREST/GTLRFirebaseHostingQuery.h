@@ -145,6 +145,67 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  CancelOperation is a part of the google.longrunning.Operations interface,
+ *  but is not implemented for CustomDomain resources.
+ *
+ *  Method: firebasehosting.projects.sites.customDomains.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsCancel : GTLRFirebaseHostingQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Empty.
+ *
+ *  CancelOperation is a part of the google.longrunning.Operations interface,
+ *  but is not implemented for CustomDomain resources.
+ *
+ *  @param object The @c GTLRFirebaseHosting_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  DeleteOperation is a part of the google.longrunning.Operations interface,
+ *  but is not implemented for CustomDomain resources.
+ *
+ *  Method: firebasehosting.projects.sites.customDomains.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsDelete : GTLRFirebaseHostingQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Empty.
+ *
+ *  DeleteOperation is a part of the google.longrunning.Operations interface,
+ *  but is not implemented for CustomDomain resources.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

@@ -16,6 +16,136 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersCreate
+
+@dynamic clusterId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_Cluster *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/clusters";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Cluster class];
+  query.loggingName = @"redis.projects.locations.clusters.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/certificateAuthority";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_CertificateAuthority class];
+  query.loggingName = @"redis.projects.locations.clusters.getCertificateAuthority";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/clusters";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListClustersResponse class];
+  query.loggingName = @"redis.projects.locations.clusters.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_Cluster *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsGet
 
 @dynamic name;

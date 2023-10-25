@@ -196,6 +196,25 @@
 
 @end
 
+@implementation GTLRWorkflowsQuery_ProjectsLocationsWorkflowsListRevisions
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:listRevisions";
+  GTLRWorkflowsQuery_ProjectsLocationsWorkflowsListRevisions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkflows_ListWorkflowRevisionsResponse class];
+  query.loggingName = @"workflows.projects.locations.workflows.listRevisions";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkflowsQuery_ProjectsLocationsWorkflowsPatch
 
 @dynamic name, updateMask;

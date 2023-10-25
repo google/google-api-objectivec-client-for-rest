@@ -139,8 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Execution to cancel. Format:
- *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *  where {project} can be project id or number.
+ *  `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *  where `{project}` can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -152,8 +152,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2CancelExecutionRequest to
  *    include in the query.
  *  @param name Required. The name of the Execution to cancel. Format:
- *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *    where {project} can be project id or number.
+ *    `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *    where `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel
  */
@@ -180,8 +180,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Execution to delete. Format:
- *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *  where {project} can be project id or number.
+ *  `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *  where `{project}` can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -197,8 +197,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an Execution.
  *
  *  @param name Required. The name of the Execution to delete. Format:
- *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *    where {project} can be project id or number.
+ *    `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *    where `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete
  */
@@ -218,8 +218,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Execution. Format:
- *  projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *  where {project} can be project id or number.
+ *  `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *  where `{project}` can be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -229,8 +229,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about an Execution.
  *
  *  @param name Required. The full name of the Execution. Format:
- *    projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
- *    where {project} can be project id or number.
+ *    `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`,
+ *    where `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsGet
  */
@@ -260,8 +260,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The Execution from which the Executions should be listed. To list
  *  all Executions across Jobs, use "-" instead of Job name. Format:
- *  projects/{project}/locations/{location}/jobs/{job}, where {project} can be
- *  project id or number.
+ *  `projects/{project}/locations/{location}/jobs/{job}`, where `{project}` can
+ *  be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -277,8 +277,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The Execution from which the Executions should be
  *    listed. To list all Executions across Jobs, use "-" instead of Job name.
- *    Format: projects/{project}/locations/{location}/jobs/{job}, where
- *    {project} can be project id or number.
+ *    Format: `projects/{project}/locations/{location}/jobs/{job}`, where
+ *    `{project}` can be project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsList
  *

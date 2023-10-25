@@ -120,6 +120,8 @@
 @class GTLRYouTube_Playlist;
 @class GTLRYouTube_Playlist_Localizations;
 @class GTLRYouTube_PlaylistContentDetails;
+@class GTLRYouTube_PlaylistImage;
+@class GTLRYouTube_PlaylistImageSnippet;
 @class GTLRYouTube_PlaylistItem;
 @class GTLRYouTube_PlaylistItemContentDetails;
 @class GTLRYouTube_PlaylistItemSnippet;
@@ -3916,6 +3918,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Er
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Inactive;
 /** Value: "ready" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_PlaylistImageSnippet.type
+
+/**
+ *  The main image that will be used for this playlist.
+ *
+ *  Value: "hero"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistImageSnippet_Type_Hero;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistItemStatus.privacyStatus
@@ -7993,8 +8005,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *pauseAdsUntil;
 
-/** Interval frequency that api uses to insert cuepoints automatically. */
-@property(nonatomic, strong, nullable) GTLRDuration *repeatInterval;
+/**
+ *  Interval frequency in seconds that api uses to insert cuepoints
+ *  automatically.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *repeatIntervalSecs;
 
 /**
  *  The strategy to use when scheduling cuepoints.
@@ -10408,6 +10425,117 @@ GTLR_DEPRECATED
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *itemCount;
+
+@end
+
+
+/**
+ *  GTLRYouTube_PlaylistImage
+ */
+@interface GTLRYouTube_PlaylistImage : GTLRObject
+
+/**
+ *  Identifies this resource (playlist id and image type).
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#playlistImages".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_PlaylistImageSnippet *snippet;
+
+@end
+
+
+/**
+ *  GTLRYouTube_PlaylistImageListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRYouTube_PlaylistImageListResponse : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_PlaylistImage *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#playlistImageListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The token that can be used as the value of the pageToken parameter to
+ *  retrieve the next page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** General pagination information. */
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+
+/**
+ *  The token that can be used as the value of the pageToken parameter to
+ *  retrieve the previous page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
+
+@end
+
+
+/**
+ *  A *playlistImage* resource identifies another resource, such as a image,
+ *  that is associated with a playlist. In addition, the playlistImage resource
+ *  contains details about the included resource that pertain specifically to
+ *  how that resource is used in that playlist. YouTube uses playlists to
+ *  identify special collections of videos for a channel, such as: - uploaded
+ *  videos - favorite videos - positively rated (liked) videos - watch history
+ *  To be more specific, these lists are associated with a channel, which is a
+ *  collection of a person, group, or company's videos, playlists, and other
+ *  YouTube information. You can retrieve the playlist IDs for each of these
+ *  lists from the channel resource for a given channel. You can then use the
+ *  playlistImages.list method to retrieve image data for any of those
+ *  playlists. You can also add or remove images from those lists by calling the
+ *  playlistImages.insert and playlistImages.delete methods.
+ */
+@interface GTLRYouTube_PlaylistImageSnippet : GTLRObject
+
+/**
+ *  The image height.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** The Playlist ID of the playlist this image is associated with. */
+@property(nonatomic, copy, nullable) NSString *playlistId;
+
+/**
+ *  The image type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_PlaylistImageSnippet_Type_Hero The main image that
+ *        will be used for this playlist. (Value: "hero")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The image width.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
 
 @end
 

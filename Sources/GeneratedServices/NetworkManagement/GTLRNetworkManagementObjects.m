@@ -98,6 +98,26 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress = 
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning = @"VPC_CONNECTOR_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet = @"VPC_CONNECTOR_NOT_SET";
 
+// GTLRNetworkManagement_Endpoint.forwardingRuleTarget
+NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_ForwardingRuleTargetUnspecified = @"FORWARDING_RULE_TARGET_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Instance = @"INSTANCE";
+NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_LoadBalancer = @"LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_Psc = @"PSC";
+NSString * const kGTLRNetworkManagement_Endpoint_ForwardingRuleTarget_VpnGateway = @"VPN_GATEWAY";
+
+// GTLRNetworkManagement_Endpoint.loadBalancerType
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsAdvancedLoadBalancer = @"HTTPS_ADVANCED_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_HttpsLoadBalancer = @"HTTPS_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_InternalTcpProxyLoadBalancer = @"INTERNAL_TCP_PROXY_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_LegacyNetworkLoadBalancer = @"LEGACY_NETWORK_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_LoadBalancerTypeUnspecified = @"LOAD_BALANCER_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_NetworkLoadBalancer = @"NETWORK_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_RegionalHttpsLoadBalancer = @"REGIONAL_HTTPS_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_SslProxyLoadBalancer = @"SSL_PROXY_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpProxyLoadBalancer = @"TCP_PROXY_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpUdpInternalLoadBalancer = @"TCP_UDP_INTERNAL_LOAD_BALANCER";
+
 // GTLRNetworkManagement_Endpoint.networkType
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork = @"GCP_NETWORK";
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified = @"NETWORK_TYPE_UNSPECIFIED";
@@ -147,6 +167,18 @@ NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_LoadBa
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_NetworkTcpUdp = @"NETWORK_TCP_UDP";
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_SslProxy = @"SSL_PROXY";
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy = @"TCP_PROXY";
+
+// GTLRNetworkManagement_ProbingDetails.abortCause
+NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_NoSourceLocation = @"NO_SOURCE_LOCATION";
+NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_ProbingAbortCauseUnspecified = @"PROBING_ABORT_CAUSE_UNSPECIFIED";
+
+// GTLRNetworkManagement_ProbingDetails.result
+NSString * const kGTLRNetworkManagement_ProbingDetails_Result_ProbingResultUnspecified = @"PROBING_RESULT_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_ProbingDetails_Result_ReachabilityInconsistent = @"REACHABILITY_INCONSISTENT";
+NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Reachable = @"REACHABLE";
+NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Undetermined = @"UNDETERMINED";
+NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable = @"UNREACHABLE";
 
 // GTLRNetworkManagement_ReachabilityDetails.result
 NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous = @"AMBIGUOUS";
@@ -379,8 +411,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_ConnectivityTest
 @dynamic createTime, descriptionProperty, destination, displayName, labels,
-         name, protocol, reachabilityDetails, relatedProjects, source,
-         updateTime;
+         name, probingDetails, protocol, reachabilityDetails, relatedProjects,
+         source, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -432,6 +464,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_EdgeLocation
+//
+
+@implementation GTLRNetworkManagement_EdgeLocation
+@dynamic metropolitanArea;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_Empty
 //
 
@@ -446,8 +488,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_Endpoint
 @dynamic appEngineVersion, cloudFunction, cloudRunRevision, cloudSqlInstance,
-         forwardingRule, gkeMasterCluster, instance, ipAddress, network,
-         networkType, port, projectId;
+         forwardingRule, forwardingRuleTarget, gkeMasterCluster, instance,
+         ipAddress, loadBalancerId, loadBalancerType, network, networkType,
+         port, projectId;
 @end
 
 
@@ -554,6 +597,34 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_LatencyDistribution
+//
+
+@implementation GTLRNetworkManagement_LatencyDistribution
+@dynamic latencyPercentiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"latencyPercentiles" : [GTLRNetworkManagement_LatencyPercentile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_LatencyPercentile
+//
+
+@implementation GTLRNetworkManagement_LatencyPercentile
+@dynamic latencyMicros, percent;
 @end
 
 
@@ -779,6 +850,18 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_ProbingDetails
+//
+
+@implementation GTLRNetworkManagement_ProbingDetails
+@dynamic abortCause, destinationEgressLocation, endpointInfo, error,
+         probingLatency, result, sentProbeCount, successfulProbeCount,
+         verifyTime;
 @end
 
 

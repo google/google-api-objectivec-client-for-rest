@@ -734,6 +734,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestRespo
 
 /** Value: "AUTO" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_Auto;
+/** Value: "BY_NEWS_SHOWCASE_PANEL" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByNewsShowcasePanel;
 /** Value: "BY_PAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByPage;
 /** Value: "BY_PROPERTY" */
@@ -838,6 +840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
 
 /** Value: "AUTO" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_Auto;
+/** Value: "BY_NEWS_SHOWCASE_PANEL" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByNewsShowcasePanel;
 /** Value: "BY_PAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByPage;
 /** Value: "BY_PROPERTY" */
@@ -1752,6 +1756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  Likely values:
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_Auto
  *        Value "AUTO"
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByNewsShowcasePanel
+ *        Value "BY_NEWS_SHOWCASE_PANEL"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByPage
  *        Value "BY_PAGE"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByProperty
@@ -1874,6 +1880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  Likely values:
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_Auto
  *        Value "AUTO"
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByNewsShowcasePanel
+ *        Value "BY_NEWS_SHOWCASE_PANEL"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByPage
  *        Value "BY_PAGE"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByProperty

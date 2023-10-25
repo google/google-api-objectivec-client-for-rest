@@ -105,6 +105,205 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
+ *  POST /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel
+ *  Changes the DeviceSession to state FINISHED and terminates all connections.
+ *  Canceled sessions are not deleted and can be retrieved or listed by the user
+ *  until they expire based on the 28 day deletion policy.
+ *
+ *  Method: testing.projects.deviceSessions.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTestingCloudPlatform
+ */
+@interface GTLRTestingQuery_ProjectsDeviceSessionsCancel : GTLRTestingQuery
+
+/**
+ *  Required. Name of the DeviceSession, e.g.
+ *  "projects/{project_id}/deviceSessions/{session_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTesting_Empty.
+ *
+ *  POST /v1/projects/{project_id}/deviceSessions/{device_session_id}:cancel
+ *  Changes the DeviceSession to state FINISHED and terminates all connections.
+ *  Canceled sessions are not deleted and can be retrieved or listed by the user
+ *  until they expire based on the 28 day deletion policy.
+ *
+ *  @param object The @c GTLRTesting_CancelDeviceSessionRequest to include in
+ *    the query.
+ *  @param name Required. Name of the DeviceSession, e.g.
+ *    "projects/{project_id}/deviceSessions/{session_id}"
+ *
+ *  @return GTLRTestingQuery_ProjectsDeviceSessionsCancel
+ */
++ (instancetype)queryWithObject:(GTLRTesting_CancelDeviceSessionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  POST /v1/projects/{project_id}/deviceSessions
+ *
+ *  Method: testing.projects.deviceSessions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTestingCloudPlatform
+ */
+@interface GTLRTestingQuery_ProjectsDeviceSessionsCreate : GTLRTestingQuery
+
+/**
+ *  Required. The Compute Engine project under which this device will be
+ *  allocated. "projects/{project_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTesting_DeviceSession.
+ *
+ *  POST /v1/projects/{project_id}/deviceSessions
+ *
+ *  @param object The @c GTLRTesting_DeviceSession to include in the query.
+ *  @param parent Required. The Compute Engine project under which this device
+ *    will be allocated. "projects/{project_id}"
+ *
+ *  @return GTLRTestingQuery_ProjectsDeviceSessionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTesting_DeviceSession *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  GET /v1/projects/{project_id}/deviceSessions/{device_session_id} Return a
+ *  DeviceSession, which documents the allocation status and whether the device
+ *  is allocated. Clients making requests from this API must poll
+ *  GetDeviceSession.
+ *
+ *  Method: testing.projects.deviceSessions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTestingCloudPlatform
+ */
+@interface GTLRTestingQuery_ProjectsDeviceSessionsGet : GTLRTestingQuery
+
+/**
+ *  Required. Name of the DeviceSession, e.g.
+ *  "projects/{project_id}/deviceSessions/{session_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTesting_DeviceSession.
+ *
+ *  GET /v1/projects/{project_id}/deviceSessions/{device_session_id} Return a
+ *  DeviceSession, which documents the allocation status and whether the device
+ *  is allocated. Clients making requests from this API must poll
+ *  GetDeviceSession.
+ *
+ *  @param name Required. Name of the DeviceSession, e.g.
+ *    "projects/{project_id}/deviceSessions/{session_id}"
+ *
+ *  @return GTLRTestingQuery_ProjectsDeviceSessionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GET /v1/projects/{project_id}/deviceSessions Lists device Sessions owned by
+ *  the project user.
+ *
+ *  Method: testing.projects.deviceSessions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTestingCloudPlatform
+ */
+@interface GTLRTestingQuery_ProjectsDeviceSessionsList : GTLRTestingQuery
+
+/**
+ *  Optional. If specified, responses will be filtered by the given filter.
+ *  Allowed fields are: session_state.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The maximum number of DeviceSessions to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. A continuation token for paging. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent to request, e.g. "projects/{project_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTesting_ListDeviceSessionsResponse.
+ *
+ *  GET /v1/projects/{project_id}/deviceSessions Lists device Sessions owned by
+ *  the project user.
+ *
+ *  @param parent Required. The name of the parent to request, e.g.
+ *    "projects/{project_id}"
+ *
+ *  @return GTLRTestingQuery_ProjectsDeviceSessionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  PATCH
+ *  /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession
+ *  Updates the current device session to the fields described by the
+ *  update_mask.
+ *
+ *  Method: testing.projects.deviceSessions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTestingCloudPlatform
+ */
+@interface GTLRTestingQuery_ProjectsDeviceSessionsPatch : GTLRTestingQuery
+
+/**
+ *  Optional. Name of the DeviceSession, e.g.
+ *  "projects/{project_id}/deviceSessions/{session_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRTesting_DeviceSession.
+ *
+ *  PATCH
+ *  /v1/projects/{projectId}/deviceSessions/deviceSessionId}:updateDeviceSession
+ *  Updates the current device session to the fields described by the
+ *  update_mask.
+ *
+ *  @param object The @c GTLRTesting_DeviceSession to include in the query.
+ *  @param name Optional. Name of the DeviceSession, e.g.
+ *    "projects/{project_id}/deviceSessions/{session_id}"
+ *
+ *  @return GTLRTestingQuery_ProjectsDeviceSessionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRTesting_DeviceSession *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Cancels unfinished test executions in a test matrix. This call returns
  *  immediately and cancellation proceeds asynchronously. If the matrix is
  *  already final, this operation will have no effect. May return any of the

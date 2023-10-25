@@ -75,6 +75,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest.memcacheVersion
+
+/**
+ *  Memcached 1.5 version.
+ *
+ *  Value: "MEMCACHE_1_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache15;
+/**
+ *  Memcached 1.6.15 version.
+ *
+ *  Value: "MEMCACHE_1_6_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache1615;
+/**
+ *  Memcache version is not specified by customer
+ *
+ *  Value: "MEMCACHE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_MemcacheVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 
 /**
@@ -130,6 +152,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15;
 /**
+ *  Memcached 1.6.15 version.
+ *
+ *  Value: "MEMCACHE_1_6_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache1615;
+/**
  *  Memcache version is not specified by customer
  *
  *  Value: "MEMCACHE_VERSION_UNSPECIFIED"
@@ -151,6 +179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_St
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting;
+/**
+ *  Memcached instance is undergoing memcached engine version upgrade.
+ *
+ *  Value: "MEMCACHE_VERSION_UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_MemcacheVersionUpgrading;
 /**
  *  Memcached instance is going through maintenance, e.g. data plane rollout.
  *
@@ -214,6 +248,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Maintenance
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMemorystoreforMemcached_Node.memcacheVersion
+
+/**
+ *  Memcached 1.5 version.
+ *
+ *  Value: "MEMCACHE_1_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache15;
+/**
+ *  Memcached 1.6.15 version.
+ *
+ *  Value: "MEMCACHE_1_6_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache1615;
+/**
+ *  Memcache version is not specified by customer
+ *
+ *  Value: "MEMCACHE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_MemcacheVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_Node.state
@@ -645,6 +701,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Request for UpgradeInstance.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest : GTLRObject
+
+/**
+ *  Required. Specifies the target version of memcached engine to upgrade to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache15
+ *        Memcached 1.5 version. (Value: "MEMCACHE_1_5")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_Memcache1615
+ *        Memcached 1.6.15 version. (Value: "MEMCACHE_1_6_15")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1UpgradeInstanceRequest_MemcacheVersion_MemcacheVersionUnspecified
+ *        Memcache version is not specified by customer (Value:
+ *        "MEMCACHE_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *memcacheVersion;
 
 @end
 
@@ -1221,6 +1299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  Likely values:
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15
  *        Memcached 1.5 version. (Value: "MEMCACHE_1_5")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache1615
+ *        Memcached 1.6.15 version. (Value: "MEMCACHE_1_6_15")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified
  *        Memcache version is not specified by customer (Value:
  *        "MEMCACHE_VERSION_UNSPECIFIED")
@@ -1266,6 +1346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *        Memcached instance is being created. (Value: "CREATING")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting
  *        Memcached instance is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_State_MemcacheVersionUpgrading
+ *        Memcached instance is undergoing memcached engine version upgrade.
+ *        (Value: "MEMCACHE_VERSION_UPGRADING")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance
  *        Memcached instance is going through maintenance, e.g. data plane
  *        rollout. (Value: "PERFORMING_MAINTENANCE")
@@ -1654,6 +1737,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  clients to connect to the Memcached server on this node.
  */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Output only. The full version of memcached server running on this node. e.g.
+ *  - memcached-1.5.16
+ */
+@property(nonatomic, copy, nullable) NSString *memcacheFullVersion;
+
+/**
+ *  Output only. Major version of memcached server running on this node, e.g.
+ *  MEMCACHE_1_5
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache15
+ *        Memcached 1.5 version. (Value: "MEMCACHE_1_5")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_Memcache1615
+ *        Memcached 1.6.15 version. (Value: "MEMCACHE_1_6_15")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Node_MemcacheVersion_MemcacheVersionUnspecified
+ *        Memcache version is not specified by customer (Value:
+ *        "MEMCACHE_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *memcacheVersion;
 
 /**
  *  Output only. Identifier of the Memcached node. The node id does not include

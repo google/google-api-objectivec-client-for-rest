@@ -34,6 +34,24 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflowExecutions_Callback
+//
+
+@implementation GTLRWorkflowExecutions_Callback
+@dynamic availablePayloads, method, name, waiters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availablePayloads" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflowExecutions_CancelExecutionRequest
 //
 
@@ -71,6 +89,38 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_ExportDataResponse
+//
+
+@implementation GTLRWorkflowExecutions_ExportDataResponse
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_ListCallbacksResponse
+//
+
+@implementation GTLRWorkflowExecutions_ListCallbacksResponse
+@dynamic callbacks, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"callbacks" : [GTLRWorkflowExecutions_Callback class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"callbacks";
 }
 
 @end

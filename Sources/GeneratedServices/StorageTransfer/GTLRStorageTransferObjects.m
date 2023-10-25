@@ -188,7 +188,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_AwsS3Data
-@dynamic awsAccessKey, bucketName, credentialsSecret, path, roleArn;
+@dynamic awsAccessKey, bucketName, cloudfrontDomain, credentialsSecret, path,
+         roleArn;
 @end
 
 

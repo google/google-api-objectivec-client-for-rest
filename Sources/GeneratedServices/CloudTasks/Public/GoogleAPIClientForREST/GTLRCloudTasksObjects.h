@@ -594,6 +594,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  CMEK, or Customer Managed Encryption Keys, enables GCP products to put
+ *  control over encryption and key management in their customer’s hands.
+ */
+@interface GTLRCloudTasks_CmekConfig : GTLRObject
+
+/**
+ *  Resource name of the Cloud KMS key, of the form
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/keyRings/KEY_RING_ID/cryptoKeys/KEY_ID`,
+ *  that will be used to encrypt the Queues & Tasks in the region. Setting this
+ *  as blank will turn off CMEK encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Output only. The config resource name which includes the project and
+ *  location and must end in 'cmekConfig', in the format
+ *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Request message for CreateTask.
  */
 @interface GTLRCloudTasks_CreateTaskRequest : GTLRObject
@@ -1369,8 +1393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  A task will be scheduled for retry between min_backoff and max_backoff
  *  duration after it fails, if the queue's RetryConfig specifies that the task
  *  should be retried. If unspecified when the queue is created, Cloud Tasks
- *  will pick the default. `max_backoff` will be truncated to the nearest
- *  second. This field has the same meaning as [max_backoff_seconds in
+ *  will pick the default. The value must be given as a string that indicates
+ *  the length of time (in seconds) followed by `s` (for "seconds"). For more
+ *  information on the format, see the documentation for
+ *  [Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration).
+ *  `max_backoff` will be truncated to the nearest second. This field has the
+ *  same meaning as [max_backoff_seconds in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxBackoff;
@@ -1399,9 +1427,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  `max_retry_duration` time has passed *and* the task has been attempted
  *  max_attempts times, no further attempts will be made and the task will be
  *  deleted. If zero, then the task age is unlimited. If unspecified when the
- *  queue is created, Cloud Tasks will pick the default. `max_retry_duration`
- *  will be truncated to the nearest second. This field has the same meaning as
- *  [task_age_limit in
+ *  queue is created, Cloud Tasks will pick the default. The value must be given
+ *  as a string that indicates the length of time (in seconds) followed by `s`
+ *  (for "seconds"). For the maximum possible value or the format, see the
+ *  documentation for
+ *  [Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration).
+ *  `max_retry_duration` will be truncated to the nearest second. This field has
+ *  the same meaning as [task_age_limit in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetryDuration;
@@ -1410,8 +1442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  A task will be scheduled for retry between min_backoff and max_backoff
  *  duration after it fails, if the queue's RetryConfig specifies that the task
  *  should be retried. If unspecified when the queue is created, Cloud Tasks
- *  will pick the default. `min_backoff` will be truncated to the nearest
- *  second. This field has the same meaning as [min_backoff_seconds in
+ *  will pick the default. The value must be given as a string that indicates
+ *  the length of time (in seconds) followed by `s` (for "seconds"). For more
+ *  information on the format, see the documentation for
+ *  [Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration).
+ *  `min_backoff` will be truncated to the nearest second. This field has the
+ *  same meaning as [min_backoff_seconds in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minBackoff;
@@ -1577,6 +1613,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  recommend setting the `dispatch_deadline` to at most a few seconds more than
  *  the app handler's timeout. For more information see
  *  [Timeouts](https://cloud.google.com/tasks/docs/creating-appengine-handlers#timeouts).
+ *  The value must be given as a string that indicates the length of time (in
+ *  seconds) followed by `s` (for "seconds"). For more information on the
+ *  format, see the documentation for
+ *  [Duration](https://protobuf.dev/reference/protobuf/google.protobuf/#duration).
  *  `dispatch_deadline` will be truncated to the nearest millisecond. The
  *  deadline is an approximate deadline.
  */

@@ -57,6 +57,12 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Annota
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionAccepted = @"TRANSACTION_ACCEPTED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined = @"TRANSACTION_DECLINED";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals.cardLabels
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_CardLabelUnspecified = @"CARD_LABEL_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_Prepaid = @"PREPAID";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_UnexpectedLocation = @"UNEXPECTED_LOCATION";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_Virtual = @"VIRTUAL";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_Automation = @"AUTOMATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_ClassificationReasonUnspecified = @"CLASSIFICATION_REASON_UNSPECIFIED";
@@ -187,7 +193,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest
-@dynamic annotation, hashedAccountId, reasons, transactionEvent;
+@dynamic accountId, annotation, hashedAccountId, reasons, transactionEvent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -225,8 +231,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
 @dynamic accountDefenderAssessment, accountVerification, event,
-         firewallPolicyAssessment, fraudPreventionAssessment, name,
-         privatePasswordLeakVerification, riskAnalysis, tokenProperties;
+         firewallPolicyAssessment, fraudPreventionAssessment, fraudSignals,
+         name, privatePasswordLeakVerification, riskAnalysis, tokenProperties;
 @end
 
 
@@ -258,7 +264,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event
 @dynamic expectedAction, express, firewallPolicyEvaluation, hashedAccountId,
          headers, ja3, requestedUri, siteKey, token, transactionData, userAgent,
-         userIpAddress, wafTokenAssessment;
+         userInfo, userIpAddress, wafTokenAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -397,6 +403,44 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict
 @dynamic risk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignals
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignals
+@dynamic cardSignals, userSignals;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals
+@dynamic cardLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardLabels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals
+@dynamic activeDaysLowerBound, syntheticRisk;
 @end
 
 
@@ -807,6 +851,34 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent
 @dynamic eventTime, eventType, reason, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserId
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserId
+@dynamic email, phoneNumber, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserInfo
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserInfo
+@dynamic accountId, createAccountTime, userIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userIds" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserId class]
+  };
+  return map;
+}
+
 @end
 
 

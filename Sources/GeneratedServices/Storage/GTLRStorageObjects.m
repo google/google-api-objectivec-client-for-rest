@@ -19,9 +19,10 @@
 @dynamic acl, autoclass, billing, cors, customPlacementConfig,
          defaultEventBasedHold, defaultObjectAcl, encryption, ETag,
          iamConfiguration, identifier, kind, labels, lifecycle, location,
-         locationType, logging, metageneration, name, owner, projectNumber,
-         retentionPolicy, rpo, satisfiesPZS, selfLink, storageClass,
-         timeCreated, updated, versioning, website;
+         locationType, logging, metageneration, name, objectRetention, owner,
+         projectNumber, retentionPolicy, rpo, satisfiesPZS, selfLink,
+         softDeletePolicy, storageClass, timeCreated, updated, versioning,
+         website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -49,7 +50,8 @@
 //
 
 @implementation GTLRStorage_Bucket_Autoclass
-@dynamic enabled, toggleTime;
+@dynamic enabled, terminalStorageClass, terminalStorageClassUpdateTime,
+         toggleTime;
 @end
 
 
@@ -165,6 +167,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Bucket_ObjectRetention
+//
+
+@implementation GTLRStorage_Bucket_ObjectRetention
+@dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Bucket_Owner
 //
 
@@ -180,6 +192,16 @@
 
 @implementation GTLRStorage_Bucket_RetentionPolicy
 @dynamic effectiveTime, isLocked, retentionPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_SoftDeletePolicy
+//
+
+@implementation GTLRStorage_Bucket_SoftDeletePolicy
+@dynamic effectiveTime, retentionDurationSeconds;
 @end
 
 
@@ -334,6 +356,25 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_BulkRestoreObjectsRequest
+//
+
+@implementation GTLRStorage_BulkRestoreObjectsRequest
+@dynamic allowOverwrite, copySourceAcl, matchGlobs, softDeletedAfterTime,
+         softDeletedBeforeTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchGlobs" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Channel
 //
 
@@ -417,6 +458,98 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_GoogleLongrunningListOperationsResponse
+//
+
+@implementation GTLRStorage_GoogleLongrunningListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRStorage_GoogleLongrunningOperation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_GoogleLongrunningOperation
+//
+
+@implementation GTLRStorage_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_GoogleLongrunningOperation_Metadata
+//
+
+@implementation GTLRStorage_GoogleLongrunningOperation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_GoogleLongrunningOperation_Response
+//
+
+@implementation GTLRStorage_GoogleLongrunningOperation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_GoogleRpcStatus
+//
+
+@implementation GTLRStorage_GoogleRpcStatus
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRStorage_GoogleRpcStatus_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_GoogleRpcStatus_Details_Item
+//
+
+@implementation GTLRStorage_GoogleRpcStatus_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_HmacKey
 //
 
@@ -456,6 +589,40 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"items" : [GTLRStorage_HmacKeyMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ManagedFolder
+//
+
+@implementation GTLRStorage_ManagedFolder
+@dynamic bucket, createTime, identifier, kind, metageneration, name, selfLink,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ManagedFolders
+//
+
+@implementation GTLRStorage_ManagedFolders
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_ManagedFolder class]
   };
   return map;
 }
@@ -535,10 +702,11 @@
 @dynamic acl, bucket, cacheControl, componentCount, contentDisposition,
          contentEncoding, contentLanguage, contentType, crc32c,
          customerEncryption, customTime, ETag, eventBasedHold, generation,
-         identifier, kind, kmsKeyName, md5Hash, mediaLink, metadata,
-         metageneration, name, owner, retentionExpirationTime, selfLink, size,
-         storageClass, temporaryHold, timeCreated, timeDeleted,
-         timeStorageClassUpdated, updated;
+         hardDeleteTime, identifier, kind, kmsKeyName, md5Hash, mediaLink,
+         metadata, metageneration, name, owner, retention,
+         retentionExpirationTime, selfLink, size, softDeleteTime, storageClass,
+         temporaryHold, timeCreated, timeDeleted, timeStorageClassUpdated,
+         updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -589,6 +757,16 @@
 
 @implementation GTLRStorage_Object_Owner
 @dynamic entity, entityId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Object_Retention
+//
+
+@implementation GTLRStorage_Object_Retention
+@dynamic mode, retainUntilTime;
 @end
 
 

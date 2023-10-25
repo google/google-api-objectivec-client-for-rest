@@ -80,6 +80,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis;
@@ -164,6 +165,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData_Metadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
@@ -2257,13 +2259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  Response from export issue model
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelResponse : GTLRObject
-@end
-
-
-/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData : GTLRObject
@@ -2345,13 +2340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  Response from import issue model
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse : GTLRObject
-@end
-
-
-/**
  *  The metadata for an IngestConversations operation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadata : GTLRObject
@@ -2424,7 +2412,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Configuration that applies to all conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig *conversationConfig;
 
-/** A cloud storage bucket source. */
+/**
+ *  A cloud storage bucket source. Note that any previously ingested objects
+ *  from the source will be skipped to avoid duplication.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource *gcsSource;
 
 /** Required. The parent resource for new conversations. */
@@ -2966,6 +2957,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Speech-to-Text configuration.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig : GTLRObject
+
+/**
+ *  The fully-qualified Speech Recognizer resource name. Format:
+ *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
+ */
+@property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
  *  Metadata for undeploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelMetadata : GTLRObject
@@ -3051,6 +3056,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  the config specified in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig *redactionConfig;
+
+/**
+ *  Optional. Default Speech-to-Text configuration. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig *speechConfig;
 
 @end
 
@@ -4537,13 +4548,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Response from export issue model
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelResponse : GTLRObject
-@end
-
-
-/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData : GTLRObject
@@ -4625,13 +4629,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Response from import issue model
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse : GTLRObject
-@end
-
-
-/**
  *  The metadata for an IngestConversations operation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadata : GTLRObject
@@ -4704,7 +4701,10 @@ GTLR_DEPRECATED
 /** Configuration that applies to all conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig *conversationConfig;
 
-/** A cloud storage bucket source. */
+/**
+ *  A cloud storage bucket source. Note that any previously ingested objects
+ *  from the source will be skipped to avoid duplication.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource *gcsSource;
 
 /** Required. The parent resource for new conversations. */
@@ -5513,6 +5513,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
 
+/**
+ *  Optional. Default Speech-to-Text resources to be used while ingesting audio
+ *  files. Optional, CCAI Insights will create a default if not provided.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
+
 /** Output only. The time at which the settings were last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -5667,6 +5673,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Speech-to-Text configuration.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig : GTLRObject
+
+/**
+ *  The fully-qualified Speech Recognizer resource name. Format:
+ *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
+ */
+@property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
  *  Metadata for undeploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelMetadata : GTLRObject
@@ -5752,6 +5772,12 @@ GTLR_DEPRECATED
  *  the config specified in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
+
+/**
+ *  Optional. Default Speech-to-Text configuration. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
 
 @end
 

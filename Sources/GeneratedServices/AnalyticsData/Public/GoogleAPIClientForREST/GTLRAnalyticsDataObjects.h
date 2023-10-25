@@ -1018,13 +1018,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /**
  *  The name of the dimension. See the [API
  *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)
- *  for the list of dimension names. If `dimensionExpression` is specified,
- *  `name` can be any string that you would like within the allowed character
- *  set. For example if a `dimensionExpression` concatenates `country` and
- *  `city`, you could call that dimension `countryAndCity`. Dimension names that
- *  you choose must match the regular expression `^[a-zA-Z0-9_]$`. Dimensions
- *  are referenced by `name` in `dimensionFilter`, `orderBys`,
- *  `dimensionExpression`, and `pivots`.
+ *  for the list of dimension names supported by core reporting methods such as
+ *  `runReport` and `batchRunReports`. See [Realtime
+ *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-api-schema#dimensions)
+ *  for the list of dimension names supported by the `runRealtimeReport` method.
+ *  See [Funnel
+ *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/exploration-api-schema#dimensions)
+ *  for the list of dimension names supported by the `runFunnelReport` method.
+ *  If `dimensionExpression` is specified, `name` can be any string that you
+ *  would like within the allowed character set. For example if a
+ *  `dimensionExpression` concatenates `country` and `city`, you could call that
+ *  dimension `countryAndCity`. Dimension names that you choose must match the
+ *  regular expression `^[a-zA-Z0-9_]$`. Dimensions are referenced by `name` in
+ *  `dimensionFilter`, `orderBys`, `dimensionExpression`, and `pivots`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1271,7 +1277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  The dimensions and metrics currently accepted in reporting methods.
+ *  The dimensions, metrics and comparisons currently accepted in reporting
+ *  methods.
  */
 @interface GTLRAnalyticsData_Metadata : GTLRObject
 
@@ -1312,11 +1319,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /**
  *  The name of the metric. See the [API
  *  Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
- *  for the list of metric names. If `expression` is specified, `name` can be
- *  any string that you would like within the allowed character set. For example
- *  if `expression` is `screenPageViews/sessions`, you could call that metric's
- *  name = `viewsPerSession`. Metric names that you choose must match the
- *  regular expression `^[a-zA-Z0-9_]$`. Metrics are referenced by `name` in
+ *  for the list of metric names supported by core reporting methods such as
+ *  `runReport` and `batchRunReports`. See [Realtime
+ *  Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-api-schema#metrics)
+ *  for the list of metric names supported by the `runRealtimeReport` method.
+ *  See [Funnel
+ *  Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/exploration-api-schema#metrics)
+ *  for the list of metric names supported by the `runFunnelReport` method. If
+ *  `expression` is specified, `name` can be any string that you would like
+ *  within the allowed character set. For example if `expression` is
+ *  `screenPageViews/sessions`, you could call that metric's name =
+ *  `viewsPerSession`. Metric names that you choose must match the regular
+ *  expression `^[a-zA-Z0-9_]$`. Metrics are referenced by `name` in
  *  `metricFilter`, `orderBys`, and metric `expression`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

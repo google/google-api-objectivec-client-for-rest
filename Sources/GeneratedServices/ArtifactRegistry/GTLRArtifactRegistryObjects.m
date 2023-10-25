@@ -94,11 +94,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Mode_RemoteRepository = @"REMO
 NSString * const kGTLRArtifactRegistry_Repository_Mode_StandardRepository = @"STANDARD_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository = @"VIRTUAL_REPOSITORY";
 
-// GTLRArtifactRegistry_SbomConfig.enablementConfig
-NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled = @"DISABLED";
-NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified = @"ENABLEMENT_CONFIG_UNSPECIFIED";
-NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited = @"INHERITED";
-
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow = @"ALLOW";
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Deny = @"DENY";
@@ -1008,7 +1003,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_RemoteRepositoryConfig
 @dynamic aptRepository, descriptionProperty, dockerRepository, mavenRepository,
-         npmRepository, pythonRepository, yumRepository;
+         npmRepository, pythonRepository, upstreamCredentials, yumRepository;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1025,8 +1020,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 @implementation GTLRArtifactRegistry_Repository
 @dynamic cleanupPolicies, cleanupPolicyDryRun, createTime, descriptionProperty,
          dockerConfig, format, kmsKeyName, labels, mavenConfig, mode, name,
-         remoteRepositoryConfig, satisfiesPzs, sbomConfig, sizeBytes,
-         updateTime, virtualRepositoryConfig;
+         remoteRepositoryConfig, satisfiesPzs, sizeBytes, updateTime,
+         virtualRepositoryConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1060,16 +1055,6 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_SbomConfig
-//
-
-@implementation GTLRArtifactRegistry_SbomConfig
-@dynamic enablementConfig, lastEnableTime;
 @end
 
 
@@ -1370,6 +1355,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_UpstreamCredentials
+//
+
+@implementation GTLRArtifactRegistry_UpstreamCredentials
+@dynamic usernamePasswordCredentials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_UpstreamPolicy
 //
 
@@ -1380,6 +1375,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UsernamePasswordCredentials
+//
+
+@implementation GTLRArtifactRegistry_UsernamePasswordCredentials
+@dynamic passwordSecretVersion, username;
 @end
 
 

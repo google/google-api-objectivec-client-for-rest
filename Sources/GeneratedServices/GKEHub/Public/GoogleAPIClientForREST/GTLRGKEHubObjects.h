@@ -107,6 +107,23 @@
 @class GTLRGKEHub_Operation_Response;
 @class GTLRGKEHub_Origin;
 @class GTLRGKEHub_Policy;
+@class GTLRGKEHub_PolicyControllerBundleInstallSpec;
+@class GTLRGKEHub_PolicyControllerHubConfig;
+@class GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs;
+@class GTLRGKEHub_PolicyControllerMembershipSpec;
+@class GTLRGKEHub_PolicyControllerMembershipState;
+@class GTLRGKEHub_PolicyControllerMembershipState_ComponentStates;
+@class GTLRGKEHub_PolicyControllerMonitoringConfig;
+@class GTLRGKEHub_PolicyControllerOnClusterState;
+@class GTLRGKEHub_PolicyControllerPolicyContentSpec;
+@class GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles;
+@class GTLRGKEHub_PolicyControllerPolicyContentState;
+@class GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates;
+@class GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig;
+@class GTLRGKEHub_PolicyControllerResourceList;
+@class GTLRGKEHub_PolicyControllerResourceRequirements;
+@class GTLRGKEHub_PolicyControllerTemplateLibraryConfig;
+@class GTLRGKEHub_PolicyControllerToleration;
 @class GTLRGKEHub_RBACRoleBinding;
 @class GTLRGKEHub_RBACRoleBinding_Labels;
 @class GTLRGKEHub_RBACRoleBindingLifecycleState;
@@ -997,6 +1014,289 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_TypeUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Origin_Type_User;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerHubConfig.installSpec
+
+/**
+ *  Request to stop all reconciliation actions by PoCo Hub controller. This is a
+ *  breakglass mechanism to stop PoCo Hub from affecting cluster resources.
+ *
+ *  Value: "INSTALL_SPEC_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecDetached;
+/**
+ *  Request to install and enable Policy Controller.
+ *
+ *  Value: "INSTALL_SPEC_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecEnabled;
+/**
+ *  Request to uninstall Policy Controller.
+ *
+ *  Value: "INSTALL_SPEC_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecNotInstalled;
+/**
+ *  Request to suspend Policy Controller i.e. its webhooks. If Policy Controller
+ *  is not installed, it will be installed but suspended.
+ *
+ *  Value: "INSTALL_SPEC_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecSuspended;
+/**
+ *  Spec is unknown.
+ *
+ *  Value: "INSTALL_SPEC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerMembershipState.state
+
+/**
+ *  The PC is fully installed on the cluster and in an operational mode. In this
+ *  state PCH will be reconciling state with the PC, and the PC will be
+ *  performing it's operational tasks per that software. Entering a READY state
+ *  requires that the hub has confirmed the PC is installed and its pods are
+ *  operational with the version of the PC the PCH expects.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Active;
+/**
+ *  The PC is not operational, and the PCH is unable to act to make it
+ *  operational. Entering a CLUSTER_ERROR state happens automatically when the
+ *  PCH determines that a PC installed on the cluster is non-operative or that
+ *  the cluster does not meet requirements set for the PCH to administer the
+ *  cluster but has nevertheless been given an instruction to do so (such as
+ *  'install').
+ *
+ *  Value: "CLUSTER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_ClusterError;
+/**
+ *  The PC may have resources on the cluster, but the PCH wishes to remove the
+ *  Membership. The Membership still exists.
+ *
+ *  Value: "DECOMMISSIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Decommissioning;
+/**
+ *  PoCo Hub is not taking any action to reconcile cluster objects. Changes to
+ *  those objects will not be overwritten by PoCo Hub.
+ *
+ *  Value: "DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Detached;
+/**
+ *  In this state, the PC may still be operational, and only the PCH is unable
+ *  to act. The hub should not issue instructions to change the PC state, or
+ *  otherwise interfere with the on-cluster resources. Entering a HUB_ERROR
+ *  state happens automatically when the PCH determines the hub is in an
+ *  unhealthy state and it wishes to 'take hands off' to avoid corrupting the PC
+ *  or other data.
+ *
+ *  Value: "HUB_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_HubError;
+/**
+ *  The PCH possesses a Membership, however the PC is not fully installed on the
+ *  cluster. In this state the hub can be expected to be taking actions to
+ *  install the PC on the cluster.
+ *
+ *  Value: "INSTALLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Installing;
+/**
+ *  The lifecycle state is unspecified.
+ *
+ *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_LifecycleStateUnspecified;
+/**
+ *  The PC does not exist on the given cluster, and no k8s resources of any type
+ *  that are associated with the PC should exist there. The cluster does not
+ *  possess a membership with the PCH.
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_NotInstalled;
+/**
+ *  Policy Controller (PC) is installed but suspended. This means that the
+ *  policies are not enforced, but violations are still recorded (through
+ *  audit).
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Suspended;
+/**
+ *  The PC is fully installed, but in the process of changing the configuration
+ *  (including changing the version of PC either up and down, or modifying the
+ *  manifests of PC) of the resources running on the cluster. The PCH has a
+ *  Membership, is aware of the version the cluster should be running in, but
+ *  has not confirmed for itself that the PC is running with that version.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerMonitoringConfig.backends
+
+/**
+ *  Stackdriver/Cloud Monitoring backend for monitoring
+ *
+ *  Value: "CLOUD_MONITORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_CloudMonitoring;
+/**
+ *  Backend cannot be determined
+ *
+ *  Value: "MONITORING_BACKEND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_MonitoringBackendUnspecified;
+/**
+ *  Prometheus backend for monitoring
+ *
+ *  Value: "PROMETHEUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerMonitoringConfig_Backends_Prometheus;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerOnClusterState.state
+
+/**
+ *  The PC is fully installed on the cluster and in an operational mode. In this
+ *  state PCH will be reconciling state with the PC, and the PC will be
+ *  performing it's operational tasks per that software. Entering a READY state
+ *  requires that the hub has confirmed the PC is installed and its pods are
+ *  operational with the version of the PC the PCH expects.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Active;
+/**
+ *  The PC is not operational, and the PCH is unable to act to make it
+ *  operational. Entering a CLUSTER_ERROR state happens automatically when the
+ *  PCH determines that a PC installed on the cluster is non-operative or that
+ *  the cluster does not meet requirements set for the PCH to administer the
+ *  cluster but has nevertheless been given an instruction to do so (such as
+ *  'install').
+ *
+ *  Value: "CLUSTER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_ClusterError;
+/**
+ *  The PC may have resources on the cluster, but the PCH wishes to remove the
+ *  Membership. The Membership still exists.
+ *
+ *  Value: "DECOMMISSIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Decommissioning;
+/**
+ *  PoCo Hub is not taking any action to reconcile cluster objects. Changes to
+ *  those objects will not be overwritten by PoCo Hub.
+ *
+ *  Value: "DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Detached;
+/**
+ *  In this state, the PC may still be operational, and only the PCH is unable
+ *  to act. The hub should not issue instructions to change the PC state, or
+ *  otherwise interfere with the on-cluster resources. Entering a HUB_ERROR
+ *  state happens automatically when the PCH determines the hub is in an
+ *  unhealthy state and it wishes to 'take hands off' to avoid corrupting the PC
+ *  or other data.
+ *
+ *  Value: "HUB_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_HubError;
+/**
+ *  The PCH possesses a Membership, however the PC is not fully installed on the
+ *  cluster. In this state the hub can be expected to be taking actions to
+ *  install the PC on the cluster.
+ *
+ *  Value: "INSTALLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Installing;
+/**
+ *  The lifecycle state is unspecified.
+ *
+ *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_LifecycleStateUnspecified;
+/**
+ *  The PC does not exist on the given cluster, and no k8s resources of any type
+ *  that are associated with the PC should exist there. The cluster does not
+ *  possess a membership with the PCH.
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_NotInstalled;
+/**
+ *  Policy Controller (PC) is installed but suspended. This means that the
+ *  policies are not enforced, but violations are still recorded (through
+ *  audit).
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Suspended;
+/**
+ *  The PC is fully installed, but in the process of changing the configuration
+ *  (including changing the version of PC either up and down, or modifying the
+ *  manifests of PC) of the resources running on the cluster. The PCH has a
+ *  Membership, is aware of the version the cluster should be running in, but
+ *  has not confirmed for itself that the PC is running with that version.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerOnClusterState_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig.podAffinity
+
+/**
+ *  No affinity configuration has been specified.
+ *
+ *  Value: "AFFINITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AffinityUnspecified;
+/**
+ *  Anti-affinity configuration will be applied to this deployment. Default for
+ *  admissions deployment.
+ *
+ *  Value: "ANTI_AFFINITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AntiAffinity;
+/**
+ *  Affinity configurations will be removed from the deployment.
+ *
+ *  Value: "NO_AFFINITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_NoAffinity;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_PolicyControllerTemplateLibraryConfig.installation
+
+/**
+ *  Install the entire template library.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_All;
+/**
+ *  No installation strategy has been specified.
+ *
+ *  Value: "INSTALLATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_InstallationUnspecified;
+/**
+ *  Do not install the template library.
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_RBACRoleBindingLifecycleState.code
 
 /**
@@ -1405,9 +1705,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /**
  *  Optional. A JSON Web Token (JWT) issuer URI. `issuer` must start with
- *  `https://` and be a valid URL with length <2000 characters. If set, then
- *  Google will allow valid OIDC tokens from this issuer to authenticate within
- *  the workload_identity_pool. OIDC discovery will be performed on this URI to
+ *  `https://` and be a valid URL with length <2000 characters, it must use
+ *  `location` rather than `zone` for GKE clusters. If set, then Google will
+ *  allow valid OIDC tokens from this issuer to authenticate within the
+ *  workload_identity_pool. OIDC discovery will be performed on this URI to
  *  validate tokens from the issuer. Clearing `issuer` disables Workload
  *  Identity. `issuer` cannot be directly modified; it must be cleared (and
  *  Workload Identity disabled) before using a new issuer (and re-enabling
@@ -1546,6 +1847,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  information for memberships of a fleet
  */
 @interface GTLRGKEHub_CommonFleetDefaultMemberConfigSpec : GTLRObject
+
+/** Config Management-specific spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
+
+/** Policy Controller spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMembershipSpec *policycontroller;
+
 @end
 
 
@@ -3153,9 +3461,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *tenant;
 
-/** Optional. Claim in the AzureAD ID Token that holds the user details. */
-@property(nonatomic, copy, nullable) NSString *userClaim;
-
 @end
 
 
@@ -3939,6 +4244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Origin *origin;
 
+/** Policy Controller spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMembershipSpec *policycontroller;
+
 @end
 
 
@@ -3959,6 +4267,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Identity Service-specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceMembershipState *identityservice;
+
+/** Policycontroller-specific state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMembershipState *policycontroller;
 
 /** Service Mesh-specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshMembershipState *servicemesh;
@@ -3997,39 +4308,38 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
- *  This field informs Fleet-based applications/services/UIs with the necessary
- *  information for where each underlying Cluster reports its metrics.
+ *  MonitoringConfig informs Fleet-based applications/services/UIs how the
+ *  metrics for the underlying cluster is reported to cloud monitoring services.
+ *  It can be set from empty to non-empty, but can't be mutated directly to
+ *  prevent accidentally breaking the constinousty of metrics.
  */
 @interface GTLRGKEHub_MonitoringConfig : GTLRObject
 
 /**
- *  Immutable. Cluster name used to report metrics. For Anthos on
- *  VMWare/Baremetal, it would be in format `memberClusters/cluster_name`; And
- *  for Anthos on MultiCloud, it would be in format `{azureClusters,
- *  awsClusters}/cluster_name`.
+ *  Optional. Cluster name used to report metrics. For Anthos on
+ *  VMWare/Baremetal/MultiCloud clusters, it would be in format
+ *  {cluster_type}/{cluster_name}, e.g., "awsClusters/cluster_1".
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
 /**
- *  Immutable. Cluster hash, this is a unique string generated by google code,
- *  which does not contain any PII, which we can use to reference the cluster.
- *  This is expected to be created by the monitoring stack and persisted into
- *  the Cluster object as well as to GKE-Hub.
+ *  Optional. For GKE and Multicloud clusters, this is the UUID of the cluster
+ *  resource. For VMWare and Baremetal clusters, this is the kube-system UID.
  */
 @property(nonatomic, copy, nullable) NSString *clusterHash;
 
 /**
- *  Kubernetes system metrics, if available, are written to this prefix. This
- *  defaults to kubernetes.io for GKE, and kubernetes.io/anthos for Anthos
- *  eventually. Noted: Anthos MultiCloud will have kubernetes.io prefix today
- *  but will migration to be under kubernetes.io/anthos
+ *  Optional. Kubernetes system metrics, if available, are written to this
+ *  prefix. This defaults to kubernetes.io for GKE, and kubernetes.io/anthos for
+ *  Anthos eventually. Noted: Anthos MultiCloud will have kubernetes.io prefix
+ *  today but will migration to be under kubernetes.io/anthos.
  */
 @property(nonatomic, copy, nullable) NSString *kubernetesMetricsPrefix;
 
-/** Immutable. Location used to report Metrics */
+/** Optional. Location used to report Metrics */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Immutable. Project used to report Metrics */
+/** Optional. Project used to report Metrics */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -4460,6 +4770,504 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  BundleInstallSpec is the specification configuration for a single managed
+ *  bundle.
+ */
+@interface GTLRGKEHub_PolicyControllerBundleInstallSpec : GTLRObject
+
+/** The set of namespaces to be exempted from the bundle. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedNamespaces;
+
+@end
+
+
+/**
+ *  Configuration for Policy Controller
+ */
+@interface GTLRGKEHub_PolicyControllerHubConfig : GTLRObject
+
+/**
+ *  Sets the interval for Policy Controller Audit Scans (in seconds). When set
+ *  to 0, this disables audit functionality altogether.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auditIntervalSeconds;
+
+/**
+ *  The maximum number of audit violations to be stored in a constraint. If not
+ *  set, the internal default (currently 20) will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *constraintViolationLimit;
+
+/**
+ *  Map of deployment configs to deployments ("admission", "audit", "mutation').
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs *deploymentConfigs;
+
+/**
+ *  The set of namespaces that are excluded from Policy Controller checks.
+ *  Namespaces do not need to currently exist on the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptableNamespaces;
+
+/**
+ *  The install_spec represents the intended state specified by the latest
+ *  request that mutated install_spec in the feature spec, not the lifecycle
+ *  state of the feature observed by the Hub feature controller that is reported
+ *  in the feature state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecDetached
+ *        Request to stop all reconciliation actions by PoCo Hub controller.
+ *        This is a breakglass mechanism to stop PoCo Hub from affecting cluster
+ *        resources. (Value: "INSTALL_SPEC_DETACHED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecEnabled
+ *        Request to install and enable Policy Controller. (Value:
+ *        "INSTALL_SPEC_ENABLED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecNotInstalled
+ *        Request to uninstall Policy Controller. (Value:
+ *        "INSTALL_SPEC_NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecSuspended
+ *        Request to suspend Policy Controller i.e. its webhooks. If Policy
+ *        Controller is not installed, it will be installed but suspended.
+ *        (Value: "INSTALL_SPEC_SUSPENDED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerHubConfig_InstallSpec_InstallSpecUnspecified
+ *        Spec is unknown. (Value: "INSTALL_SPEC_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *installSpec;
+
+/**
+ *  Logs all denies and dry run failures.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logDeniesEnabled;
+
+/** Monitoring specifies the configuration of monitoring. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMonitoringConfig *monitoring;
+
+/**
+ *  Enables the ability to mutate resources using Policy Controller.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mutationEnabled;
+
+/** Specifies the desired policy content on the cluster */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerPolicyContentSpec *policyContent;
+
+/**
+ *  Enables the ability to use Constraint Templates that reference to objects
+ *  other than the object currently being evaluated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *referentialRulesEnabled;
+
+@end
+
+
+/**
+ *  Map of deployment configs to deployments ("admission", "audit", "mutation').
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs : GTLRObject
+@end
+
+
+/**
+ *  **Policy Controller**: Configuration for a single cluster. Intended to
+ *  parallel the PolicyController CR.
+ */
+@interface GTLRGKEHub_PolicyControllerMembershipSpec : GTLRObject
+
+/** Policy Controller configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerHubConfig *policyControllerHubConfig;
+
+/** Version of Policy Controller installed. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  **Policy Controller**: State for a single cluster.
+ */
+@interface GTLRGKEHub_PolicyControllerMembershipState : GTLRObject
+
+/**
+ *  Currently these include (also serving as map keys): 1. "admission" 2.
+ *  "audit" 3. "mutation"
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMembershipState_ComponentStates *componentStates;
+
+/** The overall content state observed by the Hub Feature controller. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerPolicyContentState *policyContentState;
+
+/**
+ *  The overall Policy Controller lifecycle state observed by the Hub Feature
+ *  controller.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Active The PC is
+ *        fully installed on the cluster and in an operational mode. In this
+ *        state PCH will be reconciling state with the PC, and the PC will be
+ *        performing it's operational tasks per that software. Entering a READY
+ *        state requires that the hub has confirmed the PC is installed and its
+ *        pods are operational with the version of the PC the PCH expects.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_ClusterError The
+ *        PC is not operational, and the PCH is unable to act to make it
+ *        operational. Entering a CLUSTER_ERROR state happens automatically when
+ *        the PCH determines that a PC installed on the cluster is non-operative
+ *        or that the cluster does not meet requirements set for the PCH to
+ *        administer the cluster but has nevertheless been given an instruction
+ *        to do so (such as 'install'). (Value: "CLUSTER_ERROR")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Decommissioning
+ *        The PC may have resources on the cluster, but the PCH wishes to remove
+ *        the Membership. The Membership still exists. (Value:
+ *        "DECOMMISSIONING")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Detached PoCo
+ *        Hub is not taking any action to reconcile cluster objects. Changes to
+ *        those objects will not be overwritten by PoCo Hub. (Value: "DETACHED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_HubError In this
+ *        state, the PC may still be operational, and only the PCH is unable to
+ *        act. The hub should not issue instructions to change the PC state, or
+ *        otherwise interfere with the on-cluster resources. Entering a
+ *        HUB_ERROR state happens automatically when the PCH determines the hub
+ *        is in an unhealthy state and it wishes to 'take hands off' to avoid
+ *        corrupting the PC or other data. (Value: "HUB_ERROR")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Installing The
+ *        PCH possesses a Membership, however the PC is not fully installed on
+ *        the cluster. In this state the hub can be expected to be taking
+ *        actions to install the PC on the cluster. (Value: "INSTALLING")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_LifecycleStateUnspecified
+ *        The lifecycle state is unspecified. (Value:
+ *        "LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_NotInstalled The
+ *        PC does not exist on the given cluster, and no k8s resources of any
+ *        type that are associated with the PC should exist there. The cluster
+ *        does not possess a membership with the PCH. (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Suspended Policy
+ *        Controller (PC) is installed but suspended. This means that the
+ *        policies are not enforced, but violations are still recorded (through
+ *        audit). (Value: "SUSPENDED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerMembershipState_State_Updating The PC
+ *        is fully installed, but in the process of changing the configuration
+ *        (including changing the version of PC either up and down, or modifying
+ *        the manifests of PC) of the resources running on the cluster. The PCH
+ *        has a Membership, is aware of the version the cluster should be
+ *        running in, but has not confirmed for itself that the PC is running
+ *        with that version. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Currently these include (also serving as map keys): 1. "admission" 2.
+ *  "audit" 3. "mutation"
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_PolicyControllerOnClusterState. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRGKEHub_PolicyControllerMembershipState_ComponentStates : GTLRObject
+@end
+
+
+/**
+ *  MonitoringConfig specifies the backends Policy Controller should export
+ *  metrics to. For example, to specify metrics should be exported to Cloud
+ *  Monitoring and Prometheus, specify backends: ["cloudmonitoring",
+ *  "prometheus"]
+ */
+@interface GTLRGKEHub_PolicyControllerMonitoringConfig : GTLRObject
+
+/**
+ *  Specifies the list of backends Policy Controller will export to. An empty
+ *  list would effectively disable metrics export.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backends;
+
+@end
+
+
+/**
+ *  OnClusterState represents the state of a sub-component of Policy Controller.
+ */
+@interface GTLRGKEHub_PolicyControllerOnClusterState : GTLRObject
+
+/** Surface potential errors or information logs. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The lifecycle state of this component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Active The PC is
+ *        fully installed on the cluster and in an operational mode. In this
+ *        state PCH will be reconciling state with the PC, and the PC will be
+ *        performing it's operational tasks per that software. Entering a READY
+ *        state requires that the hub has confirmed the PC is installed and its
+ *        pods are operational with the version of the PC the PCH expects.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_ClusterError The
+ *        PC is not operational, and the PCH is unable to act to make it
+ *        operational. Entering a CLUSTER_ERROR state happens automatically when
+ *        the PCH determines that a PC installed on the cluster is non-operative
+ *        or that the cluster does not meet requirements set for the PCH to
+ *        administer the cluster but has nevertheless been given an instruction
+ *        to do so (such as 'install'). (Value: "CLUSTER_ERROR")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Decommissioning
+ *        The PC may have resources on the cluster, but the PCH wishes to remove
+ *        the Membership. The Membership still exists. (Value:
+ *        "DECOMMISSIONING")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Detached PoCo Hub
+ *        is not taking any action to reconcile cluster objects. Changes to
+ *        those objects will not be overwritten by PoCo Hub. (Value: "DETACHED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_HubError In this
+ *        state, the PC may still be operational, and only the PCH is unable to
+ *        act. The hub should not issue instructions to change the PC state, or
+ *        otherwise interfere with the on-cluster resources. Entering a
+ *        HUB_ERROR state happens automatically when the PCH determines the hub
+ *        is in an unhealthy state and it wishes to 'take hands off' to avoid
+ *        corrupting the PC or other data. (Value: "HUB_ERROR")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Installing The
+ *        PCH possesses a Membership, however the PC is not fully installed on
+ *        the cluster. In this state the hub can be expected to be taking
+ *        actions to install the PC on the cluster. (Value: "INSTALLING")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_LifecycleStateUnspecified
+ *        The lifecycle state is unspecified. (Value:
+ *        "LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_NotInstalled The
+ *        PC does not exist on the given cluster, and no k8s resources of any
+ *        type that are associated with the PC should exist there. The cluster
+ *        does not possess a membership with the PCH. (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Suspended Policy
+ *        Controller (PC) is installed but suspended. This means that the
+ *        policies are not enforced, but violations are still recorded (through
+ *        audit). (Value: "SUSPENDED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerOnClusterState_State_Updating The PC
+ *        is fully installed, but in the process of changing the configuration
+ *        (including changing the version of PC either up and down, or modifying
+ *        the manifests of PC) of the resources running on the cluster. The PCH
+ *        has a Membership, is aware of the version the cluster should be
+ *        running in, but has not confirmed for itself that the PC is running
+ *        with that version. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  PolicyContentSpec defines the user's desired content configuration on the
+ *  cluster.
+ */
+@interface GTLRGKEHub_PolicyControllerPolicyContentSpec : GTLRObject
+
+/**
+ *  map of bundle name to BundleInstallSpec. The bundle name maps to the
+ *  `bundleName` key in the `policycontroller.gke.io/constraintData` annotation
+ *  on a constraint.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles *bundles;
+
+/** Configures the installation of the Template Library. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerTemplateLibraryConfig *templateLibrary;
+
+@end
+
+
+/**
+ *  map of bundle name to BundleInstallSpec. The bundle name maps to the
+ *  `bundleName` key in the `policycontroller.gke.io/constraintData` annotation
+ *  on a constraint.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_PolicyControllerBundleInstallSpec. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_PolicyControllerPolicyContentSpec_Bundles : GTLRObject
+@end
+
+
+/**
+ *  The state of the policy controller policy content
+ */
+@interface GTLRGKEHub_PolicyControllerPolicyContentState : GTLRObject
+
+/**
+ *  The state of the any bundles included in the chosen version of the manifest
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates *bundleStates;
+
+/**
+ *  The state of the referential data sync configuration. This could represent
+ *  the state of either the syncSet object(s) or the config object, depending on
+ *  the version of PoCo configured by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerOnClusterState *referentialSyncConfigState;
+
+/** The state of the template library */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerOnClusterState *templateLibraryState;
+
+@end
+
+
+/**
+ *  The state of the any bundles included in the chosen version of the manifest
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_PolicyControllerOnClusterState. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRGKEHub_PolicyControllerPolicyContentState_BundleStates : GTLRObject
+@end
+
+
+/**
+ *  Deployment-specific configuration.
+ */
+@interface GTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig : GTLRObject
+
+/** Container resource requirements. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerResourceRequirements *containerResources;
+
+/**
+ *  Pod affinity configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AffinityUnspecified
+ *        No affinity configuration has been specified. (Value:
+ *        "AFFINITY_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_AntiAffinity
+ *        Anti-affinity configuration will be applied to this deployment.
+ *        Default for admissions deployment. (Value: "ANTI_AFFINITY")
+ *    @arg @c kGTLRGKEHub_PolicyControllerPolicyControllerDeploymentConfig_PodAffinity_NoAffinity
+ *        Affinity configurations will be removed from the deployment. (Value:
+ *        "NO_AFFINITY")
+ */
+@property(nonatomic, copy, nullable) NSString *podAffinity;
+
+/**
+ *  Pod anti-affinity enablement.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *podAntiAffinity;
+
+/** Pod tolerations of node taints. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_PolicyControllerToleration *> *podTolerations;
+
+/**
+ *  Pod replica count.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicaCount;
+
+@end
+
+
+/**
+ *  ResourceList contains container resource requirements.
+ */
+@interface GTLRGKEHub_PolicyControllerResourceList : GTLRObject
+
+/** CPU requirement expressed in Kubernetes resource units. */
+@property(nonatomic, copy, nullable) NSString *cpu;
+
+/** Memory requirement expressed in Kubernetes resource units. */
+@property(nonatomic, copy, nullable) NSString *memory;
+
+@end
+
+
+/**
+ *  ResourceRequirements describes the compute resource requirements.
+ */
+@interface GTLRGKEHub_PolicyControllerResourceRequirements : GTLRObject
+
+/**
+ *  Limits describes the maximum amount of compute resources allowed for use by
+ *  the running container.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerResourceList *limits;
+
+/**
+ *  Requests describes the amount of compute resources reserved for the
+ *  container by the kube-scheduler.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerResourceList *requests;
+
+@end
+
+
+/**
+ *  The config specifying which default library templates to install.
+ */
+@interface GTLRGKEHub_PolicyControllerTemplateLibraryConfig : GTLRObject
+
+/**
+ *  Configures the manner in which the template library is installed on the
+ *  cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_All
+ *        Install the entire template library. (Value: "ALL")
+ *    @arg @c kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_InstallationUnspecified
+ *        No installation strategy has been specified. (Value:
+ *        "INSTALLATION_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_PolicyControllerTemplateLibraryConfig_Installation_NotInstalled
+ *        Do not install the template library. (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *installation;
+
+@end
+
+
+/**
+ *  Toleration of a node taint.
+ */
+@interface GTLRGKEHub_PolicyControllerToleration : GTLRObject
+
+/** Matches a taint effect. */
+@property(nonatomic, copy, nullable) NSString *effect;
+
+/** Matches a taint key (not necessarily unique). */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Matches a taint operator.
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/** Matches a taint value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  RBACRoleBinding represents a rbacrolebinding across the Fleet
  */
 @interface GTLRGKEHub_RBACRoleBinding : GTLRObject
@@ -4628,13 +5436,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Scope represents a Scope in a Fleet.
  */
 @interface GTLRGKEHub_Scope : GTLRObject
-
-/**
- *  If true, all Memberships in the Fleet bind to this Scope.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allMemberships;
 
 /** Output only. When the scope was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

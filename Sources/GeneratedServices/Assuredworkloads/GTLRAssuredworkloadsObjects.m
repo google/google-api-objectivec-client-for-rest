@@ -23,6 +23,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2 = @"IL2";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5 = @"IL5";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
@@ -47,7 +48,6 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_St
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationBooleanOrgPolicyViolation = @"REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListAllowedValuesOrgPolicyViolation = @"REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListDeniedValuesOrgPolicyViolation = @"REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation = @"REMEDIATION_RESOURCE_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation = @"REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationTypeUnspecified = @"REMEDIATION_TYPE_UNSPECIFIED";
 
@@ -63,6 +63,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust = @"HITRUST";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2 = @"IL2";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5 = @"IL5";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
@@ -154,6 +155,46 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AnalyzeWorkloadMoveResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AnalyzeWorkloadMoveResponse
+@dynamic assetMoveAnalyses, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetMoveAnalyses" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assetMoveAnalyses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis
+@dynamic analysisGroups, asset, assetType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisGroups" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 //
 
@@ -203,6 +244,45 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
   return @"workloads";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup
+@dynamic analysisResult, displayName, error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisResult
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact class],
+    @"warnings" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact
+@dynamic detail;
 @end
 
 
@@ -353,8 +433,9 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
          compliantButDisallowedServices, createTime, displayName,
          ekmProvisioningResponse, enableSovereignControls, ETag,
          kajEnrollmentState, kmsSettings, labels, name, partner,
-         partnerPermissions, provisionedResourcesParent, resources,
-         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled;
+         partnerPermissions, provisionedResourcesParent,
+         resourceMonitoringEnabled, resources, resourceSettings,
+         saaEnrollmentResponse, violationNotificationsEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

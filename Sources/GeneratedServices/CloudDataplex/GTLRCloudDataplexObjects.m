@@ -203,6 +203,26 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Creat
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent.eventType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_AccessPolicyUpdate = @"ACCESS_POLICY_UPDATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionCreate = @"BIGQUERY_CONNECTION_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionDelete = @"BIGQUERY_CONNECTION_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionUpdate = @"BIGQUERY_CONNECTION_UPDATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagCreate = @"BIGQUERY_POLICY_TAG_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagDelete = @"BIGQUERY_POLICY_TAG_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagSetIamPolicy = @"BIGQUERY_POLICY_TAG_SET_IAM_POLICY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableCreate = @"BIGQUERY_TABLE_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableDelete = @"BIGQUERY_TABLE_DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableUpdate = @"BIGQUERY_TABLE_UPDATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTaxonomyCreate = @"BIGQUERY_TAXONOMY_CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_ResourceIamPolicyUpdate = @"RESOURCE_IAM_POLICY_UPDATE";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity.entityType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Fileset = @"FILESET";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table = @"TABLE";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.service
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Service_Dataproc = @"DATAPROC";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Service_ServiceUnspecified = @"SERVICE_UNSPECIFIED";
@@ -994,11 +1014,21 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult
-@dynamic passed;
+@dynamic dimension, passed;
 @end
 
 
@@ -1627,6 +1657,26 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus
 @dynamic active;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent
+@dynamic entity, eventType, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity
+@dynamic entity, entityType;
 @end
 
 

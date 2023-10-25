@@ -449,8 +449,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  user-imported search events. * `document-completable` - Using suggestions
  *  taken directly from user-imported document fields marked as completable.
  *  Default values: * `document` is the default model for regular dataStores. *
- *  `search-history` is the default model for IndustryVertical.SITE_SEARCH
- *  dataStores.
+ *  `search-history` is the default model for site search dataStores.
  */
 @property(nonatomic, copy, nullable) NSString *queryModel;
 
@@ -1571,6 +1570,86 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Makes a recommendation, which requires a contextual user event.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.recommend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the format: `projects/ *
+ *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
+ *  you can request recommendations from your model, you must create at least
+ *  one serving config for it.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse.
+ *
+ *  Makes a recommendation, which requires a contextual user event.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
+ *    include in the query.
+ *  @param servingConfig Required. Full resource name of the format: `projects/
+ *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
+ *    Before you can request recommendations from your model, you must create at
+ *    least one serving config for it.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Performs a search.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *  This field is used to identify the serving configuration name, set of models
+ *  used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse.
+ *
+ *  Performs a search.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest to
+ *    include in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *    This field is used to identify the serving configuration name, set of
+ *    models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -2057,8 +2136,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  user-imported search events. * `document-completable` - Using suggestions
  *  taken directly from user-imported document fields marked as completable.
  *  Default values: * `document` is the default model for regular dataStores. *
- *  `search-history` is the default model for IndustryVertical.SITE_SEARCH
- *  dataStores.
+ *  `search-history` is the default model for site search dataStores.
  */
 @property(nonatomic, copy, nullable) NSString *queryModel;
 

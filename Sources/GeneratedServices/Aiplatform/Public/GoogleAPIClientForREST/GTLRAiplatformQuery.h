@@ -1843,6 +1843,196 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Create a version from a Dataset.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Dataset resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Create a version from a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param parent Required. The name of the Dataset resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Dataset version.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dataset version.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Gets a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsList : GTLRAiplatformQuery
+
+/** Optional. The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Dataset to list DatasetVersions from.
+ *  Format: `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetVersionsResponse.
+ *
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  @param parent Required. The resource name of the Dataset to list
+ *    DatasetVersions from. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Restores a dataset version.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsRestore : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the DatasetVersion resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Restores a dataset version.
+ *
+ *  @param name Required. The name of the DatasetVersion resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsRestore
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a Dataset.
  *
  *  Method: aiplatform.projects.locations.datasets.delete
@@ -3886,8 +4076,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The resource name of the EntityType or FeatureGroup to create a
- *  Feature. Format:
+ *  Feature. Format for entity_type as parent:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
  *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3900,8 +4091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Feature to
  *    include in the query.
  *  @param parent Required. The resource name of the EntityType or FeatureGroup
- *    to create a Feature. Format:
+ *    to create a Feature. Format for entity_type as parent:
  *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
  *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesCreate
@@ -3954,8 +4146,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesGet : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the Feature resource. Format:
+ *  Required. The name of the Feature resource. Format for entity_type as
+ *  parent:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
  *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3965,8 +4159,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Gets details of a single Feature.
  *
- *  @param name Required. The name of the Feature resource. Format:
+ *  @param name Required. The name of the Feature resource. Format for
+ *    entity_type as parent:
  *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
  *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesGet
@@ -4002,17 +4198,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  If set, return the most recent ListFeaturesRequest.latest_stats_count of
- *  stats for each Feature in response. Valid value is [0, 10]. If number of
- *  stats exists < ListFeaturesRequest.latest_stats_count, return all existing
- *  stats.
+ *  Only applicable for Vertex AI Feature Store (Legacy). If set, return the
+ *  most recent ListFeaturesRequest.latest_stats_count of stats for each Feature
+ *  in response. Valid value is [0, 10]. If number of stats exists <
+ *  ListFeaturesRequest.latest_stats_count, return all existing stats.
  */
 @property(nonatomic, assign) NSInteger latestStatsCount;
 
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
  *  "desc" after a field name for descending. Supported fields: * `feature_id` *
- *  `value_type` * `create_time` * `update_time`
+ *  `value_type` (Not supported for FeatureRegistry Feature) * `create_time` *
+ *  `update_time`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4024,16 +4221,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous FeaturestoreService.ListFeatures
- *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to FeaturestoreService.ListFeatures must match the
- *  call that provided the page token.
+ *  A page token, received from a previous FeaturestoreService.ListFeatures call
+ *  or FeatureRegistryService.ListFeatures call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures
+ *  must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Location to list Features. Format:
+ *  Required. The resource name of the Location to list Features. Format for
+ *  entity_type as parent:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
  *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4051,8 +4251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Lists Features in a given EntityType.
  *
  *  @param parent Required. The resource name of the Location to list Features.
- *    Format:
+ *    Format for entity_type as parent:
  *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
  *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesList
@@ -4272,6 +4473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Immutable. Name of the Feature. Format:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
  *  The last part feature is assigned by the client. The feature can be up to 64
  *  characters long and can consist only of ASCII Latin letters A-Z and a-z,
  *  underscore(_), and ASCII digits 0-9 starting with a letter. The value will
@@ -4286,7 +4488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  in the mask. If the user does not provide a mask then only the non-empty
  *  fields present in the request will be overwritten. Set the update_mask to
  *  `*` to override all fields. Updatable fields: * `description` * `labels` *
- *  `disable_monitoring`
+ *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4301,6 +4503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    include in the query.
  *  @param name Immutable. Name of the Feature. Format:
  *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
  *    The last part feature is assigned by the client. The feature can be up to
  *    64 characters long and can consist only of ASCII Latin letters A-Z and
  *    a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value
@@ -10675,6 +10878,548 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Assigns a NotebookRuntime to a user for a particular Notebook file. This
+ *  method will either returns an existing assignment or generates a new one.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.assign
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesAssign : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to get the NotebookRuntime
+ *  assignment. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Assigns a NotebookRuntime to a user for a particular Notebook file. This
+ *  method will either returns an existing assignment or generates a new one.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AssignNotebookRuntimeRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to get the
+ *    NotebookRuntime assignment. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesAssign
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AssignNotebookRuntimeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NotebookRuntime.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntime resource to be deleted. Instead of
+ *  checking whether the name is in valid NotebookRuntime resource name format,
+ *  directly throw NotFound exception if there is no such NotebookRuntime in
+ *  spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a NotebookRuntime.
+ *
+ *  @param name Required. The name of the NotebookRuntime resource to be
+ *    deleted. Instead of checking whether the name is in valid NotebookRuntime
+ *    resource name format, directly throw NotFound exception if there is no
+ *    such NotebookRuntime in spanner.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a NotebookRuntime.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntime resource. Instead of checking
+ *  whether the name is in valid NotebookRuntime resource name format, directly
+ *  throw NotFound exception if there is no such NotebookRuntime in spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime.
+ *
+ *  Gets a NotebookRuntime.
+ *
+ *  @param name Required. The name of the NotebookRuntime resource. Instead of
+ *    checking whether the name is in valid NotebookRuntime resource name
+ *    format, directly throw NotFound exception if there is no such
+ *    NotebookRuntime in spanner.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NotebookRuntimes in a Location.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. For field
+ *  names both snake_case and camelCase are supported. * `notebookRuntime`
+ *  supports = and !=. `notebookRuntime` represents the NotebookRuntime ID, i.e.
+ *  the last segment of the NotebookRuntime's resource name. * `displayName`
+ *  supports = and != and regex. * `notebookRuntimeTemplate` supports = and !=.
+ *  `notebookRuntimeTemplate` represents the NotebookRuntimeTemplate ID, i.e.
+ *  the last segment of the NotebookRuntimeTemplate's resource name. *
+ *  `healthState` supports = and !=. healthState enum: [HEALTHY, UNHEALTHY,
+ *  HEALTH_STATE_UNSPECIFIED]. * `runtimeState` supports = and !=. runtimeState
+ *  enum: [RUNTIME_STATE_UNSPECIFIED, RUNNING, BEING_STARTED, BEING_STOPPED,
+ *  STOPPED, BEING_UPGRADED]. * `runtimeUser` supports = and !=. * API version
+ *  is UI only: `uiState` supports = and !=. uiState enum:
+ *  [UI_RESOURCE_STATE_UNSPECIFIED, UI_RESOURCE_STATE_BEING_CREATED,
+ *  UI_RESOURCE_STATE_ACTIVE, UI_RESOURCE_STATE_BEING_DELETED,
+ *  UI_RESOURCE_STATE_CREATION_FAILED]. * `notebookRuntimeType` supports = and
+ *  !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. Some examples: *
+ *  `notebookRuntime="notebookRuntime123"` * `displayName="myDisplayName"` and
+ *  `displayName=~"myDisplayNameRegex"` *
+ *  `notebookRuntimeTemplate="notebookRuntimeTemplate321"` *
+ *  `healthState=HEALTHY` * `runtimeState=RUNNING` *
+ *  `runtimeUser="test\@google.com"` * `uiState=UI_RESOURCE_STATE_BEING_DELETED`
+ *  * `notebookRuntimeType=USER_DEFINED`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  `display_name` * `create_time` * `update_time` Example: `display_name,
+ *  create_time desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListNotebookRuntimesResponse.next_page_token of the previous
+ *  NotebookService.ListNotebookRuntimes call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  NotebookRuntimes. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookRuntimesResponse.
+ *
+ *  Lists NotebookRuntimes in a Location.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the NotebookRuntimes. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts a NotebookRuntime.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesStart : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntime resource to be started. Instead of
+ *  checking whether the name is in valid NotebookRuntime resource name format,
+ *  directly throw NotFound exception if there is no such NotebookRuntime in
+ *  spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Starts a NotebookRuntime.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the NotebookRuntime resource to be
+ *    started. Instead of checking whether the name is in valid NotebookRuntime
+ *    resource name format, directly throw NotFound exception if there is no
+ *    such NotebookRuntime in spanner.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesStart
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a NotebookRuntimeTemplate.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesCreate : GTLRAiplatformQuery
+
+/** Optional. User specified ID for the notebook runtime template. */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeTemplateId;
+
+/**
+ *  Required. The resource name of the Location to create the
+ *  NotebookRuntimeTemplate. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a NotebookRuntimeTemplate.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate to include
+ *    in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    NotebookRuntimeTemplate. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NotebookRuntimeTemplate.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntimeTemplate resource to be deleted.
+ *  Format:
+ *  `projects/{project}/locations/{location}/notebookRuntimeTemplates/{notebook_runtime_template}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a NotebookRuntimeTemplate.
+ *
+ *  @param name Required. The name of the NotebookRuntimeTemplate resource to be
+ *    deleted. Format:
+ *    `projects/{project}/locations/{location}/notebookRuntimeTemplates/{notebook_runtime_template}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a NotebookRuntimeTemplate.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntimeTemplate resource. Format:
+ *  `projects/{project}/locations/{location}/notebookRuntimeTemplates/{notebook_runtime_template}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate.
+ *
+ *  Gets a NotebookRuntimeTemplate.
+ *
+ *  @param name Required. The name of the NotebookRuntimeTemplate resource.
+ *    Format:
+ *    `projects/{project}/locations/{location}/notebookRuntimeTemplates/{notebook_runtime_template}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists NotebookRuntimeTemplates in a Location.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. For field
+ *  names both snake_case and camelCase are supported. *
+ *  `notebookRuntimeTemplate` supports = and !=. `notebookRuntimeTemplate`
+ *  represents the NotebookRuntimeTemplate ID, i.e. the last segment of the
+ *  NotebookRuntimeTemplate's resource name. * `display_name` supports = and !=
+ *  * `labels` supports general map functions that is: * `labels.key=value` -
+ *  key:value equality * `labels.key:* or labels:key - key existence * A key
+ *  including a space must be quoted. `labels."a key"`. * `notebookRuntimeType`
+ *  supports = and !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. Some
+ *  examples: * `notebookRuntimeTemplate=notebookRuntimeTemplate123` *
+ *  `displayName="myDisplayName"` * `labels.myKey="myValue"` *
+ *  `notebookRuntimeType=USER_DEFINED`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  `display_name` * `create_time` * `update_time` Example: `display_name,
+ *  create_time desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListNotebookRuntimeTemplatesResponse.next_page_token of the previous
+ *  NotebookService.ListNotebookRuntimeTemplates call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  NotebookRuntimeTemplates. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookRuntimeTemplatesResponse.
+ *
+ *  Lists NotebookRuntimeTemplates in a Location.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the NotebookRuntimeTemplates. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -10936,7 +11681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  The ID to use for the PipelineJob, which will become the final component of
  *  the PipelineJob name. If not provided, an ID will be automatically
  *  generated. This value should be less than 128 characters, and valid
- *  characters are /a-z-/.
+ *  characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
 
@@ -13289,7 +14034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Required. The ID to use for the Tensorboard experiment, which becomes the
  *  final component of the Tensorboard experiment's resource name. This value
- *  should be 1-128 characters, and valid characters are /a-z-/.
+ *  should be 1-128 characters, and valid characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *tensorboardExperimentId;
 
@@ -13743,7 +14488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Required. The ID to use for the Tensorboard run, which becomes the final
  *  component of the Tensorboard run's resource name. This value should be 1-128
- *  characters, and valid characters are /a-z-/.
+ *  characters, and valid characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *tensorboardRunId;
 

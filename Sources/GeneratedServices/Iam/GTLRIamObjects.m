@@ -22,6 +22,17 @@ NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Remove = @"REMOVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_GoogleCloudCommonOperationMetadata
+//
+
+@implementation GTLRIam_GoogleCloudCommonOperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_GoogleIamAdminV1AuditData
 //
 

@@ -21,6 +21,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance;
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
+@class GTLRCloudRun_GoogleCloudRunV2ContainerOverride;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerPort;
 @class GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVar;
@@ -38,6 +39,8 @@
 @class GTLRCloudRun_GoogleCloudRunV2Job;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2NetworkInterface;
+@class GTLRCloudRun_GoogleCloudRunV2Overrides;
 @class GTLRCloudRun_GoogleCloudRunV2Probe;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits;
@@ -45,6 +48,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Revision_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Revision_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2RevisionScaling;
+@class GTLRCloudRun_GoogleCloudRunV2RevisionScalingStatus;
 @class GTLRCloudRun_GoogleCloudRunV2RevisionTemplate;
 @class GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels;
@@ -1223,6 +1227,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Per-container override specification.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ContainerOverride : GTLRObject
+
+/**
+ *  Optional. Arguments to the entrypoint. Will replace existing args for
+ *  override.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. True if the intention is to clear out existing args list.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clearArgs;
+
+/**
+ *  List of environment variables to set in the container. Will be merged with
+ *  existing env for override.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2EnvVar *> *env;
+
+/** The name of the container specified as a DNS_LABEL. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  ContainerPort represents a network port in a single container.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2ContainerPort : GTLRObject
@@ -1288,8 +1322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2EnvVar : GTLRObject
 
 /**
- *  Required. Name of the environment variable. Must be a C_IDENTIFIER, and must
- *  not exceed 32768 characters.
+ *  Required. Name of the environment variable. Must not exceed 32768
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1728,7 +1762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Service is the name of the service to place in the gRPC HealthCheckRequest
- *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If
+ *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If
  *  this is not specified, the default behavior is defined by gRPC.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -2162,6 +2196,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Direct VPC egress settings.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2NetworkInterface : GTLRObject
+
+/**
+ *  The VPC network that the Cloud Run resource will be able to send traffic to.
+ *  At least one of network or subnetwork must be specified. If both network and
+ *  subnetwork are specified, the given VPC subnetwork must belong to the given
+ *  VPC network. If network is not specified, it will be looked up from the
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The VPC subnetwork that the Cloud Run resource will get IPs from. At least
+ *  one of network or subnetwork must be specified. If both network and
+ *  subnetwork are specified, the given VPC subnetwork must belong to the given
+ *  VPC network. If subnetwork is not specified, the subnetwork with the same
+ *  name with the network will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/** Network tags applied to this Cloud Run resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  RunJob Overrides that contains Execution fields to be overridden.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Overrides : GTLRObject
+
+/** Per container override specification. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ContainerOverride *> *containerOverrides;
+
+/**
+ *  Optional. The desired number of tasks the execution should run. Will replace
+ *  existing task_count value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taskCount;
+
+/**
+ *  Duration in seconds the task may be active before the system will actively
+ *  try to mark it failed and kill associated containers. Will replace existing
+ *  timeout_seconds value.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
  *  Probe describes a health check to be performed against a container to
  *  determine whether it is alive or ready to receive traffic.
  */
@@ -2476,6 +2565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Scaling settings for this revision. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionScaling *scaling;
 
+/** Output only. The current effective scaling settings for the revision. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionScalingStatus *scalingStatus;
+
 /** Output only. The name of the parent service. */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -2567,6 +2659,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
+
+@end
+
+
+/**
+ *  Effective settings for the current revision
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2RevisionScalingStatus : GTLRObject
+
+/**
+ *  The current number of min instances provisioned for this revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredMinInstanceCount;
 
 @end
 
@@ -2725,6 +2832,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Overrides specification for a given execution of a job. If provided,
+ *  overrides will be applied to update the execution or task spec.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Overrides *overrides;
 
 /**
  *  Indicates that the request should be validated without actually deleting any
@@ -3079,15 +3192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus *> *trafficStatuses;
 
 /**
- *  Optional. Override the traffic tag threshold limit. Garbage collection will
- *  start cleaning up non-serving tagged traffic targets based on creation item.
- *  The default value is 2000.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *trafficTagsCleanupThreshold;
-
-/**
  *  Output only. Server assigned unique identifier for the trigger. The value is
  *  a UUID4 string and guaranteed to remain unchanged until the resource is
  *  deleted.
@@ -3299,6 +3403,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  Output only. Represents time when the task was scheduled to run by the
+ *  system. It is not guaranteed to be set in happens-before order across
+ *  separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledTime;
 
 /**
  *  Email address of the IAM service account associated with the Task of a Job.
@@ -3650,17 +3761,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  VPC Access settings. For more information on creating a VPC Connector, visit
- *  https://cloud.google.com/vpc/docs/configure-serverless-vpc-access For
- *  information on how to configure Cloud Run with an existing VPC Connector,
- *  visit https://cloud.google.com/run/docs/configuring/connecting-vpc
+ *  VPC Access settings. For more information on sending traffic to a VPC
+ *  network, visit https://cloud.google.com/run/docs/configuring/connecting-vpc.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2VpcAccess : GTLRObject
 
 /**
  *  VPC Access connector name. Format:
  *  projects/{project}/locations/{location}/connectors/{connector}, where
- *  {project} can be project id or number.
+ *  {project} can be project id or number. For more information on sending
+ *  traffic to a VPC network via a connector, visit
+ *  https://cloud.google.com/run/docs/configuring/vpc-connectors.
  */
 @property(nonatomic, copy, nullable) NSString *connector;
 
@@ -3679,6 +3790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        Unspecified (Value: "VPC_EGRESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *egress;
+
+/**
+ *  Direct VPC egress settings. Currently only single network interface is
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2NetworkInterface *> *networkInterfaces;
 
 @end
 

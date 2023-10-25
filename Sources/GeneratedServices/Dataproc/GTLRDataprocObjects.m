@@ -609,7 +609,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiagnoseClusterRequest
-@dynamic diagnosisInterval, job, jobs, yarnApplicationId, yarnApplicationIds;
+@dynamic diagnosisInterval, job, jobs, tarballGcsDir, yarnApplicationId,
+         yarnApplicationIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -667,7 +668,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_EncryptionConfig
-@dynamic gcePdKmsKeyName, kmsKey;
+@dynamic gcePdKmsKeyName;
 @end
 
 
@@ -1041,11 +1042,20 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataproc_InjectSessionCredentialsRequest
+//   GTLRDataproc_InstanceFlexibilityPolicy
 //
 
-@implementation GTLRDataproc_InjectSessionCredentialsRequest
-@dynamic credentialsCiphertext, requestId;
+@implementation GTLRDataproc_InstanceFlexibilityPolicy
+@dynamic instanceSelectionList, instanceSelectionResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceSelectionList" : [GTLRDataproc_InstanceSelection class],
+    @"instanceSelectionResults" : [GTLRDataproc_InstanceSelectionResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1065,9 +1075,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceGroupConfig
-@dynamic accelerators, diskConfig, imageUri, instanceNames, instanceReferences,
-         isPreemptible, machineTypeUri, managedGroupConfig, minCpuPlatform,
-         minNumInstances, numInstances, preemptibility;
+@dynamic accelerators, diskConfig, imageUri, instanceFlexibilityPolicy,
+         instanceNames, instanceReferences, isPreemptible, machineTypeUri,
+         managedGroupConfig, minCpuPlatform, minNumInstances, numInstances,
+         preemptibility, startupConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1088,6 +1099,34 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_InstanceReference
 @dynamic instanceId, instanceName, publicEciesKey, publicKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstanceSelection
+//
+
+@implementation GTLRDataproc_InstanceSelection
+@dynamic machineTypes, rank;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"machineTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstanceSelectionResult
+//
+
+@implementation GTLRDataproc_InstanceSelectionResult
+@dynamic machineType, vmCount;
 @end
 
 
@@ -1538,7 +1577,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ManagedGroupConfig
-@dynamic instanceGroupManagerName, instanceTemplateName;
+@dynamic instanceGroupManagerName, instanceGroupManagerUri,
+         instanceTemplateName;
 @end
 
 
@@ -1754,9 +1794,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_OrderedJob
-@dynamic hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds, prestoJob,
-         pysparkJob, scheduling, sparkJob, sparkRJob, sparkSqlJob, stepId,
-         trinoJob;
+@dynamic flinkJob, hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds,
+         prestoJob, pysparkJob, scheduling, sparkJob, sparkRJob, sparkSqlJob,
+         stepId, trinoJob;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1906,6 +1946,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_PyPiRepositoryConfig
+//
+
+@implementation GTLRDataproc_PyPiRepositoryConfig
+@dynamic pypiRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_PySparkBatch
 //
 
@@ -2021,6 +2071,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_RepositoryConfig
+//
+
+@implementation GTLRDataproc_RepositoryConfig
+@dynamic pypiRepositoryConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ReservationAffinity
 //
 
@@ -2043,7 +2103,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ResizeNodeGroupRequest
-@dynamic gracefulDecommissionTimeout, requestId, size;
+@dynamic gracefulDecommissionTimeout, parentOperationId, requestId, size;
 @end
 
 
@@ -2053,7 +2113,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeConfig
-@dynamic containerImage, properties, version;
+@dynamic containerImage, properties, repositoryConfig, version;
 @end
 
 
@@ -2194,7 +2254,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_SessionTemplate
 @dynamic createTime, creator, descriptionProperty, environmentConfig,
-         jupyterSession, labels, name, runtimeConfig, updateTime;
+         jupyterSession, labels, name, runtimeConfig, updateTime, uuid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2475,7 +2535,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SparkStandaloneAutoscalingConfig
-@dynamic gracefulDecommissionTimeout, scaleDownFactor,
+@dynamic gracefulDecommissionTimeout, removeOnlyIdleWorkers, scaleDownFactor,
          scaleDownMinWorkerFraction, scaleUpFactor, scaleUpMinWorkerFraction;
 @end
 
@@ -2487,6 +2547,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_StartClusterRequest
 @dynamic clusterUuid, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StartupConfig
+//
+
+@implementation GTLRDataproc_StartupConfig
+@dynamic requiredRegistrationFraction;
 @end
 
 

@@ -280,6 +280,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList : GTLRAIPlatformNotebooksQuery
 
+/** Optional. List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort results. Supported values are "name", "name desc" or ""
+ *  (unsorted).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** Optional. Maximum return size of the list call. */
 @property(nonatomic, assign) NSInteger pageSize;
 

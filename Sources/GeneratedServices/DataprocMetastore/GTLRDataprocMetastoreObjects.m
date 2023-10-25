@@ -289,7 +289,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_Consumer
-@dynamic endpointUri, subnetwork;
+@dynamic endpointLocation, endpointUri, subnetwork;
 @end
 
 
@@ -649,7 +649,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_LocationMetadata
-@dynamic supportedHiveMetastoreVersions;
+@dynamic multiRegionMetadata, supportedHiveMetastoreVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -732,6 +732,24 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_MoveTableToDatabaseResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MultiRegionMetadata
+//
+
+@implementation GTLRDataprocMetastore_MultiRegionMetadata
+@dynamic constituentRegions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"constituentRegions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

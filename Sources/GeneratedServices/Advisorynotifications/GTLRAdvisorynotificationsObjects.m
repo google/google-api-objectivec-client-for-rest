@@ -143,6 +143,45 @@ NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Te
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings
+//
+
+@implementation GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings
+//
+
+@implementation GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings
+@dynamic ETag, name, notificationSettings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings_NotificationSettings
+//
+
+@implementation GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings_NotificationSettings
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1NotificationSettings class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Subject
 //
 

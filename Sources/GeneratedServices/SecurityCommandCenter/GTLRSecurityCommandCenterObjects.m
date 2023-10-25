@@ -105,6 +105,7 @@ NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Ena
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation = @"OBSERVATION";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_PostureViolation = @"POSTURE_VIOLATION";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SccError = @"SCC_ERROR";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat = @"THREAT";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability = @"VULNERABILITY";
@@ -876,7 +877,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_Exfiltration
-@dynamic sources, targets;
+@dynamic sources, targets, totalExfiltratedBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -924,10 +925,11 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
          cloudDlpInspection, compliances, connections, contacts, containers,
          createTime, database, descriptionProperty, eventTime, exfiltration,
          externalSystems, externalUri, files, findingClass, iamBindings,
-         indicator, kernelRootkit, kubernetes, mitreAttack, moduleName, mute,
-         muteInitiator, muteUpdateTime, name, nextSteps, parent,
-         parentDisplayName, processes, resourceName, securityMarks, severity,
-         sourceProperties, state, vulnerability;
+         indicator, kernelRootkit, kubernetes, loadBalancers, mitreAttack,
+         moduleName, mute, muteInitiator, muteUpdateTime, name, nextSteps,
+         orgPolicies, parent, parentDisplayName, processes, resourceName,
+         securityMarks, securityPosture, severity, sourceProperties, state,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -940,6 +942,8 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
     @"containers" : [GTLRSecurityCommandCenter_Container class],
     @"files" : [GTLRSecurityCommandCenter_File class],
     @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
+    @"loadBalancers" : [GTLRSecurityCommandCenter_LoadBalancer class],
+    @"orgPolicies" : [GTLRSecurityCommandCenter_OrgPolicy class],
     @"processes" : [GTLRSecurityCommandCenter_Process class]
   };
   return map;
@@ -1521,7 +1525,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_Kubernetes
-@dynamic accessReviews, bindings, nodePools, nodes, pods, roles;
+@dynamic accessReviews, bindings, nodePools, nodes, objects, pods, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1529,6 +1533,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
     @"bindings" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding class],
     @"nodePools" : [GTLRSecurityCommandCenter_NodePool class],
     @"nodes" : [GTLRSecurityCommandCenter_Node class],
+    @"objects" : [GTLRSecurityCommandCenter_Object class],
     @"pods" : [GTLRSecurityCommandCenter_Pod class],
     @"roles" : [GTLRSecurityCommandCenter_Role class]
   };
@@ -1878,6 +1883,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_LoadBalancer
+//
+
+@implementation GTLRSecurityCommandCenter_LoadBalancer
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_MemoryHashSignature
 //
 
@@ -1961,6 +1976,23 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Object
+//
+
+@implementation GTLRSecurityCommandCenter_Object
+@dynamic group, kind, name, ns;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Operation
 //
 
@@ -2004,6 +2036,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 @implementation GTLRSecurityCommandCenter_OrganizationSettings
 @dynamic assetDiscoveryConfig, enableAssetDiscovery, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_OrgPolicy
+//
+
+@implementation GTLRSecurityCommandCenter_OrgPolicy
+@dynamic name;
 @end
 
 
@@ -2212,6 +2254,17 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_SecurityPosture
+//
+
+@implementation GTLRSecurityCommandCenter_SecurityPosture
+@dynamic changedPolicy, name, postureDeployment, postureDeploymentResource,
+         revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ServiceAccountDelegationInfo
 //
 
@@ -2247,6 +2300,60 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 @implementation GTLRSecurityCommandCenter_SetMuteRequest
 @dynamic mute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SimulatedResource
+//
+
+@implementation GTLRSecurityCommandCenter_SimulatedResource
+@dynamic iamPolicyData, resourceData, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SimulatedResource_ResourceData
+//
+
+@implementation GTLRSecurityCommandCenter_SimulatedResource_ResourceData
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SimulatedResult
+//
+
+@implementation GTLRSecurityCommandCenter_SimulatedResult
+@dynamic error, finding, noViolation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
+//
+
+@implementation GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
+@dynamic customConfig, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse
+//
+
+@implementation GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse
+@dynamic result;
 @end
 
 

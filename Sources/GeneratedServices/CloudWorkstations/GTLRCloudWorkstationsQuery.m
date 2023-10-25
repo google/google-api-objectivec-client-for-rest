@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Workstations API (workstations/v1beta)
+//   Cloud Workstations API (workstations/v1)
 // Description:
 //   Allows administrators to create managed developer environments in the
 //   cloud.
@@ -14,6 +14,44 @@
 @implementation GTLRCloudWorkstationsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudWorkstationsQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudWorkstationsQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudWorkstations_Location class];
+  query.loggingName = @"workstations.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudWorkstationsQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRCloudWorkstationsQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudWorkstations_ListLocationsResponse class];
+  query.loggingName = @"workstations.projects.locations.list";
+  return query;
+}
 
 @end
 
@@ -30,7 +68,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRCloudWorkstationsQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -50,7 +88,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -69,7 +107,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -88,7 +126,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRCloudWorkstationsQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -114,7 +152,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstationClusters";
+  NSString *pathURITemplate = @"v1/{+parent}/workstationClusters";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -138,7 +176,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -157,7 +195,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -176,7 +214,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstationClusters";
+  NSString *pathURITemplate = @"v1/{+parent}/workstationClusters";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -202,7 +240,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -229,7 +267,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstationConfigs";
+  NSString *pathURITemplate = @"v1/{+parent}/workstationConfigs";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -253,7 +291,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -272,7 +310,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -295,7 +333,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -314,7 +352,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstationConfigs";
+  NSString *pathURITemplate = @"v1/{+parent}/workstationConfigs";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -333,7 +371,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstationConfigs:listUsable";
+  NSString *pathURITemplate = @"v1/{+parent}/workstationConfigs:listUsable";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsListUsable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -359,7 +397,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -386,7 +424,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -413,7 +451,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -440,7 +478,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstations";
+  NSString *pathURITemplate = @"v1/{+parent}/workstations";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -464,7 +502,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -490,7 +528,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"workstation" ];
-  NSString *pathURITemplate = @"v1beta/{+workstation}:generateAccessToken";
+  NSString *pathURITemplate = @"v1/{+workstation}:generateAccessToken";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsGenerateAccessToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -510,7 +548,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -533,7 +571,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -552,7 +590,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstations";
+  NSString *pathURITemplate = @"v1/{+parent}/workstations";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -571,7 +609,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/workstations:listUsable";
+  NSString *pathURITemplate = @"v1/{+parent}/workstations:listUsable";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsListUsable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -597,7 +635,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -624,7 +662,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -651,7 +689,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:start";
+  NSString *pathURITemplate = @"v1/{+name}:start";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsStart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -678,7 +716,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:stop";
+  NSString *pathURITemplate = @"v1/{+name}:stop";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -705,7 +743,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

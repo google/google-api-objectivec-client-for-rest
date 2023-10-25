@@ -94,6 +94,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
+ *  Gets the CMEK config. Gets the Customer Managed Encryption Key configured
+ *  with the Cloud Tasks lcoation. By default there is no kms_key configured.
+ *
+ *  Method: cloudtasks.projects.locations.getCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsGetCmekConfig : GTLRCloudTasksQuery
+
+/**
+ *  Required. The config. For example:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/CmekConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_CmekConfig.
+ *
+ *  Gets the CMEK config. Gets the Customer Managed Encryption Key configured
+ *  with the Cloud Tasks lcoation. By default there is no kms_key configured.
+ *
+ *  @param name Required. The config. For example:
+ *    projects/PROJECT_ID/locations/LOCATION_ID/CmekConfig`
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsGetCmekConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: cloudtasks.projects.locations.list
@@ -905,6 +937,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates or Updates a CMEK config. Updates the Customer Managed Encryption
+ *  Key assotiated with the Cloud Tasks location (Creates if the key does not
+ *  already exist). All new tasks created in the location will be encrypted
+ *  at-rest with the KMS-key provided in the config.
+ *
+ *  Method: cloudtasks.projects.locations.updateCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsUpdateCmekConfig : GTLRCloudTasksQuery
+
+/**
+ *  Output only. The config resource name which includes the project and
+ *  location and must end in 'cmekConfig', in the format
+ *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_CmekConfig.
+ *
+ *  Creates or Updates a CMEK config. Updates the Customer Managed Encryption
+ *  Key assotiated with the Cloud Tasks location (Creates if the key does not
+ *  already exist). All new tasks created in the location will be encrypted
+ *  at-rest with the KMS-key provided in the config.
+ *
+ *  @param object The @c GTLRCloudTasks_CmekConfig to include in the query.
+ *  @param name Output only. The config resource name which includes the project
+ *    and location and must end in 'cmekConfig', in the format
+ *    projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsUpdateCmekConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudTasks_CmekConfig *)object
+                           name:(NSString *)name;
 
 @end
 

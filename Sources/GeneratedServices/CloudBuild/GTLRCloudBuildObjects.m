@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Build API (cloudbuild/v1)
+//   Cloud Build API (cloudbuild/v2)
 // Description:
 //   Creates and manages builds on Google Cloud Platform.
 // Documentation:
@@ -13,204 +13,89 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudBuild_ApprovalResult.decision
-NSString * const kGTLRCloudBuild_ApprovalResult_Decision_Approved = @"APPROVED";
-NSString * const kGTLRCloudBuild_ApprovalResult_Decision_DecisionUnspecified = @"DECISION_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_ApprovalResult_Decision_Rejected = @"REJECTED";
+// GTLRCloudBuild_AuditLogConfig.logType
+NSString * const kGTLRCloudBuild_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRCloudBuild_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRCloudBuild_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRCloudBuild_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_Build.status
-NSString * const kGTLRCloudBuild_Build_Status_Cancelled     = @"CANCELLED";
-NSString * const kGTLRCloudBuild_Build_Status_Expired       = @"EXPIRED";
-NSString * const kGTLRCloudBuild_Build_Status_Failure       = @"FAILURE";
-NSString * const kGTLRCloudBuild_Build_Status_InternalError = @"INTERNAL_ERROR";
-NSString * const kGTLRCloudBuild_Build_Status_Pending       = @"PENDING";
-NSString * const kGTLRCloudBuild_Build_Status_Queued        = @"QUEUED";
-NSString * const kGTLRCloudBuild_Build_Status_StatusUnknown = @"STATUS_UNKNOWN";
-NSString * const kGTLRCloudBuild_Build_Status_Success       = @"SUCCESS";
-NSString * const kGTLRCloudBuild_Build_Status_Timeout       = @"TIMEOUT";
-NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
+// GTLRCloudBuild_ChildStatusReference.type
+NSString * const kGTLRCloudBuild_ChildStatusReference_Type_TaskRun = @"TASK_RUN";
+NSString * const kGTLRCloudBuild_ChildStatusReference_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildApproval.state
-NSString * const kGTLRCloudBuild_BuildApproval_State_Approved  = @"APPROVED";
-NSString * const kGTLRCloudBuild_BuildApproval_State_Cancelled = @"CANCELLED";
-NSString * const kGTLRCloudBuild_BuildApproval_State_Pending   = @"PENDING";
-NSString * const kGTLRCloudBuild_BuildApproval_State_Rejected  = @"REJECTED";
-NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition.severity
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Severity_Info = @"INFO";
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Severity_Warning = @"WARNING";
 
-// GTLRCloudBuild_BuildOptions.defaultLogsBucketBehavior
-NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified = @"DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket = @"REGIONAL_USER_OWNED_BUCKET";
+// GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition.status
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_False = @"FALSE";
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_True = @"TRUE";
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_Unknown = @"UNKNOWN";
 
-// GTLRCloudBuild_BuildOptions.logging
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly  = @"GCS_ONLY";
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy   = @"LEGACY";
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified = @"LOGGING_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_None     = @"NONE";
-NSString * const kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly = @"STACKDRIVER_ONLY";
+// GTLRCloudBuild_InstallationState.stage
+NSString * const kGTLRCloudBuild_InstallationState_Stage_Complete = @"COMPLETE";
+NSString * const kGTLRCloudBuild_InstallationState_Stage_PendingCreateApp = @"PENDING_CREATE_APP";
+NSString * const kGTLRCloudBuild_InstallationState_Stage_PendingInstallApp = @"PENDING_INSTALL_APP";
+NSString * const kGTLRCloudBuild_InstallationState_Stage_PendingUserOauth = @"PENDING_USER_OAUTH";
+NSString * const kGTLRCloudBuild_InstallationState_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildOptions.logStreamingOption
-NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault = @"STREAM_DEFAULT";
-NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff = @"STREAM_OFF";
-NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn = @"STREAM_ON";
+// GTLRCloudBuild_ParamSpec.type
+NSString * const kGTLRCloudBuild_ParamSpec_Type_Array          = @"ARRAY";
+NSString * const kGTLRCloudBuild_ParamSpec_Type_String         = @"STRING";
+NSString * const kGTLRCloudBuild_ParamSpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildOptions.machineType
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Medium = @"E2_MEDIUM";
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
-NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
+// GTLRCloudBuild_ParamValue.type
+NSString * const kGTLRCloudBuild_ParamValue_Type_Array         = @"ARRAY";
+NSString * const kGTLRCloudBuild_ParamValue_Type_String        = @"STRING";
+NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildOptions.requestedVerifyOption
-NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified = @"NOT_VERIFIED";
-NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
+// GTLRCloudBuild_PipelineRef.resolver
+NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Bundles  = @"BUNDLES";
+NSString * const kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo  = @"GCB_REPO";
+NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Git      = @"GIT";
+NSString * const kGTLRCloudBuild_PipelineRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildOptions.sourceProvenanceHash
-NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
-NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None = @"NONE";
-NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
-NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha512 = @"SHA512";
+// GTLRCloudBuild_PipelineRun.pipelineRunStatus
+NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunCancelled = @"PIPELINE_RUN_CANCELLED";
+NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified = @"PIPELINE_RUN_STATUS_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildOptions.substitutionOption
-NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
-NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch = @"MUST_MATCH";
+// GTLRCloudBuild_PropertySpec.type
+NSString * const kGTLRCloudBuild_PropertySpec_Type_String      = @"STRING";
+NSString * const kGTLRCloudBuild_PropertySpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildStep.status
-NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled    = @"CANCELLED";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Expired      = @"EXPIRED";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Failure      = @"FAILURE";
-NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Pending      = @"PENDING";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Queued       = @"QUEUED";
-NSString * const kGTLRCloudBuild_BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Success      = @"SUCCESS";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout      = @"TIMEOUT";
-NSString * const kGTLRCloudBuild_BuildStep_Status_Working      = @"WORKING";
+// GTLRCloudBuild_TaskRef.resolver
+NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles      = @"BUNDLES";
+NSString * const kGTLRCloudBuild_TaskRef_Resolver_GcbRepo      = @"GCB_REPO";
+NSString * const kGTLRCloudBuild_TaskRef_Resolver_Git          = @"GIT";
+NSString * const kGTLRCloudBuild_TaskRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildTrigger.eventType
-NSString * const kGTLRCloudBuild_BuildTrigger_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Manual = @"MANUAL";
-NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Pubsub = @"PUBSUB";
-NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Repo   = @"REPO";
-NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Webhook = @"WEBHOOK";
+// GTLRCloudBuild_TaskResult.type
+NSString * const kGTLRCloudBuild_TaskResult_Type_Array         = @"ARRAY";
+NSString * const kGTLRCloudBuild_TaskResult_Type_Object        = @"OBJECT";
+NSString * const kGTLRCloudBuild_TaskResult_Type_String        = @"STRING";
+NSString * const kGTLRCloudBuild_TaskResult_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudBuild_BuildTrigger.includeBuildLogs
-NSString * const kGTLRCloudBuild_BuildTrigger_IncludeBuildLogs_IncludeBuildLogsUnspecified = @"INCLUDE_BUILD_LOGS_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_BuildTrigger_IncludeBuildLogs_IncludeBuildLogsWithStatus = @"INCLUDE_BUILD_LOGS_WITH_STATUS";
+// GTLRCloudBuild_TaskSpec.managedSidecars
+NSString * const kGTLRCloudBuild_TaskSpec_ManagedSidecars_ManagedSidecarUnspecified = @"MANAGED_SIDECAR_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_TaskSpec_ManagedSidecars_PrivilegedDockerDaemon = @"PRIVILEGED_DOCKER_DAEMON";
 
-// GTLRCloudBuild_FailureInfo.type
-NSString * const kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified = @"FAILURE_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed = @"FETCH_SOURCE_FAILED";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_LoggingFailure = @"LOGGING_FAILURE";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_PushFailed   = @"PUSH_FAILED";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_PushImageNotFound = @"PUSH_IMAGE_NOT_FOUND";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized = @"PUSH_NOT_AUTHORIZED";
-NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
-
-// GTLRCloudBuild_GitFileSource.repoType
-NSString * const kGTLRCloudBuild_GitFileSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
-NSString * const kGTLRCloudBuild_GitFileSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
-NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github = @"GITHUB";
-NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Gitlab = @"GITLAB";
-NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Unknown = @"UNKNOWN";
-
-// GTLRCloudBuild_GitRepoSource.repoType
-NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
-NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
-NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github = @"GITHUB";
-NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Gitlab = @"GITLAB";
-NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown = @"UNKNOWN";
-
-// GTLRCloudBuild_Hash.type
-NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
-NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
-NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
-NSString * const kGTLRCloudBuild_Hash_Type_Sha512 = @"SHA512";
-
-// GTLRCloudBuild_NetworkConfig.egressOption
-NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_EgressOptionUnspecified = @"EGRESS_OPTION_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_NoPublicEgress = @"NO_PUBLIC_EGRESS";
-NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_PublicEgress = @"PUBLIC_EGRESS";
-
-// GTLRCloudBuild_PubsubConfig.state
-NSString * const kGTLRCloudBuild_PubsubConfig_State_Ok         = @"OK";
-NSString * const kGTLRCloudBuild_PubsubConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionDeleted = @"SUBSCRIPTION_DELETED";
-NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionMisconfigured = @"SUBSCRIPTION_MISCONFIGURED";
-NSString * const kGTLRCloudBuild_PubsubConfig_State_TopicDeleted = @"TOPIC_DELETED";
-
-// GTLRCloudBuild_PullRequestFilter.commentControl
-NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled = @"COMMENTS_DISABLED";
-NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
-NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabledForExternalContributorsOnly = @"COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY";
-
-// GTLRCloudBuild_RepositoryEventConfig.repositoryType
-NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_Github = @"GITHUB";
-NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_GithubEnterprise = @"GITHUB_ENTERPRISE";
-NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_GitlabEnterprise = @"GITLAB_ENTERPRISE";
-NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_RepositoryTypeUnspecified = @"REPOSITORY_TYPE_UNSPECIFIED";
-
-// GTLRCloudBuild_Warning.priority
-NSString * const kGTLRCloudBuild_Warning_Priority_Alert        = @"ALERT";
-NSString * const kGTLRCloudBuild_Warning_Priority_Info         = @"INFO";
-NSString * const kGTLRCloudBuild_Warning_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_Warning_Priority_Warning      = @"WARNING";
-
-// GTLRCloudBuild_WebhookConfig.state
-NSString * const kGTLRCloudBuild_WebhookConfig_State_Ok        = @"OK";
-NSString * const kGTLRCloudBuild_WebhookConfig_State_SecretDeleted = @"SECRET_DELETED";
-NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRCloudBuild_WorkerPool.state
-NSString * const kGTLRCloudBuild_WorkerPool_State_Creating     = @"CREATING";
-NSString * const kGTLRCloudBuild_WorkerPool_State_Deleted      = @"DELETED";
-NSString * const kGTLRCloudBuild_WorkerPool_State_Deleting     = @"DELETING";
-NSString * const kGTLRCloudBuild_WorkerPool_State_Running      = @"RUNNING";
-NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
+// GTLRCloudBuild_WhenExpression.expressionOperator
+NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_ExpressionOperatorUnspecified = @"EXPRESSION_OPERATOR_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_In = @"IN";
+NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT_IN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ApprovalConfig
+//   GTLRCloudBuild_AuditConfig
 //
 
-@implementation GTLRCloudBuild_ApprovalConfig
-@dynamic approvalRequired;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ApprovalResult
-//
-
-@implementation GTLRCloudBuild_ApprovalResult
-@dynamic approvalTime, approverAccount, comment, decision, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ApproveBuildRequest
-//
-
-@implementation GTLRCloudBuild_ApproveBuildRequest
-@dynamic approvalResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ArtifactObjects
-//
-
-@implementation GTLRCloudBuild_ArtifactObjects
-@dynamic location, paths, timing;
+@implementation GTLRCloudBuild_AuditConfig
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"paths" : [NSString class]
+    @"auditLogConfigs" : [GTLRCloudBuild_AuditLogConfig class]
   };
   return map;
 }
@@ -220,15 +105,15 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ArtifactResult
+//   GTLRCloudBuild_AuditLogConfig
 //
 
-@implementation GTLRCloudBuild_ArtifactResult
-@dynamic fileHash, location;
+@implementation GTLRCloudBuild_AuditLogConfig
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fileHash" : [GTLRCloudBuild_FileHashes class]
+    @"exemptedMembers" : [NSString class]
   };
   return map;
 }
@@ -238,36 +123,15 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Artifacts
+//   GTLRCloudBuild_BatchCreateRepositoriesRequest
 //
 
-@implementation GTLRCloudBuild_Artifacts
-@dynamic images, mavenArtifacts, npmPackages, objects, pythonPackages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"images" : [NSString class],
-    @"mavenArtifacts" : [GTLRCloudBuild_MavenArtifact class],
-    @"npmPackages" : [GTLRCloudBuild_NpmPackage class],
-    @"pythonPackages" : [GTLRCloudBuild_PythonPackage class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest
-//
-
-@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest
+@implementation GTLRCloudBuild_BatchCreateRepositoriesRequest
 @dynamic requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest class]
+    @"requests" : [GTLRCloudBuild_CreateRepositoryRequest class]
   };
   return map;
 }
@@ -277,15 +141,15 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponse
+//   GTLRCloudBuild_BatchCreateRepositoriesResponse
 //
 
-@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponse
-@dynamic bitbucketServerConnectedRepositories;
+@implementation GTLRCloudBuild_BatchCreateRepositoriesResponse
+@dynamic repositories;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bitbucketServerConnectedRepositories" : [GTLRCloudBuild_BitbucketServerConnectedRepository class]
+    @"repositories" : [GTLRCloudBuild_Repository class]
   };
   return map;
 }
@@ -295,334 +159,17 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
+//   GTLRCloudBuild_Binding
 //
 
-@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
-@dynamic completeTime, config, createTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest
-//
-
-@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest
-@dynamic requests;
+@implementation GTLRCloudBuild_Binding
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest class]
+    @"members" : [NSString class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponse
-//
-
-@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponse
-@dynamic gitlabConnectedRepositories;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"gitlabConnectedRepositories" : [GTLRCloudBuild_GitLabConnectedRepository class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponseMetadata
-//
-
-@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponseMetadata
-@dynamic completeTime, config, createTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerConfig
-//
-
-@implementation GTLRCloudBuild_BitbucketServerConfig
-@dynamic apiKey, connectedRepositories, createTime, hostUri, name,
-         peeredNetwork, secrets, sslCa, username, webhookKey;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectedRepositories" : [GTLRCloudBuild_BitbucketServerRepositoryId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerConnectedRepository
-//
-
-@implementation GTLRCloudBuild_BitbucketServerConnectedRepository
-@dynamic parent, repo, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerRepository
-//
-
-@implementation GTLRCloudBuild_BitbucketServerRepository
-@dynamic browseUri, descriptionProperty, displayName, name, repoId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerRepositoryId
-//
-
-@implementation GTLRCloudBuild_BitbucketServerRepositoryId
-@dynamic projectKey, repoSlug, webhookId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerSecrets
-//
-
-@implementation GTLRCloudBuild_BitbucketServerSecrets
-@dynamic adminAccessTokenVersionName, readAccessTokenVersionName,
-         webhookSecretVersionName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BitbucketServerTriggerConfig
-//
-
-@implementation GTLRCloudBuild_BitbucketServerTriggerConfig
-@dynamic bitbucketServerConfig, bitbucketServerConfigResource, projectKey,
-         pullRequest, push, repoSlug;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Build
-//
-
-@implementation GTLRCloudBuild_Build
-@dynamic approval, artifacts, availableSecrets, buildTriggerId, createTime,
-         failureInfo, finishTime, identifier, images, logsBucket, logUrl, name,
-         options, projectId, queueTtl, results, secrets, serviceAccount, source,
-         sourceProvenance, startTime, status, statusDetail, steps,
-         substitutions, tags, timeout, timing, warnings;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"images" : [NSString class],
-    @"secrets" : [GTLRCloudBuild_Secret class],
-    @"steps" : [GTLRCloudBuild_BuildStep class],
-    @"tags" : [NSString class],
-    @"warnings" : [GTLRCloudBuild_Warning class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Build_Substitutions
-//
-
-@implementation GTLRCloudBuild_Build_Substitutions
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Build_Timing
-//
-
-@implementation GTLRCloudBuild_Build_Timing
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudBuild_TimeSpan class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildApproval
-//
-
-@implementation GTLRCloudBuild_BuildApproval
-@dynamic config, result, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildOperationMetadata
-//
-
-@implementation GTLRCloudBuild_BuildOperationMetadata
-@dynamic build;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildOptions
-//
-
-@implementation GTLRCloudBuild_BuildOptions
-@dynamic automapSubstitutions, defaultLogsBucketBehavior, diskSizeGb,
-         dynamicSubstitutions, env, logging, logStreamingOption, machineType,
-         pool, requestedVerifyOption, secretEnv, sourceProvenanceHash,
-         substitutionOption, volumes, workerPool;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"env" : [NSString class],
-    @"secretEnv" : [NSString class],
-    @"sourceProvenanceHash" : [NSString class],
-    @"volumes" : [GTLRCloudBuild_Volume class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildStep
-//
-
-@implementation GTLRCloudBuild_BuildStep
-@dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
-         entrypoint, env, exitCode, identifier, name, pullTiming, script,
-         secretEnv, status, timeout, timing, volumes, waitFor;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowExitCodes" : [NSNumber class],
-    @"args" : [NSString class],
-    @"env" : [NSString class],
-    @"secretEnv" : [NSString class],
-    @"volumes" : [GTLRCloudBuild_Volume class],
-    @"waitFor" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildTrigger
-//
-
-@implementation GTLRCloudBuild_BuildTrigger
-@dynamic approvalConfig, autodetect, bitbucketServerTriggerConfig, build,
-         createTime, descriptionProperty, disabled, eventType, filename, filter,
-         gitFileSource, github, gitlabEnterpriseEventsConfig, identifier,
-         ignoredFiles, includeBuildLogs, includedFiles, name, pubsubConfig,
-         repositoryEventConfig, resourceName, serviceAccount, sourceToBuild,
-         substitutions, tags, triggerTemplate, webhookConfig;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ignoredFiles" : [NSString class],
-    @"includedFiles" : [NSString class],
-    @"tags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuildTrigger_Substitutions
-//
-
-@implementation GTLRCloudBuild_BuildTrigger_Substitutions
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_BuiltImage
-//
-
-@implementation GTLRCloudBuild_BuiltImage
-@dynamic digest, name, pushTiming;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_CancelBuildRequest
-//
-
-@implementation GTLRCloudBuild_CancelBuildRequest
-@dynamic identifier, name, projectId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -639,111 +186,84 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ConnectedRepository
+//   GTLRCloudBuild_ChildStatusReference
 //
 
-@implementation GTLRCloudBuild_ConnectedRepository
-@dynamic dir, repository, revision;
+@implementation GTLRCloudBuild_ChildStatusReference
+@dynamic name, pipelineTaskName, type, whenExpressions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"whenExpressions" : [GTLRCloudBuild_WhenExpression class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateBitbucketServerConfigOperationMetadata
+//   GTLRCloudBuild_Connection
 //
 
-@implementation GTLRCloudBuild_CreateBitbucketServerConfigOperationMetadata
-@dynamic bitbucketServerConfig, completeTime, createTime;
+@implementation GTLRCloudBuild_Connection
+@dynamic annotations, createTime, disabled, ETag, githubConfig,
+         githubEnterpriseConfig, gitlabConfig, installationState, name,
+         reconciling, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest
+//   GTLRCloudBuild_Connection_Annotations
 //
 
-@implementation GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest
-@dynamic bitbucketServerConnectedRepository, parent;
+@implementation GTLRCloudBuild_Connection_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
+//   GTLRCloudBuild_CreateRepositoryRequest
 //
 
-@implementation GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
-@dynamic completeTime, createTime, githubEnterpriseConfig;
+@implementation GTLRCloudBuild_CreateRepositoryRequest
+@dynamic parent, repository, repositoryId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateGitLabConfigOperationMetadata
+//   GTLRCloudBuild_EmbeddedTask
 //
 
-@implementation GTLRCloudBuild_CreateGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
+@implementation GTLRCloudBuild_EmbeddedTask
+@dynamic annotations, taskSpec;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest
+//   GTLRCloudBuild_EmbeddedTask_Annotations
 //
 
-@implementation GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest
-@dynamic gitlabConnectedRepository, parent;
-@end
+@implementation GTLRCloudBuild_EmbeddedTask_Annotations
 
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_CreateWorkerPoolOperationMetadata
-//
-
-@implementation GTLRCloudBuild_CreateWorkerPoolOperationMetadata
-@dynamic completeTime, createTime, workerPool;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_DeleteBitbucketServerConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_DeleteBitbucketServerConfigOperationMetadata
-@dynamic bitbucketServerConfig, completeTime, createTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
-@dynamic completeTime, createTime, githubEnterpriseConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_DeleteWorkerPoolOperationMetadata
-//
-
-@implementation GTLRCloudBuild_DeleteWorkerPoolOperationMetadata
-@dynamic completeTime, createTime, workerPool;
 @end
 
 
@@ -758,134 +278,30 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_FailureInfo
+//   GTLRCloudBuild_EmptyDirVolumeSource
 //
 
-@implementation GTLRCloudBuild_FailureInfo
-@dynamic detail, type;
+@implementation GTLRCloudBuild_EmptyDirVolumeSource
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_FileHashes
+//   GTLRCloudBuild_EnvVar
 //
 
-@implementation GTLRCloudBuild_FileHashes
-@dynamic fileHash;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fileHash" : [GTLRCloudBuild_Hash class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudBuild_EnvVar
+@dynamic name, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_GitFileSource
+//   GTLRCloudBuild_Expr
 //
 
-@implementation GTLRCloudBuild_GitFileSource
-@dynamic bitbucketServerConfig, githubEnterpriseConfig, path, repository,
-         repoType, revision, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitHubEnterpriseConfig
-//
-
-@implementation GTLRCloudBuild_GitHubEnterpriseConfig
-@dynamic appId, createTime, displayName, hostUrl, name, peeredNetwork, secrets,
-         sslCa, webhookKey;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitHubEnterpriseSecrets
-//
-
-@implementation GTLRCloudBuild_GitHubEnterpriseSecrets
-@dynamic oauthClientIdName, oauthClientIdVersionName, oauthSecretName,
-         oauthSecretVersionName, privateKeyName, privateKeyVersionName,
-         webhookSecretName, webhookSecretVersionName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitHubEventsConfig
-//
-
-@implementation GTLRCloudBuild_GitHubEventsConfig
-@dynamic enterpriseConfigResourceName, installationId, name, owner, pullRequest,
-         push;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitLabConfig
-//
-
-@implementation GTLRCloudBuild_GitLabConfig
-@dynamic connectedRepositories, createTime, enterpriseConfig, name, secrets,
-         username, webhookKey;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectedRepositories" : [GTLRCloudBuild_GitLabRepositoryId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitLabConnectedRepository
-//
-
-@implementation GTLRCloudBuild_GitLabConnectedRepository
-@dynamic parent, repo, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitLabEnterpriseConfig
-//
-
-@implementation GTLRCloudBuild_GitLabEnterpriseConfig
-@dynamic hostUri, serviceDirectoryConfig, sslCa;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitLabEventsConfig
-//
-
-@implementation GTLRCloudBuild_GitLabEventsConfig
-@dynamic gitlabConfig, gitlabConfigResource, projectNamespace, pullRequest,
-         push;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GitLabRepository
-//
-
-@implementation GTLRCloudBuild_GitLabRepository
-@dynamic browseUri, descriptionProperty, displayName, name, repositoryId;
+@implementation GTLRCloudBuild_Expr
+@dynamic descriptionProperty, expression, location, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -896,14 +312,17 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_GitLabRepositoryId
+//   GTLRCloudBuild_FetchGitRefsResponse
 //
 
-@implementation GTLRCloudBuild_GitLabRepositoryId
-@dynamic identifier, webhookId;
+@implementation GTLRCloudBuild_FetchGitRefsResponse
+@dynamic nextPageToken, refNames;
 
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"refNames" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -911,43 +330,125 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_GitLabSecrets
+//   GTLRCloudBuild_FetchLinkableRepositoriesResponse
 //
 
-@implementation GTLRCloudBuild_GitLabSecrets
-@dynamic apiAccessTokenVersion, apiKeyVersion, readAccessTokenVersion,
-         webhookSecretVersion;
+@implementation GTLRCloudBuild_FetchLinkableRepositoriesResponse
+@dynamic nextPageToken, repositories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repositories" : [GTLRCloudBuild_Repository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repositories";
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_GitRepoSource
+//   GTLRCloudBuild_FetchReadTokenRequest
 //
 
-@implementation GTLRCloudBuild_GitRepoSource
-@dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repository,
-         repoType, uri;
+@implementation GTLRCloudBuild_FetchReadTokenRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_GitSource
+//   GTLRCloudBuild_FetchReadTokenResponse
 //
 
-@implementation GTLRCloudBuild_GitSource
-@dynamic dir, revision, url;
+@implementation GTLRCloudBuild_FetchReadTokenResponse
+@dynamic expirationTime, token;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Hash
+//   GTLRCloudBuild_FetchReadWriteTokenRequest
 //
 
-@implementation GTLRCloudBuild_Hash
-@dynamic type, value;
+@implementation GTLRCloudBuild_FetchReadWriteTokenRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_FetchReadWriteTokenResponse
+//
+
+@implementation GTLRCloudBuild_FetchReadWriteTokenResponse
+@dynamic expirationTime, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitHubConfig
+//
+
+@implementation GTLRCloudBuild_GitHubConfig
+@dynamic appInstallationId, authorizerCredential;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition
+@dynamic lastTransitionTime, message, reason, severity, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig
+@dynamic apiKey, appId, appInstallationId, appSlug, hostUri,
+         privateKeySecretVersion, serverVersion, serviceDirectoryConfig, sslCa,
+         webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitLabConfig
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitLabConfig
+@dynamic authorizerCredential, hostUri, readAuthorizerCredential, serverVersion,
+         serviceDirectoryConfig, sslCa, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig
+@dynamic service;
 @end
 
 
@@ -985,20 +486,96 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_InlineSecret
+//   GTLRCloudBuild_InstallationState
 //
 
-@implementation GTLRCloudBuild_InlineSecret
-@dynamic envMap, kmsKeyName;
+@implementation GTLRCloudBuild_InstallationState
+@dynamic actionUri, message, stage;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_InlineSecret_EnvMap
+//   GTLRCloudBuild_ListConnectionsResponse
 //
 
-@implementation GTLRCloudBuild_InlineSecret_EnvMap
+@implementation GTLRCloudBuild_ListConnectionsResponse
+@dynamic connections, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connections" : [GTLRCloudBuild_Connection class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"connections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListLocationsResponse
+//
+
+@implementation GTLRCloudBuild_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRCloudBuild_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListRepositoriesResponse
+//
+
+@implementation GTLRCloudBuild_ListRepositoriesResponse
+@dynamic nextPageToken, repositories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repositories" : [GTLRCloudBuild_Repository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repositories";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Location
+//
+
+@implementation GTLRCloudBuild_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Location_Labels
+//
+
+@implementation GTLRCloudBuild_Location_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1009,21 +586,13 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ListBitbucketServerConfigsResponse
+//   GTLRCloudBuild_Location_Metadata
 //
 
-@implementation GTLRCloudBuild_ListBitbucketServerConfigsResponse
-@dynamic bitbucketServerConfigs, nextPageToken;
+@implementation GTLRCloudBuild_Location_Metadata
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bitbucketServerConfigs" : [GTLRCloudBuild_BitbucketServerConfig class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"bitbucketServerConfigs";
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1031,181 +600,11 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ListBitbucketServerRepositoriesResponse
+//   GTLRCloudBuild_OAuthCredential
 //
 
-@implementation GTLRCloudBuild_ListBitbucketServerRepositoriesResponse
-@dynamic bitbucketServerRepositories, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bitbucketServerRepositories" : [GTLRCloudBuild_BitbucketServerRepository class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"bitbucketServerRepositories";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListBuildsResponse
-//
-
-@implementation GTLRCloudBuild_ListBuildsResponse
-@dynamic builds, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"builds" : [GTLRCloudBuild_Build class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"builds";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListBuildTriggersResponse
-//
-
-@implementation GTLRCloudBuild_ListBuildTriggersResponse
-@dynamic nextPageToken, triggers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"triggers" : [GTLRCloudBuild_BuildTrigger class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"triggers";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListGithubEnterpriseConfigsResponse
-//
-
-@implementation GTLRCloudBuild_ListGithubEnterpriseConfigsResponse
-@dynamic configs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRCloudBuild_GitHubEnterpriseConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListGitLabConfigsResponse
-//
-
-@implementation GTLRCloudBuild_ListGitLabConfigsResponse
-@dynamic gitlabConfigs, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"gitlabConfigs" : [GTLRCloudBuild_GitLabConfig class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"gitlabConfigs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListGitLabRepositoriesResponse
-//
-
-@implementation GTLRCloudBuild_ListGitLabRepositoriesResponse
-@dynamic gitlabRepositories, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"gitlabRepositories" : [GTLRCloudBuild_GitLabRepository class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"gitlabRepositories";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ListWorkerPoolsResponse
-//
-
-@implementation GTLRCloudBuild_ListWorkerPoolsResponse
-@dynamic nextPageToken, workerPools;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"workerPools" : [GTLRCloudBuild_WorkerPool class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"workerPools";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_MavenArtifact
-//
-
-@implementation GTLRCloudBuild_MavenArtifact
-@dynamic artifactId, groupId, path, repository, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NetworkConfig
-//
-
-@implementation GTLRCloudBuild_NetworkConfig
-@dynamic egressOption, peeredNetwork, peeredNetworkIpRange;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_NpmPackage
-//
-
-@implementation GTLRCloudBuild_NpmPackage
-@dynamic packagePath, repository;
+@implementation GTLRCloudBuild_OAuthCredential
+@dynamic oauthTokenSecretVersion, username;
 @end
 
 
@@ -1260,75 +659,26 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_PoolOption
+//   GTLRCloudBuild_Param
 //
 
-@implementation GTLRCloudBuild_PoolOption
-@dynamic name;
+@implementation GTLRCloudBuild_Param
+@dynamic name, value;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_PrivatePoolV1Config
+//   GTLRCloudBuild_ParamSpec
 //
 
-@implementation GTLRCloudBuild_PrivatePoolV1Config
-@dynamic networkConfig, workerConfig;
-@end
+@implementation GTLRCloudBuild_ParamSpec
+@dynamic defaultProperty, descriptionProperty, name, type;
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_ProcessAppManifestCallbackOperationMetadata
-//
-
-@implementation GTLRCloudBuild_ProcessAppManifestCallbackOperationMetadata
-@dynamic completeTime, createTime, githubEnterpriseConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PubsubConfig
-//
-
-@implementation GTLRCloudBuild_PubsubConfig
-@dynamic serviceAccountEmail, state, subscription, topic;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PullRequestFilter
-//
-
-@implementation GTLRCloudBuild_PullRequestFilter
-@dynamic branch, commentControl, invertRegex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PushFilter
-//
-
-@implementation GTLRCloudBuild_PushFilter
-@dynamic branch, invertRegex, tag;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PythonPackage
-//
-
-@implementation GTLRCloudBuild_PythonPackage
-@dynamic paths, repository;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"paths" : [NSString class]
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"defaultProperty" : @"default",
+    @"descriptionProperty" : @"description"
   };
   return map;
 }
@@ -1338,60 +688,75 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ReceiveTriggerWebhookResponse
+//   GTLRCloudBuild_ParamValue
 //
 
-@implementation GTLRCloudBuild_ReceiveTriggerWebhookResponse
+@implementation GTLRCloudBuild_ParamValue
+@dynamic arrayVal, stringVal, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arrayVal" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest
+//   GTLRCloudBuild_PipelineRef
 //
 
-@implementation GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest
-@dynamic connectedRepository;
+@implementation GTLRCloudBuild_PipelineRef
+@dynamic name, params, resolver;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLRCloudBuild_Param class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
+//   GTLRCloudBuild_PipelineRun
 //
 
-@implementation GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
-@dynamic connectedRepository;
+@implementation GTLRCloudBuild_PipelineRun
+@dynamic annotations, childReferences, completionTime, conditions, createTime,
+         ETag, name, params, pipelineRef, pipelineRunStatus, pipelineSpec,
+         resolvedPipelineSpec, serviceAccount, skippedTasks, startTime,
+         timeouts, uid, updateTime, workerPool, workflow, workspaces;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childReferences" : [GTLRCloudBuild_ChildStatusReference class],
+    @"conditions" : [GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition class],
+    @"params" : [GTLRCloudBuild_Param class],
+    @"skippedTasks" : [GTLRCloudBuild_SkippedTask class],
+    @"workspaces" : [GTLRCloudBuild_WorkspaceBinding class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_RepositoryEventConfig
+//   GTLRCloudBuild_PipelineRun_Annotations
 //
 
-@implementation GTLRCloudBuild_RepositoryEventConfig
-@dynamic pullRequest, push, repository, repositoryType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_RepoSource
-//
-
-@implementation GTLRCloudBuild_RepoSource
-@dynamic branchName, commitSha, dir, invertRegex, projectId, repoName,
-         substitutions, tagName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_RepoSource_Substitutions
-//
-
-@implementation GTLRCloudBuild_RepoSource_Substitutions
+@implementation GTLRCloudBuild_PipelineRun_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1402,21 +767,18 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Results
+//   GTLRCloudBuild_PipelineSpec
 //
 
-@implementation GTLRCloudBuild_Results
-@dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
-         images, mavenArtifacts, npmPackages, numArtifacts, pythonPackages;
+@implementation GTLRCloudBuild_PipelineSpec
+@dynamic finallyTasks, generatedYaml, params, tasks, workspaces;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"buildStepImages" : [NSString class],
-    @"buildStepOutputs" : [NSString class],
-    @"images" : [GTLRCloudBuild_BuiltImage class],
-    @"mavenArtifacts" : [GTLRCloudBuild_UploadedMavenArtifact class],
-    @"npmPackages" : [GTLRCloudBuild_UploadedNpmPackage class],
-    @"pythonPackages" : [GTLRCloudBuild_UploadedPythonPackage class]
+    @"finallyTasks" : [GTLRCloudBuild_PipelineTask class],
+    @"params" : [GTLRCloudBuild_ParamSpec class],
+    @"tasks" : [GTLRCloudBuild_PipelineTask class],
+    @"workspaces" : [GTLRCloudBuild_PipelineWorkspaceDeclaration class]
   };
   return map;
 }
@@ -1426,14 +788,21 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_RetryBuildRequest
+//   GTLRCloudBuild_PipelineTask
 //
 
-@implementation GTLRCloudBuild_RetryBuildRequest
-@dynamic identifier, name, projectId;
+@implementation GTLRCloudBuild_PipelineTask
+@dynamic name, params, retries, runAfter, taskRef, taskSpec, timeout,
+         whenExpressions, workspaces;
 
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLRCloudBuild_Param class],
+    @"runAfter" : [NSString class],
+    @"whenExpressions" : [GTLRCloudBuild_WhenExpression class],
+    @"workspaces" : [GTLRCloudBuild_WorkspacePipelineTaskBinding class]
+  };
+  return map;
 }
 
 @end
@@ -1441,30 +810,73 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_RunBuildTriggerRequest
+//   GTLRCloudBuild_PipelineWorkspaceDeclaration
 //
 
-@implementation GTLRCloudBuild_RunBuildTriggerRequest
-@dynamic projectId, source, triggerId;
+@implementation GTLRCloudBuild_PipelineWorkspaceDeclaration
+@dynamic descriptionProperty, name, optional;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Secret
+//   GTLRCloudBuild_Policy
 //
 
-@implementation GTLRCloudBuild_Secret
-@dynamic kmsKeyName, secretEnv;
+@implementation GTLRCloudBuild_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRCloudBuild_AuditConfig class],
+    @"bindings" : [GTLRCloudBuild_Binding class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Secret_SecretEnv
+//   GTLRCloudBuild_PropertySpec
 //
 
-@implementation GTLRCloudBuild_Secret_SecretEnv
+@implementation GTLRCloudBuild_PropertySpec
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Repository
+//
+
+@implementation GTLRCloudBuild_Repository
+@dynamic annotations, createTime, ETag, name, remoteUri, updateTime, webhookId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Repository_Annotations
+//
+
+@implementation GTLRCloudBuild_Repository_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1475,30 +887,60 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_SecretManagerSecret
+//   GTLRCloudBuild_RunWorkflowCustomOperationMetadata
 //
 
-@implementation GTLRCloudBuild_SecretManagerSecret
-@dynamic env, versionName;
+@implementation GTLRCloudBuild_RunWorkflowCustomOperationMetadata
+@dynamic apiVersion, createTime, endTime, pipelineRunId, requestedCancellation,
+         target, verb;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_Secrets
+//   GTLRCloudBuild_SecretVolumeSource
 //
 
-@implementation GTLRCloudBuild_Secrets
-@dynamic inlineProperty, secretManager;
+@implementation GTLRCloudBuild_SecretVolumeSource
+@dynamic secretName, secretVersion;
+@end
 
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"inlineProperty" : @"inline" };
-}
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_SecurityContext
+//
+
+@implementation GTLRCloudBuild_SecurityContext
+@dynamic privileged;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_SetIamPolicyRequest
+//
+
+@implementation GTLRCloudBuild_SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Sidecar
+//
+
+@implementation GTLRCloudBuild_Sidecar
+@dynamic args, command, env, image, name, script, securityContext, volumeMounts,
+         workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"inline" : [GTLRCloudBuild_InlineSecret class],
-    @"secretManager" : [GTLRCloudBuild_SecretManagerSecret class]
+    @"args" : [NSString class],
+    @"command" : [NSString class],
+    @"env" : [GTLRCloudBuild_EnvVar class],
+    @"volumeMounts" : [GTLRCloudBuild_VolumeMount class]
   };
   return map;
 }
@@ -1508,45 +950,17 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ServiceDirectoryConfig
+//   GTLRCloudBuild_SkippedTask
 //
 
-@implementation GTLRCloudBuild_ServiceDirectoryConfig
-@dynamic service;
-@end
+@implementation GTLRCloudBuild_SkippedTask
+@dynamic name, reason, whenExpressions;
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Source
-//
-
-@implementation GTLRCloudBuild_Source
-@dynamic connectedRepository, gitSource, repoSource, storageSource,
-         storageSourceManifest;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_SourceProvenance
-//
-
-@implementation GTLRCloudBuild_SourceProvenance
-@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource,
-         resolvedStorageSourceManifest;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_SourceProvenance_FileHashes
-//
-
-@implementation GTLRCloudBuild_SourceProvenance_FileHashes
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudBuild_FileHashes class];
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"whenExpressions" : [GTLRCloudBuild_WhenExpression class]
+  };
+  return map;
 }
 
 @end
@@ -1586,155 +1000,54 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_StorageSource
+//   GTLRCloudBuild_Step
 //
 
-@implementation GTLRCloudBuild_StorageSource
-@dynamic bucket, generation, object;
+@implementation GTLRCloudBuild_Step
+@dynamic args, command, env, image, name, script, timeout, volumeMounts,
+         workingDir;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"command" : [NSString class],
+    @"env" : [GTLRCloudBuild_EnvVar class],
+    @"volumeMounts" : [GTLRCloudBuild_VolumeMount class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_StorageSourceManifest
+//   GTLRCloudBuild_TaskRef
 //
 
-@implementation GTLRCloudBuild_StorageSourceManifest
-@dynamic bucket, generation, object;
+@implementation GTLRCloudBuild_TaskRef
+@dynamic name, params, resolver;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLRCloudBuild_Param class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_TimeSpan
+//   GTLRCloudBuild_TaskResult
 //
 
-@implementation GTLRCloudBuild_TimeSpan
-@dynamic endTime, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UpdateBitbucketServerConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_UpdateBitbucketServerConfigOperationMetadata
-@dynamic bitbucketServerConfig, completeTime, createTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
-@dynamic completeTime, createTime, githubEnterpriseConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UpdateWorkerPoolOperationMetadata
-//
-
-@implementation GTLRCloudBuild_UpdateWorkerPoolOperationMetadata
-@dynamic completeTime, createTime, workerPool;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UploadedMavenArtifact
-//
-
-@implementation GTLRCloudBuild_UploadedMavenArtifact
-@dynamic fileHashes, pushTiming, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UploadedNpmPackage
-//
-
-@implementation GTLRCloudBuild_UploadedNpmPackage
-@dynamic fileHashes, pushTiming, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UploadedPythonPackage
-//
-
-@implementation GTLRCloudBuild_UploadedPythonPackage
-@dynamic fileHashes, pushTiming, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Volume
-//
-
-@implementation GTLRCloudBuild_Volume
-@dynamic name, path;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_Warning
-//
-
-@implementation GTLRCloudBuild_Warning
-@dynamic priority, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_WebhookConfig
-//
-
-@implementation GTLRCloudBuild_WebhookConfig
-@dynamic secret, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_WorkerConfig
-//
-
-@implementation GTLRCloudBuild_WorkerConfig
-@dynamic diskSizeGb, machineType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_WorkerPool
-//
-
-@implementation GTLRCloudBuild_WorkerPool
-@dynamic annotations, createTime, deleteTime, displayName, ETag, name,
-         privatePoolV1Config, state, uid, updateTime;
+@implementation GTLRCloudBuild_TaskResult
+@dynamic descriptionProperty, name, properties, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -1742,13 +1055,181 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_WorkerPool_Annotations
+//   GTLRCloudBuild_TaskResult_Properties
 //
 
-@implementation GTLRCloudBuild_WorkerPool_Annotations
+@implementation GTLRCloudBuild_TaskResult_Properties
 
 + (Class)classForAdditionalProperties {
-  return [NSString class];
+  return [GTLRCloudBuild_PropertySpec class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_TaskSpec
+//
+
+@implementation GTLRCloudBuild_TaskSpec
+@dynamic descriptionProperty, managedSidecars, params, results, sidecars, steps,
+         volumes, workspaces;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managedSidecars" : [NSString class],
+    @"params" : [GTLRCloudBuild_ParamSpec class],
+    @"results" : [GTLRCloudBuild_TaskResult class],
+    @"sidecars" : [GTLRCloudBuild_Sidecar class],
+    @"steps" : [GTLRCloudBuild_Step class],
+    @"volumes" : [GTLRCloudBuild_VolumeSource class],
+    @"workspaces" : [GTLRCloudBuild_WorkspaceDeclaration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_TestIamPermissionsRequest
+//
+
+@implementation GTLRCloudBuild_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_TestIamPermissionsResponse
+//
+
+@implementation GTLRCloudBuild_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_TimeoutFields
+//
+
+@implementation GTLRCloudBuild_TimeoutFields
+@dynamic finally, pipeline, tasks;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UserCredential
+//
+
+@implementation GTLRCloudBuild_UserCredential
+@dynamic username, userTokenSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_VolumeClaim
+//
+
+@implementation GTLRCloudBuild_VolumeClaim
+@dynamic storage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_VolumeMount
+//
+
+@implementation GTLRCloudBuild_VolumeMount
+@dynamic mountPath, name, readOnly, subPath, subPathExpr;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_VolumeSource
+//
+
+@implementation GTLRCloudBuild_VolumeSource
+@dynamic emptyDir, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WhenExpression
+//
+
+@implementation GTLRCloudBuild_WhenExpression
+@dynamic expressionOperator, input, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkspaceBinding
+//
+
+@implementation GTLRCloudBuild_WorkspaceBinding
+@dynamic name, secret, volumeClaim;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkspaceDeclaration
+//
+
+@implementation GTLRCloudBuild_WorkspaceDeclaration
+@dynamic descriptionProperty, mountPath, name, readOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkspacePipelineTaskBinding
+//
+
+@implementation GTLRCloudBuild_WorkspacePipelineTaskBinding
+@dynamic name, workspace;
 @end

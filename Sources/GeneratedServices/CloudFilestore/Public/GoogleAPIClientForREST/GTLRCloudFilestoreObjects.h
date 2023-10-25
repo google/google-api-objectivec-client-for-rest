@@ -107,6 +107,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium;
 /**
+ *  REGIONAL instances offer the features and availability needed for
+ *  mission-critical workloads.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Regional;
+/**
  *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
  *  Value: "STANDARD"
@@ -341,6 +348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSs
  *  Value: "PREMIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Premium;
+/**
+ *  REGIONAL instances offer the features and availability needed for
+ *  mission-critical workloads.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Regional;
 /**
  *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
@@ -681,6 +695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium PREMIUM
  *        tier. BASIC_SSD is the preferred term for this tier. (Value:
  *        "PREMIUM")
+ *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Regional REGIONAL
+ *        instances offer the features and availability needed for
+ *        mission-critical workloads. (Value: "REGIONAL")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Standard STANDARD
  *        tier. BASIC_HDD is the preferred term for this tier. (Value:
  *        "STANDARD")
@@ -1479,6 +1496,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        capabilities. (Value: "HIGH_SCALE_SSD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. BASIC_SSD
  *        is the preferred term for this tier. (Value: "PREMIUM")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Regional REGIONAL instances
+ *        offer the features and availability needed for mission-critical
+ *        workloads. (Value: "REGIONAL")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier.
  *        BASIC_HDD is the preferred term for this tier. (Value: "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_TierUnspecified Not set. (Value:

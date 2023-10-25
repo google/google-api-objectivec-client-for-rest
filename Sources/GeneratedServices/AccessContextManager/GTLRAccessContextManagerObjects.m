@@ -56,6 +56,11 @@ NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyServiceAcc
 NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
 NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
 
+// GTLRAccessContextManager_EgressFrom.sourceRestriction
+NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionDisabled = @"SOURCE_RESTRICTION_DISABLED";
+NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionEnabled = @"SOURCE_RESTRICTION_ENABLED";
+NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionUnspecified = @"SOURCE_RESTRICTION_UNSPECIFIED";
+
 // GTLRAccessContextManager_IngressFrom.identityType
 NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
 NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
@@ -269,14 +274,15 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 @implementation GTLRAccessContextManager_Condition
 @dynamic devicePolicy, ipSubnetworks, members, negate, regions,
-         requiredAccessLevels;
+         requiredAccessLevels, vpcNetworkSources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ipSubnetworks" : [NSString class],
     @"members" : [NSString class],
     @"regions" : [NSString class],
-    @"requiredAccessLevels" : [NSString class]
+    @"requiredAccessLevels" : [NSString class],
+    @"vpcNetworkSources" : [GTLRAccessContextManager_VpcNetworkSource class]
   };
   return map;
 }
@@ -322,11 +328,12 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_EgressFrom
-@dynamic identities, identityType;
+@dynamic identities, identityType, sourceRestriction, sources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"identities" : [NSString class]
+    @"identities" : [NSString class],
+    @"sources" : [GTLRAccessContextManager_EgressSource class]
   };
   return map;
 }
@@ -341,6 +348,16 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 @implementation GTLRAccessContextManager_EgressPolicy
 @dynamic egressFrom, egressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_EgressSource
+//
+
+@implementation GTLRAccessContextManager_EgressSource
+@dynamic accessLevel;
 @end
 
 
@@ -924,6 +941,34 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedServices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_VpcNetworkSource
+//
+
+@implementation GTLRAccessContextManager_VpcNetworkSource
+@dynamic vpcSubnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_VpcSubNetwork
+//
+
+@implementation GTLRAccessContextManager_VpcSubNetwork
+@dynamic network, vpcIpSubnetworks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vpcIpSubnetworks" : [NSString class]
   };
   return map;
 }

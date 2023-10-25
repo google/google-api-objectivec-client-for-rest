@@ -2253,7 +2253,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_Settings
-@dynamic name, preferenceSet;
+@dynamic disableCloudLogging, name, preferenceSet;
 @end
 
 

@@ -16,11 +16,16 @@
 #endif
 
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsDtmfSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AudioInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurn;
@@ -45,7 +50,10 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCasesCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCasesCaseCaseContent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponseConflictingResources;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Intent_Labels;
@@ -137,7 +145,13 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCasesCaseCaseContent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentSetParameterAction;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettingsPromptTemplate;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent_Labels;
@@ -159,6 +173,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_EndUserMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_WebhookHeaders;
@@ -185,6 +200,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings;
@@ -241,6 +258,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
@@ -249,6 +267,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -320,6 +339,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
@@ -328,6 +348,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo;
@@ -1079,6 +1100,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Expo
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest.dataFormat
+
+/**
+ *  Intents will be exported as raw bytes.
+ *
+ *  Value: "BLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Blob;
+/**
+ *  Intents will be exported in CSV format.
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Csv;
+/**
+ *  Unspecified format. Treated as `BLOB`.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_DataFormatUnspecified;
+/**
+ *  Intents will be exported in JSON format.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Json;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
 
 /**
@@ -1196,6 +1245,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Impo
  *  Value: "KEEP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Keep;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest.mergeOption
+
+/**
+ *  Keep the original intent and discard the conflicting new intent when display
+ *  name conflicts exist.
+ *
+ *  Value: "KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Keep;
+/**
+ *  Merge the original intent with the new intent when display name conflicts
+ *  exist.
+ *
+ *  Value: "MERGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Merge;
+/**
+ *  Unspecified. Should not be used.
+ *
+ *  Value: "MERGE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_MergeOptionUnspecified;
+/**
+ *  DEPRECATED: Please use REPORT_CONFLICT instead. Fail the request if there
+ *  are intents whose display names conflict with the display names of intents
+ *  in the agent.
+ *
+ *  Value: "REJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Reject GTLR_DEPRECATED;
+/**
+ *  Create new intents with new display names to differentiate them from the
+ *  existing intents when display name conflicts exist.
+ *
+ *  Value: "RENAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Rename;
+/**
+ *  Replace the original intent in the agent with the new intent when display
+ *  name conflicts exist.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Replace;
+/**
+ *  Report conflict information if display names conflict is detected.
+ *  Otherwise, import intents.
+ *
+ *  Value: "REPORT_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_ReportConflict;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
@@ -1578,6 +1680,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Secu
  *  Value: "REDACT_WITH_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RedactionStrategy_RedactWithService;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings.retentionStrategy
+
+/**
+ *  Removes data when the conversation ends. If there is no Conversation
+ *  explicitly established, a default conversation ends when the corresponding
+ *  Dialogflow session ends.
+ *
+ *  Value: "REMOVE_AFTER_CONVERSATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RetentionStrategy_RemoveAfterConversation;
+/**
+ *  Retains the persisted data with Dialogflow's internal default 365d TTLs.
+ *
+ *  Value: "RETENTION_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RetentionStrategy_RetentionStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings.audioFormat
@@ -2074,6 +2194,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  *  Value: "FAQ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run knowledge search with text input from agent or text generated query.
+ *
+ *  Value: "KNOWLEDGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch;
 /**
  *  Run smart reply model for chat.
  *
@@ -2748,6 +2874,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
+ *  Run knowledge search with text input from agent or text generated query.
+ *
+ *  Value: "KNOWLEDGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch;
+/**
  *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
@@ -2804,6 +2936,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearS
  *  Value: "FAQ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run knowledge search with text input from agent or text generated query.
+ *
+ *  Value: "KNOWLEDGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch;
 /**
  *  Run smart reply model for chat.
  *
@@ -3476,6 +3614,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSug
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
+ *  Run knowledge search with text input from agent or text generated query.
+ *
+ *  Value: "KNOWLEDGE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch;
+/**
  *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
@@ -3580,11 +3724,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GcsDestination *audioExportGcsDestination;
 
 /**
+ *  Settings for DTMF. Exposed at the following levels: - Agent level - Flow
+ *  level - Page level - Parameter level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings *dtmfSettings;
+
+/**
  *  Settings for logging. Settings for Dialogflow History, Contact Center
  *  messages, StackDriver logs, and speech logging. Exposed at the following
  *  levels: - Agent level.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings *loggingSettings;
+
+@end
+
+
+/**
+ *  Define behaviors for DTMF (dual tone multi frequency).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings : GTLRObject
+
+/**
+ *  If true, incoming audio is processed for DTMF (dual tone multi frequency)
+ *  events. For example, if the caller presses a button on their telephone
+ *  keypad and DTMF processing is enabled, Dialogflow will detect the event
+ *  (e.g. a "3" was pressed) in the incoming audio and pass the event to the bot
+ *  to drive business logic (e.g. when 3 is pressed, return the account
+ *  balance).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** The digit that terminates a DTMF digit sequence. */
+@property(nonatomic, copy, nullable) NSString *finishDigit;
+
+/**
+ *  Max length of DTMF digits.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDigits;
 
 @end
 
@@ -3673,6 +3853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging GTLR_DEPRECATED;
 
+/** Gen App Builder-related agent-level settings. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings *genAppBuilderSettings;
+
 /** Git integration settings for this agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings *gitIntegrationSettings;
 
@@ -3725,6 +3908,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Europe/Paris.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  Settings for Gen App Builder.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings : GTLRObject
+
+/**
+ *  Required. The full name of the Gen App Builder engine related to this agent
+ *  if there is one. Format: `projects/{Project ID}/locations/{Location
+ *  ID}/collections/{Collection ID}/engines/{Engine ID}`
+ */
+@property(nonatomic, copy, nullable) NSString *engine;
 
 @end
 
@@ -3861,6 +4059,93 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TestCaseResult *> *results;
+
+@end
+
+
+/**
+ *  Hierarchical advanced settings for agent/flow/page/fulfillment/parameter.
+ *  Settings exposed at lower level overrides the settings exposed at higher
+ *  level. Overriding occurs at the sub-setting level. For example, the
+ *  playback_interruption_settings at fulfillment level only overrides the
+ *  playback_interruption_settings at the agent level, leaving other settings at
+ *  the agent level unchanged. DTMF settings does not override each other. DTMF
+ *  settings set at different levels define DTMF detections running in parallel.
+ *  Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings : GTLRObject
+
+/**
+ *  If present, incoming audio is exported by Dialogflow to the configured
+ *  Google Cloud Storage destination. Exposed at the following levels: - Agent
+ *  level - Flow level
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination *audioExportGcsDestination;
+
+/**
+ *  Settings for DTMF. Exposed at the following levels: - Agent level - Flow
+ *  level - Page level - Parameter level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsDtmfSettings *dtmfSettings;
+
+/**
+ *  Settings for logging. Settings for Dialogflow History, Contact Center
+ *  messages, StackDriver logs, and speech logging. Exposed at the following
+ *  levels: - Agent level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings *loggingSettings;
+
+@end
+
+
+/**
+ *  Define behaviors for DTMF (dual tone multi frequency).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsDtmfSettings : GTLRObject
+
+/**
+ *  If true, incoming audio is processed for DTMF (dual tone multi frequency)
+ *  events. For example, if the caller presses a button on their telephone
+ *  keypad and DTMF processing is enabled, Dialogflow will detect the event
+ *  (e.g. a "3" was pressed) in the incoming audio and pass the event to the bot
+ *  to drive business logic (e.g. when 3 is pressed, return the account
+ *  balance).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** The digit that terminates a DTMF digit sequence. */
+@property(nonatomic, copy, nullable) NSString *finishDigit;
+
+/**
+ *  Max length of DTMF digits.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDigits;
+
+@end
+
+
+/**
+ *  Define behaviors on logging.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings : GTLRObject
+
+/**
+ *  If true, DF Interaction logging is currently enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInteractionLogging;
+
+/**
+ *  If true, StackDriver logging is currently enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
 
 @end
 
@@ -4418,6 +4703,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Intents.ExportIntents long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportIntentsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for Intents.ExportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportIntentsResponse : GTLRObject
+
+/**
+ *  Uncompressed byte content for intents. This field is populated only if
+ *  `intents_content_inline` is set to true in ExportIntentsRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination *intentsContent;
+
+/**
+ *  The URI to a file containing the exported intents. This field is populated
+ *  only if `intents_uri` is specified in ExportIntentsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *intentsUri;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.ExportTestCases long running operation.
  *  This message currently has no fields.
  */
@@ -4466,6 +4778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents a form parameter.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FormParameter : GTLRObject
+
+/**
+ *  Hierarchical advanced settings for this parameter. The settings exposed at
+ *  the lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings *advancedSettings;
 
 /**
  *  The default value of an optional parameter. If the parameter is required,
@@ -4569,8 +4887,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Fulfillment : GTLRObject
 
+/**
+ *  Hierarchical advanced settings for this fulfillment. The settings exposed at
+ *  the lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings *advancedSettings;
+
 /** Conditional cases for this fulfillment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCases *> *conditionalCases;
+
+/**
+ *  If the flag is true, the agent will utilize LLM to generate a text response.
+ *  If LLM generation fails, the defined responses in the fulfillment will be
+ *  respected. This flag is only useful for fulfillments associated with
+ *  no-match event handlers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGenerativeFallback;
 
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage *> *messages;
@@ -4671,6 +5005,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Google Cloud Storage location for a Dialogflow operation that writes or
+ *  exports objects (e.g. exported agent or transcripts) outside of Dialogflow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination : GTLRObject
+
+/**
+ *  Required. The Google Cloud Storage URI for the exported objects. A URI is of
+ *  the form: `gs://bucket/object-name-or-prefix` Whether a full object name, or
+ *  just a prefix, its usage depends on the Dialogflow operation.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata : GTLRObject
@@ -4730,6 +5080,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Intents.ImportIntents long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for Intents.ImportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponse : GTLRObject
+
+/**
+ *  Info which resources have conflicts when REPORT_CONFLICT merge_option is set
+ *  in ImportIntentsRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponseConflictingResources *conflictingResources;
+
+/**
+ *  The unique identifier of the imported intents. Format:
+ *  `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intents;
+
+@end
+
+
+/**
+ *  Conflicting resources detected during the import process. Only filled when
+ *  REPORT_CONFLICT is set in the request and there are conflicts in the display
+ *  names.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponseConflictingResources : GTLRObject
+
+/** Display names of conflicting entities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityDisplayNames;
+
+/** Display names of conflicting intents. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intentDisplayNames;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.ImportTestCases long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportTestCasesMetadata : GTLRObject
@@ -4750,6 +5143,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Inline destination for a Dialogflow operation that writes or exports objects
+ *  (e.g. intents) outside of Dialogflow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination : GTLRObject
+
+/**
+ *  Output only. The uncompressed byte content for the objects. Only populated
+ *  in responses.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
 
 @end
 
@@ -5157,6 +5568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  [Page guide](https://cloud.google.com/dialogflow/cx/docs/concept/page).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page : GTLRObject
+
+/**
+ *  Hierarchical advanced settings for this page. The settings exposed at the
+ *  lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings *advancedSettings;
 
 /** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -7809,6 +8226,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Intents.ExportIntents long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request message for Intents.ExportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest : GTLRObject
+
+/**
+ *  Optional. The data format of the exported intents. If not specified, `BLOB`
+ *  is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Blob
+ *        Intents will be exported as raw bytes. (Value: "BLOB")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Csv
+ *        Intents will be exported in CSV format. (Value: "CSV")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_DataFormatUnspecified
+ *        Unspecified format. Treated as `BLOB`. (Value:
+ *        "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Json
+ *        Intents will be exported in JSON format. (Value: "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
+
+/**
+ *  Required. The name of the intents to export. Format:
+ *  `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intents;
+
+/**
+ *  Optional. The option to return the serialized intents inline.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intentsContentInline;
+
+/**
+ *  Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
+ *  URI to export the intents to. The format of this URI must be `gs:///`.
+ *  Dialogflow performs a write operation for the Cloud Storage object on the
+ *  caller's behalf, so your request authentication must have write permissions
+ *  for the object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
+ */
+@property(nonatomic, copy, nullable) NSString *intentsUri;
+
+@end
+
+
+/**
+ *  The response message for Intents.ExportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsResponse : GTLRObject
+
+/**
+ *  Uncompressed byte content for intents. This field is populated only if
+ *  `intents_content_inline` is set to true in ExportIntentsRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination *intentsContent;
+
+/**
+ *  The URI to a file containing the exported intents. This field is populated
+ *  only if `intents_uri` is specified in ExportIntentsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *intentsUri;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.ExportTestCases long running operation.
  *  This message currently has no fields.
  */
@@ -7894,6 +8386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  carried over and to be consumed in the target flow.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Flow : GTLRObject
+
+/**
+ *  Hierarchical advanced settings for this flow. The settings exposed at the
+ *  lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
 
 /**
  *  The description of the flow. The maximum length is 500 characters. If
@@ -8031,6 +8529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents a form parameter.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3FormParameter : GTLRObject
+
+/**
+ *  Hierarchical advanced settings for this parameter. The settings exposed at
+ *  the lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
 
 /**
  *  The default value of an optional parameter. If the parameter is required,
@@ -8189,8 +8693,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment : GTLRObject
 
+/**
+ *  Hierarchical advanced settings for this fulfillment. The settings exposed at
+ *  the lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
+
 /** Conditional cases for this fulfillment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCases *> *conditionalCases;
+
+/**
+ *  If the flag is true, the agent will utilize LLM to generate a text response.
+ *  If LLM generation fails, the defined responses in the fulfillment will be
+ *  respected. This flag is only useful for fulfillments associated with
+ *  no-match event handlers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGenerativeFallback;
 
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
@@ -8307,6 +8827,105 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Settings for Generative AI.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettings : GTLRObject
+
+/** Settings for Generative Fallback. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettings *fallbackSettings;
+
+/** Settings for Generative Safety. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings *generativeSafetySettings;
+
+/** Settings for knowledge connector. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings *knowledgeConnectorSettings;
+
+/** Language for this settings. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Format: `projects//locations//agents//generativeSettings`. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Settings for Generative Fallback.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettings : GTLRObject
+
+/**
+ *  Stored prompts that can be selected, for example default templates like
+ *  "conservative" or "chatty", or user defined ones.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettingsPromptTemplate *> *promptTemplates;
+
+/** Display name of the selected prompt. */
+@property(nonatomic, copy, nullable) NSString *selectedPrompt;
+
+@end
+
+
+/**
+ *  Prompt template.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettingsPromptTemplate : GTLRObject
+
+/** Prompt name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  If the flag is true, the prompt is frozen and cannot be modified by users.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frozen;
+
+/**
+ *  Prompt text that is sent to a LLM on no-match default, placeholders are
+ *  filled downstream. For example: "Here is a conversation $conversation, a
+ *  response is: "
+ */
+@property(nonatomic, copy, nullable) NSString *promptText;
+
+@end
+
+
+/**
+ *  Settings for knowledge connector. These parameters are used for LLM prompt
+ *  like "You are . You are a helpful and verbose at , . Your task is to help
+ *  humans on ".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings : GTLRObject
+
+/** Name of the virtual agent. Used for LLM prompt. Can be left empty. */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+/** Identity of the agent, e.g. "virtual agent", "AI assistant". */
+@property(nonatomic, copy, nullable) NSString *agentIdentity;
+
+/**
+ *  Agent scope, e.g. "Example company website", "internal Example company
+ *  website for employees", "manual of car owner".
+ */
+@property(nonatomic, copy, nullable) NSString *agentScope;
+
+/**
+ *  Name of the company, organization or other entity that the agent represents.
+ *  Used for knowledge connector LLM prompt and for knowledge search.
+ */
+@property(nonatomic, copy, nullable) NSString *business;
+
+/**
+ *  Company description, used for LLM prompt, e.g. "a family company selling
+ *  freshly roasted coffee beans".
+ */
+@property(nonatomic, copy, nullable) NSString *businessDescription;
+
+@end
+
+
+/**
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata : GTLRObject
@@ -8415,6 +9034,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Intents.ImportIntents long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request message for Intents.ImportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest : GTLRObject
+
+/** Uncompressed byte content of intents. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource *intentsContent;
+
+/**
+ *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
+ *  import intents from. The format of this URI must be `gs:///`. Dialogflow
+ *  performs a read operation for the Cloud Storage object on the caller's
+ *  behalf, so your request authentication must have read permissions for the
+ *  object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
+ */
+@property(nonatomic, copy, nullable) NSString *intentsUri;
+
+/**
+ *  Merge option for importing intents. If not specified, `REJECT` is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Keep
+ *        Keep the original intent and discard the conflicting new intent when
+ *        display name conflicts exist. (Value: "KEEP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Merge
+ *        Merge the original intent with the new intent when display name
+ *        conflicts exist. (Value: "MERGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_MergeOptionUnspecified
+ *        Unspecified. Should not be used. (Value: "MERGE_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Reject
+ *        DEPRECATED: Please use REPORT_CONFLICT instead. Fail the request if
+ *        there are intents whose display names conflict with the display names
+ *        of intents in the agent. (Value: "REJECT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Rename
+ *        Create new intents with new display names to differentiate them from
+ *        the existing intents when display name conflicts exist. (Value:
+ *        "RENAME")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_Replace
+ *        Replace the original intent in the agent with the new intent when
+ *        display name conflicts exist. (Value: "REPLACE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsRequest_MergeOption_ReportConflict
+ *        Report conflict information if display names conflict is detected.
+ *        Otherwise, import intents. (Value: "REPORT_CONFLICT")
+ */
+@property(nonatomic, copy, nullable) NSString *mergeOption;
+
+@end
+
+
+/**
+ *  The response message for Intents.ImportIntents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponse : GTLRObject
+
+/**
+ *  Info which resources have conflicts when REPORT_CONFLICT merge_option is set
+ *  in ImportIntentsRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources *conflictingResources;
+
+/**
+ *  The unique identifier of the imported intents. Format:
+ *  `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intents;
+
+@end
+
+
+/**
+ *  Conflicting resources detected during the import process. Only filled when
+ *  REPORT_CONFLICT is set in the request and there are conflicts in the display
+ *  names.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources : GTLRObject
+
+/** Display names of conflicting entities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityDisplayNames;
+
+/** Display names of conflicting intents. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intentDisplayNames;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.ImportTestCases long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportTestCasesMetadata : GTLRObject
@@ -8461,6 +9173,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Inline destination for a Dialogflow operation that writes or exports objects
+ *  (e.g. intents) outside of Dialogflow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination : GTLRObject
+
+/**
+ *  Output only. The uncompressed byte content for the objects. Only populated
+ *  in responses.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+@end
+
+
+/**
+ *  Inline source for a Dialogflow operation that reads or imports objects (e.g.
+ *  intents) into Dialogflow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource : GTLRObject
+
+/**
+ *  The uncompressed byte content for the objects.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
 
 @end
 
@@ -9696,6 +10443,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Page : GTLRObject
 
+/**
+ *  Hierarchical advanced settings for this page. The settings exposed at the
+ *  lower level overrides the settings exposed at the higher level.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
+
 /** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -9935,6 +10688,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *disableWebhook;
 
 /**
+ *  Optional. Information about the end-user to improve the relevance and
+ *  accuracy of generative answers. This will be interpreted and used by a
+ *  language model, so, for good results, the data should be self-descriptive,
+ *  and in a simple structure. Example: ```json { "subscription plan": "Business
+ *  Premium Plus", "devices owned": [ {"model": "Google Pixel 7"}, {"model":
+ *  "Google Pixel Tablet"} ] } ```
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_EndUserMetadata *endUserMetadata;
+
+/**
  *  A list of flow versions to override for the request. Format:
  *  `projects//locations//agents//flows//versions/`. If version 1 of flow X is
  *  included in this list, the traffic of flow X will go through version 1
@@ -10008,6 +10771,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Optional. Information about the end-user to improve the relevance and
+ *  accuracy of generative answers. This will be interpreted and used by a
+ *  language model, so, for good results, the data should be self-descriptive,
+ *  and in a simple structure. Example: ```json { "subscription plan": "Business
+ *  Premium Plus", "devices owned": [ {"model": "Google Pixel 7"}, {"model":
+ *  "Google Pixel Tablet"} ] } ```
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_EndUserMetadata : GTLRObject
+@end
+
+
+/**
  *  Additional parameters to be put into session parameters. To remove a
  *  parameter from the session, clients should explicitly set the parameter
  *  value to null. You can reference the session parameters in the agent with
@@ -10069,6 +10849,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents the result of a conversational query.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult : GTLRObject
+
+/**
+ *  Returns the current advanced settings including IVR settings. Even though
+ *  the operations configured by these settings are performed by Dialogflow, the
+ *  client may need to perform special logic at the moment. For example, if
+ *  Dialogflow exports audio to Google Cloud Storage, then the client may need
+ *  to wait for the resulting object to appear in the bucket before proceeding.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
 
 /**
  *  The current Page. Some, not all fields are filled in this message, including
@@ -10791,6 +11580,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Settings for Generative Safety.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings : GTLRObject
+
+/** Banned phrases for generated text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase *> *bannedPhrases;
+
+@end
+
+
+/**
+ *  Text input which can be used for prompt or banned phrases.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase : GTLRObject
+
+/** Required. Language code of the phrase. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. Text input which can be used for prompt or banned phrases. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  Represents the settings related to security issues, such as data redaction
  *  and data retention. It may take hours for updates on the settings to
  *  propagate to all the related components and take effect.
@@ -10886,6 +11700,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "REDACT_WITH_SERVICE")
  */
 @property(nonatomic, copy, nullable) NSString *redactionStrategy;
+
+/**
+ *  Specifies the retention behavior defined by
+ *  SecuritySettings.RetentionStrategy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RetentionStrategy_RemoveAfterConversation
+ *        Removes data when the conversation ends. If there is no Conversation
+ *        explicitly established, a default conversation ends when the
+ *        corresponding Dialogflow session ends. (Value:
+ *        "REMOVE_AFTER_CONVERSATION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RetentionStrategy_RetentionStrategyUnspecified
+ *        Retains the persisted data with Dialogflow's internal default 365d
+ *        TTLs. (Value: "RETENTION_STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *retentionStrategy;
 
 /**
  *  Retains the data for the specified number of days. User must set a value
@@ -12681,6 +13511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
+ *        Run knowledge search with text input from agent or text generated
+ *        query. (Value: "KNOWLEDGE_SEARCH")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
  *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
@@ -12845,6 +13678,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Result from v2 agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult *queryResult;
+
+@end
+
+
+/**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -13145,6 +14002,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec *encryptionSpec;
 
 @end
 
@@ -15077,6 +15961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
+ *        Run knowledge search with text input from agent or text generated
+ *        query. (Value: "KNOWLEDGE_SEARCH")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
  *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
@@ -15445,6 +16332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
+ *        Run knowledge search with text input from agent or text generated
+ *        query. (Value: "KNOWLEDGE_SEARCH")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
  *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
@@ -15809,6 +16699,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -16145,6 +17059,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec *encryptionSpec;
 
 @end
 
@@ -17628,6 +18569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
+ *        Run knowledge search with text input from agent or text generated
+ *        query. (Value: "KNOWLEDGE_SEARCH")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
  *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified

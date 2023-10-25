@@ -46,6 +46,7 @@
 @class GTLRDatabaseMigrationService_DatabaseInstanceEntity;
 @class GTLRDatabaseMigrationService_DatabaseInstanceEntity_CustomFeatures;
 @class GTLRDatabaseMigrationService_DatabaseType;
+@class GTLRDatabaseMigrationService_DataCacheConfig;
 @class GTLRDatabaseMigrationService_DoubleComparisonFilter;
 @class GTLRDatabaseMigrationService_DumpFlag;
 @class GTLRDatabaseMigrationService_DumpFlags;
@@ -1602,6 +1603,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingConflictingDatabases;
 /**
+ *  The destination instance contains existing data or user defined entities
+ *  (for example databases, tables, or functions). You can only migrate to empty
+ *  instances. Clear your destination instance and retry the migration job.
+ *
+ *  Value: "EXISTING_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingData;
+/**
  *  The value of parameter max_replication_slots is not sufficient.
  *
  *  Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS"
@@ -2516,6 +2525,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
 /**
+ *  Optional. Data cache is an optional feature available for Cloud SQL for
+ *  MySQL Enterprise Plus edition only. For more information on data cache, see
+ *  [Data cache overview](https://cloud.google.com/sql/help/mysql-data-cache) in
+ *  Cloud SQL documentation.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DataCacheConfig *dataCacheConfig;
+
+/**
  *  The storage capacity available to the database, in GB. The minimum (and
  *  default) size is 10GB.
  *
@@ -3159,7 +3176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
-/** Required. Engine named version, for example 12.c.1. */
+/** Required. Engine version, for example "12.c.1". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -3350,6 +3367,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        the database. (Value: "RDS")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
+
+@end
+
+
+/**
+ *  Data cache is an optional feature available for Cloud SQL for MySQL
+ *  Enterprise Plus edition only. For more information on data cache, see [Data
+ *  cache overview](https://cloud.google.com/sql/help/mysql-data-cache) in Cloud
+ *  SQL documentation.
+ */
+@interface GTLRDatabaseMigrationService_DataCacheConfig : GTLRObject
+
+/**
+ *  Optional. Whether data cache is enabled for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCacheEnabled;
 
 @end
 
@@ -4878,6 +4913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingConflictingDatabases
  *        The destination DB contains existing databases that are conflicting
  *        with those in the source DB. (Value: "EXISTING_CONFLICTING_DATABASES")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingData
+ *        The destination instance contains existing data or user defined
+ *        entities (for example databases, tables, or functions). You can only
+ *        migrate to empty instances. Clear your destination instance and retry
+ *        the migration job. (Value: "EXISTING_DATA")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots
  *        The value of parameter max_replication_slots is not sufficient.
  *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")

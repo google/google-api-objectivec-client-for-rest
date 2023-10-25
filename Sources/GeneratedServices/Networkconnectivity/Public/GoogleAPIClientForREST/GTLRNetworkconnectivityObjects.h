@@ -967,14 +967,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
 // GTLRNetworkconnectivity_Warnings.code
 
 /**
- *  The policy based route is being modified (e.g. created/deleted) at this
+ *  The policy-based route is being modified (e.g. created/deleted) at this
  *  time.
  *
  *  Value: "RESOURCE_BEING_MODIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified;
 /**
- *  The policy based route is not active and functioning. Common causes are the
+ *  The policy-based route is not active and functioning. Common causes are the
  *  dependent network was deleted or the resource project was turned off.
  *
  *  Value: "RESOURCE_NOT_ACTIVE"
@@ -988,21 +988,58 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Resour
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified;
 
 /**
+ *  The request for HubService.AcceptHubSpoke.
+ */
+@interface GTLRNetworkconnectivity_AcceptHubSpokeRequest : GTLRObject
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. The URI of the spoke to accept into the hub. */
+@property(nonatomic, copy, nullable) NSString *spokeUri;
+
+@end
+
+
+/**
+ *  The response for HubService.AcceptHubSpoke.
+ */
+@interface GTLRNetworkconnectivity_AcceptHubSpokeResponse : GTLRObject
+
+/** The spoke that was operated on. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke *spoke;
+
+@end
+
+
+/**
  *  The request for HubService.AcceptSpoke.
  */
 @interface GTLRNetworkconnectivity_AcceptSpokeRequest : GTLRObject
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -1349,19 +1386,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_Filter : GTLRObject
 
 /**
- *  Optional. The destination IP range of outgoing packets that this policy
- *  based route applies to. Default is "0.0.0.0/0" if protocol version is IPv4.
+ *  Optional. The destination IP range of outgoing packets that this
+ *  policy-based route applies to. Default is "0.0.0.0/0" if protocol version is
+ *  IPv4.
  */
 @property(nonatomic, copy, nullable) NSString *destRange;
 
 /**
- *  Optional. The IP protocol that this policy based route applies to. Valid
+ *  Optional. The IP protocol that this policy-based route applies to. Valid
  *  values are 'TCP', 'UDP', and 'ALL'. Default is 'ALL'.
  */
 @property(nonatomic, copy, nullable) NSString *ipProtocol;
 
 /**
- *  Required. Internet protocol versions this policy based route applies to. For
+ *  Required. Internet protocol versions this policy-based route applies to. For
  *  this version, only IPV4 is supported.
  *
  *  Likely values:
@@ -1373,7 +1411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *protocolVersion;
 
 /**
- *  Optional. The source IP range of outgoing packets that this policy based
+ *  Optional. The source IP range of outgoing packets that this policy-based
  *  route applies to. Default is "0.0.0.0/0" if protocol version is IPv4.
  */
 @property(nonatomic, copy, nullable) NSString *srcRange;
@@ -1616,8 +1654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional. Labels in key-value pair format. For more information about
+ *  labels, see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Group_Labels *labels;
@@ -1669,8 +1707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional. Labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional. Labels in key-value pair format. For more information about
+ *  labels, see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1703,8 +1741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Hub_Labels *labels;
@@ -1779,8 +1817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1793,12 +1831,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  InterconnectAttachment to which this route applies to.
+ *  InterconnectAttachment that this route applies to.
  */
 @interface GTLRNetworkconnectivity_InterconnectAttachment : GTLRObject
 
 /**
- *  Optional. Cloud region to install this policy based route on interconnect
+ *  Optional. Cloud region to install this policy-based route on interconnect
  *  attachment. Use `all` to install it on all interconnect attachments.
  */
 @property(nonatomic, copy, nullable) NSString *region;
@@ -2214,7 +2252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Policy based routes to be returned.
+ *  Policy-based routes to be returned.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2653,14 +2691,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Policy Based Routes (PBR) are more powerful routes that allows GCP customers
- *  to route their L4 network traffic based on not just destination IP, but also
- *  source IP, protocol and more. A PBR always take precedence when it conflicts
- *  with other types of routes. Next id: 22
+ *  Policy-based routes route L4 network traffic based on not just destination
+ *  IP address, but also source IP address, protocol, and more. If a
+ *  policy-based route conflicts with other types of routes, the policy-based
+ *  route always take precedence.
  */
 @interface GTLRNetworkconnectivity_PolicyBasedRoute : GTLRObject
 
-/** Output only. Time when the PolicyBasedRoute was created. */
+/** Output only. Time when the policy-based route was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -2674,12 +2712,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Required. The filter to match L4 traffic. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Filter *filter;
 
-/** Optional. The interconnect attachments to which this route applies to. */
+/**
+ *  Optional. The interconnect attachments that this policy-based route applies
+ *  to.
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InterconnectAttachment *interconnectAttachment;
 
 /**
  *  Output only. Type of this resource. Always
- *  networkconnectivity#policyBasedRoute for Policy Based Route resources.
+ *  networkconnectivity#policyBasedRoute for policy-based Route resources.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2693,15 +2734,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Fully-qualified URL of the network that this route applies to.
- *  e.g. projects/my-project/global/networks/my-network.
+ *  Required. Fully-qualified URL of the network that this route applies to, for
+ *  example: projects/my-project/global/networks/my-network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Optional. The IP of a global access enabled L4 ILB that should be the next
- *  hop to handle matching packets. For this version, only next_hop_ilb_ip is
- *  supported.
+ *  Optional. The IP address of a global-access-enabled L4 ILB that is the next
+ *  hop for matching packets. For this version, only nextHopIlbIp is supported.
  */
 @property(nonatomic, copy, nullable) NSString *nextHopIlbIp;
 
@@ -2721,9 +2761,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *nextHopOtherRoutes;
 
 /**
- *  Optional. The priority of this policy based route. Priority is used to break
- *  ties in cases where there are more than one matching policy based routes
- *  found. In cases where multiple policy based routes are matched, the one with
+ *  Optional. The priority of this policy-based route. Priority is used to break
+ *  ties in cases where there are more than one matching policy-based routes
+ *  found. In cases where multiple policy-based routes are matched, the one with
  *  the lowest-numbered priority value wins. The default value is 1000. The
  *  priority value must be from 1 to 65535, inclusive.
  *
@@ -2734,10 +2774,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Output only. Server-defined fully-qualified URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Output only. Time when the PolicyBasedRoute was updated. */
+/** Output only. Time when the policy-based route was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Optional. VM instances to which this policy based route applies to. */
+/** Optional. VM instances to which this policy-based route applies to. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_VirtualMachine *virtualMachine;
 
 /**
@@ -2870,6 +2910,46 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  The request for HubService.RejectHubSpoke.
+ */
+@interface GTLRNetworkconnectivity_RejectHubSpokeRequest : GTLRObject
+
+/** Optional. Additional information provided by the hub administrator. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. The URI of the spoke to reject from the hub. */
+@property(nonatomic, copy, nullable) NSString *spokeUri;
+
+@end
+
+
+/**
+ *  The response for HubService.RejectHubSpoke.
+ */
+@interface GTLRNetworkconnectivity_RejectHubSpokeResponse : GTLRObject
+
+/** The spoke that was operated on. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke *spoke;
+
+@end
+
+
+/**
  *  The request for HubService.RejectSpoke.
  */
 @interface GTLRNetworkconnectivity_RejectSpokeRequest : GTLRObject
@@ -2882,15 +2962,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -2918,8 +2998,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Route_Labels *labels;
@@ -3004,8 +3084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3050,8 +3130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RouteTable_Labels *labels;
@@ -3104,8 +3184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3485,8 +3565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *hub;
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke_Labels *labels;
@@ -3575,8 +3655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional labels in key:value format. For more information about labels, see
- *  [Requirements for
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3792,14 +3872,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  VM instances to which this policy based route applies to.
+ *  VM instances to which this policy-based route applies to.
  */
 @interface GTLRNetworkconnectivity_VirtualMachine : GTLRObject
 
 /**
- *  Optional. A list of VM instance tags to which this policy based route
- *  applies to. VM instances that have ANY of tags specified here will install
- *  this PBR.
+ *  Optional. A list of VM instance tags the this policy-based route applies to.
+ *  VM instances that have ANY of tags specified here will install this PBR.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -3816,10 +3895,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified The
- *        policy based route is being modified (e.g. created/deleted) at this
+ *        policy-based route is being modified (e.g. created/deleted) at this
  *        time. (Value: "RESOURCE_BEING_MODIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_ResourceNotActive The
- *        policy based route is not active and functioning. Common causes are
+ *        policy-based route is not active and functioning. Common causes are
  *        the dependent network was deleted or the resource project was turned
  *        off. (Value: "RESOURCE_NOT_ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified Default

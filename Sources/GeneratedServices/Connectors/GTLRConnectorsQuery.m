@@ -11,6 +11,21 @@
 
 #import <GoogleAPIClientForREST/GTLRConnectorsQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRConnectorsViewActionViewBasic           = @"ACTION_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewActionViewFull            = @"ACTION_VIEW_FULL";
+NSString * const kGTLRConnectorsViewActionViewUnspecified     = @"ACTION_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewEntityTypeViewBasic       = @"ENTITY_TYPE_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewEntityTypeViewFull        = @"ENTITY_TYPE_VIEW_FULL";
+NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRConnectorsQuery
 
 @dynamic fields;
@@ -44,9 +59,28 @@
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_Action class];
+  query.loggingName = @"connectors.projects.locations.connections.actions.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -227,9 +261,28 @@
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_EntityType class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

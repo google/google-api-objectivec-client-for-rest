@@ -309,7 +309,16 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview
-@dynamic name, overlay, resourceCounts, state, violationsCount;
+@dynamic createTime, customConstraints, name, overlay, resourceCounts, state,
+         violationsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customConstraints" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -379,7 +388,16 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyViolationsPreview
-@dynamic name, overlay, resourceCounts, state, violationsCount;
+@dynamic createTime, customConstraints, name, overlay, resourceCounts, state,
+         violationsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customConstraints" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -33,6 +33,7 @@
 @class GTLRCloudIAP_PolicyName;
 @class GTLRCloudIAP_ReauthSettings;
 @class GTLRCloudIAP_Resource;
+@class GTLRCloudIAP_Resource_ExpectedNextState;
 @class GTLRCloudIAP_Resource_Labels;
 @class GTLRCloudIAP_TunnelDestGroup;
 
@@ -634,6 +635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *loginHint;
 
+/** List of client ids allowed to use IAP programmatically. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *programmaticClients;
+
 @end
 
 
@@ -650,7 +654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -658,14 +662,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudIAP_Policy : GTLRObject
@@ -815,7 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  How IAP determines the effective policy in cases of hierarchial policies.
+ *  How IAP determines the effective policy in cases of hierarchical policies.
  *  Policies are merged from higher in the hierarchy to lower in the hierarchy.
  *
  *  Likely values:
@@ -844,6 +849,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  GTLRCloudIAP_Resource
  */
 @interface GTLRCloudIAP_Resource : GTLRObject
+
+/**
+ *  The proto or JSON formatted expected next state of the resource, wrapped in
+ *  a google.protobuf.Any proto, against which the policy rules are evaluated.
+ *  Services not integrated with custom org policy can omit this field. Services
+ *  integrated with custom org policy must populate this field for all requests
+ *  where the API call changes the state of the resource. Custom org policy
+ *  backend uses these attributes to enforce custom org policies. When a proto
+ *  is wrapped, it is generally the One Platform API proto. When a JSON string
+ *  is wrapped, use `google.protobuf.StringValue` for the inner value. It is
+ *  sufficient to pass just the max set of attributes that are allowed for use
+ *  in custom constraints; other attributes can be omitted. See
+ *  go/custom-constraints-org-policy-integration-guide for additional details.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_ExpectedNextState *expectedNextState;
 
 /**
  *  The service defined labels of the resource on which the conditions will be
@@ -894,6 +914,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The proto or JSON formatted expected next state of the resource, wrapped in
+ *  a google.protobuf.Any proto, against which the policy rules are evaluated.
+ *  Services not integrated with custom org policy can omit this field. Services
+ *  integrated with custom org policy must populate this field for all requests
+ *  where the API call changes the state of the resource. Custom org policy
+ *  backend uses these attributes to enforce custom org policies. When a proto
+ *  is wrapped, it is generally the One Platform API proto. When a JSON string
+ *  is wrapped, use `google.protobuf.StringValue` for the inner value. It is
+ *  sufficient to pass just the max set of attributes that are allowed for use
+ *  in custom constraints; other attributes can be omitted. See
+ *  go/custom-constraints-org-policy-integration-guide for additional details.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudIAP_Resource_ExpectedNextState : GTLRObject
 @end
 
 

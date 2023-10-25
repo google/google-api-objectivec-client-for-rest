@@ -47,6 +47,33 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptHubSpokeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:acceptSpoke";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.acceptSpoke";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsCreate
 
 @dynamic hubId, parent, requestId;
@@ -317,6 +344,33 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.global.hubs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectHubSpokeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rejectSpoke";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.global.hubs.rejectSpoke";
   return query;
 }
 

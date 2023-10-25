@@ -2436,8 +2436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 /**
  *  Immutable. The property type for this Property resource. When creating a
  *  property, if the type is "PROPERTY_TYPE_UNSPECIFIED", then
- *  "ORDINARY_PROPERTY" will be implied. "SUBPROPERTY" and "ROLLUP_PROPERTY"
- *  types cannot yet be created with the Google Analytics Admin API.
+ *  "ORDINARY_PROPERTY" will be implied.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary
@@ -2580,6 +2579,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *  up to 9 dimensions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1betaAccessDimension *> *dimensions;
+
+/**
+ *  Optional. Decides whether to return the users within user groups. This field
+ *  works only when include_all_users is set to true. If true, it will return
+ *  all users with access to the specified property or account. If false, only
+ *  the users with direct access will be returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expandGroups;
+
+/**
+ *  Optional. Determines whether to include users who have never made an API
+ *  call in the response. If true, all users with access to the specified
+ *  property or account are included in the response, regardless of whether they
+ *  have made an API call or not. If false, only the users who have made an API
+ *  call will be included.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeAllUsers;
 
 /**
  *  The number of rows to return. If unspecified, 10,000 rows are returned. The

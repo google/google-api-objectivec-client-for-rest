@@ -2510,13 +2510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /**
  *  A longer description of the Permissions resource, giving more details of
- *  what it affects.
+ *  what it affects. This field may be absent.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The name of the permission. */
+/** The name of the permission. This field may be absent. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** An opaque string uniquely identifying the permission. */

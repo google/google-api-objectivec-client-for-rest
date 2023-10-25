@@ -1375,6 +1375,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  Request for the SetupSasAnalytics rpc.
  */
 @interface GTLRSASPortal_SetupSasAnalyticsRequest : GTLRObject
+
+/**
+ *  Optional. User id to setup analytics for, if not provided the user id
+ *  associated with the project is used. optional
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
 @end
 
 

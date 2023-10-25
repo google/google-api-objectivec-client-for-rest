@@ -47,6 +47,25 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
 
 @end
 
+@implementation GTLRCloudTasksQuery_ProjectsLocationsGetCmekConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudTasksQuery_ProjectsLocationsGetCmekConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTasks_CmekConfig class];
+  query.loggingName = @"cloudtasks.projects.locations.getCmekConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudTasksQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -445,6 +464,33 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudTasks_TestIamPermissionsResponse class];
   query.loggingName = @"cloudtasks.projects.locations.queues.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTasksQuery_ProjectsLocationsUpdateCmekConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudTasks_CmekConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudTasksQuery_ProjectsLocationsUpdateCmekConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTasks_CmekConfig class];
+  query.loggingName = @"cloudtasks.projects.locations.updateCmekConfig";
   return query;
 }
 

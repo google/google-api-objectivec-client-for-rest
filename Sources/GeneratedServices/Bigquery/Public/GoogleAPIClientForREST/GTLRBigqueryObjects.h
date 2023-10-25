@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRBigquery_AggregateClassificationMetrics;
+@class GTLRBigquery_AggregationThresholdPolicy;
 @class GTLRBigquery_Argument;
 @class GTLRBigquery_ArimaCoefficients;
 @class GTLRBigquery_ArimaFittingMetrics;
@@ -156,6 +157,7 @@
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_StringHparamSearchSpace;
 @class GTLRBigquery_Table_Labels;
+@class GTLRBigquery_Table_ResourceTags;
 @class GTLRBigquery_TableCell;
 @class GTLRBigquery_TableConstraints;
 @class GTLRBigquery_TableConstraints_ForeignKeys_Item;
@@ -203,7 +205,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "ANY_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyType;
-/** Value: "ARGUMENT_KIND_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "ARGUMENT_KIND_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified;
 /**
  *  The argument is a variable with fully specified type, which can be a struct
@@ -228,7 +234,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_In;
  *  Value: "INOUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Inout;
-/** Value: "MODE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified;
 /**
  *  The argument is output-only.
@@ -510,8 +520,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Stoppe
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succeeded;
-/** Value: "TRIAL_STATUS_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "TRIAL_STATUS_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_JobCreationReason.code
+
+/**
+ *  Reason is not specified.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_CodeUnspecified;
+/**
+ *  The results from the query cannot fit in the response.
+ *
+ *  Value: "LARGE_RESULTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_LargeResults;
+/**
+ *  The query request ran beyond a system defined timeout specified by the
+ *  [timeoutMs field in the
+ *  QueryRequest](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query#queryrequest).
+ *  As a result it was considered a long running operation for which a job was
+ *  created.
+ *
+ *  Value: "LONG_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_LongRunning;
+/**
+ *  BigQuery has determined that the query needs to be executed as a Job.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Other;
+/**
+ *  Job creation was requested.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Requested;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Model.modelType
@@ -612,7 +664,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LogisticRegress
  *  Value: "MATRIX_FACTORIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization;
-/** Value: "MODEL_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
 /**
  *  An imported ONNX model.
@@ -692,7 +748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceTy
 // GTLRBigquery_Routine.dataGovernanceType
 
 /**
- *  Unspecified data governance type.
+ *  The data governance type is unspecified.
  *
  *  Value: "DATA_GOVERNANCE_TYPE_UNSPECIFIED"
  */
@@ -742,7 +798,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Java;
  *  Value: "JAVASCRIPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Javascript;
-/** Value: "LANGUAGE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "LANGUAGE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified;
 /**
  *  Python language.
@@ -778,7 +838,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_AggregateFu
  *  Value: "PROCEDURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_Procedure;
-/** Value: "ROUTINE_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "ROUTINE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified;
 /**
  *  Non-built-in persistent scalar function.
@@ -792,6 +856,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunct
  *  Value: "TABLE_VALUED_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_TableValuedFunction;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Routine.securityMode
+
+/**
+ *  The routine is to be executed with the privileges of the user who defines
+ *  it.
+ *
+ *  Value: "DEFINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_Definer;
+/**
+ *  The routine is to be executed with the privileges of the user who invokes
+ *  it.
+ *
+ *  Value: "INVOKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_Invoker;
+/**
+ *  The security mode of the routine is unspecified.
+ *
+ *  Value: "SECURITY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_StandardSqlDataType.typeKind
@@ -1035,7 +1123,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_A
  *  Value: "DAILY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Daily;
-/** Value: "DATA_FREQUENCY_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "DATA_FREQUENCY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified;
 /**
  *  Hourly data.
@@ -1090,7 +1182,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod
  *  Value: "CUSTOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Custom;
-/** Value: "DATA_SPLIT_METHOD_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "DATA_SPLIT_METHOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_DataSplitMethodUnspecified;
 /**
  *  Data split will be skipped.
@@ -1120,7 +1216,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod
  *  Value: "COSINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Cosine;
-/** Value: "DISTANCE_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "DISTANCE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_DistanceTypeUnspecified;
 /**
  *  Eculidean distance.
@@ -1138,7 +1238,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Eu
  *  Value: "EXPLICIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Explicit;
-/** Value: "FEEDBACK_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "FEEDBACK_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_FeedbackTypeUnspecified;
 /**
  *  Use weighted-als for implicit feedback problems.
@@ -2138,7 +2242,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializ
  *  Value: "CONSTANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_Constant;
-/** Value: "LEARN_RATE_STRATEGY_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "LEARN_RATE_STRATEGY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_LearnRateStrategyUnspecified;
 /**
  *  Use line search to determine learning rate.
@@ -2150,7 +2258,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrate
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.lossType
 
-/** Value: "LOSS_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "LOSS_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified;
 /**
  *  Mean log loss, used for logistic regression.
@@ -2168,7 +2280,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSq
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.modelRegistry
 
-/** Value: "MODEL_REGISTRY_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "MODEL_REGISTRY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ModelRegistry_ModelRegistryUnspecified;
 /**
  *  Vertex AI.
@@ -2192,7 +2308,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Value: "NORMAL_EQUATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation;
-/** Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -2216,7 +2336,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Full;
  *  Value: "RANDOMIZED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Randomized;
-/** Value: "UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified;
 
 // ----------------------------------------------------------------------------
@@ -2323,6 +2447,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Represents privacy policy associated with "aggregation threshold" method.
+ */
+@interface GTLRBigquery_AggregationThresholdPolicy : GTLRObject
+
+/**
+ *  Optional. The privacy unit column(s) associated with this policy. For now,
+ *  only one column per data source object (table, view) is allowed as a privacy
+ *  unit column. Representing as a repeated field in metadata for extensibility
+ *  to multiple columns in future. Duplicates and Repeated struct fields are not
+ *  allowed. For nested fields, use dot notation ("outer.inner")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *privacyUnitColumns;
+
+/**
+ *  Optional. The threshold for the "aggregation threshold" policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+@end
+
+
+/**
  *  Input/output argument of a function or a stored procedure.
  */
 @interface GTLRBigquery_Argument : GTLRObject
@@ -2334,8 +2482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_AnyType The argument is any
  *        type, including struct or array, but not a table. To be added:
  *        FIXED_TABLE, ANY_TABLE (Value: "ANY_TYPE")
- *    @arg @c kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified Value
- *        "ARGUMENT_KIND_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified
+ *        Default value. (Value: "ARGUMENT_KIND_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_FixedType The argument is a
  *        variable with fully specified type, which can be a struct or an array,
  *        but not a table. (Value: "FIXED_TYPE")
@@ -2346,6 +2494,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlDataType *dataType;
 
 /**
+ *  Optional. Whether the argument is an aggregate function parameter. Must be
+ *  Unset for routine types other than AGGREGATE_FUNCTION. For
+ *  AGGREGATE_FUNCTION, if set to false, it is equivalent to adding "NOT
+ *  AGGREGATE" clause in DDL; Otherwise, it is equivalent to omitting "NOT
+ *  AGGREGATE" clause in DDL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAggregate;
+
+/**
  *  Optional. Specifies whether the argument is input or output. Can be set for
  *  procedures only.
  *
@@ -2354,8 +2513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        "IN")
  *    @arg @c kGTLRBigquery_Argument_Mode_Inout The argument is both an input
  *        and an output. (Value: "INOUT")
- *    @arg @c kGTLRBigquery_Argument_Mode_ModeUnspecified Value
- *        "MODE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Argument_Mode_ModeUnspecified Default value. (Value:
+ *        "MODE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Argument_Mode_Out The argument is output-only.
  *        (Value: "OUT")
  */
@@ -5109,7 +5268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_Succeeded The trial
  *        succeeded. (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified
- *        Value "TRIAL_STATUS_UNSPECIFIED"
+ *        Default value. (Value: "TRIAL_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -5298,6 +5457,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  [Output-only] If set, it provides the reason why a Job was created. If not
+ *  set, it should be treated as the default: REQUESTED. This feature is not yet
+ *  available. Jobs will always be created.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id jobCreationReason;
 
 /** [Optional] Reference describing the unique-per-user name of the job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobReference *jobReference;
@@ -6054,6 +6222,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Reason about why a Job was created from a
+ *  [`jobs.query`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query)
+ *  method when used with `JOB_CREATION_OPTIONAL` Job creation mode. For
+ *  [`jobs.insert`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert)
+ *  method calls it will always be `REQUESTED`. This feature is not yet
+ *  available. Jobs will always be created.
+ */
+@interface GTLRBigquery_JobCreationReason : GTLRObject
+
+/**
+ *  Output only. Specifies the high level reason why a Job was created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobCreationReason_Code_CodeUnspecified Reason is not
+ *        specified. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_JobCreationReason_Code_LargeResults The results from
+ *        the query cannot fit in the response. (Value: "LARGE_RESULTS")
+ *    @arg @c kGTLRBigquery_JobCreationReason_Code_LongRunning The query request
+ *        ran beyond a system defined timeout specified by the [timeoutMs field
+ *        in the
+ *        QueryRequest](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query#queryrequest).
+ *        As a result it was considered a long running operation for which a job
+ *        was created. (Value: "LONG_RUNNING")
+ *    @arg @c kGTLRBigquery_JobCreationReason_Code_Other BigQuery has determined
+ *        that the query needs to be executed as a Job. (Value: "OTHER")
+ *    @arg @c kGTLRBigquery_JobCreationReason_Code_Requested Job creation was
+ *        requested. (Value: "REQUESTED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
  *  GTLRBigquery_JobList
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6347,8 +6549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
 
 /**
- *  [Output only] The DDL target dataset. Present only for CREATE/ALTER/DROP
- *  SCHEMA queries.
+ *  [Output only] The DDL target dataset. Present only for
+ *  CREATE/ALTER/DROP/UNDROP SCHEMA queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *ddlTargetDataset;
 
@@ -6690,7 +6892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
- *  GTLRBigquery_ListModelsResponse
+ *  Response format for a single page when listing BigQuery ML models.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "models" property. If returned as the result of a query, it should
@@ -6715,7 +6917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
- *  GTLRBigquery_ListRoutinesResponse
+ *  Describes the format of a single result page when listing routines.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "routines" property. If returned as the result of a query, it
@@ -7002,8 +7204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        regression based classification model. (Value: "LOGISTIC_REGRESSION")
  *    @arg @c kGTLRBigquery_Model_ModelType_MatrixFactorization Matrix
  *        factorization model. (Value: "MATRIX_FACTORIZATION")
- *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Value
- *        "MODEL_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Default value.
+ *        (Value: "MODEL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Model_ModelType_Onnx An imported ONNX model. (Value:
  *        "ONNX")
  *    @arg @c kGTLRBigquery_Model_ModelType_Pca Prinpical Component Analysis
@@ -7317,6 +7519,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Represents privacy policy that contains the privacy requirements specified
+ *  by the data owner. Currently, this is only supported on views.
+ */
+@interface GTLRBigquery_PrivacyPolicy : GTLRObject
+
+/** Optional. Policy used for aggregation thresholds. */
+@property(nonatomic, strong, nullable) GTLRBigquery_AggregationThresholdPolicy *aggregationThresholdPolicy;
+
+@end
+
+
+/**
  *  GTLRBigquery_ProjectList
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7534,6 +7748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
+/**
+ *  Optional. If not set, jobs are always required. If set, the query request
+ *  will follow the behavior described JobCreationMode. This feature is not yet
+ *  available. Jobs will always be created.
+ */
+@property(nonatomic, copy, nullable) NSString *jobCreationMode;
+
 /** The resource type of the request. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7707,6 +7928,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *jobComplete;
 
 /**
+ *  Optional. Only relevant when a job_reference is present in the response. If
+ *  job_reference is not present it will always be unset. When job_reference is
+ *  present, this field should be interpreted as follows: If set, it will
+ *  provide the reason of why a Job was created. If not set, it should be
+ *  treated as the default: REQUESTED. This feature is not yet available. Jobs
+ *  will always be created.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id jobCreationReason;
+
+/**
  *  Reference to the Job that was created to run the query. This field will be
  *  present even if the original request timed out, in which case
  *  GetQueryResults can be used to read the results once the query has
@@ -7728,6 +7961,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** A token used for paging results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Query ID for the completed query. This ID will be auto-generated. This field
+ *  is not yet available and it is currently not guaranteed to be populated.
+ */
+@property(nonatomic, copy, nullable) NSString *queryId;
 
 /**
  *  An object with as many results as can be contained within the maximum
@@ -8078,12 +8317,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
- *  Optional. Data governance specific option, if the value is DATA_MASKING, the
- *  function will be validated as masking functions.
+ *  Optional. If set to `DATA_MASKING`, the function is validated and made
+ *  available as a masking function. For more information, see [Create custom
+ *  masking
+ *  routines](https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask).
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Routine_DataGovernanceType_DataGovernanceTypeUnspecified
- *        Unspecified data governance type. (Value:
+ *        The data governance type is unspecified. (Value:
  *        "DATA_GOVERNANCE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Routine_DataGovernanceType_DataMasking The data
  *        governance type is data masking. (Value: "DATA_MASKING")
@@ -8144,8 +8385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_Routine_Language_Java Java language. (Value: "JAVA")
  *    @arg @c kGTLRBigquery_Routine_Language_Javascript JavaScript language.
  *        (Value: "JAVASCRIPT")
- *    @arg @c kGTLRBigquery_Routine_Language_LanguageUnspecified Value
- *        "LANGUAGE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Routine_Language_LanguageUnspecified Default value.
+ *        (Value: "LANGUAGE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Routine_Language_Python Python language. (Value:
  *        "PYTHON")
  *    @arg @c kGTLRBigquery_Routine_Language_Scala Scala language. (Value:
@@ -8203,14 +8444,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        persistent aggregate function. (Value: "AGGREGATE_FUNCTION")
  *    @arg @c kGTLRBigquery_Routine_RoutineType_Procedure Stored procedure.
  *        (Value: "PROCEDURE")
- *    @arg @c kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified Value
- *        "ROUTINE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified Default
+ *        value. (Value: "ROUTINE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Routine_RoutineType_ScalarFunction Non-built-in
  *        persistent scalar function. (Value: "SCALAR_FUNCTION")
  *    @arg @c kGTLRBigquery_Routine_RoutineType_TableValuedFunction Non-built-in
  *        persistent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
+
+/**
+ *  Optional. The security mode of the routine, if defined. If not defined, the
+ *  security mode is automatically determined from the routine's configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Routine_SecurityMode_Definer The routine is to be
+ *        executed with the privileges of the user who defines it. (Value:
+ *        "DEFINER")
+ *    @arg @c kGTLRBigquery_Routine_SecurityMode_Invoker The routine is to be
+ *        executed with the privileges of the user who invokes it. (Value:
+ *        "INVOKER")
+ *    @arg @c kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified The
+ *        security mode of the routine is unspecified. (Value:
+ *        "SECURITY_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *securityMode;
 
 /** Optional. Spark specific options. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkOptions *sparkOptions;
@@ -8698,10 +8956,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
- *  GTLRBigquery_StandardSqlStructType
+ *  The representation of a SQL STRUCT type.
  */
 @interface GTLRBigquery_StandardSqlStructType : GTLRObject
 
+/** Fields within the struct. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *fields;
 
 @end
@@ -9000,6 +9259,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
 
+/**
+ *  [Optional] The tags associated with this table. Tag keys are globally
+ *  unique. See additional information on
+ *  [tags](https://cloud.google.com/iam/docs/tags-access-control#definitions).
+ *  An object containing a list of "key": value pairs. The key is the namespaced
+ *  friendly name of the tag key, e.g. "12345/environment" where 12345 is parent
+ *  id. The value is the friendly short name of the tag value, e.g.
+ *  "production".
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_Table_ResourceTags *resourceTags;
+
 /** [Optional] Describes the schema of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
@@ -9058,6 +9328,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        fetch them all at once.
  */
 @interface GTLRBigquery_Table_Labels : GTLRObject
+@end
+
+
+/**
+ *  [Optional] The tags associated with this table. Tag keys are globally
+ *  unique. See additional information on
+ *  [tags](https://cloud.google.com/iam/docs/tags-access-control#definitions).
+ *  An object containing a list of "key": value pairs. The key is the namespaced
+ *  friendly name of the tag key, e.g. "12345/environment" where 12345 is parent
+ *  id. The value is the friendly short name of the tag value, e.g.
+ *  "production".
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_Table_ResourceTags : GTLRObject
 @end
 
 
@@ -9837,7 +10125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Daily Daily data.
  *        (Value: "DAILY")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified
- *        Value "DATA_FREQUENCY_UNSPECIFIED"
+ *        Default value. (Value: "DATA_FREQUENCY_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Hourly Hourly data.
  *        (Value: "HOURLY")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Monthly Monthly data.
@@ -9884,7 +10172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_TrainingOptions_DataSplitMethod_Custom Splits data
  *        with the user provided tags. (Value: "CUSTOM")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataSplitMethod_DataSplitMethodUnspecified
- *        Value "DATA_SPLIT_METHOD_UNSPECIFIED"
+ *        Default value. (Value: "DATA_SPLIT_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataSplitMethod_NoSplit Data split
  *        will be skipped. (Value: "NO_SPLIT")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataSplitMethod_Random Splits data
@@ -9908,7 +10196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_TrainingOptions_DistanceType_Cosine Cosine distance.
  *        (Value: "COSINE")
  *    @arg @c kGTLRBigquery_TrainingOptions_DistanceType_DistanceTypeUnspecified
- *        Value "DISTANCE_TYPE_UNSPECIFIED"
+ *        Default value. (Value: "DISTANCE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_DistanceType_Euclidean Eculidean
  *        distance. (Value: "EUCLIDEAN")
  */
@@ -9945,7 +10233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_TrainingOptions_FeedbackType_Explicit Use
  *        nonweighted-als for explicit feedback problems. (Value: "EXPLICIT")
  *    @arg @c kGTLRBigquery_TrainingOptions_FeedbackType_FeedbackTypeUnspecified
- *        Value "FEEDBACK_TYPE_UNSPECIFIED"
+ *        Default value. (Value: "FEEDBACK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_FeedbackType_Implicit Use
  *        weighted-als for implicit feedback problems. (Value: "IMPLICIT")
  */
@@ -10214,7 +10502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_TrainingOptions_LearnRateStrategy_Constant Use a
  *        constant learning rate. (Value: "CONSTANT")
  *    @arg @c kGTLRBigquery_TrainingOptions_LearnRateStrategy_LearnRateStrategyUnspecified
- *        Value "LEARN_RATE_STRATEGY_UNSPECIFIED"
+ *        Default value. (Value: "LEARN_RATE_STRATEGY_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_LearnRateStrategy_LineSearch Use
  *        line search to determine learning rate. (Value: "LINE_SEARCH")
  */
@@ -10224,8 +10512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Type of loss function used during training run.
  *
  *  Likely values:
- *    @arg @c kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified Value
- *        "LOSS_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified Default
+ *        value. (Value: "LOSS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_LossType_MeanLogLoss Mean log loss,
  *        used for logistic regression. (Value: "MEAN_LOG_LOSS")
  *    @arg @c kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss Mean
@@ -10305,7 +10593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_TrainingOptions_ModelRegistry_ModelRegistryUnspecified
- *        Value "MODEL_REGISTRY_UNSPECIFIED"
+ *        Default value. (Value: "MODEL_REGISTRY_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_ModelRegistry_VertexAi Vertex AI.
  *        (Value: "VERTEX_AI")
  */
@@ -10372,7 +10660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        Uses a normal equation to solve linear regression problem. (Value:
  *        "NORMAL_EQUATION")
  *    @arg @c kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified
- *        Value "OPTIMIZATION_STRATEGY_UNSPECIFIED"
+ *        Default value. (Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *optimizationStrategy;
 
@@ -10396,8 +10684,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        eigen-decoposition. (Value: "FULL")
  *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Randomized Randomized SVD.
  *        (Value: "RANDOMIZED")
- *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified Value
- *        "UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified Default value.
+ *        (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *pcaSolver;
 

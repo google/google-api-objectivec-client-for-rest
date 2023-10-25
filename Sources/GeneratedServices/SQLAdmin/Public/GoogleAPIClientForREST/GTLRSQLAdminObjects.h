@@ -1276,6 +1276,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_IpConfiguration.sslMode
+
+/**
+ *  Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections, the
+ *  client certificate will not be verified. When this value is used, legacy
+ *  `require_ssl` flag must be false or unset to avoid the conflict between
+ *  values of two flags.
+ *
+ *  Value: "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted;
+/**
+ *  Only allow connections encrypted with SSL/TLS. When this value is used,
+ *  legacy `require_ssl` flag must be false or unset to avoid the conflict
+ *  between values of two flags.
+ *
+ *  Value: "ENCRYPTED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly;
+/**
+ *  SSL mode is unknown.
+ *
+ *  Value: "SSL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified;
+/**
+ *  Only allow connections encrypted with SSL/TLS and with valid client
+ *  certificates. When this value is used, legacy `require_ssl` flag must be
+ *  true or unset to avoid the conflict between values of two flags.
+ *
+ *  Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_TrustedClientCertificateRequired;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpMapping.type
 
 /**
@@ -3088,6 +3123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlOutOfDiskReport *outOfDiskReport;
 
+/** Output only. DEPRECATED: please use write_endpoint instead. */
+@property(nonatomic, copy, nullable) NSString *primaryDnsName GTLR_DEPRECATED;
+
 /**
  *  The project ID of the project containing the Cloud SQL instance. The Google
  *  apps domain is prefixed if applicable.
@@ -3178,6 +3216,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** If the instance state is SUSPENDED, the reason for the suspension. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
+
+/**
+ *  Output only. The dns name of the primary instance in a replication group.
+ */
+@property(nonatomic, copy, nullable) NSString *writeEndpoint;
 
 @end
 
@@ -4216,17 +4259,61 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PscConfig *pscConfig;
 
 /**
- *  Whether SSL connections over IP are enforced or not.
+ *  LINT.IfChange(require_ssl_deprecate) Whether SSL/TLS connections over IP are
+ *  enforced or not. If set to false, allow both non-SSL/non-TLS and SSL/TLS
+ *  connections. For SSL/TLS connections, the client certificate will not be
+ *  verified. If set to true, only allow connections encrypted with SSL/TLS and
+ *  with valid client certificates. If you want to enforce SSL/TLS without
+ *  enforcing the requirement for valid client certificates, use the `ssl_mode`
+ *  flag instead of the legacy `require_ssl` flag.
+ *  LINT.ThenChange(//depot/google3/java/com/google/storage/speckle/boss/admin/actions/InstanceUpdateAction.java:update_api_temp_fix)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
+/**
+ *  Specify how SSL/TLS will be enforced in database connections. This flag is
+ *  only supported for PostgreSQL. Use the legacy `require_ssl` flag for
+ *  enforcing SSL/TLS in MySQL and SQL Server. But, for PostgreSQL, it is
+ *  recommended to use the `ssl_mode` flag instead of the legacy `require_ssl`
+ *  flag. To avoid the conflict between those flags in PostgreSQL, only the
+ *  following value pairs are valid: ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED,
+ *  require_ssl=false; ssl_mode=ENCRYPTED_ONLY, require_ssl=false;
+ *  ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED, require_ssl=true; Note that
+ *  the value of `ssl_mode` gets priority over the value of the legacy
+ *  `require_ssl`. For example, for the pair `ssl_mode=ENCRYPTED_ONLY,
+ *  require_ssl=false`, the `ssl_mode=ENCRYPTED_ONLY` means "only accepts SSL
+ *  connection", while the `require_ssl=false` means "both non-SSL and SSL
+ *  connections are allowed". The database will respect `ssl_mode` in this case
+ *  and only accept SSL connections.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
+ *        Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS
+ *        connections, the client certificate will not be verified. When this
+ *        value is used, legacy `require_ssl` flag must be false or unset to
+ *        avoid the conflict between values of two flags. (Value:
+ *        "ALLOW_UNENCRYPTED_AND_ENCRYPTED")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly Only allow
+ *        connections encrypted with SSL/TLS. When this value is used, legacy
+ *        `require_ssl` flag must be false or unset to avoid the conflict
+ *        between values of two flags. (Value: "ENCRYPTED_ONLY")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified SSL mode
+ *        is unknown. (Value: "SSL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_TrustedClientCertificateRequired
+ *        Only allow connections encrypted with SSL/TLS and with valid client
+ *        certificates. When this value is used, legacy `require_ssl` flag must
+ *        be true or unset to avoid the conflict between values of two flags.
+ *        (Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *sslMode;
+
 @end
 
 
 /**
- *  Database instance IP Mapping.
+ *  Database instance IP mapping
  */
 @interface GTLRSQLAdmin_IpMapping : GTLRObject
 
@@ -4289,7 +4376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The preferred Compute Engine zone for the secondary/failover (for example:
- *  us-central1-a, us-central1-b, etc.).
+ *  us-central1-a, us-central1-b, etc.). To disable this field, set it to
+ *  'no_secondary_zone'.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryZone;
 
@@ -4776,6 +4864,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *complexity;
 
 /**
+ *  Disallow credentials that have been previously compromised by a public data
+ *  breach.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disallowCompromisedCredentials;
+
+/**
  *  Disallow username as a part of the password.
  *
  *  Uses NSNumber of boolValue.
@@ -4833,10 +4929,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_PscConfig : GTLRObject
 
 /**
- *  List of consumer projects that are allow-listed for PSC connections to this
- *  instance. This instance can be connected to with PSC from any network in
- *  these projects. Each consumer project in this list may be represented by a
- *  project number (numeric) or by a project id (alphanumeric).
+ *  Optional. The list of consumer projects that are allow-listed for PSC
+ *  connections to this instance. This instance can be connected to with PSC
+ *  from any network in these projects. Each consumer project in this list may
+ *  be represented by a project number (numeric) or by a project id
+ *  (alphanumeric).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
 
@@ -4854,6 +4951,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Read-replica configuration for connecting to the primary instance.
  */
 @interface GTLRSQLAdmin_ReplicaConfiguration : GTLRObject
+
+/**
+ *  Optional. Specifies if a SQL Server replica is a cascadable replica. A
+ *  cascadable replica is a SQL Server cross region replica that supports
+ *  replica(s) under it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cascadableReplica;
 
 /**
  *  Specifies if the replica is the failover target. If the field is set to
