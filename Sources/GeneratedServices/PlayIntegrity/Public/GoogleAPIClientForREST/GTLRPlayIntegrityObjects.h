@@ -25,6 +25,7 @@
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
+@class GTLRPlayIntegrity_UserRemediationDetails;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -46,37 +47,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_ActivityLevelUnspecified;
 /**
- *  Google Play store activity is typical for the user account or accounts on
- *  the device.
+ *  Typical activity for the user account or accounts on the device.
  *
  *  Value: "TYPICAL_BASIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalBasic;
 /**
- *  Google Play store activity is typical for the user account or accounts on
- *  the device, with harder to replicate signals.
+ *  Typical for the user account or accounts on the device, with harder to
+ *  replicate signals.
  *
  *  Value: "TYPICAL_STRONG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalStrong;
 /**
- *  Account activity level is not evaluated because one of the prerequisite
- *  conditions is not met (e.g., device is not trusted, the user does not have
- *  Play app license)
+ *  Account activity level is not evaluated.
  *
  *  Value: "UNEVALUATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unevaluated;
 /**
- *  Google Play does not have sufficient activity for the user account on the
- *  device. The account may be new, or it may lack activity on Google Play.
+ *  Insufficient activity to verify the user account on the device.
  *
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unknown;
 /**
- *  Google Play store activity is unusual for at least one of the user accounts
- *  on the device. Google Play recommends checking that this is a real user.
+ *  Unusual activity for at least one of the user accounts on the device.
  *
  *  Value: "UNUSUAL"
  */
@@ -174,9 +170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity;
 /**
  *  App is running on a device that passes only weak integrity checks (is a
- *  physical device). See go/pcm-physical-device-detection for more details.
- *  Note that this label won't be served for PIA heavyweight and express for
- *  now, only for the crystal mode.
+ *  physical device).
  *
  *  Value: "MEETS_WEAK_INTEGRITY"
  */
@@ -189,7 +183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown;
 
 // ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_GuidanceDetails.userRemediation
+// GTLRPlayIntegrity_UserRemediationDetails.remediation
 
 /**
  *  The app is unrecognized. The user should get an unmodified version of the
@@ -197,46 +191,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
  *
  *  Value: "GET_UNMODIFIED_APP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_GetUnmodifiedApp;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp;
 /**
  *  The user has no license. They should install or purchase the app on the
  *  Google Play Store to add it to their library.
  *
  *  Value: "INSTALL_APP_FROM_PLAY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_InstallAppFromPlay;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay;
 /**
  *  The device bootloader has been unlocked, the user should lock the
  *  bootloader.
  *
  *  Value: "LOCK_BOOTLOADER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_LockBootloader;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader;
 /**
  *  The user has installed a custom ROM, and should restore the device to a
  *  clean factory ROM.
  *
  *  Value: "RESTORE_FACTORY_ROM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_RestoreFactoryRom;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom;
 /**
  *  The user has not signed into their Google account.
  *
  *  Value: "SIGN_INTO_GOOGLE_ACCOUNT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_SignIntoGoogleAccount;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount;
 /**
- *  Catch-all for unrecognized enum values. See go/protodosdonts.
+ *  User remediation is unknown.
  *
  *  Value: "UNKNOWN_USER_REMEDIATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemediation_UnknownUserRemediation;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation;
 
 /**
- *  Contains a signal helping apps differentiating between likely genuine users
- *  and likely non-genuine traffic (such as accounts being used for fraud,
- *  accounts used by automated traffic, or accounts used in device farms) based
- *  on the presence and volume of Play store activity.
+ *  (Restricted Access) Contains a signal helping apps differentiating between
+ *  likely genuine and likely non-genuine user traffic.
  */
 @interface GTLRPlayIntegrity_AccountActivity : GTLRObject
 
@@ -247,24 +239,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemedi
  *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_ActivityLevelUnspecified
  *        Activity level has not been set. (Value: "ACTIVITY_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalBasic
- *        Google Play store activity is typical for the user account or accounts
- *        on the device. (Value: "TYPICAL_BASIC")
+ *        Typical activity for the user account or accounts on the device.
+ *        (Value: "TYPICAL_BASIC")
  *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalStrong
- *        Google Play store activity is typical for the user account or accounts
- *        on the device, with harder to replicate signals. (Value:
- *        "TYPICAL_STRONG")
+ *        Typical for the user account or accounts on the device, with harder to
+ *        replicate signals. (Value: "TYPICAL_STRONG")
  *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unevaluated
- *        Account activity level is not evaluated because one of the
- *        prerequisite conditions is not met (e.g., device is not trusted, the
- *        user does not have Play app license) (Value: "UNEVALUATED")
- *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unknown Google
- *        Play does not have sufficient activity for the user account on the
- *        device. The account may be new, or it may lack activity on Google
- *        Play. (Value: "UNKNOWN")
- *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unusual Google
- *        Play store activity is unusual for at least one of the user accounts
- *        on the device. Google Play recommends checking that this is a real
- *        user. (Value: "UNUSUAL")
+ *        Account activity level is not evaluated. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unknown
+ *        Insufficient activity to verify the user account on the device.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unusual Unusual
+ *        activity for at least one of the user accounts on the device. (Value:
+ *        "UNUSUAL")
  */
 @property(nonatomic, copy, nullable) NSString *activityLevel;
 
@@ -277,7 +264,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemedi
  */
 @interface GTLRPlayIntegrity_AccountDetails : GTLRObject
 
-/** Details about the account activity for the user in the scope. */
+/**
+ *  (Restricted Access) Details about the account activity for the user in the
+ *  scope.
+ */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity;
 
 /**
@@ -379,7 +369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemedi
  */
 @interface GTLRPlayIntegrity_DeviceIntegrity : GTLRObject
 
-/** Details about the integrity of the device the app is running on */
+/** Details about the integrity of the device the app is running on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
 
 @end
@@ -393,9 +383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemedi
 
 /**
  *  This shows when there is an issue with at least one of the integrity
- *  verdicts, and provides user remediation guidance.
+ *  verdicts, which can be remedied by the user and provides additional details.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *userRemediation;
+@property(nonatomic, strong, nullable) NSArray<GTLRPlayIntegrity_UserRemediationDetails *> *userRemediationDetails;
 
 @end
 
@@ -472,6 +462,39 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_GuidanceDetails_UserRemedi
  *  any additional data that is linked with testing status.
  */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_TestingDetails *testingDetails;
+
+@end
+
+
+/**
+ *  Contains details of remediation guidance that the user can perform.
+ */
+@interface GTLRPlayIntegrity_UserRemediationDetails : GTLRObject
+
+/**
+ *  Description of the user remediation action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp
+ *        The app is unrecognized. The user should get an unmodified version of
+ *        the app. (Value: "GET_UNMODIFIED_APP")
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay
+ *        The user has no license. They should install or purchase the app on
+ *        the Google Play Store to add it to their library. (Value:
+ *        "INSTALL_APP_FROM_PLAY")
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader
+ *        The device bootloader has been unlocked, the user should lock the
+ *        bootloader. (Value: "LOCK_BOOTLOADER")
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom
+ *        The user has installed a custom ROM, and should restore the device to
+ *        a clean factory ROM. (Value: "RESTORE_FACTORY_ROM")
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount
+ *        The user has not signed into their Google account. (Value:
+ *        "SIGN_INTO_GOOGLE_ACCOUNT")
+ *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation
+ *        User remediation is unknown. (Value: "UNKNOWN_USER_REMEDIATION")
+ */
+@property(nonatomic, copy, nullable) NSString *remediation;
 
 @end
 

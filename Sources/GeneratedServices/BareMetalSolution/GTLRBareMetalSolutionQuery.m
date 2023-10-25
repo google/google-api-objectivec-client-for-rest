@@ -577,6 +577,25 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_OSImage class];
+  query.loggingName = @"baremetalsolution.projects.locations.osImages.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList
 
 @dynamic pageSize, pageToken, parent;

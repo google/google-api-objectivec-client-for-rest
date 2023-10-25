@@ -1276,10 +1276,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsStreamsPatch : GTLRDatastreamQuery
 
-/** The binary log file name. */
+/** Required. The binary log file name. */
 @property(nonatomic, copy, nullable) NSString *cdcStrategySpecificStartPositionMysqlLogPositionLogFile;
 
-/** The position within the binary log file. Default is head of file. */
+/**
+ *  Optional. The position within the binary log file. Default is head of file.
+ */
 @property(nonatomic, assign) NSInteger cdcStrategySpecificStartPositionMysqlLogPositionLogPosition;
 
 /** Optional. Update the stream without validating it. */

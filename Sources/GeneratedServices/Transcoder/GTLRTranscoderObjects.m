@@ -298,6 +298,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_Fmp4Config
+//
+
+@implementation GTLRTranscoder_Fmp4Config
+@dynamic codecTag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_H264CodecSettings
 //
 
@@ -499,7 +509,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_MuxStream
-@dynamic container, elementaryStreams, encryptionId, fileName, key,
+@dynamic container, elementaryStreams, encryptionId, fileName, fmp4, key,
          segmentSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

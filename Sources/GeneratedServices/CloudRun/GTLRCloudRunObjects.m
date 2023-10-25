@@ -245,6 +245,25 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2ContainerOverride
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2ContainerOverride
+@dynamic args, clearArgs, env, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"env" : [GTLRCloudRun_GoogleCloudRunV2EnvVar class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2ContainerPort
 //
 
@@ -602,6 +621,42 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2NetworkInterface
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2NetworkInterface
+@dynamic network, subnetwork, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2Overrides
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2Overrides
+@dynamic containerOverrides, taskCount, timeout;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containerOverrides" : [GTLRCloudRun_GoogleCloudRunV2ContainerOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2Probe
 //
 
@@ -645,9 +700,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
          generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
-         name, observedGeneration, reconciling, satisfiesPzs, scaling, service,
-         serviceAccount, sessionAffinity, timeout, uid, updateTime, volumes,
-         vpcAccess;
+         name, observedGeneration, reconciling, satisfiesPzs, scaling,
+         scalingStatus, service, serviceAccount, sessionAffinity, timeout, uid,
+         updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -700,6 +755,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionScaling
 @dynamic maxInstanceCount, minInstanceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2RevisionScalingStatus
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2RevisionScalingStatus
+@dynamic desiredMinInstanceCount;
 @end
 
 
@@ -758,7 +823,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RunJobRequest
-@dynamic ETag, validateOnly;
+@dynamic ETag, overrides, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -806,8 +871,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          ETag, expireTime, generation, ingress, labels, lastModifier,
          latestCreatedRevision, latestReadyRevision, launchStage, name,
          observedGeneration, reconciling, satisfiesPzs, templateProperty,
-         terminalCondition, traffic, trafficStatuses,
-         trafficTagsCleanupThreshold, uid, updateTime, uri;
+         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -869,8 +933,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
          expireTime, generation, index, job, labels, lastAttemptResult, logUri,
          maxRetries, name, observedGeneration, reconciling, retried,
-         satisfiesPzs, serviceAccount, startTime, timeout, uid, updateTime,
-         volumes, vpcAccess;
+         satisfiesPzs, scheduledTime, serviceAccount, startTime, timeout, uid,
+         updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1012,7 +1076,15 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2VpcAccess
-@dynamic connector, egress;
+@dynamic connector, egress, networkInterfaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkInterfaces" : [GTLRCloudRun_GoogleCloudRunV2NetworkInterface class]
+  };
+  return map;
+}
+
 @end
 
 

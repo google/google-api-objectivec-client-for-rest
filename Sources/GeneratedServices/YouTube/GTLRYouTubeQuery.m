@@ -1470,6 +1470,113 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
+@implementation GTLRYouTubeQuery_PlaylistImagesDelete
+
+@dynamic identifier, onBehalfOfContentOwner;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/playlistImages";
+  GTLRYouTubeQuery_PlaylistImagesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:nil];
+  query.loggingName = @"youtube.playlistImages.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_PlaylistImagesInsert
+
+@dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"youtube/v3/playlistImages";
+  GTLRYouTubeQuery_PlaylistImagesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRYouTube_PlaylistImage class];
+  query.loggingName = @"youtube.playlistImages.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_PlaylistImagesList
+
+@dynamic maxResults, onBehalfOfContentOwner, onBehalfOfContentOwnerChannel,
+         pageToken, parent, part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/playlistImages";
+  GTLRYouTubeQuery_PlaylistImagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_PlaylistImageListResponse class];
+  query.loggingName = @"youtube.playlistImages.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_PlaylistImagesUpdate
+
+@dynamic onBehalfOfContentOwner, part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"youtube/v3/playlistImages";
+  GTLRYouTubeQuery_PlaylistImagesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRYouTube_PlaylistImage class];
+  query.loggingName = @"youtube.playlistImages.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_PlaylistItemsDelete
 
 @dynamic identifier, onBehalfOfContentOwner;
@@ -1711,10 +1818,10 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 @dynamic channelId, channelType, eventType, forContentOwner, forDeveloper,
          forMine, location, locationRadius, maxResults, onBehalfOfContentOwner,
          order, pageToken, part, publishedAfter, publishedBefore, q, regionCode,
-         relatedToVideoId, relevanceLanguage, safeSearch, topicId, type,
-         videoCaption, videoCategoryId, videoDefinition, videoDimension,
-         videoDuration, videoEmbeddable, videoLicense,
-         videoPaidProductPlacement, videoSyndicated, videoType;
+         relevanceLanguage, safeSearch, topicId, type, videoCaption,
+         videoCategoryId, videoDefinition, videoDimension, videoDuration,
+         videoEmbeddable, videoLicense, videoPaidProductPlacement,
+         videoSyndicated, videoType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -11,6 +11,39 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation.type
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeCcsCombo1 = @"EV_CONNECTOR_TYPE_CCS_COMBO_1";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeCcsCombo2 = @"EV_CONNECTOR_TYPE_CCS_COMBO_2";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeChademo = @"EV_CONNECTOR_TYPE_CHADEMO";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772 = @"EV_CONNECTOR_TYPE_J1772";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeOther = @"EV_CONNECTOR_TYPE_OTHER";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeTesla = @"EV_CONNECTOR_TYPE_TESLA";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeType2 = @"EV_CONNECTOR_TYPE_TYPE_2";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeUnspecified = @"EV_CONNECTOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeUnspecifiedGbT = @"EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeUnspecifiedWallOutlet = @"EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET";
+
+// GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice.type
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_BioDiesel = @"BIO_DIESEL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel = @"DIESEL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E80 = @"E80";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E85 = @"E85";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified = @"FUEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Lpg = @"LPG";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Methane = @"METHANE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Midgrade = @"MIDGRADE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Premium = @"PREMIUM";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_RegularUnleaded = @"REGULAR_UNLEADED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp100 = @"SP100";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp91 = @"SP91";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp91E10 = @"SP91_E10";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp92 = @"SP92";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp95 = @"SP95";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp95E10 = @"SP95_E10";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp98 = @"SP98";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Sp99 = @"SP99";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_TruckDiesel = @"TRUCK_DIESEL";
+
 // GTLRMapsPlaces_GoogleMapsPlacesV1Place.businessStatus
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_BusinessStatusUnspecified = @"BUSINESS_STATUS_UNSPECIFIED";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_ClosedPermanently = @"CLOSED_PERMANENTLY";
@@ -40,6 +73,11 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHo
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_SecondaryHoursTypeUnspecified = @"SECONDARY_HOURS_TYPE_UNSPECIFIED";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_SeniorHours = @"SENIOR_HOURS";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_Takeout = @"TAKEOUT";
+
+// GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest.rankPreference
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest_RankPreference_Distance = @"DISTANCE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest_RankPreference_Popularity = @"POPULARITY";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest_RankPreference_RankPreferenceUnspecified = @"RANK_PREFERENCE_UNSPECIFIED";
 
 // GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest.priceLevels
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_PriceLevels_PriceLevelExpensive = @"PRICE_LEVEL_EXPENSIVE";
@@ -86,20 +124,110 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions
+@dynamic connectorAggregation, connectorCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectorAggregation" : [GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation
+@dynamic availabilityLastUpdateTime, availableCount, count, maxChargeRateKw,
+         outOfServiceCount, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
+@dynamic fuelPrices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fuelPrices" : [GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice
+@dynamic price, type, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1Photo
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1Photo
+@dynamic authorAttributions, heightPx, name, widthPx;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorAttributions" : [GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PhotoMedia
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PhotoMedia
+@dynamic name, photoUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1Place
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Place
-@dynamic addressComponents, adrFormatAddress, attributions, businessStatus,
-         curbsidePickup, currentOpeningHours, currentSecondaryOpeningHours,
-         delivery, dineIn, displayName, editorialSummary, formattedAddress,
-         googleMapsUri, iconBackgroundColor, iconMaskBaseUri, identifier,
-         internationalPhoneNumber, location, name, nationalPhoneNumber,
-         openingHours, plusCode, priceLevel, rating, reservable, reviews,
-         secondaryOpeningHours, servesBeer, servesBreakfast, servesBrunch,
-         servesDinner, servesLunch, servesVegetarianFood, servesWine, takeout,
-         types, userRatingCount, utcOffsetMinutes, viewport, websiteUri,
-         wheelchairAccessibleEntrance;
+@dynamic accessibilityOptions, addressComponents, adrFormatAddress, allowsDogs,
+         attributions, businessStatus, curbsidePickup, currentOpeningHours,
+         currentSecondaryOpeningHours, delivery, dineIn, displayName,
+         editorialSummary, evChargeOptions, formattedAddress, fuelOptions,
+         goodForChildren, goodForGroups, goodForWatchingSports, googleMapsUri,
+         iconBackgroundColor, iconMaskBaseUri, identifier,
+         internationalPhoneNumber, liveMusic, location, menuForChildren, name,
+         nationalPhoneNumber, outdoorSeating, parkingOptions, paymentOptions,
+         photos, plusCode, priceLevel, primaryType, primaryTypeDisplayName,
+         rating, regularOpeningHours, regularSecondaryOpeningHours, reservable,
+         restroom, reviews, servesBeer, servesBreakfast, servesBrunch,
+         servesCocktails, servesCoffee, servesDessert, servesDinner,
+         servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
+         subDestinations, takeout, types, userRatingCount, utcOffsetMinutes,
+         viewport, websiteUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -110,13 +238,26 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
     @"addressComponents" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent class],
     @"attributions" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution class],
     @"currentSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
+    @"photos" : [GTLRMapsPlaces_GoogleMapsPlacesV1Photo class],
+    @"regularSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
     @"reviews" : [GTLRMapsPlaces_GoogleMapsPlacesV1Review class],
-    @"secondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
+    @"subDestinations" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination class],
     @"types" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions
+@dynamic wheelchairAccessibleEntrance, wheelchairAccessibleParking,
+         wheelchairAccessibleRestroom, wheelchairAccessibleSeating;
 @end
 
 
@@ -200,6 +341,27 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceParkingOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceParkingOptions
+@dynamic freeGarageParking, freeParkingLot, freeStreetParking,
+         paidGarageParking, paidParkingLot, paidStreetParking, valetParking;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions
+@dynamic acceptsCashOnly, acceptsCreditCards, acceptsDebitCards, acceptsNfc;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode
 //
 
@@ -210,12 +372,78 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1Review
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Review
-@dynamic authorAttribution, originalText, publishTime, rating,
+@dynamic authorAttribution, name, originalText, publishTime, rating,
          relativePublishTimeDescription, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest
+@dynamic excludedPrimaryTypes, excludedTypes, includedPrimaryTypes,
+         includedTypes, languageCode, locationRestriction, maxResultCount,
+         rankPreference, regionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedPrimaryTypes" : [NSString class],
+    @"excludedTypes" : [NSString class],
+    @"includedPrimaryTypes" : [NSString class],
+    @"includedTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction
+@dynamic circle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyResponse
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyResponse
+@dynamic places;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"places" : [GTLRMapsPlaces_GoogleMapsPlacesV1Place class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -304,4 +532,14 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 
 @implementation GTLRMapsPlaces_GoogleTypeLocalizedText
 @dynamic languageCode, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleTypeMoney
+//
+
+@implementation GTLRMapsPlaces_GoogleTypeMoney
+@dynamic currencyCode, nanos, units;
 @end

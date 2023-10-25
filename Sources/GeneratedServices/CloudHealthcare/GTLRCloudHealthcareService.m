@@ -11,9 +11,10 @@
 #import <GoogleAPIClientForREST/GTLRCloudHealthcare.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudHealthcareCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudHealthcareCloudHealthcare = @"https://www.googleapis.com/auth/cloud-healthcare";
+NSString * const kGTLRAuthScopeCloudHealthcareCloudPlatform   = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudHealthcareService

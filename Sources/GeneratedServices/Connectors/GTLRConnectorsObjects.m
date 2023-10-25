@@ -108,6 +108,53 @@ NSString * const kGTLRConnectors_InputParameter_DataType_Uuid  = @"UUID";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varbinary = @"VARBINARY";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varchar = @"VARCHAR";
 
+// GTLRConnectors_JsonSchema.jdbcType
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Array     = @"ARRAY";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Bigint    = @"BIGINT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Binary    = @"BINARY";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Bit       = @"BIT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Blob      = @"BLOB";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Boolean   = @"BOOLEAN";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Char      = @"CHAR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Clob      = @"CLOB";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Datalink  = @"DATALINK";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Date      = @"DATE";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Datetime  = @"DATETIME";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Decimal   = @"DECIMAL";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Distinct  = @"DISTINCT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Double    = @"DOUBLE";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Float     = @"FLOAT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Int       = @"INT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Integer   = @"INTEGER";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_JavaObject = @"JAVA_OBJECT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Long      = @"LONG";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longnvarchar = @"LONGNVARCHAR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longvarbinary = @"LONGVARBINARY";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Longvarchar = @"LONGVARCHAR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nchar     = @"NCHAR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nclob     = @"NCLOB";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Null      = @"NULL";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Numeric   = @"NUMERIC";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Nvarchar  = @"NVARCHAR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Other     = @"OTHER";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Real      = @"REAL";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Ref       = @"REF";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_RefCursor = @"REF_CURSOR";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Rowid     = @"ROWID";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Smallint  = @"SMALLINT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Sqlxml    = @"SQLXML";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_String    = @"STRING";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Struct    = @"STRUCT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Time      = @"TIME";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Timestamp = @"TIMESTAMP";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_TimestampWithTimezone = @"TIMESTAMP_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_TimeWithTimezone = @"TIME_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Tinyint   = @"TINYINT";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Uuid      = @"UUID";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varbinary = @"VARBINARY";
+NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varchar   = @"VARCHAR";
+
 // GTLRConnectors_QueryParameter.dataType
 NSString * const kGTLRConnectors_QueryParameter_DataType_Array = @"ARRAY";
 NSString * const kGTLRConnectors_QueryParameter_DataType_Bigint = @"BIGINT";
@@ -208,7 +255,12 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_Action
-@dynamic inputParameters, name, resultMetadata;
+@dynamic descriptionProperty, displayName, inputJsonSchema, inputParameters,
+         name, resultJsonSchema, resultMetadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -260,7 +312,7 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_EntityType
-@dynamic fields, name;
+@dynamic fields, jsonSchema, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -376,8 +428,8 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_Field
-@dynamic additionalDetails, dataType, defaultValue, descriptionProperty, key,
-         name, nullable, reference;
+@dynamic additionalDetails, dataType, defaultValue, descriptionProperty,
+         jsonSchema, key, name, nullable, reference;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -406,10 +458,83 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_InputParameter
-@dynamic dataType, defaultValue, descriptionProperty, name, nullable;
+@dynamic additionalDetails, dataType, defaultValue, descriptionProperty,
+         jsonSchema, name, nullable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_InputParameter_AdditionalDetails
+//
+
+@implementation GTLRConnectors_InputParameter_AdditionalDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema
+//
+
+@implementation GTLRConnectors_JsonSchema
+@dynamic additionalDetails, defaultProperty, descriptionProperty, enumProperty,
+         format, items, jdbcType, properties, required, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"defaultProperty" : @"default",
+    @"descriptionProperty" : @"description",
+    @"enumProperty" : @"enum"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enum" : [NSObject class],
+    @"required" : [NSString class],
+    @"type" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_AdditionalDetails
+//
+
+@implementation GTLRConnectors_JsonSchema_AdditionalDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_Properties
+//
+
+@implementation GTLRConnectors_JsonSchema_Properties
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_JsonSchema class];
 }
 
 @end
@@ -527,7 +652,7 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 //
 
 @implementation GTLRConnectors_ResultMetadata
-@dynamic dataType, descriptionProperty, name;
+@dynamic dataType, descriptionProperty, jsonSchema, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

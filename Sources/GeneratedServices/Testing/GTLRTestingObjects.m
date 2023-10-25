@@ -55,6 +55,16 @@ NSString * const kGTLRTesting_DeviceIpBlock_Form_Emulator      = @"EMULATOR";
 NSString * const kGTLRTesting_DeviceIpBlock_Form_Physical      = @"PHYSICAL";
 NSString * const kGTLRTesting_DeviceIpBlock_Form_Virtual       = @"VIRTUAL";
 
+// GTLRTesting_DeviceSession.state
+NSString * const kGTLRTesting_DeviceSession_State_Active       = @"ACTIVE";
+NSString * const kGTLRTesting_DeviceSession_State_Error        = @"ERROR";
+NSString * const kGTLRTesting_DeviceSession_State_Expired      = @"EXPIRED";
+NSString * const kGTLRTesting_DeviceSession_State_Finished     = @"FINISHED";
+NSString * const kGTLRTesting_DeviceSession_State_Pending      = @"PENDING";
+NSString * const kGTLRTesting_DeviceSession_State_Requested    = @"REQUESTED";
+NSString * const kGTLRTesting_DeviceSession_State_SessionStateUnspecified = @"SESSION_STATE_UNSPECIFIED";
+NSString * const kGTLRTesting_DeviceSession_State_Unavailable  = @"UNAVAILABLE";
+
 // GTLRTesting_IosModel.formFactor
 NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
@@ -80,6 +90,16 @@ NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified = @
 NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText = @"ENTER_TEXT";
 NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore  = @"IGNORE";
 NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick = @"SINGLE_CLICK";
+
+// GTLRTesting_SessionStateEvent.sessionState
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Active = @"ACTIVE";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Error = @"ERROR";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Expired = @"EXPIRED";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Finished = @"FINISHED";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Pending = @"PENDING";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Requested = @"REQUESTED";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_SessionStateUnspecified = @"SESSION_STATE_UNSPECIFIED";
+NSString * const kGTLRTesting_SessionStateEvent_SessionState_Unavailable = @"UNAVAILABLE";
 
 // GTLRTesting_TestExecution.state
 NSString * const kGTLRTesting_TestExecution_State_Cancelled    = @"CANCELLED";
@@ -416,6 +436,15 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_CancelDeviceSessionRequest
+//
+
+@implementation GTLRTesting_CancelDeviceSessionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_CancelTestMatrixResponse
 //
 
@@ -502,11 +531,50 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_DeviceSession
+//
+
+@implementation GTLRTesting_DeviceSession
+@dynamic activeStartTime, androidDevice, androidDeviceList, createTime,
+         displayName, expireTime, inactivityTimeout, name, state,
+         stateHistories, ttl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stateHistories" : [GTLRTesting_SessionStateEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_DirectAccessVersionInfo
+//
+
+@implementation GTLRTesting_DirectAccessVersionInfo
+@dynamic directAccessSupported, minimumAndroidStudioVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_Distribution
 //
 
 @implementation GTLRTesting_Distribution
 @dynamic marketShare, measurementTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_Empty
+//
+
+@implementation GTLRTesting_Empty
 @end
 
 
@@ -794,6 +862,28 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_ListDeviceSessionsResponse
+//
+
+@implementation GTLRTesting_ListDeviceSessionsResponse
+@dynamic deviceSessions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceSessions" : [GTLRTesting_DeviceSession class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deviceSessions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_Locale
 //
 
@@ -922,7 +1012,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_PerAndroidVersionInfo
-@dynamic deviceCapacity, versionId;
+@dynamic deviceCapacity, directAccessVersionInfo, versionId;
 @end
 
 
@@ -1002,6 +1092,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_SessionStateEvent
+//
+
+@implementation GTLRTesting_SessionStateEvent
+@dynamic eventTime, sessionState, stateMessage;
 @end
 
 

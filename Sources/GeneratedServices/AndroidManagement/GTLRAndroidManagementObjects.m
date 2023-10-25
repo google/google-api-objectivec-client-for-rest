@@ -182,6 +182,7 @@ NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSha
 // GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowedExceptSystem = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED";
 
 // GTLRAndroidManagement_CrossProfilePolicies.workProfileWidgetsDefault
@@ -242,6 +243,16 @@ NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectS
 NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled = @"AIRPLANE_MODE_DISABLED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified = @"AIRPLANE_MODE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeUserChoice = @"AIRPLANE_MODE_USER_CHOICE";
+
+// GTLRAndroidManagement_DeviceRadioState.cellularTwoGState
+NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGDisabled = @"CELLULAR_TWO_G_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGStateUnspecified = @"CELLULAR_TWO_G_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice = @"CELLULAR_TWO_G_USER_CHOICE";
+
+// GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled = @"ULTRA_WIDEBAND_DISABLED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified = @"ULTRA_WIDEBAND_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandUserChoice = @"ULTRA_WIDEBAND_USER_CHOICE";
 
 // GTLRAndroidManagement_DeviceRadioState.wifiState
 NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled = @"WIFI_DISABLED";
@@ -492,6 +503,7 @@ NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face = @
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris = @"IRIS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified = @"KEYGUARD_DISABLED_FEATURE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications = @"NOTIFICATIONS";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Shortcuts = @"SHORTCUTS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents = @"TRUST_AGENTS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications = @"UNREDACTED_NOTIFICATIONS";
 
@@ -1118,6 +1130,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_CrossProfilePolicies
 @dynamic crossProfileCopyPaste, crossProfileDataSharing,
+         exemptionsToShowWorkContactsInPersonalProfile,
          showWorkContactsInPersonalProfile, workProfileWidgetsDefault;
 @end
 
@@ -1206,7 +1219,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_DeviceRadioState
-@dynamic airplaneModeState, wifiState;
+@dynamic airplaneModeState, cellularTwoGState, ultraWidebandState, wifiState;
 @end
 
 
@@ -2234,7 +2247,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_SigninDetail
-@dynamic allowPersonalUsage, qrCode, signinEnrollmentToken, signinUrl;
+@dynamic allowPersonalUsage, qrCode, signinEnrollmentToken, signinUrl, tokenTag;
 @end
 
 

@@ -582,6 +582,36 @@ NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SingleInstanceProp
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_BackendServiceListUsable_Warning.code
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy.name
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_InvalidLbPolicy = @"INVALID_LB_POLICY";
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_LeastRequest = @"LEAST_REQUEST";
@@ -699,6 +729,7 @@ NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3 = @"ACCELER
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized = @"COMPUTE_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC2d = @"COMPUTE_OPTIMIZED_C2D";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC3 = @"COMPUTE_OPTIMIZED_C3";
+NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC3d = @"COMPUTE_OPTIMIZED_C3D";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH3 = @"COMPUTE_OPTIMIZED_H3";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose   = @"GENERAL_PURPOSE";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2 = @"GENERAL_PURPOSE_E2";
@@ -1335,6 +1366,7 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet = @"MULTI_IP_SUB
 NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot   = @"SECURE_BOOT";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable   = @"SEV_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable = @"SEV_LIVE_MIGRATABLE";
+NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratableV2 = @"SEV_LIVE_MIGRATABLE_V2";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable = @"SEV_SNP_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
@@ -2193,6 +2225,9 @@ NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspended = @"SUSPEN
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated = @"TERMINATED";
 
+// GTLRCompute_Interconnect.availableFeatures
+NSString * const kGTLRCompute_Interconnect_AvailableFeatures_IfMacsec = @"IF_MACSEC";
+
 // GTLRCompute_Interconnect.interconnectType
 NSString * const kGTLRCompute_Interconnect_InterconnectType_Dedicated = @"DEDICATED";
 NSString * const kGTLRCompute_Interconnect_InterconnectType_ItPrivate = @"IT_PRIVATE";
@@ -2205,6 +2240,9 @@ NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr = @"LI
 // GTLRCompute_Interconnect.operationalStatus
 NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive = @"OS_ACTIVE";
 NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsUnprovisioned = @"OS_UNPROVISIONED";
+
+// GTLRCompute_Interconnect.requestedFeatures
+NSString * const kGTLRCompute_Interconnect_RequestedFeatures_IfMacsec = @"IF_MACSEC";
 
 // GTLRCompute_Interconnect.state
 NSString * const kGTLRCompute_Interconnect_State_Active        = @"ACTIVE";
@@ -2402,6 +2440,13 @@ NSString * const kGTLRCompute_InterconnectList_Warning_Code_SchemaValidationIgno
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InterconnectLocation.availableFeatures
+NSString * const kGTLRCompute_InterconnectLocation_AvailableFeatures_IfMacsec = @"IF_MACSEC";
+
+// GTLRCompute_InterconnectLocation.availableLinkTypes
+NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
+NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
 
 // GTLRCompute_InterconnectLocation.continent
 NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa = @"AFRICA";
@@ -3750,6 +3795,10 @@ NSString * const kGTLRCompute_PreservedStatePreservedDisk_AutoDelete_OnPermanent
 NSString * const kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadOnly = @"READ_ONLY";
 NSString * const kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadWrite = @"READ_WRITE";
 
+// GTLRCompute_PreservedStatePreservedNetworkIp.autoDelete
+NSString * const kGTLRCompute_PreservedStatePreservedNetworkIp_AutoDelete_Never = @"NEVER";
+NSString * const kGTLRCompute_PreservedStatePreservedNetworkIp_AutoDelete_OnPermanentInstanceDeletion = @"ON_PERMANENT_INSTANCE_DELETION";
+
 // GTLRCompute_Project.defaultNetworkTier
 NSString * const kGTLRCompute_Project_DefaultNetworkTier_FixedStandard = @"FIXED_STANDARD";
 NSString * const kGTLRCompute_Project_DefaultNetworkTier_Premium = @"PREMIUM";
@@ -4704,6 +4753,7 @@ NSString * const kGTLRCompute_RouterNat_AutoNetworkTier_Standard = @"STANDARD";
 NSString * const kGTLRCompute_RouterNat_AutoNetworkTier_StandardOverridesFixedStandard = @"STANDARD_OVERRIDES_FIXED_STANDARD";
 
 // GTLRCompute_RouterNat.endpointTypes
+NSString * const kGTLRCompute_RouterNat_EndpointTypes_EndpointTypeManagedProxyLb = @"ENDPOINT_TYPE_MANAGED_PROXY_LB";
 NSString * const kGTLRCompute_RouterNat_EndpointTypes_EndpointTypeSwg = @"ENDPOINT_TYPE_SWG";
 NSString * const kGTLRCompute_RouterNat_EndpointTypes_EndpointTypeVm = @"ENDPOINT_TYPE_VM";
 
@@ -4966,6 +5016,12 @@ NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConf
 // GTLRCompute_SecurityPolicyRuleRedirectOptions.type
 NSString * const kGTLRCompute_SecurityPolicyRuleRedirectOptions_Type_External302 = @"EXTERNAL_302";
 NSString * const kGTLRCompute_SecurityPolicyRuleRedirectOptions_Type_GoogleRecaptcha = @"GOOGLE_RECAPTCHA";
+
+// GTLRCompute_SecurityPolicyUserDefinedField.base
+NSString * const kGTLRCompute_SecurityPolicyUserDefinedField_Base_Ipv4 = @"IPV4";
+NSString * const kGTLRCompute_SecurityPolicyUserDefinedField_Base_Ipv6 = @"IPV6";
+NSString * const kGTLRCompute_SecurityPolicyUserDefinedField_Base_Tcp = @"TCP";
+NSString * const kGTLRCompute_SecurityPolicyUserDefinedField_Base_Udp = @"UDP";
 
 // GTLRCompute_ServerBinding.type
 NSString * const kGTLRCompute_ServerBinding_Type_RestartNodeOnAnyServer = @"RESTART_NODE_ON_ANY_SERVER";
@@ -5400,6 +5456,10 @@ NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable = @"UNREA
 NSString * const kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_Never = @"NEVER";
 NSString * const kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_OnPermanentInstanceDeletion = @"ON_PERMANENT_INSTANCE_DELETION";
 
+// GTLRCompute_StatefulPolicyPreservedStateNetworkIp.autoDelete
+NSString * const kGTLRCompute_StatefulPolicyPreservedStateNetworkIp_AutoDelete_Never = @"NEVER";
+NSString * const kGTLRCompute_StatefulPolicyPreservedStateNetworkIp_AutoDelete_OnPermanentInstanceDeletion = @"ON_PERMANENT_INSTANCE_DELETION";
+
 // GTLRCompute_Subnetwork.ipv6AccessType
 NSString * const kGTLRCompute_Subnetwork_Ipv6AccessType_External = @"EXTERNAL";
 NSString * const kGTLRCompute_Subnetwork_Ipv6AccessType_Internal = @"INTERNAL";
@@ -5410,6 +5470,7 @@ NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableBidirecti
 NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle = @"ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE";
 
 // GTLRCompute_Subnetwork.purpose
+NSString * const kGTLRCompute_Subnetwork_Purpose_GlobalManagedProxy = @"GLOBAL_MANAGED_PROXY";
 NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
 NSString * const kGTLRCompute_Subnetwork_Purpose_Private       = @"PRIVATE";
 NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918 = @"PRIVATE_RFC_1918";
@@ -6259,6 +6320,7 @@ NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_External = @"EXTER
 NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_Internal = @"INTERNAL";
 
 // GTLRCompute_UsableSubnetwork.purpose
+NSString * const kGTLRCompute_UsableSubnetwork_Purpose_GlobalManagedProxy = @"GLOBAL_MANAGED_PROXY";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_Private = @"PRIVATE";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateRfc1918 = @"PRIVATE_RFC_1918";
@@ -6806,7 +6868,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_AccessConfig
 @dynamic externalIpv6, externalIpv6PrefixLength, kind, name, natIP, networkTier,
-         publicPtrDomainName, setPublicPtr, type;
+         publicPtrDomainName, securityPolicy, setPublicPtr, type;
 @end
 
 
@@ -7708,7 +7770,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          logConfig, maxStreamDuration, metadatas, name, network,
          outlierDetection, port, portName, protocol, region, securityPolicy,
          securitySettings, selfLink, serviceBindings, sessionAffinity,
-         subsetting, timeoutSec;
+         subsetting, timeoutSec, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7725,7 +7787,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"customResponseHeaders" : [NSString class],
     @"healthChecks" : [NSString class],
     @"localityLbPolicies" : [GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig class],
-    @"serviceBindings" : [NSString class]
+    @"serviceBindings" : [NSString class],
+    @"usedBy" : [GTLRCompute_BackendServiceUsedBy class]
   };
   return map;
 }
@@ -7971,6 +8034,56 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BackendServiceListUsable
+//
+
+@implementation GTLRCompute_BackendServiceListUsable
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_BackendService class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceListUsable_Warning
+//
+
+@implementation GTLRCompute_BackendServiceListUsable_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_BackendServiceListUsable_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceListUsable_Warning_Data_Item
+//
+
+@implementation GTLRCompute_BackendServiceListUsable_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig
 //
 
@@ -8070,6 +8183,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendServicesScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceUsedBy
+//
+
+@implementation GTLRCompute_BackendServiceUsedBy
+@dynamic reference;
 @end
 
 
@@ -12458,6 +12581,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstancesSetSecurityPolicyRequest
+//
+
+@implementation GTLRCompute_InstancesSetSecurityPolicyRequest
+@dynamic networkInterfaces, securityPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkInterfaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstancesSetServiceAccountRequest
 //
 
@@ -12699,13 +12840,13 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Interconnect
-@dynamic adminEnabled, circuitInfos, creationTimestamp, customerName,
-         descriptionProperty, expectedOutages, googleIpAddress,
+@dynamic adminEnabled, availableFeatures, circuitInfos, creationTimestamp,
+         customerName, descriptionProperty, expectedOutages, googleIpAddress,
          googleReferenceId, identifier, interconnectAttachments,
          interconnectType, kind, labelFingerprint, labels, linkType, location,
-         name, nocContactEmail, operationalStatus, peerIpAddress,
-         provisionedLinkCount, remoteLocation, requestedLinkCount, satisfiesPzs,
-         selfLink, state;
+         macsec, macsecEnabled, name, nocContactEmail, operationalStatus,
+         peerIpAddress, provisionedLinkCount, remoteLocation, requestedFeatures,
+         requestedLinkCount, satisfiesPzs, selfLink, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -12717,9 +12858,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"availableFeatures" : [NSString class],
     @"circuitInfos" : [GTLRCompute_InterconnectCircuitInfo class],
     @"expectedOutages" : [GTLRCompute_InterconnectOutageNotification class],
-    @"interconnectAttachments" : [NSString class]
+    @"interconnectAttachments" : [NSString class],
+    @"requestedFeatures" : [NSString class]
   };
   return map;
 }
@@ -13067,8 +13210,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InterconnectDiagnosticsLinkStatus
-@dynamic arpCaches, circuitId, googleDemarc, lacpStatus, operationalStatus,
-         receivingOpticalPower, transmittingOpticalPower;
+@dynamic arpCaches, circuitId, googleDemarc, lacpStatus, macsec,
+         operationalStatus, receivingOpticalPower, transmittingOpticalPower;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -13077,6 +13220,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectDiagnosticsMacsecStatus
+//
+
+@implementation GTLRCompute_InterconnectDiagnosticsMacsecStatus
+@dynamic ckn, operational;
 @end
 
 
@@ -13136,10 +13289,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InterconnectLocation
-@dynamic address, availabilityZone, city, continent, creationTimestamp,
-         descriptionProperty, facilityProvider, facilityProviderFacilityId,
-         identifier, kind, name, peeringdbFacilityId, regionInfos, selfLink,
-         status, supportsPzs;
+@dynamic address, availabilityZone, availableFeatures, availableLinkTypes, city,
+         continent, creationTimestamp, descriptionProperty, facilityProvider,
+         facilityProviderFacilityId, identifier, kind, name,
+         peeringdbFacilityId, regionInfos, selfLink, status, supportsPzs;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -13151,6 +13304,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"availableFeatures" : [NSString class],
+    @"availableLinkTypes" : [NSString class],
     @"regionInfos" : [GTLRCompute_InterconnectLocationRegionInfo class]
   };
   return map;
@@ -13216,6 +13371,62 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InterconnectLocationRegionInfo
 @dynamic expectedRttMs, locationPresence, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectMacsec
+//
+
+@implementation GTLRCompute_InterconnectMacsec
+@dynamic failOpen, preSharedKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preSharedKeys" : [GTLRCompute_InterconnectMacsecPreSharedKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectMacsecConfig
+//
+
+@implementation GTLRCompute_InterconnectMacsecConfig
+@dynamic preSharedKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preSharedKeys" : [GTLRCompute_InterconnectMacsecConfigPreSharedKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectMacsecConfigPreSharedKey
+//
+
+@implementation GTLRCompute_InterconnectMacsecConfigPreSharedKey
+@dynamic cak, ckn, name, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectMacsecPreSharedKey
+//
+
+@implementation GTLRCompute_InterconnectMacsecPreSharedKey
+@dynamic name, startTime;
 @end
 
 
@@ -13359,6 +13570,21 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InterconnectsGetDiagnosticsResponse
 @dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectsGetMacsecConfigResponse
+//
+
+@implementation GTLRCompute_InterconnectsGetMacsecConfigResponse
+@dynamic ETag, result;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -13917,7 +14143,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_ManagedInstance
 @dynamic currentAction, identifier, instance, instanceHealth, instanceStatus,
-         lastAttempt, preservedStateFromConfig, preservedStateFromPolicy,
+         lastAttempt, name, preservedStateFromConfig, preservedStateFromPolicy,
          version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -14248,7 +14474,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkAttachmentConnectedEndpoint
-@dynamic ipAddress, projectIdOrNum, secondaryIpCidrRanges, status, subnetwork;
+@dynamic ipAddress, ipv6Address, projectIdOrNum, secondaryIpCidrRanges, status,
+         subnetwork, subnetworkCidrRange;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -16503,7 +16730,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_PreservedState
-@dynamic disks, metadata;
+@dynamic disks, externalIPs, internalIPs, metadata;
 @end
 
 
@@ -16516,6 +16743,34 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (Class)classForAdditionalProperties {
   return [GTLRCompute_PreservedStatePreservedDisk class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_PreservedState_ExternalIPs
+//
+
+@implementation GTLRCompute_PreservedState_ExternalIPs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_PreservedStatePreservedNetworkIp class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_PreservedState_InternalIPs
+//
+
+@implementation GTLRCompute_PreservedState_InternalIPs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_PreservedStatePreservedNetworkIp class];
 }
 
 @end
@@ -16542,6 +16797,26 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_PreservedStatePreservedDisk
 @dynamic autoDelete, mode, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_PreservedStatePreservedNetworkIp
+//
+
+@implementation GTLRCompute_PreservedStatePreservedNetworkIp
+@dynamic autoDelete, ipAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_PreservedStatePreservedNetworkIpIpAddress
+//
+
+@implementation GTLRCompute_PreservedStatePreservedNetworkIpIpAddress
+@dynamic address, literal;
 @end
 
 
@@ -17656,6 +17931,42 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RegionList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionNetworkEndpointGroupsAttachEndpointsRequest
+//
+
+@implementation GTLRCompute_RegionNetworkEndpointGroupsAttachEndpointsRequest
+@dynamic networkEndpoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkEndpoints" : [GTLRCompute_NetworkEndpoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionNetworkEndpointGroupsDetachEndpointsRequest
+//
+
+@implementation GTLRCompute_RegionNetworkEndpointGroupsDetachEndpointsRequest
+@dynamic networkEndpoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkEndpoints" : [GTLRCompute_NetworkEndpoint class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -19278,7 +19589,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic adaptiveProtectionConfig, advancedOptionsConfig, creationTimestamp,
          ddosProtectionConfig, descriptionProperty, fingerprint, identifier,
          kind, labelFingerprint, labels, name, recaptchaOptionsConfig, region,
-         rules, selfLink, type;
+         rules, selfLink, type, userDefinedFields;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -19290,7 +19601,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"rules" : [GTLRCompute_SecurityPolicyRule class]
+    @"rules" : [GTLRCompute_SecurityPolicyRule class],
+    @"userDefinedFields" : [GTLRCompute_SecurityPolicyUserDefinedField class]
   };
   return map;
 }
@@ -19465,7 +19777,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SecurityPolicyRule
-@dynamic action, descriptionProperty, headerAction, kind, match,
+@dynamic action, descriptionProperty, headerAction, kind, match, networkMatch,
          preconfiguredWafConfig, preview, priority, rateLimitOptions,
          redirectOptions;
 
@@ -19525,6 +19837,50 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"srcIpRanges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPolicyRuleNetworkMatcher
+//
+
+@implementation GTLRCompute_SecurityPolicyRuleNetworkMatcher
+@dynamic destIpRanges, destPorts, ipProtocols, srcAsns, srcIpRanges, srcPorts,
+         srcRegionCodes, userDefinedFields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destIpRanges" : [NSString class],
+    @"destPorts" : [NSString class],
+    @"ipProtocols" : [NSString class],
+    @"srcAsns" : [NSNumber class],
+    @"srcIpRanges" : [NSString class],
+    @"srcPorts" : [NSString class],
+    @"srcRegionCodes" : [NSString class],
+    @"userDefinedFields" : [GTLRCompute_SecurityPolicyRuleNetworkMatcherUserDefinedFieldMatch class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPolicyRuleNetworkMatcherUserDefinedFieldMatch
+//
+
+@implementation GTLRCompute_SecurityPolicyRuleNetworkMatcherUserDefinedFieldMatch
+@dynamic name, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
   };
   return map;
 }
@@ -19631,6 +19987,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_SecurityPolicyRuleRedirectOptions
 @dynamic target, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPolicyUserDefinedField
+//
+
+@implementation GTLRCompute_SecurityPolicyUserDefinedField
+@dynamic base, mask, name, offset, size;
 @end
 
 
@@ -20699,7 +21065,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_StatefulPolicyPreservedState
-@dynamic disks;
+@dynamic disks, externalIPs, internalIPs;
 @end
 
 
@@ -20719,10 +21085,48 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_StatefulPolicyPreservedState_ExternalIPs
+//
+
+@implementation GTLRCompute_StatefulPolicyPreservedState_ExternalIPs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_StatefulPolicyPreservedStateNetworkIp class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StatefulPolicyPreservedState_InternalIPs
+//
+
+@implementation GTLRCompute_StatefulPolicyPreservedState_InternalIPs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_StatefulPolicyPreservedStateNetworkIp class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_StatefulPolicyPreservedStateDiskDevice
 //
 
 @implementation GTLRCompute_StatefulPolicyPreservedStateDiskDevice
+@dynamic autoDelete;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StatefulPolicyPreservedStateNetworkIp
+//
+
+@implementation GTLRCompute_StatefulPolicyPreservedStateNetworkIp
 @dynamic autoDelete;
 @end
 
@@ -21486,7 +21890,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_TargetInstance
 @dynamic creationTimestamp, descriptionProperty, identifier, instance, kind,
-         name, natPolicy, network, selfLink, zoneProperty;
+         name, natPolicy, network, securityPolicy, selfLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21668,8 +22072,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_TargetPool
 @dynamic backupPool, creationTimestamp, descriptionProperty, failoverRatio,
-         healthChecks, identifier, instances, kind, name, region, selfLink,
-         sessionAffinity;
+         healthChecks, identifier, instances, kind, name, region,
+         securityPolicy, selfLink, sessionAffinity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

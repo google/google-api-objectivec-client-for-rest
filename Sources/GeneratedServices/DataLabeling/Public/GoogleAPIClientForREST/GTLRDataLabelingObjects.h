@@ -3048,7 +3048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1be
  *  data, such as an image reference, text. * The second column is comma
  *  separated labels associated with data.
  */
-@property(nonatomic, strong, nullable) GTLRDataLabeling_GoogleCloudDatalabelingV1beta1CsvInstruction *csvInstruction;
+@property(nonatomic, strong, nullable) GTLRDataLabeling_GoogleCloudDatalabelingV1beta1CsvInstruction *csvInstruction GTLR_DEPRECATED;
 
 /**
  *  Required. The data type of this instruction.
@@ -4160,7 +4160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1be
  *  Optional. Configs for sentiment selection. We deprecate sentiment analysis
  *  in data labeling side as it is incompatible with uCAIP.
  */
-@property(nonatomic, strong, nullable) GTLRDataLabeling_GoogleCloudDatalabelingV1beta1SentimentConfig *sentimentConfig;
+@property(nonatomic, strong, nullable) GTLRDataLabeling_GoogleCloudDatalabelingV1beta1SentimentConfig *sentimentConfig GTLR_DEPRECATED;
 
 @end
 
@@ -5421,8 +5421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1be
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -5450,8 +5450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1be
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

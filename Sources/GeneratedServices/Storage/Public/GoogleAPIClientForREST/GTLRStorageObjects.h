@@ -29,8 +29,10 @@
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item_Action;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition;
 @class GTLRStorage_Bucket_Logging;
+@class GTLRStorage_Bucket_ObjectRetention;
 @class GTLRStorage_Bucket_Owner;
 @class GTLRStorage_Bucket_RetentionPolicy;
+@class GTLRStorage_Bucket_SoftDeletePolicy;
 @class GTLRStorage_Bucket_Versioning;
 @class GTLRStorage_Bucket_Website;
 @class GTLRStorage_BucketAccessControl;
@@ -39,13 +41,20 @@
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
 @class GTLRStorage_Expr;
+@class GTLRStorage_GoogleLongrunningOperation;
+@class GTLRStorage_GoogleLongrunningOperation_Metadata;
+@class GTLRStorage_GoogleLongrunningOperation_Response;
+@class GTLRStorage_GoogleRpcStatus;
+@class GTLRStorage_GoogleRpcStatus_Details_Item;
 @class GTLRStorage_HmacKeyMetadata;
+@class GTLRStorage_ManagedFolder;
 @class GTLRStorage_Notification;
 @class GTLRStorage_Notification_CustomAttributes;
 @class GTLRStorage_Object;
 @class GTLRStorage_Object_CustomerEncryption;
 @class GTLRStorage_Object_Metadata;
 @class GTLRStorage_Object_Owner;
+@class GTLRStorage_Object_Retention;
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
 @class GTLRStorage_Policy_Bindings_Item;
@@ -154,6 +163,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the bucket. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The bucket's object retention config. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_ObjectRetention *objectRetention;
+
 /** The owner of the bucket. This is always the project team's owner group. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Owner *owner;
 
@@ -192,6 +204,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The URI of this bucket. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  The bucket's soft delete policy, which defines the period of time that
+ *  soft-deleted objects will be retained, and cannot be permanently deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_SoftDeletePolicy *softDeletePolicy;
 
 /**
  *  The bucket's default storage class, used whenever no storageClass is
@@ -234,6 +252,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The storage class that objects in the bucket eventually transition to if
+ *  they are not read for a certain length of time. Valid values are NEARLINE
+ *  and ARCHIVE.
+ */
+@property(nonatomic, copy, nullable) NSString *terminalStorageClass;
+
+/**
+ *  A date and time in RFC 3339 format representing the time of the most recent
+ *  update to "terminalStorageClass".
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *terminalStorageClassUpdateTime;
 
 /**
  *  A date and time in RFC 3339 format representing the instant at which
@@ -390,6 +421,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The bucket's object retention config.
+ */
+@interface GTLRStorage_Bucket_ObjectRetention : GTLRObject
+
+/** The bucket's object retention mode. Can be Enabled. */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
  *  The owner of the bucket. This is always the project team's owner group.
  */
 @interface GTLRStorage_Bucket_Owner : GTLRObject
@@ -438,6 +480,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *retentionPeriod;
+
+@end
+
+
+/**
+ *  The bucket's soft delete policy, which defines the period of time that
+ *  soft-deleted objects will be retained, and cannot be permanently deleted.
+ */
+@interface GTLRStorage_Bucket_SoftDeletePolicy : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which the policy, or
+ *  one with a greater retention, was effective. This value is in RFC 3339
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  The period of time in seconds, that soft-deleted objects in the bucket will
+ *  be retained and cannot be permanently deleted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDurationSeconds;
 
 @end
 
@@ -812,6 +878,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A bulk restore objects request.
+ */
+@interface GTLRStorage_BulkRestoreObjectsRequest : GTLRObject
+
+/**
+ *  If false (default), the restore will not overwrite live objects with the
+ *  same name at the destination. This means some deleted objects may be
+ *  skipped. If true, live objects will be overwritten resulting in a noncurrent
+ *  object (if versioning is enabled). If versioning is not enabled, overwriting
+ *  the object will result in a soft-deleted object. In either case, if a
+ *  noncurrent object already exists with the same name, a live version can be
+ *  written without issue.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowOverwrite;
+
+/**
+ *  If true, copies the source object's ACL; otherwise, uses the bucket's
+ *  default object ACL. The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copySourceAcl NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Restores only the objects matching any of the specified glob(s). If this
+ *  parameter is not specified, all objects will be restored within the
+ *  specified time range.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchGlobs;
+
+/** Restores only the objects that were soft-deleted after this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *softDeletedAfterTime;
+
+/** Restores only the objects that were soft-deleted before this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *softDeletedBeforeTime;
+
+@end
+
+
+/**
  *  An notification channel used to watch for resource changes.
  */
 @interface GTLRStorage_Channel : GTLRObject
@@ -980,6 +1088,154 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The response message for storage.buckets.operations.list.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRStorage_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_GoogleLongrunningOperation *> *operations;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRStorage_GoogleLongrunningOperation : GTLRObject
+
+/**
+ *  If the value is "false", it means the operation is still in progress. If
+ *  "true", the operation is completed, and either "error" or "response" is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRStorage_GoogleRpcStatus *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_GoogleLongrunningOperation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the "name"
+ *  should be a resource name ending with "operations/{operationId}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as "Delete", the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type "XxxResponse", where "Xxx" is the original method name. For
+ *  example, if the original method name is "TakeSnapshot()", the inferred
+ *  response type is "TakeSnapshotResponse".
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_GoogleLongrunningOperation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_GoogleLongrunningOperation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as "Delete", the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type "XxxResponse", where "Xxx" is the original method name. For
+ *  example, if the original method name is "TakeSnapshot()", the inferred
+ *  response type is "TakeSnapshotResponse".
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_GoogleLongrunningOperation_Response : GTLRObject
+@end
+
+
+/**
+ *  The "Status" type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each "Status" message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRStorage_GoogleRpcStatus : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_GoogleRpcStatus_Details_Item *> *details;
+
+/** A developer-facing error message, which should be in English. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRStorage_GoogleRpcStatus_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
  *  JSON template to produce a JSON-style HMAC Key resource for Create
  *  responses.
  */
@@ -1065,6 +1321,86 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The kind of item this is. For lists of hmacKeys, this is always
  *  storage#hmacKeysMetadata.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A managed folder.
+ */
+@interface GTLRStorage_ManagedFolder : GTLRObject
+
+/** The name of the bucket containing this managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The creation time of the managed folder in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The ID of the managed folder, including the bucket name and managed folder
+ *  name.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The kind of item this is. For managed folders, this is always
+ *  storage#managedFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The version of the metadata for this managed folder. Used for preconditions
+ *  and for detecting changes in metadata.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metageneration;
+
+/**
+ *  The name of the managed folder. Required if not specified by URL parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The link to this managed folder. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** The last update time of the managed folder metadata in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A list of managed folders.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRStorage_ManagedFolders : GTLRCollectionObject
+
+/**
+ *  The list of items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_ManagedFolder *> *items;
+
+/**
+ *  The kind of item this is. For lists of managed folders, this is always
+ *  storage#managedFolders.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1253,6 +1589,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
+ *  This is the time (in the future) when the soft-deleted object will no longer
+ *  be restorable. It is equal to the soft delete time plus the current soft
+ *  delete retention duration of the bucket.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *hardDeleteTime;
+
+/**
  *  The ID of the object, including the bucket name, object name, and generation
  *  number.
  *
@@ -1299,6 +1642,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_Owner *owner;
 
+/** A collection of object level retention parameters. */
+@property(nonatomic, strong, nullable) GTLRStorage_Object_Retention *retention;
+
 /**
  *  A server-determined value that specifies the earliest time that the object's
  *  retention period expires. This value is in RFC 3339 format. Note 1: This
@@ -1319,6 +1665,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *size;
 
+/** The time at which the object became soft-deleted in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *softDeleteTime;
+
 /** Storage class of the object. */
 @property(nonatomic, copy, nullable) NSString *storageClass;
 
@@ -1337,8 +1686,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *timeCreated;
 
 /**
- *  The deletion time of the object in RFC 3339 format. Will be returned if and
- *  only if this version of the object has been deleted.
+ *  The time at which the object became noncurrent in RFC 3339 format. Will be
+ *  returned if and only if this version of the object has been deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeDeleted;
 
@@ -1398,6 +1747,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The ID for the entity. */
 @property(nonatomic, copy, nullable) NSString *entityId;
+
+@end
+
+
+/**
+ *  A collection of object level retention parameters.
+ */
+@interface GTLRStorage_Object_Retention : GTLRObject
+
+/** The bucket's object retention mode, can only be Unlocked or Locked. */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  A time in RFC 3339 format until which object retention protects this object.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *retainUntilTime;
 
 @end
 
@@ -1554,7 +1919,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A bucket/object IAM policy.
+ *  A bucket/object/managedFolder IAM policy.
  */
 @interface GTLRStorage_Policy : GTLRObject
 
@@ -1580,11 +1945,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The ID of the resource to which this policy belongs. Will be of the form
- *  projects/_/buckets/bucket for buckets, and
- *  projects/_/buckets/bucket/objects/object for objects. A specific generation
- *  may be specified by appending #generationNumber to the end of the object
- *  name, e.g. projects/_/buckets/my-bucket/objects/data.txt#17. The current
- *  generation can be denoted with #0. This field is ignored on input.
+ *  projects/_/buckets/bucket for buckets,
+ *  projects/_/buckets/bucket/objects/object for objects, and
+ *  projects/_/buckets/bucket/managedFolders/managedFolder. A specific
+ *  generation may be specified by appending #generationNumber to the end of the
+ *  object name, e.g. projects/_/buckets/my-bucket/objects/data.txt#17. The
+ *  current generation can be denoted with #0. This field is ignored on input.
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
@@ -1732,7 +2098,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A storage.(buckets|objects).testIamPermissions response.
+ *  A storage.(buckets|objects|managedFolders).testIamPermissions response.
  */
 @interface GTLRStorage_TestIamPermissionsResponse : GTLRObject
 
@@ -1741,8 +2107,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The permissions held by the caller. Permissions are always of the format
- *  storage.resource.capability, where resource is one of buckets or objects.
- *  The supported permissions are as follows:
+ *  storage.resource.capability, where resource is one of buckets, objects, or
+ *  managedFolders. The supported permissions are as follows:
  *  - storage.buckets.delete — Delete bucket.
  *  - storage.buckets.get — Read bucket metadata.
  *  - storage.buckets.getIamPolicy — Read bucket IAM policy.
@@ -1757,6 +2123,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  - storage.objects.list — List objects.
  *  - storage.objects.setIamPolicy — Update object IAM policy.
  *  - storage.objects.update — Update object metadata.
+ *  - storage.managedFolders.delete — Delete managed folder.
+ *  - storage.managedFolders.get — Read managed folder metadata.
+ *  - storage.managedFolders.getIamPolicy — Read managed folder IAM policy.
+ *  - storage.managedFolders.create — Create managed folder.
+ *  - storage.managedFolders.list — List managed folders.
+ *  - storage.managedFolders.setIamPolicy — Update managed folder IAM policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

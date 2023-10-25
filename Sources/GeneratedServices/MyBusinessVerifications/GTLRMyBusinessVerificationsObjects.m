@@ -132,26 +132,6 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRMyBusinessVerifications_GenerateVerificationTokenRequest
-//
-
-@implementation GTLRMyBusinessVerifications_GenerateVerificationTokenRequest
-@dynamic location;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMyBusinessVerifications_GenerateVerificationTokenResponse
-//
-
-@implementation GTLRMyBusinessVerifications_GenerateVerificationTokenResponse
-@dynamic token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRMyBusinessVerifications_ListVerificationsResponse
 //
 
@@ -169,16 +149,6 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
   return @"verifications";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMyBusinessVerifications_Location
-//
-
-@implementation GTLRMyBusinessVerifications_Location
-@dynamic address, name, primaryCategoryId, primaryPhone, websiteUri;
 @end
 
 

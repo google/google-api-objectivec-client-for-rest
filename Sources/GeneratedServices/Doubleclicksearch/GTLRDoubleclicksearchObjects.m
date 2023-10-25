@@ -12,6 +12,14 @@
 #import <GoogleAPIClientForREST/GTLRDoubleclicksearchObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRDoubleclicksearch_Conversion.adUserDataConsent
+NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Denied = @"DENIED";
+NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Granted = @"GRANTED";
+NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Unknown = @"UNKNOWN";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRDoubleclicksearch_Availability
 //
@@ -28,14 +36,14 @@
 //
 
 @implementation GTLRDoubleclicksearch_Conversion
-@dynamic adGroupId, adId, advertiserId, agencyId, attributionModel, campaignId,
-         channel, clickId, conversionId, conversionModifiedTimestamp,
-         conversionTimestamp, countMillis, criterionId, currencyCode,
-         customDimension, customerId, customMetric, deviceType, dsConversionId,
-         engineAccountId, floodlightOrderId, inventoryAccountId, productCountry,
-         productGroupId, productId, productLanguage, quantityMillis,
-         revenueMicros, segmentationId, segmentationName, segmentationType,
-         state, storeId, type;
+@dynamic adGroupId, adId, adUserDataConsent, advertiserId, agencyId,
+         attributionModel, campaignId, channel, clickId, conversionId,
+         conversionModifiedTimestamp, conversionTimestamp, countMillis,
+         criterionId, currencyCode, customDimension, customerId, customMetric,
+         deviceType, dsConversionId, engineAccountId, floodlightOrderId,
+         inventoryAccountId, productCountry, productGroupId, productId,
+         productLanguage, quantityMillis, revenueMicros, segmentationId,
+         segmentationName, segmentationType, state, storeId, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

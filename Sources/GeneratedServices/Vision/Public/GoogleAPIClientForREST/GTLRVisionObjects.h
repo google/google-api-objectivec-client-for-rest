@@ -22,6 +22,10 @@
 @class GTLRVision_AnnotateImageResponse;
 @class GTLRVision_AsyncAnnotateFileRequest;
 @class GTLRVision_AsyncAnnotateFileResponse;
+@class GTLRVision_AsyncBatchAnnotateFilesRequest_Labels;
+@class GTLRVision_AsyncBatchAnnotateImagesRequest_Labels;
+@class GTLRVision_BatchAnnotateFilesRequest_Labels;
+@class GTLRVision_BatchAnnotateImagesRequest_Labels;
 @class GTLRVision_Block;
 @class GTLRVision_BoundingPoly;
 @class GTLRVision_Color;
@@ -4764,6 +4768,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_AsyncBatchAnnotateFilesRequest : GTLRObject
 
 /**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_AsyncBatchAnnotateFilesRequest_Labels *labels;
+
+/**
  *  Optional. Target project and location to make a call. Format:
  *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
  *  a region will be chosen automatically. Supported location-ids: `us`: USA
@@ -4775,6 +4788,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /** Required. Individual async file annotation requests for this batch. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AsyncAnnotateFileRequest *> *requests;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVision_AsyncBatchAnnotateFilesRequest_Labels : GTLRObject
 @end
 
 
@@ -4797,6 +4826,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  */
 @interface GTLRVision_AsyncBatchAnnotateImagesRequest : GTLRObject
 
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_AsyncBatchAnnotateImagesRequest_Labels *labels;
+
 /** Required. The desired output location and metadata (e.g. format). */
 @property(nonatomic, strong, nullable) GTLRVision_OutputConfig *outputConfig;
 
@@ -4812,6 +4850,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /** Required. Individual image annotation requests for this batch. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageRequest *> *requests;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVision_AsyncBatchAnnotateImagesRequest_Labels : GTLRObject
 @end
 
 
@@ -4832,6 +4886,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_BatchAnnotateFilesRequest : GTLRObject
 
 /**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BatchAnnotateFilesRequest_Labels *labels;
+
+/**
  *  Optional. Target project and location to make a call. Format:
  *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
  *  a region will be chosen automatically. Supported location-ids: `us`: USA
@@ -4846,6 +4909,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateFileRequest *> *requests;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVision_BatchAnnotateFilesRequest_Labels : GTLRObject
 @end
 
 
@@ -4869,6 +4948,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_BatchAnnotateImagesRequest : GTLRObject
 
 /**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRVision_BatchAnnotateImagesRequest_Labels *labels;
+
+/**
  *  Optional. Target project and location to make a call. Format:
  *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
  *  a region will be chosen automatically. Supported location-ids: `us`: USA
@@ -4880,6 +4968,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /** Required. Individual image annotation requests for this batch. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateImageRequest *> *requests;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVision_BatchAnnotateImagesRequest_Labels : GTLRObject
 @end
 
 

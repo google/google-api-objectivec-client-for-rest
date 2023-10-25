@@ -370,7 +370,8 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_GrpcRouteRouteAction
-@dynamic destinations, faultInjectionPolicy, retryPolicy, timeout;
+@dynamic destinations, faultInjectionPolicy, retryPolicy,
+         statefulSessionAffinity, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -415,6 +416,16 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_GrpcRouteStatefulSessionAffinityPolicy
+//
+
+@implementation GTLRNetworkServices_GrpcRouteStatefulSessionAffinityPolicy
+@dynamic cookieTtl;
 @end
 
 
@@ -645,7 +656,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 @implementation GTLRNetworkServices_HttpRouteRouteAction
 @dynamic corsPolicy, destinations, faultInjectionPolicy, redirect,
          requestHeaderModifier, requestMirrorPolicy, responseHeaderModifier,
-         retryPolicy, timeout, urlRewrite;
+         retryPolicy, statefulSessionAffinity, timeout, urlRewrite;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -692,6 +703,16 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_HttpRouteStatefulSessionAffinityPolicy
+//
+
+@implementation GTLRNetworkServices_HttpRouteStatefulSessionAffinityPolicy
+@dynamic cookieTtl;
 @end
 
 

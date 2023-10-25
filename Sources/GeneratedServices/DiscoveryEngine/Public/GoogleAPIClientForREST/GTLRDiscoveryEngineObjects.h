@@ -24,9 +24,10 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo;
-@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource;
@@ -77,12 +78,14 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacetFacetValue;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResultRefinementAttribute;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseQueryExpansionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult_ModelScores;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTextInput;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTransactionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent;
@@ -167,6 +170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "FIELD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_FieldTypeUnspecified;
+/**
+ *  Field value type is Geolocation.
+ *
+ *  Value: "GEOLOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Geolocation;
 /**
  *  Field value type is Integer.
  *
@@ -279,6 +288,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SEARCHABLE_OPTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason.corpusType
+
+/**
+ *  Default value.
+ *
+ *  Value: "CORPUS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_CorpusTypeUnspecified;
+/**
+ *  Denotes a crawling attempt for the desktop version of a page.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Desktop;
+/**
+ *  Denotes a crawling attempt for the mobile version of a page.
+ *
+ *  Value: "MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Mobile;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo.siteVerificationState
@@ -736,17 +767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
- *  Response message for SiteSearchEngineService.BatchCreateTargetSites method.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse : GTLRObject
-
-/** TargetSites created. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite *> *targetSites;
-
-@end
-
-
-/**
  *  Metadata for Create Schema LRO.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateSchemaMetadata : GTLRObject
@@ -846,6 +866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *        Field value type is Boolean. (Value: "BOOLEAN")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_FieldTypeUnspecified
  *        Field type is unspecified. (Value: "FIELD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Geolocation
+ *        Field value type is Geolocation. (Value: "GEOLOCATION")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Integer
  *        Field value type is Integer. (Value: "INTEGER")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Number
@@ -1195,6 +1217,117 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the SiteSearchEngineService.RecrawlUris
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Unique URIs in the request that don't match any TargetSite in the DataStore,
+ *  only match TargetSites that haven't been fully indexed, or match a
+ *  TargetSite with type EXCLUDE.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *invalidUris;
+
+/**
+ *  Total number of URIs that have yet to be crawled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingCount;
+
+/**
+ *  Total number of URIs that were rejected due to insufficient indexing
+ *  resources.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaExceededCount;
+
+/**
+ *  Total number of URIs that have been crawled so far.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Total number of unique URIs in the request that are not in invalid_uris.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validUrisCount;
+
+@end
+
+
+/**
+ *  Response message for SiteSearchEngineService.RecrawlUris method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponse : GTLRObject
+
+/** URIs that were not crawled before the LRO terminated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failedUris;
+
+/** Details for a sample of up to 10 `failed_uris`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo *> *failureSamples;
+
+@end
+
+
+/**
+ *  Details about why a particular URI failed to be crawled. Each FailureInfo
+ *  contains one FailureReason per CorpusType.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo : GTLRObject
+
+/** List of failure reasons by corpus type (e.g. desktop, mobile). */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason *> *failureReasons;
+
+/** URI that failed to be crawled. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Details about why crawling failed for a particular CorpusType, e.g. DESKTOP
+ *  and MOBILE crawling may fail for different reasons.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason : GTLRObject
+
+/**
+ *  DESKTOP, MOBILE, or CORPUS_TYPE_UNSPECIFIED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_CorpusTypeUnspecified
+ *        Default value. (Value: "CORPUS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Desktop
+ *        Denotes a crawling attempt for the desktop version of a page. (Value:
+ *        "DESKTOP")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Mobile
+ *        Denotes a crawling attempt for the mobile version of a page. (Value:
+ *        "MOBILE")
+ */
+@property(nonatomic, copy, nullable) NSString *corpusType;
+
+/** Reason why the URI was not crawled. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
  *  Defines the structure and layout of a type of document data.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema : GTLRObject
@@ -1357,15 +1490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure : GTLRObject
-
-/**
- *  This number is an estimation on how much total quota this project needs to
- *  successfully complete indexing.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalRequiredQuota;
-
 @end
 
 
@@ -1467,7 +1591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  if it was generated from completable fields. This field is only populated
  *  for the document-completable model.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *completableFieldPath;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *completableFieldPaths;
 
 /** The suggestion for the query. */
 @property(nonatomic, copy, nullable) NSString *suggestion;
@@ -1599,6 +1723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  If this is not set, the default serving config will be used.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/** A specification for configuring the summary returned in the response. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpec *summarySpec;
 
 /**
  *  The user labels applied to a resource must meet the following requirements:
@@ -2494,12 +2621,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  characters. Currently, only filter expressions on the `filter_tags`
  *  attribute is supported. Examples: * `(filter_tags: ANY("Red", "Blue") OR
  *  filter_tags: ANY("Hot", "Cold"))` * `(filter_tags: ANY("Red", "Blue")) AND
- *  NOT (filter_tags: ANY("Green"))` If your filter blocks all results, the API
- *  will return generic (unfiltered) popular Documents. If you only want results
- *  strictly matching the filters, set `strictFiltering` to True in
- *  RecommendRequest.params to receive empty results instead. Note that the API
- *  will never return Documents with `storageStatus` of `EXPIRED` or `DELETED`
- *  regardless of filter choices.
+ *  NOT (filter_tags: ANY("Green"))` If `attributeFilteringSyntax` is set to
+ *  true under the `params` field, then attribute-based expressions are expected
+ *  instead of the above described tag-based syntax. Examples: * (launguage:
+ *  ANY("en", "es")) AND NOT (categories: ANY("Movie")) * (available: true) AND
+ *  (launguage: ANY("en", "es")) OR (categories: ANY("Movie")) If your filter
+ *  blocks all results, the API will return generic (unfiltered) popular
+ *  Documents. If you only want results strictly matching the filters, set
+ *  `strictFiltering` to True in RecommendRequest.params to receive empty
+ *  results instead. Note that the API will never return Documents with
+ *  `storageStatus` of `EXPIRED` or `DELETED` regardless of filter choices.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2527,7 +2658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  String. Default empty. If set to be non-empty, then it needs to be one of: *
  *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
  *  `auto-diversity` This gives request-level control and adjusts recommendation
- *  results based on Document category.
+ *  results based on Document category. * `attributeFilteringSyntax`: Boolean.
+ *  False by default. If set to true, the `filter` field is interpreted
+ *  according to the new, attribute-based syntax.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_Params *params;
 
@@ -2587,7 +2720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  String. Default empty. If set to be non-empty, then it needs to be one of: *
  *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
  *  `auto-diversity` This gives request-level control and adjusts recommendation
- *  results based on Document category.
+ *  results based on Document category. * `attributeFilteringSyntax`: Boolean.
+ *  False by default. If set to true, the `filter` field is interpreted
+ *  according to the new, attribute-based syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2820,7 +2955,11 @@ GTLR_DEPRECATED
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest : GTLRObject
 
-/** Boost specification to boost certain documents. */
+/**
+ *  Boost specification to boost certain documents. For more information on
+ *  boosting, see
+ *  [Boosting](https://cloud.google.com/retail/docs/boosting#boost)
+ */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpec *boostSpec;
 
 /**
@@ -2856,7 +2995,13 @@ GTLR_DEPRECATED
  *  The filter syntax consists of an expression language for constructing a
  *  predicate from one or more fields of the documents being filtered. Filter
  *  expression is case-sensitive. If this field is unrecognizable, an
- *  `INVALID_ARGUMENT` is returned.
+ *  `INVALID_ARGUMENT` is returned. Filtering in Vertex AI Search is done by
+ *  mapping the LHS filter key to a key property defined in the Vertex AI Search
+ *  backend -- this mapping is defined by the customer in their schema. For
+ *  example a media customer might have a field 'name' in their schema. In this
+ *  case the filter would look like this: filter --> name:'ANY("king kong")' For
+ *  more information about filtering including syntax and filter operators, see
+ *  [Filter](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2876,8 +3021,9 @@ GTLR_DEPRECATED
 /**
  *  The order in which documents are returned. Documents can be ordered by a
  *  field in an Document object. Leave it unset if ordered by relevance.
- *  `order_by` expression is case-sensitive. If this field is unrecognizable, an
- *  `INVALID_ARGUMENT` is returned.
+ *  `order_by` expression is case-sensitive. For more information on ordering,
+ *  see [Ordering](https://cloud.google.com/retail/docs/filter-and-order#order)
+ *  If this field is unrecognizable, an `INVALID_ARGUMENT` is returned.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3148,14 +3294,6 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *numPreviousSegments;
 
-/**
- *  Specifies whether to return the confidence score from the extractive
- *  segments in each search result. The default value is `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *returnExtractiveSegmentScore;
-
 @end
 
 
@@ -3243,7 +3381,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *includeCitations;
 
-/** Language code for Summary. Use language tags defined by BCP47. */
+/**
+ *  Language code for Summary. Use language tags defined by
+ *  [BCP47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). Note: This is an
+ *  experimental feature.
+ */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
@@ -3519,6 +3661,8 @@ GTLR_DEPRECATED
 /** Results of facets requested by user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet *> *facets;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo *> *geoSearchDebugInfo;
+
 /** Guided search result. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResult *guidedSearchResult;
 
@@ -3603,6 +3747,21 @@ GTLR_DEPRECATED
 
 /** Text value of a facet, such as "Black" for facet "colors". */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Debug information specifically related to forward geocoding issues arising
+ *  from Geolocation Search.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo : GTLRObject
+
+/** The error produced. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** The address from which forward geocoding ingestion produced issues. */
+@property(nonatomic, copy, nullable) NSString *originalAddressQuery;
 
 @end
 
@@ -3703,6 +3862,12 @@ GTLR_DEPRECATED
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary : GTLRObject
 
 /**
+ *  A collection of Safety Attribute categories and their associated confidence
+ *  scores.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes *safetyAttributes;
+
+/**
  *  Additional summary-skipped reasons. This provides the reason for ignored
  *  cases. If nothing is skipped, this field is not set.
  */
@@ -3710,6 +3875,28 @@ GTLR_DEPRECATED
 
 /** The summary content. */
 @property(nonatomic, copy, nullable) NSString *summaryText;
+
+@end
+
+
+/**
+ *  Safety Attribute categories and their associated confidence scores.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes : GTLRObject
+
+/**
+ *  The display names of Safety Attribute categories associated with the
+ *  generated content. Order matches the Scores.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+/**
+ *  The confidence scores of the each category, higher value means higher
+ *  confidence. Order matches the Categories.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *scores;
 
 @end
 

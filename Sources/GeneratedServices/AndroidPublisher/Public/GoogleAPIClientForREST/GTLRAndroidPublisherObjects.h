@@ -180,6 +180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Abi_Alias_Armeabi;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Abi_Alias_ArmeabiV7a;
 /**
+ *  RISCV64 abi.
+ *
+ *  Value: "RISCV64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Abi_Alias_Riscv64;
+/**
  *  Unspecified abi.
  *
  *  Value: "UNSPECIFIED_CPU_ARCHITECTURE"
@@ -434,6 +440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissio
  *  Value: "CAN_MANAGE_APP_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent;
+/**
+ *  Manage the deep links setup of an app.
+ *
+ *  Value: "CAN_MANAGE_DEEPLINKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks;
 /**
  *  Edit and delete draft apps.
  *
@@ -778,6 +790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAl
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
 
 /**
+ *  If the subscription price is increasing with opt out mode.
+ *
+ *  Value: "OPT_OUT_PRICE_INCREASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_OptOutPriceIncrease;
+/**
  *  Price change mode unspecified. This value should never be set.
  *
  *  Value: "PRICE_CHANGE_MODE_UNSPECIFIED"
@@ -1116,6 +1134,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal;
 /**
+ *  Manage the deep links setup for all apps for the developer.
+ *
+ *  Value: "CAN_MANAGE_DEEPLINKS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal;
+/**
  *  Create, edit, and delete draft apps.
  *
  *  Value: "CAN_MANAGE_DRAFT_APPS_GLOBAL"
@@ -1215,6 +1239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *        "ARMEABI")
  *    @arg @c kGTLRAndroidPublisher_Abi_Alias_ArmeabiV7a ARMEABI_V7A abi.
  *        (Value: "ARMEABI_V7A")
+ *    @arg @c kGTLRAndroidPublisher_Abi_Alias_Riscv64 RISCV64 abi. (Value:
+ *        "RISCV64")
  *    @arg @c kGTLRAndroidPublisher_Abi_Alias_UnspecifiedCpuArchitecture
  *        Unspecified abi. (Value: "UNSPECIFIED_CPU_ARCHITECTURE")
  *    @arg @c kGTLRAndroidPublisher_Abi_Alias_X86 X86 abi. (Value: "X86")
@@ -3827,8 +3853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  Required. The cutoff time for historical prices that subscribers can remain
- *  paying. Subscribers who are on a price that was created before this cutoff
- *  time will be migrated to the currently-offered price. These subscribers will
+ *  paying. Subscribers on prices which were available at this cutoff time or
+ *  later will stay on their existing price. Subscribers on older prices will be
+ *  migrated to the currently-offered price. The migrated subscribers will
  *  receive a notification that they will be paying a different price.
  *  Subscribers who do not agree to the new price will have their subscription
  *  ended at the next renewal.
@@ -4361,7 +4388,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /**
  *  The renewal time at which the price change will become effective for the
  *  user. This is subject to change(to a future time) due to cases where the
- *  renewal time shifts like pause.
+ *  renewal time shifts like pause. This field is only populated if the price
+ *  change has not taken effect.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expectedNewPriceChargeTime;
 
@@ -4372,6 +4400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Price change mode specifies how the subscription item price is changing.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_OptOutPriceIncrease
+ *        If the subscription price is increasing with opt out mode. (Value:
+ *        "OPT_OUT_PRICE_INCREASE")
  *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified
  *        Price change mode unspecified. This value should never be set. (Value:
  *        "PRICE_CHANGE_MODE_UNSPECIFIED")
@@ -5424,7 +5455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /** The kind of this response ("androidpublisher#tracksListResponse"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** All tracks. */
+/** All tracks (including tracks with no releases). */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Track *> *tracks;
 
 @end

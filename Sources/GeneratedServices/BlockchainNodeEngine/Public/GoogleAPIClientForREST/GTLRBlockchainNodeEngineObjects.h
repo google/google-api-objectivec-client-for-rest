@@ -181,7 +181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Net
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater;
 /**
- *  The Ethereum Testnet based on Sepolia/Bepolia protocol.
+ *  The Ethereum Testnet based on Sepolia/Bepolia protocol. See
+ *  https://github.com/eth-clients/sepolia.
  *
  *  Value: "TESTNET_SEPOLIA"
  */
@@ -348,6 +349,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  */
 @property(nonatomic, strong, nullable) GTLRBlockchainNodeEngine_EndpointInfo *endpointInfo;
 
+/**
+ *  Output only. A service attachment that exposes a node, and has the following
+ *  format:
+ *  projects/{project}/regions/{region}/serviceAttachments/{service_attachment_name}
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
+
 @end
 
 
@@ -389,6 +397,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *apiEnableDebug;
+
+/**
+ *  An Ethereum address which the beacon client will send fee rewards to if no
+ *  recipient is configured in the validator client. See
+ *  https://lighthouse-book.sigmaprime.io/suggested-fee-recipient.html or
+ *  https://docs.prylabs.network/docs/execution-node/fee-recipient for examples
+ *  of how this is used. Note that while this is often described as "suggested",
+ *  as we run the execution node we can trust the execution node, and therefore
+ *  this is considered enforced.
+ */
+@property(nonatomic, copy, nullable) NSString *beaconFeeRecipient;
 
 /**
  *  Immutable. The consensus client.
@@ -445,8 +464,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        The Ethereum Testnet based on Goerli protocol. (Value:
  *        "TESTNET_GOERLI_PRATER")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetSepolia
- *        The Ethereum Testnet based on Sepolia/Bepolia protocol. (Value:
- *        "TESTNET_SEPOLIA")
+ *        The Ethereum Testnet based on Sepolia/Bepolia protocol. See
+ *        https://github.com/eth-clients/sepolia. (Value: "TESTNET_SEPOLIA")
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -708,8 +727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -737,8 +756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the

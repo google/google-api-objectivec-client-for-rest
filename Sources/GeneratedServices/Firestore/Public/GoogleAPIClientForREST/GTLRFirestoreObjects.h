@@ -45,6 +45,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
+@class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
@@ -53,6 +54,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
+@class GTLRFirestore_GoogleFirestoreAdminV1VectorConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence;
 @class GTLRFirestore_GoogleLongrunningOperation;
 @class GTLRFirestore_GoogleLongrunningOperation_Metadata;
@@ -1453,23 +1455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  The document's fields. The map keys represent field names. A simple field
- *  name contains only characters `a` to `z`, `A` to `Z`, `0` to `9`, or `_`,
- *  and must not start with `0` to `9`. For example, `foo_bar_17`. Field names
- *  matching the regular expression `__.*__` are reserved. Reserved field names
- *  are forbidden except in certain documented contexts. The map keys,
- *  represented as UTF-8, must not exceed 1,500 bytes and cannot be empty. Field
- *  paths may be used in other contexts to refer to structured fields defined
- *  here. For `map_value`, the field path is represented by the simple or quoted
- *  field names of the containing fields, delimited by `.`. For example, the
- *  structured field `"foo" : { map_value: { "x&y" : { string_value: "hello"
- *  }}}` would be represented by the field path `foo.x&y`. Within a field path,
- *  a quoted field name starts and ends with `` ` `` and may contain any
- *  character. Some characters, including `` ` ``, must be escaped using a `\\`.
- *  For example, `` `x&y` `` represents `x&y` and `` `bak\\`tik` `` represents
- *  `` bak`tik ``.
- */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document_Fields *fields;
 
 /**
@@ -1490,21 +1475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The document's fields. The map keys represent field names. A simple field
- *  name contains only characters `a` to `z`, `A` to `Z`, `0` to `9`, or `_`,
- *  and must not start with `0` to `9`. For example, `foo_bar_17`. Field names
- *  matching the regular expression `__.*__` are reserved. Reserved field names
- *  are forbidden except in certain documented contexts. The map keys,
- *  represented as UTF-8, must not exceed 1,500 bytes and cannot be empty. Field
- *  paths may be used in other contexts to refer to structured fields defined
- *  here. For `map_value`, the field path is represented by the simple or quoted
- *  field names of the containing fields, delimited by `.`. For example, the
- *  structured field `"foo" : { map_value: { "x&y" : { string_value: "hello"
- *  }}}` would be represented by the field path `foo.x&y`. Within a field path,
- *  a quoted field name starts and ends with `` ` `` and may contain any
- *  character. Some characters, including `` ` ``, must be escaped using a `\\`.
- *  For example, `` `x&y` `` represents `x&y` and `` `bak\\`tik` `` represents
- *  `` bak`tik ``.
+ *  GTLRFirestore_Document_Fields
  *
  *  @note This class is documented as having more properties of
  *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
@@ -1767,8 +1738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_FieldReference : GTLRObject
 
 /**
- *  The relative path of the document being referenced. Requires: * Conform to
- *  document field name limitations.
+ *  A reference to a field in a document. Requires: * MUST be a dot-delimited
+ *  (`.`) string of segments, where each segment conforms to document field name
+ *  limitations.
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
@@ -1885,7 +1857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  A Backup of a Cloud Firestore Database. The backup contains all documents
- *  and index configurations for the given database at specific point in time.
+ *  and index configurations for the given database at a specific point in time.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Backup : GTLRObject
 
@@ -1986,6 +1958,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Metadata related to the create database operation.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata : GTLRObject
+@end
+
+
+/**
  *  Represent a recurring schedule that runs at a specific time every day. The
  *  time zone is UTC.
  */
@@ -1994,8 +1973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A Cloud Firestore Database. Currently only one database is allowed per cloud
- *  project; this database must have a `database_id` of '(default)'.
+ *  A Cloud Firestore Database.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Database : GTLRObject
 
@@ -2086,7 +2064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *keyPrefix;
 
 /**
- *  The location of the database. Available databases are listed at
+ *  The location of the database. Available locations are listed at
  *  https://cloud.google.com/firestore/docs/locations.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -2151,6 +2129,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *versionRetentionPeriod;
 
+@end
+
+
+/**
+ *  Metadata related to the delete database operation.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata : GTLRObject
 @end
 
 
@@ -2254,9 +2239,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  The timestamp that corresponds to the version of the database to be
  *  exported. The timestamp must be rounded to the minute, in the past, and not
- *  older than 1 hour. If specified, then the exported documents will represent
- *  a consistent view of the database at the provided time. Otherwise, there are
- *  no guarantees about the consistency of the exported documents.
+ *  older than 5 days. Please choose a reasonable timestamp based on prior
+ *  knowledge on how long exports take as data at provided snapshot timestamp
+ *  can expire during export. If specified, then the exported documents will
+ *  represent a consistent view of the database at the provided time. Otherwise,
+ *  there are no guarantees about the consistency of the exported documents.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
@@ -2387,6 +2374,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /** Describes the deltas of TTL configuration. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta *ttlConfigDelta;
 
+@end
+
+
+/**
+ *  An index that stores vectors in a flat data structure, and supports
+ *  exhaustive search.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1FlatIndex : GTLRObject
 @end
 
 
@@ -2677,6 +2672,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *order;
 
+/**
+ *  Indicates that this field supports nearest neighbors and distance operations
+ *  on vector.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1VectorConfig *vectorConfig;
+
 @end
 
 
@@ -2926,9 +2927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest : GTLRObject
 
 /**
- *  Required. Backup to restore from. Must be from the same project as the
- *  parent. Format is:
- *  `projects/{project_id}/locations/{location}/backups/{backup}`
+ *  Backup to restore from. Must be from the same project as the parent. Format
+ *  is: `projects/{project_id}/locations/{location}/backups/{backup}`
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
@@ -3037,6 +3037,26 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
+@end
+
+
+/**
+ *  The index configuration to support vector search operations
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1VectorConfig : GTLRObject
+
+/**
+ *  Required. The vector dimension this configuration applies to. The resulting
+ *  index will only include vectors of this dimension, and can be used for
+ *  vector search with the same dimension.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dimension;
+
+/** Indicates the vector index is a flat index. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1FlatIndex *flat;
+
 @end
 
 
@@ -3564,7 +3584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  following three queries will return the entire result set of the original
  *  query: * query, end_at A * query, start_at A, end_at B * query, start_at B
  *  An empty result may indicate that the query has too few results to be
- *  partitioned.
+ *  partitioned, or that the query is not yet supported for partitioning.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4042,7 +4062,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  The target ID that identifies the target on the stream. Must be a positive
- *  number and non-zero.
+ *  number and non-zero. If `target_id` is 0 (or unspecified), the server will
+ *  assign an ID for this target and return that in a `TargetChange::ADD` event.
+ *  Once a target with `target_id=0` is added, all subsequent targets must also
+ *  have `target_id=0`. If an `AddTarget` request with `target_id != 0` is sent
+ *  to the server after a target with `target_id=0` is added, the server will
+ *  immediately send a response with a `TargetChange::Remove` event. Note that
+ *  if the client sends multiple `AddTarget` requests without an ID, the order
+ *  of IDs returned in `TargetChage.target_ids` are undefined. Therefore,
+ *  clients should provide a target ID instead of relying on the server to
+ *  assign one. If `target_id` is non-zero, there must not be an existing active
+ *  target on this stream with the same ID.
  *
  *  Uses NSNumber of intValue.
  */

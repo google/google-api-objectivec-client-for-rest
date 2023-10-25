@@ -216,7 +216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  Message describing ContactCenter object Next ID: 15
+ *  Message describing ContactCenter object Next ID: 16
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -730,6 +730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 /** SAML certificate */
 @property(nonatomic, copy, nullable) NSString *certificate;
+
+/** IdP field that maps to the user’s email address */
+@property(nonatomic, copy, nullable) NSString *emailMapping;
 
 /** Entity id URL */
 @property(nonatomic, copy, nullable) NSString *entityId;

@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Indexing API (indexing/v3)
+//   Web Search Indexing API (indexing/v3)
 // Description:
-//   Notifies Google when your web pages change.
+//   Notifies Google Web Search when your web pages change.
 // Documentation:
 //   https://developers.google.com/search/apis/indexing-api/
 

@@ -430,8 +430,8 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
-         verb;
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
 @end
 
 

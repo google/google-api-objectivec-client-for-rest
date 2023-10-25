@@ -36,6 +36,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDoubleclicksearch_Conversion.adUserDataConsent
+
+/**
+ *  Denied.
+ *
+ *  Value: "DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Denied;
+/**
+ *  Granted.
+ *
+ *  Value: "GRANTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Granted;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Unknown;
+
 /**
  *  A message containing availability data relevant to DoubleClick Search.
  */
@@ -106,6 +131,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adId;
+
+/**
+ *  Ad user data consent for this conversion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Denied Denied.
+ *        (Value: "DENIED")
+ *    @arg @c kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Granted
+ *        Granted. (Value: "GRANTED")
+ *    @arg @c kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Unknown Not
+ *        specified. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *adUserDataConsent;
 
 /**
  *  DS advertiser ID.

@@ -81,6 +81,7 @@ NSString * const kGTLRDfareportingFloodlightActivityGroupTypeSale = @"SALE";
 // objectType
 NSString * const kGTLRDfareportingObjectTypeObjectAccount      = @"OBJECT_ACCOUNT";
 NSString * const kGTLRDfareportingObjectTypeObjectAccountBillingFeature = @"OBJECT_ACCOUNT_BILLING_FEATURE";
+NSString * const kGTLRDfareportingObjectTypeObjectAccountConversionDomain = @"OBJECT_ACCOUNT_CONVERSION_DOMAIN";
 NSString * const kGTLRDfareportingObjectTypeObjectAd           = @"OBJECT_AD";
 NSString * const kGTLRDfareportingObjectTypeObjectAdvertiser   = @"OBJECT_ADVERTISER";
 NSString * const kGTLRDfareportingObjectTypeObjectAdvertiserCustomerLink = @"OBJECT_ADVERTISER_CUSTOMER_LINK";
@@ -91,6 +92,7 @@ NSString * const kGTLRDfareportingObjectTypeObjectBillingMinimumFee = @"OBJECT_B
 NSString * const kGTLRDfareportingObjectTypeObjectBillingProfile = @"OBJECT_BILLING_PROFILE";
 NSString * const kGTLRDfareportingObjectTypeObjectCampaign     = @"OBJECT_CAMPAIGN";
 NSString * const kGTLRDfareportingObjectTypeObjectContentCategory = @"OBJECT_CONTENT_CATEGORY";
+NSString * const kGTLRDfareportingObjectTypeObjectConversionDomain = @"OBJECT_CONVERSION_DOMAIN";
 NSString * const kGTLRDfareportingObjectTypeObjectCreative     = @"OBJECT_CREATIVE";
 NSString * const kGTLRDfareportingObjectTypeObjectCreativeAsset = @"OBJECT_CREATIVE_ASSET";
 NSString * const kGTLRDfareportingObjectTypeObjectCreativeBundle = @"OBJECT_CREATIVE_BUNDLE";

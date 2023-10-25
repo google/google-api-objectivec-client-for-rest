@@ -89,6 +89,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.attributeDefinitions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsCreate : GTLRCloudHealthcareQuery
@@ -132,6 +133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.attributeDefinitions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsDelete : GTLRCloudHealthcareQuery
@@ -167,6 +169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.attributeDefinitions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsGet : GTLRCloudHealthcareQuery
@@ -193,6 +196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.attributeDefinitions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsList : GTLRCloudHealthcareQuery
@@ -245,6 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.attributeDefinitions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatch : GTLRCloudHealthcareQuery
@@ -293,6 +298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.checkDataAccess
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCheckDataAccess : GTLRCloudHealthcareQuery
@@ -329,6 +335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consentArtifacts.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsCreate : GTLRCloudHealthcareQuery
@@ -362,6 +369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consentArtifacts.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsDelete : GTLRCloudHealthcareQuery
@@ -395,6 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consentArtifacts.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsGet : GTLRCloudHealthcareQuery
@@ -421,6 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consentArtifacts.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsList : GTLRCloudHealthcareQuery
@@ -498,6 +508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.activate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsActivate : GTLRCloudHealthcareQuery
@@ -539,6 +550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsCreate : GTLRCloudHealthcareQuery
@@ -570,6 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDelete : GTLRCloudHealthcareQuery
@@ -608,6 +621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.deleteRevision
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDeleteRevision : GTLRCloudHealthcareQuery
@@ -645,6 +659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsGet : GTLRCloudHealthcareQuery
@@ -684,6 +699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsList : GTLRCloudHealthcareQuery
@@ -757,6 +773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.listRevisions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsListRevisions : GTLRCloudHealthcareQuery
@@ -832,6 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsPatch : GTLRCloudHealthcareQuery
@@ -883,6 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.reject
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsReject : GTLRCloudHealthcareQuery
@@ -928,6 +947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.consents.revoke
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsRevoke : GTLRCloudHealthcareQuery
@@ -971,6 +991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCreate : GTLRCloudHealthcareQuery
@@ -1011,6 +1032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresDelete : GTLRCloudHealthcareQuery
@@ -1041,6 +1063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.evaluateUserConsents
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresEvaluateUserConsents : GTLRCloudHealthcareQuery
@@ -1076,6 +1099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGet : GTLRCloudHealthcareQuery
@@ -1103,6 +1127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGetIamPolicy : GTLRCloudHealthcareQuery
@@ -1151,6 +1176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresList : GTLRCloudHealthcareQuery
@@ -1199,6 +1225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresPatch : GTLRCloudHealthcareQuery
@@ -1270,6 +1297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.queryAccessibleData
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresQueryAccessibleData : GTLRCloudHealthcareQuery
@@ -1329,6 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresSetIamPolicy : GTLRCloudHealthcareQuery
@@ -1371,6 +1400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresTestIamPermissions : GTLRCloudHealthcareQuery
@@ -1411,6 +1441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.archive
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsArchive : GTLRCloudHealthcareQuery
@@ -1440,6 +1471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsCreate : GTLRCloudHealthcareQuery
@@ -1469,6 +1501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsDelete : GTLRCloudHealthcareQuery
@@ -1495,6 +1528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsGet : GTLRCloudHealthcareQuery
@@ -1522,6 +1556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsList : GTLRCloudHealthcareQuery
@@ -1595,6 +1630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.consentStores.userDataMappings.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsPatch : GTLRCloudHealthcareQuery
@@ -1641,6 +1677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate : GTLRCloudHealthcareQuery
@@ -1689,6 +1726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.deidentify
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify : GTLRCloudHealthcareQuery
@@ -1732,6 +1770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDelete : GTLRCloudHealthcareQuery
@@ -1764,6 +1803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresCreate : GTLRCloudHealthcareQuery
@@ -1806,6 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.deidentify
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify : GTLRCloudHealthcareQuery
@@ -1848,6 +1889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete : GTLRCloudHealthcareQuery
@@ -1870,6 +1912,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  GetStudyMetrics returns metrics for a study.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.getStudyMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics : GTLRCloudHealthcareQuery
+
+/**
+ *  The study resource path. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}`.
+ */
+@property(nonatomic, copy, nullable) NSString *study;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_StudyMetrics.
+ *
+ *  GetStudyMetrics returns metrics for a study.
+ *
+ *  @param study The study resource path. For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics
+ */
++ (instancetype)queryWithStudy:(NSString *)study;
+
+@end
+
+/**
+ *  GetSeriesMetrics returns metrics for a series.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.getSeriesMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics : GTLRCloudHealthcareQuery
+
+/**
+ *  The series resource path. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}/series/{series_uid}`.
+ */
+@property(nonatomic, copy, nullable) NSString *series;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_SeriesMetrics.
+ *
+ *  GetSeriesMetrics returns metrics for a series.
+ *
+ *  @param series The series resource path. For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}/series/{series_uid}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics
+ */
++ (instancetype)queryWithSeries:(NSString *)series;
+
+@end
+
+/**
  *  Exports data to the specified destination by copying it from the DICOM
  *  store. Errors are also logged to Cloud Logging. For more information, see
  *  [Viewing error logs in Cloud
@@ -1879,6 +1983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport : GTLRCloudHealthcareQuery
@@ -1917,6 +2022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGet : GTLRCloudHealthcareQuery
@@ -1938,12 +2044,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Gets metrics associated with the DICOM store.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.getDICOMStoreMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics : GTLRCloudHealthcareQuery
+
+/** The resource name of the DICOM store to get metrics for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_DicomStoreMetrics.
+ *
+ *  Gets metrics associated with the DICOM store.
+ *
+ *  @param name The resource name of the DICOM store to get metrics for.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetIamPolicy : GTLRCloudHealthcareQuery
@@ -1996,6 +2130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresImport : GTLRCloudHealthcareQuery
@@ -2035,6 +2170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresList : GTLRCloudHealthcareQuery
@@ -2102,6 +2238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch : GTLRCloudHealthcareQuery
@@ -2150,6 +2287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances : GTLRCloudHealthcareQuery
@@ -2206,6 +2344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForSeries
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForSeries : GTLRCloudHealthcareQuery
@@ -2259,6 +2398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForStudies
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForStudies : GTLRCloudHealthcareQuery
@@ -2307,6 +2447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetIamPolicy : GTLRCloudHealthcareQuery
@@ -2352,6 +2493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.storeInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStoreInstances : GTLRCloudHealthcareQuery
@@ -2407,6 +2549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesDelete : GTLRCloudHealthcareQuery
@@ -2453,6 +2596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.retrieveMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadata : GTLRCloudHealthcareQuery
@@ -2507,6 +2651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.retrieveStudy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudy : GTLRCloudHealthcareQuery
@@ -2562,6 +2707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.searchForInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances : GTLRCloudHealthcareQuery
@@ -2618,6 +2764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.searchForSeries
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForSeries : GTLRCloudHealthcareQuery
@@ -2671,6 +2818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesDelete : GTLRCloudHealthcareQuery
@@ -2724,6 +2872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete : GTLRCloudHealthcareQuery
@@ -2777,6 +2926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveFrames
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFrames : GTLRCloudHealthcareQuery
@@ -2833,6 +2983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveRendered
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered : GTLRCloudHealthcareQuery
@@ -2891,6 +3042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveInstance
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstance : GTLRCloudHealthcareQuery
@@ -2949,6 +3101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadata : GTLRCloudHealthcareQuery
@@ -3006,6 +3159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveRendered
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered : GTLRCloudHealthcareQuery
@@ -3063,6 +3217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadata : GTLRCloudHealthcareQuery
@@ -3118,6 +3273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveSeries
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeries : GTLRCloudHealthcareQuery
@@ -3173,6 +3329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.searchForInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances : GTLRCloudHealthcareQuery
@@ -3230,6 +3387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.storeInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesStoreInstances : GTLRCloudHealthcareQuery
@@ -3283,6 +3441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.dicomStores.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresTestIamPermissions : GTLRCloudHealthcareQuery
@@ -3323,6 +3482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCreate : GTLRCloudHealthcareQuery
@@ -3362,6 +3522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.deidentify
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify : GTLRCloudHealthcareQuery
@@ -3400,6 +3561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete : GTLRCloudHealthcareQuery
@@ -3433,6 +3595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExport : GTLRCloudHealthcareQuery
@@ -3487,6 +3650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.capabilities
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities : GTLRCloudHealthcareQuery
@@ -3525,18 +3689,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the FHIR standard conditional delete interaction, limited to searching by
  *  resource identifier. If multiple resources match, 412 Precondition Failed
  *  error will be returned. Search term for identifier should be in the pattern
- *  identifier=system|value or identifier=value - similar to the search method
- *  on resources with a specific identifier. Note: Unless resource versioning is
- *  disabled by setting the disable_resource_versioning flag on the FHIR store,
- *  the deleted resource is moved to a history repository that can still be
- *  retrieved through vread and related methods, unless they are removed by the
- *  purge method. For samples that show how to call `conditionalDelete`, see
- *  [Conditionally deleting a FHIR
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. Note: Unless resource
+ *  versioning is disabled by setting the disable_resource_versioning flag on
+ *  the FHIR store, the deleted resource is moved to a history repository that
+ *  can still be retrieved through vread and related methods, unless they are
+ *  removed by the purge method. For samples that show how to call
+ *  `conditionalDelete`, see [Conditionally deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_deleting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete : GTLRCloudHealthcareQuery
@@ -3560,13 +3725,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the FHIR standard conditional delete interaction, limited to searching by
  *  resource identifier. If multiple resources match, 412 Precondition Failed
  *  error will be returned. Search term for identifier should be in the pattern
- *  identifier=system|value or identifier=value - similar to the search method
- *  on resources with a specific identifier. Note: Unless resource versioning is
- *  disabled by setting the disable_resource_versioning flag on the FHIR store,
- *  the deleted resource is moved to a history repository that can still be
- *  retrieved through vread and related methods, unless they are removed by the
- *  purge method. For samples that show how to call `conditionalDelete`, see
- *  [Conditionally deleting a FHIR
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. Note: Unless resource
+ *  versioning is disabled by setting the disable_resource_versioning flag on
+ *  the FHIR store, the deleted resource is moved to a history repository that
+ *  can still be retrieved through vread and related methods, unless they are
+ *  removed by the purge method. For samples that show how to call
+ *  `conditionalDelete`, see [Conditionally deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_deleting_a_fhir_resource).
  *
  *  @param parent The name of the FHIR store this resource belongs to.
@@ -3590,14 +3755,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  FHIR standard conditional patch interaction, limited to searching by
  *  resource identifier. DSTU2 doesn't define a conditional patch method, but
  *  the server supports it in the same way it supports STU3. Search term for
- *  identifier should be in the pattern identifier=system|value or
- *  identifier=value - similar to the search method on resources with a specific
- *  identifier. If the search criteria identify more than one match, the request
- *  returns a `412 Precondition Failed` error. The request body must contain a
- *  JSON Patch document, and the request headers must contain `Content-Type:
- *  application/json-patch+json`. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  identifier should be in the pattern `identifier=system|value` or
+ *  `identifier=value` - similar to the `search` method on resources with a
+ *  specific identifier. If the search criteria identify more than one match,
+ *  the request returns a `412 Precondition Failed` error. The request body must
+ *  contain a JSON Patch document, and the request headers must contain
+ *  `Content-Type: application/json-patch+json`. On success, the response body
+ *  contains a JSON-encoded representation of the updated resource, including
+ *  the server-assigned version ID. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3607,6 +3772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch : GTLRCloudHealthcareQuery
@@ -3632,14 +3798,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  FHIR standard conditional patch interaction, limited to searching by
  *  resource identifier. DSTU2 doesn't define a conditional patch method, but
  *  the server supports it in the same way it supports STU3. Search term for
- *  identifier should be in the pattern identifier=system|value or
- *  identifier=value - similar to the search method on resources with a specific
- *  identifier. If the search criteria identify more than one match, the request
- *  returns a `412 Precondition Failed` error. The request body must contain a
- *  JSON Patch document, and the request headers must contain `Content-Type:
- *  application/json-patch+json`. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  identifier should be in the pattern `identifier=system|value` or
+ *  `identifier=value` - similar to the `search` method on resources with a
+ *  specific identifier. If the search criteria identify more than one match,
+ *  the request returns a `412 Precondition Failed` error. The request body must
+ *  contain a JSON Patch document, and the request headers must contain
+ *  `Content-Type: application/json-patch+json`. On success, the response body
+ *  contains a JSON-encoded representation of the updated resource, including
+ *  the server-assigned version ID. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3667,23 +3833,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters, updates the entire contents of that resource. Implements the
  *  FHIR standard conditional update interaction, limited to searching by
  *  resource identifier. Search term for identifier should be in the pattern
- *  identifier=system|value or identifier=value - similar to the search method
- *  on resources with a specific identifier. If the search criteria identify
- *  more than one match, the request returns a `412 Precondition Failed` error.
- *  If the search criteria identify zero matches, and the supplied resource body
- *  contains an `id`, and the FHIR store has enable_update_create set, creates
- *  the resource with the client-specified ID. It is strongly advised not to
- *  include or encode any sensitive data such as patient identifiers in
- *  client-specified resource IDs. Those IDs are part of the FHIR resource path
- *  recorded in Cloud Audit Logs and Pub/Sub notifications. Those IDs can also
- *  be contained in reference fields within other resources. If the search
- *  criteria identify zero matches, and the supplied resource body does not
- *  contain an `id`, the resource is created with a server-assigned ID as per
- *  the create method. The request body must contain a JSON-encoded FHIR
- *  resource, and the request headers must contain `Content-Type:
- *  application/fhir+json`. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. If the search criteria
+ *  identify more than one match, the request returns a `412 Precondition
+ *  Failed` error. If the search criteria identify zero matches, and the
+ *  supplied resource body contains an `id`, and the FHIR store has
+ *  enable_update_create set, creates the resource with the client-specified ID.
+ *  It is strongly advised not to include or encode any sensitive data such as
+ *  patient identifiers in client-specified resource IDs. Those IDs are part of
+ *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
+ *  notifications. Those IDs can also be contained in reference fields within
+ *  other resources. If the search criteria identify zero matches, and the
+ *  supplied resource body does not contain an `id`, the resource is created
+ *  with a server-assigned ID as per the create method. The request body must
+ *  contain a JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. On success, the response body
+ *  contains a JSON-encoded representation of the updated resource, including
+ *  the server-assigned version ID. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3693,6 +3859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate : GTLRCloudHealthcareQuery
@@ -3717,23 +3884,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  parameters, updates the entire contents of that resource. Implements the
  *  FHIR standard conditional update interaction, limited to searching by
  *  resource identifier. Search term for identifier should be in the pattern
- *  identifier=system|value or identifier=value - similar to the search method
- *  on resources with a specific identifier. If the search criteria identify
- *  more than one match, the request returns a `412 Precondition Failed` error.
- *  If the search criteria identify zero matches, and the supplied resource body
- *  contains an `id`, and the FHIR store has enable_update_create set, creates
- *  the resource with the client-specified ID. It is strongly advised not to
- *  include or encode any sensitive data such as patient identifiers in
- *  client-specified resource IDs. Those IDs are part of the FHIR resource path
- *  recorded in Cloud Audit Logs and Pub/Sub notifications. Those IDs can also
- *  be contained in reference fields within other resources. If the search
- *  criteria identify zero matches, and the supplied resource body does not
- *  contain an `id`, the resource is created with a server-assigned ID as per
- *  the create method. The request body must contain a JSON-encoded FHIR
- *  resource, and the request headers must contain `Content-Type:
- *  application/fhir+json`. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. If the search criteria
+ *  identify more than one match, the request returns a `412 Precondition
+ *  Failed` error. If the search criteria identify zero matches, and the
+ *  supplied resource body contains an `id`, and the FHIR store has
+ *  enable_update_create set, creates the resource with the client-specified ID.
+ *  It is strongly advised not to include or encode any sensitive data such as
+ *  patient identifiers in client-specified resource IDs. Those IDs are part of
+ *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
+ *  notifications. Those IDs can also be contained in reference fields within
+ *  other resources. If the search criteria identify zero matches, and the
+ *  supplied resource body does not contain an `id`, the resource is created
+ *  with a server-assigned ID as per the create method. The request body must
+ *  contain a JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. On success, the response body
+ *  contains a JSON-encoded representation of the updated resource, including
+ *  the server-assigned version ID. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3762,7 +3929,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#create)), which
- *  creates a new resource with a server-assigned resource ID. The request body
+ *  creates a new resource with a server-assigned resource ID. Also supports the
+ *  FHIR standard conditional create interaction
+ *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#ccreate)),
+ *  specified by supplying an `If-None-Exist` header containing a FHIR search
+ *  query, limited to searching by resource identifier. If no resources match
+ *  this search query, the server processes the create operation as normal. When
+ *  using conditional create, the search term for identifier should be in the
+ *  pattern `identifier=system|value` or `identifier=value` - similar to the
+ *  `search` method on resources with a specific identifier. The request body
  *  must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. On success, the response body
  *  contains a JSON-encoded representation of the resource as it was created on
@@ -3777,6 +3954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate : GTLRCloudHealthcareQuery
@@ -3801,7 +3979,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#create)), which
- *  creates a new resource with a server-assigned resource ID. The request body
+ *  creates a new resource with a server-assigned resource ID. Also supports the
+ *  FHIR standard conditional create interaction
+ *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#ccreate)),
+ *  specified by supplying an `If-None-Exist` header containing a FHIR search
+ *  query, limited to searching by resource identifier. If no resources match
+ *  this search query, the server processes the create operation as normal. When
+ *  using conditional create, the search term for identifier should be in the
+ *  pattern `identifier=system|value` or `identifier=value` - similar to the
+ *  `search` method on resources with a specific identifier. The request body
  *  must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. On success, the response body
  *  contains a JSON-encoded representation of the resource as it was created on
@@ -3845,6 +4033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDelete : GTLRCloudHealthcareQuery
@@ -3915,6 +4104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.executeBundle
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle : GTLRCloudHealthcareQuery
@@ -3991,6 +4181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.history
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory : GTLRCloudHealthcareQuery
@@ -4078,6 +4269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch : GTLRCloudHealthcareQuery
@@ -4141,6 +4333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-everything
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything : GTLRCloudHealthcareQuery
@@ -4251,6 +4444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead : GTLRCloudHealthcareQuery
@@ -4298,6 +4492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge : GTLRCloudHealthcareQuery
@@ -4344,6 +4539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-validate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourceValidate : GTLRCloudHealthcareQuery
@@ -4472,8 +4668,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. For samples and detailed
- *  information, see [Searching for FHIR
+ *  want to keep the default sorting order. Note: The special synchronous
+ *  identifier index are currently disabled for DocumentReference and
+ *  DocumentManifest searches. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4481,6 +4679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch : GTLRCloudHealthcareQuery
@@ -4551,8 +4750,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. For samples and detailed
- *  information, see [Searching for FHIR
+ *  want to keep the default sorting order. Note: The special synchronous
+ *  identifier index are currently disabled for DocumentReference and
+ *  DocumentManifest searches. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4629,8 +4830,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. For samples and detailed
- *  information, see [Searching for FHIR
+ *  want to keep the default sorting order. Note: The special synchronous
+ *  identifier index are currently disabled for DocumentReference and
+ *  DocumentManifest searches. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4638,6 +4841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search-type
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType : GTLRCloudHealthcareQuery
@@ -4717,8 +4921,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. For samples and detailed
- *  information, see [Searching for FHIR
+ *  want to keep the default sorting order. Note: The special synchronous
+ *  identifier index are currently disabled for DocumentReference and
+ *  DocumentManifest searches. For samples and detailed information, see
+ *  [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -4767,6 +4973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate : GTLRCloudHealthcareQuery
@@ -4827,6 +5034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.vread
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread : GTLRCloudHealthcareQuery
@@ -4864,6 +5072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGet : GTLRCloudHealthcareQuery
@@ -4890,6 +5099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.getFHIRStoreMetrics
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics : GTLRCloudHealthcareQuery
@@ -4917,6 +5127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy : GTLRCloudHealthcareQuery
@@ -5019,6 +5230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresImport : GTLRCloudHealthcareQuery
@@ -5107,6 +5319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresList : GTLRCloudHealthcareQuery
@@ -5174,6 +5387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch : GTLRCloudHealthcareQuery
@@ -5216,6 +5430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy : GTLRCloudHealthcareQuery
@@ -5258,6 +5473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.fhirStores.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresTestIamPermissions : GTLRCloudHealthcareQuery
@@ -5298,6 +5514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGet : GTLRCloudHealthcareQuery
@@ -5329,6 +5546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGetIamPolicy : GTLRCloudHealthcareQuery
@@ -5377,6 +5595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresCreate : GTLRCloudHealthcareQuery
@@ -5411,6 +5630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresDelete : GTLRCloudHealthcareQuery
@@ -5443,6 +5663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport : GTLRCloudHealthcareQuery
@@ -5482,6 +5703,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet : GTLRCloudHealthcareQuery
@@ -5503,12 +5725,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Gets metrics asssociated with the HL7v2 store.
+ *
+ *  Method: healthcare.projects.locations.datasets.hl7V2Stores.getHL7v2StoreMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics : GTLRCloudHealthcareQuery
+
+/**
+ *  The resource name of the HL7v2 store to get metrics for, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Hl7V2StoreMetrics.
+ *
+ *  Gets metrics asssociated with the HL7v2 store.
+ *
+ *  @param name The resource name of the HL7v2 store to get metrics for, in the
+ *    format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetIamPolicy : GTLRCloudHealthcareQuery
@@ -5580,6 +5835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport : GTLRCloudHealthcareQuery
@@ -5636,6 +5892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresList : GTLRCloudHealthcareQuery
@@ -5707,6 +5964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate : GTLRCloudHealthcareQuery
@@ -5740,6 +5998,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesDelete : GTLRCloudHealthcareQuery
@@ -5766,6 +6025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesGet : GTLRCloudHealthcareQuery
@@ -5823,6 +6083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.ingest
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesIngest : GTLRCloudHealthcareQuery
@@ -5863,6 +6124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesList : GTLRCloudHealthcareQuery
@@ -5985,6 +6247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch : GTLRCloudHealthcareQuery
@@ -6031,6 +6294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch : GTLRCloudHealthcareQuery
@@ -6073,6 +6337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresSetIamPolicy : GTLRCloudHealthcareQuery
@@ -6115,6 +6380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresTestIamPermissions : GTLRCloudHealthcareQuery
@@ -6155,6 +6421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsList : GTLRCloudHealthcareQuery
@@ -6208,6 +6475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsCancel : GTLRCloudHealthcareQuery
@@ -6247,6 +6515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsGet : GTLRCloudHealthcareQuery
@@ -6276,6 +6545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsList : GTLRCloudHealthcareQuery
@@ -6316,6 +6586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch : GTLRCloudHealthcareQuery
@@ -6358,6 +6629,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsSetIamPolicy : GTLRCloudHealthcareQuery
@@ -6400,6 +6672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.datasets.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsTestIamPermissions : GTLRCloudHealthcareQuery
@@ -6440,6 +6713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsGet : GTLRCloudHealthcareQuery
@@ -6466,6 +6740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
@@ -6517,6 +6792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Method: healthcare.projects.locations.services.nlp.analyzeEntities
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsServicesNlpAnalyzeEntities : GTLRCloudHealthcareQuery

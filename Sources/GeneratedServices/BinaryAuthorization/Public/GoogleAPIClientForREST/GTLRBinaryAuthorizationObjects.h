@@ -86,7 +86,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_Enforc
 // GTLRBinaryAuthorization_AdmissionRule.evaluationMode
 
 /**
- *  This rule allows all all pod creations.
+ *  This rule allows all pod creations.
  *
  *  Value: "ALWAYS_ALLOW"
  */
@@ -246,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable;
 /**
- *  Not specified: DISABLE is assumed.
+ *  Not specified: `DISABLE` is assumed.
  *
  *  Value: "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED"
  */
@@ -425,7 +425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *
  *  Likely values:
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysAllow
- *        This rule allows all all pod creations. (Value: "ALWAYS_ALLOW")
+ *        This rule allows all pod creations. (Value: "ALWAYS_ALLOW")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDeny
  *        This rule denies all pod creations. (Value: "ALWAYS_DENY")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified
@@ -443,8 +443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  must exist before a policy can reference it. To add an attestor to a policy
  *  the principal issuing the policy change request must be able to read the
  *  attestor resource. Note: this field must be non-empty when the
- *  evaluation_mode field specifies REQUIRE_ATTESTATION, otherwise it must be
- *  empty.
+ *  `evaluation_mode` field specifies `REQUIRE_ATTESTATION`, otherwise it must
+ *  be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requireAttestationsBy;
 
@@ -480,8 +480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @interface GTLRBinaryAuthorization_AttestationAuthenticator : GTLRObject
 
 /**
- *  Optional. A user-provided name for this AttestationAuthenticator. This field
- *  has no effect on the policy evaluation behavior except to improve
+ *  Optional. A user-provided name for this `AttestationAuthenticator`. This
+ *  field has no effect on the policy evaluation behavior except to improve
  *  readability of messages in evaluation results.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -547,8 +547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @interface GTLRBinaryAuthorization_AttestationSource : GTLRObject
 
 /**
- *  The ids of the GCP projects storing the SLSA attestations as container
- *  analysis Occurrences.
+ *  The IDs of the GCP projects storing the SLSA attestations as Container
+ *  Analysis Occurrences.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisAttestationProjects;
 
@@ -603,11 +603,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 /**
  *  ASCII-armored representation of a PGP public key, as the entire output by
  *  the command `gpg --export --armor foo\@example.com` (either LF or CRLF line
- *  endings). When using this field, `id` should be left blank. The BinAuthz API
- *  handlers will calculate the ID and fill it in automatically. BinAuthz
- *  computes this ID as the OpenPGP RFC4880 V4 fingerprint, represented as
- *  upper-case hex. If `id` is provided by the caller, it will be overwritten by
- *  the API-calculated ID.
+ *  endings). When using this field, `id` should be left blank. The Binary
+ *  Authorization API handlers will calculate the ID and fill it in
+ *  automatically. Binary Authorization computes this ID as the OpenPGP RFC4880
+ *  V4 fingerprint, represented as upper-case hex. If `id` is provided by the
+ *  caller, it will be overwritten by the API-calculated ID.
  */
 @property(nonatomic, copy, nullable) NSString *asciiArmoredPgpPublicKey;
 
@@ -615,11 +615,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @property(nonatomic, copy, nullable) NSString *comment;
 
 /**
- *  The ID of this public key. Signatures verified by BinAuthz must include the
- *  ID of the public key that can be used to verify them, and that ID must match
- *  the contents of this field exactly. Additional restrictions on this field
- *  can be imposed based on which public key type is encapsulated. See the
- *  documentation on `public_key` cases below for details.
+ *  The ID of this public key. Signatures verified by Binary Authorization must
+ *  include the ID of the public key that can be used to verify them, and that
+ *  ID must match the contents of this field exactly. Additional restrictions on
+ *  this field can be imposed based on which public key type is encapsulated.
+ *  See the documentation on `public_key` cases below for details.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -700,30 +700,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
- *  A single check to perform against a Pod. Checks are grouped into CheckSets,
- *  which are defined by the top-level policy.
+ *  A single check to perform against a Pod. Checks are grouped into `CheckSet`
+ *  objects, which are defined by the top-level policy.
  */
 @interface GTLRBinaryAuthorization_Check : GTLRObject
 
 /**
  *  Optional. A special-case check that always denies. Note that this still only
- *  applies when the scope of the CheckSet applies and the image isn't exempted
- *  by an image allowlist. This check is primarily useful for testing, or to set
- *  the default behavior for all unmatched scopes to "deny".
+ *  applies when the scope of the `CheckSet` applies and the image isn't
+ *  exempted by an image allowlist. This check is primarily useful for testing,
+ *  or to set the default behavior for all unmatched scopes to "deny".
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *alwaysDeny;
 
 /**
- *  Optional. A user-provided name for this Check. This field has no effect on
+ *  Optional. A user-provided name for this check. This field has no effect on
  *  the policy evaluation behavior except to improve readability of messages in
  *  evaluation results.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Images exempted from this Check. If any of the patterns match the
+ *  Optional. Images exempted from this check. If any of the patterns match the
  *  image url, the check will not be evaluated.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageAllowlist *imageAllowlist;
@@ -742,9 +742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Optional. Require that an image was built by a trusted builder (such as
- *  Google Cloud Build or GitHub), meets requirements for Supply chain Levels
- *  for Software Artifacts (SLSA), and was built from a trusted source code
- *  repostitory.
+ *  Google Cloud Build), meets requirements for Supply chain Levels for Software
+ *  Artifacts (SLSA), and was built from a trusted source code repostitory.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_SlsaCheck *slsaCheck;
 
@@ -762,37 +761,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  A conjunction of policy checks, scoped to a particular namespace or
- *  Kubernetes service account. In order for evaluation of a CheckSet to return
- *  "allowed" for a given image in a given Pod, one of the following conditions
- *  must be satisfied: * The image is explicitly exempted by an entry in
- *  `image_allowlist`, OR * ALL of the `checks` evaluate to "allowed".
+ *  Kubernetes service account. In order for evaluation of a `CheckSet` to
+ *  return "allowed" for a given image in a given Pod, one of the following
+ *  conditions must be satisfied: * The image is explicitly exempted by an entry
+ *  in `image_allowlist`, OR * ALL of the `checks` evaluate to "allowed".
  */
 @interface GTLRBinaryAuthorization_CheckSet : GTLRObject
 
 /**
  *  Optional. The checks to apply. The ultimate result of evaluating the check
- *  set will be "allow" if and only if every check in 'checks' evaluates to
+ *  set will be "allow" if and only if every check in `checks` evaluates to
  *  "allow". If `checks` is empty, the default behavior is "always allow".
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_Check *> *checks;
 
 /**
- *  Optional. A user-provided name for this CheckSet. This field has no effect
+ *  Optional. A user-provided name for this `CheckSet`. This field has no effect
  *  on the policy evaluation behavior except to improve readability of messages
  *  in evaluation results.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Images exempted from this CheckSet. If any of the patterns match
- *  the image being evaluated, no checks in the CheckSet will be evaluated.
+ *  Optional. Images exempted from this `CheckSet`. If any of the patterns match
+ *  the image being evaluated, no checks in the `CheckSet` will be evaluated.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageAllowlist *imageAllowlist;
 
 /**
- *  Optional. The scope to which this CheckSet applies. If unset or an empty
+ *  Optional. The scope to which this `CheckSet` applies. If unset or an empty
  *  string (the default), applies to all namespaces and service accounts. See
- *  the Scope message documentation for details on scoping rules.
+ *  the `Scope` message documentation for details on scoping rules.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Scope *scope;
 
@@ -865,22 +864,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @interface GTLRBinaryAuthorization_GkePolicy : GTLRObject
 
 /**
- *  Optional. The CheckSets to apply, scoped by namespace or namespace and
- *  service account. Exactly one CheckSet will be evaluated for a given Pod
- *  (unless the list is empty, in which case the behavior is "always allow"). If
- *  multiple CheckSets have scopes that match the namespace and service account
- *  of the Pod being evaluated, only the CheckSet with the MOST SPECIFIC scope
- *  will match. CheckSets must be listed in order of decreasing specificity,
- *  i.e. if a scope matches a given service account (which must include the
- *  namespace), it must come before a CheckSet with a scope matching just that
- *  namespace. This property is enforced by server-side validation. The purpose
- *  of this restriction is to ensure that if more than one CheckSet matches a
- *  given Pod, the CheckSet that will be evaluated will always be the first in
- *  the list to match (because if any other matches, it must be less specific).
- *  If `check_sets` is empty, the default behavior is to allow all images. If
- *  `check_sets` is non-empty, the last `check_sets` entry must always be a
- *  CheckSet with no scope set, i.e. a catchall to handle any situation not
- *  caught by the preceding CheckSets.
+ *  Optional. The `CheckSet` objects to apply, scoped by namespace or namespace
+ *  and service account. Exactly one `CheckSet` will be evaluated for a given
+ *  Pod (unless the list is empty, in which case the behavior is "always
+ *  allow"). If multiple `CheckSet` objects have scopes that match the namespace
+ *  and service account of the Pod being evaluated, only the `CheckSet` with the
+ *  MOST SPECIFIC scope will match. `CheckSet` objects must be listed in order
+ *  of decreasing specificity, i.e. if a scope matches a given service account
+ *  (which must include the namespace), it must come before a `CheckSet` with a
+ *  scope matching just that namespace. This property is enforced by server-side
+ *  validation. The purpose of this restriction is to ensure that if more than
+ *  one `CheckSet` matches a given Pod, the `CheckSet` that will be evaluated
+ *  will always be the first in the list to match (because if any other matches,
+ *  it must be less specific). If `check_sets` is empty, the default behavior is
+ *  to allow all images. If `check_sets` is non-empty, the last `check_sets`
+ *  entry must always be a `CheckSet` with no scope set, i.e. a catchall to
+ *  handle any situation not caught by the preceding `CheckSet` objects.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_CheckSet *> *checkSets;
 
@@ -1028,7 +1027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
- *  Response message for BinauthzManagementService.ListAttestors.
+ *  Response message for BinauthzManagementServiceV1.ListAttestors.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "attestors" property. If returned as the result of a query, it
@@ -1084,11 +1083,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
- *  A public key in the PkixPublicKey format (see
- *  https://tools.ietf.org/html/rfc5280#section-4.1.2.7 for details). Public
- *  keys of this type are typically textually encoded using the PEM format.
+ *  A public key in the PkixPublicKey
+ *  [format](https://tools.ietf.org/html/rfc5280#section-4.1.2.7). Public keys
+ *  of this type are typically textually encoded using the PEM format.
  */
 @interface GTLRBinaryAuthorization_PkixPublicKey : GTLRObject
+
+/**
+ *  Optional. The ID of this public key. Signatures verified by Binary
+ *  Authorization must include the ID of the public key that can be used to
+ *  verify them, and that ID must match the contents of this field exactly. This
+ *  may be explicitly provided by the caller, but it MUST be a valid RFC3986
+ *  URI. If `key_id` is left blank and this `PkixPublicKey` is not used in the
+ *  context of a wrapper (see next paragraph), a default key ID will be computed
+ *  based on the digest of the DER encoding of the public key. If this
+ *  `PkixPublicKey` is used in the context of a wrapper that has its own notion
+ *  of key ID (e.g. `AttestorPublicKey`), then this field can either: * Match
+ *  that value exactly. * Or be left blank, in which case it behaves exactly as
+ *  though it is equal to that wrapper value.
+ */
+@property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
  *  A PEM-encoded public key, as described in
@@ -1168,8 +1182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 /**
  *  A bundle of PKIX public keys, used to authenticate attestation signatures.
  *  Generally, a signature is considered to be authenticated by a
- *  PkixPublicKeySet if any of the public keys verify it (i.e. it is an "OR" of
- *  the keys).
+ *  `PkixPublicKeySet` if any of the public keys verify it (i.e. it is an "OR"
+ *  of the keys).
  */
 @interface GTLRBinaryAuthorization_PkixPublicKeySet : GTLRObject
 
@@ -1195,8 +1209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_GkePolicy *gkePolicy;
 
 /**
- *  Output only. The relative resource name of the BinAuthz platform policy, in
- *  the form of `projects/ * /platforms/ * /policies/ *`.
+ *  Output only. The relative resource name of the Binary Authorization platform
+ *  policy, in the form of `projects/ * /platforms/ * /policies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1259,7 +1273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable
  *        Enables system policy evaluation. (Value: "ENABLE")
  *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified
- *        Not specified: DISABLE is assumed. (Value:
+ *        Not specified: `DISABLE` is assumed. (Value:
  *        "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *globalPolicyEvaluationMode;
@@ -1352,7 +1366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
- *  A scope specifier for CheckSets.
+ *  A scope specifier for `CheckSet` objects.
  */
 @interface GTLRBinaryAuthorization_Scope : GTLRObject
 
@@ -1364,7 +1378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Optional. Matches a single Kubernetes service account, e.g.
- *  'my-namespace:my-service-account'. `kubernetes_service_account` scope is
+ *  `my-namespace:my-service-account`. `kubernetes_service_account` scope is
  *  always more specific than `kubernetes_namespace` scope for the same
  *  namespace.
  */
@@ -1523,20 +1537,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 /**
  *  Required. List of trusted directory patterns. A pattern is in the form
  *  "registry/path/to/directory". The registry domain part is defined as two or
- *  more dot-separated words, e.g., us.pkg.dev, or gcr.io. Additionally, * can
- *  be used in three ways as wildcards: 1. leading * to match varying prefixes
- *  in registry subdomain (useful for location prefixes); 2. trailing * after
- *  registry/ to match varying endings; 3. trailing ** after registry/ to match
- *  "/" as well. For example: -- gcr.io/my-project/my-repo is valid to match a
- *  single directory -- *-docker.pkg.dev/my-project/my-repo or
- *  *.gcr.io/my-project are valid to match varying prefixes --
- *  gcr.io/my-project/ * will match all direct directories in my-project --
- *  gcr.io/my-project/ ** would match all directories in my-project -- gcr.i* is
- *  not allowed since the registry is not completely specified --
- *  sub*domain.gcr.io/nginx is not valid because only leading * or trailing *
- *  are allowed. -- *pkg.dev/my-project/my-repo is not valid because leading *
- *  can only match subdomain -- **-docker.pkg.dev is not valid because one
- *  leading * is allowed, and that it cannot match "/"
+ *  more dot-separated words, e.g., `us.pkg.dev`, or `gcr.io`. Additionally, `*`
+ *  can be used in three ways as wildcards: 1. leading `*` to match varying
+ *  prefixes in registry subdomain (useful for location prefixes); 2. trailing
+ *  `*` after registry/ to match varying endings; 3. trailing `**` after
+ *  registry/ to match "/" as well. For example: -- `gcr.io/my-project/my-repo`
+ *  is valid to match a single directory --
+ *  `*-docker.pkg.dev/my-project/my-repo` or `*.gcr.io/my-project` are valid to
+ *  match varying prefixes -- `gcr.io/my-project/ *` will match all direct
+ *  directories in `my-project` -- `gcr.io/my-project/ **` would match all
+ *  directories in `my-project` -- `gcr.i*` is not allowed since the registry is
+ *  not completely specified -- `sub*domain.gcr.io/nginx` is not valid because
+ *  only leading `*` or trailing `*` are allowed. --
+ *  `*pkg.dev/my-project/my-repo` is not valid because leading `*` can only
+ *  match subdomain -- `**-docker.pkg.dev` is not valid because one leading `*`
+ *  is allowed, and that it cannot match `/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trustedDirPatterns;
 
@@ -1551,11 +1566,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Output only. This field will contain the service account email address that
- *  this Attestor will use as the principal when querying Container Analysis.
+ *  this attestor will use as the principal when querying Container Analysis.
  *  Attestor administrators must grant this service account the IAM role needed
  *  to read attestations from the note_reference in Container Analysis
  *  (`containeranalysis.notes.occurrences.viewer`). This email address is fixed
- *  for the lifetime of the Attestor, but callers should not make any other
+ *  for the lifetime of the attestor, but callers should not make any other
  *  assumptions about the service account email; future versions may use an
  *  email based on a different naming pattern.
  */
@@ -1589,8 +1604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Required. An AttestationOccurrence to be checked that it can be verified by
- *  the Attestor. It does not have to be an existing entity in Container
- *  Analysis. It must otherwise be a valid AttestationOccurrence.
+ *  the `Attestor`. It does not have to be an existing entity in Container
+ *  Analysis. It must otherwise be a valid `AttestationOccurrence`.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AttestationOccurrence *attestation;
 
@@ -1652,7 +1667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  If true, require the image to be built from a top-level configuration.
- *  trusted_source_repo patterns specifies the repositories containing this
+ *  `trusted_source_repo_patterns` specifies the repositories containing this
  *  configuration.
  *
  *  Uses NSNumber of boolValue.
@@ -1677,20 +1692,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  List of trusted source code repository URL patterns. These patterns match
- *  the full repository URL without its scheme (e.g. "https://"). The patterns
+ *  the full repository URL without its scheme (e.g. `https://`). The patterns
  *  must not include schemes. For example, the pattern
- *  "source.cloud.google.com/my-project/my-repo-name" matches the following
- *  URLs: - "source.cloud.google.com/my-project/my-repo-name" -
- *  "git+ssh://source.cloud.google.com/my-project/my-repo-name" -
- *  "https://source.cloud.google.com/my-project/my-repo-name" A pattern matches
- *  a URL either exactly or with * wildcards. * can be used in only two ways: 1.
- *  trailing * after hosturi/ to match varying endings; 2. trailing ** after
- *  hosturi/ to match "/" as well. * and ** can only be used as wildcards and
- *  can only occur at the end of the pattern after a /. (So it's not possible to
- *  match a URL that contains literal *.) For example: -
- *  "github.com/my-project/my-repo" is valid to match a single repo -
- *  "github.com/my-project/ *" will match all direct repos in my-project -
- *  "github.com/ **" matches all repos in GitHub
+ *  `source.cloud.google.com/my-project/my-repo-name` matches the following
+ *  URLs: - `source.cloud.google.com/my-project/my-repo-name` -
+ *  `git+ssh://source.cloud.google.com/my-project/my-repo-name` -
+ *  `https://source.cloud.google.com/my-project/my-repo-name` A pattern matches
+ *  a URL either exactly or with `*` wildcards. `*` can be used in only two
+ *  ways: 1. trailing `*` after hosturi/ to match varying endings; 2. trailing
+ *  `**` after hosturi/ to match `/` as well. `*` and `**` can only be used as
+ *  wildcards and can only occur at the end of the pattern after a `/`. (So it's
+ *  not possible to match a URL that contains literal `*`.) For example: -
+ *  `github.com/my-project/my-repo` is valid to match a single repo -
+ *  `github.com/my-project/ *` will match all direct repos in `my-project` -
+ *  `github.com/ **` matches all repos in GitHub
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trustedSourceRepoPatterns;
 
@@ -1705,21 +1720,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Optional. A list of specific CVEs to ignore even if the vulnerability level
- *  violates maximumUnfixableSeverity or maximumFixableSeverity. CVEs are listed
- *  in the format of Container Analysis note id. For example: - CVE-2021-20305 -
- *  CVE-2020-10543 The CVEs are applicable regardless of note provider project,
- *  e.g., an entry of `CVE-2021-20305` will allow vulnerabilities with a note
- *  name of either `projects/goog-vulnz/notes/CVE-2021-20305` or
+ *  violates `maximumUnfixableSeverity` or `maximumFixableSeverity`. CVEs are
+ *  listed in the format of Container Analysis note id. For example: -
+ *  CVE-2021-20305 - CVE-2020-10543 The CVEs are applicable regardless of note
+ *  provider project, e.g., an entry of `CVE-2021-20305` will allow
+ *  vulnerabilities with a note name of either
+ *  `projects/goog-vulnz/notes/CVE-2021-20305` or
  *  `projects/CUSTOM-PROJECT/notes/CVE-2021-20305`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCves;
 
 /**
  *  Optional. A list of specific CVEs to always raise warnings about even if the
- *  vulnerability level meets maximumUnfixableSeverity or
- *  maximumFixableSeverity. CVEs are listed in the format of Container Analysis
- *  note id. For example: - CVE-2021-20305 - CVE-2020-10543 The CVEs are
- *  applicable regardless of note provider project, e.g., an entry of
+ *  vulnerability level meets `maximumUnfixableSeverity` or
+ *  `maximumFixableSeverity`. CVEs are listed in the format of Container
+ *  Analysis note id. For example: - CVE-2021-20305 - CVE-2020-10543 The CVEs
+ *  are applicable regardless of note provider project, e.g., an entry of
  *  `CVE-2021-20305` will block vulnerabilities with a note name of either
  *  `projects/goog-vulnz/notes/CVE-2021-20305` or
  *  `projects/CUSTOM-PROJECT/notes/CVE-2021-20305`.
@@ -1729,7 +1745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 /**
  *  Optional. The projects where vulnerabilities are stored as Container
  *  Analysis Occurrences. Each project is expressed in the resource format of
- *  `projects/[PROJECT_ID]`, e.g., projects/my-gcp-project. An attempt will be
+ *  `projects/[PROJECT_ID]`, e.g., `projects/my-gcp-project`. An attempt will be
  *  made for each project to fetch vulnerabilities, and all valid
  *  vulnerabilities will be used to check against the vulnerability policy. If
  *  no valid scan is found in all projects configured here, an error will be

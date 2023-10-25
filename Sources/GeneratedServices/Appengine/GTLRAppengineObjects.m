@@ -43,6 +43,12 @@ NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled = @"SYS
 NSString * const kGTLRAppengine_Application_ServingStatus_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled = @"USER_DISABLED";
 
+// GTLRAppengine_ContainerState.state
+NSString * const kGTLRAppengine_ContainerState_State_Deleted   = @"DELETED";
+NSString * const kGTLRAppengine_ContainerState_State_Off       = @"OFF";
+NSString * const kGTLRAppengine_ContainerState_State_On        = @"ON";
+NSString * const kGTLRAppengine_ContainerState_State_UnknownState = @"UNKNOWN_STATE";
+
 // GTLRAppengine_EndpointsApiService.rolloutStrategy
 NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed = @"FIXED";
 NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed = @"MANAGED";
@@ -103,12 +109,6 @@ NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Deleted = 
 NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Off = @"OFF";
 NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_On = @"ON";
 NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_UnknownState = @"UNKNOWN_STATE";
-
-// GTLRAppengine_ProjectState.state
-NSString * const kGTLRAppengine_ProjectState_State_Deleted     = @"DELETED";
-NSString * const kGTLRAppengine_ProjectState_State_Off         = @"OFF";
-NSString * const kGTLRAppengine_ProjectState_State_On          = @"ON";
-NSString * const kGTLRAppengine_ProjectState_State_UnknownState = @"UNKNOWN_STATE";
 
 // GTLRAppengine_Reasons.abuse
 NSString * const kGTLRAppengine_Reasons_Abuse_AbuseControlPlaneSync = @"ABUSE_CONTROL_PLANE_SYNC";
@@ -229,8 +229,8 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 @implementation GTLRAppengine_Application
 @dynamic authDomain, codeBucket, databaseType, defaultBucket,
          defaultCookieExpiration, defaultHostname, dispatchRules,
-         featureSettings, gcrDomain, iap, identifier, locationId, name,
-         serviceAccount, servingStatus;
+         featureSettings, gcrDomain, generatedCustomerMetadata, iap, identifier,
+         locationId, name, serviceAccount, servingStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -241,6 +241,20 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
     @"dispatchRules" : [GTLRAppengine_UrlDispatchRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Application_GeneratedCustomerMetadata
+//
+
+@implementation GTLRAppengine_Application_GeneratedCustomerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -372,6 +386,16 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 @implementation GTLRAppengine_ContainerInfo
 @dynamic image;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_ContainerState
+//
+
+@implementation GTLRAppengine_ContainerState
+@dynamic currentReasons, previousReasons, state;
 @end
 
 
@@ -1062,16 +1086,6 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppengine_ProjectState
-//
-
-@implementation GTLRAppengine_ProjectState
-@dynamic currentReasons, previousReasons, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppengine_ReadinessCheck
 //
 
@@ -1154,10 +1168,25 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 //
 
 @implementation GTLRAppengine_Service
-@dynamic identifier, labels, name, networkSettings, split;
+@dynamic generatedCustomerMetadata, identifier, labels, name, networkSettings,
+         split;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Service_GeneratedCustomerMetadata
+//
+
+@implementation GTLRAppengine_Service_GeneratedCustomerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -24,6 +24,53 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Return only action names.
+ *
+ *  Value: "ACTION_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewBasic;
+/**
+ *  Return actions with schema.
+ *
+ *  Value: "ACTION_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewFull;
+/**
+ *  VIEW_UNSPECIFIED. The unset value Defaults to FULL View.
+ *
+ *  Value: "ACTION_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewUnspecified;
+/**
+ *  Return only entity type names.
+ *
+ *  Value: "ENTITY_TYPE_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewBasic;
+/**
+ *  Return entity types with schema
+ *
+ *  Value: "ENTITY_TYPE_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewFull;
+/**
+ *  VIEW_UNSPECIFIED. The unset value. Defaults to FULL View.
+ *
+ *  Value: "ENTITY_TYPE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Connectors query classes.
  */
@@ -72,6 +119,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the schema of the given action.
+ *
+ *  Method: connectors.projects.locations.connections.actions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Action. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/actions/{action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_Action.
+ *
+ *  Gets the schema of the given action.
+ *
+ *  @param name Required. Resource name of the Action. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/actions/{action}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the schema of all the actions supported by the connector.
  *
  *  Method: connectors.projects.locations.connections.actions.list
@@ -96,6 +173,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  projects/{project}/locations/{location}/connections/{connection}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Specifies which fields of the Action are returned in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewActionViewUnspecified VIEW_UNSPECIFIED. The
+ *        unset value Defaults to FULL View. (Value: "ACTION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewActionViewBasic Return only action names.
+ *        (Value: "ACTION_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewActionViewFull Return actions with schema.
+ *        (Value: "ACTION_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_ListActionsResponse.
@@ -416,6 +506,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets metadata of given entity type
+ *
+ *  Method: connectors.projects.locations.connections.entityTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{entityType}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_EntityType.
+ *
+ *  Gets metadata of given entity type
+ *
+ *  @param name Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{entityType}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists metadata related to all entity types present in the external system.
  *
  *  Method: connectors.projects.locations.connections.entityTypes.list
@@ -440,6 +560,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  projects/{project}/locations/{location}/connections/{connection}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Specifies which fields of the Entity Type are returned in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewEntityTypeViewUnspecified VIEW_UNSPECIFIED. The
+ *        unset value. Defaults to FULL View. (Value:
+ *        "ENTITY_TYPE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewEntityTypeViewBasic Return only entity type
+ *        names. (Value: "ENTITY_TYPE_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewEntityTypeViewFull Return entity types with
+ *        schema (Value: "ENTITY_TYPE_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_ListEntityTypesResponse.

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Safe Browsing API (safebrowsing/v4)
+//   Safe Browsing API (safebrowsing/v5)
 // Description:
 //   Enables client applications to check web resources (most commonly URLs)
 //   against Google-generated lists of unsafe web resources. The Safe Browsing
@@ -14,148 +14,33 @@
 
 #import <GoogleAPIClientForREST/GTLRSafebrowsingQuery.h>
 
+#import <GoogleAPIClientForREST/GTLRSafebrowsingObjects.h>
+
 @implementation GTLRSafebrowsingQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRSafebrowsingQuery_EncodedFullHashesGet
+@implementation GTLRSafebrowsingQuery_HashesSearch
 
-@dynamic clientId, clientVersion, encodedRequest;
+@dynamic hashPrefixes;
 
-+ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest {
-  NSArray *pathParams = @[ @"encodedRequest" ];
-  NSString *pathURITemplate = @"v4/encodedFullHashes/{encodedRequest}";
-  GTLRSafebrowsingQuery_EncodedFullHashesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.encodedRequest = encodedRequest;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse class];
-  query.loggingName = @"safebrowsing.encodedFullHashes.get";
-  return query;
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hashPrefixes" : [NSString class]
+  };
+  return map;
 }
-
-@end
-
-@implementation GTLRSafebrowsingQuery_EncodedUpdatesGet
-
-@dynamic clientId, clientVersion, encodedRequest;
-
-+ (instancetype)queryWithEncodedRequest:(NSString *)encodedRequest {
-  NSArray *pathParams = @[ @"encodedRequest" ];
-  NSString *pathURITemplate = @"v4/encodedUpdates/{encodedRequest}";
-  GTLRSafebrowsingQuery_EncodedUpdatesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.encodedRequest = encodedRequest;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse class];
-  query.loggingName = @"safebrowsing.encodedUpdates.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRSafebrowsingQuery_FullHashesFind
-
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v4/fullHashes:find";
-  GTLRSafebrowsingQuery_FullHashesFind *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse class];
-  query.loggingName = @"safebrowsing.fullHashes.find";
-  return query;
-}
-
-@end
-
-@implementation GTLRSafebrowsingQuery_ThreatHitsCreate
-
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v4/threatHits";
-  GTLRSafebrowsingQuery_ThreatHitsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleProtobufEmpty class];
-  query.loggingName = @"safebrowsing.threatHits.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRSafebrowsingQuery_ThreatListsList
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v4/threatLists";
-  GTLRSafebrowsingQuery_ThreatListsList *query =
+  NSString *pathURITemplate = @"v5/hashes:search";
+  GTLRSafebrowsingQuery_HashesSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ListThreatListsResponse class];
-  query.loggingName = @"safebrowsing.threatLists.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRSafebrowsingQuery_ThreatListUpdatesFetch
-
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v4/threatListUpdates:fetch";
-  GTLRSafebrowsingQuery_ThreatListUpdatesFetch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse class];
-  query.loggingName = @"safebrowsing.threatListUpdates.fetch";
-  return query;
-}
-
-@end
-
-@implementation GTLRSafebrowsingQuery_ThreatMatchesFind
-
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v4/threatMatches:find";
-  GTLRSafebrowsingQuery_ThreatMatchesFind *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesResponse class];
-  query.loggingName = @"safebrowsing.threatMatches.find";
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchHashesResponse class];
+  query.loggingName = @"safebrowsing.hashes.search";
   return query;
 }
 

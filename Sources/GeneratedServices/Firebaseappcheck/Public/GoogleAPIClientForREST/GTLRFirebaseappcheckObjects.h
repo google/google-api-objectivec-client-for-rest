@@ -365,9 +365,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *challenge;
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -408,9 +409,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -450,9 +452,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customToken;
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -473,9 +476,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *debugToken;
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -497,9 +501,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *deviceToken;
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -514,9 +519,10 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest : GTLRObject
 
 /**
- *  Forces a short-lived token with a 5 minute TTL. Useful when the client
- *  wishes to impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -538,9 +544,10 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest : GTLRObject
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -562,9 +569,10 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest : GTLRObject
 
 /**
- *  Forces a short lived token with a 5 minute TTL. Useful when the client
- *  wishes to self impose stricter TTL requirements for this exchange. Default:
- *  false.
+ *  Specifies whether this attestation is for use in a *limited use* (`true`) or
+ *  *session based* (`false`) context. To enable this attestation to be used
+ *  with the *replay protection* feature, set this to `true`. The default value
+ *  is `false`.
  *
  *  Uses NSNumber of boolValue.
  */

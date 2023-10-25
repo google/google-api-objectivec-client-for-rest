@@ -3380,6 +3380,248 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  Deletes a resource.
  *
+ *  Method: youtube.playlistImages.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_PlaylistImagesDelete : GTLRYouTubeQuery
+
+/**
+ *  Id to identify this image. This is returned from by the List method.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwner* parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a resource.
+ *
+ *  @return GTLRYouTubeQuery_PlaylistImagesDelete
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Inserts a new resource into this collection.
+ *
+ *  Method: youtube.playlistImages.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_PlaylistImagesInsert : GTLRYouTubeQuery
+
+/**
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwner* parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  This parameter can only be used in a properly authorized request. *Note:*
+ *  This parameter is intended exclusively for YouTube content partners. The
+ *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
+ *  of the channel to which a video is being added. This parameter is required
+ *  when a request specifies a value for the onBehalfOfContentOwner parameter,
+ *  and it can only be used in conjunction with that parameter. In addition, the
+ *  request must be authorized using a CMS account that is linked to the content
+ *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+ *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
+ *  must be linked to the content owner that the onBehalfOfContentOwner
+ *  parameter specifies. This parameter is intended for YouTube content partners
+ *  that own and manage many different YouTube channels. It allows content
+ *  owners to authenticate once and perform actions on behalf of the channel
+ *  specified in the parameter value, without having to provide authentication
+ *  credentials for each separate channel.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+
+/**
+ *  The *part* parameter specifies the properties that the API response will
+ *  include.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_PlaylistImage.
+ *
+ *  Inserts a new resource into this collection.
+ *
+ *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
+ *
+ *  @return GTLRYouTubeQuery_PlaylistImagesInsert
+ */
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object;
+
+@end
+
+/**
+ *  Retrieves a list of resources, possibly filtered.
+ *
+ *  Method: youtube.playlistImages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_PlaylistImagesList : GTLRYouTubeQuery
+
+/**
+ *  The *maxResults* parameter specifies the maximum number of items that should
+ *  be returned in the result set.
+ *
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwner* parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  This parameter can only be used in a properly authorized request. *Note:*
+ *  This parameter is intended exclusively for YouTube content partners. The
+ *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
+ *  of the channel to which a video is being added. This parameter is required
+ *  when a request specifies a value for the onBehalfOfContentOwner parameter,
+ *  and it can only be used in conjunction with that parameter. In addition, the
+ *  request must be authorized using a CMS account that is linked to the content
+ *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+ *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
+ *  must be linked to the content owner that the onBehalfOfContentOwner
+ *  parameter specifies. This parameter is intended for YouTube content partners
+ *  that own and manage many different YouTube channels. It allows content
+ *  owners to authenticate once and perform actions on behalf of the channel
+ *  specified in the parameter value, without having to provide authentication
+ *  credentials for each separate channel.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+
+/**
+ *  The *pageToken* parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the nextPageToken and prevPageToken
+ *  properties identify other pages that could be retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Return PlaylistImages for this playlist id. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The *part* parameter specifies a comma-separated list of one or more
+ *  playlistImage resource properties that the API response will include. If the
+ *  parameter identifies a property that contains child properties, the child
+ *  properties will be included in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_PlaylistImageListResponse.
+ *
+ *  Retrieves a list of resources, possibly filtered.
+ *
+ *  @return GTLRYouTubeQuery_PlaylistImagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an existing resource.
+ *
+ *  Method: youtube.playlistImages.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_PlaylistImagesUpdate : GTLRYouTubeQuery
+
+/**
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwner* parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  The *part* parameter specifies the properties that the API response will
+ *  include.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_PlaylistImage.
+ *
+ *  Updates an existing resource.
+ *
+ *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
+ *
+ *  @return GTLRYouTubeQuery_PlaylistImagesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object;
+
+@end
+
+/**
+ *  Deletes a resource.
+ *
  *  Method: youtube.playlistItems.delete
  *
  *  Authorization scope(s):
@@ -4057,9 +4299,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /** Display the content as seen by viewers in this country. */
 @property(nonatomic, copy, nullable) NSString *regionCode;
-
-/** Search related to a resource. */
-@property(nonatomic, copy, nullable) NSString *relatedToVideoId;
 
 /** Return results relevant to this language. */
 @property(nonatomic, copy, nullable) NSString *relevanceLanguage;

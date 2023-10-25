@@ -973,7 +973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The response message of "AddEnableRules" method.
+ *  The response message of `AddEnableRules` method.
  */
 @interface GTLRServiceUsage_AddEnableRulesResponse : GTLRObject
 
@@ -1695,12 +1695,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. The resource name of the policy. For example, We only allow
- *  consumer policy name as "default" for now:
- *  `projects/12345/consumerPolicies/default`,
+ *  Output only. The resource name of the policy. We only allow consumer policy
+ *  name as `default` for now: `projects/12345/consumerPolicies/default`,
  *  `folders/12345/consumerPolicies/default`,
- *  `organizations/12345/consumerPolicies/default`. Legacy format:
- *  `projects/12345/consumerPoly`
+ *  `organizations/12345/consumerPolicies/default`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2187,8 +2185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  DEPRECATED: Please use field `values`. Service group should have prefix
  *  `groups/`. The names of the service groups that are enabled (Not
- *  Implemented). go/predefined-service-groups. Example:
- *  `groups/googleServices`.
+ *  Implemented). Example: `groups/googleServices`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groups GTLR_DEPRECATED;
 
@@ -2201,8 +2198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The names of the services or service groups that are enabled. Example:
- *  `services/storage.googleapis.com`, groups/googleServices`,
- *  groups/allServices`.
+ *  `services/storage.googleapis.com`, `groups/googleServices`,
+ *  `groups/allServices`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
@@ -4608,7 +4605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The response message of "RemoveEnableRules" method.
+ *  The response message of `RemoveEnableRules` method.
  */
 @interface GTLRServiceUsage_RemoveEnableRulesResponse : GTLRObject
 

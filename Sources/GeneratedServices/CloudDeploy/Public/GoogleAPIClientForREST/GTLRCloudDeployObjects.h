@@ -79,6 +79,7 @@
 @class GTLRCloudDeploy_ReleaseCondition;
 @class GTLRCloudDeploy_ReleaseReadyCondition;
 @class GTLRCloudDeploy_RenderMetadata;
+@class GTLRCloudDeploy_RollbackTargetConfig;
 @class GTLRCloudDeploy_Rollout;
 @class GTLRCloudDeploy_Rollout_Annotations;
 @class GTLRCloudDeploy_Rollout_Labels;
@@ -143,6 +144,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataW
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_AutomationEvent.type
+
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_AutomationRunEvent.type
+
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
 
 /**
@@ -181,6 +286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
  *  Value: "TYPE_RESTRICTION_VIOLATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRolloutUpdate;
 /**
  *  Type is unspecified.
  *
@@ -410,6 +521,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRestrictionViolated;
 /**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRolloutUpdate;
+/**
  *  Type is unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -605,6 +722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Typ
  *  Value: "TYPE_RESTRICTION_VIOLATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRolloutUpdate;
 /**
  *  Type is unspecified.
  *
@@ -812,6 +935,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRestrictionViolated;
 /**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRolloutUpdate;
+/**
  *  Type is unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -886,6 +1015,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRestrictionViolated;
 /**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRolloutUpdate;
+/**
  *  Type is unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -930,6 +1065,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_Ex
  *  Value: "FAILURE_CAUSE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified;
+/**
+ *  The render operation did not complete successfully because the verification
+ *  stanza required for verify was not found on the skaffold configuration.
+ *
+ *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_VerificationConfigNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_TargetRender.renderingState
@@ -1164,6 +1306,107 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/automation" Platform Log event
+ *  that describes the Automation related events.
+ */
+@interface GTLRCloudDeploy_AutomationEvent : GTLRObject
+
+/** The name of the `AutomationRun`. */
+@property(nonatomic, copy, nullable) NSString *automation;
+
+/**
+ *  Debug message for when there is an update on the AutomationRun. Provides
+ *  further details about the resource creation or state change.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeProcessAborted A process
+ *        aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeResourceDeleted Resource
+ *        deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeRolloutUpdate Rollout
+ *        updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeUnspecified Type is
+ *        unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/automation_run" Platform Log
+ *  event that describes the AutomationRun related events.
+ */
+@interface GTLRCloudDeploy_AutomationRunEvent : GTLRObject
+
+/** Identifier of the `Automation`. */
+@property(nonatomic, copy, nullable) NSString *automationId;
+
+/** The name of the `AutomationRun`. */
+@property(nonatomic, copy, nullable) NSString *automationRun;
+
+/** ID of the `Target` to which the `AutomationRun` is created. */
+@property(nonatomic, copy, nullable) NSString *destinationTargetId;
+
+/**
+ *  Debug message for when there is an update on the AutomationRun. Provides
+ *  further details about the resource creation or state change.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
+/** Identifier of the `Automation` rule. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeProcessAborted A
+ *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRolloutUpdate Rollout
+ *        updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified Type is
+ *        unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudDeploy_Binding : GTLRObject
@@ -1375,6 +1618,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  CloudRunMetadata contains information from a Cloud Run deployment.
  */
 @interface GTLRCloudDeploy_CloudRunMetadata : GTLRObject
+
+/**
+ *  Output only. The name of the Cloud Run job that is associated with a
+ *  `Rollout`. Format is
+ *  projects/{project}/locations/{location}/jobs/{job_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *job;
 
 /** Output only. The Cloud Run Revision id associated with a `Rollout`. */
 @property(nonatomic, copy, nullable) NSString *revision;
@@ -1667,6 +1917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRestrictionViolated
  *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2210,6 +2462,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRestrictionViolated
  *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3308,6 +3562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRestrictionViolated
  *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -3386,6 +3642,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  The response object from 'RetryJob'.
  */
 @interface GTLRCloudDeploy_RetryJobResponse : GTLRObject
+@end
+
+
+/**
+ *  Configs for the Rollback rollout.
+ */
+@interface GTLRCloudDeploy_RollbackTargetConfig : GTLRObject
+
+/** Optional. The rollback `Rollout` to create. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout *rollout;
+
+/**
+ *  Optional. The starting phase ID for the `Rollout`. If unspecified, the
+ *  `Rollout` will start in the stable phase.
+ */
+@property(nonatomic, copy, nullable) NSString *startingPhaseId;
+
+@end
+
+
+/**
+ *  The request object for `RollbackTarget`.
+ */
+@interface GTLRCloudDeploy_RollbackTargetRequest : GTLRObject
+
+/**
+ *  Optional. ID of the `Release` to roll back to. If this isn't specified, the
+ *  previous successful `Rollout` to the specified target will be used to
+ *  determine the `Release`.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseId;
+
+/** Optional. Configs for the rollback `Rollout`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_RollbackTargetConfig *rollbackConfig;
+
+/** Required. ID of the rollback `Rollout` to create. */
+@property(nonatomic, copy, nullable) NSString *rolloutId;
+
+/**
+ *  Optional. If provided, this must be the latest `Rollout` that is on the
+ *  `Target`.
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutToRollBack;
+
+/** Required. ID of the `Target` that is being rolled back. */
+@property(nonatomic, copy, nullable) NSString *targetId;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with a `RollbackTargetResponse`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  The response object from `RollbackTarget`.
+ */
+@interface GTLRCloudDeploy_RollbackTargetResponse : GTLRObject
+
+/** The config of the rollback `Rollout` created or will be created. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_RollbackTargetConfig *rollbackConfig;
+
 @end
 
 
@@ -3527,6 +3849,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Phase *> *phases;
 
 /**
+ *  Output only. Name of the `Rollout` that is rolled back by this `Rollout`.
+ *  Empty if this `Rollout` wasn't created as a rollback.
+ */
+@property(nonatomic, copy, nullable) NSString *rollbackOfRollout;
+
+/** Output only. Names of `Rollouts` that rolled back this `Rollout`. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rolledBackByRollouts;
+
+/**
  *  Output only. Current state of the `Rollout`.
  *
  *  Likely values:
@@ -3638,6 +3969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRestrictionViolated
  *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -4124,6 +4457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRestrictionViolated
  *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -4162,6 +4497,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified
  *        No reason for failure is specified. (Value:
  *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_VerificationConfigNotFound
+ *        The render operation did not complete successfully because the
+ *        verification stanza required for verify was not found on the skaffold
+ *        configuration. (Value: "VERIFICATION_CONFIG_NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
 

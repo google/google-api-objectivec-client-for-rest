@@ -37,6 +37,7 @@
 @class GTLRTranscoder_ElementaryStream;
 @class GTLRTranscoder_Encryption;
 @class GTLRTranscoder_Fairplay;
+@class GTLRTranscoder_Fmp4Config;
 @class GTLRTranscoder_H264CodecSettings;
 @class GTLRTranscoder_H265CodecSettings;
 @class GTLRTranscoder_Image;
@@ -807,6 +808,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Fairplay configuration.
  */
 @interface GTLRTranscoder_Fairplay : GTLRObject
+@end
+
+
+/**
+ *  `fmp4` container configuration.
+ */
+@interface GTLRTranscoder_Fmp4Config : GTLRObject
+
+/**
+ *  Optional. Specify the codec tag string that will be used in the media
+ *  bitstream. When not specified, the codec appropriate value is used.
+ *  Supported H265 codec tags: - `hvc1` (default) - `hev1`
+ */
+@property(nonatomic, copy, nullable) NSString *codecTag;
+
 @end
 
 
@@ -1606,6 +1622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  0 before the extension, such as `mux_stream0000000123.ts`.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
+
+/** Optional. `fmp4` container configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Fmp4Config *fmp4;
 
 /** A unique key for this multiplexed stream. */
 @property(nonatomic, copy, nullable) NSString *key;

@@ -172,6 +172,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /** Dataset ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
+/**
+ *  Specifies the view that determines which dataset information is returned. By
+ *  default, metadata and ACL information are returned. Allowed values:
+ *  METADATA, ACL, FULL.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetView;
+
 /** Project ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *projectId;
 

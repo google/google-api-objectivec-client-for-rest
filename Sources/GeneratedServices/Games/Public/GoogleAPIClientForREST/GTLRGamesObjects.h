@@ -49,6 +49,7 @@
 @class GTLRGames_PlayerScore;
 @class GTLRGames_PlayerScoreResponse;
 @class GTLRGames_ProfileSettings;
+@class GTLRGames_RecallToken;
 @class GTLRGames_ScoreSubmission;
 @class GTLRGames_Snapshot;
 @class GTLRGames_SnapshotImage;
@@ -66,12 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRGames_AchievementDefinition.achievementType
 
-/**
- *  Safe default, don't use.
- *
- *  Value: "ACHIEVEMENT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified;
 /**
  *  Achievement is incremental.
  *
@@ -95,12 +90,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementT
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_Hidden;
 /**
- *  Safe default, don't use.
- *
- *  Value: "INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified;
-/**
  *  Achievement is revealed.
  *
  *  Value: "REVEALED"
@@ -117,12 +106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState
 // GTLRGames_AchievementRevealResponse.currentState
 
 /**
- *  Safe default, don't use.
- *
- *  Value: "REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified;
-/**
  *  Achievement is revealed.
  *
  *  Value: "REVEALED"
@@ -138,12 +121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementRevealResponse_CurrentS
 // ----------------------------------------------------------------------------
 // GTLRGames_AchievementUpdateRequest.updateType
 
-/**
- *  Safe default, don't use.
- *
- *  Value: "ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified;
 /**
  *  Achievement is incremented.
  *
@@ -190,22 +167,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentS
  *  Value: "UNLOCKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked;
-/**
- *  Safe default, don't use.
- *
- *  Value: "UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGames_Application.enabledFeatures
 
-/**
- *  Safe default, don't use.
- *
- *  Value: "APPLICATION_FEATURE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_ApplicationFeatureUnspecified;
 /**
  *  Saved Games (snapshots).
  *
@@ -222,12 +187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_Snapsh
  *  Value: "ALREADY_UPDATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated;
-/**
- *  Default value. Should not be used.
- *
- *  Value: "EVENT_FAILURE_CAUSE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified;
 /**
  *  An attempt was made to record data faster than the server will apply
  *  updates.
@@ -265,12 +224,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCau
 // GTLRGames_EventDefinition.visibility
 
 /**
- *  Default value. Should not be used.
- *
- *  Value: "EVENT_VISIBILITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified;
-/**
  *  This event should only be shown to users that have recorded this event at
  *  least once.
  *
@@ -287,12 +240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_Reveale
 // ----------------------------------------------------------------------------
 // GTLRGames_EventRecordFailure.failureCause
 
-/**
- *  Default value. Should not use.
- *
- *  Value: "EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified;
 /**
  *  An attempt was made to increment an event by a non-positive value.
  *
@@ -322,12 +269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_Android;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_Ios;
 /**
- *  Default value. Should be unused.
- *
- *  Value: "PLATFORM_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified;
-/**
  *  Instance is for Web App.
  *
  *  Value: "WEB_APP"
@@ -343,12 +284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_WebApp;
  *  Value: "LARGER_IS_BETTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Leaderboard_Order_LargerIsBetter;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_ORDER_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified;
 /**
  *  Smaller values are better; scores are sorted in ascending order
  *
@@ -372,17 +307,81 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_AllTime;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Daily;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified;
-/**
  *  The score is a weekly score.
  *
  *  Value: "WEEKLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_LinkPersonaRequest.cardinalityConstraint
+
+/**
+ *  1:1 cardinality between in-game personas and Play Games Services players. By
+ *  the end of the linking operation only one entry for the player and the
+ *  persona should remain in the scope of the application. Whether a new link is
+ *  created or not when this constraint is specified is determined by the chosen
+ *  `ConflictingLinksResolutionPolicy`: * If `KEEP_EXISTING_LINKS` is specified
+ *  and the provided persona is already linked to a different player, or the
+ *  player is already linked to a different persona, no new link will be created
+ *  and the already existing link(s) will remain as is(are). * If
+ *  `CREATE_NEW_LINK` is specified and the provided persona is already linked to
+ *  a different player, or the player is already linked to another persona, the
+ *  older link(s) will be removed in favour of the new link being created.
+ *
+ *  Value: "ONE_PERSONA_TO_ONE_PLAYER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LinkPersonaRequest_CardinalityConstraint_OnePersonaToOnePlayer;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_LinkPersonaRequest.conflictingLinksResolutionPolicy
+
+/**
+ *  If an existing link between a player and persona already exists which would
+ *  result in violating the specified `RecallTokensCardinalityConstraint` if the
+ *  new link was created, replace the already existing link(s) with the new
+ *  link. For example, if Persona1-Player1 is already linked in the scope of
+ *  application1 and a new link Persona1-Player2 is attempted to be created in
+ *  the scope of application1, then the old link will be removed and the new
+ *  link will be added to replace it.
+ *
+ *  Value: "CREATE_NEW_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_CreateNewLink;
+/**
+ *  If link(s) between a player and persona already exists which would result in
+ *  violating the specified `RecallTokensCardinalityConstraint` if the new link
+ *  was created, keep the already existing link(s). For example, if
+ *  Persona1-Player1 is already linked in the scope of application1 and a new
+ *  link Persona1-Player2 is attempted to be created in the scope of
+ *  application1, then the old link will remain and no new link will be added.
+ *  Note that if the already existing links do violate the specified policy
+ *  (which could occur if not all `LinkPersona` calls use the same
+ *  `RecallTokensCardinalityConstraint`) this policy will leave these violations
+ *  unresolved; in order to resolve conflicts, the {\@link `CREATE_NEW_LINK`
+ *  policy needs to be used to rewrite links resolving conflicts.
+ *
+ *  Value: "KEEP_EXISTING_LINKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_KeepExistingLinks;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_LinkPersonaResponse.state
+
+/**
+ *  The link specified in the request was created.
+ *
+ *  Value: "LINK_CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LinkPersonaResponse_State_LinkCreated;
+/**
+ *  The link specified in the request was not created because already existing
+ *  links would result in the new link violating the specified
+ *  `RecallTokensCardinalityConstraint` if created.
+ *
+ *  Value: "PERSONA_OR_PLAYER_ALREADY_LINKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LinkPersonaResponse_State_PersonaOrPlayerAlreadyLinked;
 
 // ----------------------------------------------------------------------------
 // GTLRGames_Player.friendStatus
@@ -393,12 +392,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly;
  *  Value: "FRIEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Player_FriendStatus_Friend;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "FRIEND_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_Player_FriendStatus_FriendStatusUnspecified;
 /**
  *  There is no relationship between the players.
  *
@@ -422,12 +415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_Revealed;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified;
-/**
  *  Achievement is unlocked.
  *
  *  Value: "UNLOCKED"
@@ -449,12 +436,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Al
  *  Value: "DAILY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified;
 /**
  *  The score is a weekly score.
  *
@@ -478,12 +459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_AllTime;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_Daily;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified;
-/**
  *  The score is a weekly score.
  *
  *  Value: "WEEKLY"
@@ -506,12 +481,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTim
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Daily;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_ScoreTimeSpanUnspecified;
-/**
  *  The score is a weekly score.
  *
  *  Value: "WEEKLY"
@@ -521,12 +490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTim
 // ----------------------------------------------------------------------------
 // GTLRGames_ProfileSettings.friendsListVisibility
 
-/**
- *  Unused.
- *
- *  Value: "FRIENDS_LIST_VISIBILITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified;
 /**
  *  The developer does not have access to the friends list, but can call the
  *  Android API to show a consent dialog.
@@ -573,12 +536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStat
  *  Value: "OK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "REVISION_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGames_Snapshot.type
@@ -589,12 +546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStat
  *  Value: "SAVE_GAME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SNAPSHOT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified;
 
 /**
  *  An achievement definition object.
@@ -605,8 +556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The type of the achievement.
  *
  *  Likely values:
- *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified
- *        Safe default, don't use. (Value: "ACHIEVEMENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_Incremental
  *        Achievement is incremental. (Value: "INCREMENTAL")
  *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_Standard
@@ -644,9 +593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Likely values:
  *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Hidden Achievement
  *        is hidden. (Value: "HIDDEN")
- *    @arg @c kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified
- *        Safe default, don't use. (Value:
- *        "INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED")
  *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Revealed Achievement
  *        is revealed. (Value: "REVEALED")
  *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Unlocked Achievement
@@ -792,9 +738,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  might be `UNLOCKED` if the achievement was already unlocked.
  *
  *  Likely values:
- *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified
- *        Safe default, don't use. (Value:
- *        "REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED")
  *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_Revealed
  *        Achievement is revealed. (Value: "REVEALED")
  *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_Unlocked
@@ -947,9 +890,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The type of update being applied.
  *
  *  Likely values:
- *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified
- *        Safe default, don't use. (Value:
- *        "ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_Increment
  *        Achievement is incremented. (Value: "INCREMENT")
  *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_Reveal Achievement
@@ -983,9 +923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        Achievement is revealed. (Value: "REVEALED")
  *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked
  *        Achievement is unlocked. (Value: "UNLOCKED")
- *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified
- *        Safe default, don't use. (Value:
- *        "UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
@@ -1229,9 +1166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated An
  *        attempt was made to record a batch of data which was already seen.
  *        (Value: "ALREADY_UPDATED")
- *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified
- *        Default value. Should not be used. (Value:
- *        "EVENT_FAILURE_CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh An
  *        attempt was made to record data faster than the server will apply
  *        updates. (Value: "RECORD_RATE_HIGH")
@@ -1325,9 +1259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The visibility of event being tracked in this definition.
  *
  *  Likely values:
- *    @arg @c kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified
- *        Default value. Should not be used. (Value:
- *        "EVENT_VISIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRGames_EventDefinition_Visibility_Hidden This event should
  *        only be shown to users that have recorded this event at least once.
  *        (Value: "HIDDEN")
@@ -1431,9 +1362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The cause for the update failure.
  *
  *  Likely values:
- *    @arg @c kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified
- *        Default value. Should not use. (Value:
- *        "EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRGames_EventRecordFailure_FailureCause_InvalidUpdateValue An
  *        attempt was made to increment an event by a non-positive value.
  *        (Value: "INVALID_UPDATE_VALUE")
@@ -1610,8 +1538,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        (Value: "ANDROID")
  *    @arg @c kGTLRGames_Instance_PlatformType_Ios Instance is for iOS. (Value:
  *        "IOS")
- *    @arg @c kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified Default
- *        value. Should be unused. (Value: "PLATFORM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGames_Instance_PlatformType_WebApp Instance is for Web App.
  *        (Value: "WEB_APP")
  */
@@ -1781,8 +1707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *    @arg @c kGTLRGames_Leaderboard_Order_LargerIsBetter Larger values are
  *        better; scores are sorted in descending order (Value:
  *        "LARGER_IS_BETTER")
- *    @arg @c kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified Default value.
- *        This value is unused. (Value: "SCORE_ORDER_UNSPECIFIED")
  *    @arg @c kGTLRGames_Leaderboard_Order_SmallerIsBetter Smaller values are
  *        better; scores are sorted in ascending order (Value:
  *        "SMALLER_IS_BETTER")
@@ -1840,9 +1764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        all-time score. (Value: "ALL_TIME")
  *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_Daily The score is a daily
  *        score. (Value: "DAILY")
- *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified
- *        Default value. This value is unused. (Value:
- *        "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_Weekly The score is a weekly
  *        score. (Value: "WEEKLY")
  */
@@ -1973,6 +1894,114 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
+ *  Request to link an in-game account with a PGS principal (encoded in the
+ *  session id).
+ */
+@interface GTLRGames_LinkPersonaRequest : GTLRObject
+
+/**
+ *  Required. Cardinality constraint to observe when linking a persona to a
+ *  player in the scope of a game.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_LinkPersonaRequest_CardinalityConstraint_OnePersonaToOnePlayer
+ *        1:1 cardinality between in-game personas and Play Games Services
+ *        players. By the end of the linking operation only one entry for the
+ *        player and the persona should remain in the scope of the application.
+ *        Whether a new link is created or not when this constraint is specified
+ *        is determined by the chosen `ConflictingLinksResolutionPolicy`: * If
+ *        `KEEP_EXISTING_LINKS` is specified and the provided persona is already
+ *        linked to a different player, or the player is already linked to a
+ *        different persona, no new link will be created and the already
+ *        existing link(s) will remain as is(are). * If `CREATE_NEW_LINK` is
+ *        specified and the provided persona is already linked to a different
+ *        player, or the player is already linked to another persona, the older
+ *        link(s) will be removed in favour of the new link being created.
+ *        (Value: "ONE_PERSONA_TO_ONE_PLAYER")
+ */
+@property(nonatomic, copy, nullable) NSString *cardinalityConstraint;
+
+/**
+ *  Required. Resolution policy to apply when the linking of a persona to a
+ *  player would result in violating the specified cardinality constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_CreateNewLink
+ *        If an existing link between a player and persona already exists which
+ *        would result in violating the specified
+ *        `RecallTokensCardinalityConstraint` if the new link was created,
+ *        replace the already existing link(s) with the new link. For example,
+ *        if Persona1-Player1 is already linked in the scope of application1 and
+ *        a new link Persona1-Player2 is attempted to be created in the scope of
+ *        application1, then the old link will be removed and the new link will
+ *        be added to replace it. (Value: "CREATE_NEW_LINK")
+ *    @arg @c kGTLRGames_LinkPersonaRequest_ConflictingLinksResolutionPolicy_KeepExistingLinks
+ *        If link(s) between a player and persona already exists which would
+ *        result in violating the specified `RecallTokensCardinalityConstraint`
+ *        if the new link was created, keep the already existing link(s). For
+ *        example, if Persona1-Player1 is already linked in the scope of
+ *        application1 and a new link Persona1-Player2 is attempted to be
+ *        created in the scope of application1, then the old link will remain
+ *        and no new link will be added. Note that if the already existing links
+ *        do violate the specified policy (which could occur if not all
+ *        `LinkPersona` calls use the same `RecallTokensCardinalityConstraint`)
+ *        this policy will leave these violations unresolved; in order to
+ *        resolve conflicts, the {\@link `CREATE_NEW_LINK` policy needs to be
+ *        used to rewrite links resolving conflicts. (Value:
+ *        "KEEP_EXISTING_LINKS")
+ */
+@property(nonatomic, copy, nullable) NSString *conflictingLinksResolutionPolicy;
+
+/** Input only. Optional expiration time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. Stable identifier of the in-game account. Please refrain from
+ *  re-using the same persona for different games.
+ */
+@property(nonatomic, copy, nullable) NSString *persona;
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Required. Value of the token to create. Opaque to Play Games and assumed to
+ *  be non-stable (encrypted with key rotation).
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/** Input only. Optional time-to-live. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  Outcome of a persona linking attempt.
+ */
+@interface GTLRGames_LinkPersonaResponse : GTLRObject
+
+/**
+ *  Output only. State of a persona linking attempt.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_LinkPersonaResponse_State_LinkCreated The link
+ *        specified in the request was created. (Value: "LINK_CREATED")
+ *    @arg @c kGTLRGames_LinkPersonaResponse_State_PersonaOrPlayerAlreadyLinked
+ *        The link specified in the request was not created because already
+ *        existing links would result in the new link violating the specified
+ *        `RecallTokensCardinalityConstraint` if created. (Value:
+ *        "PERSONA_OR_PLAYER_ALREADY_LINKED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  The metagame config resource
  */
 @interface GTLRGames_MetagameConfig : GTLRObject
@@ -2024,8 +2053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Likely values:
  *    @arg @c kGTLRGames_Player_FriendStatus_Friend The player and requester are
  *        friends. (Value: "FRIEND")
- *    @arg @c kGTLRGames_Player_FriendStatus_FriendStatusUnspecified Default
- *        value. This value is unused. (Value: "FRIEND_STATUS_UNSPECIFIED")
  *    @arg @c kGTLRGames_Player_FriendStatus_NoRelationship There is no
  *        relationship between the players. (Value: "NO_RELATIONSHIP")
  */
@@ -2099,8 +2126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        is hidden. (Value: "HIDDEN")
  *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_Revealed Achievement
  *        is revealed. (Value: "REVEALED")
- *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified
- *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_Unlocked Achievement
  *        is unlocked. (Value: "UNLOCKED")
  */
@@ -2330,9 +2355,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        all-time score. (Value: "ALL_TIME")
  *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily The score is a
  *        daily score. (Value: "DAILY")
- *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified
- *        Default value. This value is unused. (Value:
- *        "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_Weekly The score is a
  *        weekly score. (Value: "WEEKLY")
  */
@@ -2482,8 +2504,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        score. (Value: "ALL_TIME")
  *    @arg @c kGTLRGames_PlayerScore_TimeSpan_Daily The score is a daily score.
  *        (Value: "DAILY")
- *    @arg @c kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified Default
- *        value. This value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGames_PlayerScore_TimeSpan_Weekly The score is a weekly
  *        score. (Value: "WEEKLY")
  */
@@ -2574,8 +2594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  friendsListVisibility
  *
  *  Likely values:
- *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified
- *        Unused. (Value: "FRIENDS_LIST_VISIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired
  *        The developer does not have access to the friends list, but can call
  *        the Android API to show a consent dialog. (Value: "REQUEST_REQUIRED")
@@ -2602,6 +2620,73 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *profileVisible;
+
+@end
+
+
+/**
+ *  Recall token data returned from RetrievePlayerTokens RPC
+ */
+@interface GTLRGames_RecallToken : GTLRObject
+
+/** Optional. Optional expiration time of the token */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. Whether the persona identified by the token is linked to multiple
+ *  PGS Players
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiPlayerPersona;
+
+/**
+ *  Required. Value of the Recall token as it is provided by the client via
+ *  LinkPersona RPC
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Request to remove all Recall tokens associated with a persona for an app.
+ */
+@interface GTLRGames_ResetPersonaRequest : GTLRObject
+
+/**
+ *  Value of the 'persona' field as it was provided by the client in LinkPersona
+ *  RPC
+ */
+@property(nonatomic, copy, nullable) NSString *persona;
+
+@end
+
+
+/**
+ *  Response for the ResetPersona RPC
+ */
+@interface GTLRGames_ResetPersonaResponse : GTLRObject
+
+/**
+ *  Required. Whether any tokens were unlinked as a result of this request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unlinked;
+
+@end
+
+
+/**
+ *  Response for the RetrievePlayerTokens RPC
+ */
+@interface GTLRGames_RetrievePlayerTokensResponse : GTLRObject
+
+/**
+ *  Required. Recall tokens associated with the requested PGS Player principal
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_RecallToken *> *tokens;
 
 @end
 
@@ -2635,9 +2720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        "INVALID")
  *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok The revision
  *        being used is current. (Value: "OK")
- *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified
- *        Default value. This value is unused. (Value:
- *        "REVISION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *revisionStatus;
 
@@ -2769,8 +2851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Likely values:
  *    @arg @c kGTLRGames_Snapshot_Type_SaveGame A snapshot representing a save
  *        game. (Value: "SAVE_GAME")
- *    @arg @c kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified Default value.
- *        This value is unused. (Value: "SNAPSHOT_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2948,6 +3028,50 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSpendNext28Days;
+
+@end
+
+
+/**
+ *  Request to remove a Recall token linking PGS principal and an in-game
+ *  account
+ */
+@interface GTLRGames_UnlinkPersonaRequest : GTLRObject
+
+/**
+ *  Value of the 'persona' field as it was provided by the client in LinkPersona
+ *  RPC
+ */
+@property(nonatomic, copy, nullable) NSString *persona;
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Value of the Recall token as it was provided by the client in LinkPersona
+ *  RPC
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Response for the UnlinkPersona RPC
+ */
+@interface GTLRGames_UnlinkPersonaResponse : GTLRObject
+
+/**
+ *  Required. Whether a Recall token specified by the request was deleted. Can
+ *  be 'false' when there were no Recall tokens satisfied the criteria from the
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unlinked;
 
 @end
 

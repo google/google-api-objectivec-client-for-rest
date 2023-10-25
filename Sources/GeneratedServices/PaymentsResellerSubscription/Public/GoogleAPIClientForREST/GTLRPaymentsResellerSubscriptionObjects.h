@@ -14,11 +14,13 @@
 
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion;
@@ -28,11 +30,14 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
+@class GTLRPaymentsResellerSubscription_ProductBundleDetails;
+@class GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -209,6 +214,29 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "CHANNEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload_SalesChannel_ChannelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product.productType
+
+/**
+ *  The product is a bundled subscription plan, which includes multiple
+ *  subscription elements.
+ *
+ *  Value: "PRODUCT_TYPE_BUNDLE_SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeBundleSubscription;
+/**
+ *  The product is a subscription.
+ *
+ *  Value: "PRODUCT_TYPE_SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeSubscription;
+/**
+ *  Unspecified. It's reserved as an unexpected value, should not be used.
+ *
+ *  Value: "PRODUCT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
@@ -501,6 +529,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_ProductBundleDetails.entitlementMode
+
+/**
+ *  All the bundle elements must be fully activated in a single request.
+ *
+ *  Value: "ENTITLEMENT_MODE_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeFull;
+/**
+ *  The bundle elements could be incrementally activated.
+ *
+ *  Value: "ENTITLEMENT_MODE_INCREMENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeIncremental;
+/**
+ *  Unspecified. It's reserved as an unexpected value, should not be used.
+ *
+ *  Value: "ENTITLEMENT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeUnspecified;
+
 /**
  *  Describes the amount unit including the currency code.
  */
@@ -618,6 +668,36 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  end user. The end user identity is inferred from the request OAuth context.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest : GTLRObject
+
+/**
+ *  Optional. The line items to be entitled. If unspecified, all line items will
+ *  be entitled.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails *> *lineItemEntitlementDetails;
+
+@end
+
+
+/**
+ *  The details of the line item to be entitled.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails : GTLRObject
+
+/**
+ *  Required. The index of the line item to be entitled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineItemIndex;
+
+/**
+ *  Optional. Only applicable if the line item corresponds to a hard bundle.
+ *  Product resource names that identify the bundle elements to be entitled in
+ *  the line item. If unspecified, all bundle elements will be entitled. The
+ *  format is 'partners/{partner_id}/products/{product_id}'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *products;
+
 @end
 
 
@@ -918,6 +998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product : GTLRObject
 
+/** Output only. Output Only. Specifies the details for a bundle product. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_ProductBundleDetails *bundleDetails;
+
 /**
  *  Optional. Details for a subscription line item with finite billing cycles.
  *  If unset, the line item will be charged indefinitely.
@@ -934,6 +1017,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig *> *priceConfigs;
 
 /**
+ *  Output only. Output Only. Specifies the type of the product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeBundleSubscription
+ *        The product is a bundled subscription plan, which includes multiple
+ *        subscription elements. (Value: "PRODUCT_TYPE_BUNDLE_SUBSCRIPTION")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeSubscription
+ *        The product is a subscription. (Value: "PRODUCT_TYPE_SUBSCRIPTION")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product_ProductType_ProductTypeUnspecified
+ *        Unspecified. It's reserved as an unexpected value, should not be used.
+ *        (Value: "PRODUCT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *productType;
+
+/**
  *  Output only. 2-letter ISO region code where the product is available in. Ex.
  *  "US" Please refers to: https://en.wikipedia.org/wiki/ISO_3166-1
  */
@@ -946,6 +1044,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 /** Output only. Localized human readable name of the product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText *> *titles;
+
+@end
+
+
+/**
+ *  The individual product that is included in the bundle.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement : GTLRObject
+
+/**
+ *  Required. Output only. Product resource name that identifies the bundle
+ *  element. The format is 'partners/{partner_id}/products/{product_id}'.
+ */
+@property(nonatomic, copy, nullable) NSString *product;
 
 @end
 
@@ -1325,6 +1437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount *amount;
 
 /**
+ *  Output only. The bundle details for the line item. Only populated if the
+ *  line item corresponds to a hard bundle.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails *bundleDetails;
+
+/**
  *  Output only. Description of this line item.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1421,6 +1539,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        cycle. (Value: "LINE_ITEM_STATE_WAITING_TO_DEACTIVATE")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The details for an element in the hard bundle.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails : GTLRObject
+
+/**
+ *  Output only. Product resource name that identifies the bundle element. The
+ *  format is 'partners/{partner_id}/products/{product_id}'.
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
+/** Output only. The time when this product is linked to an end user. */
+@property(nonatomic, strong, nullable) GTLRDateTime *userAccountLinkedTime;
 
 @end
 
@@ -1554,10 +1689,46 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/**
- *  Localized string in the language corresponding to `language_code' below.
- */
+/** Localized string in the language corresponding to language_code below. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Details for a bundle product.
+ */
+@interface GTLRPaymentsResellerSubscription_ProductBundleDetails : GTLRObject
+
+/** The individual products that are included in the bundle. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement *> *bundleElements;
+
+/**
+ *  The entitlement mode of the bundle product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeFull
+ *        All the bundle elements must be fully activated in a single request.
+ *        (Value: "ENTITLEMENT_MODE_FULL")
+ *    @arg @c kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeIncremental
+ *        The bundle elements could be incrementally activated. (Value:
+ *        "ENTITLEMENT_MODE_INCREMENTAL")
+ *    @arg @c kGTLRPaymentsResellerSubscription_ProductBundleDetails_EntitlementMode_EntitlementModeUnspecified
+ *        Unspecified. It's reserved as an unexpected value, should not be used.
+ *        (Value: "ENTITLEMENT_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementMode;
+
+@end
+
+
+/**
+ *  The bundle details for a line item corresponding to a hard bundle.
+ */
+@interface GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails : GTLRObject
+
+/** The details for each element in the hard bundle. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails *> *bundleElementDetails;
 
 @end
 

@@ -91,6 +91,11 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
 
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom.sourceRestriction
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionDisabled = @"SOURCE_RESTRICTION_DISABLED";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionEnabled = @"SOURCE_RESTRICTION_ENABLED";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_SourceRestriction_SourceRestrictionUnspecified = @"SOURCE_RESTRICTION_UNSPECIFIED";
+
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom.identityType
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
@@ -522,6 +527,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"policies" : [GTLRCloudAsset_PolicyInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_EffectiveTagDetails
+//
+
+@implementation GTLRCloudAsset_EffectiveTagDetails
+@dynamic attachedResource, effectiveTags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveTags" : [GTLRCloudAsset_Tag class]
   };
   return map;
 }
@@ -1132,14 +1155,15 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition
 @dynamic devicePolicy, ipSubnetworks, members, negate, regions,
-         requiredAccessLevels;
+         requiredAccessLevels, vpcNetworkSources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ipSubnetworks" : [NSString class],
     @"members" : [NSString class],
     @"regions" : [NSString class],
-    @"requiredAccessLevels" : [NSString class]
+    @"requiredAccessLevels" : [NSString class],
+    @"vpcNetworkSources" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource class]
   };
   return map;
 }
@@ -1185,11 +1209,12 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom
-@dynamic identities, identityType;
+@dynamic identities, identityType, sourceRestriction, sources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"identities" : [NSString class]
+    @"identities" : [NSString class],
+    @"sources" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource class]
   };
   return map;
 }
@@ -1204,6 +1229,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy
 @dynamic egressFrom, egressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource
+@dynamic accessLevel;
 @end
 
 
@@ -1355,6 +1390,34 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedServices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcNetworkSource
+@dynamic vpcSubnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcSubNetwork
+@dynamic network, vpcIpSubnetworks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vpcIpSubnetworks" : [NSString class]
   };
   return map;
 }
@@ -1943,10 +2006,11 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_ResourceSearchResult
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
-         descriptionProperty, displayName, folders, kmsKey, kmsKeys, labels,
-         location, name, networkTags, organization, parentAssetType,
-         parentFullResourceName, project, relationships, state, tagKeys,
-         tagValueIds, tagValues, updateTime, versionedResources;
+         descriptionProperty, displayName, effectiveTags, folders, kmsKey,
+         kmsKeys, labels, location, name, networkTags, organization,
+         parentAssetType, parentFullResourceName, project, relationships,
+         sccSecurityMarks, state, tagKeys, tags, tagValueIds, tagValues,
+         updateTime, versionedResources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1955,10 +2019,12 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
+    @"effectiveTags" : [GTLRCloudAsset_EffectiveTagDetails class],
     @"folders" : [NSString class],
     @"kmsKeys" : [NSString class],
     @"networkTags" : [NSString class],
     @"tagKeys" : [NSString class],
+    @"tags" : [GTLRCloudAsset_Tag class],
     @"tagValueIds" : [NSString class],
     @"tagValues" : [NSString class],
     @"versionedResources" : [GTLRCloudAsset_VersionedResource class]
@@ -2006,6 +2072,20 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 + (Class)classForAdditionalProperties {
   return [GTLRCloudAsset_RelatedResources class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks
+//
+
+@implementation GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2171,6 +2251,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Tag
+//
+
+@implementation GTLRCloudAsset_Tag
+@dynamic tagKey, tagValue, tagValueId;
 @end
 
 

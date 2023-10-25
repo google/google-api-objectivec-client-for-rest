@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Assessment, in the format
- *  "projects/{project}/assessments/{assessment}".
+ *  `projects/{project}/assessments/{assessment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Assessment, in the format
- *    "projects/{project}/assessments/{assessment}".
+ *    `projects/{project}/assessments/{assessment}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsAssessmentsAnnotate
  */
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project in which the assessment will be created,
- *  in the format "projects/{project}".
+ *  in the format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment to
  *    include in the query.
  *  @param parent Required. The name of the project in which the assessment will
- *    be created, in the format "projects/{project}".
+ *    be created, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsAssessmentsCreate
  */
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project this policy will apply to, in the format
- *  "projects/{project}".
+ *  `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
  *    include in the query.
  *  @param parent Required. The name of the project this policy will apply to,
- *    in the format "projects/{project}".
+ *    in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate
  */
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the policy to be deleted, in the format
- *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *  `projects/{project}/firewallpolicies/{firewallpolicy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified firewall policy.
  *
  *  @param name Required. The name of the policy to be deleted, in the format
- *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *    `projects/{project}/firewallpolicies/{firewallpolicy}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesDelete
  */
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the requested policy, in the format
- *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *  `projects/{project}/firewallpolicies/{firewallpolicy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the specified firewall policy.
  *
  *  @param name Required. The name of the requested policy, in the format
- *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *    `projects/{project}/firewallpolicies/{firewallpolicy}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesGet
  */
@@ -230,7 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project to list the policies for, in the format
- *  "projects/{project}".
+ *  `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the list of all firewall policies that belong to a project.
  *
  *  @param parent Required. The name of the project to list the policies for, in
- *    the format "projects/{project}".
+ *    the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesList
  *
@@ -265,7 +265,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name for the FirewallPolicy in the format
- *  "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *  `projects/{project}/firewallpolicies/{firewallpolicy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -287,7 +287,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
  *    include in the query.
  *  @param name The resource name for the FirewallPolicy in the format
- *    "projects/{project}/firewallpolicies/{firewallpolicy}".
+ *    `projects/{project}/firewallpolicies/{firewallpolicy}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch
  */
@@ -308,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project in which the key will be created, in the
- *  format "projects/{project}".
+ *  format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key to include in
  *    the query.
  *  @param parent Required. The name of the project in which the key will be
- *    created, in the format "projects/{project}".
+ *    created, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate
  */
@@ -342,7 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the key to be deleted, in the format
- *  "projects/{project}/keys/{key}".
+ *  `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -352,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified key.
  *
  *  @param name Required. The name of the key to be deleted, in the format
- *    "projects/{project}/keys/{key}".
+ *    `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysDelete
  */
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the requested key, in the format
- *  "projects/{project}/keys/{key}".
+ *  `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -382,7 +382,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the specified key.
  *
  *  @param name Required. The name of the requested key, in the format
- *    "projects/{project}/keys/{key}".
+ *    `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysGet
  */
@@ -403,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the requested metrics, in the format
- *  "projects/{project}/keys/{key}/metrics".
+ *  `projects/{project}/keys/{key}/metrics`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -415,7 +415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  dashboards.
  *
  *  @param name Required. The name of the requested metrics, in the format
- *    "projects/{project}/keys/{key}/metrics".
+ *    `projects/{project}/keys/{key}/metrics`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysGetMetrics
  */
@@ -447,7 +447,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project that contains the keys that will be
- *  listed, in the format "projects/{project}".
+ *  listed, in the format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -458,7 +458,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the list of all keys that belong to a project.
  *
  *  @param parent Required. The name of the project that contains the keys that
- *    will be listed, in the format "projects/{project}".
+ *    will be listed, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysList
  *
@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the key to be migrated, in the format
- *  "projects/{project}/keys/{key}".
+ *  `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -503,7 +503,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
  *    to include in the query.
  *  @param name Required. The name of the key to be migrated, in the format
- *    "projects/{project}/keys/{key}".
+ *    `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysMigrate
  */
@@ -523,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysPatch : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  The resource name for the Key in the format "projects/{project}/keys/{key}".
+ *  The resource name for the Key in the format `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -544,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key to include in
  *    the query.
  *  @param name The resource name for the Key in the format
- *    "projects/{project}/keys/{key}".
+ *    `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysPatch
  */
@@ -566,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The public key name linked to the requested secret key in the
- *  format "projects/{project}/keys/{key}".
+ *  format `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -578,7 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  legacy secret key only in a 3rd party integration with legacy reCAPTCHA.
  *
  *  @param key Required. The public key name linked to the requested secret key
- *    in the format "projects/{project}/keys/{key}".
+ *    in the format `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey
  */
@@ -599,7 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the project to search related account group
  *  memberships from. Specify the project name in the following format:
- *  "projects/{project}".
+ *  `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -614,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param project Required. The name of the project to search related account
  *    group memberships from. Specify the project name in the following format:
- *    "projects/{project}".
+ *    `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
  */
@@ -650,7 +650,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project to list related account groups from, in
- *  the format "projects/{project}".
+ *  the format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -661,7 +661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  List groups of related accounts.
  *
  *  @param parent Required. The name of the project to list related account
- *    groups from, in the format "projects/{project}".
+ *    groups from, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList
  *

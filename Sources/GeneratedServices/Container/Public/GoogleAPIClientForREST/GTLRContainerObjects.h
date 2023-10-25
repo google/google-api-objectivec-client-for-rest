@@ -116,6 +116,8 @@
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationProgress;
+@class GTLRContainer_ParentProductConfig;
+@class GTLRContainer_ParentProductConfig_Labels;
 @class GTLRContainer_PlacementPolicy;
 @class GTLRContainer_PodCIDROverprovisionConfig;
 @class GTLRContainer_PrivateClusterConfig;
@@ -129,6 +131,8 @@
 @class GTLRContainer_ResourceLabels;
 @class GTLRContainer_ResourceLabels_Labels;
 @class GTLRContainer_ResourceLimit;
+@class GTLRContainer_ResourceManagerTags;
+@class GTLRContainer_ResourceManagerTags_Tags;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SandboxConfig;
 @class GTLRContainer_SecurityPostureConfig;
@@ -1148,6 +1152,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Delete
  *  Value: "DELETE_NODE_POOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
+/**
+ *  Fleet features of GKE Enterprise are being upgraded. The cluster should be
+ *  assumed to be blocked for other upgrades until the operation finishes.
+ *
+ *  Value: "FLEET_FEATURE_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_FleetFeatureUpgrade;
 /**
  *  A problem has been detected with the control plane and is being repaired.
  *  This operation type is initiated by GKE. For more details, see
@@ -2838,6 +2849,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Notification configuration of the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *notificationConfig;
 
+/**
+ *  The configuration of the parent product of the cluster. This field is used
+ *  by Google internal products that are built on top of the GKE cluster and
+ *  take the ownership of the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *parentProductConfig;
+
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
 
@@ -3198,6 +3216,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *desiredNodePoolAutoConfigNetworkTags;
 
 /**
+ *  The desired resource manager tags that apply to all auto-provisioned node
+ *  pools in autopilot clusters and node auto-provisioning enabled clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags *desiredNodePoolAutoConfigResourceManagerTags;
+
+/**
  *  Autoscaler configuration for the node pool specified in
  *  desired_node_pool_id. If there is only one pool in the cluster and
  *  desired_node_pool_id is not provided then the change applies to that single
@@ -3229,6 +3253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired notification configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *desiredNotificationConfig;
+
+/** The desired parent product config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *desiredParentProductConfig;
 
 /** The desired private cluster configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
@@ -3630,16 +3657,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  EphemeralStorageLocalSsdConfig contains configuration for the node ephemeral
- *  storage using Local SSD.
+ *  storage using Local SSDs.
  */
 @interface GTLRContainer_EphemeralStorageLocalSsdConfig : GTLRObject
 
 /**
  *  Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces.
- *  Each local SSD is 375 GB in size. If zero, it means to disable using local
- *  SSDs as ephemeral storage. The limit for this value is dependent upon the
- *  maximum number of disks available on a machine per zone. See:
+ *  A zero (or unset) value has different meanings depending on machine type
+ *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
+ *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
+ *  storage. The limit for this value is dependent upon the maximum number of
+ *  disk available on a machine per zone. See:
  *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *  2. For Gen3 machines which dictate a specific number of local ssds, zero (or
+ *  unset) means to use the default number of local ssds that goes with that
+ *  machine type. For example, for a c3-standard-8-lssd machine, 2 local ssds
+ *  would be provisioned. For c3-standard-8 (which doesn't support local ssds),
+ *  0 will be provisioned. See
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  for more info.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4412,16 +4448,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  LocalNvmeSsdBlockConfig contains configuration for using raw-block local
- *  NVMe SSD.
+ *  NVMe SSDs
  */
 @interface GTLRContainer_LocalNvmeSsdBlockConfig : GTLRObject
 
 /**
- *  The number of raw-block local NVMe SSD disks to be attached to the node.
- *  Each local SSD is 375 GB in size. If zero, it means no raw-block local NVMe
- *  SSD disks to be attached to the node. The limit for this value is dependent
- *  upon the maximum number of disks available on a machine per zone. See:
+ *  Number of local NVMe SSDs to use. The limit for this value is dependent upon
+ *  the maximum number of disk available on a machine per zone. See:
  *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *  A zero (or unset) value has different meanings depending on machine type
+ *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
+ *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
+ *  storage. 2. For Gen3 machines which dictate a specific number of local ssds,
+ *  zero (or unset) means to use the default number of local ssds that goes with
+ *  that machine type. For example, for a c3-standard-8-lssd machine, 2 local
+ *  ssds would be provisioned. For c3-standard-8 (which doesn't support local
+ *  ssds), 0 will be provisioned. See
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  for more info.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5160,6 +5204,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_ResourceLabels *resourceLabels;
 
+/**
+ *  A map of resource manager tag keys and values to be attached to the nodes.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags *resourceManagerTags;
+
 /** Sandbox configuration for this node. */
 @property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
 
@@ -5634,6 +5683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *networkTags;
 
+/**
+ *  Resource manager tag keys and values to be attached to the nodes for
+ *  managing Compute Engine firewalls using Network Firewall Policies.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags *resourceManagerTags;
+
 @end
 
 
@@ -5863,6 +5918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_Operation_OperationType_DeleteNodePool The node
  *        pool is being deleted. The node pool should be assumed to be unusable
  *        as soon as this operation starts. (Value: "DELETE_NODE_POOL")
+ *    @arg @c kGTLRContainer_Operation_OperationType_FleetFeatureUpgrade Fleet
+ *        features of GKE Enterprise are being upgraded. The cluster should be
+ *        assumed to be blocked for other upgrades until the operation finishes.
+ *        (Value: "FLEET_FEATURE_UPGRADE")
  *    @arg @c kGTLRContainer_Operation_OperationType_RepairCluster A problem has
  *        been detected with the control plane and is being repaired. This
  *        operation type is initiated by GKE. For more details, see
@@ -6029,6 +6088,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
+@end
+
+
+/**
+ *  ParentProductConfig is the configuration of the parent product of the
+ *  cluster. This field is used by Google internal products that are built on
+ *  top of a GKE cluster and take the ownership of the cluster.
+ */
+@interface GTLRContainer_ParentProductConfig : GTLRObject
+
+/** Labels contain the configuration of the parent product. */
+@property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig_Labels *labels;
+
+/** Name of the parent product associated with the cluster. */
+@property(nonatomic, copy, nullable) NSString *productName;
+
+@end
+
+
+/**
+ *  Labels contain the configuration of the parent product.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_ParentProductConfig_Labels : GTLRObject
 @end
 
 
@@ -6376,6 +6463,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Resource name "cpu", "memory" or gpu-specific string. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
+@end
+
+
+/**
+ *  A map of resource manager tag keys and values to be attached to the nodes
+ *  for managing Compute Engine firewalls using Network Firewall Policies. Tags
+ *  must be according to specifications in
+ *  https://cloud.google.com/vpc/docs/tags-firewalls-overview#specifications. A
+ *  maximum of 5 tag key-value pairs can be specified. Existing tags will be
+ *  replaced with new values.
+ */
+@interface GTLRContainer_ResourceManagerTags : GTLRObject
+
+/**
+ *  TagKeyValue must be in one of the following formats ([KEY]=[VALUE]) 1.
+ *  `tagKeys/{tag_key_id}=tagValues/{tag_value_id}` 2.
+ *  `{org_id}/{tag_key_name}={tag_value_name}` 3.
+ *  `{project_id}/{tag_key_name}={tag_value_name}`
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags_Tags *tags;
+
+@end
+
+
+/**
+ *  TagKeyValue must be in one of the following formats ([KEY]=[VALUE]) 1.
+ *  `tagKeys/{tag_key_id}=tagValues/{tag_value_id}` 2.
+ *  `{org_id}/{tag_key_name}={tag_value_name}` 3.
+ *  `{project_id}/{tag_key_name}={tag_value_name}`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_ResourceManagerTags_Tags : GTLRObject
 @end
 
 
@@ -7755,6 +7878,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
+
+/**
+ *  Desired resource manager tag keys and values to be attached to the nodes for
+ *  managing Compute Engine firewalls using Network Firewall Policies. Existing
+ *  tags will be replaced with new values.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags *resourceManagerTags;
 
 /**
  *  The desired network tags to be applied to all nodes in the node pool. If

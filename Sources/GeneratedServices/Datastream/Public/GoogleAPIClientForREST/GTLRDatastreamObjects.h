@@ -54,6 +54,7 @@
 @class GTLRDatastream_OracleRdbms;
 @class GTLRDatastream_OracleSchema;
 @class GTLRDatastream_OracleSourceConfig;
+@class GTLRDatastream_OracleSslConfig;
 @class GTLRDatastream_OracleTable;
 @class GTLRDatastream_PostgresqlColumn;
 @class GTLRDatastream_PostgresqlObjectIdentifier;
@@ -1214,11 +1215,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MysqlLogPosition : GTLRObject
 
-/** The binary log file name. */
+/** Required. The binary log file name. */
 @property(nonatomic, copy, nullable) NSString *logFile;
 
 /**
- *  The position within the binary log file. Default is head of file.
+ *  Optional. The position within the binary log file. Default is head of file.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1591,6 +1592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Required. Hostname for the Oracle connection. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
+/** Optional. SSL configuration for the Oracle connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleSslConfig *oracleSslConfig;
+
 /** Required. Password for the Oracle connection. */
 @property(nonatomic, copy, nullable) NSString *password;
 
@@ -1678,6 +1682,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Stream large object values. NOTE: This feature is currently experimental.
  */
 @property(nonatomic, strong, nullable) GTLRDatastream_StreamLargeObjects *streamLargeObjects;
+
+@end
+
+
+/**
+ *  Oracle SSL configuration information.
+ */
+@interface GTLRDatastream_OracleSslConfig : GTLRObject
+
+/**
+ *  Input only. PEM-encoded certificate of the CA that signed the source
+ *  database server's certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *caCertificate;
+
+/**
+ *  Output only. Indicates whether the ca_certificate field has been set for
+ *  this Connection-Profile.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caCertificateSet;
 
 @end
 
@@ -2217,6 +2243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Labels. */
 @property(nonatomic, strong, nullable) GTLRDatastream_Stream_Labels *labels;
+
+/**
+ *  Output only. If the stream was recovered, the time of the last recovery.
+ *  Note: This field is currently experimental.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRecoveryTime;
 
 /** Output only. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;

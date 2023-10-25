@@ -399,6 +399,117 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/discoveryConfigs";
+  GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.organizations.locations.discoveryConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.organizations.locations.discoveryConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.organizations.locations.discoveryConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsList
+
+@dynamic orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/discoveryConfigs";
+  GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse class];
+  query.loggingName = @"dlp.organizations.locations.discoveryConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.organizations.locations.discoveryConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_OrganizationsLocationsDlpJobsList
 
 @dynamic filter, locationId, orderBy, pageSize, pageToken, parent, type;
@@ -1628,6 +1739,117 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.name = name;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate class];
   query.loggingName = @"dlp.projects.locations.deidentifyTemplates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/discoveryConfigs";
+  GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.projects.locations.discoveryConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.projects.locations.discoveryConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.projects.locations.discoveryConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsList
+
+@dynamic orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/discoveryConfigs";
+  GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse class];
+  query.loggingName = @"dlp.projects.locations.discoveryConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig class];
+  query.loggingName = @"dlp.projects.locations.discoveryConfigs.patch";
   return query;
 }
 

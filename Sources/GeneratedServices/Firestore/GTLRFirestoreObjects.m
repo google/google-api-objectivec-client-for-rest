@@ -680,6 +680,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
 //
 
@@ -702,6 +711,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return @{ @"ETag" : @"etag" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata
 @end
 
 
@@ -780,6 +798,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1FlatIndex
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1FlatIndex
 @end
 
 
@@ -874,7 +901,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1IndexField
-@dynamic arrayConfig, fieldPath, order;
+@dynamic arrayConfig, fieldPath, order, vectorConfig;
 @end
 
 
@@ -1063,6 +1090,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1VectorConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1VectorConfig
+@dynamic dimension, flat;
 @end
 
 

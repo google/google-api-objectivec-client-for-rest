@@ -279,25 +279,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 // ----------------------------------------------------------------------------
 // GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
 
-/**
- *  Cross-region internal Application Load Balancer
- *
- *  Value: "globalL7ilb"
- */
+/** Value: "globalL7ilb" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb;
 /** Value: "none" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None;
-/**
- *  Regional internal passthrough Network Load Balancer
- *
- *  Value: "regionalL4ilb"
- */
+/** Value: "regionalL4ilb" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb;
-/**
- *  Regional internal Application Load Balancer
- *
- *  Value: "regionalL7ilb"
- */
+/** Value: "regionalL7ilb" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb;
 
 /**
@@ -1894,10 +1882,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Configures dynamic query responses based on geo location of querying user or
- *  a weighted round robin based routing policy. A ResourceRecordSet should only
- *  have either rrdata (static) or routing_policy (dynamic). An error is
- *  returned otherwise.
+ *  Configures dynamic query responses based on either the geo location of the
+ *  querying user or a weighted round robin based routing policy. A valid
+ *  ResourceRecordSet contains only rrdata (for static resolution) or a
+ *  routing_policy (for dynamic resolution).
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicy *routingPolicy;
 
@@ -1952,11 +1940,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  The presence of this field indicates that there exist more results following
  *  your last page of results in pagination order. To fetch them, make another
  *  list request using this value as your pagination token. This lets you
- *  retrieve complete contents of even larger collections, one page at a time.
- *  However, if the contents of the collection change between the first and last
- *  paginated list request, the set of elements returned are an inconsistent
- *  view of the collection. You cannot retrieve a consistent snapshot of a
- *  collection larger than the maximum page size.
+ *  retrieve the complete contents of even larger collections, one page at a
+ *  time. However, if the collection changes between paginated list requests,
+ *  the set of elements returned is an inconsistent view of the collection. You
+ *  cannot retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2285,12 +2273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /**
  *  Without fencing, if health check fails for all configured items in the
- *  current geo bucket, we'll failover to the next nearest geo bucket. With
- *  fencing, if health check is enabled, as long as some targets in the current
- *  geo bucket are healthy, we'll return only the healthy targets. However, if
- *  they're all unhealthy, we won't failover to the next nearest bucket, we'll
- *  simply return all the items in the current bucket even though they're
- *  unhealthy.
+ *  current geo bucket, we failover to the next nearest geo bucket. With
+ *  fencing, if health checking is enabled, as long as some targets in the
+ *  current geo bucket are healthy, we return only the healthy targets. However,
+ *  if all targets are unhealthy, we don't failover to the next nearest bucket;
+ *  instead, we return all the items in the current bucket even when all targets
+ *  are unhealthy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2333,9 +2321,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
 
 /**
- *  DNSSEC generated signatures for all the rrdata within this item. Note that
- *  if health checked targets are provided for DNSSEC enabled zones, there's a
- *  restriction of 1 ip per item. .
+ *  DNSSEC generated signatures for all the rrdata within this item. If health
+ *  checked targets are provided for DNSSEC enabled zones, there's a restriction
+ *  of 1 IP address per item.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
@@ -2355,15 +2343,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
- *  GTLRDns_RRSetRoutingPolicyLoadBalancerTarget
+ *  The configuration for an individual load balancer to health check.
  */
 @interface GTLRDns_RRSetRoutingPolicyLoadBalancerTarget : GTLRObject
 
-/** The frontend IP address of the Load Balancer to health check. */
+/** The frontend IP address of the load balancer to health check. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  ipProtocol
+ *  The protocol of the load balancer to health check.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp Value
@@ -2378,37 +2366,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The type of Load Balancer specified by this target. Must match the
- *  configuration of the Load Balancer located at the LoadBalancerTarget's IP
- *  address/port and region.
+ *  The type of load balancer specified by this target. This value must match
+ *  the configuration of the load balancer located at the LoadBalancerTarget's
+ *  IP address, port, and region. Use the following: - *regionalL4ilb*: for a
+ *  regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for
+ *  a regional internal Application Load Balancer. - *globalL7ilb*: for a global
+ *  internal Application Load Balancer.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb
- *        Cross-region internal Application Load Balancer (Value: "globalL7ilb")
+ *        Value "globalL7ilb"
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None
  *        Value "none"
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb
- *        Regional internal passthrough Network Load Balancer (Value:
- *        "regionalL4ilb")
+ *        Value "regionalL4ilb"
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb
- *        Regional internal Application Load Balancer (Value: "regionalL7ilb")
+ *        Value "regionalL7ilb"
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
 /**
- *  The fully qualified url of the network on which the ILB is present. This
- *  should be formatted like
+ *  The fully qualified URL of the network that the load balancer is attached
+ *  to. This should be formatted like
  *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
-/** The configured port of the Load Balancer. */
+/** The configured port of the load balancer. */
 @property(nonatomic, copy, nullable) NSString *port;
 
-/** The project ID in which the ILB exists. */
+/** The project ID in which the load balancer is located. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** The region in which the ILB exists. */
+/** The region in which the load balancer is located. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 @end
@@ -2429,6 +2420,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *backupGeoTargets;
 
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Endpoints that are health checked before making the routing decision.
+ *  Unhealthy endpoints are omitted from the results. If all endpoints are
+ *  unhealthy, we serve a response based on the backup_geo_targets.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *primaryTargets;
 
 /**
@@ -2470,11 +2467,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @interface GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem : GTLRObject
 
 /**
- *  endpoints that need to be health checked before making the routing decision.
- *  The unhealthy endpoints will be omitted from the result. If all endpoints
- *  within a buckete are unhealthy, we'll choose a different bucket (sampled
- *  w.r.t. its weight) for responding. Note that if DNSSEC is enabled for this
- *  zone, only one of rrdata or health_checked_targets can be set.
+ *  Endpoints that are health checked before making the routing decision. The
+ *  unhealthy endpoints are omitted from the result. If all endpoints within a
+ *  bucket are unhealthy, we choose a different bucket (sampled with respect to
+ *  its weight) for responding. If DNSSEC is enabled for this zone, only one of
+ *  rrdata or health_checked_targets can be set.
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *healthCheckedTargets;
 
@@ -2484,15 +2481,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  DNSSEC generated signatures for all the rrdata within this item. Note that
  *  if health checked targets are provided for DNSSEC enabled zones, there's a
- *  restriction of 1 ip per item. .
+ *  restriction of 1 IP address per item.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
- *  The weight corresponding to this subset of rrdata. When multiple
- *  WeightedRoundRobinPolicyItems are configured, the probability of returning
- *  an rrset is proportional to its weight relative to the sum of weights
- *  configured for all items. This weight should be non-negative.
+ *  The weight corresponding to this WrrPolicyItem object. When multiple
+ *  WrrPolicyItem objects are configured, the probability of returning an
+ *  WrrPolicyItem object's data is proportional to its weight relative to the
+ *  sum of weights configured for all items. This weight must be non-negative.
  *
  *  Uses NSNumber of doubleValue.
  */

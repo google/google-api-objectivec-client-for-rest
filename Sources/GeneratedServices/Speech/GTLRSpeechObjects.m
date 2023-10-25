@@ -13,6 +13,16 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSpeech_CustomClass.state
+NSString * const kGTLRSpeech_CustomClass_State_Active          = @"ACTIVE";
+NSString * const kGTLRSpeech_CustomClass_State_Deleted         = @"DELETED";
+NSString * const kGTLRSpeech_CustomClass_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSpeech_PhraseSet.state
+NSString * const kGTLRSpeech_PhraseSet_State_Active           = @"ACTIVE";
+NSString * const kGTLRSpeech_PhraseSet_State_Deleted          = @"DELETED";
+NSString * const kGTLRSpeech_PhraseSet_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRSpeech_RecognitionConfig.encoding
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Amr    = @"AMR";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb  = @"AMR_WB";
@@ -161,13 +171,32 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_CustomClass
-@dynamic customClassId, items, kmsKeyName, kmsKeyVersionName, name;
+@dynamic annotations, customClassId, deleteTime, displayName, ETag, expireTime,
+         items, kmsKeyName, kmsKeyVersionName, name, reconciling, state, uid;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"items" : [GTLRSpeech_ClassItem class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_CustomClass_Annotations
+//
+
+@implementation GTLRSpeech_CustomClass_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -341,13 +370,32 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_PhraseSet
-@dynamic boost, kmsKeyName, kmsKeyVersionName, name, phrases;
+@dynamic annotations, boost, deleteTime, displayName, ETag, expireTime,
+         kmsKeyName, kmsKeyVersionName, name, phrases, reconciling, state, uid;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"phrases" : [GTLRSpeech_Phrase class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_PhraseSet_Annotations
+//
+
+@implementation GTLRSpeech_PhraseSet_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -115,6 +115,7 @@
 @class GTLRGKEOnPrem_VmwareAdminManualLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminMetalLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminNetworkConfig;
+@class GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig;
 @class GTLRGKEOnPrem_VmwareAdminSeesawConfig;
 @class GTLRGKEOnPrem_VmwareAdminVCenterConfig;
 @class GTLRGKEOnPrem_VmwareAdminVipConfig;
@@ -918,7 +919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  ## Resource that represents a bare metal admin cluster.
+ *  Resource that represents a bare metal admin cluster. LINT.IfChange
  */
 @interface GTLRGKEOnPrem_BareMetalAdminCluster : GTLRObject
 
@@ -1521,7 +1522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  Resource that represents a bare metal user cluster.
+ *  Resource that represents a bare metal user cluster. LINT.IfChange
  */
 @interface GTLRGKEOnPrem_BareMetalCluster : GTLRObject
 
@@ -3746,8 +3747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Current version of the dependency e.g. 1.15.0. */
 @property(nonatomic, copy, nullable) NSString *currentVersion;
 
-/** Local name of the dependency. */
-@property(nonatomic, copy, nullable) NSString *localName;
+/** Membership names are formatted as `projects//locations//memberships/`. */
+@property(nonatomic, copy, nullable) NSString *membership;
 
 /** Resource name of the dependency. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -4000,6 +4001,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwarePlatformConfig *platformConfig;
 
 /**
+ *  Output only. The VMware admin cluster prepared secrets configuration. It
+ *  should always be enabled by the Central API, instead of letting users set
+ *  it.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig *preparedSecrets;
+
+/**
  *  Output only. If set, there are currently changes in flight to the VMware
  *  admin cluster.
  *
@@ -4246,6 +4254,22 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** vcenter_network specifies vCenter network name. */
 @property(nonatomic, copy, nullable) NSString *vcenterNetwork;
+
+@end
+
+
+/**
+ *  VmwareAdminPreparedSecretsConfig represents configuration for admin cluster
+ *  prepared secrets.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig : GTLRObject
+
+/**
+ *  Whether prepared secrets is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -4567,8 +4591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_ValidationCheck *validationCheck;
 
 /**
- *  Output only. VmwareVCenterConfig specifies vCenter config for the user
- *  cluster. Inherited from the admin cluster.
+ *  VmwareVCenterConfig specifies vCenter config for the user cluster. If
+ *  unspecified, it is inherited from the admin cluster.
  */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareVCenterConfig *vcenter;
 
@@ -5253,7 +5277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @interface GTLRGKEOnPrem_VmwareVCenterConfig : GTLRObject
 
-/** The vCenter IP address. */
+/** Output only. The vCenter IP address. */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /** Contains the vCenter CA certificate public key for SSL verification. */
@@ -5284,6 +5308,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Contains information about a specific Anthos on VMware version.
  */
 @interface GTLRGKEOnPrem_VmwareVersionInfo : GTLRObject
+
+/** The list of upgrade dependencies for this version. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_UpgradeDependency *> *dependencies;
 
 /**
  *  If set, the cluster dependencies (e.g. the admin cluster, other user

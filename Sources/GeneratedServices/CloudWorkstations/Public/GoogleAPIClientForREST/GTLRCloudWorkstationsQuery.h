@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Workstations API (workstations/v1beta)
+//   Cloud Workstations API (workstations/v1)
 // Description:
 //   Allows administrators to create managed developer environments in the
 //   cloud.
@@ -31,6 +31,81 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: workstations.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
+ */
+@interface GTLRCloudWorkstationsQuery_ProjectsLocationsGet : GTLRCloudWorkstationsQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudWorkstations_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: workstations.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
+ */
+@interface GTLRCloudWorkstationsQuery_ProjectsLocationsList : GTLRCloudWorkstationsQuery
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudWorkstations_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -347,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this workstation cluster. */
+/** Identifier. Full name of this workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -371,7 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_WorkstationCluster to include in
  *    the query.
- *  @param name Full name of this workstation cluster.
+ *  @param name Identifier. Full name of this workstation cluster.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersPatch
  */
@@ -635,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this workstation configuration. */
+/** Identifier. Full name of this workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -659,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_WorkstationConfig to include in
  *    the query.
- *  @param name Full name of this workstation configuration.
+ *  @param name Identifier. Full name of this workstation configuration.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsPatch
  */
@@ -1035,7 +1110,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
-/** Full name of this workstation. */
+/** Identifier. Full name of this workstation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1059,7 +1134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudWorkstations_Workstation to include in the
  *    query.
- *  @param name Full name of this workstation.
+ *  @param name Identifier. Full name of this workstation.
  *
  *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsPatch
  */

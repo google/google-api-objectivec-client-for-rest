@@ -16,33 +16,28 @@
 // Constants
 
 // collection
-NSString * const kGTLRGamesCollectionAll                       = @"ALL";
-NSString * const kGTLRGamesCollectionCollectionUnspecified     = @"COLLECTION_UNSPECIFIED";
-NSString * const kGTLRGamesCollectionConnected                 = @"CONNECTED";
-NSString * const kGTLRGamesCollectionFriends                   = @"FRIENDS";
-NSString * const kGTLRGamesCollectionFriendsAll                = @"FRIENDS_ALL";
-NSString * const kGTLRGamesCollectionPublic                    = @"PUBLIC";
-NSString * const kGTLRGamesCollectionScoreCollectionUnspecified = @"SCORE_COLLECTION_UNSPECIFIED";
-NSString * const kGTLRGamesCollectionSocial                    = @"SOCIAL";
-NSString * const kGTLRGamesCollectionVisible                   = @"VISIBLE";
+NSString * const kGTLRGamesCollectionAll        = @"ALL";
+NSString * const kGTLRGamesCollectionConnected  = @"CONNECTED";
+NSString * const kGTLRGamesCollectionFriends    = @"FRIENDS";
+NSString * const kGTLRGamesCollectionFriendsAll = @"FRIENDS_ALL";
+NSString * const kGTLRGamesCollectionPublic     = @"PUBLIC";
+NSString * const kGTLRGamesCollectionSocial     = @"SOCIAL";
+NSString * const kGTLRGamesCollectionVisible    = @"VISIBLE";
 
 // endPointType
-NSString * const kGTLRGamesEndPointTypeEndPointTypeUnspecified = @"END_POINT_TYPE_UNSPECIFIED";
-NSString * const kGTLRGamesEndPointTypeProfileCreation         = @"PROFILE_CREATION";
-NSString * const kGTLRGamesEndPointTypeProfileSettings         = @"PROFILE_SETTINGS";
+NSString * const kGTLRGamesEndPointTypeProfileCreation = @"PROFILE_CREATION";
+NSString * const kGTLRGamesEndPointTypeProfileSettings = @"PROFILE_SETTINGS";
 
 // includeRankType
-NSString * const kGTLRGamesIncludeRankTypeAll                  = @"ALL";
-NSString * const kGTLRGamesIncludeRankTypeFriends              = @"FRIENDS";
-NSString * const kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified = @"INCLUDE_RANK_TYPE_UNSPECIFIED";
-NSString * const kGTLRGamesIncludeRankTypePublic               = @"PUBLIC";
-NSString * const kGTLRGamesIncludeRankTypeSocial               = @"SOCIAL";
+NSString * const kGTLRGamesIncludeRankTypeAll     = @"ALL";
+NSString * const kGTLRGamesIncludeRankTypeFriends = @"FRIENDS";
+NSString * const kGTLRGamesIncludeRankTypePublic  = @"PUBLIC";
+NSString * const kGTLRGamesIncludeRankTypeSocial  = @"SOCIAL";
 
 // platformType
-NSString * const kGTLRGamesPlatformTypeAndroid                 = @"ANDROID";
-NSString * const kGTLRGamesPlatformTypeIos                     = @"IOS";
-NSString * const kGTLRGamesPlatformTypePlatformTypeUnspecified = @"PLATFORM_TYPE_UNSPECIFIED";
-NSString * const kGTLRGamesPlatformTypeWebApp                  = @"WEB_APP";
+NSString * const kGTLRGamesPlatformTypeAndroid = @"ANDROID";
+NSString * const kGTLRGamesPlatformTypeIos     = @"IOS";
+NSString * const kGTLRGamesPlatformTypeWebApp  = @"WEB_APP";
 
 // state
 NSString * const kGTLRGamesStateAll      = @"ALL";
@@ -51,11 +46,10 @@ NSString * const kGTLRGamesStateRevealed = @"REVEALED";
 NSString * const kGTLRGamesStateUnlocked = @"UNLOCKED";
 
 // timeSpan
-NSString * const kGTLRGamesTimeSpanAll                      = @"ALL";
-NSString * const kGTLRGamesTimeSpanAllTime                  = @"ALL_TIME";
-NSString * const kGTLRGamesTimeSpanDaily                    = @"DAILY";
-NSString * const kGTLRGamesTimeSpanScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
-NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
+NSString * const kGTLRGamesTimeSpanAll     = @"ALL";
+NSString * const kGTLRGamesTimeSpanAllTime = @"ALL_TIME";
+NSString * const kGTLRGamesTimeSpanDaily   = @"DAILY";
+NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -478,6 +472,91 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
   query.collection = collection;
   query.expectedObjectClass = [GTLRGames_PlayerListResponse class];
   query.loggingName = @"games.players.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_RecallLinkPersona
+
++ (instancetype)queryWithObject:(GTLRGames_LinkPersonaRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"games/v1/recall:linkPersona";
+  GTLRGamesQuery_RecallLinkPersona *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRGames_LinkPersonaResponse class];
+  query.loggingName = @"games.recall.linkPersona";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_RecallResetPersona
+
++ (instancetype)queryWithObject:(GTLRGames_ResetPersonaRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"games/v1/recall:resetPersona";
+  GTLRGamesQuery_RecallResetPersona *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRGames_ResetPersonaResponse class];
+  query.loggingName = @"games.recall.resetPersona";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_RecallRetrieveTokens
+
+@dynamic sessionId;
+
++ (instancetype)queryWithSessionId:(NSString *)sessionId {
+  NSArray *pathParams = @[ @"sessionId" ];
+  NSString *pathURITemplate = @"games/v1/recall/tokens/{sessionId}";
+  GTLRGamesQuery_RecallRetrieveTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sessionId = sessionId;
+  query.expectedObjectClass = [GTLRGames_RetrievePlayerTokensResponse class];
+  query.loggingName = @"games.recall.retrieveTokens";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_RecallUnlinkPersona
+
++ (instancetype)queryWithObject:(GTLRGames_UnlinkPersonaRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"games/v1/recall:unlinkPersona";
+  GTLRGamesQuery_RecallUnlinkPersona *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRGames_UnlinkPersonaResponse class];
+  query.loggingName = @"games.recall.unlinkPersona";
   return query;
 }
 

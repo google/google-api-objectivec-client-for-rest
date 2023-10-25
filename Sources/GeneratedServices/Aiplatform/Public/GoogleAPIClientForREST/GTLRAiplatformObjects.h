@@ -65,6 +65,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Dataset;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Dataset_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeleteFeatureValuesRequestSelectEntity;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeleteFeatureValuesRequestSelectTimeRangeAndFeature;
@@ -239,7 +240,16 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataContentValidationStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Neighbor;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NetworkSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NfsMount;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookEucConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_PipelineSpec;
@@ -308,6 +318,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaModelevaluationMetricsVideoActionMetricsConfidenceMetrics;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictionResult_Instance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictionResultError;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictPredictionTftFeatureImportance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictPredictionVideoObjectTrackingPredictionResultFrame;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaTablesDatasetMetadataBigQuerySource;
@@ -399,6 +411,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecParameterSpecDiscreteValueSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecParameterSpecDoubleValueSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecParameterSpecIntegerValueSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecStudyStoppingConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1StudyTimeConstraint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor_StructVal;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensorboard;
@@ -422,6 +436,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Trial;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Trial_WebAccessUris;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TrialContext;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrialParameter;
 @class GTLRAiplatform_GoogleCloudAiplatformV1UndeployModelRequest_TrafficSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1UnmanagedContainerModel;
@@ -1351,7 +1366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Hyperp
 
 /**
  *  BatchUpdate: user can call UpdateIndex with files on Cloud Storage of
- *  datapoints to update.
+ *  Datapoints to update.
  *
  *  Value: "BATCH_UPDATE"
  */
@@ -2002,6 +2017,115 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime.healthState
+
+/**
+ *  Unspecified health state.
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_HealthStateUnspecified;
+/**
+ *  NotebookRuntime is in healthy state. Applies to ACTIVE state.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_Healthy;
+/**
+ *  NotebookRuntime is in unhealthy state. Applies to ACTIVE state.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_Unhealthy;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime.notebookRuntimeType
+
+/**
+ *  Unspecified notebook runtime type, NotebookRuntimeType will default to
+ *  USER_DEFINED.
+ *
+ *  Value: "NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_NotebookRuntimeTypeUnspecified;
+/**
+ *  runtime or template with system defined configurations.
+ *
+ *  Value: "ONE_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_OneClick;
+/**
+ *  runtime or template with coustomized configurations from user.
+ *
+ *  Value: "USER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_UserDefined;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime.runtimeState
+
+/**
+ *  NotebookRuntime is in starting state.
+ *
+ *  Value: "BEING_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStarted;
+/**
+ *  NotebookRuntime is in stopping state.
+ *
+ *  Value: "BEING_STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStopped;
+/**
+ *  NotebookRuntime is in upgrading state. It is in the middle of upgrading
+ *  process.
+ *
+ *  Value: "BEING_UPGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingUpgraded;
+/**
+ *  NotebookRuntime is in running state.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Running;
+/**
+ *  Unspecified runtime state.
+ *
+ *  Value: "RUNTIME_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_RuntimeStateUnspecified;
+/**
+ *  NotebookRuntime is in stopped state.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Stopped;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate.notebookRuntimeType
+
+/**
+ *  Unspecified notebook runtime type, NotebookRuntimeType will default to
+ *  USER_DEFINED.
+ *
+ *  Value: "NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_NotebookRuntimeTypeUnspecified;
+/**
+ *  runtime or template with system defined configurations.
+ *
+ *  Value: "ONE_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_OneClick;
+/**
+ *  runtime or template with coustomized configurations from user.
+ *
+ *  Value: "USER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob.state
 
 /**
@@ -2549,6 +2673,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictionResultError_Status_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry.type
+
+/**
+ *  Uses Enterprise Search to check the grounding.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Enterprise;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Unspecified;
+/**
+ *  Uses Web Search to check the grounding.
+ *
+ *  Value: "WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1SchemaTrainingjobDefinitionAutoMlImageClassificationInputs.modelType
@@ -3779,6 +3921,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Artifact_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata information for NotebookService.AssignNotebookRuntime.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AssignNotebookRuntimeOperationMetadata : GTLRObject
+
+/** The operation generic information. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+/**
+ *  A human-readable message that shows the intermediate progress details of
+ *  NotebookRuntime.
+ */
+@property(nonatomic, copy, nullable) NSString *progressMessage;
+
+@end
+
+
+/**
+ *  Request message for NotebookService.AssignNotebookRuntime.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AssignNotebookRuntimeRequest : GTLRObject
+
+/**
+ *  Required. Provide runtime specific information (e.g. runtime owner, notebook
+ *  id) used for NotebookRuntime assignment.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime *notebookRuntime;
+
+/** Optional. User specified ID for the notebook runtime. */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeId;
+
+/**
+ *  Required. The resource name of the NotebookRuntimeTemplate based on which a
+ *  NotebookRuntime will be assigned (reuse or create a new one).
+ */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeTemplate;
+
 @end
 
 
@@ -5218,7 +5400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
- *  Request message for FeaturestoreService.CreateFeature and
+ *  Request message for FeaturestoreService.CreateFeature. Request message for
  *  FeatureRegistryService.CreateFeature.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFeatureRequest : GTLRObject
@@ -5236,8 +5418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /**
  *  Required. The resource name of the EntityType or FeatureGroup to create a
- *  Feature. Format:
+ *  Feature. Format for entity_type as parent:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
  *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -5293,6 +5476,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Metadata information for NotebookService.CreateNotebookRuntimeTemplate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookRuntimeTemplateOperationMetadata : GTLRObject
+
+/** The operation generic information. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Request message for PipelineService.CreatePipelineJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreatePipelineJobRequest : GTLRObject
@@ -5310,7 +5504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  The ID to use for the PipelineJob, which will become the final component of
  *  the PipelineJob name. If not provided, an ID will be automatically
  *  generated. This value should be less than 128 characters, and valid
- *  characters are /a-z-/.
+ *  characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
 
@@ -5358,7 +5552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 /**
  *  Required. The ID to use for the Tensorboard run, which becomes the final
  *  component of the Tensorboard run's resource name. This value should be 1-128
- *  characters, and valid characters are /a-z-/.
+ *  characters, and valid characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *tensorboardRunId;
 
@@ -5624,6 +5818,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  field is left unspecified, the job is not peered with any network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The ID of the location to store protected artifacts. e.g. us-central1.
+ *  Populate only when the location is different than CustomJob location. List
+ *  of supported locations:
+ *  https://cloud.google.com/vertex-ai/docs/general/locations
+ */
+@property(nonatomic, copy, nullable) NSString *protectedArtifactLocationId;
 
 /**
  *  Optional. A list of names for the reserved ip ranges under the VPC network
@@ -6074,6 +6276,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Describes the dataset version.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion : GTLRObject
+
+/** Output only. Name of the associated BigQuery dataset. */
+@property(nonatomic, copy, nullable) NSString *bigQueryDatasetName;
+
+/** Output only. Timestamp when this DatasetVersion was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Used to perform consistent read-modify-write updates. If not set, a blind
+ *  "overwrite" update happens.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Output only. The resource name of the DatasetVersion. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Timestamp when this DatasetVersion was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  A description of resources that are dedicated to a DeployedModel, and that
  *  need a higher degree of manual configuration.
  */
@@ -6421,7 +6649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  provided ip ranges. Otherwise, the index might be deployed to any ip ranges
  *  under the provided VPC network. The value should be the name of the address
  *  (https://cloud.google.com/compute/docs/reference/rest/v1/addresses) Example:
- *  'vertex-ai-ip-range'.
+ *  ['vertex-ai-ip-range']. For more information about subnets and network IP
+ *  ranges, please see
+ *  https://cloud.google.com/vpc/docs/subnets#manually_created_subnet_ip_ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reservedIpRanges;
 
@@ -6540,7 +6770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 /**
  *  Immutable. The ID of the DeployedModel. If not provided upon deployment,
  *  Vertex AI will generate a value for this ID. This value should be 1-10
- *  characters, and valid characters are /[0-9]/.
+ *  characters, and valid characters are `/[0-9]/`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8532,13 +8762,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
- *  Feature Metadata information that describes an attribute of an entity type.
- *  For example, apple is an entity type, and color is a feature that describes
- *  apple.
+ *  Feature Metadata information. For example, color is a feature that describes
+ *  an apple.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Feature : GTLRObject
 
-/** Output only. Timestamp when this EntityType was created. */
+/**
+ *  Output only. Only applicable for Vertex AI Feature Store (Legacy). Timestamp
+ *  when this EntityType was created.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -8549,10 +8781,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. If not set, use the monitoring_config defined for the EntityType
- *  this Feature belongs to. Only Features with type (Feature.ValueType) BOOL,
- *  STRING, DOUBLE or INT64 can enable monitoring. If set to true, all types of
- *  data monitoring are disabled despite the config on EntityType.
+ *  Optional. Only applicable for Vertex AI Feature Store (Legacy). If not set,
+ *  use the monitoring_config defined for the EntityType this Feature belongs
+ *  to. Only Features with type (Feature.ValueType) BOOL, STRING, DOUBLE or
+ *  INT64 can enable monitoring. If set to true, all types of data monitoring
+ *  are disabled despite the config on EntityType.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8577,14 +8810,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Feature_Labels *labels;
 
 /**
- *  Output only. The list of historical stats and anomalies with specified
- *  objectives.
+ *  Output only. Only applicable for Vertex AI Feature Store (Legacy). The list
+ *  of historical stats and anomalies with specified objectives.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureMonitoringStatsAnomaly *> *monitoringStatsAnomalies;
 
 /**
  *  Immutable. Name of the Feature. Format:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
  *  The last part feature is assigned by the client. The feature can be up to 64
  *  characters long and can consist only of ASCII Latin letters A-Z and a-z,
  *  underscore(_), and ASCII digits 0-9 starting with a letter. The value will
@@ -8592,11 +8826,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. Timestamp when this EntityType was most recently updated. */
+/**
+ *  Output only. Only applicable for Vertex AI Feature Store (Legacy). Timestamp
+ *  when this EntityType was most recently updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Required. Immutable. Type of Feature value.
+ *  Immutable. Only applicable for Vertex AI Feature Store (Legacy). Type of
+ *  Feature value.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Bool Used
@@ -9997,6 +10235,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Immutable. Customer-managed encryption key spec for an Index. If set, this
+ *  Index and all sub-resources of this Index will be secured by this key.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
+
+/**
  *  Used to perform consistent read-modify-write updates. If not set, a blind
  *  "overwrite" update happens.
  */
@@ -10012,7 +10256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Index_IndexUpdateMethod_BatchUpdate
  *        BatchUpdate: user can call UpdateIndex with files on Cloud Storage of
- *        datapoints to update. (Value: "BATCH_UPDATE")
+ *        Datapoints to update. (Value: "BATCH_UPDATE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Index_IndexUpdateMethod_IndexUpdateMethodUnspecified
  *        Should not be used. (Value: "INDEX_UPDATE_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Index_IndexUpdateMethod_StreamUpdate
@@ -10109,7 +10353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 /**
  *  Optional. List of Restrict of the datapoint, used to perform "restricted
  *  searches" where boolean rule are used to filter the subset of the database
- *  eligible for matching. See:
+ *  eligible for matching. This uses categorical tokens. See:
  *  https://cloud.google.com/vertex-ai/docs/matching-engine/filtering
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction *> *restricts;
@@ -10142,14 +10386,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction : GTLRObject
 
-/** The attributes to allow in this namespace. eg: 'red' */
+/** The attributes to allow in this namespace. e.g.: 'red' */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowList;
 
-/** The attributes to deny in this namespace. eg: 'blue' */
+/** The attributes to deny in this namespace. e.g.: 'blue' */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *denyList;
 
 /**
- *  The namespace of this restriction. eg: color.
+ *  The namespace of this restriction. e.g.: color.
  *
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
@@ -10191,6 +10435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivateServiceConnect GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Customer-managed encryption key spec for an IndexEndpoint. If
+ *  set, this IndexEndpoint and all sub-resources of this IndexEndpoint will be
+ *  secured by this key.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec *encryptionSpec;
 
 /**
  *  Used to perform consistent read-modify-write updates. If not set, a blind
@@ -10719,6 +10970,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Response message for DatasetService.ListDatasetVersions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "datasetVersions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetVersionsResponse : GTLRCollectionObject
+
+/**
+ *  A list of DatasetVersions that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *> *datasetVersions;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for EndpointService.ListEndpoints.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11184,6 +11459,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Response message for NotebookService.ListNotebookRuntimes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "notebookRuntimes" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookRuntimesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve next page of results. Pass to
+ *  ListNotebookRuntimesRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of NotebookRuntimes in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime *> *notebookRuntimes;
+
+@end
+
+
+/**
+ *  Response message for NotebookService.ListNotebookRuntimeTemplates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "notebookRuntimeTemplates" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookRuntimeTemplatesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve next page of results. Pass to
+ *  ListNotebookRuntimeTemplatesRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of NotebookRuntimeTemplates in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate *> *notebookRuntimeTemplates;
+
+@end
+
+
+/**
  *  Request message for VizierService.ListOptimalTrials.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ListOptimalTrialsRequest : GTLRObject
@@ -11566,6 +11895,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  field is required.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Immutable. The topology of the TPUs. Corresponds to the TPU topologies
+ *  available from GKE. (Example: tpu_topology: "2x2x1").
+ */
+@property(nonatomic, copy, nullable) NSString *tpuTopology;
 
 @end
 
@@ -13135,6 +13470,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 @property(nonatomic, strong, nullable) NSNumber *enableLogging;
 
+/**
+ *  Resource names of the NotificationChannels to send alert. Must be of the
+ *  format `projects//notificationChannels/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notificationChannels;
+
 @end
 
 
@@ -14084,6 +14425,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Network spec.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NetworkSpec : GTLRObject
+
+/**
+ *  Whether to enable public internet access. Default false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInternetAccess;
+
+/**
+ *  The full name of the Google Compute Engine
+ *  [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks)
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The name of the subnet that this instance is in. Format:
+ *  `projects/{project_id_or_number}/regions/{region}/subnetworks/{subnetwork_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
  *  Represents a mount configuration for Network File System (NFS) to mount.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1NfsMount : GTLRObject
@@ -14108,6 +14476,349 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  The euc configuration of NotebookRuntimeTemplate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookEucConfig : GTLRObject
+
+/**
+ *  Output only. Whether ActAs check is bypassed for service account attached to
+ *  the VM. If false, we need ActAs check for the default Compute Engine Service
+ *  account. When a Runtime is created, a VM is allocated using Default Compute
+ *  Engine Service Account. Any user requesting to use this Runtime requires
+ *  Service Account User (ActAs) permission over this SA. If true, Runtime owner
+ *  is using EUC and does not require the above permission as VM no longer use
+ *  default Compute Engine SA, but a P4SA.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bypassActasCheck;
+
+/**
+ *  Input only. Whether EUC is disabled in this NotebookRuntimeTemplate. In
+ *  proto3, the default value of a boolean is false. In this way, by default EUC
+ *  will be enabled for NotebookRuntimeTemplate.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eucDisabled;
+
+@end
+
+
+/**
+ *  The idle shutdown configuration of NotebookRuntimeTemplate, which contains
+ *  the idle_timeout as required field.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig : GTLRObject
+
+/**
+ *  Whether Idle Shutdown is disabled in this NotebookRuntimeTemplate.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *idleShutdownDisabled;
+
+/**
+ *  Required. Duration is accurate to the second. In Notebook, Idle Timeout is
+ *  accurate to minute so the range of idle_timeout (second) is: 10 * 60 ~ 1440
+ *  * 60.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
+
+@end
+
+
+/**
+ *  A runtime is a virtual machine allocated to a particular user for a
+ *  particular Notebook file on temporary basis with lifetime limited to 24
+ *  hours.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime : GTLRObject
+
+/** Output only. Timestamp when this NotebookRuntime was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The description of the NotebookRuntime.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The display name of the NotebookRuntime. The name can be up to 128
+ *  characters long and can consist of any UTF-8 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Timestamp when this NotebookRuntime will be expired: 1. System
+ *  Predefined NotebookRuntime: 24 hours after creation. After expiration,
+ *  system predifined runtime will be deleted. 2. User created NotebookRuntime:
+ *  6 months after last upgrade. After expiration, user created runtime will be
+ *  stopped and allowed for upgrade.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/**
+ *  Output only. The health state of the NotebookRuntime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_HealthStateUnspecified
+ *        Unspecified health state. (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_Healthy
+ *        NotebookRuntime is in healthy state. Applies to ACTIVE state. (Value:
+ *        "HEALTHY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_Unhealthy
+ *        NotebookRuntime is in unhealthy state. Applies to ACTIVE state.
+ *        (Value: "UNHEALTHY")
+ */
+@property(nonatomic, copy, nullable) NSString *healthState;
+
+/**
+ *  The labels with user-defined metadata to organize your NotebookRuntime.
+ *  Label keys and values can be no longer than 64 characters (Unicode
+ *  codepoints), can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. No more than
+ *  64 user labels can be associated with one NotebookRuntime (System labels are
+ *  excluded). See https://goo.gl/xmQnxf for more information and examples of
+ *  labels. System reserved label keys are prefixed with
+ *  "aiplatform.googleapis.com/" and are immutable. Following system labels
+ *  exist for NotebookRuntime: *
+ *  "aiplatform.googleapis.com/notebook_runtime_gce_instance_id": output only,
+ *  its value is the Compute Engine instance id. *
+ *  "aiplatform.googleapis.com/colab_enterprise_entry_service": its value is
+ *  either "bigquery" or "vertex"; if absent, it should be "vertex". This is to
+ *  describe the entry service, either BigQuery or Vertex.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_Labels *labels;
+
+/** Output only. The resource name of the NotebookRuntime. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The pointer to NotebookRuntimeTemplate this NotebookRuntime is
+ *  created from.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef *notebookRuntimeTemplateRef;
+
+/**
+ *  Output only. The type of the notebook runtime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_NotebookRuntimeTypeUnspecified
+ *        Unspecified notebook runtime type, NotebookRuntimeType will default to
+ *        USER_DEFINED. (Value: "NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_OneClick
+ *        runtime or template with system defined configurations. (Value:
+ *        "ONE_CLICK")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_NotebookRuntimeType_UserDefined
+ *        runtime or template with coustomized configurations from user. (Value:
+ *        "USER_DEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeType;
+
+/** Output only. The proxy endpoint used to access the NotebookRuntime. */
+@property(nonatomic, copy, nullable) NSString *proxyUri;
+
+/**
+ *  Output only. The runtime (instance) state of the NotebookRuntime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStarted
+ *        NotebookRuntime is in starting state. (Value: "BEING_STARTED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStopped
+ *        NotebookRuntime is in stopping state. (Value: "BEING_STOPPED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingUpgraded
+ *        NotebookRuntime is in upgrading state. It is in the middle of
+ *        upgrading process. (Value: "BEING_UPGRADED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Running
+ *        NotebookRuntime is in running state. (Value: "RUNNING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_RuntimeStateUnspecified
+ *        Unspecified runtime state. (Value: "RUNTIME_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Stopped
+ *        NotebookRuntime is in stopped state. (Value: "STOPPED")
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeState;
+
+/** Required. The user email of the NotebookRuntime. */
+@property(nonatomic, copy, nullable) NSString *runtimeUser;
+
+/**
+ *  Output only. The service account that the NotebookRuntime workload runs as.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Output only. Timestamp when this NotebookRuntime was most recently updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. The VM os image version of NotebookRuntime. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The labels with user-defined metadata to organize your NotebookRuntime.
+ *  Label keys and values can be no longer than 64 characters (Unicode
+ *  codepoints), can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. No more than
+ *  64 user labels can be associated with one NotebookRuntime (System labels are
+ *  excluded). See https://goo.gl/xmQnxf for more information and examples of
+ *  labels. System reserved label keys are prefixed with
+ *  "aiplatform.googleapis.com/" and are immutable. Following system labels
+ *  exist for NotebookRuntime: *
+ *  "aiplatform.googleapis.com/notebook_runtime_gce_instance_id": output only,
+ *  its value is the Compute Engine instance id. *
+ *  "aiplatform.googleapis.com/colab_enterprise_entry_service": its value is
+ *  either "bigquery" or "vertex"; if absent, it should be "vertex". This is to
+ *  describe the entry service, either BigQuery or Vertex.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_Labels : GTLRObject
+@end
+
+
+/**
+ *  A template that specifies runtime configurations such as machine type,
+ *  runtime version, network configurations, etc. Multiple runtimes can be
+ *  created from a runtime template.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate : GTLRObject
+
+/** Output only. Timestamp when this NotebookRuntimeTemplate was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The specification of persistent disk attached to the runtime as
+ *  data disk storage.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec *dataPersistentDiskSpec;
+
+/**
+ *  The description of the NotebookRuntimeTemplate.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The display name of the NotebookRuntimeTemplate. The name can be
+ *  up to 128 characters long and can consist of any UTF-8 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Used to perform consistent read-modify-write updates. If not set, a blind
+ *  "overwrite" update happens.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** EUC configuration of the NotebookRuntimeTemplate. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookEucConfig *eucConfig;
+
+/**
+ *  The idle shutdown configuration of NotebookRuntimeTemplate. This config will
+ *  only be set when idle shutdown is enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig *idleShutdownConfig;
+
+/**
+ *  Output only. The default template to use if not specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/**
+ *  The labels with user-defined metadata to organize the
+ *  NotebookRuntimeTemplates. Label keys and values can be no longer than 64
+ *  characters (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information and examples of labels.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_Labels *labels;
+
+/**
+ *  Optional. Immutable. The specification of a single machine for the template.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec *machineSpec;
+
+/** Output only. The resource name of the NotebookRuntimeTemplate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Network spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NetworkSpec *networkSpec;
+
+/**
+ *  Optional. Immutable. The type of the notebook runtime template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_NotebookRuntimeTypeUnspecified
+ *        Unspecified notebook runtime type, NotebookRuntimeType will default to
+ *        USER_DEFINED. (Value: "NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_OneClick
+ *        runtime or template with system defined configurations. (Value:
+ *        "ONE_CLICK")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined
+ *        runtime or template with coustomized configurations from user. (Value:
+ *        "USER_DEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeType;
+
+/**
+ *  The service account that the runtime workload runs as. You can use any
+ *  service account within the same project, but you must have the service
+ *  account user permission to use the instance. If not specified, the [Compute
+ *  Engine default service
+ *  account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
+ *  is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Output only. Timestamp when this NotebookRuntimeTemplate was most recently
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The labels with user-defined metadata to organize the
+ *  NotebookRuntimeTemplates. Label keys and values can be no longer than 64
+ *  characters (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information and examples of labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Points to a NotebookRuntimeTemplateRef.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef : GTLRObject
+
+/** Immutable. A resource name of the NotebookRuntimeTemplate. */
+@property(nonatomic, copy, nullable) NSString *notebookRuntimeTemplate;
+
+@end
+
+
+/**
  *  Request message for JobService.PauseModelDeploymentMonitoringJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest : GTLRObject
@@ -14118,6 +14829,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  Request message for ScheduleService.PauseSchedule.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PauseScheduleRequest : GTLRObject
+@end
+
+
+/**
+ *  Represents the spec of persistent disk options.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec : GTLRObject
+
+/**
+ *  Size in GB of the disk (default is 100GB).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Type of the disk (default is "pd-standard"). Valid values: "pd-ssd"
+ *  (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk
+ *  Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme
+ *  Persistent Disk)
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
 @end
 
 
@@ -14257,7 +14991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /**
  *  A template uri from where the PipelineJob.pipeline_spec, if empty, will be
- *  downloaded.
+ *  downloaded. Currently, only uri from Vertex Template Registry & Gallery is
+ *  supported. Reference to
+ *  https://cloud.google.com/vertex-ai/docs/pipelines/create-pipeline-template.
  */
 @property(nonatomic, copy, nullable) NSString *templateUri;
 
@@ -17696,6 +18432,41 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The configuration for grounding checking.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfig : GTLRObject
+
+/** The sources for the grounding checking. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry *> *sources;
+
+@end
+
+
+/**
+ *  Single source entry for the grounding checking.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry : GTLRObject
+
+/** The uri of the Enterprise Search data source. */
+@property(nonatomic, copy, nullable) NSString *enterpriseDatastore;
+
+/**
+ *  The type of the grounding checking source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Enterprise
+ *        Uses Enterprise Search to check the grounding. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Unspecified
+ *        Value "UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Web
+ *        Uses Web Search to check the grounding. (Value: "WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Prediction model parameters for Image Classification.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsImageClassificationPredictionParams : GTLRObject
@@ -18491,8 +19262,18 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaTextPromptDatasetMetadata : GTLRObject
 
+/**
+ *  Number of candidates.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *candidateCount;
+
 /** The Google Cloud Storage URI that stores the prompt data. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** Grounding checking configuration. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfig *groundingConfig;
 
 /**
  *  Value of the maximum number of tokens generated set when the dataset was
@@ -18504,6 +19285,9 @@ GTLR_DEPRECATED
 
 /** Type of the prompt dataset. */
 @property(nonatomic, copy, nullable) NSString *promptType;
+
+/** Customized stop sequences. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stopSequences;
 
 /**
  *  Temperature value used for sampling set when the dataset was saved. This
@@ -21382,6 +22166,30 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata information for NotebookService.StartNotebookRuntime.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeOperationMetadata : GTLRObject
+
+/** The operation generic information. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+/**
+ *  A human-readable message that shows the intermediate progress details of
+ *  NotebookRuntime.
+ */
+@property(nonatomic, copy, nullable) NSString *progressMessage;
+
+@end
+
+
+/**
+ *  Request message for NotebookService.StartNotebookRuntime.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeRequest : GTLRObject
+@end
+
+
+/**
  *  Request message for VizierService.StopTrial.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1StopTrialRequest : GTLRObject
@@ -21498,7 +22306,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A message representing a Study.
+ *  A message representing a Study. Next id: 12
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Study : GTLRObject
 
@@ -21614,6 +22422,12 @@ GTLR_DEPRECATED
 
 /** Required. The set of parameters to tune. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1StudySpecParameterSpec *> *parameters;
+
+/**
+ *  Conditions for automated stopping of a Study. Enable automated stopping by
+ *  configuring at least one condition.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1StudySpecStudyStoppingConfig *studyStoppingConfig;
 
 @end
 
@@ -22042,6 +22856,92 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The configuration (stopping conditions) for automated stopping of a Study.
+ *  Conditions include trial budgets, time budgets, and convergence detection.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StudySpecStudyStoppingConfig : GTLRObject
+
+/**
+ *  If the objective value has not improved for this much time, stop the study.
+ *  WARNING: Effective only for single-objective studies.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxDurationNoProgress;
+
+/** If the specified time or duration has passed, stop the study. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1StudyTimeConstraint *maximumRuntimeConstraint;
+
+/**
+ *  If there are more than this many trials, stop the study.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumTrials;
+
+/**
+ *  If the objective value has not improved for this many consecutive trials,
+ *  stop the study. WARNING: Effective only for single-objective studies.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumTrialsNoProgress;
+
+/**
+ *  Each "stopping rule" in this proto specifies an "if" condition. Before
+ *  Vizier would generate a new suggestion, it first checks each specified
+ *  stopping rule, from top to bottom in this list. Note that the first few
+ *  rules (e.g. minimum_runtime_constraint, min_num_trials) will prevent other
+ *  stopping rules from being evaluated until they are met. For example, setting
+ *  `min_num_trials=5` and `always_stop_after= 1 hour` means that the Study will
+ *  ONLY stop after it has 5 COMPLETED trials, even if more than an hour has
+ *  passed since its creation. It follows the first applicable rule (whose "if"
+ *  condition is satisfied) to make a stopping decision. If none of the
+ *  specified rules are applicable, then Vizier decides that the study should
+ *  not stop. If Vizier decides that the study should stop, the study enters
+ *  STOPPING state (or STOPPING_ASAP if should_stop_asap = true). IMPORTANT: The
+ *  automatic study state transition happens precisely as described above; that
+ *  is, deleting trials or updating StudyConfig NEVER automatically moves the
+ *  study state back to ACTIVE. If you want to _resume_ a Study that was
+ *  stopped, 1) change the stopping conditions if necessary, 2) activate the
+ *  study, and then 3) ask for suggestions. If the specified time or duration
+ *  has not passed, do not stop the study.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1StudyTimeConstraint *minimumRuntimeConstraint;
+
+/**
+ *  If there are fewer than this many COMPLETED trials, do not stop the study.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNumTrials;
+
+/**
+ *  If true, a Study enters STOPPING_ASAP whenever it would normally enters
+ *  STOPPING state. The bottom line is: set to true if you want to interrupt
+ *  on-going evaluations of Trials as soon as the study stopping condition is
+ *  met. (Please see Study.State documentation for the source of truth).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shouldStopAsap;
+
+@end
+
+
+/**
+ *  Time-based Constraint for Study
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StudyTimeConstraint : GTLRObject
+
+/** Compares the wallclock time to this time. Must use UTC timezone. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Counts the wallclock time passed since the creation of this Study. */
+@property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
+
+@end
+
+
+/**
  *  Details of operations that perform Trials suggestion.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SuggestTrialsMetadata : GTLRObject
@@ -22072,6 +22972,37 @@ GTLR_DEPRECATED
  *  new Trial if the last suggested Trial was completed.
  */
 @property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. This allows you to specify the "context" for a Trial; a context is
+ *  a slice (a subspace) of the search space. Typical uses for contexts: 1) You
+ *  are using Vizier to tune a server for best performance, but there's a strong
+ *  weekly cycle. The context specifies the day-of-week. This allows Tuesday to
+ *  generalize from Wednesday without assuming that everything is identical. 2)
+ *  Imagine you're optimizing some medical treatment for people. As they walk in
+ *  the door, you know certain facts about them (e.g. sex, weight, height,
+ *  blood-pressure). Put that information in the context, and Vizier will adapt
+ *  its suggestions to the patient. 3) You want to do a fair A/B test
+ *  efficiently. Specify the "A" and "B" conditions as contexts, and Vizier will
+ *  generalize between "A" and "B" conditions. If they are similar, this will
+ *  allow Vizier to converge to the optimum faster than if "A" and "B" were
+ *  separate Studies. NOTE: You can also enter contexts as REQUESTED Trials,
+ *  e.g. via the CreateTrial() RPC; that's the asynchronous option where you
+ *  don't need a close association between contexts and suggestions. NOTE: All
+ *  the Parameters you set in a context MUST be defined in the Study. NOTE: You
+ *  must supply 0 or $suggestion_count contexts. If you don't supply any
+ *  contexts, Vizier will make suggestions from the full search space specified
+ *  in the StudySpec; if you supply a full set of context, each suggestion will
+ *  match the corresponding context. NOTE: A Context with no features set
+ *  matches anything, and allows suggestions from the full search space. NOTE:
+ *  Contexts MUST lie within the search space specified in the StudySpec. It's
+ *  an error if they don't. NOTE: Contexts preferentially match ACTIVE then
+ *  REQUESTED trials before new suggestions are generated. NOTE: Generation of
+ *  suggestions involves a match between a Context and (optionally) a REQUESTED
+ *  trial; if that match is not fully specified, a suggestion will be geneated
+ *  in the merged subspace.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrialContext *> *contexts;
 
 /**
  *  Required. The number of suggestions requested. It must be positive.
@@ -23144,6 +24075,33 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Trial_WebAccessUris : GTLRObject
+@end
+
+
+/**
+ *  Next ID: 3
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TrialContext : GTLRObject
+
+/**
+ *  A human-readable field which can store a description of this context. This
+ *  will become part of the resulting Trial's description field.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If/when a Trial is generated or selected from this Context, its Parameters
+ *  will match any parameters specified here. (I.e. if this context specifies
+ *  parameter name:'a' int_value:3, then a resulting Trial will have int_value:3
+ *  for its parameter named 'a'.) Note that we first attempt to match existing
+ *  REQUESTED Trials with contexts, and if there are no matches, we generate
+ *  suggestions in the subspace defined by the parameters specified here. NOTE:
+ *  a Context without any Parameters matches the entire feasible search space.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TrialParameter *> *parameters;
+
 @end
 
 

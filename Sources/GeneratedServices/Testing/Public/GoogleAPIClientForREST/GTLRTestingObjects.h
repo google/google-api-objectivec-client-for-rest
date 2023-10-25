@@ -36,6 +36,8 @@
 @class GTLRTesting_DeviceFile;
 @class GTLRTesting_DeviceIpBlock;
 @class GTLRTesting_DeviceIpBlockCatalog;
+@class GTLRTesting_DeviceSession;
+@class GTLRTesting_DirectAccessVersionInfo;
 @class GTLRTesting_Distribution;
 @class GTLRTesting_Environment;
 @class GTLRTesting_EnvironmentMatrix;
@@ -72,6 +74,7 @@
 @class GTLRTesting_RoboDirective;
 @class GTLRTesting_RoboStartingIntent;
 @class GTLRTesting_Service;
+@class GTLRTesting_SessionStateEvent;
 @class GTLRTesting_Shard;
 @class GTLRTesting_ShardingOption;
 @class GTLRTesting_SmartSharding;
@@ -317,6 +320,65 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_Physical;
 FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_Virtual;
 
 // ----------------------------------------------------------------------------
+// GTLRTesting_DeviceSession.state
+
+/**
+ *  The session has been granted and the device is accepting connections.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Active;
+/**
+ *  Unable to complete the session for an internal reason, such as an
+ *  infrastructure failure.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Error;
+/**
+ *  The session duration exceeded the device’s reservation time period and timed
+ *  out automatically.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Expired;
+/**
+ *  The user is finished with the session and it was canceled by the user while
+ *  the request was still getting allocated or after allocation and during
+ *  device usage period.
+ *
+ *  Value: "FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Finished;
+/**
+ *  The session has been validated and is in the queue for a device.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Pending;
+/**
+ *  Initial state of a session request. The session is being validated for
+ *  correctness and a device is not yet requested.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Requested;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SESSION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_SessionStateUnspecified;
+/**
+ *  Unable to complete the session because the device was unavailable and it
+ *  failed to allocate through the scheduler. For example, a device not in the
+ *  catalog was requested or the request expired in the allocation queue.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Unavailable;
+
+// ----------------------------------------------------------------------------
 // GTLRTesting_IosModel.formFactor
 
 /**
@@ -473,6 +535,65 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore;
  *  Value: "SINGLE_CLICK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_SessionStateEvent.sessionState
+
+/**
+ *  The session has been granted and the device is accepting connections.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Active;
+/**
+ *  Unable to complete the session for an internal reason, such as an
+ *  infrastructure failure.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Error;
+/**
+ *  The session duration exceeded the device’s reservation time period and timed
+ *  out automatically.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Expired;
+/**
+ *  The user is finished with the session and it was canceled by the user while
+ *  the request was still getting allocated or after allocation and during
+ *  device usage period.
+ *
+ *  Value: "FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Finished;
+/**
+ *  The session has been validated and is in the queue for a device.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Pending;
+/**
+ *  Initial state of a session request. The session is being validated for
+ *  correctness and a device is not yet requested.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Requested;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SESSION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_SessionStateUnspecified;
+/**
+ *  Unable to complete the session because the device was unavailable and it
+ *  failed to allocate through the scheduler. For example, a device not in the
+ *  catalog was requested or the request expired in the allocation queue.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_SessionStateEvent_SessionState_Unavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestExecution.state
@@ -1511,6 +1632,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  The request object for cancelling a Device Session.
+ */
+@interface GTLRTesting_CancelDeviceSessionRequest : GTLRObject
+@end
+
+
+/**
  *  Response containing the current state of the specified test matrix.
  */
 @interface GTLRTesting_CancelTestMatrixResponse : GTLRObject
@@ -1691,6 +1819,122 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Protobuf message describing the device message, used from several RPCs.
+ */
+@interface GTLRTesting_DeviceSession : GTLRObject
+
+/** Output only. The timestamp that the session first became ACTIVE. */
+@property(nonatomic, strong, nullable) GTLRDateTime *activeStartTime;
+
+/** Required. The requested device */
+@property(nonatomic, strong, nullable) GTLRTesting_AndroidDevice *androidDevice;
+
+/**
+ *  Optional. The list of requested devices. At most two devices may be
+ *  simultaneously requested.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_AndroidDeviceList *androidDeviceList GTLR_DEPRECATED;
+
+/** Output only. The time that the Session was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The title of the DeviceSession to be presented in the UI. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. If the device is still in use at this time, any connections will
+ *  be ended and the SessionState will transition from ACTIVE to FINISHED.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The interval of time that this device must be interacted with
+ *  before it transitions from ACTIVE to TIMEOUT_INACTIVITY.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *inactivityTimeout;
+
+/**
+ *  Optional. Name of the DeviceSession, e.g.
+ *  "projects/{project_id}/deviceSessions/{session_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Current state of the DeviceSession.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_DeviceSession_State_Active The session has been
+ *        granted and the device is accepting connections. (Value: "ACTIVE")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Error Unable to complete the
+ *        session for an internal reason, such as an infrastructure failure.
+ *        (Value: "ERROR")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Expired The session duration
+ *        exceeded the device’s reservation time period and timed out
+ *        automatically. (Value: "EXPIRED")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Finished The user is finished
+ *        with the session and it was canceled by the user while the request was
+ *        still getting allocated or after allocation and during device usage
+ *        period. (Value: "FINISHED")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Pending The session has been
+ *        validated and is in the queue for a device. (Value: "PENDING")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Requested Initial state of a
+ *        session request. The session is being validated for correctness and a
+ *        device is not yet requested. (Value: "REQUESTED")
+ *    @arg @c kGTLRTesting_DeviceSession_State_SessionStateUnspecified Default
+ *        value. This value is unused. (Value: "SESSION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_DeviceSession_State_Unavailable Unable to complete
+ *        the session because the device was unavailable and it failed to
+ *        allocate through the scheduler. For example, a device not in the
+ *        catalog was requested or the request expired in the allocation queue.
+ *        (Value: "UNAVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The historical state transitions of the session_state message
+ *  including the current session state.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_SessionStateEvent *> *stateHistories;
+
+/**
+ *  Optional. The amount of time that a device will be initially allocated for.
+ *  This can eventually be extended with the ExtendDeviceSession RPC. Default:
+ *  30 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  Denotes whether Direct Access is supported, and by which client versions.
+ *  DirectAccessService is currently available as a preview to select
+ *  developers. You can register today on behalf of you and your team at
+ *  https://developer.android.com/studio/preview/android-device-streaming
+ */
+@interface GTLRTesting_DirectAccessVersionInfo : GTLRObject
+
+/**
+ *  Whether direct access is supported at all. Clients are expected to filter
+ *  down the device list to only android models and versions which support
+ *  Direct Access when that is the user intent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directAccessSupported;
+
+/**
+ *  Output only. Indicates client-device compatibility, where a device is known
+ *  to work only with certain workarounds implemented in the Android Studio
+ *  client. Expected format "major.minor.micro.patch", e.g.
+ *  "5921.22.2211.8881706".
+ */
+@property(nonatomic, copy, nullable) NSString *minimumAndroidStudioVersion;
+
+@end
+
+
+/**
  *  Data about the relative number of devices running a given configuration of
  *  the Android platform.
  */
@@ -1707,6 +1951,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Output only. The time this distribution was measured. */
 @property(nonatomic, strong, nullable) GTLRDateTime *measurementTime;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRTesting_Empty : GTLRObject
 @end
 
 
@@ -2170,6 +2424,33 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A list of device sessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceSessions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTesting_ListDeviceSessionsResponse : GTLRCollectionObject
+
+/**
+ *  The sessions matching the specified filter in the given cloud project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceSession *> *deviceSessions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  A location/region designation for language.
  */
 @interface GTLRTesting_Locale : GTLRObject
@@ -2208,7 +2489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  manually-created shard. You must specify at least one shard if this field is
  *  present. When you select one or more physical devices, the number of
  *  repeated test_targets_for_shard must be <= 50. When you select one or more
- *  ARM virtual devices, it must be <= 100. When you select only x86 virtual
+ *  ARM virtual devices, it must be <= 200. When you select only x86 virtual
  *  devices, it must be <= 500.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
@@ -2349,6 +2630,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "DEVICE_CAPACITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *deviceCapacity;
+
+/**
+ *  Output only. Identifies supported clients for DirectAccess for this Android
+ *  version.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_DirectAccessVersionInfo *directAccessVersionInfo;
 
 /** An Android version. */
 @property(nonatomic, copy, nullable) NSString *versionId;
@@ -2554,6 +2841,57 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A message encapsulating a series of Session states and the time that the
+ *  DeviceSession first entered those states.
+ */
+@interface GTLRTesting_SessionStateEvent : GTLRObject
+
+/**
+ *  Output only. The time that the session_state first encountered that state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Output only. The session_state tracked by this event
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Active The session has
+ *        been granted and the device is accepting connections. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Error Unable to
+ *        complete the session for an internal reason, such as an infrastructure
+ *        failure. (Value: "ERROR")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Expired The session
+ *        duration exceeded the device’s reservation time period and timed out
+ *        automatically. (Value: "EXPIRED")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Finished The user is
+ *        finished with the session and it was canceled by the user while the
+ *        request was still getting allocated or after allocation and during
+ *        device usage period. (Value: "FINISHED")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Pending The session
+ *        has been validated and is in the queue for a device. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Requested Initial
+ *        state of a session request. The session is being validated for
+ *        correctness and a device is not yet requested. (Value: "REQUESTED")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_SessionStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SESSION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_SessionStateEvent_SessionState_Unavailable Unable to
+ *        complete the session because the device was unavailable and it failed
+ *        to allocate through the scheduler. For example, a device not in the
+ *        catalog was requested or the request expired in the allocation queue.
+ *        (Value: "UNAVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionState;
+
+/** Output only. A human-readable message to explain the state. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
  *  Output only. Details about the shard.
  */
 @interface GTLRTesting_Shard : GTLRObject
@@ -2632,7 +2970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  cancelling the shard before all tests can finish. Note that there is a limit
  *  for maximum number of shards. When you select one or more physical devices,
  *  the number of shards must be <= 50. When you select one or more ARM virtual
- *  devices, it must be <= 100. When you select only x86 virtual devices, it
+ *  devices, it must be <= 200. When you select only x86 virtual devices, it
  *  must be <= 500. To guarantee at least one test case for per shard, the
  *  number of shards will not exceed the number of test cases. Each shard
  *  created counts toward daily test quota.
@@ -3295,7 +3633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Required. The total number of shards to create. This must always be a
  *  positive number that is no greater than the total number of test cases. When
  *  you select one or more physical devices, the number of shards must be <= 50.
- *  When you select one or more ARM virtual devices, it must be <= 100. When you
+ *  When you select one or more ARM virtual devices, it must be <= 200. When you
  *  select only x86 virtual devices, it must be <= 500.
  *
  *  Uses NSNumber of intValue.

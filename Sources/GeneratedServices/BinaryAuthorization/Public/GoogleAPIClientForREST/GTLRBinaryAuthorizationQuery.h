@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an attestor, and returns a copy of the new attestor. Returns
- *  NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is
- *  malformed, ALREADY_EXISTS if the attestor already exists.
+ *  `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request
+ *  is malformed, `ALREADY_EXISTS` if the attestor already exists.
  *
  *  Method: binaryauthorization.projects.attestors.create
  *
@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBinaryAuthorization_Attestor.
  *
  *  Creates an attestor, and returns a copy of the new attestor. Returns
- *  NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is
- *  malformed, ALREADY_EXISTS if the attestor already exists.
+ *  `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request
+ *  is malformed, `ALREADY_EXISTS` if the attestor already exists.
  *
  *  @param object The @c GTLRBinaryAuthorization_Attestor to include in the
  *    query.
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  Method: binaryauthorization.projects.attestors.delete
  *
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_Empty.
  *
- *  Deletes an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  @param name Required. The name of the attestors to delete, in the format
  *    `projects/ * /attestors/ *`.
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Gets an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  Method: binaryauthorization.projects.attestors.get
  *
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_Attestor.
  *
- *  Gets an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Gets an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  @param name Required. The name of the attestor to retrieve, in the format
  *    `projects/ * /attestors/ *`.
@@ -182,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists attestors. Returns INVALID_ARGUMENT if the project does not exist.
+ *  Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist.
  *
  *  Method: binaryauthorization.projects.attestors.list
  *
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_ListAttestorsResponse.
  *
- *  Lists attestors. Returns INVALID_ARGUMENT if the project does not exist.
+ *  Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist.
  *
  *  @param parent Required. The resource name of the project associated with the
  *    attestors, in the format `projects/ *`.
@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  Method: binaryauthorization.projects.attestors.update
  *
@@ -331,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_Attestor.
  *
- *  Updates an attestor. Returns NOT_FOUND if the attestor does not exist.
+ *  Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist.
  *
  *  @param object The @c GTLRBinaryAuthorization_Attestor to include in the
  *    query.
@@ -346,8 +346,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns whether the given Attestation for the given image URI was signed by
- *  the given Attestor
+ *  Returns whether the given `Attestation` for the given image URI was signed
+ *  by the given `Attestor`
  *
  *  Method: binaryauthorization.projects.attestors.validateAttestationOccurrence
  *
@@ -365,8 +365,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse.
  *
- *  Returns whether the given Attestation for the given image URI was signed by
- *  the given Attestor
+ *  Returns whether the given `Attestation` for the given image URI was signed
+ *  by the given `Attestor`
  *
  *  @param object The @c
  *    GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest to include in
@@ -420,11 +420,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a platform policy, and returns a copy of it. Returns NOT_FOUND if
- *  the project or platform doesn't exist, INVALID_ARGUMENT if the request is
- *  malformed, ALREADY_EXISTS if the policy already exists, and INVALID_ARGUMENT
- *  if the policy contains a platform-specific policy that does not match the
- *  platform value specified in the URL.
+ *  Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if
+ *  the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is
+ *  malformed, `ALREADY_EXISTS` if the policy already exists, and
+ *  `INVALID_ARGUMENT` if the policy contains a platform-specific policy that
+ *  does not match the platform value specified in the URL.
  *
  *  Method: binaryauthorization.projects.platforms.policies.create
  *
@@ -442,11 +442,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
  *
- *  Creates a platform policy, and returns a copy of it. Returns NOT_FOUND if
- *  the project or platform doesn't exist, INVALID_ARGUMENT if the request is
- *  malformed, ALREADY_EXISTS if the policy already exists, and INVALID_ARGUMENT
- *  if the policy contains a platform-specific policy that does not match the
- *  platform value specified in the URL.
+ *  Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if
+ *  the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is
+ *  malformed, `ALREADY_EXISTS` if the policy already exists, and
+ *  `INVALID_ARGUMENT` if the policy contains a platform-specific policy that
+ *  does not match the platform value specified in the URL.
  *
  *  @param object The @c GTLRBinaryAuthorization_PlatformPolicy to include in
  *    the query.
@@ -460,7 +460,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Deletes a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  Method: binaryauthorization.projects.platforms.policies.delete
  *
@@ -478,7 +478,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_Empty.
  *
- *  Deletes a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Deletes a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  @param name Required. The name of the platform policy to delete, in the
  *    format `projects/ * /platforms/ * /policies/ *`.
@@ -490,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Gets a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  Method: binaryauthorization.projects.platforms.policies.get
  *
@@ -508,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
  *
- *  Gets a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Gets a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  @param name Required. The name of the platform policy to retrieve in the
  *    format `projects/ * /platforms/ * /policies/ *`.
@@ -521,7 +521,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists platform policies owned by a project in the specified platform.
- *  Returns INVALID_ARGUMENT if the project or the platform doesn't exist.
+ *  Returns `INVALID_ARGUMENT` if the project or the platform doesn't exist.
  *
  *  Method: binaryauthorization.projects.platforms.policies.list
  *
@@ -553,7 +553,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBinaryAuthorization_ListPlatformPoliciesResponse.
  *
  *  Lists platform policies owned by a project in the specified platform.
- *  Returns INVALID_ARGUMENT if the project or the platform doesn't exist.
+ *  Returns `INVALID_ARGUMENT` if the project or the platform doesn't exist.
  *
  *  @param parent Required. The resource name of the platform associated with
  *    the platform policies using the format `projects/ * /platforms/ *`.
@@ -569,7 +569,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Replaces a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Replaces a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  Method: binaryauthorization.projects.platforms.policies.replacePlatformPolicy
  *
@@ -579,20 +579,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy : GTLRBinaryAuthorizationQuery
 
 /**
- *  Output only. The relative resource name of the BinAuthz platform policy, in
- *  the form of `projects/ * /platforms/ * /policies/ *`.
+ *  Output only. The relative resource name of the Binary Authorization platform
+ *  policy, in the form of `projects/ * /platforms/ * /policies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRBinaryAuthorization_PlatformPolicy.
  *
- *  Replaces a platform policy. Returns NOT_FOUND if the policy doesn't exist.
+ *  Replaces a platform policy. Returns `NOT_FOUND` if the policy doesn't exist.
  *
  *  @param object The @c GTLRBinaryAuthorization_PlatformPolicy to include in
  *    the query.
- *  @param name Output only. The relative resource name of the BinAuthz platform
- *    policy, in the form of `projects/ * /platforms/ * /policies/ *`.
+ *  @param name Output only. The relative resource name of the Binary
+ *    Authorization platform policy, in the form of `projects/ * /platforms/ *
+ *    /policies/ *`.
  *
  *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesReplacePlatformPolicy
  */
@@ -737,8 +738,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates or updates a project's policy, and returns a copy of the new policy.
  *  A policy is always updated as a whole, to avoid race conditions with
- *  concurrent policy enforcement (or management!) requests. Returns NOT_FOUND
- *  if the project does not exist, INVALID_ARGUMENT if the request is malformed.
+ *  concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND`
+ *  if the project does not exist, `INVALID_ARGUMENT` if the request is
+ *  malformed.
  *
  *  Method: binaryauthorization.projects.updatePolicy
  *
@@ -758,8 +760,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates or updates a project's policy, and returns a copy of the new policy.
  *  A policy is always updated as a whole, to avoid race conditions with
- *  concurrent policy enforcement (or management!) requests. Returns NOT_FOUND
- *  if the project does not exist, INVALID_ARGUMENT if the request is malformed.
+ *  concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND`
+ *  if the project does not exist, `INVALID_ARGUMENT` if the request is
+ *  malformed.
  *
  *  @param object The @c GTLRBinaryAuthorization_Policy to include in the query.
  *  @param name Output only. The resource name, in the format `projects/ *

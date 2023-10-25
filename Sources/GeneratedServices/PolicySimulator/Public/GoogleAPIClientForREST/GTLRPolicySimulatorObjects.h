@@ -1094,7 +1094,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  The OrgPolicy CustomConstraint changes to preview violations for. Any
  *  existing CustomConstraints with the same name will be overridden in the
  *  simulation. That is, violations will be determined as if all custom
- *  constraints in the overlay were instantiated.
+ *  constraints in the overlay were instantiated. Only a single
+ *  custom_constraint is supported in the overlay at a time. For evaluating
+ *  multiple constraints, multiple `GenerateOrgPolicyViolationsPreview` requests
+ *  are made, where each request evaluates a single constraint.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
 
@@ -1148,6 +1151,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  child resource instead of a field.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview : GTLRObject
+
+/** Output only. Time when this `OrgPolicyViolationsPreview` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The names of the constraints against which all
+ *  `OrgPolicyViolations` were evaluated. If `OrgPolicyOverlay` only contains
+ *  `PolicyOverlay` then it contains the name of the configured custom
+ *  constraint, applicable to the specified policies. Otherwise it contains the
+ *  name of the constraint specified in `CustomConstraintOverlay`. Format:
+ *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
+ *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customConstraints;
 
 /**
  *  Output only. The resource name of the `OrgPolicyViolationsPreview`. It has
@@ -1319,7 +1336,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  The OrgPolicy CustomConstraint changes to preview violations for. Any
  *  existing CustomConstraints with the same name will be overridden in the
  *  simulation. That is, violations will be determined as if all custom
- *  constraints in the overlay were instantiated.
+ *  constraints in the overlay were instantiated. Only a single
+ *  custom_constraint is supported in the overlay at a time. For evaluating
+ *  multiple constraints, multiple `GenerateOrgPolicyViolationsPreview` requests
+ *  are made, where each request evaluates a single constraint.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
 
@@ -1373,6 +1393,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  child resource instead of a field.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyViolationsPreview : GTLRObject
+
+/** Output only. Time when this `OrgPolicyViolationsPreview` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The names of the constraints against which all
+ *  `OrgPolicyViolations` were evaluated. If `OrgPolicyOverlay` only contains
+ *  `PolicyOverlay` then it contains the name of the configured custom
+ *  constraint, applicable to the specified policies. Otherwise it contains the
+ *  name of the constraint specified in `CustomConstraintOverlay`. Format:
+ *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
+ *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customConstraints;
 
 /**
  *  Output only. The resource name of the `OrgPolicyViolationsPreview`. It has

@@ -2738,8 +2738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review of free listings in a specific region. This method is only
- *  available to selected merchants.
+ *  Requests a review of free listings in a specific region. This method
+ *  deprecated. Use the `MerchantSupportService` to view product and account
+ *  issues and request a review.
  *
  *  Method: content.freelistingsprogram.requestreview
  *
@@ -2755,8 +2756,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review of free listings in a specific region. This method is only
- *  available to selected merchants.
+ *  Requests a review of free listings in a specific region. This method
+ *  deprecated. Use the `MerchantSupportService` to view product and account
+ *  issues and request a review.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewFreeListingsRequest to
  *    include in the query.
@@ -3086,6 +3088,74 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
                            language:(NSString *)language
                         contactName:(NSString *)contactName
                        contactEmail:(NSString *)contactEmail;
+
+@end
+
+/**
+ *  Sets the omnichannel experience for the specified country. Only supported
+ *  for merchants whose POS data provider is trusted to enable the corresponding
+ *  experience. For more context, see these help articles [about
+ *  LFP](https://support.google.com/merchants/answer/7676652) and [how to get
+ *  started](https://support.google.com/merchants/answer/7676578) with it.
+ *
+ *  Method: content.liasettings.setomnichannelexperience
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LiasettingsSetomnichannelexperience : GTLRShoppingContentQuery
+
+/**
+ *  The ID of the account for which to retrieve accessible Business Profiles.
+ */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/**
+ *  The CLDR country code (for example, "US") for which the omnichannel
+ *  experience is selected.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  The Local Store Front (LSF) type for this country. Acceptable values are: -
+ *  "`ghlsf`" (Google-Hosted Local Store Front) - "`mhlsfBasic`"
+ *  (Merchant-Hosted Local Store Front Basic) - "`mhlsfFull`" (Merchant-Hosted
+ *  Local Store Front Full) More details about these types can be found here.
+ */
+@property(nonatomic, copy, nullable) NSString *lsfType;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and `accountId`
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  The Pickup types for this country. Acceptable values are: - "`pickupToday`"
+ *  - "`pickupLater`"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pickupTypes;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LiaOmnichannelExperience.
+ *
+ *  Sets the omnichannel experience for the specified country. Only supported
+ *  for merchants whose POS data provider is trusted to enable the corresponding
+ *  experience. For more context, see these help articles [about
+ *  LFP](https://support.google.com/merchants/answer/7676652) and [how to get
+ *  started](https://support.google.com/merchants/answer/7676578) with it.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and `accountId` must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to retrieve accessible
+ *    Business Profiles.
+ *
+ *  @return GTLRShoppingContentQuery_LiasettingsSetomnichannelexperience
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
 
 @end
 
@@ -6383,8 +6453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  [CLDR country
- *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
- *  (e.g. "US"), used as a filter on repricing rules.
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) (for
+ *  example, "US"), used as a filter on repricing rules.
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -6474,7 +6544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Lists the metrics report for a given Repricing rule.
+ *  *Deprecated*: New merchants can't start using this service. Lists the
+ *  metrics report for a given Repricing rule.
  *
  *  Method: content.repricingrules.repricingreports.list
  *
@@ -6520,7 +6591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_ListRepricingRuleReportsResponse.
  *
- *  Lists the metrics report for a given Repricing rule.
+ *  *Deprecated*: New merchants can't start using this service. Lists the
+ *  metrics report for a given Repricing rule.
  *
  *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
  *  @param ruleId Required. Id of the Repricing rule.
@@ -7417,8 +7489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review of Shopping ads in a specific region. This method is only
- *  available to selected merchants.
+ *  Requests a review of Shopping ads in a specific region. This method
+ *  deprecated. Use the `MerchantSupportService` to view product and account
+ *  issues and request a review.
  *
  *  Method: content.shoppingadsprogram.requestreview
  *
@@ -7434,8 +7507,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review of Shopping ads in a specific region. This method is only
- *  available to selected merchants.
+ *  Requests a review of Shopping ads in a specific region. This method
+ *  deprecated. Use the `MerchantSupportService` to view product and account
+ *  issues and request a review.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewShoppingAdsRequest to
  *    include in the query.

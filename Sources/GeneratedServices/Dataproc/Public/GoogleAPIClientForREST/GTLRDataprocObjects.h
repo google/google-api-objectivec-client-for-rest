@@ -65,9 +65,12 @@
 @class GTLRDataproc_HiveJob_ScriptVariables;
 @class GTLRDataproc_IdentityConfig;
 @class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
+@class GTLRDataproc_InstanceFlexibilityPolicy;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
+@class GTLRDataproc_InstanceSelection;
+@class GTLRDataproc_InstanceSelectionResult;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters;
 @class GTLRDataproc_Interval;
 @class GTLRDataproc_Job;
@@ -112,11 +115,13 @@
 @class GTLRDataproc_Policy;
 @class GTLRDataproc_PrestoJob;
 @class GTLRDataproc_PrestoJob_Properties;
+@class GTLRDataproc_PyPiRepositoryConfig;
 @class GTLRDataproc_PySparkBatch;
 @class GTLRDataproc_PySparkJob;
 @class GTLRDataproc_PySparkJob_Properties;
 @class GTLRDataproc_QueryList;
 @class GTLRDataproc_RegexValidation;
+@class GTLRDataproc_RepositoryConfig;
 @class GTLRDataproc_ReservationAffinity;
 @class GTLRDataproc_RuntimeConfig;
 @class GTLRDataproc_RuntimeConfig_Properties;
@@ -145,6 +150,7 @@
 @class GTLRDataproc_SparkSqlJob_Properties;
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
 @class GTLRDataproc_SparkStandaloneAutoscalingConfig;
+@class GTLRDataproc_StartupConfig;
 @class GTLRDataproc_StateHistory;
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
@@ -545,15 +551,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_StateUnspecifie
 // GTLRDataproc_JobStatus.substate
 
 /**
- *  The Job has been received and is awaiting execution (it may be waiting for a
- *  condition to be met). See the "details" field for the reason for the
+ *  The Job has been received and is awaiting execution (it might be waiting for
+ *  a condition to be met). See the "details" field for the reason for the
  *  delay.Applies to RUNNING state.
  *
  *  Value: "QUEUED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Queued;
 /**
- *  The agent-reported status is out of date, which may be caused by a loss of
+ *  The agent-reported status is out of date, which can be caused by a loss of
  *  communication between the agent and Dataproc. If the agent does not send a
  *  timely update, the job will fail.Applies to RUNNING state.
  *
@@ -814,7 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Session_State_Active;
 /**
- *  The session is created before running.
+ *  The session is created prior to running.
  *
  *  Value: "CREATING"
  */
@@ -882,7 +888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_Operat
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Active;
 /**
- *  The session is created before running.
+ *  The session is created prior to running.
  *
  *  Value: "CREATING"
  */
@@ -2135,6 +2141,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
 
 /**
+ *  Optional. (Optional) The output Cloud Storage directory for the diagnostic
+ *  tarball. If not specified, a task-specific directory in the cluster's
+ *  staging bucket will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *tarballGcsDir;
+
+/**
  *  Optional. DEPRECATED Specifies the yarn application on which diagnosis is to
  *  be performed.
  */
@@ -2250,12 +2263,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *gcePdKmsKeyName;
 
-/**
- *  Optional. The Cloud KMS key name to use for encrypting customer core content
- *  and cluster PD disk for all instances in the cluster.
- */
-@property(nonatomic, copy, nullable) NSString *kmsKey;
-
 @end
 
 
@@ -2353,19 +2360,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
 /**
- *  Optional. The duration after which the workload will be terminated. When the
- *  workload exceeds this duration, it will be unconditionally terminated
- *  without waiting for ongoing work to finish. If ttl is not specified for a
- *  batch workload, the workload will be allowed to run until it exits naturally
- *  (or runs forever without exiting). If ttl is not specified for an
- *  interactive session, it defaults to 24h. If ttl is not specified for a batch
- *  that uses 2.1+ runtime version, it defaults to 4h. Minimum value is 10
- *  minutes; maximum value is 14 days (see JSON representation of Duration
- *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). If both
- *  ttl and idle_ttl are specified (for an interactive session), the conditions
- *  are treated as OR conditions: the workload will be terminated when it has
- *  been idle for idle_ttl or when ttl has been exceeded, whichever occurs
- *  first.
+ *  Optional. The duration after which the workload will be terminated,
+ *  specified as the JSON representation for Duration
+ *  (https://protobuf.dev/programming-guides/proto3/#json). When the workload
+ *  exceeds this duration, it will be unconditionally terminated without waiting
+ *  for ongoing work to finish. If ttl is not specified for a batch workload,
+ *  the workload will be allowed to run until it exits naturally (or run forever
+ *  without exiting). If ttl is not specified for an interactive session, it
+ *  defaults to 24 hours. If ttl is not specified for a batch that uses 2.1+
+ *  runtime version, it defaults to 4 hours. Minimum value is 10 minutes;
+ *  maximum value is 14 days. If both ttl and idle_ttl are specified (for an
+ *  interactive session), the conditions are treated as OR conditions: the
+ *  workload will be terminated when it has been idle for idle_ttl or when ttl
+ *  has been exceeded, whichever occurs first.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -2422,14 +2429,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A Dataproc job for running Apache Flink (https://flink.apache.org/)
- *  applications on YARN.
+ *  A Dataproc job for running Apache Flink applications on YARN.
  */
 @interface GTLRDataproc_FlinkJob : GTLRObject
 
 /**
  *  Optional. The arguments to pass to the driver. Do not include arguments,
- *  such as --conf, that can be set as job properties, since a collision may
+ *  such as --conf, that can be set as job properties, since a collision might
  *  occur that causes an incorrect job submission.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
@@ -2445,7 +2451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  The name of the driver's main class. The jar file that contains the class
- *  must be in the default CLASSPATH or specified in jar_file_uris.
+ *  must be in the default CLASSPATH or specified in jarFileUris.
  */
 @property(nonatomic, copy, nullable) NSString *mainClass;
 
@@ -2454,15 +2460,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Flink.
- *  Properties that conflict with values set by the Dataproc API may
+ *  Properties that conflict with values set by the Dataproc API might
  *  beoverwritten. Can include properties set
  *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_FlinkJob_Properties *properties;
 
 /**
- *  Optional. HCFS URI of the savepoint which contains the last saved progress
- *  for this job
+ *  Optional. HCFS URI of the savepoint, which contains the last saved progress
+ *  for starting the current job.
  */
 @property(nonatomic, copy, nullable) NSString *savepointUri;
 
@@ -2471,7 +2477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Flink.
- *  Properties that conflict with values set by the Dataproc API may
+ *  Properties that conflict with values set by the Dataproc API might
  *  beoverwritten. Can include properties set
  *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
  *
@@ -2894,7 +2900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The arguments to pass to the driver. Do not include arguments,
  *  such as -libjars or -Dfoo=bar, that can be set as job properties, since a
- *  collision may occur that causes an incorrect job submission.
+ *  collision might occur that causes an incorrect job submission.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
@@ -2930,7 +2936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Hadoop.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site and
  *  classes in user code.
  */
@@ -2941,7 +2947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Hadoop.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site and
  *  classes in user code.
  *
@@ -2977,7 +2983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names and values, used to configure Hive.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/hive/conf/hive-site.xml, and classes in user code.
  */
@@ -3000,7 +3006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names and values, used to configure Hive.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/hive/conf/hive-site.xml, and classes in user code.
  *
@@ -3070,29 +3076,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A request to inject credentials to a session.
+ *  Instance flexibility Policy allowing a mixture of VM shapes and provisioning
+ *  models.
  */
-@interface GTLRDataproc_InjectSessionCredentialsRequest : GTLRObject
+@interface GTLRDataproc_InstanceFlexibilityPolicy : GTLRObject
 
 /**
- *  Required. The encrypted credentials being injected in to the session.The
- *  client is responsible for encrypting the credentials in a way that is
- *  supported by the session.A wrapped value is used here so that the actual
- *  contents of the encrypted credentials are not written to audit logs.
+ *  Optional. List of instance selection options that the group will use when
+ *  creating new VMs.
  */
-@property(nonatomic, copy, nullable) NSString *credentialsCiphertext;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_InstanceSelection *> *instanceSelectionList;
 
-/**
- *  Optional. A unique ID used to identify the request. If the service receives
- *  two TerminateSessionRequest
- *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.TerminateSessionRequest)s
- *  with the same ID, the first request is ignored to ensure the most recent
- *  credentials are injected.Recommendation: Set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
- *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
- *  (-). The maximum length is 40 characters.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
+/** Output only. A list of instance selection results in the group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_InstanceSelectionResult *> *instanceSelectionResults;
 
 @end
 
@@ -3174,6 +3170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
+ *  Optional. Instance flexibility Policy allowing a mixture of VM shapes and
+ *  provisioning models.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_InstanceFlexibilityPolicy *instanceFlexibilityPolicy;
+
+/**
  *  Output only. The list of instance names. Dataproc derives the names from
  *  cluster_name, num_instances, and the instance group.
  */
@@ -3217,19 +3219,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Optional. The minimum number of instances to create. If min_num_instances is
- *  set, min_num_instances is used for a criteria to decide the cluster. Cluster
- *  creation will be failed by being an error state if the total number of
- *  instances created is less than the min_num_instances. For example, given
- *  that num_instances = 5 and min_num_instances = 3, * if 4 instances are
- *  created and then registered successfully but one instance is failed, the
- *  failed VM will be deleted and the cluster will be resized to 4 instances in
- *  running state. * if 2 instances are created successfully and 3 instances are
- *  failed, the cluster will be in an error state and does not delete failed VMs
- *  for debugging. * if 2 instance are created and then registered successfully
- *  but 3 instances are failed to initialize, the cluster will be in an error
- *  state and does not delete failed VMs for debugging. NB: This can only be set
- *  for primary workers now.
+ *  Optional. The minimum number of primary worker instances to create. If
+ *  min_num_instances is set, cluster creation will succeed if the number of
+ *  primary workers created is at least equal to the min_num_instances
+ *  number.Example: Cluster creation request with num_instances = 5 and
+ *  min_num_instances = 3: If 4 VMs are created and 1 instance fails, the failed
+ *  VM is deleted. The cluster is resized to 4 instances and placed in a RUNNING
+ *  state. If 2 instances are created and 3 instances fail, the cluster in
+ *  placed in an ERROR state. The failed VMs are not deleted.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3274,6 +3271,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *preemptibility;
 
+/**
+ *  Optional. Configuration to handle the startup of instances during cluster
+ *  create and update process.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_StartupConfig *startupConfig;
+
 @end
 
 
@@ -3293,6 +3296,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** The public RSA key used for sharing data with this instance. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
+
+@end
+
+
+/**
+ *  Defines machines types and a rank to which the machines types belong.
+ */
+@interface GTLRDataproc_InstanceSelection : GTLRObject
+
+/** Optional. Full machine-type names, e.g. "n1-standard-16". */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *machineTypes;
+
+/**
+ *  Optional. Preference of this instance selection. Lower number means higher
+ *  preference. Dataproc will first try to create a VM based on the machine-type
+ *  with priority rank and fallback to next rank based on availability. Machine
+ *  types and instance selections with the same priority have the same
+ *  preference.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rank;
+
+@end
+
+
+/**
+ *  Defines a mapping from machine types to the number of VMs that are created
+ *  with each machine type.
+ */
+@interface GTLRDataproc_InstanceSelectionResult : GTLRObject
+
+/** Output only. Full machine-type names, e.g. "n1-standard-16". */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Output only. Number of VM provisioned with the machine_type.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vmCount;
 
 @end
 
@@ -3383,8 +3427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. If present, the location of miscellaneous control files which
- *  may be used as part of job setup and handling. If not present, control files
- *  may be placed in the same location as driver_output_uri.
+ *  can be used as part of job setup and handling. If not present, control files
+ *  might be placed in the same location as driver_output_uri.
  */
 @property(nonatomic, copy, nullable) NSString *driverControlFilesUri;
 
@@ -3408,7 +3452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. A UUID that uniquely identifies a job within the project over
- *  time. This is in contrast to a user-settable reference.job_id that may be
+ *  time. This is in contrast to a user-settable reference.job_id that might be
  *  reused over time.
  */
 @property(nonatomic, copy, nullable) NSString *jobUuid;
@@ -3416,7 +3460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The labels to associate with this job. Label keys must contain 1
  *  to 63 characters, and must conform to RFC 1035
- *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty, but, if
  *  present, must contain 1 to 63 characters, and must conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
  *  associated with a job.
@@ -3458,7 +3502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The job status. Additional application-specific status
- *  information may be contained in the type_job and yarn_applications fields.
+ *  information might be contained in the type_job and yarn_applications fields.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobStatus *status;
 
@@ -3470,7 +3514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The collection of YARN applications spun up by this job.Beta
- *  Feature: This report is available for testing purposes only. It may be
+ *  Feature: This report is available for testing purposes only. It might be
  *  changed before final release.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_YarnApplication *> *yarnApplications;
@@ -3481,7 +3525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The labels to associate with this job. Label keys must contain 1
  *  to 63 characters, and must conform to RFC 1035
- *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty, but, if
  *  present, must contain 1 to 63 characters, and must conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
  *  associated with a job.
@@ -3579,9 +3623,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_JobScheduling : GTLRObject
 
 /**
- *  Optional. Maximum number of times per hour a driver may be restarted as a
+ *  Optional. Maximum number of times per hour a driver can be restarted as a
  *  result of driver exiting with non-zero code before job is reported failed.A
- *  job may be reported as thrashing if the driver exits with a non-zero code
+ *  job might be reported as thrashing if the driver exits with a non-zero code
  *  four times within a 10-minute window.Maximum value is 10.Note: This
  *  restartable job option is not supported in Dataproc workflow templates
  *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
@@ -3591,7 +3635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *maxFailuresPerHour;
 
 /**
- *  Optional. Maximum total number of times a driver may be restarted as a
+ *  Optional. Maximum total number of times a driver can be restarted as a
  *  result of the driver exiting with a non-zero code. After the maximum number
  *  is reached, the job will be reported as failed.Maximum value is 240.Note:
  *  Currently, this restartable job option is not supported in Dataproc workflow
@@ -3655,11 +3699,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_JobStatus_Substate_Queued The Job has been received
- *        and is awaiting execution (it may be waiting for a condition to be
+ *        and is awaiting execution (it might be waiting for a condition to be
  *        met). See the "details" field for the reason for the delay.Applies to
  *        RUNNING state. (Value: "QUEUED")
  *    @arg @c kGTLRDataproc_JobStatus_Substate_StaleStatus The agent-reported
- *        status is out of date, which may be caused by a loss of communication
+ *        status is out of date, which can be caused by a loss of communication
  *        between the agent and Dataproc. If the agent does not send a timely
  *        update, the job will fail.Applies to RUNNING state. (Value:
  *        "STALE_STATUS")
@@ -4070,7 +4114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ListSessionsResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  A token, which can be sent as page_token, to retrieve the next page. If this
  *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -4147,7 +4191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_LoggingConfig : GTLRObject
 
 /**
- *  The per-package log levels for the driver. This may include "root" package
+ *  The per-package log levels for the driver. This can include "root" package
  *  name to configure rootLogger. Examples: - 'com.google = FATAL' - 'root =
  *  INFO' - 'org.apache = DEBUG'
  */
@@ -4157,7 +4201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The per-package log levels for the driver. This may include "root" package
+ *  The per-package log levels for the driver. This can include "root" package
  *  name to configure rootLogger. Examples: - 'com.google = FATAL' - 'root =
  *  INFO' - 'org.apache = DEBUG'
  *
@@ -4223,6 +4267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. The name of the Instance Group Manager for this group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManagerName;
+
+/**
+ *  Output only. The partial URI to the instance group manager for this group.
+ *  E.g. projects/my-project/regions/us-central1/instanceGroupManagers/my-igm.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManagerUri;
 
 /**
  *  Output only. The name of the Instance Template used for the Managed Instance
@@ -4603,6 +4653,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_OrderedJob : GTLRObject
 
+/** Optional. Job is a Flink job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_FlinkJob *flinkJob;
+
 /** Optional. Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
 
@@ -4736,7 +4789,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure Pig.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/pig/conf/pig.properties, and classes in user code.
  */
@@ -4759,7 +4812,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure Pig.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/pig/conf/pig.properties, and classes in user code.
  *
@@ -4932,6 +4985,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for PyPi repository
+ */
+@interface GTLRDataproc_PyPiRepositoryConfig : GTLRObject
+
+/** Optional. PyPi repository address */
+@property(nonatomic, copy, nullable) NSString *pypiRepository;
+
+@end
+
+
+/**
  *  A configuration for running an Apache PySpark
  *  (https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html)
  *  batch workload.
@@ -5021,7 +5085,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure PySpark.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -5038,7 +5102,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure PySpark.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -5133,6 +5197,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for dependency repositories
+ */
+@interface GTLRDataproc_RepositoryConfig : GTLRObject
+
+/** Optional. Configuration for PyPi repository. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PyPiRepositoryConfig *pypiRepositoryConfig;
+
+@end
+
+
+/**
  *  Reservation Affinity for consuming Zonal reservation.
  */
 @interface GTLRDataproc_ReservationAffinity : GTLRObject
@@ -5183,6 +5258,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
 
 /**
+ *  Optional. operation id of the parent operation sending the resize request
+ */
+@property(nonatomic, copy, nullable) NSString *parentOperationId;
+
+/**
  *  Optional. A unique ID used to identify the request. If the server receives
  *  two ResizeNodeGroupRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.ResizeNodeGroupRequests)
@@ -5223,6 +5303,9 @@ GTLR_DEPRECATED
  *  workload execution.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig_Properties *properties;
+
+/** Optional. Dependency repository configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RepositoryConfig *repositoryConfig;
 
 /** Optional. Version of the batch runtime. */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -5312,7 +5395,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A representation of a session in the service. Next ID: 18
+ *  A representation of a session.
  */
 @interface GTLRDataproc_Session : GTLRObject
 
@@ -5329,7 +5412,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_JupyterConfig *jupyterSession;
 
 /**
- *  Optional. The labels to associate with this session. Label keys must contain
+ *  Optional. The labels to associate with the session. Label keys must contain
  *  1 to 63 characters, and must conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
  *  present, must contain 1 to 63 characters, and must conform to RFC 1035
@@ -5348,12 +5431,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeInfo *runtimeInfo;
 
 /**
- *  Optional. The session template used by the session.Only resource names
- *  including project ID and location are valid.Example: *
+ *  Optional. The session template used by the session.Only resource names,
+ *  including project ID and location, are valid.Example: *
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]
  *  *
- *  projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]Note
- *  that the template must be in the same project and Dataproc region.
+ *  projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]The
+ *  template must be in the same project and Dataproc region as the session.
  */
 @property(nonatomic, copy, nullable) NSString *sessionTemplate;
 
@@ -5363,8 +5446,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRDataproc_Session_State_Active The session is running. (Value:
  *        "ACTIVE")
- *    @arg @c kGTLRDataproc_Session_State_Creating The session is created before
- *        running. (Value: "CREATING")
+ *    @arg @c kGTLRDataproc_Session_State_Creating The session is created prior
+ *        to running. (Value: "CREATING")
  *    @arg @c kGTLRDataproc_Session_State_Failed The session is no longer
  *        running due to an error. (Value: "FAILED")
  *    @arg @c kGTLRDataproc_Session_State_StateUnspecified The session state is
@@ -5380,12 +5463,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SessionStateHistory *> *stateHistory;
 
 /**
- *  Output only. Session state details, such as a failure description if the
+ *  Output only. Session state details, such as the failure description if the
  *  state is FAILED.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
-/** Output only. The time when the session entered a current state. */
+/** Output only. The time when the session entered the current state. */
 @property(nonatomic, strong, nullable) GTLRDateTime *stateTime;
 
 /** Optional. The email address of the user who owns the session. */
@@ -5401,7 +5484,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Optional. The labels to associate with this session. Label keys must contain
+ *  Optional. The labels to associate with the session. Label keys must contain
  *  1 to 63 characters, and must conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
  *  present, must contain 1 to 63 characters, and must conform to RFC 1035
@@ -5484,13 +5567,13 @@ GTLR_DEPRECATED
 @interface GTLRDataproc_SessionStateHistory : GTLRObject
 
 /**
- *  Output only. The state of the session at this point in history.
+ *  Output only. The state of the session at this point in the session history.
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_SessionStateHistory_State_Active The session is
  *        running. (Value: "ACTIVE")
  *    @arg @c kGTLRDataproc_SessionStateHistory_State_Creating The session is
- *        created before running. (Value: "CREATING")
+ *        created prior to running. (Value: "CREATING")
  *    @arg @c kGTLRDataproc_SessionStateHistory_State_Failed The session is no
  *        longer running due to an error. (Value: "FAILED")
  *    @arg @c kGTLRDataproc_SessionStateHistory_State_StateUnspecified The
@@ -5502,7 +5585,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. Details about the state at this point in history. */
+/**
+ *  Output only. Details about the state at this point in the session history.
+ */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
 /** Output only. The time when the session entered the historical state. */
@@ -5512,7 +5597,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A representation of a session template in the service. Next ID: 12
+ *  A representation of a session template.
  */
 @interface GTLRDataproc_SessionTemplate : GTLRObject
 
@@ -5536,10 +5621,10 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_JupyterConfig *jupyterSession;
 
 /**
- *  Optional. The labels to associate with sessions created using this template.
+ *  Optional. Labels to associate with sessions created using this template.
  *  Label keys must contain 1 to 63 characters, and must conform to RFC 1035
- *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
- *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty, but, if
+ *  present, must contain 1 to 63 characters and conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
  *  associated with a session.
  */
@@ -5551,17 +5636,23 @@ GTLR_DEPRECATED
 /** Optional. Runtime configuration for session execution. */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
 
-/** Output only. The time template was last updated. */
+/** Output only. The time the template was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. A session template UUID (Unique Universal Identifier). The
+ *  service generates this value when it creates the session template.
+ */
+@property(nonatomic, copy, nullable) NSString *uuid;
 
 @end
 
 
 /**
- *  Optional. The labels to associate with sessions created using this template.
+ *  Optional. Labels to associate with sessions created using this template.
  *  Label keys must contain 1 to 63 characters, and must conform to RFC 1035
- *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
- *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values can be empty, but, if
+ *  present, must contain 1 to 63 characters and conform to RFC 1035
  *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
  *  associated with a session.
  *
@@ -5766,7 +5857,7 @@ GTLR_DEPRECATED
 
 /**
  *  The name of the driver's main class. The jar file that contains the class
- *  must be in the default CLASSPATH or specified in jar_file_uris.
+ *  must be in the default CLASSPATH or specified in SparkJob.jar_file_uris.
  */
 @property(nonatomic, copy, nullable) NSString *mainClass;
 
@@ -5775,7 +5866,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -5786,7 +5877,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -5869,7 +5960,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure SparkR.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -5880,7 +5971,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. A mapping of property names to values, used to configure SparkR.
- *  Properties that conflict with values set by the Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API might be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -5945,7 +6036,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. A mapping of property names to values, used to configure Spark
  *  SQL's SparkConf. Properties that conflict with values set by the Dataproc
- *  API may be overwritten.
+ *  API might be overwritten.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob_Properties *properties;
 
@@ -5967,7 +6058,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. A mapping of property names to values, used to configure Spark
  *  SQL's SparkConf. Properties that conflict with values set by the Dataproc
- *  API may be overwritten.
+ *  API might be overwritten.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6003,6 +6094,13 @@ GTLR_DEPRECATED
  *  downscaling operations.Bounds: 0s, 1d.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
+ *  Optional. Remove only idle workers when scaling down cluster
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *removeOnlyIdleWorkers;
 
 /**
  *  Required. Fraction of required executors to remove from Spark Serverless
@@ -6074,6 +6172,27 @@ GTLR_DEPRECATED
  *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Configuration to handle the startup of instances during cluster create and
+ *  update process.
+ */
+@interface GTLRDataproc_StartupConfig : GTLRObject
+
+/**
+ *  Optional. The config setting to enable cluster creation/ updation to be
+ *  successful only after required_registration_fraction of instances are up and
+ *  running. This configuration is applicable to only secondary workers for now.
+ *  The cluster will fail if required_registration_fraction of instances are not
+ *  available. This will include instance creation, agent registration, and
+ *  service registration (if enabled).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiredRegistrationFraction;
 
 @end
 

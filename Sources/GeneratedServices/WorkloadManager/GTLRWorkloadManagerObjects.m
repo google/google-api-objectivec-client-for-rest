@@ -64,18 +64,23 @@ NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Resource
 
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Corosync = @"COROSYNC";
+NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Custom = @"CUSTOM";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Hana = @"HANA";
+NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_HanaSecurity = @"HANA_SECURITY";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Netweaver = @"NETWEAVER";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Pacemaker = @"PACEMAKER";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_SapValidationTypeUnspecified = @"SAP_VALIDATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System = @"SYSTEM";
 
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBackupPolicy = @"DB_BACKUP_POLICY";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension = @"DB_BUFFER_POOL_EXTENSION";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits = @"DB_CXPACKET_WAITS";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbIndexFragmentation = @"DB_INDEX_FRAGMENTATION";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation = @"DB_LOG_DISK_SEPARATION";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism = @"DB_MAX_PARALLELISM";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory = @"DB_MAX_SERVER_MEMORY";
+NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTableIndexCompression = @"DB_TABLE_INDEX_COMPRESSION";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling = @"DB_TRANSACTION_LOG_HANDLING";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbVirtualLogFileCount = @"DB_VIRTUAL_LOG_FILE_COUNT";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics = @"INSTANCE_METRICS";

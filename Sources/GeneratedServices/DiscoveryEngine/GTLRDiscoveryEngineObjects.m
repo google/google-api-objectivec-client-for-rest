@@ -26,6 +26,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConf
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig.fieldType
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Boolean = @"BOOLEAN";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_FieldTypeUnspecified = @"FIELD_TYPE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Geolocation = @"GEOLOCATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Integer = @"INTEGER";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Number = @"NUMBER";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Object = @"OBJECT";
@@ -50,6 +51,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConf
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableDisabled = @"SEARCHABLE_DISABLED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableEnabled = @"SEARCHABLE_ENABLED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableOptionUnspecified = @"SEARCHABLE_OPTION_UNSPECIFIED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason.corpusType
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Desktop = @"DESKTOP";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Mobile = @"MOBILE";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo.siteVerificationState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo_SiteVerificationState_Exempted = @"EXEMPTED";
@@ -224,24 +230,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse
-@dynamic targetSites;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateSchemaMetadata
 //
 
@@ -388,6 +376,72 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisMetadata
+@dynamic createTime, invalidUris, pendingCount, quotaExceededCount,
+         successCount, updateTime, validUrisCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"invalidUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponse
+@dynamic failedUris, failureSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failedUris" : [NSString class],
+    @"failureSamples" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo
+@dynamic failureReasons, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failureReasons" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason
+@dynamic corpusType, errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema
 //
 
@@ -455,7 +509,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure
-@dynamic totalRequiredQuota;
 @end
 
 
@@ -504,11 +557,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponseQuerySuggestion
-@dynamic completableFieldPath, suggestion;
+@dynamic completableFieldPaths, suggestion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"completableFieldPath" : [NSString class]
+    @"completableFieldPaths" : [NSString class]
   };
   return map;
 }
@@ -578,7 +631,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
-@dynamic conversation, query, safeSearch, servingConfig, userLabels;
+@dynamic conversation, query, safeSearch, servingConfig, summarySpec,
+         userLabels;
 @end
 
 
@@ -1275,7 +1329,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec
 @dynamic maxExtractiveAnswerCount, maxExtractiveSegmentCount, numNextSegments,
-         numPreviousSegments, returnExtractiveSegmentScore;
+         numPreviousSegments;
 @end
 
 
@@ -1413,13 +1467,14 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse
 @dynamic appliedControls, attributionToken, correctedQuery, facets,
-         guidedSearchResult, nextPageToken, queryExpansionInfo, redirectUri,
-         results, summary, totalSize;
+         geoSearchDebugInfo, guidedSearchResult, nextPageToken,
+         queryExpansionInfo, redirectUri, results, summary, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appliedControls" : [NSString class],
     @"facets" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet class],
+    @"geoSearchDebugInfo" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo class],
     @"results" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult class]
   };
   return map;
@@ -1453,6 +1508,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacetFacetValue
 @dynamic count, interval, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo
+@dynamic errorMessage, originalAddressQuery;
 @end
 
 
@@ -1530,11 +1595,30 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResp
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary
-@dynamic summarySkippedReasons, summaryText;
+@dynamic safetyAttributes, summarySkippedReasons, summaryText;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"summarySkippedReasons" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes
+@dynamic categories, scores;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class],
+    @"scores" : [NSNumber class]
   };
   return map;
 }

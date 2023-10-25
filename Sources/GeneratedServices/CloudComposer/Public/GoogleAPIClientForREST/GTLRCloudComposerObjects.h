@@ -45,6 +45,8 @@
 @class GTLRCloudComposer_SoftwareConfig_PypiPackages;
 @class GTLRCloudComposer_Status;
 @class GTLRCloudComposer_Status_Details_Item;
+@class GTLRCloudComposer_StorageConfig;
+@class GTLRCloudComposer_TriggererResource;
 @class GTLRCloudComposer_WebServerConfig;
 @class GTLRCloudComposer_WebServerNetworkAccessControl;
 @class GTLRCloudComposer_WebServerResource;
@@ -390,6 +392,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
+/**
+ *  Optional. The Compute Engine zone where the Airflow database is created. If
+ *  zone is provided, it must be in the region selected for the environment. If
+ *  zone is not provided, a zone is automatically selected. The zone can only be
+ *  set during environment creation. Supported for Cloud Composer environments
+ *  in versions composer-2.*.*-airflow-*.*.*.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -505,6 +518,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  The current state of the environment.
  *
  *  Likely values:
@@ -523,6 +543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        requests or be deleted at this time. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Storage configuration for this environment. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_StorageConfig *storageConfig;
 
 /** Output only. The time at which this environment was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1902,6 +1925,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  The configuration for data storage in the environment.
+ */
+@interface GTLRCloudComposer_StorageConfig : GTLRObject
+
+/**
+ *  Optional. The name of the Cloud Storage bucket used by the environment. No
+ *  `gs://` prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+@end
+
+
+/**
+ *  Configuration for resources used by Airflow triggerers.
+ */
+@interface GTLRCloudComposer_TriggererResource : GTLRObject
+
+/**
+ *  Optional. The number of triggerers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Optional. CPU request and limit for a single Airflow triggerer replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpu;
+
+/**
+ *  Optional. Memory (GB) request and limit for a single Airflow triggerer
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+@end
+
+
+/**
  *  The configuration settings for the Airflow web server App Engine instance.
  *  Supported for Cloud Composer environments in versions
  *  composer-1.*.*-airflow-*.*.*
@@ -2013,6 +2080,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /** Optional. Resources used by Airflow schedulers. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SchedulerResource *scheduler;
+
+/** Optional. Resources used by Airflow triggerers. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_TriggererResource *triggerer;
 
 /** Optional. Resources used by Airflow web server. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_WebServerResource *webServer;

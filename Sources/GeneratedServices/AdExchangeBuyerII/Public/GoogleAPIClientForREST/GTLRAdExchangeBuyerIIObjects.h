@@ -597,6 +597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
 /**
+ *  The creative is considered a playable display creative.
+ *
+ *  Value: "RENDERING_PLAYABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingPlayable;
+/**
  *  The creative can dynamically resize to fill a variety of slot sizes.
  *
  *  Value: "RENDERING_SIZELESS_ADX"

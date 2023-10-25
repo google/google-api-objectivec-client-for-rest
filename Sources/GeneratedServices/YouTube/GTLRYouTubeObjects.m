@@ -1019,6 +1019,9 @@ NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Error = @"error";
 NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Inactive = @"inactive";
 NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready = @"ready";
 
+// GTLRYouTube_PlaylistImageSnippet.type
+NSString * const kGTLRYouTube_PlaylistImageSnippet_Type_Hero = @"hero";
+
 // GTLRYouTube_PlaylistItemStatus.privacyStatus
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public = @"public";
@@ -2080,7 +2083,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_CuepointSchedule
-@dynamic enabled, pauseAdsUntil, repeatInterval, scheduleStrategy;
+@dynamic enabled, pauseAdsUntil, repeatIntervalSecs, scheduleStrategy;
 @end
 
 
@@ -2998,6 +3001,49 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_PlaylistContentDetails
 @dynamic itemCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_PlaylistImage
+//
+
+@implementation GTLRYouTube_PlaylistImage
+@dynamic identifier, kind, snippet;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_PlaylistImageListResponse
+//
+
+@implementation GTLRYouTube_PlaylistImageListResponse
+@dynamic items, kind, nextPageToken, pageInfo, prevPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_PlaylistImage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_PlaylistImageSnippet
+//
+
+@implementation GTLRYouTube_PlaylistImageSnippet
+@dynamic height, playlistId, type, width;
 @end
 
 

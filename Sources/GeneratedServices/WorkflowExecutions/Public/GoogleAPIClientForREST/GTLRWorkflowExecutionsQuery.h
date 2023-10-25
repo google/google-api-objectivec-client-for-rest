@@ -65,6 +65,58 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @end
 
 /**
+ *  Returns a list of active callbacks that belong to the execution with the
+ *  given name. The returned callbacks are ordered by callback ID.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.executions.callbacks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCallbacksList : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Maximum number of callbacks to return per call. The default value is 100 and
+ *  is also the maximum value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListCallbacks` call. Provide this to
+ *  retrieve the subsequent page. Note that pagination is applied to dynamic
+ *  data. The list of callbacks returned can change between page requests if
+ *  callbacks are created or deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the execution for which the callbacks should be listed.
+ *  Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_ListCallbacksResponse.
+ *
+ *  Returns a list of active callbacks that belong to the execution with the
+ *  given name. The returned callbacks are ordered by callback ID.
+ *
+ *  @param parent Required. Name of the execution for which the callbacks should
+ *    be listed. Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCallbacksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Cancels an execution of the given name.
  *
  *  Method: workflowexecutions.projects.locations.workflows.executions.cancel
@@ -134,6 +186,39 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @end
 
 /**
+ *  Returns all metadata stored about an execution, excluding most data that is
+ *  already accessible using other API methods.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.executions.exportData
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsExportData : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Required. Name of the execution for which data is to be exported. Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_ExportDataResponse.
+ *
+ *  Returns all metadata stored about an execution, excluding most data that is
+ *  already accessible using other API methods.
+ *
+ *  @param name Required. Name of the execution for which data is to be
+ *    exported. Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsExportData
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns an execution of the given name.
  *
  *  Method: workflowexecutions.projects.locations.workflows.executions.get
@@ -191,17 +276,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsList : GTLRWorkflowExecutionsQuery
 
 /**
- *  Optional. Filters applied to the [Executions.ListExecutions] results. The
- *  following fields are supported for filtering: executionID, state, startTime,
- *  endTime, duration, workflowRevisionID, stepName, and label.
+ *  Optional. Filters applied to the `[Executions.ListExecutions]` results. The
+ *  following fields are supported for filtering: `executionId`, `state`,
+ *  `startTime`, `endTime`, `duration`, `workflowRevisionId`, `stepName`, and
+ *  `label`. For details, see AIP-160. For example, if you are using the Google
+ *  APIs Explorer: `state="SUCCEEDED"` or `startTime>"2023-08-01" AND
+ *  state="FAILED"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The ordering applied to the [Executions.ListExecutions] results.
- *  By default the ordering is based on descending start time. The following
- *  fields are supported for order by: executionID, startTime, endTime,
- *  duration, state, and workflowRevisionID.
+ *  Optional. Comma-separated list of fields that specify the ordering applied
+ *  to the `[Executions.ListExecutions]` results. By default the ordering is
+ *  based on descending `startTime`. The following fields are supported for
+ *  ordering: `executionId`, `state`, `startTime`, `endTime`, `duration`, and
+ *  `workflowRevisionId`. For details, see AIP-132.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

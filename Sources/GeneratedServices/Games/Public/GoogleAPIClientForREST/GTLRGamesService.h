@@ -34,6 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGames;
 /**
+ *  Authorization scope: View and manage your Google Play Developer account
+ *
+ *  Value "https://www.googleapis.com/auth/androidpublisher"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesAndroidpublisher;
+/**
  *  Authorization scope: See, create, and delete its own configuration data in
  *  your Google Drive
  *

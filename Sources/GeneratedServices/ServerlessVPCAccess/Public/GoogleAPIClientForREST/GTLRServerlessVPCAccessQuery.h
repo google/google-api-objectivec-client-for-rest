@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *connectorId;
 
 /**
- *  Required. The project id and location in which the configuration should be
+ *  Required. The project ID and location in which the configuration should be
  *  created, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServerlessVPCAccess_Connector to include in the
  *    query.
- *  @param parent Required. The project id and location in which the
+ *  @param parent Required. The project ID and location in which the
  *    configuration should be created, specified in the format `projects/ *
  *    /locations/ *`.
  *

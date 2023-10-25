@@ -491,6 +491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationEmails;
 
 /**
+ *  Optional. A pubsub topic to which notifications relating to approval
+ *  requests should be sent.
+ */
+@property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
+
+/**
  *  This preference is communicated to Google personnel when sending an approval
  *  request but can be overridden if necessary.
  *

@@ -317,7 +317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The repository id to use for this repository. */
+/** Required. The repository id to use for this repository. */
 @property(nonatomic, copy, nullable) NSString *repositoryId;
 
 /**

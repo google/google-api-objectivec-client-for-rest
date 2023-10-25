@@ -172,7 +172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeU
  *  whichever additional elements appear in the text: * `street_number` - street
  *  number * `locality` - city or town * `street_name` - street/route name, if
  *  detected * `postal_code` - postal code, if detected * `country` - country,
- *  if detected< * `broad_region` - administrative area, such as the state, if
+ *  if detected * `broad_region` - administrative area, such as the state, if
  *  detected * `narrow_region` - smaller administrative area, such as county, if
  *  detected * `sublocality` - used in Asian addresses to demark a district
  *  within a city, if detected
@@ -610,10 +610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_EntityMention *> *mentions;
 
 /**
- *  Metadata associated with the entity. For most entity types, the metadata is
- *  a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they
- *  are available. For the metadata associated with other entity types, see the
- *  Type table below.
+ *  Metadata associated with the entity. For the metadata associated with other
+ *  entity types, see the Type table below.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Entity_Metadata *metadata;
 
@@ -637,7 +635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_
  *        elements appear in the text: * `street_number` - street number *
  *        `locality` - city or town * `street_name` - street/route name, if
  *        detected * `postal_code` - postal code, if detected * `country` -
- *        country, if detected< * `broad_region` - administrative area, such as
+ *        country, if detected * `broad_region` - administrative area, such as
  *        the state, if detected * `narrow_region` - smaller administrative
  *        area, such as county, if detected * `sublocality` - used in Asian
  *        addresses to demark a district within a city, if detected (Value:
@@ -680,10 +678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_
 
 
 /**
- *  Metadata associated with the entity. For most entity types, the metadata is
- *  a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they
- *  are available. For the metadata associated with other entity types, see the
- *  Type table below.
+ *  Metadata associated with the entity. For the metadata associated with other
+ *  entity types, see the Type table below.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

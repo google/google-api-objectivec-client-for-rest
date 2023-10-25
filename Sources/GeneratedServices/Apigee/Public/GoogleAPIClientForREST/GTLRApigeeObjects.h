@@ -27,6 +27,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1AddonsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
@@ -141,6 +142,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1RevenueShareRange;
 @class GTLRApigee_GoogleCloudApigeeV1RevisionStatus;
 @class GTLRApigee_GoogleCloudApigeeV1RoutingRule;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeAddonsConfig;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeAnalyticsConfig;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeApiSecurityConfig;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig;
@@ -151,6 +155,12 @@
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation;
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction;
 @class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAction;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityActionAllow;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityActionDeny;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityActionFlag;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
@@ -240,6 +250,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionC
  *  Value: "KEY_CERT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig.state
+
+/**
+ *  Default value.
+ *
+ *  Value: "ADDON_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_AddonStateUnspecified;
+/**
+ *  Add-on is fully disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Disabled;
+/**
+ *  Add-on is in progress of disabling.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Disabling;
+/**
+ *  Add-on is fully enabled and ready to use.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabled;
+/**
+ *  Add-on is in progress of enabling.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabling;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ApiProduct.quotaCounterScope
@@ -1075,6 +1119,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_S
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionPlan
+
+/**
+ *  Traditional subscription plan.
+ *
+ *  Value: "SUBSCRIPTION_2021"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_Subscription2021;
+/**
+ *  New subscription plan that provides standard proxy and scaled proxy
+ *  implementation.
+ *
+ *  Value: "SUBSCRIPTION_2024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_Subscription2024;
+/**
+ *  Subscription plan not specified.
+ *
+ *  Value: "SUBSCRIPTION_PLAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_SubscriptionPlanUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
 
 /**
@@ -1362,6 +1429,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
  *  Value: "SAMPLER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAction.state
+
+/**
+ *  A disabled SecurityAction is never enforced.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Disabled;
+/**
+ *  An ENABLED SecurityAction is actively enforced if the `expiration_time` is
+ *  in the future.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Enabled;
+/**
+ *  The default value. This only exists for forward compatibility. A create
+ *  request with this value will be rejected.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.riskLevel
@@ -1876,6 +1967,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Configuration for the Advanced API Ops add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
 
+/** Configuration for the Analytics add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig *analyticsConfig;
+
 /** Configuration for the API Security add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig *apiSecurityConfig;
 
@@ -1984,20 +2078,63 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  the Api category resource wrapped with response status, error_code etc.
+ *  Configuration for the Analytics add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig : GTLRObject
+
+/**
+ *  Whether the Analytics add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. Time at which the Analytics add-on expires in milliseconds
+ *  since epoch. If unspecified, the add-on will never expire.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expireTimeMillis;
+
+/**
+ *  Output only. The state of the Analytics add-on.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_AddonStateUnspecified
+ *        Default value. (Value: "ADDON_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Disabled
+ *        Add-on is fully disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Disabling
+ *        Add-on is in progress of disabling. (Value: "DISABLING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabled
+ *        Add-on is fully enabled and ready to use. (Value: "ENABLED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabling
+ *        Add-on is in progress of enabling. (Value: "ENABLING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The latest update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The API category resource wrapped with response status, error_code, etc.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiCategory : GTLRObject
 
-/** Details of category. */
+/** Details of the category. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *data;
 
-/** ID that can be used to find errors in the log files. */
+/** Unique error code for the request, if any. */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
 /** Description of the operation. */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** ID that can be used to find request details in the log files. */
+/** Unique ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Status of the operation. */
@@ -2007,12 +2144,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  the Api category resource.
+ *  `ApiCategoryData` represents an API category. Catalog items can be tagged
+ *  with API categories; users viewing the API catalog in the portal will have
+ *  the option to browse the catalog by category.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiCategoryData : GTLRObject
-
-/** GCP name of api category resource. */
-@property(nonatomic, copy, nullable) NSString *gcpResource;
 
 /**
  *  ID of the category (a UUID).
@@ -3831,16 +3967,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeleteResponse : GTLRObject
 
-/** ID that can be used to find errors in the log files. */
+/** Unique error code for the request, if any. */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
-/** GCP name of deleted resource. */
+/** Google Cloud name of deleted resource. */
 @property(nonatomic, copy, nullable) NSString *gcpResource;
 
 /** Description of the operation. */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** ID that can be used to find request details in the log files. */
+/** Unique ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Status of the operation. */
@@ -4505,6 +4641,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Message to disable an enabled SecurityAction.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DisableSecurityActionRequest : GTLRObject
+@end
+
+
+/**
+ *  Message to enable a disabled SecurityAction.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnableSecurityActionRequest : GTLRObject
+@end
+
+
+/**
  *  Apigee endpoint attachment. For more information, see [Southbound networking
  *  patterns]
  *  (https://cloud.google.com/apigee/docs/api-platform/architecture/southbound-networking-patterns-endpoints).
@@ -4783,6 +4933,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig : GTLRObject
+
+/** The latest runtime configurations for add-ons. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeAddonsConfig *addonsConfig;
 
 /**
  *  The location for the config blob of API Runtime Control, aka Envoy Adapter,
@@ -5795,20 +5948,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  the response for ListApiCategoriesRequest.
+ *  The response for `ListApiCategoriesRequest`.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiCategoriesResponse : GTLRObject
 
-/** Details of categories. */
+/** Details of the categories. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *> *data;
 
-/** ID that can be used to find errors in the log files. */
+/** Unique error code for the request, if any. */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
 /** Description of the operation. */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** ID that can be used to find request details in the log files. */
+/** Unique ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Status of the operation. */
@@ -6346,6 +6499,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of rate plans in an organization. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RatePlan *> *ratePlans;
+
+@end
+
+
+/**
+ *  Contains a list of SecurityActions in response to a
+ *  ListSecurityActionRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityActions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityActionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The SecurityActions for the specified environment.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityAction *> *securityActions;
 
 @end
 
@@ -7134,6 +7315,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Subscription plan that the customer has purchased. Output only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_Subscription2021
+ *        Traditional subscription plan. (Value: "SUBSCRIPTION_2021")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_Subscription2024
+ *        New subscription plan that provides standard proxy and scaled proxy
+ *        implementation. (Value: "SUBSCRIPTION_2024")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionPlan_SubscriptionPlanUnspecified
+ *        Subscription plan not specified. (Value:
+ *        "SUBSCRIPTION_PLAN_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionPlan;
 
 /**
  *  Output only. DEPRECATED: This will eventually be replaced by BillingType.
@@ -8398,6 +8594,74 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  RuntimeAddonsConfig defines the runtime configurations for add-ons in an
+ *  environment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeAddonsConfig : GTLRObject
+
+/** Runtime configuration for Analytics add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeAnalyticsConfig *analyticsConfig;
+
+/** Runtime configuration for API Security add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeApiSecurityConfig *apiSecurityConfig;
+
+/**
+ *  Name of the addons config in the format:
+ *  `organizations/{org}/environments/{env}/addonsConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Revision number used by the runtime to detect config changes. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  UID is to detect if config is recreated after deletion. The add-on config
+ *  will only be deleted when the environment itself gets deleted, thus it will
+ *  always be the same as the UID of EnvironmentConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Runtime configuration for the Analytics add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeAnalyticsConfig : GTLRObject
+
+/**
+ *  If Runtime should send billing data to AX or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *billingPipelineEnabled;
+
+/**
+ *  If the Analytics is enabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Runtime configuration for the API Security add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeApiSecurityConfig : GTLRObject
+
+/**
+ *  If the API Security is enabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  Runtime configuration for the organization. Response for GetRuntimeConfig.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeConfig : GTLRObject
@@ -8726,6 +8990,183 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  A SecurityAction is rule that can be enforced at an environment level. The
+ *  result is one of: - A denied API call - An explicitly allowed API call - A
+ *  flagged API call (HTTP headers added before the target receives it) At least
+ *  one condition is required to create a SecurityAction.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAction : GTLRObject
+
+/** Allow a request through if it matches this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionAllow *allow;
+
+/** Required. A valid SecurityAction must contain at least one condition. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig *conditionConfig;
+
+/** Output only. The create time for this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Deny a request through if it matches this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionDeny *deny;
+
+/**
+ *  Optional. An optional user provided description of the SecurityAction.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The expiration for this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** Flag a request through if it matches this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionFlag *flag;
+
+/**
+ *  Immutable. This field is ignored during creation as per AIP-133. Please set
+ *  the `security_action_id` field in the CreateSecurityActionRequest when
+ *  creating a new SecurityAction. Format:
+ *  organizations/{org}/environments/{env}/securityActions/{security_action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Only an ENABLED SecurityAction is enforced. An ENABLED
+ *  SecurityAction past its expiration time will not be enforced.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Disabled A
+ *        disabled SecurityAction is never enforced. (Value: "DISABLED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Enabled An
+ *        ENABLED SecurityAction is actively enforced if the `expiration_time`
+ *        is in the future. (Value: "ENABLED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified
+ *        The default value. This only exists for forward compatibility. A
+ *        create request with this value will be rejected. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Input only. The TTL for this SecurityAction. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Output only. The update time for this SecurityAction. This reflects when
+ *  this SecurityAction changed states.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message that should be set in case of an Allow Action. This does not have
+ *  any fields.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionAllow : GTLRObject
+@end
+
+
+/**
+ *  The following are a list of conditions. A valid SecurityAction must contain
+ *  at least one condition. Within a condition, each element is ORed. Across
+ *  conditions elements are ANDed. For example if a SecurityAction has the
+ *  following: api_keys: ["key1", "key2"] and developers: ["dev1", "dev2"] then
+ *  this is interpreted as: enforce the action if the incoming request has
+ *  ((api_key = "key1" OR api_key="key") AND (developer="dev1" OR
+ *  developer="dev2"))
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig : GTLRObject
+
+/**
+ *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
+ *  Static Content Scraper, OAuth Abuser, Robot Abuser, TorListRule, Advanced
+ *  Anomaly Detection and Advanced API Scraper.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *botReasons;
+
+/**
+ *  Optional. A list of IP addresses. This could be either IPv4 or IPv6. Limited
+ *  to 100 per action.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddressRanges;
+
+@end
+
+
+/**
+ *  Message that should be set in case of a Deny Action.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionDeny : GTLRObject
+
+/**
+ *  Optional. The HTTP response code if the Action = DENY.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responseCode;
+
+@end
+
+
+/**
+ *  The message that should be set in the case of a Flag action.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionFlag : GTLRObject
+
+/**
+ *  Optional. A list of HTTP headers to be sent to the target in case of a FLAG
+ *  SecurityAction. Limit 5 headers per SecurityAction. At least one is
+ *  mandatory.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader *> *headers;
+
+@end
+
+
+/**
+ *  An HTTP header.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader : GTLRObject
+
+/** The header name to be sent to the target. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The header value to be sent to the target. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  SecurityActionsConfig reflects the current state of the SecurityActions
+ *  feature. This is a singleton resource: https://google.aip.dev/156
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityActionsConfig : GTLRObject
+
+/**
+ *  The flag that controls whether this feature is enabled. This is `unset` by
+ *  default. When this flag is `false`, even if individual rules are enabled, no
+ *  SecurityActions will be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  This is a singleton resource, the name will always be set by SecurityActions
+ *  and any user input will be ignored. The name is always:
+ *  `organizations/{org}/environments/{env}/security_actions_config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The update time for configuration. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Represents an SecurityIncident resource.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityIncident : GTLRObject
@@ -8880,10 +9321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *attachTime;
 
-/**
- *  Immutable. Name of the profile-environment association resource. Format:
- *  organizations/{org}/securityProfiles/{profile}/environments/{env}
- */
+/** Immutable. Name of the environment that the profile is attached to. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -9214,6 +9652,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timestampMs;
+
+@end
+
+
+/**
+ *  Request for SetAddonEnablement.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SetAddonEnablementRequest : GTLRObject
+
+/**
+ *  If the Analytics should be enabled in the environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analyticsEnabled;
+
+/**
+ *  If the API Security should be enabled in the environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *apiSecurityEnabled;
 
 @end
 

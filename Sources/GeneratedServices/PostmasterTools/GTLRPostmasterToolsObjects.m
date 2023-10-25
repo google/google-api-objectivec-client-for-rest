@@ -158,7 +158,8 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 @implementation GTLRPostmasterTools_TrafficStats
 @dynamic deliveryErrors, dkimSuccessRatio, dmarcSuccessRatio, domainReputation,
          inboundEncryptionRatio, ipReputations, name, outboundEncryptionRatio,
-         spammyFeedbackLoops, spfSuccessRatio, userReportedSpamRatio;
+         spammyFeedbackLoops, spfSuccessRatio, userReportedSpamRatio,
+         userReportedSpamRatioLowerBound, userReportedSpamRatioUpperBound;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

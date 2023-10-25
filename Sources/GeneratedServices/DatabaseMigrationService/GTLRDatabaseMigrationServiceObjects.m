@@ -295,6 +295,7 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorRdbms = @"ERROR_RDBMS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingConflictingDatabases = @"EXISTING_CONFLICTING_DATABASES";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ExistingData = @"EXISTING_DATA";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
@@ -550,10 +551,10 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
 @dynamic activationPolicy, autoStorageIncrease, availabilityType, cmekKeyName,
-         collation, databaseFlags, databaseVersion, dataDiskSizeGb,
-         dataDiskType, edition, ipConfig, rootPassword, rootPasswordSet,
-         secondaryZone, sourceId, storageAutoResizeLimit, tier, userLabels,
-         zoneProperty;
+         collation, databaseFlags, databaseVersion, dataCacheConfig,
+         dataDiskSizeGb, dataDiskType, edition, ipConfig, rootPassword,
+         rootPasswordSet, secondaryZone, sourceId, storageAutoResizeLimit, tier,
+         userLabels, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -848,6 +849,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_DatabaseType
 @dynamic engine, provider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DataCacheConfig
+//
+
+@implementation GTLRDatabaseMigrationService_DataCacheConfig
+@dynamic dataCacheEnabled;
 @end
 
 

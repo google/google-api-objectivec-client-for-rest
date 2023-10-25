@@ -164,6 +164,33 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 
 /**
+ *  Response for the ListWorkflowRevisions method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workflows" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRWorkflows_ListWorkflowRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The revisions of the workflow, ordered in reverse chronological order.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkflows_Workflow *> *workflows;
+
+@end
+
+
+/**
  *  Response for the ListWorkflows method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -448,7 +475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  */
 @property(nonatomic, copy, nullable) NSString *callLogLevel;
 
-/** Output only. The timestamp for when the workflow was created. */
+/**
+ *  Output only. The timestamp for when the workflow was created. This is a
+ *  workflow-wide field and is not tied to a specific revision.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -463,7 +493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 /**
  *  Description of the workflow provided by the user. Must be at most 1000
- *  unicode characters long.
+ *  Unicode characters long. This is a workflow-wide field and is not tied to a
+ *  specific revision.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -473,13 +504,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  Labels associated with this workflow. Labels can contain at most 64 entries.
  *  Keys and values can be no longer than 63 characters and can only contain
  *  lowercase letters, numeric characters, underscores, and dashes. Label keys
- *  must start with a letter. International characters are allowed.
+ *  must start with a letter. International characters are allowed. This is a
+ *  workflow-wide field and is not tied to a specific revision.
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_Labels *labels;
 
 /**
  *  The resource name of the workflow. Format:
- *  projects/{project}/locations/{location}/workflows/{workflow}
+ *  projects/{project}/locations/{location}/workflows/{workflow}. This is a
+ *  workflow-wide field and is not tied to a specific revision.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -535,7 +568,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_StateError *stateError;
 
-/** Output only. The timestamp for when the workflow was last updated. */
+/**
+ *  Output only. The timestamp for when the workflow was last updated. This is a
+ *  workflow-wide field and is not tied to a specific revision.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
@@ -553,7 +589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  Labels associated with this workflow. Labels can contain at most 64 entries.
  *  Keys and values can be no longer than 63 characters and can only contain
  *  lowercase letters, numeric characters, underscores, and dashes. Label keys
- *  must start with a letter. International characters are allowed.
+ *  must start with a letter. International characters are allowed. This is a
+ *  workflow-wide field and is not tied to a specific revision.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -105,6 +105,7 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial = @"
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo = @"NON_SKIPPABLE_INSTREAM_VIDEO";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid = @"NON_VPAID";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10 = @"OMSDK_1_0";
+NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingPlayable = @"RENDERING_PLAYABLE";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx = @"RENDERING_SIZELESS_ADX";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash = @"RICH_MEDIA_CAPABILITY_TYPE_FLASH";
 NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5 = @"RICH_MEDIA_CAPABILITY_TYPE_HTML5";

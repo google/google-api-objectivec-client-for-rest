@@ -4048,6 +4048,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_RuntimeUpdatableParams *runtimeUpdatableParams;
 
 /**
+ *  Output only. Reserved for future use. This field is set only in responses
+ *  from the server; it is ignored if it is set in any requests.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
  *  Reserved for future use. This field is set only in responses from the
  *  server; it is ignored if it is set in any requests.
  *
@@ -5102,6 +5110,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Optional. Additional metadata for describing this parameter. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ParameterMetadata_CustomMetadata *customMetadata;
+
+/**
+ *  Optional. The default values will pre-populate the parameter with the given
+ *  value from the proto. If default_value is left empty, the parameter will be
+ *  populated with a default of the relevant type, e.g. false for a boolean.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultValue;
 
 /** Optional. The options shown when ENUM ParameterType is specified. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParameterMetadataEnumOption *> *enumOptions;

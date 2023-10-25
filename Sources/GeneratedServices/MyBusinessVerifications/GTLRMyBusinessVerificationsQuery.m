@@ -135,25 +135,3 @@
 }
 
 @end
-
-@implementation GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate
-
-+ (instancetype)queryWithObject:(GTLRMyBusinessVerifications_GenerateVerificationTokenRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/verificationTokens:generate";
-  GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRMyBusinessVerifications_GenerateVerificationTokenResponse class];
-  query.loggingName = @"mybusinessverifications.verificationTokens.generate";
-  return query;
-}
-
-@end

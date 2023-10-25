@@ -57,6 +57,7 @@
 @class GTLRBigtableAdmin_RestoreInfo;
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
+@class GTLRBigtableAdmin_StandardIsolation;
 @class GTLRBigtableAdmin_Status;
 @class GTLRBigtableAdmin_Status_Details_Item;
 @class GTLRBigtableAdmin_Table;
@@ -75,6 +76,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_AppProfile.priority
+
+/** Value: "PRIORITY_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityHigh;
+/** Value: "PRIORITY_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityLow;
+/** Value: "PRIORITY_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityMedium;
+/**
+ *  Default value. Mapped to PRIORITY_HIGH (the legacy behavior) on creation.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AppProfile_Priority_PriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_AuditLogConfig.logType
@@ -349,6 +366,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_Sourc
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_RestoreSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_StandardIsolation.priority
+
+/** Value: "PRIORITY_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityHigh;
+/** Value: "PRIORITY_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityLow;
+/** Value: "PRIORITY_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityMedium;
+/**
+ *  Default value. Mapped to PRIORITY_HIGH (the legacy behavior) on creation.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Table.granularity
 
 /**
@@ -429,8 +462,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  This field has been deprecated in favor of `standard_isolation.priority`. If
+ *  you set this field, `standard_isolation.priority` will be set instead. The
+ *  priority of requests sent using this app profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_AppProfile_Priority_PriorityHigh Value
+ *        "PRIORITY_HIGH"
+ *    @arg @c kGTLRBigtableAdmin_AppProfile_Priority_PriorityLow Value
+ *        "PRIORITY_LOW"
+ *    @arg @c kGTLRBigtableAdmin_AppProfile_Priority_PriorityMedium Value
+ *        "PRIORITY_MEDIUM"
+ *    @arg @c kGTLRBigtableAdmin_AppProfile_Priority_PriorityUnspecified Default
+ *        value. Mapped to PRIORITY_HIGH (the legacy behavior) on creation.
+ *        (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority GTLR_DEPRECATED;
+
 /** Use a single-cluster routing policy. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_SingleClusterRouting *singleClusterRouting;
+
+/**
+ *  The standard options used for isolating this app profile's traffic from
+ *  other use cases.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_StandardIsolation *standardIsolation;
 
 @end
 
@@ -1973,13 +2030,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_ModifyColumnFamiliesRequest : GTLRObject
 
 /**
- *  If true, ignore safety checks when modifying the column families.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreWarnings;
-
-/**
  *  Required. Modifications to be atomically applied to the specified table's
  *  families. Entries are applied in order, meaning that earlier modifications
  *  can be masked by later ones (in the case of repeated updates to the same
@@ -2042,8 +2092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2071,8 +2121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -2202,7 +2252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  constraints based on attributes of the request, the resource, or both. To
  *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:** { "bindings": [ { "role":
+ *  **JSON example:** ``` { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
  *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
@@ -2210,14 +2260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
- *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
- *  version: 3 For a description of IAM and its features, see the [IAM
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRBigtableAdmin_Policy : GTLRObject
@@ -2422,6 +2473,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  Standard options for isolating this app profile's traffic from other use
+ *  cases.
+ */
+@interface GTLRBigtableAdmin_StandardIsolation : GTLRObject
+
+/**
+ *  The priority of requests sent using this app profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityHigh Value
+ *        "PRIORITY_HIGH"
+ *    @arg @c kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityLow Value
+ *        "PRIORITY_LOW"
+ *    @arg @c kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityMedium Value
+ *        "PRIORITY_MEDIUM"
+ *    @arg @c kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityUnspecified
+ *        Default value. Mapped to PRIORITY_HIGH (the legacy behavior) on
+ *        creation. (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
 
 @end
 

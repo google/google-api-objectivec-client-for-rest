@@ -1155,7 +1155,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_PackageData
 @dynamic architecture, binarySourceInfo, binaryVersion, cpeUri, dependencyChain,
-         fileLocation, hashDigest, maintainer, os, osVersion, package,
+         fileLocation, hashDigest, licenses, maintainer, os, osVersion, package,
          packageType, patchedCve, sourceVersion, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1163,6 +1163,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
     @"binarySourceInfo" : [GTLROnDemandScanning_BinarySourceInfo class],
     @"dependencyChain" : [GTLROnDemandScanning_LanguagePackageDependency class],
     @"fileLocation" : [GTLROnDemandScanning_FileLocation class],
+    @"licenses" : [NSString class],
     @"patchedCve" : [NSString class]
   };
   return map;
@@ -1215,7 +1216,15 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageVersion
-@dynamic name, version;
+@dynamic licenses, name, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"licenses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1801,8 +1810,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
-         fixAvailable, longDescription, packageIssue, relatedUrls, severity,
-         shortDescription, type, vexAssessment;
+         extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
+         severity, shortDescription, type, vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

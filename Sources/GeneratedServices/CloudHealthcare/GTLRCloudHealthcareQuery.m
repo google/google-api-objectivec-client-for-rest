@@ -1009,6 +1009,44 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics
+
+@dynamic study;
+
++ (instancetype)queryWithStudy:(NSString *)study {
+  NSArray *pathParams = @[ @"study" ];
+  NSString *pathURITemplate = @"v1/{+study}:getStudyMetrics";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.study = study;
+  query.expectedObjectClass = [GTLRCloudHealthcare_StudyMetrics class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.getStudyMetrics";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics
+
+@dynamic series;
+
++ (instancetype)queryWithSeries:(NSString *)series {
+  NSArray *pathParams = @[ @"series" ];
+  NSString *pathURITemplate = @"v1/{+series}:getSeriesMetrics";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.series = series;
+  query.expectedObjectClass = [GTLRCloudHealthcare_SeriesMetrics class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.getSeriesMetrics";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport
 
 @dynamic name;
@@ -1050,6 +1088,25 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_DicomStore class];
   query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getDICOMStoreMetrics";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_DicomStoreMetrics class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.getDICOMStoreMetrics";
   return query;
 }
 
@@ -2537,6 +2594,25 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_Hl7V2Store class];
   query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getHL7v2StoreMetrics";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Hl7V2StoreMetrics class];
+  query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.getHL7v2StoreMetrics";
   return query;
 }
 

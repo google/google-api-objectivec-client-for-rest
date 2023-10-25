@@ -916,6 +916,198 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Creates a config for Discovery to scan and profile storage.
+ *
+ *  Method: dlp.organizations.locations.discoveryConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate : GTLRDLPQuery
+
+/**
+ *  Required. Parent resource name. The format of this value is as follows:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
+ *  string specifies a parent project with the identifier `example-project`, and
+ *  specifies the `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Creates a config for Discovery to scan and profile storage.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
+ *    to include in the query.
+ *  @param parent Required. Parent resource name. The format of this value is as
+ *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
+ *    example `parent` string specifies a parent project with the identifier
+ *    `example-project`, and specifies the `europe-west3` location for
+ *    processing data: parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Discovery configuration.
+ *
+ *  Method: dlp.organizations.locations.discoveryConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsDelete : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the config, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a Discovery configuration.
+ *
+ *  @param name Required. Resource name of the project and the config, for
+ *    example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Discovery configuration.
+ *
+ *  Method: dlp.organizations.locations.discoveryConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsGet : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the configuration, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Gets a Discovery configuration.
+ *
+ *  @param name Required. Resource name of the project and the configuration,
+ *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Discovery configurations.
+ *
+ *  Method: dlp.organizations.locations.discoveryConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsList : GTLRDLPQuery
+
+/**
+ *  Comma separated list of config fields to order by, followed by `asc` or
+ *  `desc` postfix. This list is case-insensitive, default sorting order is
+ *  ascending, redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `last_run_time`:
+ *  corresponds to the last time the DiscoveryConfig ran. - `name`: corresponds
+ *  to the DiscoveryConfig's name. - `status`: corresponds to DiscoveryConfig's
+ *  status.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Size of the page, can be limited by a server. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token to continue retrieval. Comes from previous call to
+ *  ListDiscoveryConfigs. `order_by` field must not change for subsequent calls.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource name. The format of this value is as follows:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
+ *  string specifies a parent project with the identifier `example-project`, and
+ *  specifies the `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse.
+ *
+ *  Lists Discovery configurations.
+ *
+ *  @param parent Required. Parent resource name. The format of this value is as
+ *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
+ *    example `parent` string specifies a parent project with the identifier
+ *    `example-project`, and specifies the `europe-west3` location for
+ *    processing data: parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Discovery configuration.
+ *
+ *  Method: dlp.organizations.locations.discoveryConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsPatch : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the configuration, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Updates a Discovery configuration.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
+ *    to include in the query.
+ *  @param name Required. Resource name of the project and the configuration,
+ *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists DlpJobs that match the specified filter in the request. See
  *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
@@ -3731,6 +3923,198 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a config for Discovery to scan and profile storage.
+ *
+ *  Method: dlp.projects.locations.discoveryConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate : GTLRDLPQuery
+
+/**
+ *  Required. Parent resource name. The format of this value is as follows:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
+ *  string specifies a parent project with the identifier `example-project`, and
+ *  specifies the `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Creates a config for Discovery to scan and profile storage.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
+ *    to include in the query.
+ *  @param parent Required. Parent resource name. The format of this value is as
+ *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
+ *    example `parent` string specifies a parent project with the identifier
+ *    `example-project`, and specifies the `europe-west3` location for
+ *    processing data: parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Discovery configuration.
+ *
+ *  Method: dlp.projects.locations.discoveryConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsDelete : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the config, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a Discovery configuration.
+ *
+ *  @param name Required. Resource name of the project and the config, for
+ *    example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Discovery configuration.
+ *
+ *  Method: dlp.projects.locations.discoveryConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsGet : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the configuration, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Gets a Discovery configuration.
+ *
+ *  @param name Required. Resource name of the project and the configuration,
+ *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Discovery configurations.
+ *
+ *  Method: dlp.projects.locations.discoveryConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsList : GTLRDLPQuery
+
+/**
+ *  Comma separated list of config fields to order by, followed by `asc` or
+ *  `desc` postfix. This list is case-insensitive, default sorting order is
+ *  ascending, redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `last_run_time`:
+ *  corresponds to the last time the DiscoveryConfig ran. - `name`: corresponds
+ *  to the DiscoveryConfig's name. - `status`: corresponds to DiscoveryConfig's
+ *  status.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Size of the page, can be limited by a server. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token to continue retrieval. Comes from previous call to
+ *  ListDiscoveryConfigs. `order_by` field must not change for subsequent calls.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource name. The format of this value is as follows:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
+ *  string specifies a parent project with the identifier `example-project`, and
+ *  specifies the `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse.
+ *
+ *  Lists Discovery configurations.
+ *
+ *  @param parent Required. Parent resource name. The format of this value is as
+ *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
+ *    example `parent` string specifies a parent project with the identifier
+ *    `example-project`, and specifies the `europe-west3` location for
+ *    processing data: parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Discovery configuration.
+ *
+ *  Method: dlp.projects.locations.discoveryConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsPatch : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the project and the configuration, for example
+ *  `projects/dlp-test-project/discoveryConfigs/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
+ *
+ *  Updates a Discovery configuration.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
+ *    to include in the query.
+ *  @param name Required. Resource name of the project and the configuration,
+ *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest *)object
                            name:(NSString *)name;
 
 @end

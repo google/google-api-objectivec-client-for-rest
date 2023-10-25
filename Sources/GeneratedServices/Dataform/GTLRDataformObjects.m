@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Dataform API (dataform/v1beta1)
+// Description:
+//   Service to develop, version control, and operationalize SQL pipelines in
+//   BigQuery.
 // Documentation:
 //   https://cloud.google.com/dataform/docs
 

@@ -178,7 +178,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Per-passenger emission estimate numbers. Will not be present if
  *  emissions could not be computed. For the list of reasons why emissions could
- *  not be computed, see ComputeFlightEmissions.
+ *  not be computed, see ComputeFlightEmissions. Note this field is currently
+ *  equivalent to ttw_emissions_grams_per_pax until TIM version 1.X.0 which will
+ *  update this to be total wtw emissions aka wtt_emissions_grams_per_pax +
+ *  ttw_emissions_grams_per_pax.
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
 

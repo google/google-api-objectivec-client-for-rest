@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Workstations API (workstations/v1beta)
+//   Cloud Workstations API (workstations/v1)
 // Description:
 //   Allows administrators to create managed developer environments in the
 //   cloud.
@@ -31,16 +31,6 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateStarting = @"STAT
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateStopped = @"STATE_STOPPED";
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateStopping = @"STATE_STOPPING";
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudWorkstations_Accelerator
-//
-
-@implementation GTLRCloudWorkstations_Accelerator
-@dynamic count, type;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -179,14 +169,13 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceInstance
-@dynamic accelerators, bootDiskSizeGb, confidentialInstanceConfig,
-         disablePublicIpAddresses, enableNestedVirtualization, machineType,
-         pooledInstances, poolSize, serviceAccount, shieldedInstanceConfig,
-         tags;
+@dynamic bootDiskSizeGb, confidentialInstanceConfig, disablePublicIpAddresses,
+         enableNestedVirtualization, machineType, pooledInstances, poolSize,
+         serviceAccount, serviceAccountScopes, shieldedInstanceConfig, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accelerators" : [GTLRCloudWorkstations_Accelerator class],
+    @"serviceAccountScopes" : [NSString class],
     @"tags" : [NSString class]
   };
   return map;
@@ -251,6 +240,28 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_Host
 @dynamic gceInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_ListLocationsResponse
+//
+
+@implementation GTLRCloudWorkstations_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRCloudWorkstations_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
 @end
 
 
@@ -386,6 +397,44 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 + (NSString *)collectionItemsKey {
   return @"workstations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_Location
+//
+
+@implementation GTLRCloudWorkstations_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_Location_Labels
+//
+
+@implementation GTLRCloudWorkstations_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_Location_Metadata
+//
+
+@implementation GTLRCloudWorkstations_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -616,8 +665,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_Workstation
-@dynamic annotations, createTime, deleteTime, displayName, env, ETag, host,
-         labels, name, reconciling, state, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, ETag, host, labels,
+         name, reconciling, startTime, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -632,20 +681,6 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_Workstation_Annotations
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudWorkstations_Workstation_Env
-//
-
-@implementation GTLRCloudWorkstations_Workstation_Env
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -727,8 +762,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_WorkstationConfig
 @dynamic annotations, conditions, container, createTime, degraded, deleteTime,
-         displayName, enableAuditAgent, encryptionKey, ETag, host, idleTimeout,
-         labels, name, persistentDirectories, readinessChecks, reconciling,
+         displayName, encryptionKey, ETag, host, idleTimeout, labels, name,
+         persistentDirectories, readinessChecks, reconciling, replicaZones,
          runningTimeout, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -739,7 +774,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
   NSDictionary<NSString *, Class> *map = @{
     @"conditions" : [GTLRCloudWorkstations_Status class],
     @"persistentDirectories" : [GTLRCloudWorkstations_PersistentDirectory class],
-    @"readinessChecks" : [GTLRCloudWorkstations_ReadinessCheck class]
+    @"readinessChecks" : [GTLRCloudWorkstations_ReadinessCheck class],
+    @"replicaZones" : [NSString class]
   };
   return map;
 }

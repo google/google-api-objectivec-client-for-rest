@@ -13,6 +13,16 @@
 
 #import <GoogleAPIClientForREST/GTLRFirebaseHosting.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseHostingFirebase      = @"https://www.googleapis.com/auth/firebase";
+
+// ----------------------------------------------------------------------------
+//   GTLRFirebaseHostingService
+//
+
 @implementation GTLRFirebaseHostingService
 
 - (instancetype)init {

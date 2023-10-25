@@ -339,7 +339,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsList : GTLRWorkflowsQuery
 
-/** Filter to restrict results to specific workflows. */
+/**
+ *  Filter to restrict results to specific workflows. For details, see AIP-160.
+ *  For example, if you are using the Google APIs Explorer: `state="SUCCEEDED"`
+ *  or `createTime>"2023-08-01" AND state="FAILED"`
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -391,6 +395,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists revisions for a given workflow.
+ *
+ *  Method: workflows.projects.locations.workflows.listRevisions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowsCloudPlatform
+ */
+@interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsListRevisions : GTLRWorkflowsQuery
+
+/**
+ *  Required. Workflow for which the revisions should be listed. Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of revisions to return per page. If a value is not
+ *  specified, a default value of 20 is used. The maximum permitted value is
+ *  100. Values greater than 100 are coerced down to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token, received from a previous ListWorkflowRevisions call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRWorkflows_ListWorkflowRevisionsResponse.
+ *
+ *  Lists revisions for a given workflow.
+ *
+ *  @param name Required. Workflow for which the revisions should be listed.
+ *    Format: projects/{project}/locations/{location}/workflows/{workflow}
+ *
+ *  @return GTLRWorkflowsQuery_ProjectsLocationsWorkflowsListRevisions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates an existing workflow. Running this method has no impact on already
  *  running executions of the workflow. A new revision of the workflow might be
  *  created as a result of a successful update operation. In that case, the new
@@ -405,7 +456,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the workflow. Format:
- *  projects/{project}/locations/{location}/workflows/{workflow}
+ *  projects/{project}/locations/{location}/workflows/{workflow}. This is a
+ *  workflow-wide field and is not tied to a specific revision.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -427,7 +479,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRWorkflows_Workflow to include in the query.
  *  @param name The resource name of the workflow. Format:
- *    projects/{project}/locations/{location}/workflows/{workflow}
+ *    projects/{project}/locations/{location}/workflows/{workflow}. This is a
+ *    workflow-wide field and is not tied to a specific revision.
  *
  *  @return GTLRWorkflowsQuery_ProjectsLocationsWorkflowsPatch
  */

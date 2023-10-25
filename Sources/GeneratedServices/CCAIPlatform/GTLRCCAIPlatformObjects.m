@@ -305,7 +305,7 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 //
 
 @implementation GTLRCCAIPlatform_SAMLParams
-@dynamic certificate, entityId, ssoUri, userEmail;
+@dynamic certificate, emailMapping, entityId, ssoUri, userEmail;
 @end
 
 

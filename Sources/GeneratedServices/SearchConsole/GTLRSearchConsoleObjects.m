@@ -163,6 +163,7 @@ NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendli
 
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.aggregationType
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_Auto = @"AUTO";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByNewsShowcasePanel = @"BY_NEWS_SHOWCASE_PANEL";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByPage = @"BY_PAGE";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByProperty = @"BY_PROPERTY";
 
@@ -197,6 +198,7 @@ NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Web = @"WEB
 
 // GTLRSearchConsole_SearchAnalyticsQueryResponse.responseAggregationType
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_Auto = @"AUTO";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByNewsShowcasePanel = @"BY_NEWS_SHOWCASE_PANEL";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByPage = @"BY_PAGE";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByProperty = @"BY_PROPERTY";
 

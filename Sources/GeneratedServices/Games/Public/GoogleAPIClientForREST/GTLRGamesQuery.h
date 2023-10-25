@@ -38,12 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionAll;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "COLLECTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionCollectionUnspecified;
-/**
  *  Retrieve a list of players that are also playing this game in reverse
  *  chronological order.
  *
@@ -70,12 +64,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPublic;
 /**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_COLLECTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionScoreCollectionUnspecified;
-/**
  *  (Obsolete) Legacy G+ social scores.
  *
  *  Value: "SOCIAL"
@@ -92,12 +80,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible GTLR_DEPRECATED;
 // ----------------------------------------------------------------------------
 // endPointType
 
-/**
- *  Default value. This value is unused.
- *
- *  Value: "END_POINT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesEndPointTypeEndPointTypeUnspecified;
 /**
  *  Request a URL to create a new profile.
  *
@@ -128,12 +110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeFriends;
 /**
- *  Default value. Should be unused.
- *
- *  Value: "INCLUDE_RANK_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified;
-/**
  *  Retrieve public ranks, if the player is sharing their gameplay activity
  *  publicly.
  *
@@ -162,12 +138,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeAndroid;
  *  Value: "IOS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeIos;
-/**
- *  Default value, don't use.
- *
- *  Value: "PLATFORM_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypePlatformTypeUnspecified;
 /**
  *  Retrieve applications that can be played on desktop web.
  *
@@ -217,12 +187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAll;
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAllTime;
 /** Value: "DAILY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanDaily;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanScoreTimeSpanUnspecified;
 /** Value: "WEEKLY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
@@ -520,8 +484,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Restrict application details returned to the specific platform.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesPlatformTypePlatformTypeUnspecified Default value, don't
- *        use. (Value: "PLATFORM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGamesPlatformTypeAndroid Retrieve applications that can be
  *        played on Android. (Value: "ANDROID")
  *    @arg @c kGTLRGamesPlatformTypeIos Retrieve applications that can be played
@@ -564,8 +526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Type of endpoint being requested.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesEndPointTypeEndPointTypeUnspecified Default value. This
- *        value is unused. (Value: "END_POINT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGamesEndPointTypeProfileCreation Request a URL to create a
  *        new profile. (Value: "PROFILE_CREATION")
  *    @arg @c kGTLRGamesEndPointTypeProfileSettings Request a URL for the
@@ -844,8 +804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of categories for which data will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionCollectionUnspecified Default value. This
- *        value is unused. (Value: "COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
  *        the default. (Value: "ALL")
  */
@@ -882,8 +840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    returned.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionCollectionUnspecified Default value. This
- *        value is unused. (Value: "COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
  *        the default. (Value: "ALL")
  *
@@ -1058,6 +1014,118 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Associate the PGS Player principal encoded in the provided recall session id
+ *  with an in-game account
+ *
+ *  Method: games.recall.linkPersona
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallLinkPersona : GTLRGamesQuery
+
+/**
+ *  Fetches a @c GTLRGames_LinkPersonaResponse.
+ *
+ *  Associate the PGS Player principal encoded in the provided recall session id
+ *  with an in-game account
+ *
+ *  @param object The @c GTLRGames_LinkPersonaRequest to include in the query.
+ *
+ *  @return GTLRGamesQuery_RecallLinkPersona
+ */
++ (instancetype)queryWithObject:(GTLRGames_LinkPersonaRequest *)object;
+
+@end
+
+/**
+ *  Delete all Recall tokens linking the given persona to any player (with or
+ *  without a profile).
+ *
+ *  Method: games.recall.resetPersona
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallResetPersona : GTLRGamesQuery
+
+/**
+ *  Fetches a @c GTLRGames_ResetPersonaResponse.
+ *
+ *  Delete all Recall tokens linking the given persona to any player (with or
+ *  without a profile).
+ *
+ *  @param object The @c GTLRGames_ResetPersonaRequest to include in the query.
+ *
+ *  @return GTLRGamesQuery_RecallResetPersona
+ */
++ (instancetype)queryWithObject:(GTLRGames_ResetPersonaRequest *)object;
+
+@end
+
+/**
+ *  Retrieve all Recall tokens associated with the PGS Player principal encoded
+ *  in the provided recall session id. The API is only available for users that
+ *  have active PGS Player profile.
+ *
+ *  Method: games.recall.retrieveTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallRetrieveTokens : GTLRGamesQuery
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Fetches a @c GTLRGames_RetrievePlayerTokensResponse.
+ *
+ *  Retrieve all Recall tokens associated with the PGS Player principal encoded
+ *  in the provided recall session id. The API is only available for users that
+ *  have active PGS Player profile.
+ *
+ *  @param sessionId Required. Opaque server-generated string that encodes all
+ *    the necessary information to identify the PGS player / Google user and
+ *    application.
+ *
+ *  @return GTLRGamesQuery_RecallRetrieveTokens
+ */
++ (instancetype)queryWithSessionId:(NSString *)sessionId;
+
+@end
+
+/**
+ *  Delete a Recall token linking the PGS Player principal identified by the
+ *  Recall session and an in-game account identified either by the 'persona' or
+ *  by the token value.
+ *
+ *  Method: games.recall.unlinkPersona
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallUnlinkPersona : GTLRGamesQuery
+
+/**
+ *  Fetches a @c GTLRGames_UnlinkPersonaResponse.
+ *
+ *  Delete a Recall token linking the PGS Player principal identified by the
+ *  Recall session and an in-game account identified either by the 'persona' or
+ *  by the token value.
+ *
+ *  @param object The @c GTLRGames_UnlinkPersonaRequest to include in the query.
+ *
+ *  @return GTLRGamesQuery_RecallUnlinkPersona
+ */
++ (instancetype)queryWithObject:(GTLRGames_UnlinkPersonaRequest *)object;
+
+@end
+
+/**
  *  Checks whether the games client is out of date.
  *
  *  Method: games.revisions.check
@@ -1111,8 +1179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified Default value.
- *        Should be unused. (Value: "INCLUDE_RANK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGamesIncludeRankTypeAll Retrieve all supported ranks. In
  *        HTTP, this parameter value can also be specified as `ALL`. (Value:
  *        "ALL")
@@ -1154,8 +1220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
  *        this is used, maxResults values will be ignored. (Value: "ALL")
  *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
@@ -1183,8 +1247,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
  *        this is used, maxResults values will be ignored. (Value: "ALL")
  *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
@@ -1220,8 +1282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
- *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
@@ -1251,8 +1311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Required. The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
  *        "ALL_TIME")
  *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
@@ -1273,8 +1331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
- *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
@@ -1283,8 +1339,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        "FRIENDS")
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
  *        "ALL_TIME")
  *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
@@ -1318,8 +1372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
- *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
@@ -1363,8 +1415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Required. The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
  *        "ALL_TIME")
  *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
@@ -1385,8 +1435,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
- *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
@@ -1395,8 +1443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        "FRIENDS")
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
- *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
  *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
  *        "ALL_TIME")
  *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:

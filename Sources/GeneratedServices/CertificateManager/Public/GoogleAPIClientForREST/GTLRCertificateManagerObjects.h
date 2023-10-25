@@ -121,8 +121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_AuthorizationAttemptI
 // GTLRCertificateManager_Certificate.scope
 
 /**
- *  Certificates with ALL_REGIONS scope are served from all GCP regions. See
- *  https://cloud.google.com/compute/docs/regions-zones.
+ *  Certificates with ALL_REGIONS scope are served from all Google Cloud
+ *  regions. See https://cloud.google.com/compute/docs/regions-zones.
  *
  *  Value: "ALL_REGIONS"
  */
@@ -370,7 +370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_AllRegions Certificates
- *        with ALL_REGIONS scope are served from all GCP regions. See
+ *        with ALL_REGIONS scope are served from all Google Cloud regions. See
  *        https://cloud.google.com/compute/docs/regions-zones. (Value:
  *        "ALL_REGIONS")
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_Default Certificates

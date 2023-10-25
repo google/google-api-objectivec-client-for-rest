@@ -585,13 +585,40 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 @property(nonatomic, strong, nullable) NSNumber *spfSuccessRatio;
 
 /**
- *  The ratio of user-report spam vs. email that was sent to the inbox. This
+ *  The ratio of user-report spam vs. email that was sent to the inbox. This is
+ *  potentially inexact -- users may want to refer to the description of the
+ *  interval fields userReportedSpamRatioLowerBound and
+ *  userReportedSpamRatioUpperBound for more explicit accuracy guarantees. This
  *  metric only pertains to emails authenticated by
  *  [DKIM](http://www.dkim.org/).
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userReportedSpamRatio;
+
+/**
+ *  The lower bound of the confidence interval for the user reported spam ratio.
+ *  If this field is set, then the value of userReportedSpamRatio is set to the
+ *  midpoint of this interval and is thus inexact. However, the true ratio is
+ *  guaranteed to be in between this lower bound and the corresponding upper
+ *  bound 95% of the time. This metric only pertains to emails authenticated by
+ *  [DKIM](http://www.dkim.org/).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userReportedSpamRatioLowerBound;
+
+/**
+ *  The upper bound of the confidence interval for the user reported spam ratio.
+ *  If this field is set, then the value of userReportedSpamRatio is set to the
+ *  midpoint of this interval and is thus inexact. However, the true ratio is
+ *  guaranteed to be in between this upper bound and the corresponding lower
+ *  bound 95% of the time. This metric only pertains to emails authenticated by
+ *  [DKIM](http://www.dkim.org/).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userReportedSpamRatioUpperBound;
 
 @end
 

@@ -450,33 +450,6 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
-@implementation GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials
-
-@dynamic session;
-
-+ (instancetype)queryWithObject:(GTLRDataproc_InjectSessionCredentialsRequest *)object
-                        session:(NSString *)session {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"session" ];
-  NSString *pathURITemplate = @"v1/{+session}:injectCredentials";
-  GTLRDataprocQuery_ProjectsLocationsSessionsInjectCredentials *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.session = session;
-  query.expectedObjectClass = [GTLRDataproc_Operation class];
-  query.loggingName = @"dataproc.projects.locations.sessions.injectCredentials";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataprocQuery_ProjectsLocationsSessionsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -1272,7 +1245,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate
 
-@dynamic nodeGroupId, parent, requestId;
+@dynamic nodeGroupId, parent, parentOperationId, requestId;
 
 + (instancetype)queryWithObject:(GTLRDataproc_NodeGroup *)object
                          parent:(NSString *)parent {

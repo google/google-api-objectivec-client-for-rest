@@ -489,7 +489,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_InstancePolicy
 @dynamic accelerators, bootDisk, disks, machineType, minCpuPlatform,
-         provisioningModel;
+         provisioningModel, reservation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -897,7 +897,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_ReportAgentStateResponse
-@dynamic defaultReportInterval, minReportInterval, tasks;
+@dynamic defaultReportInterval, minReportInterval, tasks,
+         useBatchMonitoredResource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -915,7 +916,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_Runnable
-@dynamic alwaysRun, background, barrier, container, environment,
+@dynamic alwaysRun, background, barrier, container, displayName, environment,
          ignoreExitStatus, labels, script, timeout;
 @end
 

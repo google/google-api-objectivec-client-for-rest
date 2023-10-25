@@ -182,34 +182,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/**
- *  Generates a token for the provided location data as a vetted
- *  [partner](https://support.google.com/business/answer/7674102). Throws
- *  PERMISSION_DENIED if the caller is not a vetted partner account. Throws
- *  FAILED_PRECONDITION if the caller's VettedStatus is INVALID.
- *
- *  Method: mybusinessverifications.verificationTokens.generate
- */
-@interface GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate : GTLRMyBusinessVerificationsQuery
-
-/**
- *  Fetches a @c GTLRMyBusinessVerifications_GenerateVerificationTokenResponse.
- *
- *  Generates a token for the provided location data as a vetted
- *  [partner](https://support.google.com/business/answer/7674102). Throws
- *  PERMISSION_DENIED if the caller is not a vetted partner account. Throws
- *  FAILED_PRECONDITION if the caller's VettedStatus is INVALID.
- *
- *  @param object The @c
- *    GTLRMyBusinessVerifications_GenerateVerificationTokenRequest to include in
- *    the query.
- *
- *  @return GTLRMyBusinessVerificationsQuery_VerificationTokensGenerate
- */
-+ (instancetype)queryWithObject:(GTLRMyBusinessVerifications_GenerateVerificationTokenRequest *)object;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

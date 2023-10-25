@@ -62,6 +62,10 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_Active   = @"ACTIVE";
 NSString * const kGTLRFirebaseManagement_WebApp_State_Deleted  = @"DELETED";
 NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseManagement_AddFirebaseRequest
@@ -728,3 +732,5 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 @dynamic apiKey, appId, authDomain, databaseURL, locationId, measurementId,
          messagingSenderId, projectId, storageBucket;
 @end
+
+#pragma clang diagnostic pop

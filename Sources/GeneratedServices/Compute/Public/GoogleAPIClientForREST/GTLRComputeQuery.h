@@ -120,34 +120,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -199,6 +200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_AcceleratorTypeAggregatedList.
@@ -272,34 +275,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -384,34 +388,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -463,6 +468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_AddressAggregatedList.
@@ -630,34 +637,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -845,34 +853,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -924,6 +933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_AutoscalerAggregatedList.
@@ -1103,34 +1114,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1498,6 +1510,44 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.backendBuckets.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendBucketsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_BackendBucketsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a BackendBucket resource in the specified project using the data
  *  included in the request.
  *
@@ -1558,34 +1608,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1749,6 +1800,79 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.backendBuckets.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_BackendBucketsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.backendBuckets.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendBucketsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_BackendBucketsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates the specified BackendBucket resource with the data included in the
  *  request.
  *
@@ -1867,34 +1991,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1946,6 +2071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceAggregatedList.
@@ -2238,34 +2365,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2316,6 +2444,111 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param project Project ID for this request.
  *
  *  @return GTLRComputeQuery_BackendServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of all usable backend services in the specified
+ *  project.
+ *
+ *  Method: compute.backendServices.listUsable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendServicesListUsable : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendServiceListUsable.
+ *
+ *  Retrieves an aggregated list of all usable backend services in the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_BackendServicesListUsable
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -2522,6 +2755,42 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.backendServices.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendServicesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_BackendServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates the specified BackendService resource with the data included in the
  *  request. For more information, see Backend services overview.
  *
@@ -2645,34 +2914,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2724,6 +2994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_DiskAggregatedList.
@@ -3085,34 +3357,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3699,34 +3972,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3778,6 +4052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_DiskTypeAggregatedList.
@@ -3850,34 +4126,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4085,34 +4362,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4607,34 +4885,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5146,34 +5425,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5350,34 +5630,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5429,6 +5710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleAggregatedList.
@@ -5597,34 +5880,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5993,34 +6277,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6305,34 +6590,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6783,34 +7069,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6886,34 +7173,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6998,34 +7286,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7077,6 +7366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_OperationAggregatedList.
@@ -7174,34 +7465,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7395,34 +7687,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7621,34 +7914,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7777,34 +8071,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7856,6 +8151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_HealthChecksAggregatedList.
@@ -8010,34 +8307,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8336,34 +8634,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8662,34 +8961,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9170,34 +9470,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9517,34 +9818,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9596,6 +9898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManagerAggregatedList.
@@ -10041,34 +10345,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10155,34 +10460,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10288,34 +10594,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10413,34 +10720,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11106,34 +11414,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11185,6 +11494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupAggregatedList.
@@ -11377,34 +11688,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11493,34 +11805,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11871,34 +12184,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11950,6 +12264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceAggregatedList.
@@ -12698,34 +13014,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12812,34 +13129,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13715,6 +14033,69 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstancesSetScheduling
  */
 + (instancetype)queryWithObject:(GTLRCompute_Scheduling *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Sets the Google Cloud Armor security policy for the specified instance. For
+ *  more information, see Google Cloud Armor Overview
+ *
+ *  Method: compute.instances.setSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSetSecurityPolicy : GTLRComputeQuery
+
+/**
+ *  Name of the Instance resource to which the security policy should be set.
+ *  The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone scoping this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Google Cloud Armor security policy for the specified instance. For
+ *  more information, see Google Cloud Armor Overview
+ *
+ *  @param object The @c GTLRCompute_InstancesSetSecurityPolicyRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone scoping this request.
+ *  @param instance Name of the Instance resource to which the security policy
+ *    should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstancesSetSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesSetSecurityPolicyRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance;
@@ -14623,34 +15004,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14702,6 +15084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplateAggregatedList.
@@ -14902,34 +15286,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15078,34 +15463,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15157,6 +15543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentAggregatedList.
@@ -15329,34 +15717,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15585,34 +15974,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15725,34 +16115,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15893,7 +16284,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the interconnectDiagnostics for the specified Interconnect.
+ *  Returns the interconnectDiagnostics for the specified Interconnect. In the
+ *  event of a global outage, do not use this API to make decisions about where
+ *  to redirect your network traffic. Unlike a VLAN attachment, which is
+ *  regional, a Cloud Interconnect connection is a global resource. A global
+ *  outage can prevent this API from functioning properly.
  *
  *  Method: compute.interconnects.getDiagnostics
  *
@@ -15913,12 +16308,49 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InterconnectsGetDiagnosticsResponse.
  *
- *  Returns the interconnectDiagnostics for the specified Interconnect.
+ *  Returns the interconnectDiagnostics for the specified Interconnect. In the
+ *  event of a global outage, do not use this API to make decisions about where
+ *  to redirect your network traffic. Unlike a VLAN attachment, which is
+ *  regional, a Cloud Interconnect connection is a global resource. A global
+ *  outage can prevent this API from functioning properly.
  *
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect resource to query.
  *
  *  @return GTLRComputeQuery_InterconnectsGetDiagnostics
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    interconnect:(NSString *)interconnect;
+
+@end
+
+/**
+ *  Returns the interconnectMacsecConfig for the specified Interconnect.
+ *
+ *  Method: compute.interconnects.getMacsecConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectsGetMacsecConfig : GTLRComputeQuery
+
+/** Name of the interconnect resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectsGetMacsecConfigResponse.
+ *
+ *  Returns the interconnectMacsecConfig for the specified Interconnect.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectsGetMacsecConfig
  */
 + (instancetype)queryWithProject:(NSString *)project
                     interconnect:(NSString *)interconnect;
@@ -15985,34 +16417,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16434,34 +16867,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16793,34 +17227,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16969,34 +17404,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17048,6 +17484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_MachineTypeAggregatedList.
@@ -17120,34 +17558,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17232,34 +17671,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17311,6 +17751,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkAttachmentAggregatedList.
@@ -17524,34 +17966,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17612,6 +18055,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified NetworkAttachment resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.networkAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkAttachmentsPatch : GTLRComputeQuery
+
+/** Name of the NetworkAttachment resource to patch. */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified NetworkAttachment resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_NetworkAttachment to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param networkAttachment Name of the NetworkAttachment resource to patch.
+ *
+ *  @return GTLRComputeQuery_NetworkAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+              networkAttachment:(NSString *)networkAttachment;
 
 @end
 
@@ -17715,34 +18215,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17794,6 +18295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkEdgeSecurityServiceAggregatedList.
@@ -18031,34 +18534,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18110,6 +18614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupAggregatedList.
@@ -18436,34 +18942,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18550,34 +19057,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19117,34 +19625,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19688,34 +20197,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19801,34 +20311,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20172,34 +20683,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20251,6 +20763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NodeGroupAggregatedList.
@@ -20545,34 +21059,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20657,34 +21172,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21039,34 +21555,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21118,6 +21635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NodeTemplateAggregatedList.
@@ -21328,34 +21847,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21518,34 +22038,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21597,6 +22118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_NodeTypeAggregatedList.
@@ -21669,34 +22192,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21780,34 +22304,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21859,6 +22384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_PacketMirroringAggregatedList.
@@ -22027,34 +22554,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22471,34 +22999,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22573,34 +23102,35 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23040,34 +23570,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23196,34 +23727,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23275,6 +23807,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_PublicDelegatedPrefixAggregatedList.
@@ -23446,34 +23980,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23748,34 +24283,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24185,34 +24721,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24267,6 +24804,120 @@ GTLR_DEPRECATED
  *  @param region Name of the region scoping this request.
  *
  *  @return GTLRComputeQuery_RegionBackendServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of all usable backend services in the specified
+ *  project in the given region.
+ *
+ *  Method: compute.regionBackendServices.listUsable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionBackendServicesListUsable : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the region scoping this request. It must be a string that meets the
+ *  requirements in RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_BackendServiceListUsable.
+ *
+ *  Retrieves an aggregated list of all usable backend services in the specified
+ *  project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request. It must be a string
+ *    that meets the requirements in RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionBackendServicesListUsable
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -24378,6 +25029,106 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Sets the Google Cloud Armor security policy for the specified backend
+ *  service. For more information, see Google Cloud Armor Overview
+ *
+ *  Method: compute.regionBackendServices.setSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionBackendServicesSetSecurityPolicy : GTLRComputeQuery
+
+/**
+ *  Name of the BackendService resource to which the security policy should be
+ *  set. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Google Cloud Armor security policy for the specified backend
+ *  service. For more information, see Google Cloud Armor Overview
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param backendService Name of the BackendService resource to which the
+ *    security policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionBackendServicesSetSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionBackendServices.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionBackendServicesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionBackendServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates the specified regional BackendService resource with the data
  *  included in the request. For more information, see Backend services overview
  *  .
@@ -24449,34 +25200,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24528,6 +25280,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
@@ -24645,34 +25399,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25169,34 +25924,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25781,34 +26537,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26084,34 +26841,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26340,34 +27098,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27013,34 +27772,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27122,34 +27882,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27250,34 +28011,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27368,34 +28130,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27968,34 +28731,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28079,34 +28843,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28446,34 +29211,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28539,6 +29305,68 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Attach a list of network endpoints to the specified network endpoint group.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.attachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsAttachNetworkEndpoints : GTLRComputeQuery
+
+/**
+ *  The name of the network endpoint group where you are attaching network
+ *  endpoints to. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where you want to create the network endpoint group.
+ *  It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Attach a list of network endpoints to the specified network endpoint group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionNetworkEndpointGroupsAttachEndpointsRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where you want to create the network
+ *    endpoint group. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group where you
+ *    are attaching network endpoints to. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsAttachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionNetworkEndpointGroupsAttachEndpointsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
  *  Deletes the specified network endpoint group. Note that the NEG cannot be
  *  deleted if it is configured as a backend of a backend service.
  *
@@ -28595,6 +29423,69 @@ GTLR_DEPRECATED
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
             networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Detach the network endpoint from the specified network endpoint group.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.detachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsDetachNetworkEndpoints : GTLRComputeQuery
+
+/**
+ *  The name of the network endpoint group you are detaching network endpoints
+ *  from. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where the network endpoint group is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Detach the network endpoint from the specified network endpoint group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionNetworkEndpointGroupsDetachEndpointsRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group you are
+ *    detaching network endpoints from. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsDetachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionNetworkEndpointGroupsDetachEndpointsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
 
 @end
 
@@ -28712,34 +29603,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28805,6 +29697,128 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.listNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsListNetworkEndpoints : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The name of the network endpoint group from which you want to generate a
+ *  list of included network endpoints. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where the network endpoint group is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
+ *
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group from
+ *    which you want to generate a list of included network endpoints. It should
+ *    comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsListNetworkEndpoints
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
 
 @end
 
@@ -29303,34 +30317,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29847,34 +30862,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30031,34 +31047,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30182,6 +31199,48 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Inserts a rule into a security policy.
+ *
+ *  Method: compute.regionSecurityPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesAddRule : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/** If true, the request will not be committed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a security policy.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
  *  Deletes the specified policy.
  *
  *  Method: compute.regionSecurityPolicies.delete
@@ -30270,6 +31329,48 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Gets a rule at the specified priority.
+ *
+ *  Method: compute.regionSecurityPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesGetRule : GTLRComputeQuery
+
+/** The priority of the rule to get from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the security policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyRule.
+ *
+ *  Gets a rule at the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesGetRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
  *  Creates a new policy in the specified project using the data included in the
  *  request.
  *
@@ -30338,34 +31439,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30467,6 +31569,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *securityPolicy;
 
 /**
+ *  Indicates fields to be cleared as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified policy with the data included in the request. To clear
@@ -30485,6 +31594,100 @@ GTLR_DEPRECATED
                         project:(NSString *)project
                          region:(NSString *)region
                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Patches a rule at the specified priority. To clear fields in the rule, leave
+ *  the fields empty and specify them in the updateMask.
+ *
+ *  Method: compute.regionSecurityPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesPatchRule : GTLRComputeQuery
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Indicates fields to be cleared as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** If true, the request will not be committed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule at the specified priority. To clear fields in the rule, leave
+ *  the fields empty and specify them in the updateMask.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Deletes a rule at the specified priority.
+ *
+ *  Method: compute.regionSecurityPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesRemoveRule : GTLRComputeQuery
+
+/** The priority of the rule to remove from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule at the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesRemoveRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy;
 
 @end
 
@@ -30556,34 +31759,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30805,34 +32009,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31063,34 +32268,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31172,34 +32378,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31470,34 +32677,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31768,34 +32976,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32180,34 +33389,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32412,34 +33622,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32656,34 +33867,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32735,6 +33947,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_ReservationAggregatedList.
@@ -32962,34 +34176,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33289,34 +34504,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33368,6 +34584,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicyAggregatedList.
@@ -33577,34 +34795,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33827,34 +35046,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33906,6 +35126,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_RouterAggregatedList.
@@ -34072,34 +35294,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34282,34 +35505,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34667,34 +35891,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34807,34 +36032,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34886,6 +36112,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_SecurityPoliciesAggregatedList.
@@ -35079,34 +36307,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -35182,34 +36411,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -35300,6 +36530,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *securityPolicy;
 
 /**
+ *  Indicates fields to be cleared as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified policy with the data included in the request. To clear
@@ -35339,6 +36576,13 @@ GTLR_DEPRECATED
 
 /** Name of the security policy to update. */
 @property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Indicates fields to be cleared as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /** If true, the request will not be committed. */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -35450,34 +36694,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -35529,6 +36774,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_ServiceAttachmentAggregatedList.
@@ -35740,34 +36987,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -36164,34 +37412,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -36378,34 +37627,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -36457,6 +37707,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_SslCertificateAggregatedList.
@@ -36611,34 +37863,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -36715,34 +37968,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -36794,6 +38048,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_SslPoliciesAggregatedList.
@@ -36958,34 +38214,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -37062,34 +38319,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -37212,34 +38470,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -37291,6 +38550,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_SubnetworkAggregatedList.
@@ -37554,34 +38815,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -37661,34 +38923,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -38093,34 +39356,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -38247,34 +39511,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -38326,6 +39591,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxyAggregatedList.
@@ -38480,34 +39747,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -38682,34 +39950,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -38761,6 +40030,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyAggregatedList.
@@ -38915,34 +40186,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -39332,34 +40604,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -39411,6 +40684,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetInstanceAggregatedList.
@@ -39591,34 +40866,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -39684,6 +40960,69 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Sets the Google Cloud Armor security policy for the specified target
+ *  instance. For more information, see Google Cloud Armor Overview
+ *
+ *  Method: compute.targetInstances.setSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetInstancesSetSecurityPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetInstance resource to which the security policy should be
+ *  set. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetInstance;
+
+/**
+ *  Name of the zone scoping this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Google Cloud Armor security policy for the specified target
+ *  instance. For more information, see Google Cloud Armor Overview
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone scoping this request.
+ *  @param targetInstance Name of the TargetInstance resource to which the
+ *    security policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_TargetInstancesSetSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                 targetInstance:(NSString *)targetInstance;
 
 @end
 
@@ -39809,34 +41148,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -39888,6 +41228,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetPoolAggregatedList.
@@ -40099,34 +41441,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -40353,6 +41696,65 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Sets the Google Cloud Armor security policy for the specified target pool.
+ *  For more information, see Google Cloud Armor Overview
+ *
+ *  Method: compute.targetPools.setSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetPoolsSetSecurityPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetPool resource to which the security policy should be set.
+ *  The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPool;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Google Cloud Armor security policy for the specified target pool.
+ *  For more information, see Google Cloud Armor Overview
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param targetPool Name of the TargetPool resource to which the security
+ *    policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_TargetPoolsSetSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     targetPool:(NSString *)targetPool;
+
+@end
+
+/**
  *  Deletes the specified TargetSslProxy resource.
  *
  *  Method: compute.targetSslProxies.delete
@@ -40491,34 +41893,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -40859,34 +42262,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -40938,6 +42342,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetTcpProxyAggregatedList.
@@ -41092,34 +42498,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -41296,34 +42703,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -41375,6 +42783,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayAggregatedList.
@@ -41543,34 +42953,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -41707,34 +43118,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -41786,6 +43198,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_UrlMapsAggregatedList.
@@ -41991,34 +43405,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -42228,34 +43643,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -42307,6 +43723,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_VpnGatewayAggregatedList.
@@ -42513,34 +43931,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -42717,34 +44136,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -42796,6 +44216,8 @@ GTLR_DEPRECATED
  *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+@property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
  *  Fetches a @c GTLRCompute_VpnTunnelAggregatedList.
@@ -42964,34 +44386,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -43211,34 +44634,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -43419,34 +44843,35 @@ GTLR_DEPRECATED
  *  A filter expression that filters resources listed in the response. Most
  *  Compute resources support two types of filter expressions: expressions that
  *  support regular expressions and expressions that follow API improvement
- *  proposal AIP-160. If you want to use AIP-160, your expression must specify
- *  the field name, an operator, and the value that you want to use for
- *  filtering. The value must be a string, a number, or a boolean. The operator
- *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you
- *  are filtering Compute Engine instances, you can exclude instances named
- *  `example-instance` by specifying `name != example-instance`. The `:`
- *  operator can be used with string fields to match substrings. For non-string
- *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
- *  to test whether a key has been defined. For example, to find all objects
- *  with `owner` label use: ``` labels.owner:* ``` You can also filter nested
- *  fields. For example, you could specify `scheduling.automaticRestart = false`
- *  to include instances only if they are not scheduled for automatic restarts.
- *  You can use filtering on nested fields to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use
- *  a regular expression, use the `eq` (equal) or `ne` (not equal) operator
- *  against a single un-parenthesized expression with or without quotes or
- *  against multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
  *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
  *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
  *  value is interpreted as a regular expression using Google RE2 library
  *  syntax. The literal value must match the entire field. For example, to
  *  filter for instances that do not end with name "instance", you would use
- *  `name ne .*instance`.
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

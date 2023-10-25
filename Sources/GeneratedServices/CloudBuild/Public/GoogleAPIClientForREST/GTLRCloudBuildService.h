@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Build API (cloudbuild/v1)
+//   Cloud Build API (cloudbuild/v2)
 // Description:
 //   Creates and manages builds on Google Cloud Platform.
 // Documentation:

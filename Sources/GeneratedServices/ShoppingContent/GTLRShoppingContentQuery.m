@@ -1851,6 +1851,36 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_LiasettingsSetomnichannelexperience
+
+@dynamic accountId, country, lsfType, merchantId, pickupTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pickupTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/setomnichannelexperience";
+  GTLRShoppingContentQuery_LiasettingsSetomnichannelexperience *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_LiaOmnichannelExperience class];
+  query.loggingName = @"content.liasettings.setomnichannelexperience";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_LiasettingsSetposdataprovider
 
 @dynamic accountId, country, merchantId, posDataProviderId,

@@ -103,6 +103,82 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Analyzes a hypothetical move of a source resource to a target workload to
+ *  surface compliance risks. The analysis is best effort and is not guaranteed
+ *  to be exhaustive.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.analyzeWorkloadMove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsAnalyzeWorkloadMove : GTLRAssuredworkloadsQuery
+
+/**
+ *  Optional. List of asset types to be analyzed, including and under the source
+ *  resource. If empty, all assets are analyzed. The complete list of asset
+ *  types is available
+ *  [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
+
+/**
+ *  Optional. Page size. If a value is not specified, the default value of 10 is
+ *  used.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token from the previous response. It needs to be passed
+ *  in the second and following requests.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The source type is a project. Specify the project's relative resource name,
+ *  formatted as either a project number or a project ID:
+ *  "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}" For example:
+ *  "projects/951040570662" when specifying a project number, or
+ *  "projects/my-project-123" when specifying a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Required. The resource ID of the folder-based destination workload. This
+ *  workload is where the source resource will hypothetically be moved to.
+ *  Specify the workload's relative resource name, formatted as:
+ *  "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+ *  For example:
+ *  "organizations/123/locations/us-east1/workloads/assured-workload-2"
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AnalyzeWorkloadMoveResponse.
+ *
+ *  Analyzes a hypothetical move of a source resource to a target workload to
+ *  surface compliance risks. The analysis is best effort and is not guaranteed
+ *  to be exhaustive.
+ *
+ *  @param target Required. The resource ID of the folder-based destination
+ *    workload. This workload is where the source resource will hypothetically
+ *    be moved to. Specify the workload's relative resource name, formatted as:
+ *    "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+ *    For example:
+ *    "organizations/123/locations/us-east1/workloads/assured-workload-2"
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsAnalyzeWorkloadMove
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithTarget:(NSString *)target;
+
+@end
+
+/**
  *  Creates Assured Workload.
  *
  *  Method: assuredworkloads.organizations.locations.workloads.create

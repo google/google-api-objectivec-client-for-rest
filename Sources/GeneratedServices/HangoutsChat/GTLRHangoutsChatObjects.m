@@ -1015,7 +1015,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1TextInput
 @dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
-         onChangeAction, type, value;
+         onChangeAction, placeholderText, type, value;
 @end
 
 
@@ -1228,9 +1228,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @implementation GTLRHangoutsChat_Message
 @dynamic actionResponse, annotations, argumentText, attachedGifs, attachment,
          cards, cardsV2, clientAssignedMessageId, createTime, deleteTime,
-         deletionMetadata, emojiReactionSummaries, fallbackText, lastUpdateTime,
-         matchedUrl, name, quotedMessageMetadata, sender, slashCommand, space,
-         text, thread, threadReply;
+         deletionMetadata, emojiReactionSummaries, fallbackText, formattedText,
+         lastUpdateTime, matchedUrl, name, quotedMessageMetadata, sender,
+         slashCommand, space, text, thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

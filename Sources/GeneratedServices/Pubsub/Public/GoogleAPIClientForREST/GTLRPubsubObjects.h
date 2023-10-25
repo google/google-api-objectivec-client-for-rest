@@ -64,6 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_Active;
 /**
+ *  Cannot write to the destination because enforce_in_transit is set to true
+ *  and the destination locations are not in the allowed regions.
+ *
+ *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_InTransitLocationRestriction;
+/**
  *  Cannot write to the BigQuery table because it does not exist.
  *
  *  Value: "NOT_FOUND"
@@ -102,6 +109,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspeci
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_Active;
+/**
+ *  Cannot write to the destination because enforce_in_transit is set to true
+ *  and the destination locations are not in the allowed regions.
+ *
+ *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_InTransitLocationRestriction;
 /**
  *  Cannot write to the Cloud Storage bucket because it does not exist.
  *
@@ -271,6 +285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Likely values:
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_Active The subscription can
  *        actively send messages to BigQuery (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_BigQueryConfig_State_InTransitLocationRestriction
+ *        Cannot write to the destination because enforce_in_transit is set to
+ *        true and the destination locations are not in the allowed regions.
+ *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_NotFound Cannot write to the
  *        BigQuery table because it does not exist. (Value: "NOT_FOUND")
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_PermissionDenied Cannot write to
@@ -435,6 +453,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Likely values:
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_Active The subscription can
  *        actively send messages to Cloud Storage. (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_CloudStorageConfig_State_InTransitLocationRestriction
+ *        Cannot write to the destination because enforce_in_transit is set to
+ *        true and the destination locations are not in the allowed regions.
+ *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_NotFound Cannot write to the
  *        Cloud Storage bucket because it does not exist. (Value: "NOT_FOUND")
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_PermissionDenied Cannot write

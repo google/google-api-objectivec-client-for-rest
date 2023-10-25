@@ -571,6 +571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @interface GTLRStorageQuery_BucketsInsert : GTLRStorageQuery
 
 /**
+ *  When set to true, object retention is enabled for this bucket.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enableObjectRetention;
+
+/**
  *  Apply a predefined set of access controls to this bucket.
  *
  *  Likely values:
@@ -1324,6 +1331,313 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Permanently deletes a managed folder.
+ *
+ *  Method: storage.managedFolders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersDelete : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  If set, only deletes the managed folder if its metageneration matches this
+ *  value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  If set, only deletes the managed folder if its metageneration does not match
+ *  this value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/** The managed folder name/path. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Permanently deletes a managed folder.
+ *
+ *  @param bucket Name of the bucket containing the managed folder.
+ *  @param managedFolder The managed folder name/path.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersDelete
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder;
+
+@end
+
+/**
+ *  Returns metadata of the specified managed folder.
+ *
+ *  Method: storage.managedFolders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersGet : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Makes the return of the managed folder metadata conditional on whether the
+ *  managed folder's current metageneration matches the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the return of the managed folder metadata conditional on whether the
+ *  managed folder's current metageneration does not match the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/** The managed folder name/path. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/**
+ *  Fetches a @c GTLRStorage_ManagedFolder.
+ *
+ *  Returns metadata of the specified managed folder.
+ *
+ *  @param bucket Name of the bucket containing the managed folder.
+ *  @param managedFolder The managed folder name/path.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder;
+
+@end
+
+/**
+ *  Returns an IAM policy for the specified managed folder.
+ *
+ *  Method: storage.managedFolders.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersGetIamPolicy : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The managed folder name/path. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/**
+ *  The IAM policy format version to be returned. If the
+ *  optionsRequestedPolicyVersion is for an older version that doesn't support
+ *  part of the requested IAM policy, the request fails.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Policy.
+ *
+ *  Returns an IAM policy for the specified managed folder.
+ *
+ *  @param bucket Name of the bucket containing the managed folder.
+ *  @param managedFolder The managed folder name/path.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersGetIamPolicy
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder;
+
+@end
+
+/**
+ *  Creates a new managed folder.
+ *
+ *  Method: storage.managedFolders.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersInsert : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_ManagedFolder.
+ *
+ *  Creates a new managed folder.
+ *
+ *  @param object The @c GTLRStorage_ManagedFolder to include in the query.
+ *  @param bucket Name of the bucket containing the managed folder.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersInsert
+ */
++ (instancetype)queryWithObject:(GTLRStorage_ManagedFolder *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Lists managed folders in the given bucket.
+ *
+ *  Method: storage.managedFolders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersList : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Maximum number of items return in a single page of responses. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The managed folder name/path prefix to filter the output list of results.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Fetches a @c GTLRStorage_ManagedFolders.
+ *
+ *  Lists managed folders in the given bucket.
+ *
+ *  @param bucket Name of the bucket containing the managed folder.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Updates an IAM policy for the specified managed folder.
+ *
+ *  Method: storage.managedFolders.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ */
+@interface GTLRStorageQuery_ManagedFoldersSetIamPolicy : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The managed folder name/path. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Policy.
+ *
+ *  Updates an IAM policy for the specified managed folder.
+ *
+ *  @param object The @c GTLRStorage_Policy to include in the query.
+ *  @param bucket Name of the bucket containing the managed folder.
+ *  @param managedFolder The managed folder name/path.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRStorage_Policy *)object
+                         bucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder;
+
+@end
+
+/**
+ *  Tests a set of permissions on the given managed folder to see which, if any,
+ *  are held by the caller.
+ *
+ *  Method: storage.managedFolders.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersTestIamPermissions : GTLRStorageQuery
+
+/** Name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The managed folder name/path. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/** Permissions to test. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_TestIamPermissionsResponse.
+ *
+ *  Tests a set of permissions on the given managed folder to see which, if any,
+ *  are held by the caller.
+ *
+ *  @param bucket Name of the bucket containing the managed folder.
+ *  @param managedFolder The managed folder name/path.
+ *  @param permissions Permissions to test.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersTestIamPermissions
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder
+                    permissions:(NSArray<NSString *> *)permissions;
+
+@end
+
+/**
  *  Permanently deletes a notification subscription.
  *
  *  Method: storage.notifications.delete
@@ -1829,6 +2143,37 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Initiates a long-running bulk restore operation on the specified bucket.
+ *
+ *  Method: storage.objects.bulkRestore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ObjectsBulkRestore : GTLRStorageQuery
+
+/** Name of the bucket in which the object resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Initiates a long-running bulk restore operation on the specified bucket.
+ *
+ *  @param object The @c GTLRStorage_BulkRestoreObjectsRequest to include in the
+ *    query.
+ *  @param bucket Name of the bucket in which the object resides.
+ *
+ *  @return GTLRStorageQuery_ObjectsBulkRestore
+ */
++ (instancetype)queryWithObject:(GTLRStorage_BulkRestoreObjectsRequest *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
  *  Concatenates a list of existing objects into a new object in the same
  *  bucket.
  *
@@ -2246,6 +2591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  If true, only soft-deleted object versions will be listed. The default is
+ *  false. For more information, see Soft Delete.
+ */
+@property(nonatomic, assign) BOOL softDeleted;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -2499,6 +2850,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *endOffset;
 
 /**
+ *  Only applicable if delimiter is set to '/'. If true, will also include
+ *  folders and managed folders (besides objects) in the returned prefixes.
+ */
+@property(nonatomic, assign) BOOL includeFoldersAsPrefixes;
+
+/**
  *  If true, objects that end in exactly one instance of delimiter will have
  *  their metadata included in items in addition to prefixes.
  */
@@ -2535,6 +2892,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  If true, only soft-deleted object versions will be listed. The default is
+ *  false. For more information, see Soft Delete.
+ */
+@property(nonatomic, assign) BOOL softDeleted;
 
 /**
  *  Filter results to objects whose names are lexicographically equal to or
@@ -2627,6 +2990,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  Must be true to remove the retention configuration, reduce its unlocked
+ *  retention period, or change its mode from unlocked to locked.
+ */
+@property(nonatomic, assign) BOOL overrideUnlockedRetention;
+
+/**
  *  Apply a predefined set of access controls to this object.
  *
  *  Likely values:
@@ -2678,6 +3047,98 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param;
+
+@end
+
+/**
+ *  Restores a soft-deleted object.
+ *
+ *  Method: storage.objects.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ */
+@interface GTLRStorageQuery_ObjectsRestore : GTLRStorageQuery
+
+/** Name of the bucket in which the object resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  If true, copies the source object's ACL; otherwise, uses the bucket's
+ *  default object ACL. The default is false.
+ */
+@property(nonatomic, assign) BOOL copySourceAcl;
+
+/** Selects a specific revision of this object. */
+@property(nonatomic, assign) long long generation;
+
+/**
+ *  Makes the operation conditional on whether the object's one live generation
+ *  matches the given value. Setting to 0 makes the operation succeed only if
+ *  there are no live versions of the object.
+ */
+@property(nonatomic, assign) long long ifGenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether none of the object's live
+ *  generations match the given value. If no live object exists, the
+ *  precondition fails. Setting to 0 makes the operation succeed only if there
+ *  is a live version of the object.
+ */
+@property(nonatomic, assign) long long ifGenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the object's one live
+ *  metageneration matches the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether none of the object's live
+ *  metagenerations match the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Name of the object. For information about how to URL encode object names to
+ *  be path safe, see Encoding URI Path Parts.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Set of properties to return. Defaults to full.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageProjectionFull Include all properties. (Value: "full")
+ *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
+ *        "noAcl")
+ */
+@property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Object.
+ *
+ *  Restores a soft-deleted object.
+ *
+ *  @param object The @c GTLRStorage_Object to include in the query.
+ *  @param bucket Name of the bucket in which the object resides.
+ *  @param object_param Name of the object. For information about how to URL
+ *    encode object names to be path safe, see Encoding URI Path Parts.
+ *  @param generation Selects a specific revision of this object.
+ *
+ *  @return GTLRStorageQuery_ObjectsRestore
+ */
++ (instancetype)queryWithObject:(GTLRStorage_Object *)object
+                         bucket:(NSString *)bucket
+                         object:(NSString *)object_param
+                     generation:(long long)generation;
 
 @end
 
@@ -3041,6 +3502,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *object;
 
 /**
+ *  Must be true to remove the retention configuration, reduce its unlocked
+ *  retention period, or change its mode from unlocked to locked.
+ */
+@property(nonatomic, assign) BOOL overrideUnlockedRetention;
+
+/**
  *  Apply a predefined set of access controls to this object.
  *
  *  Likely values:
@@ -3197,6 +3664,131 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *
+ *  Method: storage.buckets.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_OperationsCancel : GTLRStorageQuery
+
+/** The parent bucket of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The ID of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *
+ *  @param bucket The parent bucket of the operation resource.
+ *  @param operationId The ID of the operation resource.
+ *
+ *  @return GTLRStorageQuery_OperationsCancel
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                    operationId:(NSString *)operationId;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation.
+ *
+ *  Method: storage.buckets.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_OperationsGet : GTLRStorageQuery
+
+/** The parent bucket of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The ID of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation.
+ *
+ *  @param bucket The parent bucket of the operation resource.
+ *  @param operationId The ID of the operation resource.
+ *
+ *  @return GTLRStorageQuery_OperationsGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                    operationId:(NSString *)operationId;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request.
+ *
+ *  Method: storage.buckets.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_OperationsList : GTLRStorageQuery
+
+/** Name of the bucket in which to look for operations. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language is documented in more detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Maximum number of items to return in a single page of responses. Fewer total
+ *  results may be returned than requested. The service uses this parameter or
+ *  100 items, whichever is smaller.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request.
+ *
+ *  @param bucket Name of the bucket in which to look for operations.
+ *
+ *  @return GTLRStorageQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
 
 @end
 

@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of fields to update. The currently supported fields are: `labels`
- *  `hyperthreading_enabled` `os_image`
+ *  `hyperthreading_enabled` `os_image` `ssh_keys` `kms_key_version`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -829,6 +829,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get details of a single OS image.
+ *
+ *  Method: baremetalsolution.projects.locations.osImages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesGet : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the OS image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_OSImage.
+ *
+ *  Get details of a single OS image.
+ *
+ *  @param name Required. Name of the OS image.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the list of OS images which are currently approved.
  *
  *  Method: baremetalsolution.projects.locations.osImages.list
@@ -849,7 +875,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A token identifying a page of results from the server. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListProvisioningQuotasRequest. */
+/** Required. Parent value for ListOSImagesRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -857,7 +883,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves the list of OS images which are currently approved.
  *
- *  @param parent Required. Parent value for ListProvisioningQuotasRequest.
+ *  @param parent Required. Parent value for ListOSImagesRequest.
  *
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsOsImagesList
  *

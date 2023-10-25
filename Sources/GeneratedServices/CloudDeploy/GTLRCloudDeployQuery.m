@@ -509,6 +509,33 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_RollbackTargetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rollbackTarget";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_RollbackTargetResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.rollbackTarget";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesSetIamPolicy
 
 @dynamic resource;

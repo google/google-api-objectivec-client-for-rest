@@ -235,6 +235,12 @@ NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff = @"D
 NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full = @"FULL";
 NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog = @"TLOG";
 
+// GTLRSQLAdmin_IpConfiguration.sslMode
+NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted = @"ALLOW_UNENCRYPTED_AND_ENCRYPTED";
+NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly = @"ENCRYPTED_ONLY";
+NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified = @"SSL_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_TrustedClientCertificateRequired = @"TRUSTED_CLIENT_CERTIFICATE_REQUIRED";
+
 // GTLRSQLAdmin_IpMapping.type
 NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen   = @"MIGRATED_1ST_GEN";
 NSString * const kGTLRSQLAdmin_IpMapping_Type_Outgoing         = @"OUTGOING";
@@ -666,11 +672,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          diskEncryptionConfiguration, diskEncryptionStatus, dnsName, ETag,
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          maintenanceVersion, masterInstanceName, maxDiskSize, name,
-         onPremisesConfiguration, outOfDiskReport, project,
+         onPremisesConfiguration, outOfDiskReport, primaryDnsName, project,
          pscServiceAttachmentLink, region, replicaConfiguration, replicaNames,
          rootPassword, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
          selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
-         suspensionReason;
+         suspensionReason, writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1241,7 +1247,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_IpConfiguration
 @dynamic allocatedIpRange, authorizedNetworks,
          enablePrivatePathForGoogleCloudServices, ipv4Enabled, privateNetwork,
-         pscConfig, requireSsl;
+         pscConfig, requireSsl, sslMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1467,8 +1473,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_PasswordValidationPolicy
-@dynamic complexity, disallowUsernameSubstring, enablePasswordPolicy, minLength,
-         passwordChangeInterval, reuseInterval;
+@dynamic complexity, disallowCompromisedCredentials, disallowUsernameSubstring,
+         enablePasswordPolicy, minLength, passwordChangeInterval, reuseInterval;
 @end
 
 
@@ -1506,7 +1512,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ReplicaConfiguration
-@dynamic failoverTarget, kind, mysqlReplicaConfiguration;
+@dynamic cascadableReplica, failoverTarget, kind, mysqlReplicaConfiguration;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

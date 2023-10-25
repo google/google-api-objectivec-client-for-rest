@@ -55,11 +55,12 @@
 @class GTLRArtifactRegistry_Repository;
 @class GTLRArtifactRegistry_Repository_CleanupPolicies;
 @class GTLRArtifactRegistry_Repository_Labels;
-@class GTLRArtifactRegistry_SbomConfig;
 @class GTLRArtifactRegistry_Status;
 @class GTLRArtifactRegistry_Status_Details_Item;
 @class GTLRArtifactRegistry_Tag;
+@class GTLRArtifactRegistry_UpstreamCredentials;
 @class GTLRArtifactRegistry_UpstreamPolicy;
+@class GTLRArtifactRegistry_UsernamePasswordCredentials;
 @class GTLRArtifactRegistry_Version;
 @class GTLRArtifactRegistry_Version_Metadata;
 @class GTLRArtifactRegistry_VirtualRepositoryConfig;
@@ -444,29 +445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_Standar
  *  Value: "VIRTUAL_REPOSITORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository;
-
-// ----------------------------------------------------------------------------
-// GTLRArtifactRegistry_SbomConfig.enablementConfig
-
-/**
- *  Disabled indicates the repository will not generate SBOMs.
- *
- *  Value: "DISABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled;
-/**
- *  Unspecified config was not set. This will be interpreted as DISABLED.
- *
- *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified;
-/**
- *  Inherited indicates the repository is allowed for SBOM generation, however
- *  the actual state will be inherited from the API enablement state.
- *
- *  Value: "INHERITED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
@@ -2097,6 +2075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** Specific settings for a Python remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_PythonRepository *pythonRepository;
 
+/** Optional. The credentials used to access the remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_UpstreamCredentials *upstreamCredentials;
+
 /** Specific settings for a Yum remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_YumRepository *yumRepository;
 
@@ -2141,7 +2122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_DockerRepositoryConfig *dockerConfig;
 
 /**
- *  The format of packages that are stored in the repository.
+ *  Optional. The format of packages that are stored in the repository.
  *
  *  Likely values:
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Apt APT package format.
@@ -2190,7 +2171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_MavenRepositoryConfig *mavenConfig;
 
 /**
- *  The mode of the repository.
+ *  Optional. The mode of the repository.
  *
  *  Likely values:
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified Unspecified
@@ -2221,12 +2202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
-
-/**
- *  Optional. Config and state for sbom generation for resources within this
- *  Repository.
- */
-@property(nonatomic, strong, nullable) GTLRArtifactRegistry_SbomConfig *sbomConfig;
 
 /**
  *  Output only. The size, in bytes, of all artifact storage in this repository.
@@ -2273,35 +2248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        fetch them all at once.
  */
 @interface GTLRArtifactRegistry_Repository_Labels : GTLRObject
-@end
-
-
-/**
- *  Config for whether to generate SBOMs for resources in this repository, as
- *  well as output fields describing current state.
- */
-@interface GTLRArtifactRegistry_SbomConfig : GTLRObject
-
-/**
- *  Optional. Config for whether this repository has sbom generation disabled.
- *
- *  Likely values:
- *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Disabled
- *        Disabled indicates the repository will not generate SBOMs. (Value:
- *        "DISABLED")
- *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_EnablementConfigUnspecified
- *        Unspecified config was not set. This will be interpreted as DISABLED.
- *        (Value: "ENABLEMENT_CONFIG_UNSPECIFIED")
- *    @arg @c kGTLRArtifactRegistry_SbomConfig_EnablementConfig_Inherited
- *        Inherited indicates the repository is allowed for SBOM generation,
- *        however the actual state will be inherited from the API enablement
- *        state. (Value: "INHERITED")
- */
-@property(nonatomic, copy, nullable) NSString *enablementConfig;
-
-/** Output only. The last time this repository config was set to INHERITED. */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastEnableTime;
-
 @end
 
 
@@ -2584,8 +2530,19 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_UploadYumArtifactResponse : GTLRObject
 
-/** The Apt artifacts updated. */
+/** The Yum artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_YumArtifact *> *yumArtifacts;
+
+@end
+
+
+/**
+ *  The credentials to access the remote repository.
+ */
+@interface GTLRArtifactRegistry_UpstreamCredentials : GTLRObject
+
+/** Use username and password to access the remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_UsernamePasswordCredentials *usernamePasswordCredentials;
 
 @end
 
@@ -2614,6 +2571,24 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  "projects/p1/locations/us-central1/repositories/repo1".
  */
 @property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
+ *  Username and password credentials.
+ */
+@interface GTLRArtifactRegistry_UsernamePasswordCredentials : GTLRObject
+
+/**
+ *  The Secret Manager key version that holds the password to access the remote
+ *  repository. Must be in the format of
+ *  `projects/{project}/secrets/{secret}/versions/{version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** The username to access the remote repository. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

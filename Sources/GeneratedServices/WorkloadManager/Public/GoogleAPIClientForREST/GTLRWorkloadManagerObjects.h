@@ -294,25 +294,43 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_Res
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
 
 /**
- *  The SAP system named COROSYNC.
+ *  The COROSYNC validation type collects Corosync configuration and runtime
+ *  data. Corosync enables servers to interact as a HA cluster.
  *
  *  Value: "COROSYNC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Corosync;
 /**
- *  The SAP system named HANA.
+ *  The CUSTOM validation type collects any customer-defined data that does not
+ *  fall into any of the other categories of validations.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Custom;
+/**
+ *  The HANA validation type collects HANA configuration data. SAP HANA is an
+ *  in-memory, column-oriented, relational database management system.
  *
  *  Value: "HANA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Hana;
 /**
- *  The SAP system named NETWEAVER.
+ *  The HANA_SECURITY validation type collects HANA configuration data as it
+ *  relates to SAP security best practices.
+ *
+ *  Value: "HANA_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_HanaSecurity;
+/**
+ *  The NETWEAVER validation type collects NetWeaver configuration data. SAP
+ *  NetWeaver is a software stack for many of SAP SE's applications.
  *
  *  Value: "NETWEAVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Netweaver;
 /**
- *  The SAP system named PACEMAKER.
+ *  The PACEMAKER validation type collects Pacemaker configuration data.
+ *  Pacemaker is a high-availability cluster resource manager.
  *
  *  Value: "PACEMAKER"
  */
@@ -324,7 +342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_SapValidationTypeUnspecified;
 /**
- *  The SAP system named SYSTEM.
+ *  The SYSTEM validation type collects underlying system data from the VM.
  *
  *  Value: "SYSTEM"
  */
@@ -333,6 +351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapValidationValidationD
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 
+/**
+ *  The DB_BACKUP_POLICY table.
+ *
+ *  Value: "DB_BACKUP_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBackupPolicy;
 /**
  *  The BUFFER_POOL_EXTENSION table.
  *
@@ -345,6 +369,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  Value: "DB_CXPACKET_WAITS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits;
+/**
+ *  The DB_INDEX_FRAGMENTATION table.
+ *
+ *  Value: "DB_INDEX_FRAGMENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbIndexFragmentation;
 /**
  *  The LOG_DISK_SEPARATION table.
  *
@@ -363,6 +393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  Value: "DB_MAX_SERVER_MEMORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory;
+/**
+ *  The DB_TABLE_INDEX_COMPRESSION table.
+ *
+ *  Value: "DB_TABLE_INDEX_COMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTableIndexCompression;
 /**
  *  The TRANSACTION_LOG_HANDLING table.
  *
@@ -591,12 +627,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
- *  The insights data for sap system discovery. This is a copy of SAP System
+ *  The insights data for SAP system discovery. This is a copy of SAP System
  *  proto and should get updated whenever that one changes.
  */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscovery *sapDiscovery;
 
-/** The insights data for the sap workload validation. */
+/** The insights data for the SAP workload validation. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapValidation *sapValidation;
 
 /** Output only. [Output only] Create time stamp */
@@ -883,8 +919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -912,8 +948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
@@ -1119,26 +1155,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
- *  LINT.IfChange The schema of SAP system discovery data.
+ *  The schema of SAP system discovery data.
  */
 @interface GTLRWorkloadManager_SapDiscovery : GTLRObject
 
-/** An SAP system may run without an application layer. */
+/** Optional. An SAP system may run without an application layer. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponent *applicationLayer;
 
-/** An SAP System must have a database. */
+/** Required. An SAP System must have a database. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponent *databaseLayer;
 
-/** The metadata for SAP system discovery data. */
+/** Optional. The metadata for SAP system discovery data. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryMetadata *metadata;
 
 /**
- *  A combination of database SID, database instance URI and tenant DB name to
- *  make a unique identifier per-system.
+ *  Output only. A combination of database SID, database instance URI and tenant
+ *  DB name to make a unique identifier per-system.
  */
 @property(nonatomic, copy, nullable) NSString *systemId;
 
-/** Unix timestamp this system has been updated last. */
+/** Required. Unix timestamp this system has been updated last. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1155,15 +1191,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Optional. The component is a SAP database. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties *databaseProperties;
 
-/** Pantheon Project in which the resources reside. */
+/** Required. Pantheon Project in which the resources reside. */
 @property(nonatomic, copy, nullable) NSString *hostProject;
 
-/** The resources in a component. */
+/** Optional. The resources in a component. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryResource *> *resources;
 
 /**
- *  The sap identifier, used by the SAP software and helps differentiate systems
- *  for customers.
+ *  Optional. The SAP identifier, used by the SAP software and helps
+ *  differentiate systems for customers.
  */
 @property(nonatomic, copy, nullable) NSString *sid;
 
@@ -1186,7 +1222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @property(nonatomic, copy, nullable) NSString *applicationType;
 
-/** Required. Resource URI of the recognized ASCS host of the application. */
+/** Optional. Resource URI of the recognized ASCS host of the application. */
 @property(nonatomic, copy, nullable) NSString *ascsUri;
 
 /**
@@ -1236,17 +1272,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @interface GTLRWorkloadManager_SapDiscoveryMetadata : GTLRObject
 
 /**
- *  Customer region string for customer's use. Does not represent GCP region.
+ *  Optional. Customer region string for customer's use. Does not represent GCP
+ *  region.
  */
 @property(nonatomic, copy, nullable) NSString *customerRegion;
 
-/** Customer defined, something like "E-commerce pre prod" */
+/** Optional. Customer defined, something like "E-commerce pre prod" */
 @property(nonatomic, copy, nullable) NSString *definedSystem;
 
-/** Should be "prod", "QA", "dev", "staging", etc. */
+/** Optional. Should be "prod", "QA", "dev", "staging", etc. */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
-/** This sap product name */
+/** Optional. This SAP product name */
 @property(nonatomic, copy, nullable) NSString *sapProduct;
 
 @end
@@ -1257,7 +1294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SapDiscoveryResource : GTLRObject
 
-/** A list of resource URIs related to this resource. */
+/** Optional. A list of resource URIs related to this resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedResources;
 
 /**
@@ -1310,11 +1347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
-/** URI of the resource, includes project, location, and name. */
+/** Required. URI of the resource, includes project, location, and name. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
- *  Unix timestamp of when this resource last had its discovery data updated.
+ *  Required. Unix timestamp of when this resource last had its discovery data
+ *  updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -1327,7 +1365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SapValidation : GTLRObject
 
-/** A list of SAP validation metrics data. */
+/** Optional. A list of SAP validation metrics data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapValidationValidationDetail *> *validationDetails;
 
 @end
@@ -1338,25 +1376,41 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SapValidationValidationDetail : GTLRObject
 
-/** The pairs of metrics data: field name & field value. */
+/** Optional. The pairs of metrics data: field name & field value. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapValidationValidationDetail_Details *details;
 
 /**
- *  The SAP system that the validation data is from.
+ *  Optional. The SAP system that the validation data is from.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Corosync
- *        The SAP system named COROSYNC. (Value: "COROSYNC")
+ *        The COROSYNC validation type collects Corosync configuration and
+ *        runtime data. Corosync enables servers to interact as a HA cluster.
+ *        (Value: "COROSYNC")
+ *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Custom
+ *        The CUSTOM validation type collects any customer-defined data that
+ *        does not fall into any of the other categories of validations. (Value:
+ *        "CUSTOM")
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Hana
- *        The SAP system named HANA. (Value: "HANA")
+ *        The HANA validation type collects HANA configuration data. SAP HANA is
+ *        an in-memory, column-oriented, relational database management system.
+ *        (Value: "HANA")
+ *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_HanaSecurity
+ *        The HANA_SECURITY validation type collects HANA configuration data as
+ *        it relates to SAP security best practices. (Value: "HANA_SECURITY")
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Netweaver
- *        The SAP system named NETWEAVER. (Value: "NETWEAVER")
+ *        The NETWEAVER validation type collects NetWeaver configuration data.
+ *        SAP NetWeaver is a software stack for many of SAP SE's applications.
+ *        (Value: "NETWEAVER")
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Pacemaker
- *        The SAP system named PACEMAKER. (Value: "PACEMAKER")
+ *        The PACEMAKER validation type collects Pacemaker configuration data.
+ *        Pacemaker is a high-availability cluster resource manager. (Value:
+ *        "PACEMAKER")
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_SapValidationTypeUnspecified
  *        Unspecified type. (Value: "SAP_VALIDATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_System
- *        The SAP system named SYSTEM. (Value: "SYSTEM")
+ *        The SYSTEM validation type collects underlying system data from the
+ *        VM. (Value: "SYSTEM")
  */
 @property(nonatomic, copy, nullable) NSString *sapValidationType;
 
@@ -1364,7 +1418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
- *  The pairs of metrics data: field name & field value.
+ *  Optional. The pairs of metrics data: field name & field value.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1392,7 +1446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SqlserverValidation : GTLRObject
 
-/** The agent version collected this data point */
+/** Optional. The agent version collected this data point */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
 /**
@@ -1409,7 +1463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** A list of SqlServer validation metrics data. */
+/** Optional. A list of SqlServer validation metrics data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SqlserverValidationValidationDetail *> *validationDetails;
 
 @end
@@ -1449,19 +1503,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SqlserverValidationDetails *> *details;
 
 /**
- *  The Sqlserver system that the validation data is from.
+ *  Optional. The Sqlserver system that the validation data is from.
  *
  *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBackupPolicy
+ *        The DB_BACKUP_POLICY table. (Value: "DB_BACKUP_POLICY")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension
  *        The BUFFER_POOL_EXTENSION table. (Value: "DB_BUFFER_POOL_EXTENSION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbCxpacketWaits
  *        The CXPACKET_WAITS table. (Value: "DB_CXPACKET_WAITS")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbIndexFragmentation
+ *        The DB_INDEX_FRAGMENTATION table. (Value: "DB_INDEX_FRAGMENTATION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbLogDiskSeparation
  *        The LOG_DISK_SEPARATION table. (Value: "DB_LOG_DISK_SEPARATION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxParallelism
  *        The MAX_PARALLELISM table. (Value: "DB_MAX_PARALLELISM")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbMaxServerMemory
  *        The MAX_SERVER_MEMORY table. (Value: "DB_MAX_SERVER_MEMORY")
+ *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTableIndexCompression
+ *        The DB_TABLE_INDEX_COMPRESSION table. (Value:
+ *        "DB_TABLE_INDEX_COMPRESSION")
  *    @arg @c kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbTransactionLogHandling
  *        The TRANSACTION_LOG_HANDLING table. (Value:
  *        "DB_TRANSACTION_LOG_HANDLING")

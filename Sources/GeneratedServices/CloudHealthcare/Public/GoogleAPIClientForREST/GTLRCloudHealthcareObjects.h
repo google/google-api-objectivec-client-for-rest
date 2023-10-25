@@ -72,6 +72,7 @@
 @class GTLRCloudHealthcare_Hl7V2NotificationConfig;
 @class GTLRCloudHealthcare_Hl7V2Store;
 @class GTLRCloudHealthcare_Hl7V2Store_Labels;
+@class GTLRCloudHealthcare_Hl7V2StoreMetric;
 @class GTLRCloudHealthcare_HttpBody_Extensions_Item;
 @class GTLRCloudHealthcare_Image;
 @class GTLRCloudHealthcare_ImageConfig;
@@ -1681,8 +1682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Ensures in-flight data remains in the region of origin during
  *  de-identification. Using this option results in a significant reduction of
  *  throughput, and is not compatible with `LOCATION` or `ORGANIZATION_NAME`
- *  infoTypes. `LOCATION` must be excluded within `TextConfig`, and must also be
- *  excluded within `ImageConfig` if image redaction is required.
+ *  infoTypes. `LOCATION` must be excluded within TextConfig, and must also be
+ *  excluded within ImageConfig if image redaction is required.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1948,6 +1949,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        fetch them all at once.
  */
 @interface GTLRCloudHealthcare_DicomStore_Labels : GTLRObject
+@end
+
+
+/**
+ *  DicomStoreMetrics contains metrics describing a DICOM store.
+ */
+@interface GTLRCloudHealthcare_DicomStoreMetrics : GTLRObject
+
+/**
+ *  Total blob storage bytes for all instances in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blobStorageSizeBytes;
+
+/**
+ *  Number of instances in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instanceCount;
+
+/**
+ *  Resource name of the DICOM store, of the form
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Number of series in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seriesCount;
+
+/**
+ *  Total structured storage bytes for all instances in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *structuredStorageSizeBytes;
+
+/**
+ *  Number of studies in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studyCount;
+
 @end
 
 
@@ -2243,44 +2293,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Restricts messages exported to those matching a filter, only applicable to
- *  PubsubDestination and GcsDestination. The following syntax is available: * A
- *  string field value can be written as text inside quotation marks, for
- *  example `"query text"`. The only valid relational operation for text fields
- *  is equality (`=`), where text is searched within the field, rather than
- *  having the field be equal to the text. For example, `"Comment = great"`
- *  returns messages with `great` in the comment field. * A number field value
- *  can be written as an integer, a decimal, or an exponential. The valid
- *  relational operators for number fields are the equality operator (`=`),
- *  along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note
- *  that there is no inequality (`!=`) operator. You can prepend the `NOT`
- *  operator to an expression to negate it. * A date field value must be written
- *  in the `yyyy-mm-dd` format. Fields with date and time use the RFC3339 time
- *  format. Leading zeros are required for one-digit months and days. The valid
- *  relational operators for date fields are the equality operator (`=`) , along
- *  with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that
- *  there is no inequality (`!=`) operator. You can prepend the `NOT` operator
- *  to an expression to negate it. * Multiple field query expressions can be
- *  combined in one query by adding `AND` or `OR` operators between the
- *  expressions. If a boolean operator appears within a quoted string, it is not
- *  treated as special, and is just another part of the character string to be
- *  matched. You can prepend the `NOT` operator to an expression to negate it.
- *  The following fields and functions are available for filtering: *
- *  `message_type`, from the MSH-9.1 field. For example, `NOT message_type =
- *  "ADT"`. * `send_date` or `sendDate`, the `yyyy-mm-dd` date the message was
- *  sent in the dataset's time_zone, from the MSH-7 segment. For example,
- *  `send_date < "2017-01-02"`. * `send_time`, the timestamp when the message
- *  was sent, using the RFC3339 time format for comparisons, from the MSH-7
- *  segment. For example, `send_time < "2017-01-02T00:00:00-05:00"`. *
- *  `create_time`, the timestamp when the message was created in the HL7v2
- *  store. Use the RFC3339 time format for comparisons. For example,
- *  `create_time < "2017-01-02T00:00:00-05:00"`. * `send_facility`, the care
- *  center that the message came from, from the MSH-4 segment. For example,
- *  `send_facility = "ABC"`. Note: The filter will be applied to every message
- *  in the HL7v2 store whose `send_time` lies in the range defined by the
- *  `start_time` and the `end_time`. Even if the filter only matches a small set
- *  of messages, the export operation can still take a long time to finish when
- *  a lot of messages are between the specified `start_time` and `end_time`
- *  range.
+ *  PubsubDestination. The following syntax is available: * A string field value
+ *  can be written as text inside quotation marks, for example `"query text"`.
+ *  The only valid relational operation for text fields is equality (`=`), where
+ *  text is searched within the field, rather than having the field be equal to
+ *  the text. For example, `"Comment = great"` returns messages with `great` in
+ *  the comment field. * A number field value can be written as an integer, a
+ *  decimal, or an exponential. The valid relational operators for number fields
+ *  are the equality operator (`=`), along with the less than/greater than
+ *  operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`)
+ *  operator. You can prepend the `NOT` operator to an expression to negate it.
+ *  * A date field value must be written in the `yyyy-mm-dd` format. Fields with
+ *  date and time use the RFC3339 time format. Leading zeros are required for
+ *  one-digit months and days. The valid relational operators for date fields
+ *  are the equality operator (`=`) , along with the less than/greater than
+ *  operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`)
+ *  operator. You can prepend the `NOT` operator to an expression to negate it.
+ *  * Multiple field query expressions can be combined in one query by adding
+ *  `AND` or `OR` operators between the expressions. If a boolean operator
+ *  appears within a quoted string, it is not treated as special, and is just
+ *  another part of the character string to be matched. You can prepend the
+ *  `NOT` operator to an expression to negate it. The following fields and
+ *  functions are available for filtering: * `message_type`, from the MSH-9.1
+ *  field. For example, `NOT message_type = "ADT"`. * `send_date` or `sendDate`,
+ *  the `yyyy-mm-dd` date the message was sent in the dataset's time_zone, from
+ *  the MSH-7 segment. For example, `send_date < "2017-01-02"`. * `send_time`,
+ *  the timestamp when the message was sent, using the RFC3339 time format for
+ *  comparisons, from the MSH-7 segment. For example, `send_time <
+ *  "2017-01-02T00:00:00-05:00"`. * `create_time`, the timestamp when the
+ *  message was created in the HL7v2 store. Use the RFC3339 time format for
+ *  comparisons. For example, `create_time < "2017-01-02T00:00:00-05:00"`. *
+ *  `send_facility`, the care center that the message came from, from the MSH-4
+ *  segment. For example, `send_facility = "ABC"`. Note: The filter will be
+ *  applied to every message in the HL7v2 store whose `send_time` lies in the
+ *  range defined by the `start_time` and the `end_time`. Even if the filter
+ *  only matches a small set of messages, the export operation can still take a
+ *  long time to finish when a lot of messages are between the specified
+ *  `start_time` and `end_time` range.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3388,6 +3437,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        fetch them all at once.
  */
 @interface GTLRCloudHealthcare_Hl7V2Store_Labels : GTLRObject
+@end
+
+
+/**
+ *  Count of messages and total storage size by type for a given HL7 store.
+ */
+@interface GTLRCloudHealthcare_Hl7V2StoreMetric : GTLRObject
+
+/**
+ *  The total count of HL7v2 messages in the store for the given message type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** The Hl7v2 message type this metric applies to, such as `ADT` or `ORU`. */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+/**
+ *  The total amount of structured storage used by HL7v2 messages of this
+ *  message type in the store.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *structuredStorageSizeBytes;
+
+@end
+
+
+/**
+ *  List of metrics for a given HL7v2 store.
+ */
+@interface GTLRCloudHealthcare_Hl7V2StoreMetrics : GTLRObject
+
+/** List of HL7v2 store metrics by message type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7V2StoreMetric *> *metrics;
+
+/**
+ *  The resource name of the HL7v2 store to get metrics for, in the format
+ *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -5023,6 +5115,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  SeriesMetrics contains metrics describing a DICOM series.
+ */
+@interface GTLRCloudHealthcare_SeriesMetrics : GTLRObject
+
+/**
+ *  Total blob storage bytes for all instances in the series.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blobStorageSizeBytes;
+
+/**
+ *  Number of instances in the series.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instanceCount;
+
+/**
+ *  The series resource path. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}/series/{series_uid}`.
+ */
+@property(nonatomic, copy, nullable) NSString *series;
+
+/**
+ *  Total structured storage bytes for all instances in the series.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *structuredStorageSizeBytes;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudHealthcare_SetIamPolicyRequest : GTLRObject
@@ -5192,6 +5319,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  the supported resource types in this FHIR store.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
+ *  StudyMetrics contains metrics describing a DICOM study.
+ */
+@interface GTLRCloudHealthcare_StudyMetrics : GTLRObject
+
+/**
+ *  Total blob storage bytes for all instances in the study.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blobStorageSizeBytes;
+
+/**
+ *  Number of instances in the study.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instanceCount;
+
+/**
+ *  Number of series in the study.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seriesCount;
+
+/**
+ *  Total structured storage bytes for all instances in the study.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *structuredStorageSizeBytes;
+
+/**
+ *  The study resource path. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}`.
+ */
+@property(nonatomic, copy, nullable) NSString *study;
 
 @end
 

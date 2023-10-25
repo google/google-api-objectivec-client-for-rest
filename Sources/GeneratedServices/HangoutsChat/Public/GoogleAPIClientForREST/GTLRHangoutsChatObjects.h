@@ -915,18 +915,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_Op
 // GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource.commonDataSource
 
 /**
- *  Default value. Don't use. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Default value. Don't use.
  *
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown;
 /**
- *  A list of users provided by the Google Workspace host application. For
- *  example, to source users from Google Chat, use the resource name of the
- *  [user](https://developers.google.com/chat/api/reference/rest/v1/User).
- *  Format: users/{user} [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Google Workspace users. The user can only view and select users from their
+ *  Google Workspace organization.
  *
  *  Value: "USER"
  */
@@ -948,19 +944,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionIn
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown;
 /**
- *  Supported by Chat apps, but not Google Workspace Add-ons. A multi-select
- *  menu for static or dynamic data. From the menu bar, users select one or more
+ *  Supported by Chat apps, but not Google Workspace Add-ons. A multiselect menu
+ *  for static or dynamic data. From the menu bar, users select one or more
  *  items. Users can also input values to populate dynamic data. For example,
  *  users can start typing the name of a Google Chat space and the widget
- *  autosuggests the space. To populate items for a multi-select menu, you can
+ *  autosuggests the space. To populate items for a multiselect menu, you can
  *  use one of the following types of data sources: * Static data: Items are
  *  specified as `SelectionItem` objects in the widget. Up to 100 items. *
- *  Google Workspace data: Items are populated using data from a Google
- *  Workspace application, such as Google Chat users or spaces. * External data:
- *  Items are populated from a dynamic external data source. For examples of how
- *  to implement multi-select menus, see the [`SelectionInput` widget
- *  page](https://developers.google.com/chat/ui/widgets/selection-input).
- *  [Developer Preview](https://developers.google.com/workspace/preview).
+ *  Google Workspace data: Items are populated using data from Google Workspace,
+ *  such as Google Workspace users or Google Chat spaces. * External data: Items
+ *  are populated from an external data source outside of Google Workspace. For
+ *  examples of how to implement multiselect menus, see the [`SelectionInput`
+ *  widget
+ *  page](https://developers.google.com/chat/ui/widgets/selection-input#multiselect-menu).
  *
  *  Value: "MULTI_SELECT"
  */
@@ -1596,8 +1592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Output only. Annotations associated with the plain-text body of the message.
  *  To add basic formatting to a text message, see [Format text
- *  messages](https://developers.google.com/chat/api/guides/message-formats/text#format-texts).
- *  Example plain-text message body: ``` Hello \@FooBot how are you!" ``` The
+ *  messages](https://developers.google.com/chat/format-messages). Example
+ *  plain-text message body: ``` Hello \@FooBot how are you!" ``` The
  *  corresponding annotations metadata: ``` "annotations":[{
  *  "type":"USER_MENTION", "startIndex":6, "length":7, "userMention": { "user":
  *  { "name":"users/{user}", "displayName":"FooBot",
@@ -1866,17 +1862,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Chat apps only. For a `SelectionInput` widget that uses a multi-select menu,
- *  a data source from Google Chat. For example, a list of Google Chat spaces of
- *  which the user is a member. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Chat apps only. For a `SelectionInput` widget that uses a multiselect menu,
+ *  a data source from Google Chat. The data source populates selection items
+ *  for the multiselect menu. For example, a user can select Google Chat spaces
+ *  that they're a member of.
  */
 @interface GTLRHangoutsChat_ChatClientDataSourceMarkup : GTLRObject
 
-/**
- *  A data source representing a Google Chat space. Format: spaces/{space}
- *  [Developer Preview](https://developers.google.com/workspace/preview).
- */
+/** Google Chat spaces that the user is a member of. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SpaceDataSource *spaceDataSource;
 
 @end
@@ -2483,7 +2476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  the user make changes while the action is being processed, set
  *  [`LoadIndicator`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
  *  to `NONE`. For [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards)
+ *  messages](https://developers.google.com/chat/api/guides/v1/messages/create#create)
  *  in Chat apps, you must also set the action's
  *  [`ResponseType`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype)
  *  to `UPDATE_MESSAGE` and use the same
@@ -2693,7 +2686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Supported by Google Workspace Add-ons and Chat apps. For Chat apps, you can
  *  use fixed footers in
  *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards).
+ *  messages](https://developers.google.com/chat/api/guides/v1/messages/create#create).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter *fixedFooter;
 
@@ -2765,7 +2758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  `secondaryButton` causes an error. Supported by Google Workspace Add-ons and
  *  Chat apps. For Chat apps, you can use fixed footers in
  *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
- *  messages](https://developers.google.com/chat/api/guides/message-formats/cards).
+ *  messages](https://developers.google.com/chat/api/guides/v1/messages/create#create).
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter : GTLRObject
 
@@ -3004,9 +2997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  An icon displayed after the text. Supports
- *  [built-in](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons)
- *  and
- *  [custom](https://developers.google.com/chat/api/guides/message-formats/cards#customicons)
+ *  [built-in](https://developers.google.com/chat/format-messages#builtinicons)
+ *  and [custom](https://developers.google.com/chat/format-messages#customicons)
  *  icons.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *endIcon;
@@ -3029,7 +3021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Required. The primary text. Supports simple formatting. For more information
  *  about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -3157,9 +3149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  An icon displayed in a widget on a card. For an example in Google Chat apps,
  *  see [Icon](https://developers.google.com/chat/ui/widgets/icon). Supports
- *  [built-in](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons)
- *  and
- *  [custom](https://developers.google.com/chat/api/guides/message-formats/cards#customicons)
+ *  [built-in](https://developers.google.com/chat/format-messages#builtinicons)
+ *  and [custom](https://developers.google.com/chat/format-messages#customicons)
  *  icons.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Icon : GTLRObject
@@ -3201,7 +3192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Display one of the built-in icons provided by Google Workspace. For example,
  *  to display an airplane icon, specify `AIRPLANE`. For a bus, specify `BUS`.
  *  For a full list of supported icons, see [built-in
- *  icons](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons).
+ *  icons](https://developers.google.com/chat/format-messages#builtinicons).
  */
 @property(nonatomic, copy, nullable) NSString *knownIcon;
 
@@ -3356,40 +3347,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Chat apps only. For a `SelectionInput` widget that uses a multi-select menu,
- *  the data from a [Google Workspace host
- *  application](https://developers.google.com/chat/api/reference/rest/v1/HostApp).
- *  Used to populate the items in the multi-select menu. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Chat apps only. For a `SelectionInput` widget that uses a multiselect menu,
+ *  a data source from Google Workspace. Used to populate items in a multiselect
+ *  menu.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource : GTLRObject
 
 /**
- *  For a `SelectionInput` widget that uses a multi-select menu, a data source
- *  shared by all Google Workspace host applications, such as users in a Google
- *  Workspace organization. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  A data source shared by all Google Workspace applications, such as users in
+ *  a Google Workspace organization.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown
- *        Default value. Don't use. [Developer
- *        Preview](https://developers.google.com/workspace/preview). (Value:
- *        "UNKNOWN")
+ *        Default value. Don't use. (Value: "UNKNOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_User
- *        A list of users provided by the Google Workspace host application. For
- *        example, to source users from Google Chat, use the resource name of
- *        the
- *        [user](https://developers.google.com/chat/api/reference/rest/v1/User).
- *        Format: users/{user} [Developer
- *        Preview](https://developers.google.com/workspace/preview). (Value:
- *        "USER")
+ *        Google Workspace users. The user can only view and select users from
+ *        their Google Workspace organization. (Value: "USER")
  */
 @property(nonatomic, copy, nullable) NSString *commonDataSource;
 
 /**
- *  A data source that's unique to a Google Workspace host application, such as
- *  Gmail emails, Google Calendar events, or Google Chat messages. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  A data source that's unique to a Google Workspace host application, such
+ *  spaces in Google Chat.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
 
@@ -3417,7 +3396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Text that appears at the top of a section. Supports simple HTML formatted
  *  text. For more information about formatting text, see [Formatting text in
  *  Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -3457,10 +3436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1SelectionInput : GTLRCollectionObject
 
-/**
- *  An external data source, such as a relational data base. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** An external data source, such as a relational data base. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *externalDataSource;
 
 /**
@@ -3481,20 +3457,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  For multi-select menus, the maximum number of items that a user can select.
- *  Minimum value is 1 item. If unspecified, set to 3 items. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  For multiselect menus, the maximum number of items that a user can select.
+ *  Minimum value is 1 item. If unspecified, defaults to 3 items.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *multiSelectMaxSelectedItems;
 
 /**
- *  For multi-select menus, the number of text characters that a user inputs
- *  before the Chat app queries autocomplete and displays suggested items on the
- *  card. If unspecified, set to 0 characters for static data sources and 3
- *  characters for external data sources. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  For multiselect menus, the number of text characters that a user inputs
+ *  before the Chat app queries autocomplete and displays suggested items in the
+ *  menu. If unspecified, defaults to 0 characters for static data sources and 3
+ *  characters for external data sources.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3515,11 +3489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
 
-/**
- *  A data source from a [Google Workspace host
- *  application](https://developers.google.com/chat/api/reference/rest/v1/HostApp).
- *  [Developer Preview](https://developers.google.com/workspace/preview).
- */
+/** A data source from Google Workspace. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource *platformDataSource;
 
 /**
@@ -3537,19 +3507,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        "DROPDOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_MultiSelect
  *        Supported by Chat apps, but not Google Workspace Add-ons. A
- *        multi-select menu for static or dynamic data. From the menu bar, users
+ *        multiselect menu for static or dynamic data. From the menu bar, users
  *        select one or more items. Users can also input values to populate
  *        dynamic data. For example, users can start typing the name of a Google
  *        Chat space and the widget autosuggests the space. To populate items
- *        for a multi-select menu, you can use one of the following types of
- *        data sources: * Static data: Items are specified as `SelectionItem`
- *        objects in the widget. Up to 100 items. * Google Workspace data: Items
- *        are populated using data from a Google Workspace application, such as
- *        Google Chat users or spaces. * External data: Items are populated from
- *        a dynamic external data source. For examples of how to implement
- *        multi-select menus, see the [`SelectionInput` widget
- *        page](https://developers.google.com/chat/ui/widgets/selection-input).
- *        [Developer Preview](https://developers.google.com/workspace/preview).
+ *        for a multiselect menu, you can use one of the following types of data
+ *        sources: * Static data: Items are specified as `SelectionItem` objects
+ *        in the widget. Up to 100 items. * Google Workspace data: Items are
+ *        populated using data from Google Workspace, such as Google Workspace
+ *        users or Google Chat spaces. * External data: Items are populated from
+ *        an external data source outside of Google Workspace. For examples of
+ *        how to implement multiselect menus, see the [`SelectionInput` widget
+ *        page](https://developers.google.com/chat/ui/widgets/selection-input#multiselect-menu).
  *        (Value: "MULTI_SELECT")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton
  *        A set of radio buttons. Users can select one radio button. (Value:
@@ -3569,9 +3538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_GoogleAppsCardV1SelectionItem : GTLRObject
 
 /**
- *  For multi-select menus, a text description or label that's displayed below
- *  the item's `text` field. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  For multiselect menus, a text description or label that's displayed below
+ *  the item's `text` field.
  */
 @property(nonatomic, copy, nullable) NSString *bottomText;
 
@@ -3585,11 +3553,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *selected;
 
 /**
- *  For multi-select menus, the URL for the icon displayed next to the item's
+ *  For multiselect menus, the URL for the icon displayed next to the item's
  *  `text` field. Supports PNG and JPEG files. Must be an `HTTPS` URL. For
  *  example,
  *  `https://developers.google.com/chat/images/quickstart-app-avatar.png`.
- *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @property(nonatomic, copy, nullable) NSString *startIconUri;
 
@@ -3768,6 +3735,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
 
 /**
+ *  Text that appears in the text input field when the field is empty. Use this
+ *  text to prompt users to enter a value. For example, `Enter a number from 0
+ *  to 100`. Supported by Google Chat apps, but not Google Workspace Add-ons.
+ */
+@property(nonatomic, copy, nullable) NSString *placeholderText;
+
+/**
  *  How a text input field appears in the user interface. For example, whether
  *  the field is single or multi-line.
  *
@@ -3797,7 +3771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  paragraph](https://developers.google.com/chat/ui/widgets/text-paragraph).
  *  For more information about formatting text, see [Formatting text in Google
  *  Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards##card-formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -3932,7 +3906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Displays a text paragraph. Supports simple HTML formatted text. For more
  *  information about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  *  For example, the following JSON creates a bolded text: ``` "textParagraph":
@@ -3973,16 +3947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Chat apps only. For a `SelectionInput` widget that uses a multi-select menu,
- *  a data source from a Google Workspace host application. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  Chat apps only. For a `SelectionInput` widget that uses a multiselect menu,
+ *  a data source from a Google Workspace application. The data source populates
+ *  selection items for the multiselect menu.
  */
 @interface GTLRHangoutsChat_HostAppDataSourceMarkup : GTLRObject
 
-/**
- *  The data source is Google Chat. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** A data source from Google Chat. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ChatClientDataSourceMarkup *chatDataSource;
 
 @end
@@ -4116,7 +4087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The text of the bottom label. Formatted text supported. For more information
  *  about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -4128,7 +4099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The text of the content. Formatted text supported and always required. For
  *  more information about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -4200,7 +4171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The text of the top label. Formatted text supported. For more information
  *  about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -4370,8 +4341,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. User's role within a Chat space, which determines their
- *  permitted actions in the space.
+ *  Optional. User's role within a Chat space, which determines their permitted
+ *  actions in the space. [Developer
+ *  Preview](https://developers.google.com/workspace/preview): This field can
+ *  only be used as input in `UpdateMembership`.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified
@@ -4501,6 +4474,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
 /**
+ *  Output only. Contains the message `text` with markups added to communicate
+ *  formatting. This field might not capture all formatting visible in the UI,
+ *  but includes the following: * [Markup
+ *  syntax](https://developers.google.com/chat/format-messages) for bold,
+ *  italic, strikethrough, monospace, and monospace block. * [User
+ *  mentions](https://developers.google.com/chat/format-messages#messages-\@mention)
+ *  using the format ``. * Custom hyperlinks using the format
+ *  `<{url}|{rendered_text}>` where the first string is the URL and the second
+ *  is the rendered text—for example, ``. * Custom emoji using the format
+ *  `:{emoji_name}:`—for example, `:smile:`. This doesn't apply to Unicode
+ *  emoji, such as `U+1F600` for a grinning face emoji. For more information,
+ *  see [View text formatting sent in a
+ *  message](https://developers.google.com/chat/format-messages#view_text_formatting_sent_in_a_message)
+ */
+@property(nonatomic, copy, nullable) NSString *formattedText;
+
+/**
  *  Output only. The time at which the message was last edited by a user. If the
  *  message has never been edited, this field is empty.
  */
@@ -4549,10 +4539,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Plain-text body of the message. The first link to an image, video, or web
- *  page generates a preview chip. You can also \@mention a Google Chat user, or
- *  everyone in the space. To learn about creating text messages, see [Create a
+ *  page generates a [preview
+ *  chip](https://developers.google.com/chat/how-tos/preview-links). You can
+ *  also [\@mention a Google Chat
+ *  user](https://developers.google.com/chat/format-messages#messages-\@mention),
+ *  or everyone in the space. To learn about creating text messages, see [Send a
  *  text
- *  message](https://developers.google.com/chat/api/guides/message-formats/text).
+ *  message](https://developers.google.com/chat/api/guides/v1/messages/create#create-text-messages).
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -4652,7 +4645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The header of the section. Formatted text is supported. For more information
  *  about formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -4806,10 +4799,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Immutable. Whether this space permits any Google Chat user as a member.
- *  Input when creating a space in a Google Workspace organization. For Google
- *  Chat users that use a Google Account, omit this field when creating a space
- *  (By default, the space permits any Google Chat user). For existing spaces,
- *  this field is output only.
+ *  Input when creating a space in a Google Workspace organization. Omit this
+ *  field when creating spaces in the following conditions: * The authenticated
+ *  user uses a Google Account. By default, the space permits any Google Chat
+ *  user. * The space is used to [import data to Google Chat]
+ *  (https://developers.google.com/chat/api/guides/import-data-overview). Import
+ *  mode spaces must only permit members from the same Google Workspace
+ *  organization. For existing spaces, this field is output only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4909,15 +4905,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A data source representing a Google Chat space. Format: spaces/{space}
- *  [Developer Preview](https://developers.google.com/workspace/preview).
+ *  A data source that populates Google Chat spaces as selection items for a
+ *  multiselect menu. Only populates spaces that the user is a member of.
  */
 @interface GTLRHangoutsChat_SpaceDataSource : GTLRObject
 
 /**
- *  When `true`, uses the card's Google Chat space as the default selection. The
- *  default value is `false`. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  If set to `true`, the multiselect menu selects the current Google Chat space
+ *  as an item by default.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5024,7 +5019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A paragraph of text. Formatted text supported. For more information about
  *  formatting text, see [Formatting text in Google Chat
- *  apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting)
+ *  apps](https://developers.google.com/chat/format-messages#card-formatting)
  *  and [Formatting text in Google Workspace
  *  Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
  */
@@ -5167,7 +5162,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  example, `users/123456789` in Chat API represents the same person as
  *  `people/123456789` in People API. - the `id` for a
  *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
- *  in the Admin SDK Directory API.
+ *  in the Admin SDK Directory API. - the user's email address can be used as an
+ *  alias for `{user}` in API requests. For example, if the People API Person
+ *  `resourceName` for `user\@example.com` is `people/123456789`, you can use
+ *  `users/user\@example.com` as an alias to reference `users/123456789`. Only
+ *  the canonical resource name (for example `users/123456789`) will be returned
+ *  from the API.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

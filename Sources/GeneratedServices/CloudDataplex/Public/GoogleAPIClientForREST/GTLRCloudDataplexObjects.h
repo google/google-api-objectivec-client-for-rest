@@ -58,6 +58,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActionsBigQueryExport;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult;
@@ -107,6 +108,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime_Properties;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake;
@@ -1071,6 +1073,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Envir
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent.eventType
+
+/**
+ *  Access policy update event.
+ *
+ *  Value: "ACCESS_POLICY_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_AccessPolicyUpdate;
+/**
+ *  BigQuery connection create event.
+ *
+ *  Value: "BIGQUERY_CONNECTION_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionCreate;
+/**
+ *  BigQuery connection delete event.
+ *
+ *  Value: "BIGQUERY_CONNECTION_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionDelete;
+/**
+ *  BigQuery connection update event.
+ *
+ *  Value: "BIGQUERY_CONNECTION_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionUpdate;
+/**
+ *  BigQuery policy tag created.
+ *
+ *  Value: "BIGQUERY_POLICY_TAG_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagCreate;
+/**
+ *  BigQuery policy tag deleted.
+ *
+ *  Value: "BIGQUERY_POLICY_TAG_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagDelete;
+/**
+ *  BigQuery set iam policy for policy tag.
+ *
+ *  Value: "BIGQUERY_POLICY_TAG_SET_IAM_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagSetIamPolicy;
+/**
+ *  BigQuery table create event.
+ *
+ *  Value: "BIGQUERY_TABLE_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableCreate;
+/**
+ *  BigQuery table delete event.
+ *
+ *  Value: "BIGQUERY_TABLE_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableDelete;
+/**
+ *  BigQuery table update event.
+ *
+ *  Value: "BIGQUERY_TABLE_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableUpdate;
+/**
+ *  BigQuery taxonomy created.
+ *
+ *  Value: "BIGQUERY_TAXONOMY_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTaxonomyCreate;
+/**
+ *  An unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified;
+/**
+ *  Resource IAM policy update event.
+ *
+ *  Value: "RESOURCE_IAM_POLICY_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_ResourceIamPolicyUpdate;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity.entityType
+
+/**
+ *  An unspecified Entity type.
+ *
+ *  Value: "ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_EntityTypeUnspecified;
+/**
+ *  Fileset entity type.
+ *
+ *  Value: "FILESET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Fileset;
+/**
+ *  Table entity type.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.service
@@ -3315,10 +3421,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  A dimension captures data quality intent about a defined subset of the rules
+ *  specified.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension : GTLRObject
+
+/**
+ *  The dimension name a rule belongs to. Supported dimensions are
+ *  "COMPLETENESS", "ACCURACY", "CONSISTENCY", "VALIDITY", "UNIQUENESS",
+ *  "INTEGRITY"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  DataQualityDimensionResult provides a more detailed, per-dimension view of
  *  the results.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult : GTLRObject
+
+/**
+ *  Output only. The dimension config specified in the DataQualitySpec, as is.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension *dimension;
 
 /**
  *  Whether the dimension passed or failed.
@@ -5034,6 +5161,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *active;
+
+@end
+
+
+/**
+ *  Payload associated with Governance related log events.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent : GTLRObject
+
+/**
+ *  Entity resource information if the log event is associated with a specific
+ *  entity.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity *entity;
+
+/**
+ *  The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_AccessPolicyUpdate
+ *        Access policy update event. (Value: "ACCESS_POLICY_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionCreate
+ *        BigQuery connection create event. (Value:
+ *        "BIGQUERY_CONNECTION_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionDelete
+ *        BigQuery connection delete event. (Value:
+ *        "BIGQUERY_CONNECTION_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryConnectionUpdate
+ *        BigQuery connection update event. (Value:
+ *        "BIGQUERY_CONNECTION_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagCreate
+ *        BigQuery policy tag created. (Value: "BIGQUERY_POLICY_TAG_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagDelete
+ *        BigQuery policy tag deleted. (Value: "BIGQUERY_POLICY_TAG_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryPolicyTagSetIamPolicy
+ *        BigQuery set iam policy for policy tag. (Value:
+ *        "BIGQUERY_POLICY_TAG_SET_IAM_POLICY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableCreate
+ *        BigQuery table create event. (Value: "BIGQUERY_TABLE_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableDelete
+ *        BigQuery table delete event. (Value: "BIGQUERY_TABLE_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableUpdate
+ *        BigQuery table update event. (Value: "BIGQUERY_TABLE_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTaxonomyCreate
+ *        BigQuery taxonomy created. (Value: "BIGQUERY_TAXONOMY_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified
+ *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_ResourceIamPolicyUpdate
+ *        Resource IAM policy update event. (Value:
+ *        "RESOURCE_IAM_POLICY_UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** The log message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Information about Entity resource that the log event is associated with.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity : GTLRObject
+
+/**
+ *  The Entity resource the log event is associated with. Format:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  Type of entity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_EntityTypeUnspecified
+ *        An unspecified Entity type. (Value: "ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Fileset
+ *        Fileset entity type. (Value: "FILESET")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table
+ *        Table entity type. (Value: "TABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
 
 @end
 

@@ -910,6 +910,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
 /**
+ *  Optional. Cloudfront domain name pointing to this bucket (as origin), to use
+ *  when fetching. Format: `https://{id}.cloudfront.net` or any valid custom
+ *  domain `https://...`
+ */
+@property(nonatomic, copy, nullable) NSString *cloudfrontDomain;
+
+/**
  *  Optional. The Resource name of a secret in Secret Manager. The Azure SAS
  *  token must be stored in Secret Manager in JSON format: { "sas_token" :
  *  "SAS_TOKEN" } GoogleServiceAccount must be granted

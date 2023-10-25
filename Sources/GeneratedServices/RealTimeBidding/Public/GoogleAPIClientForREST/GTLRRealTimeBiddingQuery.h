@@ -1322,13 +1322,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @interface GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag : GTLRRealTimeBiddingQuery
 
 /**
- *  Required. To fetch remarketing tag for an account, name must follow the
- *  pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer
- *  that owns the remarketing tag. For a bidder accessing remarketing tag on
- *  behalf of a child seat buyer, `{accountId}` should represent the ID of the
- *  child seat buyer. To fetch remarketing tag for a specific user list, name
- *  must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
- *  UserList.name.
+ *  Required. To fetch the remarketing tag for an account, the name must follow
+ *  the pattern `buyers/{accountId}`, where `{accountId}` represents the ID of
+ *  the buyer that owns the remarketing tag. For a bidder accessing the
+ *  remarketing tag on behalf of a child seat buyer, `{accountId}` should
+ *  represent the ID of the child seat buyer. To fetch the remarketing tag for a
+ *  specific user list, the name must follow the pattern
+ *  `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1342,13 +1342,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
  *
- *  @param name Required. To fetch remarketing tag for an account, name must
- *    follow the pattern `buyers/{accountId}` where `{accountId}` represents ID
- *    of a buyer that owns the remarketing tag. For a bidder accessing
- *    remarketing tag on behalf of a child seat buyer, `{accountId}` should
- *    represent the ID of the child seat buyer. To fetch remarketing tag for a
- *    specific user list, name must follow the pattern
- *    `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
+ *  @param name Required. To fetch the remarketing tag for an account, the name
+ *    must follow the pattern `buyers/{accountId}`, where `{accountId}`
+ *    represents the ID of the buyer that owns the remarketing tag. For a bidder
+ *    accessing the remarketing tag on behalf of a child seat buyer,
+ *    `{accountId}` should represent the ID of the child seat buyer. To fetch
+ *    the remarketing tag for a specific user list, the name must follow the
+ *    pattern `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag
  */
@@ -1398,7 +1398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Change the status of a user list to CLOSED. This prevents new users from
+ *  Changes the status of a user list to CLOSED. This prevents new users from
  *  being added to the user list.
  *
  *  Method: realtimebidding.buyers.userLists.close
@@ -1414,7 +1414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_UserList.
  *
- *  Change the status of a user list to CLOSED. This prevents new users from
+ *  Changes the status of a user list to CLOSED. This prevents new users from
  *  being added to the user list.
  *
  *  @param object The @c GTLRRealTimeBidding_CloseUserListRequest to include in
@@ -1429,7 +1429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Create a new user list.
+ *  Creates a new user list.
  *
  *  Method: realtimebidding.buyers.userLists.create
  *
@@ -1439,26 +1439,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsCreate : GTLRRealTimeBiddingQuery
 
 /**
- *  Required. The name of the parent buyer of the user list to be retrieved that
- *  must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
- *  represents the account ID of the buyer who owns user lists. For a bidder
- *  accessing user lists on behalf of a child seat buyer , `{buyerAccountId}`
- *  should represent the account ID of the child seat buyer.
+ *  Required. The name of the parent buyer of the user list to be retrieved,
+ *  which must follow the pattern `buyers/{buyerAccountId}`, where
+ *  `{buyerAccountId}` represents the account ID of the buyer who owns the user
+ *  list. For a bidder accessing user lists on behalf of a child seat buyer,
+ *  `{buyerAccountId}` should represent the account ID of the child seat buyer.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRRealTimeBidding_UserList.
  *
- *  Create a new user list.
+ *  Creates a new user list.
  *
  *  @param object The @c GTLRRealTimeBidding_UserList to include in the query.
  *  @param parent Required. The name of the parent buyer of the user list to be
- *    retrieved that must follow the pattern `buyers/{buyerAccountId}`, where
- *    `{buyerAccountId}` represents the account ID of the buyer who owns user
- *    lists. For a bidder accessing user lists on behalf of a child seat buyer ,
- *    `{buyerAccountId}` should represent the account ID of the child seat
- *    buyer.
+ *    retrieved, which must follow the pattern `buyers/{buyerAccountId}`, where
+ *    `{buyerAccountId}` represents the account ID of the buyer who owns the
+ *    user list. For a bidder accessing user lists on behalf of a child seat
+ *    buyer, `{buyerAccountId}` should represent the account ID of the child
+ *    seat buyer.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsCreate
  */
@@ -1510,13 +1510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsGetRemarketingTag : GTLRRealTimeBiddingQuery
 
 /**
- *  Required. To fetch remarketing tag for an account, name must follow the
- *  pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer
- *  that owns the remarketing tag. For a bidder accessing remarketing tag on
- *  behalf of a child seat buyer, `{accountId}` should represent the ID of the
- *  child seat buyer. To fetch remarketing tag for a specific user list, name
- *  must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
- *  UserList.name.
+ *  Required. To fetch the remarketing tag for an account, the name must follow
+ *  the pattern `buyers/{accountId}`, where `{accountId}` represents the ID of
+ *  the buyer that owns the remarketing tag. For a bidder accessing the
+ *  remarketing tag on behalf of a child seat buyer, `{accountId}` should
+ *  represent the ID of the child seat buyer. To fetch the remarketing tag for a
+ *  specific user list, the name must follow the pattern
+ *  `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1530,13 +1530,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
  *
- *  @param name Required. To fetch remarketing tag for an account, name must
- *    follow the pattern `buyers/{accountId}` where `{accountId}` represents ID
- *    of a buyer that owns the remarketing tag. For a bidder accessing
- *    remarketing tag on behalf of a child seat buyer, `{accountId}` should
- *    represent the ID of the child seat buyer. To fetch remarketing tag for a
- *    specific user list, name must follow the pattern
- *    `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
+ *  @param name Required. To fetch the remarketing tag for an account, the name
+ *    must follow the pattern `buyers/{accountId}`, where `{accountId}`
+ *    represents the ID of the buyer that owns the remarketing tag. For a bidder
+ *    accessing the remarketing tag on behalf of a child seat buyer,
+ *    `{accountId}` should represent the ID of the child seat buyer. To fetch
+ *    the remarketing tag for a specific user list, the name must follow the
+ *    pattern `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsGetRemarketingTag
  */
@@ -1557,7 +1557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /** The number of results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Continuation page token (as received from a previous response). */
+/** Continuation page token as received from a previous response. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1592,7 +1592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Change the status of a user list to OPEN. This allows new users to be added
+ *  Changes the status of a user list to OPEN. This allows new users to be added
  *  to the user list.
  *
  *  Method: realtimebidding.buyers.userLists.open
@@ -1608,7 +1608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_UserList.
  *
- *  Change the status of a user list to OPEN. This allows new users to be added
+ *  Changes the status of a user list to OPEN. This allows new users to be added
  *  to the user list.
  *
  *  @param object The @c GTLRRealTimeBidding_OpenUserListRequest to include in
@@ -1623,7 +1623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Update the given user list. Only user lists with URLRestrictions can be
+ *  Updates the given user list. Only user lists with URLRestrictions can be
  *  updated.
  *
  *  Method: realtimebidding.buyers.userLists.update
@@ -1646,7 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_UserList.
  *
- *  Update the given user list. Only user lists with URLRestrictions can be
+ *  Updates the given user list. Only user lists with URLRestrictions can be
  *  updated.
  *
  *  @param object The @c GTLRRealTimeBidding_UserList to include in the query.

@@ -92,6 +92,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Accepts a proposal to attach a Network Connectivity Center spoke to a hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.acceptSpoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpoke : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub into which to accept the spoke. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Accepts a proposal to attach a Network Connectivity Center spoke to a hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_AcceptHubSpokeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub into which to accept the spoke.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpoke
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptHubSpokeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Network Connectivity Center hub in the specified project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.create
@@ -109,15 +138,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -152,15 +181,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -587,15 +616,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -624,6 +653,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_Hub *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rejects a Network Connectivity Center spoke from being attached to a hub. If
+ *  the spoke was previously in the `ACTIVE` state, it transitions to the
+ *  `INACTIVE` state and is no longer able to connect to other spokes that are
+ *  attached to the hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.rejectSpoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub from which to reject the spoke. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Rejects a Network Connectivity Center spoke from being attached to a hub. If
+ *  the spoke was previously in the `ACTIVE` state, it transitions to the
+ *  `INACTIVE` state and is no longer able to connect to other spokes that are
+ *  attached to the hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RejectHubSpokeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub from which to reject the spoke.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectHubSpokeRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -849,7 +913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Creates a new PolicyBasedRoute in a given project and location.
+ *  Creates a new policy-based route in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.create
  *
@@ -861,7 +925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** Required. The parent resource's name of the PolicyBasedRoute. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Unique id for the Policy Based Route to create. */
+/** Required. Unique id for the policy-based route to create. */
 @property(nonatomic, copy, nullable) NSString *policyBasedRouteId;
 
 /**
@@ -882,7 +946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a new PolicyBasedRoute in a given project and location.
+ *  Creates a new policy-based route in a given project and location.
  *
  *  @param object The @c GTLRNetworkconnectivity_PolicyBasedRoute to include in
  *    the query.
@@ -896,7 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Deletes a single PolicyBasedRoute.
+ *  Deletes a single policy-based route.
  *
  *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.delete
  *
@@ -905,7 +969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete : GTLRNetworkconnectivityQuery
 
-/** Required. Name of the PolicyBasedRoute resource to delete. */
+/** Required. Name of the policy-based route resource to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -926,9 +990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes a single PolicyBasedRoute.
+ *  Deletes a single policy-based route.
  *
- *  @param name Required. Name of the PolicyBasedRoute resource to delete.
+ *  @param name Required. Name of the policy-based route resource to delete.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesDelete
  */
@@ -937,7 +1001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Gets details of a single PolicyBasedRoute.
+ *  Gets details of a single policy-based route.
  *
  *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.get
  *
@@ -952,7 +1016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_PolicyBasedRoute.
  *
- *  Gets details of a single PolicyBasedRoute.
+ *  Gets details of a single policy-based route.
  *
  *  @param name Required. Name of the PolicyBasedRoute resource to get.
  *
@@ -1012,7 +1076,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Lists PolicyBasedRoutes in a given project and location.
+ *  Lists policy-based routes in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.list
  *
@@ -1039,7 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListPolicyBasedRoutesResponse.
  *
- *  Lists PolicyBasedRoutes in a given project and location.
+ *  Lists policy-based routes in a given project and location.
  *
  *  @param parent Required. The parent resource's name.
  *
@@ -2826,15 +2890,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -2872,15 +2936,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -3036,15 +3100,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server guarantees that a
- *  request doesn't result in creation of duplicate commitments for at least 60
- *  minutes. For example, consider a situation where you make an initial request
- *  and the request times out. If you make the request again with the same
- *  request ID, the server can check to see whether the original operation was
- *  received. If it was, the server ignores the second request. This behavior
- *  prevents clients from mistakenly creating duplicate commitments. The request
- *  ID must be a valid UUID, with the exception that zero UUID is not supported
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;

@@ -230,6 +230,42 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_BatchWriteRequest
+//
+
+@implementation GTLRSpanner_BatchWriteRequest
+@dynamic mutationGroups, requestOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mutationGroups" : [GTLRSpanner_MutationGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_BatchWriteResponse
+//
+
+@implementation GTLRSpanner_BatchWriteResponse
+@dynamic commitTimestamp, indexes, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_BeginTransactionRequest
 //
 
@@ -686,6 +722,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_GetPolicyOptions
 @dynamic requestedPolicyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_IndexAdvice
+//
+
+@implementation GTLRSpanner_IndexAdvice
+@dynamic ddl, improvementFactor;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ddl" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1257,6 +1311,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_MutationGroup
+//
+
+@implementation GTLRSpanner_MutationGroup
+@dynamic mutations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mutations" : [GTLRSpanner_Mutation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Operation
 //
 
@@ -1521,6 +1593,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_QueryAdvisorResult
+//
+
+@implementation GTLRSpanner_QueryAdvisorResult
+@dynamic indexAdvice;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexAdvice" : [GTLRSpanner_IndexAdvice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_QueryOptions
 //
 
@@ -1535,7 +1625,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_QueryPlan
-@dynamic planNodes;
+@dynamic planNodes, queryAdvice;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -84,6 +84,28 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflows_ListWorkflowRevisionsResponse
+//
+
+@implementation GTLRWorkflows_ListWorkflowRevisionsResponse
+@dynamic nextPageToken, workflows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workflows" : [GTLRWorkflows_Workflow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workflows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflows_ListWorkflowsResponse
 //
 

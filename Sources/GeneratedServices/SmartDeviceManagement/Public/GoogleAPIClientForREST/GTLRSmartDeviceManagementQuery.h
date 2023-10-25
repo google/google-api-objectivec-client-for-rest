@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.devices.executeCommand
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesExecuteCommand : GTLRSmartDeviceManagementQuery
 
@@ -75,8 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.devices.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesGet : GTLRSmartDeviceManagementQuery
 
@@ -105,8 +105,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.devices.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesList : GTLRSmartDeviceManagementQuery
 
@@ -140,8 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.structures.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresGet : GTLRSmartDeviceManagementQuery
 
@@ -171,8 +171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.structures.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresList : GTLRSmartDeviceManagementQuery
 
@@ -203,8 +203,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.structures.rooms.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsGet : GTLRSmartDeviceManagementQuery
 
@@ -234,8 +234,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: smartdevicemanagement.enterprises.structures.rooms.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSmartDeviceManagementCloudPlatform
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementUserinfoEmail
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList : GTLRSmartDeviceManagementQuery
 

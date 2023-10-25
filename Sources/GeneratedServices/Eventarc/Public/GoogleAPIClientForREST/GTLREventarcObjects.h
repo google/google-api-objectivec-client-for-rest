@@ -31,9 +31,11 @@
 @class GTLREventarc_GoogleLongrunningOperation_Response;
 @class GTLREventarc_GoogleRpcStatus;
 @class GTLREventarc_GoogleRpcStatus_Details_Item;
+@class GTLREventarc_HttpEndpoint;
 @class GTLREventarc_Location;
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
+@class GTLREventarc_NetworkConfig;
 @class GTLREventarc_Policy;
 @class GTLREventarc_Provider;
 @class GTLREventarc_Pubsub;
@@ -586,6 +588,16 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GKE *gke;
 
+/** An HTTP endpoint destination described by an URI. */
+@property(nonatomic, strong, nullable) GTLREventarc_HttpEndpoint *httpEndpoint;
+
+/**
+ *  Optional. Network config is used to configure how Eventarc resolves and
+ *  connect to a destination. This should only be used with HttpEndpoint
+ *  destination type.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_NetworkConfig *networkConfig;
+
 /**
  *  The resource name of the Workflow whose Executions are triggered by the
  *  events. The Workflow resource should be deployed in the same project as the
@@ -979,6 +991,24 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
+ *  Represents a HTTP endpoint destination.
+ */
+@interface GTLREventarc_HttpEndpoint : GTLRObject
+
+/**
+ *  Required. The URI of the HTTP enpdoint. The value must be a RFC2396 URI
+ *  string. Examples: `http://10.10.10.8:80/route`,
+ *  `http://svc.us-central1.p.local:8080/`. Only HTTP and HTTPS protocols are
+ *  supported. The host can be either a static IP addressable from the VPC
+ *  specified by the network config, or an internal DNS hostname of the service
+ *  resolvable via Cloud DNS.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  The response message for the `ListChannelConnections` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1181,6 +1211,22 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLREventarc_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents a network config to be used for destination resolution and
+ *  connectivity.
+ */
+@interface GTLREventarc_NetworkConfig : GTLRObject
+
+/**
+ *  Required. Name of the NetworkAttachment that allows access to the
+ *  destination VPC. Format:
+ *  `projects/{PROJECT_ID}/regions/{REGION}/networkAttachments/{NETWORK_ATTACHMENT_NAME}`
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
 @end
 
 

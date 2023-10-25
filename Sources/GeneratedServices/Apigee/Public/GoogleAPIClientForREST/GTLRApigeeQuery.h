@@ -2317,16 +2317,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Updates an appGroup. This API replaces the existing appGroup details with
+ *  Updates an AppGroup. This API replaces the existing AppGroup details with
  *  those specified in the request. Include or exclude any existing details that
  *  you want to retain or delete, respectively. Note that the state of the
- *  AppGroup should be updated using `action`, and not via AppGroup. **Note**:
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with these entities are cached for at least
- *  180 seconds after the entity is accessed at runtime. Therefore, an
- *  `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access
- *  token in less than 180 seconds.
+ *  AppGroup should be updated using `action`, and not via AppGroup.
  *
  *  Method: apigee.organizations.appgroups.update
  *
@@ -2336,7 +2330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsAppgroupsUpdate : GTLRApigeeQuery
 
 /**
- *  Activate or de-activate the appGroup by setting the action as `active` or
+ *  Activate or de-activate the AppGroup by setting the action as `active` or
  *  `inactive`. The `Content-Type` header must be set to
  *  `application/octet-stream`, with empty body.
  */
@@ -2351,16 +2345,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroup.
  *
- *  Updates an appGroup. This API replaces the existing appGroup details with
+ *  Updates an AppGroup. This API replaces the existing AppGroup details with
  *  those specified in the request. Include or exclude any existing details that
  *  you want to retain or delete, respectively. Note that the state of the
- *  AppGroup should be updated using `action`, and not via AppGroup. **Note**:
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with these entities are cached for at least
- *  180 seconds after the entity is accessed at runtime. Therefore, an
- *  `ExpiresIn` element on the OAuthV2 policy won't be able to expire an access
- *  token in less than 180 seconds.
+ *  AppGroup should be updated using `action`, and not via AppGroup.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroup to include in
  *    the query.
@@ -5018,6 +5006,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates an add-on enablement status of an environment.
+ *
+ *  Method: apigee.organizations.environments.addonsConfig.setAddonEnablement
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsAddonsConfigSetAddonEnablement : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the add-ons config. Must be in the format of
+ *  `/organizations/{org}/environments/{env}/addonsConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates an add-on enablement status of an environment.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SetAddonEnablementRequest
+ *    to include in the query.
+ *  @param name Required. Name of the add-ons config. Must be in the format of
+ *    `/organizations/{org}/environments/{env}/addonsConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAddonsConfigSetAddonEnablement
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SetAddonEnablementRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a list of metrics and dimensions that can be used to create analytics
  *  queries and reports. Each schema element contains the name of the field, its
  *  associated type, and a flag indicating whether it is a standard or custom
@@ -5428,10 +5449,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  This should only be necessary if the new deployment will be capturing
  *  traffic from another environment under a shared environment group or if
  *  traffic will be rerouted to a different environment due to a base path
- *  removal. The [generateDeployChangeReport API](generateDeployChangeReport)
- *  may be used to examine routing changes before issuing the deployment
- *  request, and its response will indicate if a sequenced rollout is
- *  recommended for the deployment.
+ *  removal. The generateDeployChangeReport API may be used to examine routing
+ *  changes before issuing the deployment request, and its response will
+ *  indicate if a sequenced rollout is recommended for the deployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
@@ -5635,10 +5655,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  be a rare use case; it is only needed when the intended effect of
  *  undeploying this proxy is to cause the traffic it currently handles to be
  *  rerouted to some other existing proxy in the environment group. The
- *  [GenerateUndeployChangeReport API](GenerateUndeployChangeReport) may be used
- *  to examine routing changes before issuing the undeployment request, and its
- *  response will indicate if a sequenced rollout is recommended for the
- *  undeployment.
+ *  GenerateUndeployChangeReport API may be used to examine routing changes
+ *  before issuing the undeployment request, and its response will indicate if a
+ *  sequenced rollout is recommended for the undeployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
@@ -6202,6 +6221,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the add-ons config of an environment.
+ *
+ *  Method: apigee.organizations.environments.getAddonsConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetAddonsConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the add-ons config. Must be in the format of
+ *  `/organizations/{org}/environments/{env}/addonsConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AddonsConfig.
+ *
+ *  Gets the add-ons config of an environment.
+ *
+ *  @param name Required. Name of the add-ons config. Must be in the format of
+ *    `/organizations/{org}/environments/{env}/addonsConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetAddonsConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the API Security runtime configuration for an environment. This named
  *  ApiSecurityRuntimeConfig to prevent conflicts with ApiSecurityConfig from
  *  addon config.
@@ -6351,6 +6400,37 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  GetSecurityActionConfig returns the current SecurityActions configuration.
+ *
+ *  Method: apigee.organizations.environments.getSecurityActionsConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetSecurityActionsConfig : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the SecurityActionsConfig to retrieve. This will
+ *  always be: `organizations/{org}/environments/{env}/security_actions_config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityActionsConfig.
+ *
+ *  GetSecurityActionConfig returns the current SecurityActions configuration.
+ *
+ *  @param name Required. The name of the SecurityActionsConfig to retrieve.
+ *    This will always be:
+ *    `organizations/{org}/environments/{env}/security_actions_config`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetSecurityActionsConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -7776,6 +7856,217 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  CreateSecurityAction creates a SecurityAction.
+ *
+ *  Method: apigee.organizations.environments.securityActions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. The organization and environment that this SecurityAction applies
+ *  to. Format: organizations/{org}/environments/{env}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the SecurityAction, which will become the final
+ *  component of the action's resource name. This value should be 0-61
+ *  characters, and valid format is (^[a-z]([a-z0-9-]{ 0,61}[a-z0-9])?$).
+ */
+@property(nonatomic, copy, nullable) NSString *securityActionId;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityAction.
+ *
+ *  CreateSecurityAction creates a SecurityAction.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityAction to include
+ *    in the query.
+ *  @param parent Required. The organization and environment that this
+ *    SecurityAction applies to. Format: organizations/{org}/environments/{env}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityAction *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Disable a SecurityAction. The `state` of the SecurityAction after disabling
+ *  is `DISABLED`. `DisableSecurityAction` can be called on SecurityActions in
+ *  the state `ENABLED`; SecurityActions in a different state (including
+ *  `DISABLED`) return an error.
+ *
+ *  Method: apigee.organizations.environments.securityActions.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDisable : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the SecurityAction to disable. Format:
+ *  organizations/{org}/environments/{env}/securityActions/{security_action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityAction.
+ *
+ *  Disable a SecurityAction. The `state` of the SecurityAction after disabling
+ *  is `DISABLED`. `DisableSecurityAction` can be called on SecurityActions in
+ *  the state `ENABLED`; SecurityActions in a different state (including
+ *  `DISABLED`) return an error.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1DisableSecurityActionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the SecurityAction to disable. Format:
+ *    organizations/{org}/environments/{env}/securityActions/{security_action}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDisable
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DisableSecurityActionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enable a SecurityAction. The `state` of the SecurityAction after enabling is
+ *  `ENABLED`. `EnableSecurityAction` can be called on SecurityActions in the
+ *  state `DISABLED`; SecurityActions in a different state (including `ENABLED)
+ *  return an error.
+ *
+ *  Method: apigee.organizations.environments.securityActions.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsEnable : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the SecurityAction to enable. Format:
+ *  organizations/{org}/environments/{env}/securityActions/{security_action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityAction.
+ *
+ *  Enable a SecurityAction. The `state` of the SecurityAction after enabling is
+ *  `ENABLED`. `EnableSecurityAction` can be called on SecurityActions in the
+ *  state `DISABLED`; SecurityActions in a different state (including `ENABLED)
+ *  return an error.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1EnableSecurityActionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the SecurityAction to enable. Format:
+ *    organizations/{org}/environments/{env}/securityActions/{security_action}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsEnable
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1EnableSecurityActionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a SecurityAction by name.
+ *
+ *  Method: apigee.organizations.environments.securityActions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. The fully qualified name of the SecurityAction to retrieve.
+ *  Format:
+ *  organizations/{org}/environments/{env}/securityActions/{security_action}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityAction.
+ *
+ *  Get a SecurityAction by name.
+ *
+ *  @param name Required. The fully qualified name of the SecurityAction to
+ *    retrieve. Format:
+ *    organizations/{org}/environments/{env}/securityActions/{security_action}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of SecurityActions. This returns both enabled and disabled
+ *  actions.
+ *
+ *  Method: apigee.organizations.environments.securityActions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsList : GTLRApigeeQuery
+
+/**
+ *  The filter expression to filter List results. https://google.aip.dev/160.
+ *  Allows for filtering over: state and api_proxies. E.g.: state = ACTIVE AND
+ *  apiProxies:foo. Filtering by action is not supported
+ *  https://github.com/aip-dev/google.aip.dev/issues/624
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of SecurityActions to return. If unspecified, at most 50
+ *  SecurityActions will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSecurityActions` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSecurityActions` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of SecurityActions. Format:
+ *  organizations/{org}/environments/{env}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityActionsResponse.
+ *
+ *  Returns a list of SecurityActions. This returns both enabled and disabled
+ *  actions.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    SecurityActions. Format: organizations/{org}/environments/{env}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  GetSecurityIncident gets the specified security incident. Returns NOT_FOUND
  *  if security incident is not present for the specified organization and
  *  environment.
@@ -9056,6 +9347,52 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateEnvironment
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Environment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  UpdateSecurityActionConfig updates the current SecurityActions
+ *  configuration. This method is used to enable/disable the feature at the
+ *  environment level.
+ *
+ *  Method: apigee.organizations.environments.updateSecurityActionsConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateSecurityActionsConfig : GTLRApigeeQuery
+
+/**
+ *  This is a singleton resource, the name will always be set by SecurityActions
+ *  and any user input will be ignored. The name is always:
+ *  `organizations/{org}/environments/{env}/security_actions_config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityActionsConfig.
+ *
+ *  UpdateSecurityActionConfig updates the current SecurityActions
+ *  configuration. This method is used to enable/disable the feature at the
+ *  environment level.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityActionsConfig to
+ *    include in the query.
+ *  @param name This is a singleton resource, the name will always be set by
+ *    SecurityActions and any user input will be ignored. The name is always:
+ *    `organizations/{org}/environments/{env}/security_actions_config`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateSecurityActionsConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityActionsConfig *)object
                            name:(NSString *)name;
 
 @end
@@ -11096,8 +11433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. The ID to use for the SecurityProfile, which will become the final
- *  component of the action's resource name. This value should be 4-63
- *  characters, and valid characters are /(^[a-z]([a-z0-9-]{ 0,61}[a-z0-9])?$/.
+ *  component of the action's resource name. This value should be 1-63
+ *  characters and validated by "(^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$)".
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileId;
 
@@ -11857,7 +12194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Creates a new category on the portal.
+ *  Creates a new API category.
  *
  *  Method: apigee.organizations.sites.apicategories.create
  *
@@ -11875,7 +12212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
  *
- *  Creates a new category on the portal.
+ *  Creates a new API category.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryData to
  *    include in the query.
@@ -11890,7 +12227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Deletes a category from the portal.
+ *  Deletes an API category.
  *
  *  Method: apigee.organizations.sites.apicategories.delete
  *
@@ -11908,7 +12245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeleteResponse.
  *
- *  Deletes a category from the portal.
+ *  Deletes an API category.
  *
  *  @param name Required. Name of the category. Use the following structure in
  *    your request:
@@ -11921,7 +12258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Gets a category on the portal.
+ *  Gets an API category.
  *
  *  Method: apigee.organizations.sites.apicategories.get
  *
@@ -11939,7 +12276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
  *
- *  Gets a category on the portal.
+ *  Gets an API category.
  *
  *  @param name Required. Name of the category. Use the following structure in
  *    your request:
@@ -11952,7 +12289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Lists the categories on the portal.
+ *  Returns the API categories associated with a portal.
  *
  *  Method: apigee.organizations.sites.apicategories.list
  *
@@ -11970,7 +12307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiCategoriesResponse.
  *
- *  Lists the categories on the portal.
+ *  Returns the API categories associated with a portal.
  *
  *  @param parent Required. Name of the portal. Use the following structure in
  *    your request: `organizations/{org}/sites/{site}`
@@ -11982,7 +12319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Updates a category on the portal.
+ *  Updates an API category.
  *
  *  Method: apigee.organizations.sites.apicategories.patch
  *
@@ -12000,7 +12337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
  *
- *  Updates a category on the portal.
+ *  Updates an API category.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryData to
  *    include in the query.

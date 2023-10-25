@@ -1041,11 +1041,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, copy, nullable) NSString *constraint;
 
 /**
- *  The expression to filter AnalyzeOrgPoliciesResponse.org_policy_results. The
- *  only supported field is `consolidated_policy.attached_resource`, and the
- *  only supported operator is `=`. Example:
+ *  The expression to filter AnalyzeOrgPoliciesResponse.org_policy_results.
+ *  Filtering is currently available for bare literal values and the following
+ *  fields: * consolidated_policy.attached_resource *
+ *  consolidated_policy.rules.enforce When filtering by a specific field, the
+ *  only supported operator is `=`. For example, filtering by
  *  consolidated_policy.attached_resource="//cloudresourcemanager.googleapis.com/folders/001"
- *  will return the org policy results of"folders/001".
+ *  will return all the Organization Policy results attached to "folders/001".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1113,15 +1115,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, copy, nullable) NSString *constraint;
 
 /**
- *  The expression to filter the governed assets in result. The only supported
- *  fields for governed resources are `governed_resource.project` and
- *  `governed_resource.folders`. The only supported fields for governed iam
- *  policies are `governed_iam_policy.project` and
- *  `governed_iam_policy.folders`. The only supported operator is `=`. Example
- *  1: governed_resource.project="projects/12345678" filter will return all
- *  governed resources under projects/12345678 including the project ifself, if
- *  applicable. Example 2: governed_iam_policy.folders="folders/12345678" filter
- *  will return all governed iam policies under folders/12345678, if applicable.
+ *  The expression to filter
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets. For governed
+ *  resources, filtering is currently available for bare literal values and the
+ *  following fields: * governed_resource.project * governed_resource.folders *
+ *  consolidated_policy.rules.enforce When filtering by
+ *  `governed_resource.project` or `consolidated_policy.rules.enforce`, the only
+ *  supported operator is `=`. When filtering by `governed_resource.folders`,
+ *  the supported operators are `=` and `:`. For example, filtering by
+ *  `governed_resource.project="projects/12345678"` will return all the governed
+ *  resources under "projects/12345678", including the project itself if
+ *  applicable. For governed IAM policies, filtering is currently available for
+ *  bare literal values and the following fields: * governed_iam_policy.project
+ *  * governed_iam_policy.folders * consolidated_policy.rules.enforce When
+ *  filtering by `governed_iam_policy.project` or
+ *  `consolidated_policy.rules.enforce`, the only supported operator is `=`.
+ *  When filtering by `governed_iam_policy.folders`, the supported operators are
+ *  `=` and `:`. For example, filtering by
+ *  `governed_iam_policy.folders:"folders/12345678"` will return all the
+ *  governed IAM policies under "folders/001".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1192,10 +1204,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, copy, nullable) NSString *constraint;
 
 /**
- *  The expression to filter the governed containers in result. The only
- *  supported field is `parent`, and the only supported operator is `=`.
- *  Example: parent="//cloudresourcemanager.googleapis.com/folders/001" will
- *  return all containers under "folders/001".
+ *  The expression to filter
+ *  AnalyzeOrgPolicyGovernedContainersResponse.governed_containers. Filtering is
+ *  currently available for bare literal values and the following fields: *
+ *  parent * consolidated_policy.rules.enforce When filtering by a specific
+ *  field, the only supported operator is `=`. For example, filtering by
+ *  parent="//cloudresourcemanager.googleapis.com/folders/001" will return all
+ *  the containers under "folders/001".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1613,13 +1628,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Optional. A comma-separated list of fields specifying the sorting order of
  *  the results. The default order is ascending. Add " DESC" after the field
  *  name to indicate descending order. Redundant space characters are ignored.
- *  Example: "location DESC, name". Only singular primitive fields in the
- *  response are sortable: * name * assetType * project * displayName *
- *  description * location * createTime * updateTime * state *
- *  parentFullResourceName * parentAssetType All the other fields such as
- *  repeated fields (e.g., `networkTags`, `kmsKeys`), map fields (e.g.,
- *  `labels`) and struct fields (e.g., `additionalAttributes`) are not
- *  supported.
+ *  Example: "location DESC, name". Only the following fields in the response
+ *  are sortable: * name * assetType * project * displayName * description *
+ *  location * createTime * updateTime * state * parentFullResourceName *
+ *  parentAssetType
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1645,42 +1657,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  query](https://cloud.google.com/asset-inventory/docs/searching-resources#how_to_construct_a_query)
  *  for more information. If not specified or empty, it will search all the
  *  resources within the specified `scope`. Examples: * `name:Important` to find
- *  Google Cloud resources whose name contains "Important" as a word. *
+ *  Google Cloud resources whose name contains `Important` as a word. *
  *  `name=Important` to find the Google Cloud resource whose name is exactly
- *  "Important". * `displayName:Impor*` to find Google Cloud resources whose
- *  display name contains "Impor" as a prefix of any word in the field. *
+ *  `Important`. * `displayName:Impor*` to find Google Cloud resources whose
+ *  display name contains `Impor` as a prefix of any word in the field. *
  *  `location:us-west*` to find Google Cloud resources whose location contains
- *  both "us" and "west" as prefixes. * `labels:prod` to find Google Cloud
- *  resources whose labels contain "prod" as a key or value. * `labels.env:prod`
- *  to find Google Cloud resources that have a label "env" and its value is
- *  "prod". * `labels.env:*` to find Google Cloud resources that have a label
- *  "env". * `kmsKey:key` to find Google Cloud resources encrypted with a
- *  customer-managed encryption key whose name contains "key" as a word. This
- *  field is deprecated. Please use the `kmsKeys` field to retrieve Cloud KMS
- *  key information. * `kmsKeys:key` to find Google Cloud resources encrypted
- *  with customer-managed encryption keys whose name contains the word "key". *
- *  `relationships:instance-group-1` to find Google Cloud resources that have
- *  relationships with "instance-group-1" in the related resource name. *
- *  `relationships:INSTANCE_TO_INSTANCEGROUP` to find Compute Engine instances
- *  that have relationships of type "INSTANCE_TO_INSTANCEGROUP". *
+ *  both `us` and `west` as prefixes. * `labels:prod` to find Google Cloud
+ *  resources whose labels contain `prod` as a key or value. * `labels.env:prod`
+ *  to find Google Cloud resources that have a label `env` and its value is
+ *  `prod`. * `labels.env:*` to find Google Cloud resources that have a label
+ *  `env`. * `tagKeys:env` to find Google Cloud resources that have directly
+ *  attached tags where the
+ *  [`TagKey`](https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey)
+ *  .`namespacedName` contains `env`. * `tagValues:prod*` to find Google Cloud
+ *  resources that have directly attached tags where the
+ *  [`TagValue`](https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue)
+ *  .`namespacedName` contains a word prefixed by `prod`. *
+ *  `tagValueIds=tagValues/123` to find Google Cloud resources that have
+ *  directly attached tags where the
+ *  [`TagValue`](https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue)
+ *  .`name` is exactly `tagValues/123`. * `effectiveTagKeys:env` to find Google
+ *  Cloud resources that have directly attached or inherited tags where the
+ *  [`TagKey`](https://cloud.google.com/resource-manager/reference/rest/v3/tagKeys#resource:-tagkey)
+ *  .`namespacedName` contains `env`. * `effectiveTagValues:prod*` to find
+ *  Google Cloud resources that have directly attached or inherited tags where
+ *  the
+ *  [`TagValue`](https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue)
+ *  .`namespacedName` contains a word prefixed by `prod`. *
+ *  `effectiveTagValueIds=tagValues/123` to find Google Cloud resources that
+ *  have directly attached or inherited tags where the
+ *  [`TagValue`](https://cloud.google.com/resource-manager/reference/rest/v3/tagValues#resource:-tagvalue)
+ *  .`name` is exactly `tagValues/123`. * `kmsKey:key` to find Google Cloud
+ *  resources encrypted with a customer-managed encryption key whose name
+ *  contains `key` as a word. This field is deprecated. Please use the `kmsKeys`
+ *  field to retrieve Cloud KMS key information. * `kmsKeys:key` to find Google
+ *  Cloud resources encrypted with customer-managed encryption keys whose name
+ *  contains the word `key`. * `relationships:instance-group-1` to find Google
+ *  Cloud resources that have relationships with `instance-group-1` in the
+ *  related resource name. * `relationships:INSTANCE_TO_INSTANCEGROUP` to find
+ *  Compute Engine instances that have relationships of type
+ *  `INSTANCE_TO_INSTANCEGROUP`. *
  *  `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find Compute
- *  Engine instances that have relationships with "instance-group-1" in the
+ *  Engine instances that have relationships with `instance-group-1` in the
  *  Compute Engine instance group resource name, for relationship type
- *  "INSTANCE_TO_INSTANCEGROUP". * `state:ACTIVE` to find Google Cloud resources
- *  whose state contains "ACTIVE" as a word. * `NOT state:ACTIVE` to find Google
- *  Cloud resources whose state doesn't contain "ACTIVE" as a word. *
- *  `createTime<1609459200` to find Google Cloud resources that were created
- *  before "2021-01-01 00:00:00 UTC". 1609459200 is the epoch timestamp of
- *  "2021-01-01 00:00:00 UTC" in seconds. * `updateTime>1609459200` to find
- *  Google Cloud resources that were updated after "2021-01-01 00:00:00 UTC".
- *  1609459200 is the epoch timestamp of "2021-01-01 00:00:00 UTC" in seconds. *
- *  `Important` to find Google Cloud resources that contain "Important" as a
- *  word in any of the searchable fields. * `Impor*` to find Google Cloud
- *  resources that contain "Impor" as a prefix of any word in any of the
- *  searchable fields. * `Important location:(us-west1 OR global)` to find
- *  Google Cloud resources that contain "Important" as a word in any of the
- *  searchable fields and are also located in the "us-west1" region or the
- *  "global" location.
+ *  `INSTANCE_TO_INSTANCEGROUP`. * `sccSecurityMarks.key=value` to find Cloud
+ *  resources that are attached with security marks whose key is `key` and value
+ *  is `value'. * `sccSecurityMarks.key:*` to find Cloud resources that are
+ *  attached with security marks whose key is `key`. * `state:ACTIVE` to find
+ *  Google Cloud resources whose state contains `ACTIVE` as a word. * `NOT
+ *  state:ACTIVE` to find Google Cloud resources whose state doesn't contain
+ *  `ACTIVE` as a word. * `createTime<1609459200` to find Google Cloud resources
+ *  that were created before `2021-01-01 00:00:00 UTC`. `1609459200` is the
+ *  epoch timestamp of `2021-01-01 00:00:00 UTC` in seconds. *
+ *  `updateTime>1609459200` to find Google Cloud resources that were updated
+ *  after `2021-01-01 00:00:00 UTC`. `1609459200` is the epoch timestamp of
+ *  `2021-01-01 00:00:00 UTC` in seconds. * `Important` to find Google Cloud
+ *  resources that contain `Important` as a word in any of the searchable
+ *  fields. * `Impor*` to find Google Cloud resources that contain `Impor` as a
+ *  prefix of any word in any of the searchable fields. * `Important
+ *  location:(us-west1 OR global)` to find Google Cloud resources that contain
+ *  `Important` as a word in any of the searchable fields and are also located
+ *  in the `us-west1` region or the `global` location.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1688,12 +1725,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Optional. A comma-separated list of fields that you want returned in the
  *  results. The following fields are returned by default if not specified: *
  *  `name` * `assetType` * `project` * `folders` * `organization` *
- *  `displayName` * `description` * `location` * `labels` * `networkTags` *
- *  `kmsKeys` * `createTime` * `updateTime` * `state` * `additionalAttributes` *
- *  `parentFullResourceName` * `parentAssetType` Some fields of large size, such
- *  as `versionedResources` and `attachedResources`, are not returned by
- *  default, but you can specify them in the `read_mask` parameter if you want
- *  to include them. If `"*"` is specified, all [available
+ *  `displayName` * `description` * `location` * `labels` * `tags` *
+ *  `effectiveTags` * `networkTags` * `kmsKeys` * `createTime` * `updateTime` *
+ *  `state` * `additionalAttributes` * `parentFullResourceName` *
+ *  `parentAssetType` Some fields of large size, such as `versionedResources`,
+ *  `attachedResources`, `effectiveTags` etc., are not returned by default, but
+ *  you can specify them in the `read_mask` parameter if you want to include
+ *  them. If `"*"` is specified, all [available
  *  fields](https://cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources#resourcesearchresult)
  *  are returned. Examples: `"name,location"`, `"name,versionedResources"`,
  *  `"*"`. Any invalid field path will trigger INVALID_ARGUMENT error.

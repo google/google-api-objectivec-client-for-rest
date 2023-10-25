@@ -2170,6 +2170,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
 
 /**
+ *  Optional. Indicates whether to flip the dimensions of the page_size, which
+ *  allows changing the page orientation between portrait and landscape.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flipPageOrientation;
+
+/**
  *  The bottom page margin. Updating the bottom page margin on the document
  *  style clears the bottom page margin on all section styles.
  */
@@ -2300,6 +2308,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *firstPageHeaderIdSuggested;
+
+/**
+ *  Optional. Indicates if there was a suggested change to
+ *  flip_page_orientation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flipPageOrientationSuggested;
 
 /**
  *  Indicates if there was a suggested change to margin_bottom.
@@ -5220,6 +5236,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
+
+/**
+ *  Optional. Indicates whether to flip the dimensions of DocumentStyle's
+ *  page_size for this section, which allows changing the page orientation
+ *  between portrait and landscape. If unset, the value inherits from
+ *  DocumentStyle's flip_page_orientation. When updating this property, setting
+ *  a concrete value is required. Unsetting this property results in a 400 bad
+ *  request error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flipPageOrientation;
 
 /**
  *  The bottom page margin of the section. If unset, the value defaults to

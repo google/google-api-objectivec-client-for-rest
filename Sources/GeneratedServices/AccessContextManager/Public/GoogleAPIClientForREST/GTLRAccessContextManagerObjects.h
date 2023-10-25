@@ -28,6 +28,7 @@
 @class GTLRAccessContextManager_DevicePolicy;
 @class GTLRAccessContextManager_EgressFrom;
 @class GTLRAccessContextManager_EgressPolicy;
+@class GTLRAccessContextManager_EgressSource;
 @class GTLRAccessContextManager_EgressTo;
 @class GTLRAccessContextManager_Expr;
 @class GTLRAccessContextManager_GcpUserAccessBinding;
@@ -47,6 +48,8 @@
 @class GTLRAccessContextManager_Status;
 @class GTLRAccessContextManager_Status_Details_Item;
 @class GTLRAccessContextManager_VpcAccessibleServices;
+@class GTLRAccessContextManager_VpcNetworkSource;
+@class GTLRAccessContextManager_VpcSubNetwork;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -252,6 +255,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_Identity
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_IdentityTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessContextManager_EgressFrom.sourceRestriction
+
+/**
+ *  Enforcement preference disabled, will not enforce traffic restrictions based
+ *  on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionDisabled;
+/**
+ *  Enforcement preference enabled, traffic restrictions will be enforced based
+ *  on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionEnabled;
+/**
+ *  Enforcement preference unspecified, will not enforce traffic restrictions
+ *  based on `sources` in EgressFrom.
+ *
+ *  Value: "SOURCE_RESTRICTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessContextManager_IngressFrom.identityType
 
 /**
@@ -406,17 +434,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The scopes of a policy define which resources an ACM policy can restrict,
- *  and where ACM resources can be referenced. For example, a policy with
- *  scopes=["folders/123"] has the following behavior: - vpcsc perimeters can
- *  only restrict projects within folders/123 - access levels can only be
- *  referenced by resources within folders/123. If empty, there are no
- *  limitations on which resources can be restricted by an ACM policy, and there
- *  are no limitations on where ACM resources can be referenced. Only one policy
- *  can include a given scope (attempting to create a second policy which
- *  includes "folders/123" will result in an error). Currently, scopes cannot be
- *  modified after a policy is created. Currently, policies can only have a
- *  single scope. Format: list of `folders/{folder_number}` or
+ *  The scopes of the AccessPolicy. Scopes define which resources a policy can
+ *  restrict and where its resources can be referenced. For example, policy A
+ *  with `scopes=["folders/123"]` has the following behavior: - ServicePerimeter
+ *  can only restrict projects within `folders/123`. - ServicePerimeter within
+ *  policy A can only reference access levels defined within policy A. - Only
+ *  one policy can include a given scope; thus, attempting to create a second
+ *  policy which includes `folders/123` will result in an error. If no scopes
+ *  are provided, then any resource within the organization can be restricted.
+ *  Scopes cannot be modified after a policy is created. Policies can only have
+ *  a single scope. Format: list of `folders/{folder_number}` or
  *  `projects/{project_number}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
@@ -782,6 +809,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
+/**
+ *  The request must originate from one of the provided VPC networks in Google
+ *  Cloud. Cannot specify this field together with `ip_subnetworks`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_VpcNetworkSource *> *vpcNetworkSources;
+
 @end
 
 
@@ -885,6 +918,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  */
 @property(nonatomic, copy, nullable) NSString *identityType;
 
+/**
+ *  Whether to enforce traffic restrictions based on `sources` field. If the
+ *  `sources` fields is non-empty, then this field must be set to
+ *  `SOURCE_RESTRICTION_ENABLED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionDisabled
+ *        Enforcement preference disabled, will not enforce traffic restrictions
+ *        based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_DISABLED")
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionEnabled
+ *        Enforcement preference enabled, traffic restrictions will be enforced
+ *        based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_ENABLED")
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_SourceRestriction_SourceRestrictionUnspecified
+ *        Enforcement preference unspecified, will not enforce traffic
+ *        restrictions based on `sources` in EgressFrom. (Value:
+ *        "SOURCE_RESTRICTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRestriction;
+
+/**
+ *  Sources that this EgressPolicy authorizes access from. If this field is not
+ *  empty, then `source_restriction` must be set to
+ *  `SOURCE_RESTRICTION_ENABLED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_EgressSource *> *sources;
+
 @end
 
 
@@ -915,6 +976,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  cause this EgressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_EgressTo *egressTo;
+
+@end
+
+
+/**
+ *  The source that EgressPolicy authorizes access from inside the
+ *  ServicePerimeter to somewhere outside the ServicePerimeter boundaries.
+ */
+@interface GTLRAccessContextManager_EgressSource : GTLRObject
+
+/**
+ *  An AccessLevel resource name that allows protected resources inside the
+ *  ServicePerimeters to access outside the ServicePerimeter boundaries.
+ *  AccessLevels listed must be in the same policy as this ServicePerimeter.
+ *  Referencing a nonexistent AccessLevel will cause an error. If an AccessLevel
+ *  name is not specified, only resources within the perimeter can be accessed
+ *  through Google Cloud calls with request origins within the perimeter.
+ *  Example: `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If a single `*`
+ *  is specified for `access_level`, then all EgressSources will be allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *accessLevel;
 
 @end
 
@@ -1064,9 +1146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
- *  Currently, a completed operation means nothing. In the future, this metadata
- *  and a completed operation may indicate that the binding has taken effect and
- *  is affecting access decisions for all users.
+ *  Metadata of GCP Access Binding Long Running Operations.
  */
 @interface GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata : GTLRObject
 @end
@@ -1969,6 +2049,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRestriction;
+
+@end
+
+
+/**
+ *  The originating network source in Google Cloud.
+ */
+@interface GTLRAccessContextManager_VpcNetworkSource : GTLRObject
+
+/** Sub-segment ranges of a VPC network. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_VpcSubNetwork *vpcSubnetwork;
+
+@end
+
+
+/**
+ *  Sub-segment ranges inside of a VPC Network.
+ */
+@interface GTLRAccessContextManager_VpcSubNetwork : GTLRObject
+
+/**
+ *  Required. Network name. If the network is not part of the organization, the
+ *  `compute.network.get` permission must be granted to the caller. Format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NETWORK_NAME}`
+ *  Example:
+ *  `//compute.googleapis.com/projects/my-project/global/networks/network-1`
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  CIDR block IP subnetwork specification. The IP address must be an IPv4
+ *  address and can be a public or private IP address. Note that for a CIDR IP
+ *  address block, the specified IP address portion must be properly truncated
+ *  (i.e. all the host bits must be zero) or the input is considered malformed.
+ *  For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. If empty,
+ *  all IP addresses are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vpcIpSubnetworks;
 
 @end
 

@@ -170,7 +170,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *enableShadowRemovalNativePdf;
 
-/** Optional. */
+/**
+ *  Optional. The file format conversion map that is applied to all input files.
+ *  The map key is the original mime_type. The map value is the target mime_type
+ *  of translated documents. Supported file format conversion includes: -
+ *  `application/pdf` to
+ *  `application/vnd.openxmlformats-officedocument.wordprocessingml.document` If
+ *  nothing specified, output files will be in the same format as the original
+ *  file.
+ */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateDocumentRequest_FormatConversions *formatConversions;
 
 /** Optional. Glossaries to be applied. It's keyed by target language code. */
@@ -219,7 +227,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional.
+ *  Optional. The file format conversion map that is applied to all input files.
+ *  The map key is the original mime_type. The map value is the target mime_type
+ *  of translated documents. Supported file format conversion includes: -
+ *  `application/pdf` to
+ *  `application/vnd.openxmlformats-officedocument.wordprocessingml.document` If
+ *  nothing specified, output files will be in the same format as the original
+ *  file.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

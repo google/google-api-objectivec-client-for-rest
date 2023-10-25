@@ -42,6 +42,7 @@
 @class GTLRDataprocMetastore_MetadataExport;
 @class GTLRDataprocMetastore_MetadataImport;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
+@class GTLRDataprocMetastore_MultiRegionMetadata;
 @class GTLRDataprocMetastore_NetworkConfig;
 @class GTLRDataprocMetastore_Operation;
 @class GTLRDataprocMetastore_Operation_Metadata;
@@ -976,10 +977,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Contains information of the customer's network configurations.Next available
- *  ID: 5
+ *  Contains information of the customer's network configurations.
  */
 @interface GTLRDataprocMetastore_Consumer : GTLRObject
+
+/**
+ *  Output only. The location of the endpoint URI. Format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointLocation;
 
 /**
  *  Output only. The URI of the endpoint used to access the metastore service.
@@ -1664,6 +1670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  */
 @interface GTLRDataprocMetastore_LocationMetadata : GTLRObject
 
+/** The multi-region metadata if the current region is a multi-region. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MultiRegionMetadata *multiRegionMetadata;
+
 /**
  *  The versions of Hive Metastore that can be used when creating a new
  *  metastore service in this location. The server guarantees that exactly one
@@ -1853,8 +1862,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Network configuration for the Dataproc Metastore service.Next available ID:
- *  4
+ *  The metadata for the multi-region that includes the constituent regions. The
+ *  metadata is only populated if the region is multi-region. For single region,
+ *  it will be empty.
+ */
+@interface GTLRDataprocMetastore_MultiRegionMetadata : GTLRObject
+
+/** The regions constituting the multi-region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *constituentRegions;
+
+@end
+
+
+/**
+ *  Network configuration for the Dataproc Metastore service.
  */
 @interface GTLRDataprocMetastore_NetworkConfig : GTLRObject
 

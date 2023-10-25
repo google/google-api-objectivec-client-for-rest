@@ -24,6 +24,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform;
+/**
+ *  Authorization scope: View and administer all your Firebase data and settings
+ *
+ *  Value "https://www.googleapis.com/auth/firebase"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingFirebase;
+
+// ----------------------------------------------------------------------------
+//   GTLRFirebaseHostingService
+//
+
 /**
  *  Service for executing Firebase Hosting API queries.
  *

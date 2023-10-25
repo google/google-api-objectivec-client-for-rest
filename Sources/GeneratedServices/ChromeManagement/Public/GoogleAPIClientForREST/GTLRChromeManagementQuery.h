@@ -537,6 +537,208 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Get a summary of printing done by each printer.
+ *
+ *  Method: chromemanagement.customers.reports.countPrintJobsByPrinter
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByPrinter : GTLRChromeManagementQuery
+
+/**
+ *  Required. Customer ID prefixed with "customers/" or "customers/my_customer"
+ *  to use the customer associated to the account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
+ *  OR operations are not supported in this filter. Note: Only >= and <=
+ *  comparators are supported in this filter. Supported filter fields: *
+ *  complete_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field used to order results. If omitted, results will be ordered in
+ *  ascending order of the 'printer' field. Supported order_by fields: * printer
+ *  * job_count * device_count * user_count
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum number of results to return. Maximum and default are 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to specify the page of the response to be returned. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The ID of the organizational unit for printers. If specified, only data for
+ *  printers from the specified organizational unit will be returned. If
+ *  omitted, data for printers from all organizational units will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *printerOrgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByPrinterResponse.
+ *
+ *  Get a summary of printing done by each printer.
+ *
+ *  @param customer Required. Customer ID prefixed with "customers/" or
+ *    "customers/my_customer" to use the customer associated to the account
+ *    making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByPrinter
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a summary of printing done by each user.
+ *
+ *  Method: chromemanagement.customers.reports.countPrintJobsByUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByUser : GTLRChromeManagementQuery
+
+/**
+ *  Required. Customer ID prefixed with "customers/" or "customers/my_customer"
+ *  to use the customer associated to the account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
+ *  OR operations are not supported in this filter. Note: Only >= and <=
+ *  comparators are supported in this filter. Supported filter fields: *
+ *  complete_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field used to order results. If omitted, results will be ordered in
+ *  ascending order of the 'user_email' field. Supported order_by fields: *
+ *  user_email * job_count * printer_count * device_count
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum number of results to return. Maximum and default are 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to specify the page of the response to be returned. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The ID of the organizational unit for printers. If specified, only print
+ *  jobs initiated with printers from the specified organizational unit will be
+ *  counted. If omitted, all print jobs will be counted.
+ */
+@property(nonatomic, copy, nullable) NSString *printerOrgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountPrintJobsByUserResponse.
+ *
+ *  Get a summary of printing done by each user.
+ *
+ *  @param customer Required. Customer ID prefixed with "customers/" or
+ *    "customers/my_customer" to use the customer associated to the account
+ *    making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountPrintJobsByUser
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a list of print jobs.
+ *
+ *  Method: chromemanagement.customers.reports.enumeratePrintJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsEnumeratePrintJobs : GTLRChromeManagementQuery
+
+/**
+ *  Required. Customer ID prefixed with "customers/" or "customers/my_customer"
+ *  to use the customer associated to the account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Query string to filter results, AND-separated fields in EBNF syntax. Note:
+ *  OR operations are not supported in this filter. Note: Only >= and <=
+ *  comparators are supported for `complete_time`. Note: Only = comparator
+ *  supported for `user_id` and `printer_id`. Supported filter fields: *
+ *  complete_time * printer_id * user_id
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field used to order results. If not specified, results will be ordered in
+ *  descending order of the `complete_time` field. Supported order by fields: *
+ *  title * state * create_time * complete_time * document_page_count *
+ *  color_mode * duplex_mode * printer * user_email
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The number of print jobs in the page from 0 to 100 inclusive, if page_size
+ *  is not specified or zero, the size will be 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous `EnumeratePrintJobs` call. Provide
+ *  this to retrieve the subsequent page. If omitted, the first page of results
+ *  will be returned. When paginating, all other parameters provided to
+ *  `EnumeratePrintJobs` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The ID of the organizational unit for printers. If specified, only print
+ *  jobs submitted to printers from the specified organizational unit will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *printerOrgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1EnumeratePrintJobsResponse.
+ *
+ *  Get a list of print jobs.
+ *
+ *  @param customer Required. Customer ID prefixed with "customers/" or
+ *    "customers/my_customer" to use the customer associated to the account
+ *    making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsEnumeratePrintJobs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Generate report of managed Chrome browser devices that have a specified app
  *  installed.
  *

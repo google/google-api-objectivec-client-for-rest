@@ -1804,17 +1804,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a new database by restore from an existing backup. The new database
- *  must be in the same cloud region or multi-region location as the existing
- *  backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead
- *  of creating a new empty database, a new database is created with the
- *  database type, index configuration, and documents from an existing backup.
- *  The long-running operation can be used to track the progress of the restore,
- *  with the Operation's metadata field type being the RestoreDatabaseMetadata.
- *  The response type is the Database if the restore was successful. The new
- *  database is not readable or writeable until the LRO has completed.
- *  Cancelling the returned operation will stop the restore and delete the
- *  in-progress database, if the restore is still active.
+ *  Creates a new database by restoring from an existing backup. The new
+ *  database must be in the same cloud region or multi-region location as the
+ *  existing backup. This behaves similar to FirestoreAdmin.CreateDatabase
+ *  except instead of creating a new empty database, a new database is created
+ *  with the database type, index configuration, and documents from an existing
+ *  backup. The long-running operation can be used to track the progress of the
+ *  restore, with the Operation's metadata field type being the
+ *  RestoreDatabaseMetadata. The response type is the Database if the restore
+ *  was successful. The new database is not readable or writeable until the LRO
+ *  has completed.
  *
  *  Method: firestore.projects.databases.restore
  *
@@ -1833,17 +1832,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
  *
- *  Create a new database by restore from an existing backup. The new database
- *  must be in the same cloud region or multi-region location as the existing
- *  backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead
- *  of creating a new empty database, a new database is created with the
- *  database type, index configuration, and documents from an existing backup.
- *  The long-running operation can be used to track the progress of the restore,
- *  with the Operation's metadata field type being the RestoreDatabaseMetadata.
- *  The response type is the Database if the restore was successful. The new
- *  database is not readable or writeable until the LRO has completed.
- *  Cancelling the returned operation will stop the restore and delete the
- *  in-progress database, if the restore is still active.
+ *  Creates a new database by restoring from an existing backup. The new
+ *  database must be in the same cloud region or multi-region location as the
+ *  existing backup. This behaves similar to FirestoreAdmin.CreateDatabase
+ *  except instead of creating a new empty database, a new database is created
+ *  with the database type, index configuration, and documents from an existing
+ *  backup. The long-running operation can be used to track the progress of the
+ *  restore, with the Operation's metadata field type being the
+ *  RestoreDatabaseMetadata. The response type is the Database if the restore
+ *  was successful. The new database is not readable or writeable until the LRO
+ *  has completed.
  *
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest to include in

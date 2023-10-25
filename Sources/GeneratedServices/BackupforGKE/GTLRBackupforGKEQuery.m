@@ -516,25 +516,6 @@
 
 @end
 
-@implementation GTLRBackupforGKEQuery_ProjectsLocationsDeleteOperations
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
-  GTLRBackupforGKEQuery_ProjectsLocationsDeleteOperations *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBackupforGKE_Empty class];
-  query.loggingName = @"gkebackup.projects.locations.deleteOperations";
-  return query;
-}
-
-@end
-
 @implementation GTLRBackupforGKEQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -595,6 +576,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBackupforGKE_Empty class];
   query.loggingName = @"gkebackup.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupforGKEQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_Empty class];
+  query.loggingName = @"gkebackup.projects.locations.operations.delete";
   return query;
 }
 

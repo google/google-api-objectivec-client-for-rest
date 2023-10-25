@@ -391,7 +391,7 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 //
 
 @implementation GTLRBinaryAuthorization_PkixPublicKey
-@dynamic publicKeyPem, signatureAlgorithm;
+@dynamic keyId, publicKeyPem, signatureAlgorithm;
 @end
 
 

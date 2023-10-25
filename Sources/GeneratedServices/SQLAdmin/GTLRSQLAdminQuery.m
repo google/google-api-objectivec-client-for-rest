@@ -695,7 +695,7 @@
 
 @implementation GTLRSQLAdminQuery_InstancesPromoteReplica
 
-@dynamic instance, project;
+@dynamic failover, instance, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -896,6 +896,29 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.stopReplica";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesSwitchover
+
+@dynamic dbTimeout, instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/switchover";
+  GTLRSQLAdminQuery_InstancesSwitchover *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.switchover";
   return query;
 }
 

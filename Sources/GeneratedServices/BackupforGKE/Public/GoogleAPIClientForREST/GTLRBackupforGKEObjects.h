@@ -1401,7 +1401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *resourceGroup;
 
 /**
- *  Optional. Kind of a Kubernetes resource, e.g. "CustomResourceDefinition",
+ *  Optional. Kind of a Kubernetes resource, must be in UpperCamelCase
+ *  (PascalCase) and singular form. E.g. "CustomResourceDefinition",
  *  "StorageClass", etc.
  */
 @property(nonatomic, copy, nullable) NSString *resourceKind;
@@ -1869,9 +1870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  be contained within one of the listed Kubernetes Namespace in the Backup. If
  *  this field is not provided, no namespace filtering will be performed (all
  *  resources in all Namespaces, including all cluster-scoped resources, will be
- *  candidates for transformation). To mix cluster-scoped and namespaced
- *  resources in the same rule, use an empty string ("") as one of the target
- *  namespaces.
+ *  candidates for transformation).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
 
@@ -1880,7 +1879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Represents both a request to Restore some portion of a Backup into a target
- *  GKE cluster and a record of the restore operation itself. Next id: 18
+ *  GKE cluster and a record of the restore operation itself. Next id: 19
  */
 @interface GTLRBackupforGKE_Restore : GTLRObject
 

@@ -18,7 +18,6 @@
 @class GTLRMyBusinessVerifications_AddressVerificationData;
 @class GTLRMyBusinessVerifications_ComplyWithGuidelines;
 @class GTLRMyBusinessVerifications_EmailVerificationData;
-@class GTLRMyBusinessVerifications_Location;
 @class GTLRMyBusinessVerifications_PostalAddress;
 @class GTLRMyBusinessVerifications_ResolveOwnershipConflict;
 @class GTLRMyBusinessVerifications_ServiceBusinessContext;
@@ -373,32 +372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
 
 
 /**
- *  Request message for Verifications.GenerateVerificationToken.
- */
-@interface GTLRMyBusinessVerifications_GenerateVerificationTokenRequest : GTLRObject
-
-/**
- *  Required. The target location. Note: The location information should exactly
- *  match the target Location, otherwise the generated verification token won't
- *  be able to verify the target Location.
- */
-@property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_Location *location;
-
-@end
-
-
-/**
- *  Response message for Verifications.GenerateVerificationToken.
- */
-@interface GTLRMyBusinessVerifications_GenerateVerificationTokenResponse : GTLRObject
-
-/** The generated token to verify the location. */
-@property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_VerificationToken *token;
-
-@end
-
-
-/**
  *  Response message for Verifications.ListVerifications.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -423,60 +396,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessVerifications_Verification *> *verifications;
-
-@end
-
-
-/**
- *  A subset of location info. See the [help center article]
- *  (https://support.google.com/business/answer/3038177) for a detailed
- *  description of these fields, or the [category
- *  endpoint](/my-business/reference/rest/v4/categories) for a list of valid
- *  business categories.
- */
-@interface GTLRMyBusinessVerifications_Location : GTLRObject
-
-/**
- *  Required. A precise, accurate address to describe your business location. PO
- *  boxes or mailboxes located at remote locations are not acceptable. At this
- *  time, you can specify a maximum of five `address_lines` values in the
- *  address.
- */
-@property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_PostalAddress *address;
-
-/**
- *  Required. Location name should reflect your business's real-world name, as
- *  used consistently on your storefront, website, and stationery, and as known
- *  to customers. Any additional information, when relevant, can be included in
- *  other fields of the resource (for example, `Address`, `Categories`). Don't
- *  add unnecessary information to your name (for example, prefer "Google" over
- *  "Google Inc. - Mountain View Corporate Headquarters"). Don't include
- *  marketing taglines, store codes, special characters, hours or closed/open
- *  status, phone numbers, website URLs, service/product information,
- *  location/address or directions, or containment information (for example,
- *  "Chase ATM in Duane Reade").
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. Id of the category that best describes the core business this
- *  location engages in. e.g. gcid:bakery.
- */
-@property(nonatomic, copy, nullable) NSString *primaryCategoryId;
-
-/**
- *  Optional. A phone number that connects to your individual business location
- *  as directly as possible. Use a local phone number instead of a central, call
- *  center helpline number whenever possible.
- */
-@property(nonatomic, copy, nullable) NSString *primaryPhone;
-
-/**
- *  Optional. A URL for this business. If possible, use a URL that represents
- *  this individual business location instead of a generic website/URL that
- *  represents all locations, or the brand.
- */
-@property(nonatomic, copy, nullable) NSString *websiteUri;
 
 @end
 

@@ -1099,8 +1099,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
          currentStateTime, environment, executionInfo, identifier, jobMetadata,
          labels, location, name, pipelineDescription, projectId,
          replacedByJobId, replaceJobId, requestedState, runtimeUpdatableParams,
-         satisfiesPzs, stageStates, startTime, steps, stepsLocation, tempFiles,
-         transformNameMapping, type;
+         satisfiesPzi, satisfiesPzs, stageStates, startTime, steps,
+         stepsLocation, tempFiles, transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1706,8 +1706,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic customMetadata, enumOptions, groupName, helpText, isOptional, label,
-         name, paramType, parentName, parentTriggerValues, regexes;
+@dynamic customMetadata, defaultValue, enumOptions, groupName, helpText,
+         isOptional, label, name, paramType, parentName, parentTriggerValues,
+         regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

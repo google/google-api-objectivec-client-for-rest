@@ -83,3 +83,49 @@
 }
 
 @end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Empty class];
+  query.loggingName = @"firebasehosting.projects.sites.customDomains.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesCustomDomainsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Empty class];
+  query.loggingName = @"firebasehosting.projects.sites.customDomains.operations.delete";
+  return query;
+}
+
+@end

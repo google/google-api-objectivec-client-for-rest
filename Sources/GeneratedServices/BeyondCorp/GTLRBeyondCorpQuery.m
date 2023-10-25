@@ -19,6 +19,237 @@
 
 @end
 
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsBrowserDlpRulesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsProxyConfigsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBeyondCorpQuery_OrganizationsLocationsGlobalPartnerTenantsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"beyondcorp.organizations.locations.global.partnerTenants.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBeyondCorpQuery_OrganizationsLocationsOperationsCancel
 
 @dynamic name;

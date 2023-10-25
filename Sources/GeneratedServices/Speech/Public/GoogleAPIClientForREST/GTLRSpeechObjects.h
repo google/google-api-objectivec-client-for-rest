@@ -20,11 +20,13 @@
 @class GTLRSpeech_ClassItem;
 @class GTLRSpeech_Context;
 @class GTLRSpeech_CustomClass;
+@class GTLRSpeech_CustomClass_Annotations;
 @class GTLRSpeech_Operation;
 @class GTLRSpeech_Operation_Metadata;
 @class GTLRSpeech_Operation_Response;
 @class GTLRSpeech_Phrase;
 @class GTLRSpeech_PhraseSet;
+@class GTLRSpeech_PhraseSet_Annotations;
 @class GTLRSpeech_RecognitionAlternative;
 @class GTLRSpeech_RecognitionAudio;
 @class GTLRSpeech_RecognitionConfig;
@@ -46,6 +48,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_CustomClass.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_CustomClass_State_Active;
+/**
+ *  This CustomClass has been deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_CustomClass_State_Deleted;
+/**
+ *  Unspecified state. This is only used/useful for distinguishing unset values.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_CustomClass_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpeech_PhraseSet.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_PhraseSet_State_Active;
+/**
+ *  This CustomClass has been deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_PhraseSet_State_Deleted;
+/**
+ *  Unspecified state. This is only used/useful for distinguishing unset values.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_PhraseSet_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionConfig.encoding
@@ -450,10 +496,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_CustomClass : GTLRCollectionObject
 
 /**
+ *  Output only. Allows users to store small amounts of arbitrary data. Both the
+ *  key and the value must be 63 characters or less each. At most 100
+ *  annotations. This field is not used.
+ */
+@property(nonatomic, strong, nullable) GTLRSpeech_CustomClass_Annotations *annotations;
+
+/**
  *  If this custom class is a resource, the custom_class_id is the resource id
  *  of the CustomClass. Case sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *customClassId;
+
+/**
+ *  Output only. The time at which this resource was requested for deletion.
+ *  This field is not used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. User-settable, human-readable name for the CustomClass. Must be
+ *  63 characters or less. This field is not used.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields. This may be sent on update, undelete, and delete requests to
+ *  ensure the client has an up-to-date value before proceeding. This field is
+ *  not used.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The time at which this resource will be purged. This field is
+ *  not used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  A collection of class items.
@@ -482,6 +561,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /** The resource name of the custom class. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Whether or not this CustomClass is in the process of being
+ *  updated. This field is not used.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The CustomClass lifecycle state. This field is not used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_CustomClass_State_Active The normal and active state.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRSpeech_CustomClass_State_Deleted This CustomClass has been
+ *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRSpeech_CustomClass_State_StateUnspecified Unspecified state.
+ *        This is only used/useful for distinguishing unset values. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. System-assigned unique identifier for the CustomClass. This
+ *  field is not used.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Output only. Allows users to store small amounts of arbitrary data. Both the
+ *  key and the value must be 63 characters or less each. At most 100
+ *  annotations. This field is not used.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpeech_CustomClass_Annotations : GTLRObject
 @end
 
 
@@ -797,6 +918,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_PhraseSet : GTLRObject
 
 /**
+ *  Output only. Allows users to store small amounts of arbitrary data. Both the
+ *  key and the value must be 63 characters or less each. At most 100
+ *  annotations. This field is not used.
+ */
+@property(nonatomic, strong, nullable) GTLRSpeech_PhraseSet_Annotations *annotations;
+
+/**
  *  Hint Boost. Positive value will increase the probability that a specific
  *  phrase will be recognized over other similar sounding phrases. The higher
  *  the boost, the higher the chance of false positive recognition as well.
@@ -810,6 +938,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boost;
+
+/**
+ *  Output only. The time at which this resource was requested for deletion.
+ *  This field is not used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. User-settable, human-readable name for the PhraseSet. Must be
+ *  63 characters or less. This field is not used.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields. This may be sent on update, undelete, and delete requests to
+ *  ensure the client has an up-to-date value before proceeding. This field is
+ *  not used.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The time at which this resource will be purged. This field is
+ *  not used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  Output only. The [KMS key
@@ -833,6 +987,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /** A list of word and phrases. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Phrase *> *phrases;
 
+/**
+ *  Output only. Whether or not this PhraseSet is in the process of being
+ *  updated. This field is not used.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The CustomClass lifecycle state. This field is not used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpeech_PhraseSet_State_Active The normal and active state.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRSpeech_PhraseSet_State_Deleted This CustomClass has been
+ *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRSpeech_PhraseSet_State_StateUnspecified Unspecified state.
+ *        This is only used/useful for distinguishing unset values. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. System-assigned unique identifier for the PhraseSet. This field
+ *  is not used.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Output only. Allows users to store small amounts of arbitrary data. Both the
+ *  key and the value must be 63 characters or less each. At most 100
+ *  annotations. This field is not used.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpeech_PhraseSet_Annotations : GTLRObject
 @end
 
 

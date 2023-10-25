@@ -34,6 +34,275 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Redis cluster based on the specified properties. The creation is
+ *  executed asynchronously and callers may check the returned operation to
+ *  track its progress. Once the operation is completed the Redis cluster will
+ *  be fully functional. The completed longrunning.Operation will contain the
+ *  new cluster object in the response field. The returned operation is
+ *  automatically deleted after a few hours, so there is no need to call
+ *  DeleteOperation.
+ *
+ *  Method: redis.projects.locations.clusters.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersCreate : GTLRCloudRedisQuery
+
+/**
+ *  Required. The logical name of the Redis cluster in the customer project with
+ *  the following restrictions: * Must contain only lowercase letters, numbers,
+ *  and hyphens. * Must start with a letter. * Must be between 1-63 characters.
+ *  * Must end with a number or a letter. * Must be unique within the customer
+ *  project / location
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  Required. The resource name of the cluster location using the form:
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Creates a Redis cluster based on the specified properties. The creation is
+ *  executed asynchronously and callers may check the returned operation to
+ *  track its progress. Once the operation is completed the Redis cluster will
+ *  be fully functional. The completed longrunning.Operation will contain the
+ *  new cluster object in the response field. The returned operation is
+ *  automatically deleted after a few hours, so there is no need to call
+ *  DeleteOperation.
+ *
+ *  @param object The @c GTLRCloudRedis_Cluster to include in the query.
+ *  @param parent Required. The resource name of the cluster location using the
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_Cluster *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific Redis cluster. Cluster stops serving and data is deleted.
+ *
+ *  Method: redis.projects.locations.clusters.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersDelete : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis cluster resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+ *  `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Deletes a specific Redis cluster. Cluster stops serving and data is deleted.
+ *
+ *  @param name Required. Redis cluster resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific Redis cluster.
+ *
+ *  Method: redis.projects.locations.clusters.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis cluster resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+ *  `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Cluster.
+ *
+ *  Gets the details of a specific Redis cluster.
+ *
+ *  @param name Required. Redis cluster resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of certificate authority information for Redis cluster.
+ *
+ *  Method: redis.projects.locations.clusters.getCertificateAuthority
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis cluster certificate authority resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_CertificateAuthority.
+ *
+ *  Gets the details of certificate authority information for Redis cluster.
+ *
+ *  @param name Required. Redis cluster certificate authority resource name
+ *    using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}/certificateAuthority`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Redis clusters owned by a project in either the specified location
+ *  (region) or all locations. The location should have the following format: *
+ *  `projects/{project_id}/locations/{location_id}` If `location_id` is
+ *  specified as `-` (wildcard), then all regions available to the project are
+ *  queried, and the results are aggregated.
+ *
+ *  Method: redis.projects.locations.clusters.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersList : GTLRCloudRedisQuery
+
+/**
+ *  The maximum number of items to return. If not specified, a default value of
+ *  1000 will be used by the service. Regardless of the page_size value, the
+ *  response may include a partial list and a caller should only rely on
+ *  response's `next_page_token` to determine if there are more clusters left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The `next_page_token` value returned from a previous ListClusters request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the cluster location using the form:
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListClustersResponse.
+ *
+ *  Lists all Redis clusters owned by a project in either the specified location
+ *  (region) or all locations. The location should have the following format: *
+ *  `projects/{project_id}/locations/{location_id}` If `location_id` is
+ *  specified as `-` (wildcard), then all regions available to the project are
+ *  queried, and the results are aggregated.
+ *
+ *  @param parent Required. The resource name of the cluster location using the
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the metadata and configuration of a specific Redis cluster.
+ *  Completed longrunning.Operation will contain the new cluster object in the
+ *  response field. The returned operation is automatically deleted after a few
+ *  hours, so there is no need to call DeleteOperation.
+ *
+ *  Method: redis.projects.locations.clusters.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersPatch : GTLRCloudRedisQuery
+
+/**
+ *  Required. Unique name of the resource in this scope including project and
+ *  location using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. The elements of the repeated paths field may only include these
+ *  fields from Cluster: * `size_gb` * `replica_count`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Updates the metadata and configuration of a specific Redis cluster.
+ *  Completed longrunning.Operation will contain the new cluster object in the
+ *  response field. The returned operation is automatically deleted after a few
+ *  hours, so there is no need to call DeleteOperation.
+ *
+ *  @param object The @c GTLRCloudRedis_Cluster to include in the query.
+ *  @param name Required. Unique name of the resource in this scope including
+ *    project and location using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_Cluster *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: redis.projects.locations.get
