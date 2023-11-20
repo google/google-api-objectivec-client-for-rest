@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget.ownershipScope
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_AllUsers = @"ALL_USERS";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_BillingAccount = @"BILLING_ACCOUNT";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_OwnershipScopeUnspecified = @"OWNERSHIP_SCOPE_UNSPECIFIED";
+
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.calendarPeriod
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Month = @"MONTH";
@@ -38,7 +43,7 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget
 @dynamic amount, budgetFilter, displayName, ETag, name, notificationsRule,
-         thresholdRules;
+         ownershipScope, thresholdRules;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -30,6 +30,8 @@
 @class GTLRBackupdr_Policy;
 @class GTLRBackupdr_Status;
 @class GTLRBackupdr_Status_Details_Item;
+@class GTLRBackupdr_WorkforceIdentityBasedManagementURI;
+@class GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -587,6 +589,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Priva
 /** Output only. The time when the instance was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Output only. The hostnames of the exposed AGM endpoints for both types of
+ *  user i.e. 1p and 3p, used to connect AGM/RM UI.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_WorkforceIdentityBasedManagementURI *workforceIdentityBasedManagementUri;
+
+/**
+ *  Output only. The OAuth client IDs for both types of user i.e. 1p and 3p.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID *workforceIdentityBasedOauth2ClientId;
+
 @end
 
 
@@ -967,6 +980,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Priva
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  ManagementURI depending on the Workforce Identity i.e. either 1p or 3p.
+ */
+@interface GTLRBackupdr_WorkforceIdentityBasedManagementURI : GTLRObject
+
+/** Output only. First party Management URI for Google Identities. */
+@property(nonatomic, copy, nullable) NSString *firstPartyManagementUri;
+
+/**
+ *  Output only. Third party Management URI for External Identity Providers.
+ */
+@property(nonatomic, copy, nullable) NSString *thirdPartyManagementUri;
+
+@end
+
+
+/**
+ *  OAuth Client ID depending on the Workforce Identity i.e. either 1p or 3p,
+ */
+@interface GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID : GTLRObject
+
+/** Output only. First party OAuth Client ID for Google Identities. */
+@property(nonatomic, copy, nullable) NSString *firstPartyOauth2ClientId;
+
+/**
+ *  Output only. Third party OAuth Client ID for External Identity Providers.
+ */
+@property(nonatomic, copy, nullable) NSString *thirdPartyOauth2ClientId;
 
 @end
 

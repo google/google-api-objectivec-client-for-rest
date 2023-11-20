@@ -25,6 +25,43 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll = @"BLOCK_ALL";
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified = @"ENROLLMENT_LEVEL_UNSPECIFIED";
 
+// GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Cbc = @"AES_128_CBC";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Ctr = @"AES_128_CTR";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Gcm = @"AES_128_GCM";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc = @"AES_256_CBC";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr = @"AES_256_CTR";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm = @"AES_256_GCM";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_ExternalSymmetricEncryption = @"EXTERNAL_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha1 = @"HMAC_SHA1";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha224 = @"HMAC_SHA224";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha256 = @"HMAC_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha384 = @"HMAC_SHA384";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha1 = @"RSA_DECRYPT_OAEP_4096_SHA1";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs12048 = @"RSA_SIGN_RAW_PKCS1_2048";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs13072 = @"RSA_SIGN_RAW_PKCS1_3072";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAccessApproval_AccessLocations
@@ -51,9 +88,9 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_ApprovalRequest
-@dynamic approve, dismiss, name, requestedExpiration, requestedLocations,
-         requestedReason, requestedResourceName, requestedResourceProperties,
-         requestTime;
+@dynamic approve, dismiss, name, requestedDuration, requestedExpiration,
+         requestedLocations, requestedReason, requestedResourceName,
+         requestedResourceProperties, requestTime;
 @end
 
 
@@ -194,5 +231,6 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_SignatureInfo
-@dynamic customerKmsKeyVersion, googlePublicKeyPem, signature;
+@dynamic customerKmsKeyVersion, googleKeyAlgorithm, googlePublicKeyPem,
+         serializedApprovalRequest, signature;
 @end

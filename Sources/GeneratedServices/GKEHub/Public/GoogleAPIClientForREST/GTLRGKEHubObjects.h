@@ -18,7 +18,22 @@
 @class GTLRGKEHub_AuditConfig;
 @class GTLRGKEHub_AuditLogConfig;
 @class GTLRGKEHub_Authority;
+@class GTLRGKEHub_BinaryAuthorizationConfig;
 @class GTLRGKEHub_Binding;
+@class GTLRGKEHub_ClusterUpgradeFleetSpec;
+@class GTLRGKEHub_ClusterUpgradeFleetState;
+@class GTLRGKEHub_ClusterUpgradeFleetState_Ignored;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgrade;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureCondition;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureState;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgradeOverride;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgradeState;
+@class GTLRGKEHub_ClusterUpgradeGKEUpgradeState_Stats;
+@class GTLRGKEHub_ClusterUpgradeIgnoredMembership;
+@class GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState;
+@class GTLRGKEHub_ClusterUpgradeMembershipState;
+@class GTLRGKEHub_ClusterUpgradePostConditions;
+@class GTLRGKEHub_ClusterUpgradeUpgradeStatus;
 @class GTLRGKEHub_CommonFeatureSpec;
 @class GTLRGKEHub_CommonFeatureState;
 @class GTLRGKEHub_CommonFleetDefaultMemberConfigSpec;
@@ -48,6 +63,7 @@
 @class GTLRGKEHub_ConfigManagementSyncError;
 @class GTLRGKEHub_ConfigManagementSyncState;
 @class GTLRGKEHub_ConnectAgentResource;
+@class GTLRGKEHub_DefaultClusterConfig;
 @class GTLRGKEHub_EdgeCluster;
 @class GTLRGKEHub_Expr;
 @class GTLRGKEHub_Feature;
@@ -107,6 +123,7 @@
 @class GTLRGKEHub_Operation_Response;
 @class GTLRGKEHub_Origin;
 @class GTLRGKEHub_Policy;
+@class GTLRGKEHub_PolicyBinding;
 @class GTLRGKEHub_PolicyControllerBundleInstallSpec;
 @class GTLRGKEHub_PolicyControllerHubConfig;
 @class GTLRGKEHub_PolicyControllerHubConfig_DeploymentConfigs;
@@ -136,6 +153,7 @@
 @class GTLRGKEHub_ScopeFeatureSpec;
 @class GTLRGKEHub_ScopeFeatureState;
 @class GTLRGKEHub_ScopeLifecycleState;
+@class GTLRGKEHub_SecurityPostureConfig;
 @class GTLRGKEHub_ServiceMeshControlPlaneManagement;
 @class GTLRGKEHub_ServiceMeshDataPlaneManagement;
 @class GTLRGKEHub_ServiceMeshMembershipSpec;
@@ -183,6 +201,81 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataWrite;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_BinaryAuthorizationConfig.evaluationMode
+
+/**
+ *  Disable BinaryAuthorization
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_Disabled;
+/**
+ *  Default value
+ *
+ *  Value: "EVALUATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_EvaluationModeUnspecified;
+/**
+ *  Use Binary Authorization with the policies specified in policy_bindings.
+ *
+ *  Value: "POLICY_BINDINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_PolicyBindings;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ClusterUpgradeUpgradeStatus.code
+
+/**
+ *  Required by https://linter.aip.dev/126/unspecified.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_CodeUnspecified;
+/**
+ *  The upgrade has passed all post conditions (soaking). At the scope level,
+ *  this means all eligible clusters are in COMPLETE status.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete;
+/**
+ *  A cluster will be forced to enter soaking if an upgrade doesn't finish
+ *  within a certain limit, despite it's actual status.
+ *
+ *  Value: "FORCED_SOAKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking;
+/**
+ *  The upgrade is ineligible. At the scope level, this means the upgrade is
+ *  ineligible for all the clusters in the scope.
+ *
+ *  Value: "INELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Ineligible;
+/**
+ *  The upgrade is in progress. At the scope level, this means the upgrade is in
+ *  progress for at least one cluster in the scope.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_InProgress;
+/**
+ *  The upgrade is pending. At the scope level, this means the upgrade is
+ *  pending for all the clusters in the scope.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Pending;
+/**
+ *  The upgrade has finished and is soaking until the soaking time is up. At the
+ *  scope level, this means at least one cluster is in soaking while the rest
+ *  are either soaking or complete.
+ *
+ *  Value: "SOAKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Soaking;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.admissionWebhook
 
 /**
@@ -209,6 +302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.gitSync
@@ -237,6 +336,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.importer
@@ -265,6 +370,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.monitor
@@ -293,6 +404,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.reconcilerManager
@@ -321,6 +438,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.rootReconciler
@@ -349,6 +472,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.syncer
@@ -377,6 +506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
@@ -405,6 +540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperControllerManagerState
@@ -433,6 +574,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperMutation
@@ -461,6 +608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.extension
@@ -489,6 +642,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControll
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.hnc
@@ -517,28 +676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControll
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled;
-
-// ----------------------------------------------------------------------------
-// GTLRGKEHub_ConfigManagementMembershipSpec.management
-
 /**
- *  Google will manage the Feature for the cluster.
+ *  Deployment is installing or terminating
  *
- *  Value: "MANAGEMENT_AUTOMATIC"
+ *  Value: "PENDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic;
-/**
- *  User will manually manage the Feature for the cluster.
- *
- *  Value: "MANAGEMENT_MANUAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual;
-/**
- *  Unspecified
- *
- *  Value: "MANAGEMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementOperatorState.deploymentState
@@ -567,6 +710,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_Dep
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled;
+/**
+ *  Deployment is installing or terminating
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementPolicyControllerMigration.stage
@@ -1400,6 +1549,57 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_SecurityPostureConfig.mode
+
+/**
+ *  Applies Security Posture features on the cluster.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Basic;
+/**
+ *  Disables Security Posture features on the cluster.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Disabled;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_SecurityPostureConfig.vulnerabilityMode
+
+/**
+ *  Applies basic vulnerability scanning on the cluster.
+ *
+ *  Value: "VULNERABILITY_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic;
+/**
+ *  Disables vulnerability scanning on the cluster.
+ *
+ *  Value: "VULNERABILITY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled;
+/**
+ *  Applies the Security Posture's vulnerability on cluster Enterprise level
+ *  features.
+ *
+ *  Value: "VULNERABILITY_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "VULNERABILITY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
 
 /**
@@ -1739,6 +1939,32 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  BinaryAuthorizationConfig defines the fleet level configuration of binary
+ *  authorization feature.
+ */
+@interface GTLRGKEHub_BinaryAuthorizationConfig : GTLRObject
+
+/**
+ *  Optional. Mode of operation for binauthz policy evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_Disabled
+ *        Disable BinaryAuthorization (Value: "DISABLED")
+ *    @arg @c kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_EvaluationModeUnspecified
+ *        Default value (Value: "EVALUATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_BinaryAuthorizationConfig_EvaluationMode_PolicyBindings
+ *        Use Binary Authorization with the policies specified in
+ *        policy_bindings. (Value: "POLICY_BINDINGS")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationMode;
+
+/** Optional. Binauthz policies that apply to this cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_PolicyBinding *> *policyBindings;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRGKEHub_Binding : GTLRObject
@@ -1809,12 +2035,306 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  **ClusterUpgrade**: The configuration for the fleet-level ClusterUpgrade
+ *  feature.
+ */
+@interface GTLRGKEHub_ClusterUpgradeFleetSpec : GTLRObject
+
+/** Allow users to override some properties of each GKE upgrade. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ClusterUpgradeGKEUpgradeOverride *> *gkeUpgradeOverrides;
+
+/**
+ *  Required. Post conditions to evaluate to mark an upgrade COMPLETE. Required.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradePostConditions *postConditions;
+
+/**
+ *  This fleet consumes upgrades that have COMPLETE status code in the upstream
+ *  fleets. See UpgradeStatus.Code for code definitions. The fleet name should
+ *  be either fleet project number or id. This is defined as repeated for future
+ *  proof reasons. Initial implementation will enforce at most one upstream
+ *  fleet.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *upstreamFleets;
+
+@end
+
+
+/**
+ *  **ClusterUpgrade**: The state for the fleet-level ClusterUpgrade feature.
+ */
+@interface GTLRGKEHub_ClusterUpgradeFleetState : GTLRObject
+
+/**
+ *  This fleets whose upstream_fleets contain the current fleet. The fleet name
+ *  should be either fleet project number or id.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *downstreamFleets;
+
+/** Feature state for GKE clusters. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureState *gkeState;
+
+/**
+ *  A list of memberships ignored by the feature. For example, manually upgraded
+ *  clusters can be ignored if they are newer than the default versions of its
+ *  release channel. The membership resource is in the format:
+ *  `projects/{p}/locations/{l}/membership/{m}`.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeFleetState_Ignored *ignored;
+
+@end
+
+
+/**
+ *  A list of memberships ignored by the feature. For example, manually upgraded
+ *  clusters can be ignored if they are newer than the default versions of its
+ *  release channel. The membership resource is in the format:
+ *  `projects/{p}/locations/{l}/membership/{m}`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_ClusterUpgradeIgnoredMembership. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRGKEHub_ClusterUpgradeFleetState_Ignored : GTLRObject
+@end
+
+
+/**
+ *  GKEUpgrade represents a GKE provided upgrade, e.g., control plane upgrade.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgrade : GTLRObject
+
+/**
+ *  Name of the upgrade, e.g., "k8s_control_plane". It should be a valid upgrade
+ *  name. It must not exceet 99 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Version of the upgrade, e.g., "1.22.1-gke.100". It should be a valid
+ *  version. It must not exceet 99 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  GKEUpgradeFeatureCondition describes the condition of the feature for GKE
+ *  clusters at a certain point of time.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureCondition : GTLRObject
+
+/** Reason why the feature is in this status. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Status of the condition, one of True, False, Unknown. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Type of the condition, for example, "ready". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Last timestamp the condition was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  GKEUpgradeFeatureState contains feature states for GKE clusters in the
+ *  scope.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureState : GTLRObject
+
+/** Current conditions of the feature. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ClusterUpgradeGKEUpgradeFeatureCondition *> *conditions;
+
+/** Upgrade state. It will eventually replace `state`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ClusterUpgradeGKEUpgradeState *> *upgradeState;
+
+@end
+
+
+/**
+ *  Properties of a GKE upgrade that can be overridden by the user. For example,
+ *  a user can skip soaking by overriding the soaking to 0.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgradeOverride : GTLRObject
+
+/**
+ *  Required. Post conditions to override for the specified upgrade (name +
+ *  version). Required.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradePostConditions *postConditions;
+
+/** Required. Which upgrade to override. Required. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeGKEUpgrade *upgrade;
+
+@end
+
+
+/**
+ *  GKEUpgradeState is a GKEUpgrade and its state at the scope and fleet level.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgradeState : GTLRObject
+
+/** Number of GKE clusters in each status code. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeGKEUpgradeState_Stats *stats;
+
+/** Status of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeUpgradeStatus *status;
+
+/** Which upgrade to track the state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeGKEUpgrade *upgrade;
+
+@end
+
+
+/**
+ *  Number of GKE clusters in each status code.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGKEHub_ClusterUpgradeGKEUpgradeState_Stats : GTLRObject
+@end
+
+
+/**
+ *  IgnoredMembership represents a membership ignored by the feature. A
+ *  membership can be ignored because it was manually upgraded to a newer
+ *  version than RC default.
+ */
+@interface GTLRGKEHub_ClusterUpgradeIgnoredMembership : GTLRObject
+
+/** Time when the membership was first set to ignored. */
+@property(nonatomic, strong, nullable) GTLRDateTime *ignoredTime;
+
+/** Reason why the membership is ignored. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  ScopeGKEUpgradeState is a GKEUpgrade and its state per-membership.
+ */
+@interface GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState : GTLRObject
+
+/** Status of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeUpgradeStatus *status;
+
+/** Which upgrade to track the state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeGKEUpgrade *upgrade;
+
+@end
+
+
+/**
+ *  Per-membership state for this feature.
+ */
+@interface GTLRGKEHub_ClusterUpgradeMembershipState : GTLRObject
+
+/**
+ *  Project number or id of the fleet. It is set only for Memberships that are
+ *  part of fleet-based Rollout Sequencing.
+ */
+@property(nonatomic, copy, nullable) NSString *fleet;
+
+/**
+ *  Whether this membership is ignored by the feature. For example, manually
+ *  upgraded clusters can be ignored if they are newer than the default versions
+ *  of its release channel.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeIgnoredMembership *ignored;
+
+/**
+ *  Fully qualified scope names that this clusters is bound to which also have
+ *  rollout sequencing enabled.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+/** Actual upgrade state against desired. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState *> *upgrades;
+
+@end
+
+
+/**
+ *  Post conditional checks after an upgrade has been applied on all eligible
+ *  clusters.
+ */
+@interface GTLRGKEHub_ClusterUpgradePostConditions : GTLRObject
+
+/**
+ *  Required. Amount of time to "soak" after a rollout has been finished before
+ *  marking it COMPLETE. Cannot exceed 30 days. Required.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *soaking;
+
+@end
+
+
+/**
+ *  UpgradeStatus provides status information for each upgrade.
+ */
+@interface GTLRGKEHub_ClusterUpgradeUpgradeStatus : GTLRObject
+
+/**
+ *  Status code of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_CodeUnspecified
+ *        Required by https://linter.aip.dev/126/unspecified. (Value:
+ *        "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete The upgrade
+ *        has passed all post conditions (soaking). At the scope level, this
+ *        means all eligible clusters are in COMPLETE status. (Value:
+ *        "COMPLETE")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking A
+ *        cluster will be forced to enter soaking if an upgrade doesn't finish
+ *        within a certain limit, despite it's actual status. (Value:
+ *        "FORCED_SOAKING")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Ineligible The
+ *        upgrade is ineligible. At the scope level, this means the upgrade is
+ *        ineligible for all the clusters in the scope. (Value: "INELIGIBLE")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_InProgress The
+ *        upgrade is in progress. At the scope level, this means the upgrade is
+ *        in progress for at least one cluster in the scope. (Value:
+ *        "IN_PROGRESS")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Pending The upgrade
+ *        is pending. At the scope level, this means the upgrade is pending for
+ *        all the clusters in the scope. (Value: "PENDING")
+ *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Soaking The upgrade
+ *        has finished and is soaking until the soaking time is up. At the scope
+ *        level, this means at least one cluster is in soaking while the rest
+ *        are either soaking or complete. (Value: "SOAKING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** Reason for this status. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Last timestamp the status was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  CommonFeatureSpec contains Hub-wide configuration information
  */
 @interface GTLRGKEHub_CommonFeatureSpec : GTLRObject
 
 /** Appdevexperience specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_AppDevExperienceFeatureSpec *appdevexperience;
+
+/** ClusterUpgrade (fleet-based) feature spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeFleetSpec *clusterupgrade;
 
 /** FleetObservability feature spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFeatureSpec *fleetobservability;
@@ -1833,6 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Appdevexperience specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_AppDevExperienceFeatureState *appdevexperience;
 
+/** ClusterUpgrade fleet-level state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeFleetState *clusterupgrade;
+
 /** FleetObservability feature state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFeatureState *fleetobservability;
 
@@ -1850,6 +2373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Config Management-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
+
+/** Identity Service-specific spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceMembershipSpec *identityservice;
+
+/** Anthos Service Mesh-specific spec */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshMembershipSpec *mesh;
 
 /** Policy Controller spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_PolicyControllerMembershipSpec *policycontroller;
@@ -1913,15 +2442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
-/**
- *  Set to true to stop syncing configs for a single cluster when automatic
- *  Feature management is enabled. Default to false. The field will be ignored
- *  when automatic Feature management is disabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *stopSyncing;
-
 @end
 
 
@@ -1944,6 +2464,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *admissionWebhook;
 
@@ -1961,6 +2483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *gitSync;
 
@@ -1978,6 +2502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *importer;
 
@@ -1995,6 +2521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *monitor;
 
@@ -2012,6 +2540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *reconcilerManager;
 
@@ -2029,6 +2559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *rootReconciler;
 
@@ -2046,6 +2578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *syncer;
 
@@ -2154,6 +2688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *gatekeeperAudit;
 
@@ -2171,6 +2707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *gatekeeperControllerManagerState;
 
@@ -2188,6 +2726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *gatekeeperMutation;
 
@@ -2307,6 +2847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *extension;
 
@@ -2324,6 +2866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *hnc;
 
@@ -2390,21 +2934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Hierarchy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController;
-
-/**
- *  Enables automatic Feature management.
- *
- *  Likely values:
- *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic
- *        Google will manage the Feature for the cluster. (Value:
- *        "MANAGEMENT_AUTOMATIC")
- *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual
- *        User will manually manage the Feature for the cluster. (Value:
- *        "MANAGEMENT_MANUAL")
- *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified
- *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *management;
 
 /** Policy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController;
@@ -2503,6 +3032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is installed (Value: "INSTALLED")
  *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled
  *        Deployment is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Pending
+ *        Deployment is installing or terminating (Value: "PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *deploymentState;
 
@@ -2742,6 +3273,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Kubernetes type of the resource. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_TypeMeta *type;
+
+@end
+
+
+/**
+ *  DefaultClusterConfig describes the default cluster configurations to be
+ *  applied to all clusters born-in-fleet.
+ */
+@interface GTLRGKEHub_DefaultClusterConfig : GTLRObject
+
+/** Optional. Enable/Disable binary authorization features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_BinaryAuthorizationConfig *binaryAuthorizationConfig;
+
+/** Enable/Disable Security Posture features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_SecurityPostureConfig *securityPostureConfig;
 
 @end
 
@@ -3084,6 +3630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Output only. When the Fleet was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The default cluster configurations to apply across the fleet. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_DefaultClusterConfig *defaultClusterConfig;
 
 /** Output only. When the Fleet was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
@@ -4259,6 +4808,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Appdevexperience specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_AppDevExperienceFeatureState *appdevexperience;
 
+/** ClusterUpgrade state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeMembershipState *clusterupgrade;
+
 /** Config Management-specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipState *configmanagement;
 
@@ -4765,6 +5317,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Binauthz policy that applies to this cluster.
+ */
+@interface GTLRGKEHub_PolicyBinding : GTLRObject
+
+/**
+ *  The relative resource name of the binauthz platform policy to audit. GKE
+ *  platform policies have the following format:
+ *  `projects/{project_number}/platforms/gke/policies/{policy_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5286,7 +5853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /**
  *  The resource name for the rbacrolebinding
- *  `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *  `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}`
  *  or
  *  `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
  */
@@ -5544,6 +6111,46 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
+ *  SecurityPostureConfig defines the flags needed to enable/disable features
+ *  for the Security Posture API.
+ */
+@interface GTLRGKEHub_SecurityPostureConfig : GTLRObject
+
+/**
+ *  Sets which mode to use for Security Posture features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_Basic Applies Security
+ *        Posture features on the cluster. (Value: "BASIC")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_Disabled Disables Security
+ *        Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_ModeUnspecified Default
+ *        value not specified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Sets which mode to use for vulnerability scanning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic
+ *        Applies basic vulnerability scanning on the cluster. (Value:
+ *        "VULNERABILITY_BASIC")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled
+ *        Disables vulnerability scanning on the cluster. (Value:
+ *        "VULNERABILITY_DISABLED")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise
+ *        Applies the Security Posture's vulnerability on cluster Enterprise
+ *        level features. (Value: "VULNERABILITY_ENTERPRISE")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified
+ *        Default value not specified. (Value: "VULNERABILITY_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerabilityMode;
 
 @end
 

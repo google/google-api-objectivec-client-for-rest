@@ -658,6 +658,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Demotes an existing standalone instance to be a Cloud SQL read replica for
+ *  an external database server.
+ *
+ *  Method: sql.instances.demote
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesDemote : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance name. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Demotes an existing standalone instance to be a Cloud SQL read replica for
+ *  an external database server.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesDemoteRequest to include in the
+ *    query.
+ *  @param project Required. ID of the project that contains the instance.
+ *  @param instance Required. Cloud SQL instance name.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesDemote
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Demotes the stand-alone instance to be a Cloud SQL read replica for an
  *  external database server.
  *

@@ -79,6 +79,7 @@
 @class GTLRDisplayVideo_CombinedAudienceGroup;
 @class GTLRDisplayVideo_CombinedAudienceTargetingSetting;
 @class GTLRDisplayVideo_CommonInStreamAttribute;
+@class GTLRDisplayVideo_Consent;
 @class GTLRDisplayVideo_ContactInfo;
 @class GTLRDisplayVideo_ContactInfoList;
 @class GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails;
@@ -520,13 +521,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityM
 // GTLRDisplayVideo_AdGroup.adGroupFormat
 
 /**
- *  [Responsive ads for video action campaigns]
- *  (https://support.google.com/displayvideo/answer/9065351).
- *
- *  Value: "AD_GROUP_FORMAT_ACTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAction;
-/**
  *  Non-skippable in-stream audio ads.
  *
  *  Value: "AD_GROUP_FORMAT_AUDIO"
@@ -564,6 +558,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  *  Value: "AD_GROUP_FORMAT_REACH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatReach;
+/**
+ *  Responsive ads.
+ *
+ *  Value: "AD_GROUP_FORMAT_RESPONSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatResponsive;
 /**
  *  Format value is not specified or is unknown in this version.
  *
@@ -2904,6 +2904,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptio
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Consent.adPersonalization
+
+/**
+ *  Consent is denied.
+ *
+ *  Value: "CONSENT_STATUS_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusDenied;
+/**
+ *  Consent is granted.
+ *
+ *  Value: "CONSENT_STATUS_GRANTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusGranted;
+/**
+ *  Consent is not specified.
+ *
+ *  Value: "CONSENT_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Consent.adUserData
+
+/**
+ *  Consent is denied.
+ *
+ *  Value: "CONSENT_STATUS_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusDenied;
+/**
+ *  Consent is granted.
+ *
+ *  Value: "CONSENT_STATUS_GRANTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusGranted;
+/**
+ *  Consent is not specified.
+ *
+ *  Value: "CONSENT_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails.contentDuration
 
 /**
@@ -3662,6 +3706,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *  Value: "SDF_VERSION_6"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6;
+/**
+ *  SDF version 7. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version. Currently in beta. Only available for use by a
+ *  subset of users.
+ *
+ *  Value: "SDF_VERSION_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -12273,6 +12326,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6;
 /**
+ *  SDF version 7. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version. Currently in beta. Only available for use by a
+ *  subset of users.
+ *
+ *  Value: "SDF_VERSION_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -12348,6 +12410,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_6"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6;
+/**
+ *  SDF version 7. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version. Currently in beta. Only available for use by a
+ *  subset of users.
+ *
+ *  Value: "SDF_VERSION_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -13936,10 +14007,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The format of the ads in the ad group.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAction
- *        [Responsive ads for video action campaigns]
- *        (https://support.google.com/displayvideo/answer/9065351). (Value:
- *        "AD_GROUP_FORMAT_ACTION")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAudio
  *        Non-skippable in-stream audio ads. (Value: "AD_GROUP_FORMAT_AUDIO")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
@@ -13956,6 +14023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        [Effective reach ad groups]
  *        (https://support.google.com/displayvideo/answer/9173684), including
  *        in-stream and bumper ads. (Value: "AD_GROUP_FORMAT_REACH")
+ *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatResponsive
+ *        Responsive ads. (Value: "AD_GROUP_FORMAT_RESPONSIVE")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatUnspecified
  *        Format value is not specified or is unknown in this version. (Value:
  *        "AD_GROUP_FORMAT_UNSPECIFIED")
@@ -17846,6 +17915,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  User consent status.
+ */
+@interface GTLRDisplayVideo_Consent : GTLRObject
+
+/**
+ *  Represents consent for ad personalization.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusDenied
+ *        Consent is denied. (Value: "CONSENT_STATUS_DENIED")
+ *    @arg @c kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusGranted
+ *        Consent is granted. (Value: "CONSENT_STATUS_GRANTED")
+ *    @arg @c kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusUnspecified
+ *        Consent is not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adPersonalization;
+
+/**
+ *  Represents consent for ad user data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusDenied Consent
+ *        is denied. (Value: "CONSENT_STATUS_DENIED")
+ *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusGranted Consent
+ *        is granted. (Value: "CONSENT_STATUS_GRANTED")
+ *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusUnspecified
+ *        Consent is not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adUserData;
+
+@end
+
+
+/**
  *  Contact information defining a Customer Match audience member.
  */
 @interface GTLRDisplayVideo_ContactInfo : GTLRObject
@@ -17897,6 +18000,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  audience members.
  */
 @interface GTLRDisplayVideo_ContactInfoList : GTLRObject
+
+/** Input only. User consent status. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
 
 /**
  *  A list of ContactInfo objects defining Customer Match audience members. The
@@ -18590,6 +18696,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 5.5 (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6
  *        SDF version 6 (Value: "SDF_VERSION_6")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7
+ *        SDF version 7. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. Currently in beta. Only available
+ *        for use by a subset of users. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -26111,6 +26222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_MobileDeviceIdList : GTLRObject
 
+/** Input only. User consent status. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
+
 /**
  *  A list of mobile device IDs defining Customer Match audience members. The
  *  size of mobile_device_ids mustn't be greater than 500,000.
@@ -27955,6 +28069,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 SDF version 6
  *        (Value: "SDF_VERSION_6")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 SDF version 7.
+ *        Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. Currently in beta. Only available
+ *        for use by a subset of users. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -28019,6 +28138,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 5.5 (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 SDF
  *        version 6 (Value: "SDF_VERSION_6")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 SDF
+ *        version 7. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. Currently in beta. Only available
+ *        for use by a subset of users. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

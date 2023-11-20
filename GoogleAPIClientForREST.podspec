@@ -239,6 +239,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/BigQueryConnectionService/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/BigQueryConnectionService/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'BigQueryDataPolicyService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/BigQueryDataPolicyService/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/BigQueryDataPolicyService/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'BigQueryDataTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/BigQueryDataTransfer/**/*.{h,m}'
@@ -923,6 +928,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Logging/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Logging/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Looker' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Looker/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Looker/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'ManagedServiceforMicrosoftActiveDirectoryConsumerAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

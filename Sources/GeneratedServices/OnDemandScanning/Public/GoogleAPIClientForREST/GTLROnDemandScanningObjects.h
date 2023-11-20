@@ -2276,8 +2276,10 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @interface GTLROnDemandScanning_Maintainer : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *email;
 @property(nonatomic, copy, nullable) NSString *kind;
 @property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

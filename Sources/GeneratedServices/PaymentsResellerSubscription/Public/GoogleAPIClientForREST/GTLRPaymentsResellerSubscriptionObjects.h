@@ -130,13 +130,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Day;
 /**
+ *  Unit of an hour. It is used for testing.
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Hour;
+/**
  *  Unit of a calendar month.
  *
  *  Value: "MONTH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month;
 /**
- *  Default value.
+ *  Default value, reserved as an invalid or an unexpected value.
  *
  *  Value: "UNIT_UNSPECIFIED"
  */
@@ -653,10 +659,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Day
  *        Unit of a day. (Value: "DAY")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Hour
+ *        Unit of an hour. It is used for testing. (Value: "HOUR")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month
  *        Unit of a calendar month. (Value: "MONTH")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified
- *        Default value. (Value: "UNIT_UNSPECIFIED")
+ *        Default value, reserved as an invalid or an unexpected value. (Value:
+ *        "UNIT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

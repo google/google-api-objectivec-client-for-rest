@@ -29,11 +29,13 @@
 @class GTLRCloudBatch_AgentTaskInfo;
 @class GTLRCloudBatch_AgentTaskRunnable;
 @class GTLRCloudBatch_AgentTaskSpec;
+@class GTLRCloudBatch_AgentTaskUserAccount;
 @class GTLRCloudBatch_AgentTimingInfo;
 @class GTLRCloudBatch_AllocationPolicy;
 @class GTLRCloudBatch_AllocationPolicy_Labels;
 @class GTLRCloudBatch_AttachedDisk;
 @class GTLRCloudBatch_Barrier;
+@class GTLRCloudBatch_CloudLoggingOption;
 @class GTLRCloudBatch_ComputeResource;
 @class GTLRCloudBatch_Container;
 @class GTLRCloudBatch_Disk;
@@ -1007,6 +1009,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** AgentTaskRunnable is runanbles that will be executed on the agent. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_AgentTaskRunnable *> *runnables;
 
+/**
+ *  User account on the VM to run the runnables in the agentTaskSpec. If not
+ *  set, the runnable will be run under root user.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskUserAccount *userAccount;
+
+@end
+
+
+/**
+ *  AgentTaskUserAccount contains the information of a POSIX account on the
+ *  guest os which is used to execute the runnables.
+ */
+@interface GTLRCloudBatch_AgentTaskUserAccount : GTLRObject
+
+/**
+ *  gid id an unique identifier of the POSIX account group corresponding to the
+ *  user account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gid;
+
+/**
+ *  uid is an unique identifier of the POSIX account corresponding to the user
+ *  account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uid;
+
 @end
 
 
@@ -1051,7 +1084,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** Location where compute resources should be allocated for the Job. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_LocationPolicy *location;
 
-/** The network policy. */
+/**
+ *  The network policy. If you define an instance template in the
+ *  InstancePolicyOrTemplate field, Batch will use the network settings in the
+ *  instance template instead of this field.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_NetworkPolicy *network;
 
 /** The placement policy. */
@@ -1119,6 +1156,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBatch_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  CloudLoggingOption contains additional settings for cloud logging generated
+ *  by Batch job.
+ */
+@interface GTLRCloudBatch_CloudLoggingOption : GTLRObject
 @end
 
 
@@ -1902,6 +1947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  preserved.
  */
 @interface GTLRCloudBatch_LogsPolicy : GTLRObject
+
+/**
+ *  Optional. Additional settings for Cloud Logging. It will only take effect
+ *  when the destination of LogsPolicy is set to CLOUD_LOGGING.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_CloudLoggingOption *cloudLoggingOption;
 
 /**
  *  Where logs should be saved.

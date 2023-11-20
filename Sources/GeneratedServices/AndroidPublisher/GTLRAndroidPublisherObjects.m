@@ -73,7 +73,6 @@ NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_Tran
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent = @"CAN_MANAGE_APP_CONTENT";
-NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks = @"CAN_MANAGE_DEEPLINKS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
@@ -115,6 +114,11 @@ NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_UnknownModuleTy
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
+NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly = @"ALTERTNATIVE_BILLING_ONLY";
+NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified = @"EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling = @"USER_CHOICE_BILLING";
 
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn = @"PRICE_INCREASE_TYPE_OPT_IN";
@@ -200,6 +204,16 @@ NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_S3tc = @"S
 NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_ThreeDc = @"THREE_DC";
 NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_UnspecifiedTextureCompressionFormat = @"UNSPECIFIED_TEXTURE_COMPRESSION_FORMAT";
 
+// GTLRAndroidPublisher_TrackConfig.formFactor
+NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Automotive = @"AUTOMOTIVE";
+NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Default = @"DEFAULT";
+NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_FormFactorUnspecified = @"FORM_FACTOR_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Wear = @"WEAR";
+
+// GTLRAndroidPublisher_TrackConfig.type
+NSString * const kGTLRAndroidPublisher_TrackConfig_Type_ClosedTesting = @"CLOSED_TESTING";
+NSString * const kGTLRAndroidPublisher_TrackConfig_Type_TrackTypeUnspecified = @"TRACK_TYPE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_TrackRelease.status
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Completed = @"completed";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Draft = @"draft";
@@ -219,7 +233,6 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChang
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
-NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal = @"CAN_MANAGE_DEEPLINKS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";
@@ -954,7 +967,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ExternalTransactionAddress
-@dynamic regionCode;
+@dynamic administrativeArea, regionCode;
 @end
 
 
@@ -1703,7 +1716,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_RecurringExternalTransaction
 @dynamic externalSubscription, externalTransactionToken,
-         initialExternalTransactionId;
+         initialExternalTransactionId, migratedTransactionProgram;
 @end
 
 
@@ -2382,6 +2395,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TrackConfig
+//
+
+@implementation GTLRAndroidPublisher_TrackConfig
+@dynamic formFactor, track, type;
 @end
 
 

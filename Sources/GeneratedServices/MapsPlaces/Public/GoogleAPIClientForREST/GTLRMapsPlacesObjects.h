@@ -513,13 +513,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution : GTLRObject
 
-/** Output only. Name of the author of the Photo or Review. */
+/** Name of the author of the Photo or Review. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Output only. Profile photo URI of the author of the Photo or Review. */
+/** Profile photo URI of the author of the Photo or Review. */
 @property(nonatomic, copy, nullable) NSString *photoUri;
 
-/** Output only. URI of the author of the Photo or Review. */
+/** URI of the author of the Photo or Review. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -734,25 +734,25 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1Photo : GTLRObject
 
-/** Output only. This photo's authors. */
+/** This photo's authors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *> *authorAttributions;
 
 /**
- *  Output only. The maximum available height, in pixels.
+ *  The maximum available height, in pixels.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPx;
 
 /**
- *  Output only. A reference representing this place photo which may be used to
+ *  Identifier. A reference representing this place photo which may be used to
  *  look up this place photo again (a.k.a. the API "resource" name:
  *  places/{place_id}/photos/{photo}).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The maximum available width, in pixels.
+ *  The maximum available width, in pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -767,8 +767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PhotoMedia : GTLRObject
 
 /**
- *  The resource name of a photo in the format:
- *  places/place_id/photos/photo_reference.
+ *  The resource name of a photo media in the format:
+ *  `places/place_id/photos/photo_reference/media`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -929,7 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, copy, nullable) NSString *iconBackgroundColor;
 
 /**
- *  A truncated URL to an v2 icon mask. User can access different icon type by
+ *  A truncated URL to an icon mask. User can access different icon type by
  *  appending type suffix to the end (eg, ".svg" or ".png").
  */
 @property(nonatomic, copy, nullable) NSString *iconMaskBaseUri;
@@ -1018,13 +1018,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /**
  *  The primary type of the given result. This type must one of the Places API
  *  supported types. For example, "restaurant", "cafe", "airport", etc. A place
- *  can only have a single primary type.
+ *  can only have a single primary type. For the complete list of possible
+ *  values, see Table A and Table B at
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types
  */
 @property(nonatomic, copy, nullable) NSString *primaryType;
 
 /**
  *  The display name of the primary type, localized to the request language if
- *  applicable.
+ *  applicable. For the complete list of possible values, see Table A and Table
+ *  B at
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *primaryTypeDisplayName;
 
@@ -1062,7 +1066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *restroom;
 
-/** List of reviews about this place. */
+/** List of reviews about this place, sorted by relevance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
 
 /**
@@ -1150,7 +1154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  A set of type tags for this result. For example, "political" and "locality".
- *  See:
+ *  For the complete list of possible values, see Table A and Table B at
  *  https://developers.google.com/maps/documentation/places/web-service/place-types
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *types;
@@ -1551,37 +1555,36 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1Review : GTLRObject
 
-/** Output only. This review's author. */
+/** This review's author. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *authorAttribution;
 
 /**
- *  Output only. A reference representing this place review which may be used to
- *  look up this place review again (a.k.a. the API "resource" name:
- *  places/{place_id}/reviews/{review}).
+ *  A reference representing this place review which may be used to look up this
+ *  place review again (also called the API "resource" name:
+ *  places/place_id/reviews/review).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. The review text in its original language. */
+/** The review text in its original language. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *originalText;
 
-/** Output only. Timestamp for the review. */
+/** Timestamp for the review. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
 /**
- *  Output only. A number between 1.0 and 5.0, a.k.a. the number of stars.
+ *  A number between 1.0 and 5.0, also called the number of stars.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rating;
 
 /**
- *  Output only. A string of formatted recent time, expressing the review time
- *  relative to the current time in a form appropriate for the language and
- *  country.
+ *  A string of formatted recent time, expressing the review time relative to
+ *  the current time in a form appropriate for the language and country.
  */
 @property(nonatomic, copy, nullable) NSString *relativePublishTimeDescription;
 
-/** Output only. The localized text of the review. */
+/** The localized text of the review. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
 
 @end
@@ -1760,8 +1763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Maximum number of results to return. It must be between 1 and 20,
- *  inclusively. If the number is unset, it falls back to the upper limit. If
- *  the number is set to negative or exceeds the upper limit, an
+ *  inclusively. The default is 20. If the number is unset, it falls back to the
+ *  upper limit. If the number is set to negative or exceeds the upper limit, an
  *  INVALID_ARGUMENT error is returned.
  *
  *  Uses NSNumber of intValue.
@@ -1781,7 +1784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *minRating;
 
 /**
- *  Used to restrict the search to places that are currently open.
+ *  Used to restrict the search to places that are currently open. The default
+ *  is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1842,7 +1846,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** A circle defined by center point and radius. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Circle *circle;
 
-/** A rectangle box defined by northeast and southwest corner. */
+/**
+ *  A rectangle box defined by northeast and southwest corner.
+ *  `rectangle.high()` must be the northeast point of the rectangle viewport.
+ *  `rectangle.low()` must be the southwest point of the rectangle viewport.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
 
 @end
@@ -1854,7 +1862,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction : GTLRObject
 
-/** A rectangle box defined by northeast and southwest corner. */
+/**
+ *  A rectangle box defined by northeast and southwest corner.
+ *  `rectangle.high()` must be the northeast point of the rectangle viewport.
+ *  `rectangle.low()` must be the southwest point of the rectangle viewport.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
 
 @end

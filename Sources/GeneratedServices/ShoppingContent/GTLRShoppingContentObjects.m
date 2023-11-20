@@ -422,9 +422,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Account
 @dynamic accountManagement, adsLinks, adultContent, automaticImprovements,
-         automaticLabelIds, businessInformation, conversionSettings, cssId,
-         googleMyBusinessLink, identifier, kind, labelIds, name, sellerId,
-         users, websiteUrl, youtubeChannelLinks;
+         automaticLabelIds, businessIdentity, businessInformation,
+         conversionSettings, cssId, googleMyBusinessLink, identifier, kind,
+         labelIds, name, sellerId, users, websiteUrl, youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -477,6 +477,17 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountAutomaticImprovements
 @dynamic imageImprovements, itemUpdates, shippingImprovements;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountBusinessIdentity
+//
+
+@implementation GTLRShoppingContent_AccountBusinessIdentity
+@dynamic blackOwned, includeForPromotions, latinoOwned, smallBusiness,
+         veteranOwned, womenOwned;
 @end
 
 
@@ -538,6 +549,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountIdentifier
 @dynamic aggregatorId, merchantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountIdentityType
+//
+
+@implementation GTLRShoppingContent_AccountIdentityType
+@dynamic selfIdentified;
 @end
 
 

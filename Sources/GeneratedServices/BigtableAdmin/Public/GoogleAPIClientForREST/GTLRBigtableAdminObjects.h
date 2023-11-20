@@ -58,6 +58,7 @@
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
 @class GTLRBigtableAdmin_StandardIsolation;
+@class GTLRBigtableAdmin_StandardReadRemoteWrites;
 @class GTLRBigtableAdmin_Status;
 @class GTLRBigtableAdmin_Status_Details_Item;
 @class GTLRBigtableAdmin_Table;
@@ -811,6 +812,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *consistencyToken;
 
+/**
+ *  Checks that reads using an app profile with `StandardIsolation` can see all
+ *  writes committed before the token was created, even if the read and write
+ *  target different clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_StandardReadRemoteWrites *standardReadRemoteWrites;
+
 @end
 
 
@@ -995,9 +1003,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GcRule *gcRule;
 
 /**
- *  Only available with STATS_VIEW, this includes summary statistics about
- *  column family contents. For statistics over an entire table, see TableStats
- *  above.
+ *  Output only. Only available with STATS_VIEW, this includes summary
+ *  statistics about column family contents. For statistics over an entire
+ *  table, see TableStats above.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamilyStats *stats;
 
@@ -2503,6 +2511,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Checks that all writes before the consistency token was generated is
+ *  replicated in every cluster and readable.
+ */
+@interface GTLRBigtableAdmin_StandardReadRemoteWrites : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2614,9 +2630,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
 
 /**
- *  Only available with STATS_VIEW, this includes summary statistics about the
- *  entire table contents. For statistics about a specific column family, see
- *  ColumnFamilyStats in the mapped ColumnFamily collection above.
+ *  Output only. Only available with STATS_VIEW, this includes summary
+ *  statistics about the entire table contents. For statistics about a specific
+ *  column family, see ColumnFamilyStats in the mapped ColumnFamily collection
+ *  above.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_TableStats *stats;
 

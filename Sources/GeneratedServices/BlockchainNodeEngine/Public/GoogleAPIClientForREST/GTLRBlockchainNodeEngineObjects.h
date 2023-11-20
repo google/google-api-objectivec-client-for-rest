@@ -181,6 +181,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Net
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater;
 /**
+ *  The Ethereum Testnet based on Holesky specification. See
+ *  https://github.com/eth-clients/holesky.
+ *
+ *  Value: "TESTNET_HOLESKY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetHolesky;
+/**
  *  The Ethereum Testnet based on Sepolia/Bepolia protocol. See
  *  https://github.com/eth-clients/sepolia.
  *
@@ -285,6 +292,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *  `projects/my-project/locations/us-central1/blockchainNodes/my-node`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. When true, the node is only accessible via Private Service
+ *  Connect; no public endpoints are exposed. Otherwise, the node is only
+ *  accessible via public endpoints. See
+ *  https://cloud.google.com/vpc/docs/private-service-connect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled;
 
 /**
  *  Output only. A status representing the state of the node.
@@ -463,6 +480,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater
  *        The Ethereum Testnet based on Goerli protocol. (Value:
  *        "TESTNET_GOERLI_PRATER")
+ *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetHolesky
+ *        The Ethereum Testnet based on Holesky specification. See
+ *        https://github.com/eth-clients/holesky. (Value: "TESTNET_HOLESKY")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetSepolia
  *        The Ethereum Testnet based on Sepolia/Bepolia protocol. See
  *        https://github.com/eth-clients/sepolia. (Value: "TESTNET_SEPOLIA")

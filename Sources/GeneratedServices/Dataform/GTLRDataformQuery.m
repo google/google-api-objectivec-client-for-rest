@@ -1350,6 +1350,25 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles
+
+@dynamic filter, pageSize, pageToken, workspace;
+
++ (instancetype)queryWithWorkspace:(NSString *)workspace {
+  NSArray *pathParams = @[ @"workspace" ];
+  NSString *pathURITemplate = @"v1beta1/{+workspace}:searchFiles";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.workspace = workspace;
+  query.expectedObjectClass = [GTLRDataform_SearchFilesResponse class];
+  query.loggingName = @"dataform.projects.locations.repositories.workspaces.searchFiles";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSetIamPolicy
 
 @dynamic resource;

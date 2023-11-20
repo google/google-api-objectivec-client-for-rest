@@ -34,6 +34,77 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataConnector.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataConnector.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Document.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.create
@@ -1155,10 +1226,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. Full resource name of the format: `projects/ *
- *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
- *  you can request recommendations from your model, you must create at least
- *  one serving config for it.
+ *  Required. Full resource name of a ServingConfig: `projects/ *
+ *  /locations/global/collections/ * /engines/ * /servingConfigs/ *`, or
+ *  `projects/ * /locations/global/collections/ * /dataStores/ *
+ *  /servingConfigs/ *` One default serving config is created along with your
+ *  recommendation engine creation. The engine ID will be used as the ID of the
+ *  default serving config. For example, for Engine `projects/ *
+ *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
+ *  * /locations/global/collections/ *
+ *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -1171,10 +1247,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
- *  @param servingConfig Required. Full resource name of the format: `projects/
- *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
- *    Before you can request recommendations from your model, you must create at
- *    least one serving config for it.
+ *  @param servingConfig Required. Full resource name of a ServingConfig:
+ *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
+ *    *`, or `projects/ * /locations/global/collections/ * /dataStores/ *
+ *    /servingConfigs/ *` One default serving config is created along with your
+ *    recommendation engine creation. The engine ID will be used as the ID of
+ *    the default serving config. For example, for Engine `projects/ *
+ *    /locations/global/collections/ * /engines/my-engine`, you can use
+ *    `projects/ * /locations/global/collections/ *
+ *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
  */
@@ -1195,7 +1276,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Search serving config, such as `projects/
- *  *
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
  *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *  This field is used to identify the serving configuration name, set of models
  *  used to make the search.
@@ -1213,6 +1295,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
  *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *    This field is used to identify the serving configuration name, set of
  *    models used to make the search.
@@ -1580,10 +1664,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. Full resource name of the format: `projects/ *
- *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
- *  you can request recommendations from your model, you must create at least
- *  one serving config for it.
+ *  Required. Full resource name of a ServingConfig: `projects/ *
+ *  /locations/global/collections/ * /engines/ * /servingConfigs/ *`, or
+ *  `projects/ * /locations/global/collections/ * /dataStores/ *
+ *  /servingConfigs/ *` One default serving config is created along with your
+ *  recommendation engine creation. The engine ID will be used as the ID of the
+ *  default serving config. For example, for Engine `projects/ *
+ *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
+ *  * /locations/global/collections/ *
+ *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -1596,10 +1685,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
- *  @param servingConfig Required. Full resource name of the format: `projects/
- *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
- *    Before you can request recommendations from your model, you must create at
- *    least one serving config for it.
+ *  @param servingConfig Required. Full resource name of a ServingConfig:
+ *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
+ *    *`, or `projects/ * /locations/global/collections/ * /dataStores/ *
+ *    /servingConfigs/ *` One default serving config is created along with your
+ *    recommendation engine creation. The engine ID will be used as the ID of
+ *    the default serving config. For example, for Engine `projects/ *
+ *    /locations/global/collections/ * /engines/my-engine`, you can use
+ *    `projects/ * /locations/global/collections/ *
+ *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend
  */
@@ -1620,7 +1714,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Search serving config, such as `projects/
- *  *
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
  *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *  This field is used to identify the serving configuration name, set of models
  *  used to make the search.
@@ -1638,6 +1733,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
  *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *    This field is used to identify the serving configuration name, set of
  *    models used to make the search.
@@ -2771,10 +2868,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. Full resource name of the format: `projects/ *
- *  /locations/global/collections/ * /dataStores/ * /servingConfigs/ *` Before
- *  you can request recommendations from your model, you must create at least
- *  one serving config for it.
+ *  Required. Full resource name of a ServingConfig: `projects/ *
+ *  /locations/global/collections/ * /engines/ * /servingConfigs/ *`, or
+ *  `projects/ * /locations/global/collections/ * /dataStores/ *
+ *  /servingConfigs/ *` One default serving config is created along with your
+ *  recommendation engine creation. The engine ID will be used as the ID of the
+ *  default serving config. For example, for Engine `projects/ *
+ *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
+ *  * /locations/global/collections/ *
+ *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -2787,10 +2889,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
  *    include in the query.
- *  @param servingConfig Required. Full resource name of the format: `projects/
- *    * /locations/global/collections/ * /dataStores/ * /servingConfigs/ *`
- *    Before you can request recommendations from your model, you must create at
- *    least one serving config for it.
+ *  @param servingConfig Required. Full resource name of a ServingConfig:
+ *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
+ *    *`, or `projects/ * /locations/global/collections/ * /dataStores/ *
+ *    /servingConfigs/ *` One default serving config is created along with your
+ *    recommendation engine creation. The engine ID will be used as the ID of
+ *    the default serving config. For example, for Engine `projects/ *
+ *    /locations/global/collections/ * /engines/my-engine`, you can use
+ *    `projects/ * /locations/global/collections/ *
+ *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
  */
@@ -2811,7 +2918,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Search serving config, such as `projects/
- *  *
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
  *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *  This field is used to identify the serving configuration name, set of models
  *  used to make the search.
@@ -2829,6 +2937,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
  *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
  *    This field is used to identify the serving configuration name, set of
  *    models used to make the search.

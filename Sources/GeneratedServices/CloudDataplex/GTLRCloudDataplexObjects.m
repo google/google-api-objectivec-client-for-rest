@@ -216,6 +216,9 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventTy
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTableUpdate = @"BIGQUERY_TABLE_UPDATE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_BigqueryTaxonomyCreate = @"BIGQUERY_TAXONOMY_CREATE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleErrors = @"GOVERNANCE_RULE_ERRORS";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources = @"GOVERNANCE_RULE_MATCHED_RESOURCES";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleSearchLimitExceeds = @"GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_ResourceIamPolicyUpdate = @"RESOURCE_IAM_POLICY_UPDATE";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity.entityType
@@ -1014,6 +1017,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult
+@dynamic column, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension
 //
 
@@ -1028,7 +1041,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult
-@dynamic dimension, passed;
+@dynamic dimension, passed, score;
 @end
 
 
@@ -1038,11 +1051,12 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult
-@dynamic dimensions, passed, postScanActionsResult, rowCount, rules,
-         scannedData;
+@dynamic columns, dimensions, passed, postScanActionsResult, rowCount, rules,
+         scannedData, score;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult class],
     @"dimensions" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult class],
     @"rules" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult class]
   };
@@ -1318,7 +1332,21 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult
-@dynamic dimensionPassed, passed, rowCount;
+@dynamic columnScore, dimensionPassed, dimensionScore, passed, rowCount, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_ColumnScore
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_ColumnScore
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1328,6 +1356,20 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionScore
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionScore
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];

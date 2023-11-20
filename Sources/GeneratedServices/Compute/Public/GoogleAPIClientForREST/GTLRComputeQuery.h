@@ -23430,6 +23430,54 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Announces the specified PublicAdvertisedPrefix
+ *
+ *  Method: compute.publicAdvertisedPrefixes.announce
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesAnnounce : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the public advertised prefix. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *publicAdvertisedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Announces the specified PublicAdvertisedPrefix
+ *
+ *  @param project Project ID for this request.
+ *  @param publicAdvertisedPrefix The name of the public advertised prefix. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesAnnounce
+ */
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix;
+
+@end
+
+/**
  *  Deletes the specified PublicAdvertisedPrefix
  *
  *  Method: compute.publicAdvertisedPrefixes.delete
@@ -23711,6 +23759,54 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Withdraws the specified PublicAdvertisedPrefix
+ *
+ *  Method: compute.publicAdvertisedPrefixes.withdraw
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesWithdraw : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the public advertised prefix. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *publicAdvertisedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Withdraws the specified PublicAdvertisedPrefix
+ *
+ *  @param project Project ID for this request.
+ *  @param publicAdvertisedPrefix The name of the public advertised prefix. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesWithdraw
+ */
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix;
+
+@end
+
+/**
  *  Lists all PublicDelegatedPrefix resources owned by the specific project
  *  across all scopes.
  *
@@ -23821,6 +23917,61 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Announces the specified PublicDelegatedPrefix in the given region.
+ *
+ *  Method: compute.publicDelegatedPrefixes.announce
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesAnnounce : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the public delegated prefix. It should comply with RFC1035. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/**
+ *  The name of the region where the public delegated prefix is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Announces the specified PublicDelegatedPrefix in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the public delegated prefix is
+ *    located. It should comply with RFC1035.
+ *  @param publicDelegatedPrefix The name of the public delegated prefix. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesAnnounce
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
 
 @end
 
@@ -24127,6 +24278,61 @@ GTLR_DEPRECATED
                         project:(NSString *)project
                          region:(NSString *)region
           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
+
+@end
+
+/**
+ *  Withdraws the specified PublicDelegatedPrefix in the given region.
+ *
+ *  Method: compute.publicDelegatedPrefixes.withdraw
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesWithdraw : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the public delegated prefix. It should comply with RFC1035. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/**
+ *  The name of the region where the public delegated prefix is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Withdraws the specified PublicDelegatedPrefix in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the public delegated prefix is
+ *    located. It should comply with RFC1035.
+ *  @param publicDelegatedPrefix The name of the public delegated prefix. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesWithdraw
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
 
 @end
 
@@ -37273,6 +37479,83 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                         snapshot:(NSString *)snapshot;
+
+@end
+
+/**
+ *  Get snapshot settings.
+ *
+ *  Method: compute.snapshotSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SnapshotSettingsGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_SnapshotSettings.
+ *
+ *  Get snapshot settings.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotSettingsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patch snapshot settings.
+ *
+ *  Method: compute.snapshotSettings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SnapshotSettingsPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patch snapshot settings.
+ *
+ *  @param object The @c GTLRCompute_SnapshotSettings to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotSettingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SnapshotSettings *)object
+                        project:(NSString *)project;
 
 @end
 

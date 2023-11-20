@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a Place with a place id (in a name) string.
+ *  Get place details with a place id (in a name) string.
  *
  *  Method: places.places.get
  *
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A place ID returned in a Place (with "places/" prefix), or
- *  equivalently the name in the same Place. Format: places/place_id.
+ *  equivalently the name in the same Place. Format: places/ *place_id*.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -69,11 +69,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMapsPlaces_GoogleMapsPlacesV1Place.
  *
- *  Get a Place with a place id (in a name) string.
+ *  Get place details with a place id (in a name) string.
  *
  *  @param name Required. A place ID returned in a Place (with "places/"
- *    prefix), or equivalently the name in the same Place. Format:
- *    places/place_id.
+ *    prefix), or equivalently the name in the same Place. Format: places/
+ *    *place_id*.
  *
  *  @return GTLRMapsPlacesQuery_PlacesGet
  */
@@ -121,15 +121,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger maxWidthPx;
 
 /**
- *  Required. The resource name of a photo as returned in a Place object's
- *  photos.name field. Format: places/place_id/photos/photo_reference.
+ *  Required. The resource name of a photo media in the format:
+ *  `"places/place_id/photos/photo_reference/media"`. The resource name of a
+ *  photo as returned in a Place object's `photos.name` field comes with the
+ *  format `"places/place_id/photos/photo_reference"`. You need to append
+ *  `"/media"` at the end of the photo resource to get the photo media resource
+ *  name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. If set, skip the default HTTP redirect behavior and render a text
  *  format (for example, in JSON format for HTTP use case) response. If not set,
- *  an HTTP redirect will be issued to redirect the call to the image midea.
+ *  an HTTP redirect will be issued to redirect the call to the image media.
  *  This option is ignored for non-HTTP requests.
  */
 @property(nonatomic, assign) BOOL skipHttpRedirect;
@@ -139,9 +143,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get a photo media with a photo reference string.
  *
- *  @param name Required. The resource name of a photo as returned in a Place
- *    object's photos.name field. Format:
- *    places/place_id/photos/photo_reference.
+ *  @param name Required. The resource name of a photo media in the format:
+ *    `"places/place_id/photos/photo_reference/media"`. The resource name of a
+ *    photo as returned in a Place object's `photos.name` field comes with the
+ *    format `"places/place_id/photos/photo_reference"`. You need to append
+ *    `"/media"` at the end of the photo resource to get the photo media
+ *    resource name.
  *
  *  @return GTLRMapsPlacesQuery_PlacesPhotosGetMedia
  */

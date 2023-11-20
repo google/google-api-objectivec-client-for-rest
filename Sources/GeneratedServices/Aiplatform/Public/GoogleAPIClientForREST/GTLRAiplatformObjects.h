@@ -77,6 +77,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeployedIndexRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef;
+@class GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeployModelRequest_TrafficSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DestinationFeatureSetting;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DiskSpec;
@@ -124,9 +125,16 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExportModelRequestOutputConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Feature;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Feature_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQuery;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureMonitoringStatsAnomaly;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureNoiseSigma;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureNoiseSigmaNoiseSigmaForFeature;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtable;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtableAutoScaling;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureSelector;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureStatsAnomaly;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Featurestore;
@@ -141,6 +149,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureValueDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureValueList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureValueMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureView;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureView_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewBigQuerySource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse_ProtoStruct;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairList;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairListFeatureNameValuePair;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FilterSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQuery;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNearestNeighbors;
@@ -160,6 +179,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Index_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointCrowdingTag;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint_Labels;
@@ -275,6 +295,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Presets;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Probe;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences;
@@ -431,6 +453,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesDataPoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimestampSplit;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline_Labels;
@@ -1185,6 +1208,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Featur
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureMonitoringStatsAnomaly_Objective_SnapshotAnalysis;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore.state
+
+/**
+ *  State when the featureOnlineStore configuration is not being updated and the
+ *  fields reflect the current configuration of the featureOnlineStore. The
+ *  featureOnlineStore is usable in this state.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_Stable;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_StateUnspecified;
+/**
+ *  The state of the featureOnlineStore configuration when it is being updated.
+ *  During an update, the fields reflect either the original configuration or
+ *  the updated configuration of the featureOnlineStore. The featureOnlineStore
+ *  is still usable in this state.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Featurestore.state
 
 /**
@@ -1282,6 +1332,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Featur
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeaturestoreMonitoringConfigImportFeaturesAnalysis_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest.dataFormat
+
+/**
+ *  Not set. Will be treated as the KeyValue format.
+ *
+ *  Value: "FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_FeatureViewDataFormatUnspecified;
+/**
+ *  Return response data in key-value format.
+ *
+ *  Value: "KEY_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_KeyValue;
+/**
+ *  Return response data in proto Struct format.
+ *
+ *  Value: "PROTO_STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_ProtoStruct;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob.state
@@ -1385,6 +1457,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Index_
  *  Value: "STREAM_UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Index_IndexUpdateMethod_StreamUpdate;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction.op
+
+/**
+ *  Datapoints are eligible iff their value is == the query's.
+ *
+ *  Value: "EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Equal;
+/**
+ *  Datapoints are eligible iff their value is > the query's.
+ *
+ *  Value: "GREATER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Greater;
+/**
+ *  Datapoints are eligible iff their value is >= the query's.
+ *
+ *  Value: "GREATER_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_GreaterEqual;
+/**
+ *  Datapoints are eligible iff their value is < the query's.
+ *
+ *  Value: "LESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Less;
+/**
+ *  Datapoints are eligible iff their value is <= the query's.
+ *
+ *  Value: "LESS_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_LessEqual;
+/**
+ *  Default value of the enum.
+ *
+ *  Value: "OPERATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec.acceleratorType
@@ -2678,13 +2790,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema
 // GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry.type
 
 /**
- *  Uses Enterprise Search to check the grounding.
+ *  Uses Vertex AI Search to check the grounding. Deprecated. Use
+ *  VERTEX_AI_SEARCH instead.
  *
  *  Value: "ENTERPRISE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Enterprise;
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Enterprise GTLR_DEPRECATED;
 /** Value: "UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Unspecified;
+/**
+ *  Uses Vertex AI Search to check the grounding
+ *
+ *  Value: "VERTEX_AI_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_VertexAiSearch;
 /**
  *  Uses Web Search to check the grounding.
  *
@@ -5133,6 +5252,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Request message for ComputeTokens RPC call.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest : GTLRObject
+
+/**
+ *  Required. The instances that are the input to token computing API call.
+ *  Schema is identical to the prediction schema of the text model, even for the
+ *  non-text models, like chat models, or Codey models.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *instances;
+
+@end
+
+
+/**
+ *  Response message for ComputeTokens RPC call.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse : GTLRObject
+
+/**
+ *  Lists of tokens info from the input. A ComputeTokensRequest could have
+ *  multiple instances with a prompt in each instance. We also need to return
+ *  lists of tokens info for the request with multiple instances.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo *> *tokensInfo;
+
+@end
+
+
+/**
  *  The Container Registry location for the container image.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ContainerRegistryDestination : GTLRObject
@@ -5345,6 +5496,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Request message for PredictionService.CountTokens.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest : GTLRObject
+
+/**
+ *  Required. The instances that are the input to token counting call. Schema is
+ *  identical to the prediction schema of the underlying model.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *instances;
+
+@end
+
+
+/**
+ *  Response message for PredictionService.CountTokens.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse : GTLRObject
+
+/**
+ *  The total number of billable characters counted across all instances from
+ *  the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBillableCharacters;
+
+/**
+ *  The total number of tokens counted across all instances from the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTokens;
+
+@end
+
+
+/**
  *  Runtime operation information for DatasetService.CreateDataset.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateDatasetOperationMetadata : GTLRObject
@@ -5367,6 +5557,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Runtime operation information for CreateDeploymentResourcePool method.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateDeploymentResourcePoolOperationMetadata : GTLRObject
+
+/** The operation generic information. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Request message for CreateDeploymentResourcePool method.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest : GTLRObject
+
+/** Required. The DeploymentResourcePool to create. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool *deploymentResourcePool;
+
+/**
+ *  Required. The ID to use for the DeploymentResourcePool, which will become
+ *  the final component of the DeploymentResourcePool's resource name. The
+ *  maximum length is 63 characters, and valid characters are
+ *  `/^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$/`.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentResourcePoolId;
+
+@end
+
+
+/**
  *  Runtime operation information for EndpointService.CreateEndpoint.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata : GTLRObject
@@ -5383,6 +5603,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateEntityTypeOperationMetadata : GTLRObject
 
 /** Operation metadata for EntityType. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform create FeatureGroup.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFeatureGroupOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureGroup. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform create FeatureOnlineStore.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFeatureOnlineStoreOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureOnlineStore. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
 
 @end
@@ -5434,6 +5676,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFeaturestoreOperationMetadata : GTLRObject
 
 /** Operation metadata for Featurestore. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform create FeatureView.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateFeatureViewOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureView Create. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
 
 @end
@@ -5507,6 +5760,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
+
+@end
+
+
+/**
+ *  Details of operations that perform create FeatureGroup.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateRegistryFeatureOperationMetadata : GTLRObject
+
+/** Operation metadata for Feature. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
 
 @end
 
@@ -6556,16 +6820,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /**
  *  Optional. A description of resources that are dedicated to the
- *  DeployedIndex, and that need a higher degree of manual configuration. If
- *  min_replica_count is not set, the default value is 2 (we don't provide SLA
- *  when min_replica_count=1). If max_replica_count is not set, the default
- *  value is min_replica_count. The max allowed replica count is 1000. Available
- *  machine types for SMALL shard: e2-standard-2 and all machine types available
- *  for MEDIUM and LARGE shard. Available machine types for MEDIUM shard:
- *  e2-standard-16 and all machine types available for LARGE shard. Available
- *  machine types for LARGE shard: e2-highmem-16, n2d-standard-32.
- *  n1-standard-16 and n1-standard-32 are still available, but we recommend
- *  e2-standard-16 and e2-highmem-16 for cost efficiency.
+ *  DeployedIndex, and that need a higher degree of manual configuration. The
+ *  field min_replica_count must be set to a value strictly greater than 0, or
+ *  else validation will fail. We don't provide SLA when min_replica_count=1. If
+ *  max_replica_count is not set, the default value is min_replica_count. The
+ *  max allowed replica count is 1000. Available machine types for SMALL shard:
+ *  e2-standard-2 and all machine types available for MEDIUM and LARGE shard.
+ *  Available machine types for MEDIUM shard: e2-standard-16 and all machine
+ *  types available for LARGE shard. Available machine types for LARGE shard:
+ *  e2-highmem-16, n2d-standard-32. n1-standard-16 and n1-standard-32 are still
+ *  available, but we recommend e2-standard-16 and e2-highmem-16 for cost
+ *  efficiency.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources *dedicatedResources;
 
@@ -6855,6 +7120,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /** The DeployedIndex that had been deployed in the IndexEndpoint. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex *deployedIndex;
+
+@end
+
+
+/**
+ *  A description of resources that can be shared by multiple DeployedModels,
+ *  whose underlying specification consists of a DedicatedResources.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool : GTLRObject
+
+/** Output only. Timestamp when this DeploymentResourcePool was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The underlying DedicatedResources that the DeploymentResourcePool
+ *  uses.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources *dedicatedResources;
+
+/**
+ *  Immutable. The resource name of the DeploymentResourcePool. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -8860,6 +9149,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
 
+/**
+ *  Only applicable for Vertex AI Feature Store. The name of the BigQuery
+ *  Table/View columnn hosting data for this version. If no value is provided,
+ *  will use feature_id.
+ */
+@property(nonatomic, copy, nullable) NSString *versionColumnName;
+
 @end
 
 
@@ -8879,6 +9175,97 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Feature_Labels : GTLRObject
+@end
+
+
+/**
+ *  Vertex AI Feature Group.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup : GTLRObject
+
+/**
+ *  Indicates that features for this group come from BigQuery Table/View. By
+ *  default treats the source as a sparse time series source, which is required
+ *  to have an entity_id and a feature_timestamp column in the source.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQuery *bigQuery;
+
+/** Output only. Timestamp when this FeatureGroup was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the FeatureGroup.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Used to perform consistent read-modify-write updates. If not set,
+ *  a blind "overwrite" update happens.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureGroup. Label keys and values can be no longer than 64 characters
+ *  (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one FeatureGroup(System
+ *  labels are excluded)." System reserved label keys are prefixed with
+ *  "aiplatform.googleapis.com/" and are immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_Labels *labels;
+
+/**
+ *  Output only. Name of the FeatureGroup. Format:
+ *  `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Timestamp when this FeatureGroup was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureGroup. Label keys and values can be no longer than 64 characters
+ *  (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one FeatureGroup(System
+ *  labels are excluded)." System reserved label keys are prefixed with
+ *  "aiplatform.googleapis.com/" and are immutable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Input source type for BigQuery Tables and Views.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQuery : GTLRObject
+
+/**
+ *  Required. Immutable. The BigQuery source URI that points to either a
+ *  BigQuery Table or View.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQuerySource *bigQuerySource;
+
+/**
+ *  Optional. Columns to construct entity_id / row keys. Currently only supports
+ *  1 entity_id_column. If not provided defaults to `entity_id`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityIdColumns;
+
 @end
 
 
@@ -8944,6 +9331,138 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sigma;
+
+@end
+
+
+/**
+ *  Vertex AI Feature Online Store provides a centralized repository for serving
+ *  ML features and embedding indexes at low latency. The Feature Online Store
+ *  is a top-level container.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore : GTLRObject
+
+/**
+ *  Contains settings for the Cloud Bigtable instance that will be created to
+ *  serve featureValues for all FeatureViews under this FeatureOnlineStore.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtable *bigtable;
+
+/** Output only. Timestamp when this FeatureOnlineStore was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Used to perform consistent read-modify-write updates. If not set,
+ *  a blind "overwrite" update happens.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureOnlineStore. Label keys and values can be no longer than 64
+ *  characters (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one
+ *  FeatureOnlineStore(System labels are excluded)." System reserved label keys
+ *  are prefixed with "aiplatform.googleapis.com/" and are immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_Labels *labels;
+
+/**
+ *  Output only. Name of the FeatureOnlineStore. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the featureOnlineStore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_Stable
+ *        State when the featureOnlineStore configuration is not being updated
+ *        and the fields reflect the current configuration of the
+ *        featureOnlineStore. The featureOnlineStore is usable in this state.
+ *        (Value: "STABLE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_State_Updating
+ *        The state of the featureOnlineStore configuration when it is being
+ *        updated. During an update, the fields reflect either the original
+ *        configuration or the updated configuration of the featureOnlineStore.
+ *        The featureOnlineStore is still usable in this state. (Value:
+ *        "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when this FeatureOnlineStore was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureOnlineStore. Label keys and values can be no longer than 64
+ *  characters (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one
+ *  FeatureOnlineStore(System labels are excluded)." System reserved label keys
+ *  are prefixed with "aiplatform.googleapis.com/" and are immutable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtable
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtable : GTLRObject
+
+/** Required. Autoscaling config applied to Bigtable Instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtableAutoScaling *autoScaling;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtableAutoScaling
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreBigtableAutoScaling : GTLRObject
+
+/**
+ *  Optional. A percentage of the cluster's CPU capacity. Can be from 10% to
+ *  80%. When a cluster's CPU utilization exceeds the target that you have set,
+ *  Bigtable immediately adds nodes to the cluster. When CPU utilization is
+ *  substantially lower than the target, Bigtable removes nodes. If not set will
+ *  default to 50%.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuUtilizationTarget;
+
+/**
+ *  Required. The maximum number of nodes to scale up to. Must be greater than
+ *  or equal to min_node_count, and less than or equal to 10 times of
+ *  'min_node_count'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+/**
+ *  Required. The minimum number of nodes to scale down to. Must be greater than
+ *  or equal to 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
 
 @end
 
@@ -9464,6 +9983,266 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  than one year (366 days) in the future.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
+
+@end
+
+
+/**
+ *  FeatureView is representation of values that the FeatureOnlineStore will
+ *  serve based on its syncConfig.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureView : GTLRObject
+
+/**
+ *  Optional. Configures how data is supposed to be extracted from a BigQuery
+ *  source to be loaded onto the FeatureOnlineStore.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewBigQuerySource *bigQuerySource;
+
+/** Output only. Timestamp when this FeatureView was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Used to perform consistent read-modify-write updates. If not set,
+ *  a blind "overwrite" update happens.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Configures the features from a Feature Registry source that need
+ *  to be loaded onto the FeatureOnlineStore.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySource *featureRegistrySource;
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureViews. Label keys and values can be no longer than 64 characters
+ *  (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one
+ *  FeatureOnlineStore(System labels are excluded)." System reserved label keys
+ *  are prefixed with "aiplatform.googleapis.com/" and are immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureView_Labels *labels;
+
+/**
+ *  Output only. Name of the FeatureView. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configures when data is to be synced/updated for this FeatureView. At the
+ *  end of the sync the latest featureValues for each entityId of this
+ *  FeatureView are made ready for online serving.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig *syncConfig;
+
+/** Output only. Timestamp when this FeatureView was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata to organize your
+ *  FeatureViews. Label keys and values can be no longer than 64 characters
+ *  (Unicode codepoints), can only contain lowercase letters, numeric
+ *  characters, underscores and dashes. International characters are allowed.
+ *  See https://goo.gl/xmQnxf for more information on and examples of labels. No
+ *  more than 64 user labels can be associated with one
+ *  FeatureOnlineStore(System labels are excluded)." System reserved label keys
+ *  are prefixed with "aiplatform.googleapis.com/" and are immutable.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureView_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewBigQuerySource
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewBigQuerySource : GTLRObject
+
+/**
+ *  Required. Columns to construct entity_id / row keys. Start by supporting 1
+ *  only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityIdColumns;
+
+/**
+ *  Required. The BigQuery view URI that will be materialized on each sync
+ *  trigger based on FeatureView.SyncConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Lookup key for a feature view.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey : GTLRObject
+
+/** String key to use for lookup. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  A Feature Registry source for features that need to be synced to Online
+ *  Store.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySource : GTLRObject
+
+/** Required. List of features that need to be synced to Online Store. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup *> *featureGroups;
+
+@end
+
+
+/**
+ *  Features belonging to a single feature group that will be synced to Online
+ *  Store.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup : GTLRObject
+
+/** Required. Identifier of the feature group. */
+@property(nonatomic, copy, nullable) NSString *featureGroupId;
+
+/** Required. Identifiers of features under the feature group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *featureIds;
+
+@end
+
+
+/**
+ *  FeatureViewSync is a representation of sync operation which copies data from
+ *  data source to Feature View in Online Store.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync : GTLRObject
+
+/**
+ *  Output only. Time when this FeatureViewSync is created. Creation of a
+ *  FeatureViewSync means that the job is pending / waiting for sufficient
+ *  resources but may not have started the actual data transfer yet.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Final status of the FeatureViewSync. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *finalStatus;
+
+/**
+ *  Output only. Name of the FeatureViewSync. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Time when this FeatureViewSync is finished. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleTypeInterval *runTime;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig : GTLRObject
+
+/**
+ *  Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
+ *  To explicitly set a timezone to the cron tab, apply a prefix in the cron
+ *  tab: "CRON_TZ=${IANA_TIME_ZONE}" or "TZ=${IANA_TIME_ZONE}". The
+ *  ${IANA_TIME_ZONE} may only be a valid string from IANA time zone database.
+ *  For example, "CRON_TZ=America/New_York 1 * * * *", or "TZ=America/New_York 1
+ *  * * * *".
+ */
+@property(nonatomic, copy, nullable) NSString *cron;
+
+@end
+
+
+/**
+ *  Request message for FeatureOnlineStoreService.FetchFeatureValues. All the
+ *  features under the requested feature view will be returned.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest : GTLRObject
+
+/**
+ *  Optional. Response data format. If not set, FeatureViewDataFormat.KEY_VALUE
+ *  will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_FeatureViewDataFormatUnspecified
+ *        Not set. Will be treated as the KeyValue format. (Value:
+ *        "FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_KeyValue
+ *        Return response data in key-value format. (Value: "KEY_VALUE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_ProtoStruct
+ *        Return response data in proto Struct format. (Value: "PROTO_STRUCT")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
+
+/** Optional. The request key to fetch feature values for. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey *dataKey;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreService.FetchFeatureValues
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse : GTLRObject
+
+/** Feature values in KeyValue format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairList *keyValues;
+
+/** Feature values in proto Struct format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse_ProtoStruct *protoStruct;
+
+@end
+
+
+/**
+ *  Feature values in proto Struct format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse_ProtoStruct : GTLRObject
+@end
+
+
+/**
+ *  Response structure in the format of key (feature name) and (feature) value
+ *  pair.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairList : GTLRObject
+
+/** List of feature names and values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairListFeatureNameValuePair *> *features;
+
+@end
+
+
+/**
+ *  Feature name & value pair.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairListFeatureNameValuePair : GTLRObject
+
+/** Feature short name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Feature value. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureValue *value;
 
 @end
 
@@ -10353,6 +11132,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 /**
  *  Optional. List of Restrict of the datapoint, used to perform "restricted
  *  searches" where boolean rule are used to filter the subset of the database
+ *  eligible for matching. This uses numeric comparisons.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction *> *numericRestricts;
+
+/**
+ *  Optional. List of Restrict of the datapoint, used to perform "restricted
+ *  searches" where boolean rule are used to filter the subset of the database
  *  eligible for matching. This uses categorical tokens. See:
  *  https://cloud.google.com/vertex-ai/docs/matching-engine/filtering
  */
@@ -10376,6 +11162,67 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  neighbors to return for a given query.
  */
 @property(nonatomic, copy, nullable) NSString *crowdingAttribute;
+
+@end
+
+
+/**
+ *  This field allows restricts to be based on numeric comparisons rather than
+ *  categorical tokens.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction : GTLRObject
+
+/**
+ *  The namespace of this restriction. e.g.: cost.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/**
+ *  This MUST be specified for queries and must NOT be specified for datapoints.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Equal
+ *        Datapoints are eligible iff their value is == the query's. (Value:
+ *        "EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Greater
+ *        Datapoints are eligible iff their value is > the query's. (Value:
+ *        "GREATER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_GreaterEqual
+ *        Datapoints are eligible iff their value is >= the query's. (Value:
+ *        "GREATER_EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Less
+ *        Datapoints are eligible iff their value is < the query's. (Value:
+ *        "LESS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_LessEqual
+ *        Datapoints are eligible iff their value is <= the query's. (Value:
+ *        "LESS_EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_OperatorUnspecified
+ *        Default value of the enum. (Value: "OPERATOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *op;
+
+/**
+ *  Represents 64 bit float.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueDouble;
+
+/**
+ *  Represents 32 bit float.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueFloat;
+
+/**
+ *  Represents 64 bit integer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueInt;
 
 @end
 
@@ -10994,6 +11841,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Response message for ListDeploymentResourcePools method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deploymentResourcePools" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListDeploymentResourcePoolsResponse : GTLRCollectionObject
+
+/**
+ *  The DeploymentResourcePools from the specified location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool *> *deploymentResourcePools;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for EndpointService.ListEndpoints.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11076,6 +11950,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 
 /**
+ *  Response message for FeatureRegistryService.ListFeatureGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "featureGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The FeatureGroups matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup *> *featureGroups;
+
+/**
+ *  A token, which can be sent as ListFeatureGroupsRequest.page_token to
+ *  retrieve the next page. If this field is omitted, there are no subsequent
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreAdminService.ListFeatureOnlineStores.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "featureOnlineStores" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureOnlineStoresResponse : GTLRCollectionObject
+
+/**
+ *  The FeatureOnlineStores matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore *> *featureOnlineStores;
+
+/**
+ *  A token, which can be sent as ListFeatureOnlineStoresRequest.page_token to
+ *  retrieve the next page. If this field is omitted, there are no subsequent
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for FeaturestoreService.ListFeatures. Response message for
  *  FeatureRegistryService.ListFeatures.
  *
@@ -11123,6 +12053,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /**
  *  A token, which can be sent as ListFeaturestoresRequest.page_token to
+ *  retrieve the next page. If this field is omitted, there are no subsequent
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreAdminService.ListFeatureViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "featureViews" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureViewsResponse : GTLRCollectionObject
+
+/**
+ *  The FeatureViews matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureView *> *featureViews;
+
+/**
+ *  A token, which can be sent as ListFeatureViewsRequest.page_token to retrieve
+ *  the next page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreAdminService.ListFeatureViewSyncs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "featureViewSyncs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureViewSyncsResponse : GTLRCollectionObject
+
+/**
+ *  The FeatureViewSyncs matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync *> *featureViewSyncs;
+
+/**
+ *  A token, which can be sent as ListFeatureViewSyncsRequest.page_token to
  *  retrieve the next page. If this field is omitted, there are no subsequent
  *  pages.
  */
@@ -12709,6 +13694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
 /**
+ *  Immutable. Deployment timeout. TODO (b/306244185): Revise documentation
+ *  before exposing.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *deploymentTimeout;
+
+/**
  *  Immutable. List of environment variables to set in the container. After the
  *  container starts running, code running in the container can read these
  *  environment variables. Additionally, the command and args fields can
@@ -12722,6 +13713,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#container-v1-core).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EnvVar *> *env;
+
+/**
+ *  Immutable. Specification for Kubernetes readiness probe. TODO (b/306244185):
+ *  Revise documentation before exposing.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Probe *healthProbe;
 
 /**
  *  Immutable. HTTP path on the container to send health checks to. Vertex AI
@@ -12798,6 +13795,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  *  variable](https://cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#aip-variables).)
  */
 @property(nonatomic, copy, nullable) NSString *predictRoute;
+
+/**
+ *  Immutable. The amount of the VM memory to reserve as the shared memory for
+ *  the model in megabytes. TODO (b/306244185): Revise documentation before
+ *  exposing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharedMemorySizeMb;
+
+/**
+ *  Immutable. Specification for Kubernetes startup probe. TODO (b/306244185):
+ *  Revise documentation before exposing.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Probe *startupProbe;
 
 @end
 
@@ -15725,6 +16737,54 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Probe describes a health check to be performed against a container to
+ *  determine whether it is alive or ready to receive traffic.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Probe : GTLRObject
+
+/** Exec specifies the action to take. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction *exec;
+
+/**
+ *  How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
+ *  value is 1. Must be less than timeout_seconds. Maps to Kubernetes probe
+ *  argument 'periodSeconds'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodSeconds;
+
+/**
+ *  Number of seconds after which the probe times out. Defaults to 1 second.
+ *  Minimum value is 1. Must be greater or equal to period_seconds. Maps to
+ *  Kubernetes probe argument 'timeoutSeconds'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeoutSeconds;
+
+@end
+
+
+/**
+ *  ExecAction specifies a command to execute.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction : GTLRObject
+
+/**
+ *  Command is the command line to execute inside the container, the working
+ *  directory for the command is root ('/') in the container's filesystem. The
+ *  command is simply exec'd, it is not run inside a shell, so traditional shell
+ *  instructions ('|', etc) won't work. To use a shell, you need to explicitly
+ *  call out to that shell. Exit status of 0 is treated as live/healthy and
+ *  non-zero is unhealthy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+@end
+
+
+/**
  *  A Model Garden Publisher Model.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModel : GTLRObject
@@ -16177,6 +17237,44 @@ GTLR_DEPRECATED
 
 /** Required. The Python module name to run after installing the packages. */
 @property(nonatomic, copy, nullable) NSString *pythonModule;
+
+@end
+
+
+/**
+ *  Response message for QueryDeployedModels method.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QueryDeployedModelsResponse : GTLRObject
+
+/**
+ *  References to the DeployedModels that share the specified
+ *  deploymentResourcePool.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef *> *deployedModelRefs;
+
+/** DEPRECATED Use deployed_model_refs instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel *> *deployedModels GTLR_DEPRECATED;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total number of DeployedModels on this DeploymentResourcePool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDeployedModelCount;
+
+/**
+ *  The total number of Endpoints that have DeployedModels on this
+ *  DeploymentResourcePool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalEndpointCount;
 
 @end
 
@@ -18436,6 +19534,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfig : GTLRObject
 
+/**
+ *  If set, skip finding claim attributions (i.e not generate grounding
+ *  citation).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAttribution;
+
 /** The sources for the grounding checking. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry *> *sources;
 
@@ -18447,21 +19553,31 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry : GTLRObject
 
-/** The uri of the Enterprise Search data source. */
-@property(nonatomic, copy, nullable) NSString *enterpriseDatastore;
+/**
+ *  The uri of the Vertex AI Search data source. Deprecated. Use
+ *  vertex_ai_search_datastore instead.
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseDatastore GTLR_DEPRECATED;
 
 /**
  *  The type of the grounding checking source.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Enterprise
- *        Uses Enterprise Search to check the grounding. (Value: "ENTERPRISE")
+ *        Uses Vertex AI Search to check the grounding. Deprecated. Use
+ *        VERTEX_AI_SEARCH instead. (Value: "ENTERPRISE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Unspecified
  *        Value "UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_VertexAiSearch
+ *        Uses Vertex AI Search to check the grounding (Value:
+ *        "VERTEX_AI_SEARCH")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SchemaPredictParamsGroundingConfigSourceEntry_Type_Web
  *        Uses Web Search to check the grounding. (Value: "WEB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/** The uri of the Vertex AI Search data source. */
+@property(nonatomic, copy, nullable) NSString *vertexAiSearchDatastore;
 
 @end
 
@@ -22306,7 +23422,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A message representing a Study. Next id: 12
+ *  A message representing a Study.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Study : GTLRObject
 
@@ -23048,6 +24164,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for FeatureOnlineStoreAdminService.SyncFeatureView.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewRequest : GTLRObject
+@end
+
+
+/**
+ *  Respose message for FeatureOnlineStoreAdminService.SyncFeatureView.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewResponse : GTLRObject
+
+/**
+ *  Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+ */
+@property(nonatomic, copy, nullable) NSString *featureViewSync;
+
+@end
+
+
+/**
  *  A tensor value type.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Tensor : GTLRObject
@@ -23759,6 +24896,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Tokens info with a list of tokens and the corresponding list of token ids.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo : GTLRObject
+
+/**
+ *  A list of token ids from the input.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *tokenIds;
+
+/**
+ *  A list of tokens from the input.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tokens;
+
+@end
+
+
+/**
  *  CMLE training config. For every active learning labeling iteration, system
  *  will train a machine learning model on CMLE. The trained model will be used
  *  by data sampling algorithm to select DataItems.
@@ -24244,6 +25404,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Runtime operation information for UpdateDeploymentResourcePool method.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateDeploymentResourcePoolOperationMetadata : GTLRObject
+
+/** The operation generic information. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Runtime operation information for ModelService.UpdateExplanationDataset.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateExplanationDatasetOperationMetadata : GTLRObject
@@ -24273,11 +25444,55 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of operations that perform update FeatureGroup.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateFeatureGroupOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureGroup. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform update FeatureOnlineStore.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateFeatureOnlineStoreOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureOnlineStore. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform update Feature.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateFeatureOperationMetadata : GTLRObject
+
+/** Operation metadata for Feature Update. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Details of operations that perform update Featurestore.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateFeaturestoreOperationMetadata : GTLRObject
 
 /** Operation metadata for Featurestore. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Details of operations that perform update FeatureView.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateFeatureViewOperationMetadata : GTLRObject
+
+/** Operation metadata for FeatureView Update. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
 
 @end
@@ -24375,10 +25590,10 @@ GTLR_DEPRECATED
  *  Optional. The user-provided custom service account to use to do the model
  *  upload. If empty, [Vertex AI Service
  *  Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
- *  will be used. Users uploading the Model must have the
- *  `iam.serviceAccounts.actAs` permission on this service account. Also, this
- *  account must belong to the project specified in the `parent` field and have
- *  all necessary read permissions.
+ *  will be used to access resources needed to upload the model. This account
+ *  must belong to the target project where the model is uploaded to, i.e., the
+ *  project specified in the `parent` field of this request and have necessary
+ *  read permissions (to Google Cloud Storage, Artifact Registry, etc.).
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 

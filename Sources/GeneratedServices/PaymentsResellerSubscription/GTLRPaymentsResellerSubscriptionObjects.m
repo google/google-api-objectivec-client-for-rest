@@ -26,6 +26,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration.unit
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Day = @"DAY";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Hour = @"HOUR";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month = @"MONTH";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 

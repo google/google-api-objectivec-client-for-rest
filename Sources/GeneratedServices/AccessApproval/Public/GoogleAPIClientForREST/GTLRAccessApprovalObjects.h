@@ -98,6 +98,226 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
+
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm;
+/**
+ *  Not specified.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_P256_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256;
+/**
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_P384_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP384Sha384;
+/**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignSecp256k1Sha256;
+/**
+ *  Algorithm representing symmetric encryption by an external key manager.
+ *
+ *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_ExternalSymmetricEncryption;
+/**
+ *  Creates symmetric encryption keys.
+ *
+ *  Value: "GOOGLE_SYMMETRIC_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_GoogleSymmetricEncryption;
+/**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha224;
+/**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha1;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha256;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha1;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha1;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs12048Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs13072Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha512;
+/**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs14096;
+
 /**
  *  Home office and physical location of the principal.
  */
@@ -188,9 +408,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The requested access duration. */
+@property(nonatomic, strong, nullable) GTLRDuration *requestedDuration;
+
 /**
- *  The requested expiration for the approval. If the request is approved,
- *  access will be granted from the time of approval until the expiration time.
+ *  The original requested expiration for the approval. Calculated by adding the
+ *  requested_duration to the request_time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestedExpiration;
 
@@ -525,11 +748,131 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @property(nonatomic, copy, nullable) NSString *customerKmsKeyVersion;
 
 /**
+ *  The hashing algorithm used for signature verification. It will only be
+ *  present in the case of Google managed keys.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Ctr
+ *        AES-CTR (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Gcm
+ *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
+ *        "AES_128_GCM")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr
+ *        AES-CTR (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm
+ *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
+ *        "AES_256_GCM")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified
+ *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP384Sha384
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_ExternalSymmetricEncryption
+ *        Algorithm representing symmetric encryption by an external key
+ *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_GoogleSymmetricEncryption
+ *        Creates symmetric encryption keys. (Value:
+ *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha1
+ *        HMAC-SHA1 signing with a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha224
+ *        HMAC-SHA224 signing with a 224 bit key. (Value: "HMAC_SHA224")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha256
+ *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha384
+ *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512
+ *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha256
+ *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha256
+ *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs12048Sha256
+ *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_2048_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs13072Sha256
+ *        RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_3072_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha256
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss2048Sha256
+ *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_2048_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss3072Sha256
+ *        RSASSA-PSS 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_3072_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha256
+ *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
+ */
+@property(nonatomic, copy, nullable) NSString *googleKeyAlgorithm;
+
+/**
  *  The public key for the Google default signing, encoded in PEM format. The
  *  signature was created using a private key which may be verified using this
  *  public key.
  */
 @property(nonatomic, copy, nullable) NSString *googlePublicKeyPem;
+
+/**
+ *  The serialized ApprovalRequest message without the approve.signature_info
+ *  field. This to allow the customer to verify signatures if they want to.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *serializedApprovalRequest;
 
 /**
  *  The digital signature.

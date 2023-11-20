@@ -22,6 +22,15 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineCommonConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo;
@@ -110,6 +119,247 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.contentConfig
+
+/**
+ *  Default value.
+ *
+ *  Value: "CONTENT_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentConfigUnspecified;
+/**
+ *  Only contains documents with Document.content.
+ *
+ *  Value: "CONTENT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentRequired;
+/**
+ *  Only contains documents without any Document.content.
+ *
+ *  Value: "NO_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_NoContent;
+/**
+ *  The data store is used for public website search.
+ *
+ *  Value: "PUBLIC_WEBSITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_PublicWebsite;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.industryVertical
+
+/**
+ *  The generic vertical for documents that are not specific to any industry
+ *  vertical.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Generic;
+/**
+ *  Value used when unset.
+ *
+ *  Value: "INDUSTRY_VERTICAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_IndustryVerticalUnspecified;
+/**
+ *  The media industry vertical.
+ *
+ *  Value: "MEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Media;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.solutionTypes
+
+/**
+ *  Used for use cases related to the Generative AI agent.
+ *
+ *  Value: "SOLUTION_TYPE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeChat;
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeRecommendation;
+/**
+ *  Used for Discovery Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.industryVertical
+
+/**
+ *  The generic vertical for documents that are not specific to any industry
+ *  vertical.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Generic;
+/**
+ *  Value used when unset.
+ *
+ *  Value: "INDUSTRY_VERTICAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_IndustryVerticalUnspecified;
+/**
+ *  The media industry vertical.
+ *
+ *  Value: "MEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Media;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.solutionType
+
+/**
+ *  Used for use cases related to the Generative AI agent.
+ *
+ *  Value: "SOLUTION_TYPE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeChat;
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeRecommendation;
+/**
+ *  Used for Discovery Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig.trainingState
+
+/**
+ *  The engine training is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_Paused;
+/**
+ *  The engine is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_Training;
+/**
+ *  Unspecified training state.
+ *
+ *  Value: "TRAINING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata.dataState
+
+/**
+ *  The engine does not have sufficient training data. Error messages can be
+ *  queried via Stackdriver.
+ *
+ *  Value: "DATA_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataError;
+/**
+ *  The engine has sufficient training data.
+ *
+ *  Value: "DATA_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataOk;
+/**
+ *  Unspecified default value, should never be explicitly set.
+ *
+ *  Value: "DATA_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata.servingState
+
+/**
+ *  The engine is serving and can be queried.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Active;
+/**
+ *  The engine is not serving.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Inactive;
+/**
+ *  Unspecified serving state.
+ *
+ *  Value: "SERVING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_ServingStateUnspecified;
+/**
+ *  The engine is trained on tuned hyperparameters and can be queried.
+ *
+ *  Value: "TUNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Tuned;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig.searchAddOns
+
+/**
+ *  Large language model add-on.
+ *
+ *  Value: "SEARCH_ADD_ON_LLM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchAddOns_SearchAddOnLlm;
+/**
+ *  Default value when the enum is unspecified. This is invalid to use.
+ *
+ *  Value: "SEARCH_ADD_ON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchAddOns_SearchAddOnUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig.searchTier
+
+/**
+ *  Enterprise tier.
+ *
+ *  Value: "SEARCH_TIER_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierEnterprise;
+/**
+ *  Standard tier.
+ *
+ *  Value: "SEARCH_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierStandard;
+/**
+ *  Default value when the enum is unspecified. This is invalid to use.
+ *
+ *  Value: "SEARCH_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig.completableOption
@@ -767,9 +1017,157 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the DataStoreService.CreateDataStore
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateDataStoreMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the EngineService.CreateEngine
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateEngineMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata for Create Schema LRO.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateSchemaMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  DataStore captures global settings and configs at the DataStore level.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore : GTLRObject
+
+/**
+ *  Immutable. The content config of the data store. If this field is unset, the
+ *  server behavior defaults to ContentConfig.NO_CONTENT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentConfigUnspecified
+ *        Default value. (Value: "CONTENT_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentRequired
+ *        Only contains documents with Document.content. (Value:
+ *        "CONTENT_REQUIRED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_NoContent
+ *        Only contains documents without any Document.content. (Value:
+ *        "NO_CONTENT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_PublicWebsite
+ *        The data store is used for public website search. (Value:
+ *        "PUBLIC_WEBSITE")
+ */
+@property(nonatomic, copy, nullable) NSString *contentConfig;
+
+/** Output only. Timestamp the DataStore was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The id of the default Schema asscociated to this data store.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultSchemaId;
+
+/**
+ *  Required. The data store display name. This field must be a UTF-8 encoded
+ *  string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT
+ *  error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The industry vertical that the data store registers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Generic
+ *        The generic vertical for documents that are not specific to any
+ *        industry vertical. (Value: "GENERIC")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_IndustryVerticalUnspecified
+ *        Value used when unset. (Value: "INDUSTRY_VERTICAL_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Media
+ *        The media industry vertical. (Value: "MEDIA")
+ */
+@property(nonatomic, copy, nullable) NSString *industryVertical;
+
+/**
+ *  Immutable. The full resource name of the data store. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The solutions that the data store enrolls. Available solutions for each
+ *  industry_vertical: * `MEDIA`: `SOLUTION_TYPE_RECOMMENDATION` and
+ *  `SOLUTION_TYPE_SEARCH`. * `SITE_SEARCH`: `SOLUTION_TYPE_SEARCH` is
+ *  automatically enrolled. Other solutions cannot be enrolled.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *solutionTypes;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the DataStoreService.DeleteDataStore
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteDataStoreMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the EngineService.DeleteEngine
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteEngineMetadata : GTLRObject
 
 /** Operation create time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -797,6 +1195,373 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Metadata that describes the training and serving parameters of an Engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine : GTLRObject
+
+/**
+ *  Configurations for the Chat Engine. Only applicable if solution_type is
+ *  SOLUTION_TYPE_CHAT.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig *chatEngineConfig;
+
+/**
+ *  Output only. Additional information of the Chat Engine. Only applicable if
+ *  solution_type is SOLUTION_TYPE_CHAT.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata *chatEngineMetadata;
+
+/** Common config spec that specifies the metadata of the engine. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineCommonConfig *commonConfig;
+
+/** Output only. Timestamp the Recommendation Engine was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The data stores associated with this engine. For SOLUTION_TYPE_SEARCH and
+ *  SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with
+ *  at most one data store. If solution_type is SOLUTION_TYPE_CHAT, multiple
+ *  DataStores in the same Collection can be associated here. Note that when
+ *  used in CreateEngineRequest, one DataStore id must be provided as the system
+ *  will use it for necessary intializations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataStoreIds;
+
+/**
+ *  Required. The display name of the engine. Should be human readable. UTF-8
+ *  encoded string with limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The industry vertical that the engine registers. The restriction of the
+ *  Engine industry vertical is based on DataStore: If unspecified, default to
+ *  `GENERIC`. Vertical on Engine has to match vertical of the DataStore liniked
+ *  to the engine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Generic
+ *        The generic vertical for documents that are not specific to any
+ *        industry vertical. (Value: "GENERIC")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_IndustryVerticalUnspecified
+ *        Value used when unset. (Value: "INDUSTRY_VERTICAL_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Media
+ *        The media industry vertical. (Value: "MEDIA")
+ */
+@property(nonatomic, copy, nullable) NSString *industryVertical;
+
+/**
+ *  Configurations for the Media Engine. Only applicable on the data stores with
+ *  solution_type SOLUTION_TYPE_RECOMMENDATION and IndustryVertical.MEDIA
+ *  vertical.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig *mediaRecommendationEngineConfig;
+
+/**
+ *  Immutable. The fully qualified resource name of the engine. This field must
+ *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/engines/{engine}`
+ *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
+ *  Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Additional information of a recommendation engine. Only
+ *  applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata *recommendationMetadata;
+
+/**
+ *  Configurations for the Search Engine. Only applicable if solution_type is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig *searchEngineConfig;
+
+/** Additional config specs for a `similar-items` engine. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig *similarDocumentsConfig;
+
+/**
+ *  Required. The solutions of the engine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeChat
+ *        Used for use cases related to the Generative AI agent. (Value:
+ *        "SOLUTION_TYPE_CHAT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeRecommendation
+ *        Used for Recommendations AI. (Value: "SOLUTION_TYPE_RECOMMENDATION")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeSearch
+ *        Used for Discovery Search. (Value: "SOLUTION_TYPE_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeUnspecified
+ *        Default value. (Value: "SOLUTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *solutionType;
+
+/** Output only. Timestamp the Recommendation Engine was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Configurations for a Chat Engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig : GTLRObject
+
+/**
+ *  The configurationt generate the Dialogflow agent that is associated to this
+ *  Engine. Note that these configurations are one-time consumed by and passed
+ *  to Dialogflow service. It means they cannot be retrieved using
+ *  EngineService.GetEngine or EngineService.ListEngines API after engine
+ *  creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig *agentCreationConfig;
+
+/**
+ *  The resource name of an exist Dialogflow agent to link to this Chat Engine.
+ *  Customers can either provide `agent_creation_config` to create agent or
+ *  provide an agent name that links the agent with the Chat engine. Format:
+ *  `projects//locations//agents/`. Note that the `dialogflow_agent_to_link` are
+ *  one-time consumed by and passed to Dialogflow service. It means they cannot
+ *  be retrieved using EngineService.GetEngine or EngineService.ListEngines API
+ *  after engine creation. Please use chat_engine_metadata.dialogflow_agent for
+ *  actual agent association after Engine is created.
+ */
+@property(nonatomic, copy, nullable) NSString *dialogflowAgentToLink;
+
+@end
+
+
+/**
+ *  Configurations for generating a Dialogflow agent. Note that these
+ *  configurations are one-time consumed by and passed to Dialogflow service. It
+ *  means they cannot be retrieved using EngineService.GetEngine or
+ *  EngineService.ListEngines API after engine creation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig : GTLRObject
+
+/**
+ *  Name of the company, organization or other entity that the agent represents.
+ *  Used for knowledge connector LLM prompt and for knowledge search.
+ */
+@property(nonatomic, copy, nullable) NSString *business;
+
+/**
+ *  Required. The default language of the agent as a language tag. See [Language
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
+
+/**
+ *  Required. The time zone of the agent from the [time zone
+ *  database](https://www.iana.org/time-zones), e.g., America/New_York,
+ *  Europe/Paris.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  Additional information of a Chat Engine. Fields in this message are output
+ *  only.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata : GTLRObject
+
+/**
+ *  The resource name of a Dialogflow agent, that this Chat Engine refers to.
+ *  Format: `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *dialogflowAgent;
+
+@end
+
+
+/**
+ *  Common configurations for an Engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineCommonConfig : GTLRObject
+
+/**
+ *  The name of the company, business or entity that is associated with the
+ *  engine. Setting this may help improve LLM related features.
+ */
+@property(nonatomic, copy, nullable) NSString *companyName;
+
+@end
+
+
+/**
+ *  Additional config specs for a Media Recommendation engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig : GTLRObject
+
+/**
+ *  The optimization objective e.g. `cvr`. This field together with
+ *  optimization_objective describe engine metadata to use to control engine
+ *  training and serving. Currently supported values: `ctr`, `cvr`. If not
+ *  specified, we choose default based on engine type. Default depends on type
+ *  of recommendation: `recommended-for-you` => `ctr` `others-you-may-like` =>
+ *  `ctr`
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/**
+ *  Name and value of the custom threshold for cvr optimization_objective. For
+ *  target_field `watch-time`, target_field_value must be an integer value
+ *  indicating the media progress time in seconds between (0, 86400] (excludes
+ *  0, includes 86400) (e.g., 90). For target_field `watch-percentage`, the
+ *  target_field_value must be a valid float value between (0, 1.0] (excludes 0,
+ *  includes 1.0) (e.g., 0.5).
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig *optimizationObjectiveConfig;
+
+/**
+ *  The training state that the engine is in (e.g. `TRAINING` or `PAUSED`).
+ *  Since part of the cost of running the service is frequency of training -
+ *  this can be used to determine when to train engine in order to control cost.
+ *  If not specified: the default value for `CreateEngine` method is `TRAINING`.
+ *  The default value for `UpdateEngine` method is to keep the state the same as
+ *  before.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_Paused
+ *        The engine training is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_Training
+ *        The engine is training. (Value: "TRAINING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfig_TrainingState_TrainingStateUnspecified
+ *        Unspecified training state. (Value: "TRAINING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingState;
+
+/**
+ *  Required. The type of engine e.g. `recommended-for-you`. This field together
+ *  with optimization_objective describe engine metadata to use to control
+ *  engine training and serving. Currently supported values:
+ *  `recommended-for-you`, `others-you-may-like`, `more-like-this`,
+ *  `most-popular-items`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Custom threshold for `cvr` optimization_objective.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineMediaRecommendationEngineConfigOptimizationObjectiveConfig : GTLRObject
+
+/**
+ *  Required. The name of the field to target. Currently supported values:
+ *  `watch-percentage`, `watch-time`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetField;
+
+/**
+ *  Required. The threshold to be applied to the target (e.g., 0.5).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetFieldValueFloat;
+
+@end
+
+
+/**
+ *  Additional information of a recommendation engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata : GTLRObject
+
+/**
+ *  Output only. The state of data requirements for this engine: `DATA_OK` and
+ *  `DATA_ERROR`. Engine cannot be trained if the data is in `DATA_ERROR` state.
+ *  Engine can have `DATA_ERROR` state even if serving state is `ACTIVE`:
+ *  engines were trained successfully before, but cannot be refreshed because
+ *  the underlying engine no longer has sufficient data for training.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataError
+ *        The engine does not have sufficient training data. Error messages can
+ *        be queried via Stackdriver. (Value: "DATA_ERROR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataOk
+ *        The engine has sufficient training data. (Value: "DATA_OK")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_DataState_DataStateUnspecified
+ *        Unspecified default value, should never be explicitly set. (Value:
+ *        "DATA_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
+ *  Output only. The timestamp when the latest successful tune finished. Only
+ *  applicable on Media Recommendation engines.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTuneTime;
+
+/**
+ *  Output only. The serving state of the engine: `ACTIVE`, `NOT_ACTIVE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Active
+ *        The engine is serving and can be queried. (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Inactive
+ *        The engine is not serving. (Value: "INACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_ServingStateUnspecified
+ *        Unspecified serving state. (Value: "SERVING_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineRecommendationMetadata_ServingState_Tuned
+ *        The engine is trained on tuned hyperparameters and can be queried.
+ *        (Value: "TUNED")
+ */
+@property(nonatomic, copy, nullable) NSString *servingState;
+
+/**
+ *  Output only. The latest tune operation id associated with the engine. Only
+ *  applicable on Media Recommendation engines. If present, this operation id
+ *  can be used to determine if there is an ongoing tune for this engine. To
+ *  check the operation status, send the GetOperation request with this
+ *  operation id in the engine resource format. If no tuning has happened for
+ *  this engine, the string is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *tuningOperation;
+
+@end
+
+
+/**
+ *  Configurations for a Search Engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig : GTLRObject
+
+/** The add-on that this search engine enables. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *searchAddOns;
+
+/**
+ *  The search feature tier of this engine. Different tiers might have different
+ *  pricing. To learn more, please check the pricing documentation. Defaults to
+ *  SearchTier.SEARCH_TIER_STANDARD if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierEnterprise
+ *        Enterprise tier. (Value: "SEARCH_TIER_ENTERPRISE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierStandard
+ *        Standard tier. (Value: "SEARCH_TIER_STANDARD")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierUnspecified
+ *        Default value when the enum is unspecified. This is invalid to use.
+ *        (Value: "SEARCH_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *searchTier;
+
+@end
+
+
+/**
+ *  Additional config specs for a `similar-items` engine.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig : GTLRObject
 @end
 
 
@@ -1490,6 +2255,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure : GTLRObject
+@end
+
+
+/**
+ *  Metadata associated with a tune operation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTuneEngineMetadata : GTLRObject
+
+/**
+ *  Required. The resource name of the engine that this tune applies to. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *engine;
+
+@end
+
+
+/**
+ *  Response associated with a tune operation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTuneEngineResponse : GTLRObject
 @end
 
 
@@ -2970,6 +3756,18 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *branch;
 
+/**
+ *  The default filter that is applied when a user performs a search without
+ *  checking any filters on the search page. The filter applied to every search
+ *  request when quality improvement such as query expansion is needed. In the
+ *  case a query does not have a sufficient amount of results this filter will
+ *  be used to determine whether or not to enable the query expansion flow. The
+ *  original filter will still be used for the query expanded search. This field
+ *  is strongly recommended to achieve high search quality. For more information
+ *  about filter syntax, see SearchRequest.filter.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalFilter;
+
 /** A specification for configuring the behavior of content search. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpec *contentSearchSpec;
 
@@ -3049,9 +3847,11 @@ GTLR_DEPRECATED
  *  Additional search parameters. For public website search only, supported
  *  values are: * `user_country_code`: string. Default empty. If set to
  *  non-empty, results are restricted or boosted based on the location provided.
+ *  Example: user_country_code: "au" For available codes see [Country
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  * `search_type`: double. Default empty. Enables non-webpage searching
  *  depending on the value. The only valid non-default value is 1, which enables
- *  image searching.
+ *  image searching. Example: search_type: 1
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_Params *params;
 
@@ -3134,9 +3934,11 @@ GTLR_DEPRECATED
  *  Additional search parameters. For public website search only, supported
  *  values are: * `user_country_code`: string. Default empty. If set to
  *  non-empty, results are restricted or boosted based on the location provided.
+ *  Example: user_country_code: "au" For available codes see [Country
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  * `search_type`: double. Default empty. Enables non-webpage searching
  *  depending on the value. The only valid non-default value is 1, which enables
- *  image searching.
+ *  image searching. Example: search_type: 1
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

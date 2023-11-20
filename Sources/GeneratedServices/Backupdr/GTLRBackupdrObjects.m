@@ -234,7 +234,9 @@ NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_PrivateServiceAccess = 
 
 @implementation GTLRBackupdr_ManagementServer
 @dynamic createTime, descriptionProperty, ETag, labels, managementUri, name,
-         networks, oauth2ClientId, state, type, updateTime;
+         networks, oauth2ClientId, state, type, updateTime,
+         workforceIdentityBasedManagementUri,
+         workforceIdentityBasedOauth2ClientId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -449,4 +451,24 @@ NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_PrivateServiceAccess = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_WorkforceIdentityBasedManagementURI
+//
+
+@implementation GTLRBackupdr_WorkforceIdentityBasedManagementURI
+@dynamic firstPartyManagementUri, thirdPartyManagementUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID
+//
+
+@implementation GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID
+@dynamic firstPartyOauth2ClientId, thirdPartyOauth2ClientId;
 @end

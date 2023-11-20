@@ -32,6 +32,415 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Cancels an AutomationRun. The `state` of the `AutomationRun` after
+ *  cancelling is `CANCELLED`. `CancelAutomationRun` can be called on
+ *  AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a
+ *  different state returns an `FAILED_PRECONDITION` error.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automationRuns.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsCancel : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `AutomationRun`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automationRuns/{automation_run}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_CancelAutomationRunResponse.
+ *
+ *  Cancels an AutomationRun. The `state` of the `AutomationRun` after
+ *  cancelling is `CANCELLED`. `CancelAutomationRun` can be called on
+ *  AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a
+ *  different state returns an `FAILED_PRECONDITION` error.
+ *
+ *  @param object The @c GTLRCloudDeploy_CancelAutomationRunRequest to include
+ *    in the query.
+ *  @param name Required. Name of the `AutomationRun`. Format is
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automationRuns/{automation_run}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CancelAutomationRunRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AutomationRun.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automationRuns.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `AutomationRun`. Format must be
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automationRuns/{automation_run}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_AutomationRun.
+ *
+ *  Gets details of a single AutomationRun.
+ *
+ *  @param name Required. Name of the `AutomationRun`. Format must be
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automationRuns/{automation_run}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AutomationRuns in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automationRuns.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsList : GTLRCloudDeployQuery
+
+/**
+ *  Filter automationRuns to be returned. All fields can be used in the filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Field to sort by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of automationRuns to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 automationRuns will be returned.
+ *  The maximum value is 1000; values above 1000 will be set to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAutomationRuns` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other provided
+ *  parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of automationRuns. Format
+ *  must be
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListAutomationRunsResponse.
+ *
+ *  Lists AutomationRuns in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    automationRuns. Format must be
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new Automation in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate : GTLRCloudDeployQuery
+
+/** Required. ID of the `Automation`. */
+@property(nonatomic, copy, nullable) NSString *automationId;
+
+/**
+ *  Required. The parent collection in which the `Automation` should be created.
+ *  Format should be
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Creates a new Automation in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_Automation to include in the query.
+ *  @param parent Required. The parent collection in which the `Automation`
+ *    should be created. Format should be
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_Automation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Automation resource.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, then deleting an already deleted or non-existing
+ *  `Automation` will succeed.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. The weak etag of the request. This checksum is computed by the
+ *  server based on the value of other fields, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the `Automation` to delete. Format should be
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validate the request and verify whether the resource
+ *  exists, but do not actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Deletes a single Automation resource.
+ *
+ *  @param name Required. The name of the `Automation` to delete. Format should
+ *    be
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Automation.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `Automation`. Format must be
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Automation.
+ *
+ *  Gets details of a single Automation.
+ *
+ *  @param name Required. Name of the `Automation`. Format must be
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Automations in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsList : GTLRCloudDeployQuery
+
+/**
+ *  Filter automations to be returned. All fields can be used in the filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Field to sort by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of automations to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 automations will be returned.
+ *  The maximum value is 1000; values above 1000 will be set to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAutomations` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other provided
+ *  parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of automations. Format must
+ *  be
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListAutomationsResponse.
+ *
+ *  Lists Automations in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    automations. Format must be
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Automation resource.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.automations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsPatch : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, updating a `Automation` that does not exist will
+ *  result in the creation of a new `Automation`.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. Name of the `Automation`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automations/{automation}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `Automation` resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Updates the parameters of a single Automation resource.
+ *
+ *  @param object The @c GTLRCloudDeploy_Automation to include in the query.
+ *  @param name Output only. Name of the `Automation`. Format is
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}/automations/{automation}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_Automation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new DeliveryPipeline in a given project and location.
  *
  *  Method: clouddeploy.projects.locations.deliveryPipelines.create
@@ -46,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent collection in which the `DeliveryPipeline` should be
- *  created. Format should be projects/{project_id}/locations/{location_name}.
+ *  created. Format should be `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -80,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param parent Required. The parent collection in which the
  *    `DeliveryPipeline` should be created. Format should be
- *    projects/{project_id}/locations/{location_name}.
+ *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesCreate
  */
@@ -121,7 +530,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the `DeliveryPipeline` to delete. Format should be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -153,7 +562,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the `DeliveryPipeline` to delete. Format
  *    should be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesDelete
  */
@@ -173,7 +582,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `DeliveryPipeline`. Format must be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -183,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of a single DeliveryPipeline.
  *
  *  @param name Required. Name of the `DeliveryPipeline`. Format must be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesGet
  */
@@ -277,7 +686,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of pipelines. Format must
- *  be projects/{project_id}/locations/{location_name}.
+ *  be `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -287,7 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists DeliveryPipelines in a given project and location.
  *
  *  @param parent Required. The parent, which owns this collection of pipelines.
- *    Format must be projects/{project_id}/locations/{location_name}.
+ *    Format must be `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesList
  *
@@ -316,8 +725,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. Name of the `DeliveryPipeline`. Format is projects/{project}/
- *  locations/{location}/deliveryPipelines/a-z{0,62}.
+ *  Optional. Name of the `DeliveryPipeline`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -361,7 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_DeliveryPipeline to include in the
  *    query.
  *  @param name Optional. Name of the `DeliveryPipeline`. Format is
- *    projects/{project}/ locations/{location}/deliveryPipelines/a-z{0,62}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesPatch
  */
@@ -382,8 +791,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Release. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -395,8 +803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_AbandonReleaseRequest to include in the
  *    query.
  *  @param name Required. Name of the Release. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesAbandon
  */
@@ -418,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The parent collection in which the `Release` should be created.
  *  Format should be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -454,7 +861,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_Release to include in the query.
  *  @param parent Required. The parent collection in which the `Release` should
  *    be created. Format should be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate
  */
@@ -475,7 +882,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `Release`. Format must be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -485,7 +892,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of a single Release.
  *
  *  @param name Required. Name of the `Release`. Format must be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesGet
  */
@@ -566,8 +973,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Rollout. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -579,8 +985,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_AdvanceRolloutRequest to include in the
  *    query.
  *  @param name Required. Name of the Rollout. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsAdvance
  */
@@ -601,8 +1006,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Rollout. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -614,8 +1018,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_ApproveRolloutRequest to include in the
  *    query.
  *  @param name Required. Name of the Rollout. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsApprove
  */
@@ -636,8 +1039,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Rollout. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -649,8 +1051,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_CancelRolloutRequest to include in the
  *    query.
  *  @param name Required. Name of the Rollout. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCancel
  */
@@ -672,7 +1073,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The parent collection in which the `Rollout` should be created.
  *  Format should be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -714,7 +1115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_Rollout to include in the query.
  *  @param parent Required. The parent collection in which the `Rollout` should
  *    be created. Format should be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate
  */
@@ -735,7 +1136,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `Rollout`. Format must be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -745,7 +1146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of a single Rollout.
  *
  *  @param name Required. Name of the `Rollout`. Format must be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsGet
  */
@@ -765,8 +1166,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Rollout. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -778,8 +1178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_IgnoreJobRequest to include in the
  *    query.
  *  @param rollout Required. Name of the Rollout. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsIgnoreJob
  */
@@ -800,7 +1199,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `JobRun`. Format must be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -810,7 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of a single JobRun.
  *
  *  @param name Required. Name of the `JobRun`. Format must be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet
  */
@@ -888,8 +1287,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `JobRun`. Format must be
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -901,8 +1299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_TerminateJobRunRequest to include in
  *    the query.
  *  @param name Required. Name of the `JobRun`. Format must be
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}/jobRuns/{jobRun}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsTerminate
  */
@@ -983,8 +1380,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Rollout. Format is
- *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *  releases/{release}/rollouts/{rollout}.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -996,8 +1392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_RetryJobRequest to include in the
  *    query.
  *  @param rollout Required. Name of the Rollout. Format is
- *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
- *    releases/{release}/rollouts/{rollout}.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsRetryJob
  */
@@ -1019,7 +1414,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The `DeliveryPipeline` for which the rollback `Rollout` should be
  *  created. Format should be
- *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1032,7 +1427,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name Required. The `DeliveryPipeline` for which the rollback
  *    `Rollout` should be created. Format should be
- *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}.
+ *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget
  */
@@ -1386,7 +1781,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent collection in which the `Target` should be created.
- *  Format should be projects/{project_id}/locations/{location_name}.
+ *  Format should be `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1422,7 +1817,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
  *  @param parent Required. The parent collection in which the `Target` should
  *    be created. Format should be
- *    projects/{project_id}/locations/{location_name}.
+ *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsCreate
  */
@@ -1456,7 +1851,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the `Target` to delete. Format should be
- *  projects/{project_id}/locations/{location_name}/targets/{target_name}.
+ *  `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1487,7 +1882,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a single Target.
  *
  *  @param name Required. The name of the `Target` to delete. Format should be
- *    projects/{project_id}/locations/{location_name}/targets/{target_name}.
+ *    `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsDelete
  */
@@ -1507,7 +1902,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the `Target`. Format must be
- *  projects/{project_id}/locations/{location_name}/targets/{target_name}.
+ *  `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1517,7 +1912,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of a single Target.
  *
  *  @param name Required. Name of the `Target`. Format must be
- *    projects/{project_id}/locations/{location_name}/targets/{target_name}.
+ *    `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsGet
  */
@@ -1613,7 +2008,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of targets. Format must be
- *  projects/{project_id}/locations/{location_name}.
+ *  `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1623,7 +2018,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists Targets in a given project and location.
  *
  *  @param parent Required. The parent, which owns this collection of targets.
- *    Format must be projects/{project_id}/locations/{location_name}.
+ *    Format must be `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsList
  *
@@ -1653,7 +2048,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Name of the `Target`. Format is
- *  projects/{project}/locations/{location}/targets/a-z{0,62}.
+ *  `projects/{project}/locations/{location}/targets/a-z{0,62}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1696,7 +2091,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
  *  @param name Optional. Name of the `Target`. Format is
- *    projects/{project}/locations/{location}/targets/a-z{0,62}.
+ *    `projects/{project}/locations/{location}/targets/a-z{0,62}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsPatch
  */

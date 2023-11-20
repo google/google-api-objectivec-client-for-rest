@@ -305,6 +305,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_DataCatalogConfig
+//
+
+@implementation GTLRDataprocMetastore_DataCatalogConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Empty
 //
 
@@ -699,6 +709,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_MetadataIntegration
+//
+
+@implementation GTLRDataprocMetastore_MetadataIntegration
+@dynamic dataCatalogConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_MetadataManagementActivity
 //
 
@@ -869,7 +889,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_Restore
-@dynamic backup, details, endTime, startTime, state, type;
+@dynamic backup, backupLocation, details, endTime, startTime, state, type;
 @end
 
 
@@ -911,9 +931,9 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 @implementation GTLRDataprocMetastore_Service
 @dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
          endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
-         metadataManagementActivity, name, network, networkConfig, port,
-         releaseChannel, scalingConfig, state, stateMessage, telemetryConfig,
-         tier, uid, updateTime;
+         metadataIntegration, metadataManagementActivity, name, network,
+         networkConfig, port, releaseChannel, scalingConfig, state,
+         stateMessage, telemetryConfig, tier, uid, updateTime;
 @end
 
 

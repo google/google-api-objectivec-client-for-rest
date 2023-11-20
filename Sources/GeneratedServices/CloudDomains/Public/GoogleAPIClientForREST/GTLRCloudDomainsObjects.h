@@ -49,6 +49,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -110,6 +111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ConfigureContactSettingsReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_ContactPrivacyUnspecified;
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -117,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_Con
  *
  *  Value: "PRIVATE_CONTACT_DATA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData GTLR_DEPRECATED;
 /**
  *  All the data from `ContactSettings` is publicly available. When setting this
  *  option, you must also provide a `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the
@@ -127,8 +130,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_Pri
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_PublicContactData;
 /**
- *  Some data from `ContactSettings` is publicly available. The actual
- *  information redacted depends on the domain. For details, see [the
+ *  The organization name (if provided) and limited non-identifying data from
+ *  `ContactSettings` is available to the public (e.g. country and state). The
+ *  remaining data is marked as `REDACTED FOR PRIVACY` in the WHOIS database.
+ *  The actual information redacted depends on the domain. For details, see [the
  *  registration privacy
  *  article](https://support.google.com/domains/answer/3251242).
  *
@@ -355,25 +360,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_Ds
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDomains_ManagementSettings.preferredRenewalMethod
+
+/**
+ *  The domain is automatically renewed each year.
+ *
+ *  Value: "AUTOMATIC_RENEWAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal;
+/**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  This option was never used. Use RENEWAL_DISABLED instead.
+ *
+ *  Value: "MANUAL_RENEWAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_ManualRenewal GTLR_DEPRECATED;
+/**
+ *  The domain won't be renewed and will expire at its expiration time.
+ *
+ *  Value: "RENEWAL_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalDisabled;
+/**
+ *  The renewal method is undefined.
+ *
+ *  Value: "RENEWAL_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalMethodUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDomains_ManagementSettings.renewalMethod
 
 /**
- *  The domain is automatically renewed each year . To disable automatic
- *  renewals, delete the resource by calling `DeleteRegistration` or export it
- *  by calling `ExportRegistration`.
+ *  The domain is automatically renewed each year.
  *
  *  Value: "AUTOMATIC_RENEWAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal;
 /**
- *  The domain must be explicitly renewed each year before its `expire_time`.
- *  This option is only available when the `Registration` is in state
- *  `EXPORTED`. To manage the domain's current billing and renewal settings, go
- *  to [Google Domains](https://domains.google/).
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  This option was never used. Use RENEWAL_DISABLED instead.
  *
  *  Value: "MANUAL_RENEWAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal GTLR_DEPRECATED;
+/**
+ *  The domain won't be renewed and will expire at its expiration time.
+ *
+ *  Value: "RENEWAL_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalDisabled;
 /**
  *  The renewal method is undefined.
  *
@@ -505,6 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_DomainNo
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -512,7 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_Supporte
  *
  *  Value: "PRIVATE_CONTACT_DATA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_PrivateContactData;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_PrivateContactData GTLR_DEPRECATED;
 /**
  *  All the data from `ContactSettings` is publicly available. When setting this
  *  option, you must also provide a `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the
@@ -522,8 +562,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_Supporte
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_PublicContactData;
 /**
- *  Some data from `ContactSettings` is publicly available. The actual
- *  information redacted depends on the domain. For details, see [the
+ *  The organization name (if provided) and limited non-identifying data from
+ *  `ContactSettings` is available to the public (e.g. country and state). The
+ *  remaining data is marked as `REDACTED FOR PRIVACY` in the WHOIS database.
+ *  The actual information redacted depends on the domain. For details, see [the
  *  registration privacy
  *  article](https://support.google.com/domains/answer/3251242).
  *
@@ -546,6 +588,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_Contact
  *  Value: "ISSUE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified;
+/**
+ *  Billing account is not in good standing. The domain will not automatically
+ *  renew at its expiration time unless you resolve problems with your billing
+ *  account.
+ *
+ *  Value: "PROBLEM_WITH_BILLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_ProblemWithBilling;
 /**
  *  [ICANN](https://icann.org/) requires verification of the email address in
  *  the `Registration`'s `contact_settings.registrant_contact` field. To verify
@@ -592,11 +642,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailur
 
 /**
  *  The domain is registered and operational. The domain renews automatically as
- *  long as it remains in this state.
+ *  long as it remains in this state and the RenewalMethod is set to
+ *  AUTOMATIC_RENEWAL.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Active;
+/**
+ *  The domain is expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Expired;
 /**
  *  The domain is no longer managed with Cloud Domains. It may have been
  *  transferred to another registrar or exported for management in [Google
@@ -612,7 +669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Exported
  *
  *  Value: "IMPORT_PENDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_ImportPending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_ImportPending GTLR_DEPRECATED;
 /**
  *  The domain registration failed. You can delete resources in this state to
  *  allow registration to be retried.
@@ -645,13 +702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Suspende
  *
  *  Value: "TRANSFER_FAILED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferFailed GTLR_DEPRECATED;
 /**
  *  The domain is being transferred from another registrar to Cloud Domains.
  *
  *  Value: "TRANSFER_PENDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferPending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferPending GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_Registration.supportedPrivacy
@@ -663,6 +720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Transfer
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -670,7 +729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *
  *  Value: "PRIVATE_CONTACT_DATA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PrivateContactData;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PrivateContactData GTLR_DEPRECATED;
 /**
  *  All the data from `ContactSettings` is publicly available. When setting this
  *  option, you must also provide a `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the
@@ -680,8 +739,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PublicContactData;
 /**
- *  Some data from `ContactSettings` is publicly available. The actual
- *  information redacted depends on the domain. For details, see [the
+ *  The organization name (if provided) and limited non-identifying data from
+ *  `ContactSettings` is available to the public (e.g. country and state). The
+ *  remaining data is marked as `REDACTED FOR PRIVACY` in the WHOIS database.
+ *  The actual information redacted depends on the domain. For details, see [the
  *  registration privacy
  *  article](https://support.google.com/domains/answer/3251242).
  *
@@ -792,6 +853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferDomainRequest_Conta
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -799,7 +862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Supporte
  *
  *  Value: "PRIVATE_CONTACT_DATA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PrivateContactData;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PrivateContactData GTLR_DEPRECATED;
 /**
  *  All the data from `ContactSettings` is publicly available. When setting this
  *  option, you must also provide a `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the
@@ -809,8 +872,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Supporte
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PublicContactData;
 /**
- *  Some data from `ContactSettings` is publicly available. The actual
- *  information redacted depends on the domain. For details, see [the
+ *  The organization name (if provided) and limited non-identifying data from
+ *  `ContactSettings` is available to the public (e.g. country and state). The
+ *  remaining data is marked as `REDACTED FOR PRIVACY` in the WHOIS database.
+ *  The actual information redacted depends on the domain. For details, see [the
  *  registration privacy
  *  article](https://support.google.com/domains/answer/3251242).
  *
@@ -1112,21 +1177,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_ContactPrivacyUnspecified
  *        The contact privacy settings are undefined. (Value:
  *        "CONTACT_PRIVACY_UNSPECIFIED")
- *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData None
- *        of the data from `ContactSettings` is publicly available. Instead,
- *        proxy contact data is published for your domain. Email sent to the
- *        proxy email address is forwarded to the registrant's email address.
- *        Cloud Domains provides this privacy proxy service at no additional
- *        cost. (Value: "PRIVATE_CONTACT_DATA")
+ *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData
+ *        Deprecated: For more information, see [Cloud Domains feature
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *        None of the data from `ContactSettings` is publicly available.
+ *        Instead, proxy contact data is published for your domain. Email sent
+ *        to the proxy email address is forwarded to the registrant's email
+ *        address. Cloud Domains provides this privacy proxy service at no
+ *        additional cost. (Value: "PRIVATE_CONTACT_DATA")
  *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_PublicContactData All
  *        the data from `ContactSettings` is publicly available. When setting
  *        this option, you must also provide a
  *        `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the `contact_notices` field
  *        of the request. (Value: "PUBLIC_CONTACT_DATA")
- *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_RedactedContactData Some
- *        data from `ContactSettings` is publicly available. The actual
- *        information redacted depends on the domain. For details, see [the
- *        registration privacy
+ *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_RedactedContactData The
+ *        organization name (if provided) and limited non-identifying data from
+ *        `ContactSettings` is available to the public (e.g. country and state).
+ *        The remaining data is marked as `REDACTED FOR PRIVACY` in the WHOIS
+ *        database. The actual information redacted depends on the domain. For
+ *        details, see [the registration privacy
  *        article](https://support.google.com/domains/answer/3251242). (Value:
  *        "REDACTED_CONTACT_DATA")
  */
@@ -1182,9 +1251,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_GlueRecord *> *glueRecords;
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  The free DNS zone provided by [Google Domains](https://domains.google/).
  */
-@property(nonatomic, strong, nullable) GTLRCloudDomains_GoogleDomainsDns *googleDomainsDns;
+@property(nonatomic, strong, nullable) GTLRCloudDomains_GoogleDomainsDns *googleDomainsDns GTLR_DEPRECATED;
 
 @end
 
@@ -1314,8 +1385,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Request for the `ExportRegistration` method.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_ExportRegistrationRequest : GTLRObject
 @end
 
@@ -1400,11 +1474,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Configuration for using the free DNS zone provided by Google Domains as a
  *  `Registration`'s `dns_provider`. You cannot configure the DNS zone itself
  *  using the API. To configure the DNS zone, go to [Google
  *  Domains](https://domains.google/).
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_GoogleDomainsDns : GTLRObject
 
 /**
@@ -1444,8 +1521,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Request for the `ImportDomain` method.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_ImportDomainRequest : GTLRObject
 
 /**
@@ -1614,20 +1694,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @interface GTLRCloudDomains_ManagementSettings : GTLRObject
 
 /**
- *  Output only. The renewal method for this `Registration`.
+ *  Optional. The desired renewal method for this `Registration`. The actual
+ *  `renewal_method` is automatically updated to reflect this choice. If unset
+ *  or equal to `RENEWAL_METHOD_UNSPECIFIED`, it will be treated as if it were
+ *  set to `AUTOMATIC_RENEWAL`. Can't be set to `RENEWAL_DISABLED` during
+ *  resource creation and can only be updated when the `Registration` resource
+ *  has state `ACTIVE` or `SUSPENDED`. When `preferred_renewal_method` is set to
+ *  `AUTOMATIC_RENEWAL` the actual `renewal_method` can be set to
+ *  `RENEWAL_DISABLED` in case of e.g. problems with the Billing Account or
+ *  reported domain abuse. In such cases check the `issues` field on the
+ *  `Registration`. After the problem is resolved the `renewal_method` will be
+ *  automatically updated to `preferred_renewal_method` in a few hours.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal
+ *        The domain is automatically renewed each year. (Value:
+ *        "AUTOMATIC_RENEWAL")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_ManualRenewal
+ *        Deprecated: For more information, see [Cloud Domains feature
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *        This option was never used. Use RENEWAL_DISABLED instead. (Value:
+ *        "MANUAL_RENEWAL")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalDisabled
+ *        The domain won't be renewed and will expire at its expiration time.
+ *        (Value: "RENEWAL_DISABLED")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalMethodUnspecified
+ *        The renewal method is undefined. (Value: "RENEWAL_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferredRenewalMethod;
+
+/**
+ *  Output only. The actual renewal method for this `Registration`. When
+ *  `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL` the actual
+ *  `renewal_method` can be equal to `RENEWAL_DISABLED` in case of e.g. problems
+ *  with the Billing Account or reported domain abuse. In such cases check the
+ *  `issues` field on the `Registration`. After the problem is resolved the
+ *  `renewal_method` will be automatically updated to `preferred_renewal_method`
+ *  in a few hours.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal
- *        The domain is automatically renewed each year . To disable automatic
- *        renewals, delete the resource by calling `DeleteRegistration` or
- *        export it by calling `ExportRegistration`. (Value:
+ *        The domain is automatically renewed each year. (Value:
  *        "AUTOMATIC_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal
- *        The domain must be explicitly renewed each year before its
- *        `expire_time`. This option is only available when the `Registration`
- *        is in state `EXPORTED`. To manage the domain's current billing and
- *        renewal settings, go to [Google Domains](https://domains.google/).
- *        (Value: "MANUAL_RENEWAL")
+ *        Deprecated: For more information, see [Cloud Domains feature
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *        This option was never used. Use RENEWAL_DISABLED instead. (Value:
+ *        "MANUAL_RENEWAL")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalDisabled
+ *        The domain won't be renewed and will expire at its expiration time.
+ *        (Value: "RENEWAL_DISABLED")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalMethodUnspecified
  *        The renewal method is undefined. (Value: "RENEWAL_METHOD_UNSPECIFIED")
  */
@@ -2088,15 +2204,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  `RetrieveRegisterParameters` to ensure availability and obtain information
  *  like pricing, which is needed to build a call to `RegisterDomain`. Another
  *  way to create a new `Registration` is to transfer an existing domain from
- *  another registrar. First, go to the current registrar to unlock the domain
- *  for transfer and retrieve the domain's transfer authorization code. Then
- *  call `RetrieveTransferParameters` to confirm that the domain is unlocked and
- *  to get values needed to build a call to `TransferDomain`. Finally, you can
+ *  another registrar (Deprecated: For more information, see [Cloud Domains
+ *  feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)).
+ *  First, go to the current registrar to unlock the domain for transfer and
+ *  retrieve the domain's transfer authorization code. Then call
+ *  `RetrieveTransferParameters` to confirm that the domain is unlocked and to
+ *  get values needed to build a call to `TransferDomain`. Finally, you can
  *  create a new `Registration` by importing an existing domain managed with
- *  [Google Domains](https://domains.google/). First, call
- *  `RetrieveImportableDomains` to list domains to which the calling user has
- *  sufficient access. Then call `ImportDomain` on any domain names you want to
- *  use with Cloud Domains.
+ *  [Google Domains](https://domains.google/) (Deprecated: For more information,
+ *  see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)).
+ *  First, call `RetrieveImportableDomains` to list domains to which the calling
+ *  user has sufficient access. Then call `ImportDomain` on any domain names you
+ *  want to use with Cloud Domains.
  */
 @interface GTLRCloudDomains_Registration : GTLRObject
 
@@ -2184,7 +2305,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_Registration_State_Active The domain is
  *        registered and operational. The domain renews automatically as long as
- *        it remains in this state. (Value: "ACTIVE")
+ *        it remains in this state and the RenewalMethod is set to
+ *        AUTOMATIC_RENEWAL. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudDomains_Registration_State_Expired The domain is
+ *        expired. (Value: "EXPIRED")
  *    @arg @c kGTLRCloudDomains_Registration_State_Exported The domain is no
  *        longer managed with Cloud Domains. It may have been transferred to
  *        another registrar or exported for management in [Google
@@ -2222,7 +2346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPrivacy;
 
 /**
- *  Output only. The reason the domain transfer failed. Only set for domains in
+ *  Output only. Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  The reason the domain transfer failed. Only set for domains in
  *  TRANSFER_FAILED state.
  *
  *  Likely values:
@@ -2263,7 +2389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        The transfer was rejected by the current registrar. Contact the
  *        current registrar for more information. (Value: "TRANSFER_REJECTED")
  */
-@property(nonatomic, copy, nullable) NSString *transferFailureReason;
+@property(nonatomic, copy, nullable) NSString *transferFailureReason GTLR_DEPRECATED;
 
 @end
 
@@ -2288,6 +2414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Response for the `RetrieveImportableDomains` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2295,6 +2423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_RetrieveImportableDomainsResponse : GTLRCollectionObject
 
 /**
@@ -2326,8 +2455,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Response for the `RetrieveTransferParameters` method.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_RetrieveTransferParametersResponse : GTLRObject
 
 /** Parameters to use when calling the `TransferDomain` method. */
@@ -2445,8 +2577,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Request for the `TransferDomain` method.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_TransferDomainRequest : GTLRObject
 
 /**
@@ -2488,8 +2623,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Deprecated: For more information, see [Cloud Domains feature
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
  *  Parameters required to transfer a domain from another registrar.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDomains_TransferParameters : GTLRObject
 
 /** The registrar that currently manages the domain. */

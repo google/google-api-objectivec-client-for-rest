@@ -2127,7 +2127,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name for the rbacrolebinding
- *  `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *  `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}`
  *  or
  *  `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
  */
@@ -2147,7 +2147,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGKEHub_RBACRoleBinding to include in the query.
  *  @param name The resource name for the rbacrolebinding
- *    `projects/{project}/locations/{location}/namespaces/{namespace}/rbacrolebindings/{rbacrolebinding}`
+ *    `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}`
  *    or
  *    `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
  *

@@ -19,6 +19,8 @@
 
 @implementation GTLRCloudbillingQuery_BillingAccountsCreate
 
+@dynamic parent;
+
 + (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -83,7 +85,7 @@
 
 @implementation GTLRCloudbillingQuery_BillingAccountsList
 
-@dynamic filter, pageSize, pageToken;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/billingAccounts";
@@ -93,6 +95,33 @@
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRCloudbilling_ListBillingAccountsResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsMove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_MoveBillingAccountRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:move";
+  GTLRCloudbillingQuery_BillingAccountsMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.billingAccounts.move";
   return query;
 }
 
@@ -171,6 +200,52 @@
 
 @end
 
+@implementation GTLRCloudbillingQuery_BillingAccountsSubAccountsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subAccounts";
+  GTLRCloudbillingQuery_BillingAccountsSubAccountsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.billingAccounts.subAccounts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_BillingAccountsSubAccountsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subAccounts";
+  GTLRCloudbillingQuery_BillingAccountsSubAccountsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_ListBillingAccountsResponse class];
+  query.loggingName = @"cloudbilling.billingAccounts.subAccounts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudbillingQuery_BillingAccountsTestIamPermissions
 
 @dynamic resource;
@@ -193,6 +268,75 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudbilling_TestIamPermissionsResponse class];
   query.loggingName = @"cloudbilling.billingAccounts.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/billingAccounts";
+  GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.organizations.billingAccounts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_OrganizationsBillingAccountsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/billingAccounts";
+  GTLRCloudbillingQuery_OrganizationsBillingAccountsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_ListBillingAccountsResponse class];
+  query.loggingName = @"cloudbilling.organizations.billingAccounts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_OrganizationsBillingAccountsMove
+
+@dynamic destinationParent, name;
+
++ (instancetype)queryWithDestinationParent:(NSString *)destinationParent
+                                      name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"destinationParent", @"name"
+  ];
+  NSString *pathURITemplate = @"v1/{+destinationParent}/{+name}:move";
+  GTLRCloudbillingQuery_OrganizationsBillingAccountsMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.destinationParent = destinationParent;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_BillingAccount class];
+  query.loggingName = @"cloudbilling.organizations.billingAccounts.move";
   return query;
 }
 

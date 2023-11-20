@@ -69,9 +69,16 @@ NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsRecordsPublished =
 NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsRecordsUnpublished = @"DS_RECORDS_UNPUBLISHED";
 NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsStateUnspecified = @"DS_STATE_UNSPECIFIED";
 
+// GTLRCloudDomains_ManagementSettings.preferredRenewalMethod
+NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal = @"AUTOMATIC_RENEWAL";
+NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_ManualRenewal = @"MANUAL_RENEWAL";
+NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalDisabled = @"RENEWAL_DISABLED";
+NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalMethodUnspecified = @"RENEWAL_METHOD_UNSPECIFIED";
+
 // GTLRCloudDomains_ManagementSettings.renewalMethod
 NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal = @"AUTOMATIC_RENEWAL";
 NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal = @"MANUAL_RENEWAL";
+NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalDisabled = @"RENEWAL_DISABLED";
 NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalMethodUnspecified = @"RENEWAL_METHOD_UNSPECIFIED";
 
 // GTLRCloudDomains_ManagementSettings.transferLockState
@@ -107,6 +114,7 @@ NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_RedactedC
 // GTLRCloudDomains_Registration.issues
 NSString * const kGTLRCloudDomains_Registration_Issues_ContactSupport = @"CONTACT_SUPPORT";
 NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified = @"ISSUE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_Registration_Issues_ProblemWithBilling = @"PROBLEM_WITH_BILLING";
 NSString * const kGTLRCloudDomains_Registration_Issues_UnverifiedEmail = @"UNVERIFIED_EMAIL";
 
 // GTLRCloudDomains_Registration.registerFailureReason
@@ -117,6 +125,7 @@ NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFa
 
 // GTLRCloudDomains_Registration.state
 NSString * const kGTLRCloudDomains_Registration_State_Active   = @"ACTIVE";
+NSString * const kGTLRCloudDomains_Registration_State_Expired  = @"EXPIRED";
 NSString * const kGTLRCloudDomains_Registration_State_Exported = @"EXPORTED";
 NSString * const kGTLRCloudDomains_Registration_State_ImportPending = @"IMPORT_PENDING";
 NSString * const kGTLRCloudDomains_Registration_State_RegistrationFailed = @"REGISTRATION_FAILED";
@@ -159,6 +168,10 @@ NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_RedactedC
 NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Locked = @"LOCKED";
 NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_TransferLockStateUnspecified = @"TRANSFER_LOCK_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked = @"UNLOCKED";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -535,7 +548,7 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_ManagementSettings
-@dynamic renewalMethod, transferLockState;
+@dynamic preferredRenewalMethod, renewalMethod, transferLockState;
 @end
 
 
@@ -897,3 +910,5 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 }
 
 @end
+
+#pragma clang diagnostic pop

@@ -754,8 +754,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_ResponseMetaData
-@dynamic currencyCode, dataLossFromOtherRow, emptyReason,
+@dynamic currencyCode, dataLossFromOtherRow, emptyReason, samplingMetadatas,
          schemaRestrictionResponse, subjectToThresholding, timeZone;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"samplingMetadatas" : [GTLRAnalyticsData_SamplingMetadata class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -934,6 +942,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_SamplingMetadata
+//
+
+@implementation GTLRAnalyticsData_SamplingMetadata
+@dynamic samplesReadCount, samplingSpaceSize;
 @end
 
 

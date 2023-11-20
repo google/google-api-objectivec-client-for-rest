@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDatabaseMigrationService_AlloyDbSettings.databaseVersion
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_DatabaseVersionUnspecified = @"DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -45,6 +50,15 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_AvailabilityType
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8031 = @"MYSQL_8_0_31";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8032 = @"MYSQL_8_0_32";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -395,8 +409,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_AlloyDbSettings
-@dynamic encryptionConfig, initialUser, labels, primaryInstanceSettings,
-         vpcNetwork;
+@dynamic databaseVersion, encryptionConfig, initialUser, labels,
+         primaryInstanceSettings, vpcNetwork;
 @end
 
 
@@ -859,6 +873,15 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_DataCacheConfig
 @dynamic dataCacheEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DemoteDestinationRequest
+//
+
+@implementation GTLRDatabaseMigrationService_DemoteDestinationRequest
 @end
 
 
@@ -1694,8 +1717,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
-@dynamic cloudSqlId, host, networkArchitecture, password, passwordSet, port,
-         privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
+@dynamic alloydbClusterId, cloudSqlId, host, networkArchitecture, password,
+         passwordSet, port, privateServiceConnectConnectivity, ssl,
+         staticIpConnectivity, username;
 @end
 
 

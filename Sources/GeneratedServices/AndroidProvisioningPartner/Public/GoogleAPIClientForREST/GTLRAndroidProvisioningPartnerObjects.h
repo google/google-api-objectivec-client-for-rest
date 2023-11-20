@@ -380,6 +380,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_ClaimDeviceRequest : GTLRObject
 
 /**
+ *  Optional. The ID of the configuration applied to the device section.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *configurationId;
+
+/**
  *  The ID of the customer for whom the device is being claimed.
  *
  *  Uses NSNumber of longLongValue.
@@ -1501,6 +1508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  Identifies one claim request.
  */
 @interface GTLRAndroidProvisioningPartner_PartnerClaim : GTLRObject
+
+/**
+ *  Optional. The ID of the configuration applied to the device section.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *configurationId;
 
 /**
  *  The ID of the customer for whom the device is being claimed.

@@ -441,12 +441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissio
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent;
 /**
- *  Manage the deep links setup of an app.
- *
- *  Value: "CAN_MANAGE_DEEPLINKS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks;
-/**
  *  Edit and delete draft apps.
  *
  *  Value: "CAN_MANAGE_DRAFT_APPS"
@@ -637,6 +631,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
  *  Value: "TIME_EXTENSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
+
+/**
+ *  Alternatively billing only, where users may only use developer-manager
+ *  billing.
+ *
+ *  Value: "ALTERTNATIVE_BILLING_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly;
+/**
+ *  Unspecified transaction program. Not used.
+ *
+ *  Value: "EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified;
+/**
+ *  User choice billing, where a user may choose between Google Play Billing
+ *  developer-managed billing.
+ *
+ *  Value: "USER_CHOICE_BILLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
@@ -1036,6 +1054,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TextureCompressionForma
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_UnspecifiedTextureCompressionFormat;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_TrackConfig.formFactor
+
+/**
+ *  Automotive form factor track.
+ *
+ *  Value: "AUTOMOTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Automotive;
+/**
+ *  Default track.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Default;
+/**
+ *  Fallback value, do not use.
+ *
+ *  Value: "FORM_FACTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_FormFactorUnspecified;
+/**
+ *  Wear form factor track.
+ *
+ *  Value: "WEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_FormFactor_Wear;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_TrackConfig.type
+
+/**
+ *  Closed testing track.
+ *
+ *  Value: "CLOSED_TESTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_Type_ClosedTesting;
+/**
+ *  Fallback value, do not use.
+ *
+ *  Value: "TRACK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackConfig_Type_TrackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_TrackRelease.status
 
 /**
@@ -1134,12 +1196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal;
 /**
- *  Manage the deep links setup for all apps for the developer.
- *
- *  Value: "CAN_MANAGE_DEEPLINKS_GLOBAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal;
-/**
  *  Create, edit, and delete draft apps.
  *
  *  Value: "CAN_MANAGE_DRAFT_APPS_GLOBAL"
@@ -1194,11 +1250,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReplyToReviewsGlobal;
 /**
- *  View app information and download bulk reports (read-only).
+ *  View app information and download bulk reports (read-only). Deprecated:
+ *  Check CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL.
  *
  *  Value: "CAN_SEE_ALL_APPS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps GTLR_DEPRECATED;
 /**
  *  View app quality information for all apps for the developer.
  *
@@ -2524,6 +2581,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @interface GTLRAndroidPublisher_ExternalTransactionAddress : GTLRObject
 
 /**
+ *  Optional. Top-level administrative subdivision of the country/region. Only
+ *  required for transactions in India. Valid values are "ANDAMAN AND NICOBAR
+ *  ISLANDS", "ANDHRA PRADESH", "ARUNACHAL PRADESH", "ASSAM", "BIHAR",
+ *  "CHANDIGARH", "CHHATTISGARH", "DADRA AND NAGAR HAVELI", "DADRA AND NAGAR
+ *  HAVELI AND DAMAN AND DIU", "DAMAN AND DIU", "DELHI", "GOA", "GUJARAT",
+ *  "HARYANA", "HIMACHAL PRADESH", "JAMMU AND KASHMIR", "JHARKHAND",
+ *  "KARNATAKA", "KERALA", "LADAKH", "LAKSHADWEEP", "MADHYA PRADESH",
+ *  "MAHARASHTRA", "MANIPUR", "MEGHALAYA", "MIZORAM", "NAGALAND", "ODISHA",
+ *  "PUDUCHERRY", "PUNJAB", "RAJASTHAN", "SIKKIM", "TAMIL NADU", "TELANGANA",
+ *  "TRIPURA", "UTTAR PRADESH", "UTTARAKHAND", and "WEST BENGAL".
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
  *  Required. Two letter region code based on ISO-3166-1 Alpha-2 (UN region
  *  codes).
  */
@@ -3796,6 +3867,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 @property(nonatomic, copy, nullable) NSString *initialExternalTransactionId;
 
+/**
+ *  Input only. Provided during the call to Create. Must only be used when
+ *  migrating a subscription from manual monthly reporting to automated
+ *  reporting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly
+ *        Alternatively billing only, where users may only use developer-manager
+ *        billing. (Value: "ALTERTNATIVE_BILLING_ONLY")
+ *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified
+ *        Unspecified transaction program. Not used. (Value:
+ *        "EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling
+ *        User choice billing, where a user may choose between Google Play
+ *        Billing developer-managed billing. (Value: "USER_CHOICE_BILLING")
+ */
+@property(nonatomic, copy, nullable) NSString *migratedTransactionProgram;
+
 @end
 
 
@@ -4028,14 +4117,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  The version of the available regions being used for the specified resource.
- *  A string representing the version of available regions being used for the
- *  specified resource. Regional prices for the resource have to be specified
- *  according to the information published in [this
- *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
  */
 @interface GTLRAndroidPublisher_RegionsVersion : GTLRObject
 
-/** Required. The latest version is 2022/02. */
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices for the resource have to be
+ *  specified according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available. The latest
+ *  version is 2022/02.
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -5339,6 +5434,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
  */
 @property(nonatomic, copy, nullable) NSString *track;
+
+@end
+
+
+/**
+ *  Configurations of the new track.
+ */
+@interface GTLRAndroidPublisher_TrackConfig : GTLRObject
+
+/**
+ *  Required. Form factor of the new track. Defaults to the default track.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_FormFactor_Automotive Automotive
+ *        form factor track. (Value: "AUTOMOTIVE")
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_FormFactor_Default Default
+ *        track. (Value: "DEFAULT")
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_FormFactor_FormFactorUnspecified
+ *        Fallback value, do not use. (Value: "FORM_FACTOR_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_FormFactor_Wear Wear form factor
+ *        track. (Value: "WEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
+
+/**
+ *  Required. Identifier of the new track. For default tracks, this field
+ *  consists of the track alias only. Form factor tracks have a special prefix
+ *  as an identifier, for example `wear:production`, `automotive:production`.
+ *  This prefix must match the value of the `form_factor` field, if it is not a
+ *  default track. [More on track
+ *  name](https://developers.google.com/android-publisher/tracks#ff-track-name)
+ */
+@property(nonatomic, copy, nullable) NSString *track;
+
+/**
+ *  Required. Type of the new track. Currently, the only supported value is
+ *  closedTesting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_Type_ClosedTesting Closed
+ *        testing track. (Value: "CLOSED_TESTING")
+ *    @arg @c kGTLRAndroidPublisher_TrackConfig_Type_TrackTypeUnspecified
+ *        Fallback value, do not use. (Value: "TRACK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

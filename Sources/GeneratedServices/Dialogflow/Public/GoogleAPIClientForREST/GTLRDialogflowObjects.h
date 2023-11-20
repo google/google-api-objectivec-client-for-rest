@@ -19,14 +19,19 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedbackRatingReason;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsDtmfSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AudioInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurn;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput;
@@ -105,6 +110,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
@@ -133,6 +141,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequestGitDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult;
@@ -202,6 +211,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings;
@@ -423,6 +433,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback.rating
+
+/**
+ *  Rating not specified.
+ *
+ *  Value: "RATING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_RatingUnspecified;
+/**
+ *  Thumbs down feedback from user.
+ *
+ *  Value: "THUMBS_DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsDown;
+/**
+ *  Thumbs up feedback from user.
+ *
+ *  Value: "THUMBS_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsUp;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult.result
@@ -3807,6 +3839,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
 
+/** Optional. Answer feedback collection settings. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings *answerFeedbackSettings;
+
 /**
  *  The URI of the agent's avatar. Avatars are used throughout the Dialogflow
  *  console and in the self-hosted [Web
@@ -3913,6 +3948,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Settings for answer feedback collection.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings : GTLRObject
+
+/**
+ *  Optional. If enabled, end users will be able to provide answer feedback to
+ *  Dialogflow responses. Feature works only if interaction logging is enabled
+ *  in the Dialogflow agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAnswerFeedback;
+
+@end
+
+
+/**
  *  Settings for Gen App Builder.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings : GTLRObject
@@ -3981,6 +4033,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Stores information about feedback provided by users about a response.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback : GTLRObject
+
+/**
+ *  Optional. Custom rating from the user about the provided answer, with
+ *  maximum length of 1024 characters. For example, client could use a
+ *  customized JSON object to indicate the rating.
+ */
+@property(nonatomic, copy, nullable) NSString *customRating;
+
+/**
+ *  Optional. Rating from user for the specific Dialogflow response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_RatingUnspecified
+ *        Rating not specified. (Value: "RATING_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsDown
+ *        Thumbs down feedback from user. (Value: "THUMBS_DOWN")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsUp
+ *        Thumbs up feedback from user. (Value: "THUMBS_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *rating;
+
+/**
+ *  Optional. In case of thumbs down rating provided, users can optionally
+ *  provide context about the rating.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedbackRatingReason *ratingReason;
+
+@end
+
+
+/**
+ *  Stores extra information about why users provided thumbs down rating.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedbackRatingReason : GTLRObject
+
+/**
+ *  Optional. Additional feedback about the rating. This field can be populated
+ *  without choosing a predefined `reason`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedback;
+
+/**
+ *  Optional. Custom reason labels for thumbs down rating provided by the user.
+ *  The maximum number of labels allowed is 10 and the maximum length of a
+ *  single label is 128 characters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reasonLabels;
+
+@end
+
+
+/**
  *  Represents the natural speech audio to be processed.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput : GTLRObject
@@ -4002,6 +4109,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. Instructs the speech recognizer how to process the speech audio.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig *config;
+
+@end
+
+
+/**
+ *  Configuration of the barge-in behavior. Barge-in instructs the API to return
+ *  a detected utterance at a proper time while the client is playing back the
+ *  response audio from a previous request. When the client sees the utterance,
+ *  it should stop the playback and immediately get ready for receiving the
+ *  responses for the current request. The barge-in handling requires the client
+ *  to start streaming audio input as soon as it starts playing back the audio
+ *  from the previous response. The playback is modeled into two phases: * No
+ *  barge-in phase: which goes first and during which speech detection should
+ *  not be carried out. * Barge-in phase: which follows the no barge-in phase
+ *  and during which the API starts speech detection and may inform the client
+ *  that an utterance has been detected. Note that no-speech event is not
+ *  expected in this phase. The client provides this configuration in terms of
+ *  the durations of those two phases. The durations are measured in terms of
+ *  the audio length fromt the the start of the input audio. The flow goes like
+ *  below: --> Time without speech detection | utterance only | utterance or
+ *  no-speech event | | +-------------+ | +------------+ | +---------------+
+ *  ----------+ no barge-in +-|-+ barge-in +-|-+ normal period +-----------
+ *  +-------------+ | +------------+ | +---------------+ No-speech event is a
+ *  response with END_OF_UTTERANCE without any transcript following up.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig : GTLRObject
+
+/**
+ *  Duration that is not eligible for barge-in at the beginning of the input
+ *  audio.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *noBargeInDuration;
+
+/** Total duration for the playback at the beginning of the input audio. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalDuration;
 
 @end
 
@@ -4172,6 +4314,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. Instructs the speech recognizer how to process the speech audio.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig *config;
+
+@end
+
+
+/**
+ *  Configuration of the barge-in behavior. Barge-in instructs the API to return
+ *  a detected utterance at a proper time while the client is playing back the
+ *  response audio from a previous request. When the client sees the utterance,
+ *  it should stop the playback and immediately get ready for receiving the
+ *  responses for the current request. The barge-in handling requires the client
+ *  to start streaming audio input as soon as it starts playing back the audio
+ *  from the previous response. The playback is modeled into two phases: * No
+ *  barge-in phase: which goes first and during which speech detection should
+ *  not be carried out. * Barge-in phase: which follows the no barge-in phase
+ *  and during which the API starts speech detection and may inform the client
+ *  that an utterance has been detected. Note that no-speech event is not
+ *  expected in this phase. The client provides this configuration in terms of
+ *  the durations of those two phases. The durations are measured in terms of
+ *  the audio length fromt the the start of the input audio. The flow goes like
+ *  below: --> Time without speech detection | utterance only | utterance or
+ *  no-speech event | | +-------------+ | +------------+ | +---------------+
+ *  ----------+ no barge-in +-|-+ barge-in +-|-+ normal period +-----------
+ *  +-------------+ | +------------+ | +---------------+ No-speech event is a
+ *  response with END_OF_UTTERANCE without any transcript following up.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig : GTLRObject
+
+/**
+ *  Duration that is not eligible for barge-in at the beginning of the input
+ *  audio.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *noBargeInDuration;
+
+/** Total duration for the playback at the beginning of the input audio. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalDuration;
 
 @end
 
@@ -5215,6 +5392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Not specified. (Value: "AUDIO_ENCODING_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
+
+/** Configuration of barge-in behavior during the streaming of input audio. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig *bargeInConfig;
 
 /**
  *  Optional. If `true`, Dialogflow returns SpeechWordInfo in
@@ -6982,6 +7162,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Boost specification to boost certain documents. A copy of
+ *  google.cloud.discoveryengine.v1main.BoostSpec, field documentation is
+ *  available at
+ *  https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/BoostSpec
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec : GTLRObject
+
+/**
+ *  Optional. Condition boost specifications. If a document matches multiple
+ *  conditions in the specifictions, boost scores from these specifications are
+ *  all applied and combined in a non-linear way. Maximum number of
+ *  specifications is 20.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec *> *conditionBoostSpecs;
+
+@end
+
+
+/**
+ *  Boost applies to documents which match a condition.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec : GTLRObject
+
+/**
+ *  Optional. Strength of the condition boost, which should be in [-1, 1].
+ *  Negative boost means demotion. Default is 0.0. Setting to 1.0 gives the
+ *  document a big promotion. However, it does not necessarily mean that the
+ *  boosted document will be the top result at all times, nor that other
+ *  documents will be excluded. Results could still be shown even when none of
+ *  them matches the condition. And results that are significantly more relevant
+ *  to the search query can still trump your heavily favored but irrelevant
+ *  documents. Setting to -1.0 gives the document a big demotion. However,
+ *  results that are deeply relevant might still be shown. The document will
+ *  have an upstream battle to get a fairly high ranking, but it is not blocked
+ *  out completely. Setting to 0.0 means no boost applied. The boosting
+ *  condition is ignored.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boost;
+
+/**
+ *  Optional. An expression which specifies a boost condition. The syntax and
+ *  supported fields are the same as a filter expression. Examples: * To boost
+ *  documents with document ID "doc_1" or "doc_2", and color "Red" or "Blue": *
+ *  (id: ANY("doc_1", "doc_2")) AND (color: ANY("Red","Blue"))
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+@end
+
+
+/**
+ *  Boost specifications for data stores.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs : GTLRObject
+
+/**
+ *  Optional. Data Stores where the boosting configuration is applied. The full
+ *  names of the referenced data stores. Formats:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataStores;
+
+/** Optional. A list of boosting specifications. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec *> *spec;
+
+@end
+
+
+/**
  *  The response message for TestCases.CalculateCoverage.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3CalculateCoverageResponse : GTLRObject
@@ -8373,6 +8625,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Filter specifications for data stores.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs : GTLRObject
+
+/**
+ *  Optional. Data Stores where the boosting configuration is applied. The full
+ *  names of the referenced data stores. Formats:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataStores;
+
+/**
+ *  Optional. The filter expression to be applied. Expression syntax is
+ *  documented at
+ *  https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata#filter-expression-syntax
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
  *  Flows represents the conversation flows when you build your chatbot agent. A
  *  flow consists of many pages connected by the transition routes.
  *  Conversations always start with the built-in Start Flow (with an all-0 ID).
@@ -9262,6 +9537,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Not specified. (Value: "AUDIO_ENCODING_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
+
+/** Configuration of barge-in behavior during the streaming of input audio. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig *bargeInConfig;
 
 /**
  *  Optional. If `true`, Dialogflow returns SpeechWordInfo in
@@ -10734,6 +11012,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Payload *payload;
 
+/** Optional. Search configuration for UCS search queries. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig *searchConfig;
+
 /**
  *  Additional session entity types to replace or extend developer entity types
  *  with. The entity synonyms apply to all languages and persist for the session
@@ -10858,6 +11139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  to wait for the resulting object to appear in the bucket before proceeding.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
+
+/**
+ *  Indicates whether the Thumbs up/Thumbs down rating controls are need to be
+ *  shown for the response in the Dialogflow Messenger widget.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAnswerFeedback;
 
 /**
  *  The current Page. Some, not all fields are filled in this message, including
@@ -11605,6 +11894,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Search configuration for UCS search queries.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig : GTLRObject
+
+/** Optional. Boosting configuration for the datastores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs *> *boostSpecs;
+
+/** Optional. Filter configuration for the datastores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs *> *filterSpecs;
+
+@end
+
+
+/**
  *  Represents the settings related to security issues, such as data redaction
  *  and data retention. It may take hours for updates on the settings to
  *  propagate to all the related components and take effect.
@@ -11937,6 +12240,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The request message for Experiments.StopExperiment.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest : GTLRObject
+@end
+
+
+/**
+ *  The request to set the feedback for a bot answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest : GTLRObject
+
+/** Required. Feedback provided for a bot answer. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback *answerFeedback;
+
+/**
+ *  Required. ID of the response to update its feedback. This is the same as
+ *  DetectIntentResponse.response_id.
+ */
+@property(nonatomic, copy, nullable) NSString *responseId;
+
+/**
+ *  Optional. The mask to control which fields to update. If the mask is not
+ *  present, all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
 @end
 
 

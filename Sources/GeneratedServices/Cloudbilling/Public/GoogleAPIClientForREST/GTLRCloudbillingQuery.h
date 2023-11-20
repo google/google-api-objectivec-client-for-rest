@@ -57,6 +57,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudbillingQuery_BillingAccountsCreate : GTLRCloudbillingQuery
 
 /**
+ *  Optional. The parent to create a billing account from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
  *  Fetches a @c GTLRCloudbilling_BillingAccount.
  *
  *  This method creates [billing
@@ -208,6 +216,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  Optional. The parent resource to list billing accounts from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
  *  Fetches a @c GTLRCloudbilling_ListBillingAccountsResponse.
  *
  *  Lists the billing accounts that the current authenticated user has
@@ -221,6 +237,44 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Changes which parent organization a billing account belongs to.
+ *
+ *  Method: cloudbilling.billingAccounts.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_BillingAccountsMove : GTLRCloudbillingQuery
+
+/**
+ *  Required. The resource name of the billing account to move. Must be of the
+ *  form `billingAccounts/{billing_account_id}`. The specified billing account
+ *  cannot be a subaccount, since a subaccount always belongs to the same
+ *  organization as its parent account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_BillingAccount.
+ *
+ *  Changes which parent organization a billing account belongs to.
+ *
+ *  @param object The @c GTLRCloudbilling_MoveBillingAccountRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the billing account to move. Must
+ *    be of the form `billingAccounts/{billing_account_id}`. The specified
+ *    billing account cannot be a subaccount, since a subaccount always belongs
+ *    to the same organization as its parent account.
+ *
+ *  @return GTLRCloudbillingQuery_BillingAccountsMove
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_MoveBillingAccountRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -371,6 +425,131 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
+ *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *  This method will return an error if the parent account has not been
+ *  provisioned for subaccounts.
+ *
+ *  Method: cloudbilling.billingAccounts.subAccounts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_BillingAccountsSubAccountsCreate : GTLRCloudbillingQuery
+
+/**
+ *  Optional. The parent to create a billing account from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_BillingAccount.
+ *
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
+ *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *  This method will return an error if the parent account has not been
+ *  provisioned for subaccounts.
+ *
+ *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
+ *    query.
+ *  @param parent Optional. The parent to create a billing account from. Format:
+ *    - organizations/{organization_id} eg organizations/12345678 -
+ *    billingAccounts/{billing_account_id} eg
+ *    `billingAccounts/012345-567890-ABCDEF`
+ *
+ *  @return GTLRCloudbillingQuery_BillingAccountsSubAccountsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the billing accounts that the current authenticated user has
+ *  permission to
+ *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *
+ *  Method: cloudbilling.billingAccounts.subAccounts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_BillingAccountsSubAccountsList : GTLRCloudbillingQuery
+
+/**
+ *  Options for how to filter the returned billing accounts. This only supports
+ *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
+ *  under a single provided parent billing account. (e.g.
+ *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  algebra and other fields are not currently supported.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. The maximum page size is 100; this is also the default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results to return. This should be a
+ *  `next_page_token` value returned from a previous `ListBillingAccounts` call.
+ *  If unspecified, the first page of results is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The parent resource to list billing accounts from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_ListBillingAccountsResponse.
+ *
+ *  Lists the billing accounts that the current authenticated user has
+ *  permission to
+ *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *
+ *  @param parent Optional. The parent resource to list billing accounts from.
+ *    Format: - organizations/{organization_id} eg organizations/12345678 -
+ *    billingAccounts/{billing_account_id} eg
+ *    `billingAccounts/012345-567890-ABCDEF`
+ *
+ *  @return GTLRCloudbillingQuery_BillingAccountsSubAccountsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Tests the access control policy for a billing account. This method takes the
  *  resource and a set of permissions as input and returns the subset of the
  *  input permissions that the caller is allowed for that resource.
@@ -409,6 +588,176 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudbilling_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
+ *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *  This method will return an error if the parent account has not been
+ *  provisioned for subaccounts.
+ *
+ *  Method: cloudbilling.organizations.billingAccounts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate : GTLRCloudbillingQuery
+
+/**
+ *  Optional. The parent to create a billing account from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_BillingAccount.
+ *
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
+ *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *  This method will return an error if the parent account has not been
+ *  provisioned for subaccounts.
+ *
+ *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
+ *    query.
+ *  @param parent Optional. The parent to create a billing account from. Format:
+ *    - organizations/{organization_id} eg organizations/12345678 -
+ *    billingAccounts/{billing_account_id} eg
+ *    `billingAccounts/012345-567890-ABCDEF`
+ *
+ *  @return GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_BillingAccount *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the billing accounts that the current authenticated user has
+ *  permission to
+ *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *
+ *  Method: cloudbilling.organizations.billingAccounts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_OrganizationsBillingAccountsList : GTLRCloudbillingQuery
+
+/**
+ *  Options for how to filter the returned billing accounts. This only supports
+ *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
+ *  under a single provided parent billing account. (e.g.
+ *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  algebra and other fields are not currently supported.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. The maximum page size is 100; this is also the default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results to return. This should be a
+ *  `next_page_token` value returned from a previous `ListBillingAccounts` call.
+ *  If unspecified, the first page of results is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The parent resource to list billing accounts from. Format: -
+ *  organizations/{organization_id} eg organizations/12345678 -
+ *  billingAccounts/{billing_account_id} eg
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_ListBillingAccountsResponse.
+ *
+ *  Lists the billing accounts that the current authenticated user has
+ *  permission to
+ *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
+ *
+ *  @param parent Optional. The parent resource to list billing accounts from.
+ *    Format: - organizations/{organization_id} eg organizations/12345678 -
+ *    billingAccounts/{billing_account_id} eg
+ *    `billingAccounts/012345-567890-ABCDEF`
+ *
+ *  @return GTLRCloudbillingQuery_OrganizationsBillingAccountsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Changes which parent organization a billing account belongs to.
+ *
+ *  Method: cloudbilling.organizations.billingAccounts.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_OrganizationsBillingAccountsMove : GTLRCloudbillingQuery
+
+/**
+ *  Required. The resource name of the Organization to reparent the billing
+ *  account under. Must be of the form `organizations/{organization_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/**
+ *  Required. The resource name of the billing account to move. Must be of the
+ *  form `billingAccounts/{billing_account_id}`. The specified billing account
+ *  cannot be a subaccount, since a subaccount always belongs to the same
+ *  organization as its parent account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_BillingAccount.
+ *
+ *  Changes which parent organization a billing account belongs to.
+ *
+ *  @param destinationParent Required. The resource name of the Organization to
+ *    reparent the billing account under. Must be of the form
+ *    `organizations/{organization_id}`.
+ *  @param name Required. The resource name of the billing account to move. Must
+ *    be of the form `billingAccounts/{billing_account_id}`. The specified
+ *    billing account cannot be a subaccount, since a subaccount always belongs
+ *    to the same organization as its parent account.
+ *
+ *  @return GTLRCloudbillingQuery_OrganizationsBillingAccountsMove
+ */
++ (instancetype)queryWithDestinationParent:(NSString *)destinationParent
+                                      name:(NSString *)name;
 
 @end
 

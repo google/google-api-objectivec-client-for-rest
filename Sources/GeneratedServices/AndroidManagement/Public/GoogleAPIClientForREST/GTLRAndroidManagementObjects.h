@@ -445,12 +445,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Alwa
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 
 /**
- *  The app is automatically updated with low priority to minimize the impact on
- *  the user.The app is updated when all of the following constraints are met:
- *  The device is not actively used. The device is connected to an unmetered
- *  network. The device is charging.The device is notified about a new update
- *  within 24 hours after it is published by the developer, after which the app
- *  is updated the next time the constraints above are met.
+ *  The default update mode.The app is automatically updated with low priority
+ *  to minimize the impact on the user.The app is updated when all of the
+ *  following constraints are met: The device is not actively used. The device
+ *  is connected to an unmetered network. The device is charging. The app to be
+ *  updated is not running in the foreground.The device is notified about a new
+ *  update within 24 hours after it is published by the developer, after which
+ *  the app is updated the next time the constraints above are met.
  *
  *  Value: "AUTO_UPDATE_DEFAULT"
  */
@@ -646,7 +647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked;
 /**
- *  The app is automatically installed and can't be removed by the user.
+ *  The app is automatically installed regardless of a set maintenance window
+ *  and can't be removed by the user.
  *
  *  Value: "FORCE_INSTALLED"
  */
@@ -1891,6 +1893,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_In
  *  Value: "INSTALLATION_FAILURE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnspecified;
+/**
+ *  The user's device does not have sufficient storage space to install the app.
+ *  This can be resolved by clearing up storage space on the device. App install
+ *  or update will automatically resume once the device has sufficient storage.
+ *
+ *  Value: "INSUFFICIENT_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InsufficientStorage;
+/**
+ *  A network error on the user's device has prevented the install from
+ *  succeeding. This usually happens when the device's internet connectivity is
+ *  degraded, unavailable or there's a network configuration issue. Please
+ *  ensure the device has access to full internet connectivity on a network that
+ *  meets Android Enterprise Network Requirements
+ *  (https://support.google.com/work/android/answer/10513641). App install or
+ *  update will automatically resume once this is the case.
+ *
+ *  Value: "NETWORK_ERROR_UNRELIABLE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NetworkErrorUnreliableConnection;
 /**
  *  There are no licenses available to assign to the user.
  *
@@ -3233,7 +3255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_StopLostModeUserAttemp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic;
 /**
- *  Postpone automatic install up to a maximum of 30 days.
+ *  Postpone automatic install up to a maximum of 30 days. This policy does not
+ *  affect security updates (e.g. monthly security patches).
  *
  *  Value: "POSTPONE"
  */
@@ -4067,13 +4090,14 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault
- *        The app is automatically updated with low priority to minimize the
- *        impact on the user.The app is updated when all of the following
- *        constraints are met: The device is not actively used. The device is
- *        connected to an unmetered network. The device is charging.The device
- *        is notified about a new update within 24 hours after it is published
- *        by the developer, after which the app is updated the next time the
- *        constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
+ *        The default update mode.The app is automatically updated with low
+ *        priority to minimize the impact on the user.The app is updated when
+ *        all of the following constraints are met: The device is not actively
+ *        used. The device is connected to an unmetered network. The device is
+ *        charging. The app to be updated is not running in the foreground.The
+ *        device is notified about a new update within 24 hours after it is
+ *        published by the developer, after which the app is updated the next
+ *        time the constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.The
  *        device is notified immediately about a new update after it becomes
@@ -4160,8 +4184,8 @@ GTLR_DEPRECATED
  *        a previous policy, it will be uninstalled. This also blocks its
  *        instant app functionality. (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
- *        The app is automatically installed and can't be removed by the user.
- *        (Value: "FORCE_INSTALLED")
+ *        The app is automatically installed regardless of a set maintenance
+ *        window and can't be removed by the user. (Value: "FORCE_INSTALLED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified
  *        Unspecified. Defaults to AVAILABLE. (Value:
  *        "INSTALL_TYPE_UNSPECIFIED")
@@ -4774,6 +4798,9 @@ GTLR_DEPRECATED
 
 /**
  *  For commands of type RESET_PASSWORD, optionally specifies the new password.
+ *  Note: The new password must be at least 6 characters long if it is numeric
+ *  in case of Android 14 devices. Else the command will fail with
+ *  INVALID_VALUE.
  */
 @property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
 
@@ -7124,6 +7151,21 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnspecified
  *        This value is disallowed. (Value:
  *        "INSTALLATION_FAILURE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InsufficientStorage
+ *        The user's device does not have sufficient storage space to install
+ *        the app. This can be resolved by clearing up storage space on the
+ *        device. App install or update will automatically resume once the
+ *        device has sufficient storage. (Value: "INSUFFICIENT_STORAGE")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NetworkErrorUnreliableConnection
+ *        A network error on the user's device has prevented the install from
+ *        succeeding. This usually happens when the device's internet
+ *        connectivity is degraded, unavailable or there's a network
+ *        configuration issue. Please ensure the device has access to full
+ *        internet connectivity on a network that meets Android Enterprise
+ *        Network Requirements
+ *        (https://support.google.com/work/android/answer/10513641). App install
+ *        or update will automatically resume once this is the case. (Value:
+ *        "NETWORK_ERROR_UNRELIABLE_CONNECTION")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NoLicensesRemaining
  *        There are no licenses available to assign to the user. (Value:
  *        "NO_LICENSES_REMAINING")
@@ -9449,7 +9491,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_SystemUpdate_Type_Automatic Install
  *        automatically as soon as an update is available. (Value: "AUTOMATIC")
  *    @arg @c kGTLRAndroidManagement_SystemUpdate_Type_Postpone Postpone
- *        automatic install up to a maximum of 30 days. (Value: "POSTPONE")
+ *        automatic install up to a maximum of 30 days. This policy does not
+ *        affect security updates (e.g. monthly security patches). (Value:
+ *        "POSTPONE")
  *    @arg @c kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified
  *        Follow the default update behavior for the device, which typically
  *        requires the user to accept system updates. (Value:

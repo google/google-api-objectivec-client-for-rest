@@ -703,6 +703,9 @@
 @class GTLRCompute_Snapshot_Labels;
 @class GTLRCompute_SnapshotList_Warning;
 @class GTLRCompute_SnapshotList_Warning_Data_Item;
+@class GTLRCompute_SnapshotSettingsStorageLocationSettings;
+@class GTLRCompute_SnapshotSettingsStorageLocationSettings_Locations;
+@class GTLRCompute_SnapshotSettingsStorageLocationSettingsStorageLocationPreference;
 @class GTLRCompute_SourceDiskEncryptionKey;
 @class GTLRCompute_SourceInstanceParams;
 @class GTLRCompute_SourceInstanceProperties;
@@ -815,6 +818,7 @@
 @class GTLRCompute_TCPHealthCheck;
 @class GTLRCompute_TestFailure;
 @class GTLRCompute_Uint128;
+@class GTLRCompute_UpcomingMaintenance;
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapList_Warning;
 @class GTLRCompute_UrlMapList_Warning_Data_Item;
@@ -22083,8 +22087,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierReq
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_StandardOverridesFixedStandard;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_PublicAdvertisedPrefix.byoipApiVersion
+
+/**
+ *  This public advertised prefix can be used to create both regional and global
+ *  public delegated prefixes. It usually takes 4 weeks to create or delete a
+ *  public delegated prefix. The BGP status cannot be changed.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_ByoipApiVersion_V1;
+/**
+ *  This public advertised prefix can only be used to create regional public
+ *  delegated prefixes. Public delegated prefix creation and deletion takes
+ *  minutes and the BGP status can be modified.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_ByoipApiVersion_V2;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_PublicAdvertisedPrefix.pdpScope
+
+/**
+ *  The public delegated prefix is global only. The provisioning will take ~4
+ *  weeks.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_PdpScope_Global;
+/**
+ *  The public delegated prefixes is BYOIP V1 legacy prefix. This is output only
+ *  value and no longer supported in BYOIP V2.
+ *
+ *  Value: "GLOBAL_AND_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_PdpScope_GlobalAndRegional;
+/**
+ *  The public delegated prefix is regional only. The provisioning will take a
+ *  few minutes.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_PdpScope_Regional;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_PublicAdvertisedPrefix.status
 
+/**
+ *  The prefix is announced to Internet.
+ *
+ *  Value: "ANNOUNCED_TO_INTERNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_Status_AnnouncedToInternet;
 /**
  *  RPKI validation is complete.
  *
@@ -22115,6 +22170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_Status_Pr
  *  Value: "PTR_CONFIGURED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_Status_PtrConfigured;
+/**
+ *  The prefix is currently withdrawn but ready to be announced.
+ *
+ *  Value: "READY_TO_ANNOUNCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefix_Status_ReadyToAnnounce;
 /**
  *  Reverse DNS lookup failed.
  *
@@ -22313,6 +22374,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_PublicDelegatedPrefix.byoipApiVersion
+
+/**
+ *  This public delegated prefix usually takes 4 weeks to delete, and the BGP
+ *  status cannot be changed. Announce and Withdraw APIs can not be used on this
+ *  prefix.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V1;
+/**
+ *  This public delegated prefix takes minutes to delete. Announce and Withdraw
+ *  APIs can be used on this prefix to change the BGP status.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V2;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_PublicDelegatedPrefix.status
 
 /**
@@ -22321,6 +22401,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warni
  *  Value: "ANNOUNCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Announced;
+/**
+ *  The prefix is announced within Google network.
+ *
+ *  Value: "ANNOUNCED_TO_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_AnnouncedToGoogle;
+/**
+ *  The prefix is announced to Internet and within Google.
+ *
+ *  Value: "ANNOUNCED_TO_INTERNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_AnnouncedToInternet;
 /**
  *  The public delegated prefix is being deprovsioned.
  *
@@ -26832,6 +26924,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRang
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_RouterNat.type
+
+/**
+ *  NAT used for private IP translation.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_Type_Private;
+/**
+ *  NAT used for public IP translation. This is the default.
+ *
+ *  Value: "PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_Type_Public;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_RouterNatLogConfig.filter
 
 /**
@@ -27695,6 +27803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtection
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_Disabled;
 /** Value: "STANDARD" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_Standard;
+/** Value: "STANDARD_WITH_GRAPHQL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_StandardWithGraphql;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SecurityPolicyAdvancedOptionsConfig.logLevel
@@ -28937,6 +29047,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Undecl
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SnapshotSettingsStorageLocationSettings.policy
+
+/**
+ *  Store snapshot in the same region as with the originating disk. No
+ *  additional parameters are needed.
+ *
+ *  Value: "LOCAL_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_LocalRegion;
+/**
+ *  Store snapshot to the nearest multi region GCS bucket, relative to the
+ *  originating disk. No additional parameters are needed.
+ *
+ *  Value: "NEAREST_MULTI_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_NearestMultiRegion;
+/**
+ *  Store snapshot in the specific locations, as specified by the user. The list
+ *  of regions to store must be defined under the `locations` field.
+ *
+ *  Value: "SPECIFIC_LOCATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_SpecificLocations;
+/** Value: "STORAGE_LOCATION_POLICY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_StorageLocationPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SourceInstanceProperties.keyRevocationActionType
@@ -30522,6 +30659,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttps
  *  Value: "PRIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_Private;
+/**
+ *  Subnetwork used as source range for Private NAT Gateways.
+ *
+ *  Value: "PRIVATE_NAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateNat;
 /**
  *  Regular user created or automatically created subnet.
  *
@@ -34891,6 +35034,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_UpcomingMaintenance.maintenanceStatus
+
+/**
+ *  There is ongoing maintenance on this VM.
+ *
+ *  Value: "ONGOING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Ongoing;
+/**
+ *  There is pending maintenance.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Pending;
+/**
+ *  Unknown maintenance status. Do not use this value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_UpcomingMaintenance.type
+
+/**
+ *  Scheduled maintenance (e.g. maintenance after uptime guarantee is complete).
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_Type_Scheduled;
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "UNKNOWN_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_Type_UnknownType;
+/**
+ *  Unscheduled maintenance (e.g. emergency maintenance during uptime
+ *  guarantee).
+ *
+ *  Value: "UNSCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UpcomingMaintenance_Type_Unscheduled;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_UrlMapList_Warning.code
 
 /**
@@ -35506,6 +35694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_Interna
  *  Value: "PRIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_Private;
+/**
+ *  Subnetwork used as source range for Private NAT Gateways.
+ *
+ *  Value: "PRIVATE_NAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateNat;
 /**
  *  Regular user created or automatically created subnet.
  *
@@ -48795,13 +48989,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *allowPscGlobalAccess;
 
 /**
- *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
- *  By internal TCP/UDP load balancers, backend service-based network load
- *  balancers, and internal and external protocol forwarding. Set this field to
- *  true to allow packets addressed to any port or packets lacking destination
- *  port information (for example, UDP fragments after the first fragment) to be
- *  forwarded to the backends configured with this forwarding rule. The ports,
- *  port_range, and allPorts fields are mutually exclusive.
+ *  The ports, portRange, and allPorts fields are mutually exclusive. Only
+ *  packets addressed to ports in the specified range will be forwarded to the
+ *  backends configured with this forwarding rule. The allPorts field has the
+ *  following limitations: - It requires that the forwarding rule IPProtocol be
+ *  TCP, UDP, SCTP, or L3_DEFAULT. - It's applicable only to the following
+ *  products: internal passthrough Network Load Balancers, backend service-based
+ *  external passthrough Network Load Balancers, and internal and external
+ *  protocol forwarding. - Set this field to true to allow packets addressed to
+ *  any port or packets lacking destination port information (for example, UDP
+ *  fragments after the first fragment) to be forwarded to the backends
+ *  configured with this forwarding rule. The L3_DEFAULT protocol requires
+ *  allPorts be set to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -49048,35 +49247,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *noAutomateDnsZone;
 
 /**
- *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
- *  By backend service-based network load balancers, target pool-based network
- *  load balancers, internal proxy load balancers, external proxy load
- *  balancers, Traffic Director, external protocol forwarding, and Classic VPN.
- *  Some products have restrictions on what ports can be used. See port
- *  specifications for details. Only packets addressed to ports in the specified
- *  range will be forwarded to the backends configured with this forwarding
- *  rule. The ports, port_range, and allPorts fields are mutually exclusive. For
- *  external forwarding rules, two or more forwarding rules cannot use the same
- *  [IPAddress, IPProtocol] pair, and cannot have overlapping portRanges. For
- *  internal forwarding rules within the same VPC network, two or more
+ *  The ports, portRange, and allPorts fields are mutually exclusive. Only
+ *  packets addressed to ports in the specified range will be forwarded to the
+ *  backends configured with this forwarding rule. The portRange field has the
+ *  following limitations: - It requires that the forwarding rule IPProtocol be
+ *  TCP, UDP, or SCTP, and - It's applicable only to the following products:
+ *  external passthrough Network Load Balancers, internal and external proxy
+ *  Network Load Balancers, internal and external Application Load Balancers,
+ *  external protocol forwarding, and Classic VPN. - Some products have
+ *  restrictions on what ports can be used. See port specifications for details.
+ *  For external forwarding rules, two or more forwarding rules cannot use the
+ *  same [IPAddress, IPProtocol] pair, and cannot have overlapping portRanges.
+ *  For internal forwarding rules within the same VPC network, two or more
  *  forwarding rules cannot use the same [IPAddress, IPProtocol] pair, and
  *  cannot have overlapping portRanges. \@pattern: \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, copy, nullable) NSString *portRange;
 
 /**
- *  This field can only be used: - If IPProtocol is one of TCP, UDP, or SCTP. -
- *  By internal TCP/UDP load balancers, backend service-based network load
- *  balancers, and internal protocol forwarding. You can specify a list of up to
- *  five ports by number, separated by commas. The ports can be contiguous or
- *  discontiguous. Only packets addressed to these ports will be forwarded to
- *  the backends configured with this forwarding rule. For external forwarding
- *  rules, two or more forwarding rules cannot use the same [IPAddress,
- *  IPProtocol] pair, and cannot share any values defined in ports. For internal
- *  forwarding rules within the same VPC network, two or more forwarding rules
- *  cannot use the same [IPAddress, IPProtocol] pair, and cannot share any
- *  values defined in ports. The ports, port_range, and allPorts fields are
- *  mutually exclusive. \@pattern: \\\\d+(?:-\\\\d+)?
+ *  The ports, portRange, and allPorts fields are mutually exclusive. Only
+ *  packets addressed to ports in the specified range will be forwarded to the
+ *  backends configured with this forwarding rule. The ports field has the
+ *  following limitations: - It requires that the forwarding rule IPProtocol be
+ *  TCP, UDP, or SCTP, and - It's applicable only to the following products:
+ *  internal passthrough Network Load Balancers, backend service-based external
+ *  passthrough Network Load Balancers, and internal protocol forwarding. - You
+ *  can specify a list of up to five ports by number, separated by commas. The
+ *  ports can be contiguous or discontiguous. For external forwarding rules, two
+ *  or more forwarding rules cannot use the same [IPAddress, IPProtocol] pair if
+ *  they share at least one port number. For internal forwarding rules within
+ *  the same VPC network, two or more forwarding rules cannot use the same
+ *  [IPAddress, IPProtocol] pair if they share at least one port number.
+ *  \@pattern: \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
@@ -71359,6 +71561,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_PublicAdvertisedPrefix : GTLRObject
 
+/**
+ *  [Output Only] The version of BYOIP API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_ByoipApiVersion_V1 This public
+ *        advertised prefix can be used to create both regional and global
+ *        public delegated prefixes. It usually takes 4 weeks to create or
+ *        delete a public delegated prefix. The BGP status cannot be changed.
+ *        (Value: "V1")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_ByoipApiVersion_V2 This public
+ *        advertised prefix can only be used to create regional public delegated
+ *        prefixes. Public delegated prefix creation and deletion takes minutes
+ *        and the BGP status can be modified. (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *byoipApiVersion;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -71420,6 +71638,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Specifies how child public delegated prefix will be scoped. It could be one
+ *  of following values: - `REGIONAL`: The public delegated prefix is regional
+ *  only. The provisioning will take a few minutes. - `GLOBAL`: The public
+ *  delegated prefix is global only. The provisioning will take ~4 weeks. -
+ *  `GLOBAL_AND_REGIONAL` [output only]: The public delegated prefixes is BYOIP
+ *  V1 legacy prefix. This is output only value and no longer supported in BYOIP
+ *  V2.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_PdpScope_Global The public
+ *        delegated prefix is global only. The provisioning will take ~4 weeks.
+ *        (Value: "GLOBAL")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_PdpScope_GlobalAndRegional The
+ *        public delegated prefixes is BYOIP V1 legacy prefix. This is output
+ *        only value and no longer supported in BYOIP V2. (Value:
+ *        "GLOBAL_AND_REGIONAL")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_PdpScope_Regional The public
+ *        delegated prefix is regional only. The provisioning will take a few
+ *        minutes. (Value: "REGIONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *pdpScope;
+
+/**
  *  [Output Only] The list of public delegated prefixes that exist for this
  *  public advertised prefix.
  */
@@ -71443,6 +71684,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  `PREFIX_REMOVAL_IN_PROGRESS`: The prefix is being removed.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_AnnouncedToInternet The
+ *        prefix is announced to Internet. (Value: "ANNOUNCED_TO_INTERNET")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_Initial RPKI validation
  *        is complete. (Value: "INITIAL")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_PrefixConfigurationComplete
@@ -71455,6 +71698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        The prefix is being removed. (Value: "PREFIX_REMOVAL_IN_PROGRESS")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_PtrConfigured User has
  *        configured the PTR. (Value: "PTR_CONFIGURED")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_ReadyToAnnounce The
+ *        prefix is currently withdrawn but ready to be announced. (Value:
+ *        "READY_TO_ANNOUNCE")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_ReverseDnsLookupFailed
  *        Reverse DNS lookup failed. (Value: "REVERSE_DNS_LOOKUP_FAILED")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefix_Status_Validated Reverse DNS
@@ -71689,6 +71935,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_PublicDelegatedPrefix : GTLRObject
 
+/**
+ *  [Output Only] The version of BYOIP API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V1 This public
+ *        delegated prefix usually takes 4 weeks to delete, and the BGP status
+ *        cannot be changed. Announce and Withdraw APIs can not be used on this
+ *        prefix. (Value: "V1")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V2 This public
+ *        delegated prefix takes minutes to delete. Announce and Withdraw APIs
+ *        can be used on this prefix to change the BGP status. (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *byoipApiVersion;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -71787,6 +72047,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Likely values:
  *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_Announced The public
  *        delegated prefix is active. (Value: "ANNOUNCED")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_AnnouncedToGoogle The
+ *        prefix is announced within Google network. (Value:
+ *        "ANNOUNCED_TO_GOOGLE")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_AnnouncedToInternet The
+ *        prefix is announced to Internet and within Google. (Value:
+ *        "ANNOUNCED_TO_INTERNET")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_Deleting The public
  *        delegated prefix is being deprovsioned. (Value: "DELETING")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_Initializing The public
@@ -76412,6 +76678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] An opaque ID of the host on which the VM is running. */
 @property(nonatomic, copy, nullable) NSString *physicalHost;
 
+@property(nonatomic, strong, nullable) GTLRCompute_UpcomingMaintenance *upcomingMaintenance;
+
 @end
 
 
@@ -78000,6 +78268,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *tcpTransitoryIdleTimeoutSec;
 
 /**
+ *  Indicates whether this NAT is used for public or private IP translation. If
+ *  unspecified, it defaults to PUBLIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterNat_Type_Private NAT used for private IP
+ *        translation. (Value: "PRIVATE")
+ *    @arg @c kGTLRCompute_RouterNat_Type_Public NAT used for public IP
+ *        translation. This is the default. (Value: "PUBLIC")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
  *  Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
  *
  *  Uses NSNumber of intValue.
@@ -78093,12 +78373,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatActiveIps;
 
 /**
+ *  A list of URLs of the subnetworks used as source ranges for this NAT Rule.
+ *  These subnetworks must have purpose set to PRIVATE_NAT. This field is used
+ *  for private NAT.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatActiveRanges;
+
+/**
  *  A list of URLs of the IP resources to be drained. These IPs must be valid
  *  static external IPs that have been assigned to the NAT. These IPs should be
  *  used for updating/patching a NAT rule only. This field is used for public
  *  NAT.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatDrainIps;
+
+/**
+ *  A list of URLs of subnetworks representing source ranges to be drained. This
+ *  is only supported on patch/update, and these subnetworks must have
+ *  previously been used as active ranges in this NAT Rule. This field is used
+ *  for private NAT.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatDrainRanges;
 
 @end
 
@@ -79573,6 +79868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "DISABLED"
  *    @arg @c kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_Standard
  *        Value "STANDARD"
+ *    @arg @c kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_StandardWithGraphql
+ *        Value "STANDARD_WITH_GRAPHQL"
  */
 @property(nonatomic, copy, nullable) NSString *jsonParsing;
 
@@ -79586,6 +79883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "VERBOSE"
  */
 @property(nonatomic, copy, nullable) NSString *logLevel;
+
+/**
+ *  An optional list of case-insensitive request header names to use for
+ *  resolving the callers client IP address.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userIpRequestHeaders;
 
 @end
 
@@ -81631,6 +81934,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *downloadBytes;
 
 /**
+ *  [Output Only] A list of features to enable on the guest operating system.
+ *  Applicable only for bootable images. Read Enabling guest operating system
+ *  features to see a list of available options.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_GuestOsFeature *> *guestOsFeatures;
+
+/**
  *  [Output Only] The unique identifier for the resource. This identifier is
  *  defined by the server.
  *
@@ -81738,6 +82048,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  source disk is protected by a customer-supplied encryption key.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceDiskEncryptionKey;
+
+/**
+ *  The source disk whose recovery checkpoint will be used to create this
+ *  snapshot.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceDiskForRecoveryCheckpoint;
 
 /**
  *  [Output Only] The ID value of the disk used to create this snapshot. This
@@ -81995,6 +82311,79 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SnapshotSettings
+ */
+@interface GTLRCompute_SnapshotSettings : GTLRObject
+
+/**
+ *  Policy of which storage location is going to be resolved, and additional
+ *  data that particularizes how the policy is going to be carried out.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SnapshotSettingsStorageLocationSettings *storageLocation;
+
+@end
+
+
+/**
+ *  GTLRCompute_SnapshotSettingsStorageLocationSettings
+ */
+@interface GTLRCompute_SnapshotSettingsStorageLocationSettings : GTLRObject
+
+/**
+ *  When the policy is SPECIFIC_LOCATIONS, snapshots will be stored in the
+ *  locations listed in this field. Keys are GCS bucket locations.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SnapshotSettingsStorageLocationSettings_Locations *locations;
+
+/**
+ *  The chosen location policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_LocalRegion
+ *        Store snapshot in the same region as with the originating disk. No
+ *        additional parameters are needed. (Value: "LOCAL_REGION")
+ *    @arg @c kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_NearestMultiRegion
+ *        Store snapshot to the nearest multi region GCS bucket, relative to the
+ *        originating disk. No additional parameters are needed. (Value:
+ *        "NEAREST_MULTI_REGION")
+ *    @arg @c kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_SpecificLocations
+ *        Store snapshot in the specific locations, as specified by the user.
+ *        The list of regions to store must be defined under the `locations`
+ *        field. (Value: "SPECIFIC_LOCATIONS")
+ *    @arg @c kGTLRCompute_SnapshotSettingsStorageLocationSettings_Policy_StorageLocationPolicyUnspecified
+ *        Value "STORAGE_LOCATION_POLICY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+@end
+
+
+/**
+ *  When the policy is SPECIFIC_LOCATIONS, snapshots will be stored in the
+ *  locations listed in this field. Keys are GCS bucket locations.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_SnapshotSettingsStorageLocationSettingsStorageLocationPreference.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_SnapshotSettingsStorageLocationSettings_Locations : GTLRObject
+@end
+
+
+/**
+ *  A structure for specifying storage locations.
+ */
+@interface GTLRCompute_SnapshotSettingsStorageLocationSettingsStorageLocationPreference : GTLRObject
+
+/** Name of the location. It should be one of the GCS buckets. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -84133,6 +84522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "INTERNAL_HTTPS_LOAD_BALANCER")
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_Private Regular user created or
  *        automatically created subnet. (Value: "PRIVATE")
+ *    @arg @c kGTLRCompute_Subnetwork_Purpose_PrivateNat Subnetwork used as
+ *        source range for Private NAT Gateways. (Value: "PRIVATE_NAT")
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918 Regular user
  *        created or automatically created subnet. (Value: "PRIVATE_RFC_1918")
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_PrivateServiceConnect Subnetworks
@@ -89672,6 +90063,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Upcoming Maintenance notification information.
+ */
+@interface GTLRCompute_UpcomingMaintenance : GTLRObject
+
+/**
+ *  Indicates if the maintenance can be customer triggered.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+
+/**
+ *  The latest time for the planned maintenance window to start. This timestamp
+ *  value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *latestWindowStartTime;
+
+/**
+ *  maintenanceStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Ongoing There
+ *        is ongoing maintenance on this VM. (Value: "ONGOING")
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Pending There
+ *        is pending maintenance. (Value: "PENDING")
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Unknown Unknown
+ *        maintenance status. Do not use this value. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceStatus;
+
+/**
+ *  Defines the type of maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_Type_Scheduled Scheduled
+ *        maintenance (e.g. maintenance after uptime guarantee is complete).
+ *        (Value: "SCHEDULED")
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_Type_UnknownType No type
+ *        specified. Do not use this value. (Value: "UNKNOWN_TYPE")
+ *    @arg @c kGTLRCompute_UpcomingMaintenance_Type_Unscheduled Unscheduled
+ *        maintenance (e.g. emergency maintenance during uptime guarantee).
+ *        (Value: "UNSCHEDULED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The time by which the maintenance disruption will be completed. This
+ *  timestamp value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowEndTime;
+
+/**
+ *  The current start time of the maintenance window. This timestamp value is in
+ *  RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowStartTime;
+
+@end
+
+
+/**
  *  Represents a URL Map resource. Compute Engine has two URL Map resources: *
  *  [Global](/compute/docs/reference/rest/v1/urlMaps) *
  *  [Regional](/compute/docs/reference/rest/v1/regionUrlMaps) A URL map resource
@@ -90594,6 +91046,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "INTERNAL_HTTPS_LOAD_BALANCER")
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_Private Regular user created
  *        or automatically created subnet. (Value: "PRIVATE")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_PrivateNat Subnetwork used
+ *        as source range for Private NAT Gateways. (Value: "PRIVATE_NAT")
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_PrivateRfc1918 Regular user
  *        created or automatically created subnet. (Value: "PRIVATE_RFC_1918")
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_PrivateServiceConnect

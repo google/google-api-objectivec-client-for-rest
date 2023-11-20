@@ -38,6 +38,16 @@ NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Patch  = @"PATCH";
 NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post   = @"POST";
 NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put    = @"PUT";
 
+// GTLRCloudTasks_HttpTarget.httpMethod
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Delete  = @"DELETE";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Get     = @"GET";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Head    = @"HEAD";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_HttpMethodUnspecified = @"HTTP_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Options = @"OPTIONS";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Patch   = @"PATCH";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Post    = @"POST";
+NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Put     = @"PUT";
+
 // GTLRCloudTasks_Queue.state
 NSString * const kGTLRCloudTasks_Queue_State_Disabled         = @"DISABLED";
 NSString * const kGTLRCloudTasks_Queue_State_Paused           = @"PAUSED";
@@ -53,6 +63,16 @@ NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_ViewUnspecified = @
 NSString * const kGTLRCloudTasks_Task_View_Basic           = @"BASIC";
 NSString * const kGTLRCloudTasks_Task_View_Full            = @"FULL";
 NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED";
+
+// GTLRCloudTasks_UriOverride.scheme
+NSString * const kGTLRCloudTasks_UriOverride_Scheme_Http       = @"HTTP";
+NSString * const kGTLRCloudTasks_UriOverride_Scheme_Https      = @"HTTPS";
+NSString * const kGTLRCloudTasks_UriOverride_Scheme_SchemeUnspecified = @"SCHEME_UNSPECIFIED";
+
+// GTLRCloudTasks_UriOverride.uriOverrideEnforceMode
+NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_Always = @"ALWAYS";
+NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_IfNotExists = @"IF_NOT_EXISTS";
+NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideEnforceModeUnspecified = @"URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -113,6 +133,26 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_BufferTaskRequest
+//
+
+@implementation GTLRCloudTasks_BufferTaskRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_BufferTaskResponse
+//
+
+@implementation GTLRCloudTasks_BufferTaskResponse
+@dynamic task;
 @end
 
 
@@ -182,6 +222,58 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_Header
+//
+
+@implementation GTLRCloudTasks_Header
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_HeaderOverride
+//
+
+@implementation GTLRCloudTasks_HeaderOverride
+@dynamic header;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_HttpBody
+//
+
+@implementation GTLRCloudTasks_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRCloudTasks_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_HttpBody_Extensions_Item
+//
+
+@implementation GTLRCloudTasks_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_HttpRequest
 //
 
@@ -199,6 +291,24 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_HttpTarget
+//
+
+@implementation GTLRCloudTasks_HttpTarget
+@dynamic headerOverrides, httpMethod, oauthToken, oidcToken, uriOverride;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headerOverrides" : [GTLRCloudTasks_HeaderOverride class]
+  };
+  return map;
 }
 
 @end
@@ -330,6 +440,16 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_PathOverride
+//
+
+@implementation GTLRCloudTasks_PathOverride
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_PauseQueueRequest
 //
 
@@ -370,12 +490,22 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_QueryOverride
+//
+
+@implementation GTLRCloudTasks_QueryOverride
+@dynamic queryParams;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_Queue
 //
 
 @implementation GTLRCloudTasks_Queue
-@dynamic appEngineRoutingOverride, name, purgeTime, rateLimits, retryConfig,
-         stackdriverLoggingConfig, state;
+@dynamic appEngineRoutingOverride, httpTarget, name, purgeTime, rateLimits,
+         retryConfig, stackdriverLoggingConfig, state;
 @end
 
 
@@ -515,4 +645,15 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_UriOverride
+//
+
+@implementation GTLRCloudTasks_UriOverride
+@dynamic host, pathOverride, port, queryOverride, scheme,
+         uriOverrideEnforceMode;
 @end

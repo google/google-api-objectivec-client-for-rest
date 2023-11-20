@@ -19,6 +19,7 @@
 @class GTLRAIPlatformNotebooks_BootDisk;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataDisk;
+@class GTLRAIPlatformNotebooks_DefaultValues;
 @class GTLRAIPlatformNotebooks_DiagnosticConfig;
 @class GTLRAIPlatformNotebooks_Event;
 @class GTLRAIPlatformNotebooks_Event_Details;
@@ -26,6 +27,7 @@
 @class GTLRAIPlatformNotebooks_GceSetup;
 @class GTLRAIPlatformNotebooks_GceSetup_Metadata;
 @class GTLRAIPlatformNotebooks_GPUDriverConfig;
+@class GTLRAIPlatformNotebooks_ImageRelease;
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_Instance_HealthInfo;
 @class GTLRAIPlatformNotebooks_Instance_Labels;
@@ -41,6 +43,7 @@
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
+@class GTLRAIPlatformNotebooks_SupportedValues;
 @class GTLRAIPlatformNotebooks_UpgradeHistoryEntry;
 @class GTLRAIPlatformNotebooks_VmImage;
 
@@ -675,6 +678,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Response for getting WbI configurations in a location
+ */
+@interface GTLRAIPlatformNotebooks_Config : GTLRObject
+
+/** Output only. The list of available images to create a WbI. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_ImageRelease *> *availableImages;
+
+/** Output only. The default values for configuration. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DefaultValues *defaultValues;
+
+/** Output only. The supported values for configuration. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_SupportedValues *supportedValues;
+
+@end
+
+
+/**
  *  Definition of a container image for starting a notebook instance with the
  *  environment installed in a container.
  */
@@ -747,6 +767,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Learn more about using your own encryption keys.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
+
+@end
+
+
+/**
+ *  DefaultValues represents the default configuration values.
+ */
+@interface GTLRAIPlatformNotebooks_DefaultValues : GTLRObject
+
+/**
+ *  Output only. The default machine type used by the backend if not provided by
+ *  the user.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 @end
 
@@ -1043,6 +1077,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableGpuDriver;
+
+@end
+
+
+/**
+ *  ConfigImage represents an image release available to create a WbI
+ */
+@interface GTLRAIPlatformNotebooks_ImageRelease : GTLRObject
+
+/**
+ *  Output only. The name of the image of the form
+ *  workbench-instances-vYYYYmmdd--
+ */
+@property(nonatomic, copy, nullable) NSString *imageName;
+
+/** Output only. The release of the image of the form m123 */
+@property(nonatomic, copy, nullable) NSString *releaseName;
 
 @end
 
@@ -1753,6 +1804,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Request for stopping a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_StopInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  SupportedValues represents the values supported by the configuration.
+ */
+@interface GTLRAIPlatformNotebooks_SupportedValues : GTLRObject
+
+/** Output only. The accelerator types supported by WbI. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *acceleratorTypes;
+
+/** Output only. The machine types supported by WbI. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *machineTypes;
+
 @end
 
 

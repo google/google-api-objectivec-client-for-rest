@@ -58,6 +58,7 @@
 @class GTLRDataproc_GkeNodePoolAutoscalingConfig;
 @class GTLRDataproc_GkeNodePoolConfig;
 @class GTLRDataproc_GkeNodePoolTarget;
+@class GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig;
 @class GTLRDataproc_HadoopJob;
 @class GTLRDataproc_HadoopJob_Properties;
 @class GTLRDataproc_HiveJob;
@@ -368,6 +369,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealth
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_DiagnoseClusterRequest.tarballAccess
+
+/**
+ *  Google Cloud Support group has read access to the diagnostic tarball
+ *
+ *  Value: "GOOGLE_CLOUD_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport;
+/**
+ *  Google Cloud Dataproc Diagnose service account has read access to the
+ *  diagnostic tarball
+ *
+ *  Value: "GOOGLE_DATAPROC_DIAGNOSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose;
+/**
+ *  Tarball Access unspecified. Falls back to default access of the bucket
+ *
+ *  Value: "TARBALL_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
@@ -756,6 +780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_Oper
  *  Value: "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified;
+/**
+ *  Repair node group operation type.
+ *
+ *  Value: "REPAIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Repair;
 /**
  *  Resize node group operation type.
  *
@@ -2141,6 +2171,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
 
 /**
+ *  Optional. (Optional) The access type to the diagnostic tarball. If not
+ *  specified, falls back to default access of the bucket
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport
+ *        Google Cloud Support group has read access to the diagnostic tarball
+ *        (Value: "GOOGLE_CLOUD_SUPPORT")
+ *    @arg @c kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose
+ *        Google Cloud Dataproc Diagnose service account has read access to the
+ *        diagnostic tarball (Value: "GOOGLE_DATAPROC_DIAGNOSE")
+ *    @arg @c kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified
+ *        Tarball Access unspecified. Falls back to default access of the bucket
+ *        (Value: "TARBALL_ACCESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tarballAccess;
+
+/**
  *  Optional. (Optional) The output Cloud Storage directory for the diagnostic
  *  tarball. If not specified, a task-specific directory in the cluster's
  *  staging bucket will be used.
@@ -2262,6 +2309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  instances in the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *gcePdKmsKeyName;
+
+/**
+ *  Optional. The Cloud KMS key name to use for encrypting customer core content
+ *  in spanner and cluster PD disk for all instances in the cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
 
 @end
 
@@ -2878,6 +2931,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Required. The roles associated with the GKE node pool. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
+
+@end
+
+
+/**
+ *  Encryption settings for the encrypting customer core content. NEXT ID: 2
+ */
+@interface GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig : GTLRObject
+
+/**
+ *  Optional. The Cloud KMS key name to use for encrypting customer core
+ *  content.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
 
 @end
 
@@ -4076,6 +4143,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Output only. List of jobs that could not be included in the response.
+ *  Attempting to get one of these resources may indicate why it was not
+ *  included in the list response.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -4181,6 +4255,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_WorkflowTemplate *> *templates;
+
+/**
+ *  Output only. List of workflow templates that could not be included in the
+ *  response. Attempting to get one of these resources may indicate why it was
+ *  not included in the list response.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -4481,6 +4562,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified
  *        Node group operation type is unknown. (Value:
  *        "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Repair
+ *        Repair node group operation type. (Value: "REPAIR")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize
  *        Resize node group operation type. (Value: "RESIZE")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update
@@ -6498,6 +6581,17 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_UsageMetrics : GTLRObject
 
+/** Optional. Accelerator type being used, if any */
+@property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+/**
+ *  Optional. Accelerator usage in (milliAccelerator x seconds) (see Dataproc
+ *  Serverless pricing (https://cloud.google.com/dataproc-serverless/pricing)).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSeconds;
+
 /**
  *  Optional. DCU (Dataproc Compute Units) usage in (milliDCU x seconds) (see
  *  Dataproc Serverless pricing
@@ -6523,6 +6617,17 @@ GTLR_DEPRECATED
  *  specified time.
  */
 @interface GTLRDataproc_UsageSnapshot : GTLRObject
+
+/** Optional. Accelerator type being used, if any */
+@property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+/**
+ *  Optional. Milli (one-thousandth) accelerator. (see Dataproc Serverless
+ *  pricing (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAccelerator;
 
 /**
  *  Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) (see Dataproc
@@ -6775,6 +6880,9 @@ GTLR_DEPRECATED
  *  cluster is deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
+
+/** Optional. Encryption settings for the encrypting customer core content. */
+@property(nonatomic, strong, nullable) GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig *encryptionConfig;
 
 /**
  *  identifier

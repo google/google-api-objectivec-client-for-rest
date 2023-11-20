@@ -144,6 +144,21 @@ NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa       = @"AAAA";
 NSString * const kGTLRAppengine_ResourceRecord_Type_Cname      = @"CNAME";
 NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified = @"RECORD_TYPE_UNSPECIFIED";
 
+// GTLRAppengine_Runtime.environment
+NSString * const kGTLRAppengine_Runtime_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRAppengine_Runtime_Environment_Flexible   = @"FLEXIBLE";
+NSString * const kGTLRAppengine_Runtime_Environment_Standard   = @"STANDARD";
+
+// GTLRAppengine_Runtime.stage
+NSString * const kGTLRAppengine_Runtime_Stage_Alpha            = @"ALPHA";
+NSString * const kGTLRAppengine_Runtime_Stage_Beta             = @"BETA";
+NSString * const kGTLRAppengine_Runtime_Stage_Decommissioned   = @"DECOMMISSIONED";
+NSString * const kGTLRAppengine_Runtime_Stage_Deprecated       = @"DEPRECATED";
+NSString * const kGTLRAppengine_Runtime_Stage_Development      = @"DEVELOPMENT";
+NSString * const kGTLRAppengine_Runtime_Stage_EndOfSupport     = @"END_OF_SUPPORT";
+NSString * const kGTLRAppengine_Runtime_Stage_Ga               = @"GA";
+NSString * const kGTLRAppengine_Runtime_Stage_RuntimeStageUnspecified = @"RUNTIME_STAGE_UNSPECIFIED";
+
 // GTLRAppengine_SslSettings.sslManagementType
 NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automatic = @"AUTOMATIC";
 NSString * const kGTLRAppengine_SslSettings_SslManagementType_Manual = @"MANUAL";
@@ -436,6 +451,16 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 @implementation GTLRAppengine_CreateVersionMetadataV1Beta
 @dynamic cloudBuildId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Date
+//
+
+@implementation GTLRAppengine_Date
+@dynamic day, month, year;
 @end
 
 
@@ -805,6 +830,28 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_ListRuntimesResponse
+//
+
+@implementation GTLRAppengine_ListRuntimesResponse
+@dynamic nextPageToken, runtimes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"runtimes" : [GTLRAppengine_Runtime class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"runtimes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ListServicesResponse
 //
 
@@ -1154,6 +1201,25 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_Runtime
+//
+
+@implementation GTLRAppengine_Runtime
+@dynamic decommissionedDate, deprecationDate, endOfSupportDate, environment,
+         name, stage, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ScriptHandler
 //
 
@@ -1338,10 +1404,11 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 @dynamic apiConfig, appEngineApis, automaticScaling, basicScaling, betaSettings,
          buildEnvVariables, createdBy, createTime, defaultExpiration,
          deployment, diskUsageBytes, endpointsApiService, entrypoint, env,
-         envVariables, errorHandlers, flexibleRuntimeSettings, handlers,
-         healthCheck, identifier, inboundServices, instanceClass, libraries,
-         livenessCheck, manualScaling, name, network, nobuildFilesRegex,
-         readinessCheck, resources, runtime, runtimeApiVersion, runtimeChannel,
+         envVariables, errorHandlers, flexibleRuntimeSettings,
+         generatedCustomerMetadata, handlers, healthCheck, identifier,
+         inboundServices, instanceClass, libraries, livenessCheck,
+         manualScaling, name, network, nobuildFilesRegex, readinessCheck,
+         resources, runtime, runtimeApiVersion, runtimeChannel,
          runtimeMainExecutablePath, serviceAccount, servingStatus, threadsafe,
          versionUrl, vm, vpcAccessConnector, zones;
 
@@ -1400,6 +1467,20 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Version_GeneratedCustomerMetadata
+//
+
+@implementation GTLRAppengine_Version_GeneratedCustomerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -958,11 +958,12 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse
-@dynamic databases;
+@dynamic databases, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"databases" : [GTLRFirestore_GoogleFirestoreAdminV1Database class]
+    @"databases" : [GTLRFirestore_GoogleFirestoreAdminV1Database class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

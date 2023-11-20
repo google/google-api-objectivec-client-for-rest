@@ -326,9 +326,9 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 @implementation GTLRSASPortal_InstallationParams
 @dynamic antennaAzimuth, antennaBeamwidth, antennaDowntilt, antennaGain,
-         antennaGainNewField, antennaModel, cpeCbsdIndication, eirpCapability,
-         eirpCapabilityNewField, height, heightType, horizontalAccuracy,
-         indoorDeployment, latitude, longitude, verticalAccuracy;
+         antennaModel, cpeCbsdIndication, eirpCapability, height, heightType,
+         horizontalAccuracy, indoorDeployment, latitude, longitude,
+         verticalAccuracy;
 @end
 
 

@@ -21,6 +21,7 @@
 @class GTLRManufacturerCenter_DestinationStatus;
 @class GTLRManufacturerCenter_FeatureDescription;
 @class GTLRManufacturerCenter_FloatUnit;
+@class GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification;
 @class GTLRManufacturerCenter_Grocery;
 @class GTLRManufacturerCenter_Image;
 @class GTLRManufacturerCenter_Issue;
@@ -259,6 +260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  https://support.google.com/manufacturers/answer/6124116#capacity.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Capacity *capacity;
+
+/** Optional. List of certifications claimed by this product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification *> *certification;
 
 /**
  *  The color of the product. For more information, see
@@ -618,6 +622,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 /** unit. */
 @property(nonatomic, copy, nullable) NSString *unit;
+
+@end
+
+
+/**
+ *  Description of a certification.
+ */
+@interface GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification : GTLRObject
+
+/** Required. Name of the certification body. */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/** Required. A unique code to identify the certification. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** Required. Name of the certification. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

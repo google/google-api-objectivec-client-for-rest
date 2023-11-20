@@ -10813,6 +10813,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesAnnounce
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}/announce";
+  GTLRComputeQuery_PublicAdvertisedPrefixesAnnounce *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.announce";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_PublicAdvertisedPrefixesDelete
 
 @dynamic project, publicAdvertisedPrefix, requestId;
@@ -10936,6 +10959,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesWithdraw
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}/withdraw";
+  GTLRComputeQuery_PublicAdvertisedPrefixesWithdraw *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.withdraw";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
@@ -10951,6 +10997,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixAggregatedList class];
   query.loggingName = @"compute.publicDelegatedPrefixes.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesAnnounce
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}/announce";
+  GTLRComputeQuery_PublicDelegatedPrefixesAnnounce *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.announce";
   return query;
 }
 
@@ -11089,6 +11160,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.publicDelegatedPrefix = publicDelegatedPrefix;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.publicDelegatedPrefixes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesWithdraw
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}/withdraw";
+  GTLRComputeQuery_PublicDelegatedPrefixesWithdraw *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.withdraw";
   return query;
 }
 
@@ -17083,6 +17179,52 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.snapshot = snapshot;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.snapshots.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SnapshotSettingsGet
+
+@dynamic project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/snapshotSettings";
+  GTLRComputeQuery_SnapshotSettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_SnapshotSettings class];
+  query.loggingName = @"compute.snapshotSettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_SnapshotSettingsPatch
+
+@dynamic project, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCompute_SnapshotSettings *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/snapshotSettings";
+  GTLRComputeQuery_SnapshotSettingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.snapshotSettings.patch";
   return query;
 }
 

@@ -935,6 +935,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport
+@dynamic downloadSpeedKbps, reportTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice
 //
 
@@ -1105,9 +1115,9 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
          bootPerformanceReport, cpuInfo, cpuStatusReport, customer, deviceId,
          graphicsInfo, graphicsStatusReport, heartbeatStatusReport,
          kioskAppStatusReport, memoryInfo, memoryStatusReport, name,
-         networkDiagnosticsReport, networkInfo, networkStatusReport, orgUnitId,
-         osUpdateStatus, peripheralsReport, serialNumber, storageInfo,
-         storageStatusReport, thunderboltInfo;
+         networkBandwidthReport, networkDiagnosticsReport, networkInfo,
+         networkStatusReport, orgUnitId, osUpdateStatus, peripheralsReport,
+         serialNumber, storageInfo, storageStatusReport, thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1121,6 +1131,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
     @"heartbeatStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport class],
     @"kioskAppStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport class],
     @"memoryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport class],
+    @"networkBandwidthReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport class],
     @"networkDiagnosticsReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport class],
     @"networkStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport class],
     @"osUpdateStatus" : [GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus class],
@@ -1267,12 +1278,14 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice
-@dynamic audioStatusReport, deviceActivityReport, deviceId, peripheralsReport;
+@dynamic audioStatusReport, deviceActivityReport, deviceId,
+         networkBandwidthReport, peripheralsReport;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
     @"deviceActivityReport" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport class],
+    @"networkBandwidthReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport class],
     @"peripheralsReport" : [GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport class]
   };
   return map;

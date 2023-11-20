@@ -47,6 +47,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1KioskAppStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo;
@@ -2967,6 +2968,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Network bandwidth report. * Granular permission needed:
+ *  TELEMETRY_API_NETWORK_REPORT
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport : GTLRObject
+
+/**
+ *  Output only. Download speed in kilobits per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *downloadSpeedKbps;
+
+/** Output only. Timestamp of when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
  *  Details about the network device. * This field provides device information,
  *  which is static and will not change over time. * Data for this field is
  *  controlled via policy:
@@ -3548,6 +3568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Resource name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Network bandwidth reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport *> *networkBandwidthReport;
+
 /** Output only. Network diagnostics collected periodically. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport *> *networkDiagnosticsReport;
 
@@ -3908,6 +3934,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Admin Console's Directory API ID in the ChromeOS Devices tab.
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Output only. Network bandwidth reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport *> *networkBandwidthReport;
 
 /**
  *  Output only. Peripherals reports collected periodically sorted in a

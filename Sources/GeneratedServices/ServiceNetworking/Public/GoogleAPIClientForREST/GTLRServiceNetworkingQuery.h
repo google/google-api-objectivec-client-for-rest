@@ -965,6 +965,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Consumers use this method to find out the state of VPC Service Controls. The
+ *  controls could be enabled or disabled for a connection.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.getVpcServiceControls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGetVpcServiceControls : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. Name of the VPC Service Controls config to retrieve in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}`. {service}
+ *  is the peering service that is managing connectivity for the service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is a project number e.g. `12345` that contains the service consumer's VPC
+ *  network. {network} is the name of the service consumer's VPC network.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_VpcServiceControls.
+ *
+ *  Consumers use this method to find out the state of VPC Service Controls. The
+ *  controls could be enabled or disabled for a connection.
+ *
+ *  @param name Required. Name of the VPC Service Controls config to retrieve in
+ *    the format:
+ *    `services/{service}/projects/{project}/global/networks/{network}`.
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is a project number e.g. `12345` that contains the service consumer's VPC
+ *    network. {network} is the name of the service consumer's VPC network.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGetVpcServiceControls
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a peered DNS domain which sends requests for records in given
  *  namespace originating in the service producer VPC network to the consumer
  *  VPC network to be resolved.

@@ -520,22 +520,22 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiCategory
-@dynamic data, errorCode, message, requestId, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1ApiCategoryData
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1ApiCategoryData
 @dynamic identifier, name, siteId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse
+@dynamic data, errorCode, message, requestId, status;
 @end
 
 
@@ -2097,7 +2097,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"data" : [GTLRApigee_GoogleCloudApigeeV1ApiCategoryData class]
+    @"data" : [GTLRApigee_GoogleCloudApigeeV1ApiCategory class]
   };
   return map;
 }

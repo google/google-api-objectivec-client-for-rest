@@ -317,6 +317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Psc
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg;
 /**
+ *  Target is a Cloud Storage bucket.
+ *
+ *  Value: "STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket;
+/**
  *  Target not specified.
  *
  *  Value: "TARGET_UNSPECIFIED"
@@ -561,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBl
 /**
  *  Packet is sent to a wrong (unintended) network. Example: you trace a packet
  *  from VM1:Network1 to VM2:Network2, however, the route configured in Network1
- *  sends the packet destined for VM2's IP addresss to Network3.
+ *  sends the packet destined for VM2's IP address to Network3.
  *
  *  Value: "ROUTE_WRONG_NETWORK"
  */
@@ -781,6 +787,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  *  Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule;
+/**
+ *  Firewall policy rule containing attributes not yet supported in Connectivity
+ *  tests. Firewall analysis is skipped if such a rule can potentially be
+ *  matched. Please see the [list of unsupported
+ *  configurations](https://cloud.google.com/network-intelligence-center/docs/connectivity-tests/concepts/overview#unsupported-configs).
+ *
+ *  Value: "UNSUPPORTED_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_UnsupportedFirewallPolicyRule;
 /**
  *  VPC firewall rule. For details, see [VPC firewall rules
  *  overview](https://cloud.google.com/vpc/docs/firewalls).
@@ -1964,6 +1979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        (Value: "PSC_VPC_SC")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg Target is
  *        a serverless network endpoint group. (Value: "SERVERLESS_NEG")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket Target is
+ *        a Cloud Storage bucket. (Value: "STORAGE_BUCKET")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified Target
  *        not specified. (Value: "TARGET_UNSPECIFIED")
  */
@@ -2104,7 +2121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork Packet is
  *        sent to a wrong (unintended) network. Example: you trace a packet from
  *        VM1:Network1 to VM2:Network2, however, the route configured in
- *        Network1 sends the packet destined for VM2's IP addresss to Network3.
+ *        Network1 sends the packet destined for VM2's IP address to Network3.
  *        (Value: "ROUTE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked The type
  *        of traffic is blocked and the user cannot configure a firewall rule to
@@ -2453,6 +2470,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        console. For details, see [VPC connector's implicit
  *        rules](https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access).
  *        (Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_UnsupportedFirewallPolicyRule
+ *        Firewall policy rule containing attributes not yet supported in
+ *        Connectivity tests. Firewall analysis is skipped if such a rule can
+ *        potentially be matched. Please see the [list of unsupported
+ *        configurations](https://cloud.google.com/network-intelligence-center/docs/connectivity-tests/concepts/overview#unsupported-configs).
+ *        (Value: "UNSUPPORTED_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule
  *        VPC firewall rule. For details, see [VPC firewall rules
  *        overview](https://cloud.google.com/vpc/docs/firewalls). (Value:
@@ -2839,8 +2862,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Backend configuration URI. */
 @property(nonatomic, copy, nullable) NSString *backendUri;
 
-/** URI of the health check for the load balancer. */
-@property(nonatomic, copy, nullable) NSString *healthCheckUri;
+/**
+ *  URI of the health check for the load balancer. Deprecated and no longer
+ *  populated as different load balancer backends might have different health
+ *  checks.
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheckUri GTLR_DEPRECATED;
 
 /**
  *  Type of the load balancer.

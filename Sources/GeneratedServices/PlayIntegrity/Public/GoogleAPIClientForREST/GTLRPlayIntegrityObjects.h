@@ -19,13 +19,13 @@
 
 @class GTLRPlayIntegrity_AccountActivity;
 @class GTLRPlayIntegrity_AccountDetails;
+@class GTLRPlayIntegrity_AppAccessRiskVerdict;
 @class GTLRPlayIntegrity_AppIntegrity;
 @class GTLRPlayIntegrity_DeviceIntegrity;
-@class GTLRPlayIntegrity_GuidanceDetails;
+@class GTLRPlayIntegrity_EnvironmentDetails;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
-@class GTLRPlayIntegrity_UserRemediationDetails;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -109,6 +109,96 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensin
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
+
+/**
+ *  Apps under this field are running that could be used to read or capture
+ *  inputs and outputs of the requesting app, such as screen recording apps.
+ *
+ *  Value: "CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing;
+/**
+ *  Apps under this field are running that could be used to control the device
+ *  and inputs and outputs of the requesting app, such as remote controlling
+ *  apps.
+ *
+ *  Value: "CONTROLLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling;
+/**
+ *  One or more apps under this field are installed on the device.
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed;
+/**
+ *  No apps under this field are installed on the device. This is only valid for
+ *  the other apps field.
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled;
+/**
+ *  App access risk was not evaluated because a requirement was missed, such as
+ *  the device not being trusted enough.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated;
+/**
+ *  Risk type is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_AppAccessRiskVerdict.playOrSystemApps
+
+/**
+ *  Apps under this field are running that could be used to read or capture
+ *  inputs and outputs of the requesting app, such as screen recording apps.
+ *
+ *  Value: "CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing;
+/**
+ *  Apps under this field are running that could be used to control the device
+ *  and inputs and outputs of the requesting app, such as remote controlling
+ *  apps.
+ *
+ *  Value: "CONTROLLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling;
+/**
+ *  One or more apps under this field are installed on the device.
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed;
+/**
+ *  No apps under this field are installed on the device. This is only valid for
+ *  the other apps field.
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled;
+/**
+ *  App access risk was not evaluated because a requirement was missed, such as
+ *  the device not being trusted enough.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated;
+/**
+ *  Risk type is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 
 /**
@@ -169,12 +259,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity;
 /**
- *  App is running on a device that passes only weak integrity checks (is a
- *  physical device).
+ *  Deprecated: this enum value will be removed. App is running on a device that
+ *  passes only weak integrity checks (is a physical device).
  *
  *  Value: "MEETS_WEAK_INTEGRITY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity GTLR_DEPRECATED;
 /**
  *  Play does not have sufficient information to evaluate device integrity
  *
@@ -183,48 +273,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown;
 
 // ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_UserRemediationDetails.remediation
+// GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 
 /**
- *  The app is unrecognized. The user should get an unmodified version of the
- *  app.
+ *  Play Protect is on and high severity issues found.
  *
- *  Value: "GET_UNMODIFIED_APP"
+ *  Value: "HIGH_RISK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk;
 /**
- *  The user has no license. They should install or purchase the app on the
- *  Google Play Store to add it to their library.
+ *  Play Protect is on and warnings found.
  *
- *  Value: "INSTALL_APP_FROM_PLAY"
+ *  Value: "MEDIUM_RISK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk;
 /**
- *  The device bootloader has been unlocked, the user should lock the
- *  bootloader.
+ *  Play Protect is on but no scan has been performed yet. The device or Play
+ *  Store app may have been reset.
  *
- *  Value: "LOCK_BOOTLOADER"
+ *  Value: "NO_DATA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoData;
 /**
- *  The user has installed a custom ROM, and should restore the device to a
- *  clean factory ROM.
+ *  Play Protect is on and no issues found.
  *
- *  Value: "RESTORE_FACTORY_ROM"
+ *  Value: "NO_ISSUES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoIssues;
 /**
- *  The user has not signed into their Google account.
+ *  Play Protect verdict has not been set.
  *
- *  Value: "SIGN_INTO_GOOGLE_ACCOUNT"
+ *  Value: "PLAY_PROTECT_VERDICT_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayProtectVerdictUnspecified;
 /**
- *  User remediation is unknown.
+ *  Play Protect is turned off. Turn on Play Protect.
  *
- *  Value: "UNKNOWN_USER_REMEDIATION"
+ *  Value: "POSSIBLE_RISK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk;
+/**
+ *  Play Protect state was not evaluated. Device may not be trusted.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated;
 
 /**
  *  (Restricted Access) Contains a signal helping apps differentiating between
@@ -290,6 +383,71 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Rem
  *        (Value: "UNLICENSED")
  */
 @property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
+
+@end
+
+
+/**
+ *  Contains signals about others apps on the device which could be used to
+ *  access or control the requesting app.
+ */
+@interface GTLRPlayIntegrity_AppAccessRiskVerdict : GTLRObject
+
+/**
+ *  Required. App access risk verdict related to apps that are not installed by
+ *  Google Play, and are not preloaded on the system image by the device
+ *  manufacturer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing Apps
+ *        under this field are running that could be used to read or capture
+ *        inputs and outputs of the requesting app, such as screen recording
+ *        apps. (Value: "CAPTURING")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling Apps
+ *        under this field are running that could be used to control the device
+ *        and inputs and outputs of the requesting app, such as remote
+ *        controlling apps. (Value: "CONTROLLING")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed One or
+ *        more apps under this field are installed on the device. (Value:
+ *        "INSTALLED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled No
+ *        apps under this field are installed on the device. This is only valid
+ *        for the other apps field. (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated App
+ *        access risk was not evaluated because a requirement was missed, such
+ *        as the device not being trusted enough. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown Risk
+ *        type is unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *otherApps;
+
+/**
+ *  Required. App access risk verdict related to apps that are not installed by
+ *  the Google Play Store, and are not preloaded on the system image by the
+ *  device manufacturer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing
+ *        Apps under this field are running that could be used to read or
+ *        capture inputs and outputs of the requesting app, such as screen
+ *        recording apps. (Value: "CAPTURING")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling
+ *        Apps under this field are running that could be used to control the
+ *        device and inputs and outputs of the requesting app, such as remote
+ *        controlling apps. (Value: "CONTROLLING")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed
+ *        One or more apps under this field are installed on the device. (Value:
+ *        "INSTALLED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled
+ *        No apps under this field are installed on the device. This is only
+ *        valid for the other apps field. (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated
+ *        App access risk was not evaluated because a requirement was missed,
+ *        such as the device not being trusted enough. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown
+ *        Risk type is unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *playOrSystemApps;
 
 @end
 
@@ -376,16 +534,39 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Rem
 
 
 /**
- *  Contains guidance details about the Integrity API response, providing
- *  additional context to the integrity verdicts.
+ *  Contains information about the environment Play Integrity API runs in, e.g.
+ *  Play Protect verdict.
  */
-@interface GTLRPlayIntegrity_GuidanceDetails : GTLRObject
+@interface GTLRPlayIntegrity_EnvironmentDetails : GTLRObject
+
+/** The evaluation of the App Access Risk verdicts. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AppAccessRiskVerdict *appAccessRiskVerdict;
 
 /**
- *  This shows when there is an issue with at least one of the integrity
- *  verdicts, which can be remedied by the user and provides additional details.
+ *  The evaluation of Play Protect verdict.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk
+ *        Play Protect is on and high severity issues found. (Value:
+ *        "HIGH_RISK")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk
+ *        Play Protect is on and warnings found. (Value: "MEDIUM_RISK")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoData
+ *        Play Protect is on but no scan has been performed yet. The device or
+ *        Play Store app may have been reset. (Value: "NO_DATA")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoIssues
+ *        Play Protect is on and no issues found. (Value: "NO_ISSUES")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayProtectVerdictUnspecified
+ *        Play Protect verdict has not been set. (Value:
+ *        "PLAY_PROTECT_VERDICT_UNSPECIFIED")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk
+ *        Play Protect is turned off. Turn on Play Protect. (Value:
+ *        "POSSIBLE_RISK")
+ *    @arg @c kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated
+ *        Play Protect state was not evaluated. Device may not be trusted.
+ *        (Value: "UNEVALUATED")
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRPlayIntegrity_UserRemediationDetails *> *userRemediationDetails;
+@property(nonatomic, copy, nullable) NSString *playProtectVerdict;
 
 @end
 
@@ -451,8 +632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Rem
 /** Required. Details about the device integrity. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceIntegrity *deviceIntegrity;
 
-/** Additional guidance related to the integrity API response. */
-@property(nonatomic, strong, nullable) GTLRPlayIntegrity_GuidanceDetails *guidanceDetails;
+/** Details of the environment Play Integrity API runs in. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_EnvironmentDetails *environmentDetails;
 
 /** Required. Details about the integrity request. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_RequestDetails *requestDetails;
@@ -462,39 +643,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Rem
  *  any additional data that is linked with testing status.
  */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_TestingDetails *testingDetails;
-
-@end
-
-
-/**
- *  Contains details of remediation guidance that the user can perform.
- */
-@interface GTLRPlayIntegrity_UserRemediationDetails : GTLRObject
-
-/**
- *  Description of the user remediation action.
- *
- *  Likely values:
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp
- *        The app is unrecognized. The user should get an unmodified version of
- *        the app. (Value: "GET_UNMODIFIED_APP")
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay
- *        The user has no license. They should install or purchase the app on
- *        the Google Play Store to add it to their library. (Value:
- *        "INSTALL_APP_FROM_PLAY")
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader
- *        The device bootloader has been unlocked, the user should lock the
- *        bootloader. (Value: "LOCK_BOOTLOADER")
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom
- *        The user has installed a custom ROM, and should restore the device to
- *        a clean factory ROM. (Value: "RESTORE_FACTORY_ROM")
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount
- *        The user has not signed into their Google account. (Value:
- *        "SIGN_INTO_GOOGLE_ACCOUNT")
- *    @arg @c kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation
- *        User remediation is unknown. (Value: "UNKNOWN_USER_REMEDIATION")
- */
-@property(nonatomic, copy, nullable) NSString *remediation;
 
 @end
 

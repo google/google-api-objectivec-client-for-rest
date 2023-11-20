@@ -21,14 +21,21 @@
 @class GTLRCloudTasks_Binding;
 @class GTLRCloudTasks_Expr;
 @class GTLRCloudTasks_GetPolicyOptions;
+@class GTLRCloudTasks_Header;
+@class GTLRCloudTasks_HeaderOverride;
+@class GTLRCloudTasks_HttpBody;
+@class GTLRCloudTasks_HttpBody_Extensions_Item;
 @class GTLRCloudTasks_HttpRequest;
 @class GTLRCloudTasks_HttpRequest_Headers;
+@class GTLRCloudTasks_HttpTarget;
 @class GTLRCloudTasks_Location;
 @class GTLRCloudTasks_Location_Labels;
 @class GTLRCloudTasks_Location_Metadata;
 @class GTLRCloudTasks_OAuthToken;
 @class GTLRCloudTasks_OidcToken;
+@class GTLRCloudTasks_PathOverride;
 @class GTLRCloudTasks_Policy;
+@class GTLRCloudTasks_QueryOverride;
 @class GTLRCloudTasks_Queue;
 @class GTLRCloudTasks_RateLimits;
 @class GTLRCloudTasks_RetryConfig;
@@ -36,6 +43,7 @@
 @class GTLRCloudTasks_Status;
 @class GTLRCloudTasks_Status_Details_Item;
 @class GTLRCloudTasks_Task;
+@class GTLRCloudTasks_UriOverride;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -179,6 +187,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post;
 FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudTasks_HttpTarget.httpMethod
+
+/**
+ *  HTTP DELETE
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Delete;
+/**
+ *  HTTP GET
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Get;
+/**
+ *  HTTP HEAD
+ *
+ *  Value: "HEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Head;
+/**
+ *  HTTP method unspecified
+ *
+ *  Value: "HTTP_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_HttpMethodUnspecified;
+/**
+ *  HTTP OPTIONS
+ *
+ *  Value: "OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Options;
+/**
+ *  HTTP PATCH
+ *
+ *  Value: "PATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Patch;
+/**
+ *  HTTP POST
+ *
+ *  Value: "POST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Post;
+/**
+ *  HTTP PUT
+ *
+ *  Value: "PUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpTarget_HttpMethod_Put;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudTasks_Queue.state
 
 /**
@@ -272,6 +332,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_Full;
  *  Value: "VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTasks_UriOverride.scheme
+
+/**
+ *  Convert the scheme to HTTP, e.g., https://www.google.ca will change to
+ *  http://www.google.ca.
+ *
+ *  Value: "HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_Scheme_Http;
+/**
+ *  Convert the scheme to HTTPS, e.g., http://www.google.ca will change to
+ *  https://www.google.ca.
+ *
+ *  Value: "HTTPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_Scheme_Https;
+/**
+ *  Scheme unspecified. Defaults to HTTPS.
+ *
+ *  Value: "SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_Scheme_SchemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTasks_UriOverride.uriOverrideEnforceMode
+
+/**
+ *  In the ALWAYS mode, queue-level configuration overrides all task-level
+ *  configuration
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_Always;
+/**
+ *  In the IF_NOT_EXISTS mode, queue-level configuration is only applied where
+ *  task-level configuration does not exist.
+ *
+ *  Value: "IF_NOT_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_IfNotExists;
+/**
+ *  UriOverrideEnforceMode Unspecified. Defaults to ALWAYS.
+ *
+ *  Value: "URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideEnforceModeUnspecified;
 
 /**
  *  App Engine HTTP request. The message defines the HTTP request that is sent
@@ -594,8 +702,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
- *  CMEK, or Customer Managed Encryption Keys, enables GCP products to put
- *  control over encryption and key management in their customer’s hands.
+ *  Request message for BufferTask.
+ */
+@interface GTLRCloudTasks_BufferTaskRequest : GTLRObject
+
+/**
+ *  Optional. Body of the HTTP request. The body can take any generic value. The
+ *  value is written to the HttpRequest of the [Task].
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_HttpBody *body;
+
+@end
+
+
+/**
+ *  Response message for BufferTask.
+ */
+@interface GTLRCloudTasks_BufferTaskResponse : GTLRObject
+
+/** The created task. */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Task *task;
+
+@end
+
+
+/**
+ *  Describes the customer-managed encryption key (CMEK) configuration
+ *  associated with a project and location.
  */
 @interface GTLRCloudTasks_CmekConfig : GTLRObject
 
@@ -773,6 +906,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  Defines a header message. A header can have a key and a value.
+ */
+@interface GTLRCloudTasks_Header : GTLRObject
+
+/** The Key of the header. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The Value of the header. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Wraps the Header object.
+ */
+@interface GTLRCloudTasks_HeaderOverride : GTLRObject
+
+/** header embodying a key and a value. */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Header *header;
+
+@end
+
+
+/**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRCloudTasks_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRCloudTasks_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTasks_HttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
  *  HTTP request. The task will be pushed to the worker as an HTTP request. If
  *  the worker or the redirected worker acknowledges the task by returning a
  *  successful HTTP response code ([`200` - `299`]), the task will be removed
@@ -898,6 +1111,83 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *        fetch them all at once.
  */
 @interface GTLRCloudTasks_HttpRequest_Headers : GTLRObject
+@end
+
+
+/**
+ *  HTTP target. When specified as a Queue, all the tasks with [HttpRequest]
+ *  will be overridden according to the target.
+ */
+@interface GTLRCloudTasks_HttpTarget : GTLRObject
+
+/**
+ *  HTTP target headers. This map contains the header field names and values.
+ *  Headers will be set when running the CreateTask and/or BufferTask. These
+ *  headers represent a subset of the headers that will be configured for the
+ *  task's HTTP request. Some HTTP request headers will be ignored or replaced.
+ *  A partial list of headers that will be ignored or replaced is: * Several
+ *  predefined headers, prefixed with "X-CloudTasks-", can be used to define
+ *  properties of the task. * Host: This will be computed by Cloud Tasks and
+ *  derived from HttpRequest.url. * Content-Length: This will be computed by
+ *  Cloud Tasks. `Content-Type` won't be set by Cloud Tasks. You can explicitly
+ *  set `Content-Type` to a media type when the task is created. For
+ *  example,`Content-Type` can be set to `"application/octet-stream"` or
+ *  `"application/json"`. The default value is set to "application/json"`. *
+ *  User-Agent: This will be set to `"Google-Cloud-Tasks"`. Headers which can
+ *  have multiple values (according to RFC2616) can be specified using
+ *  comma-separated values. The size of the headers must be less than 80KB.
+ *  Queue-level headers to override headers of all the tasks in the queue.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_HeaderOverride *> *headerOverrides;
+
+/**
+ *  The HTTP method to use for the request. When specified, it overrides
+ *  HttpRequest for the task. Note that if the value is set to HttpMethod the
+ *  HttpRequest of the task will be ignored at execution time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Delete HTTP DELETE (Value:
+ *        "DELETE")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Get HTTP GET (Value: "GET")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Head HTTP HEAD (Value:
+ *        "HEAD")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_HttpMethodUnspecified HTTP
+ *        method unspecified (Value: "HTTP_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Options HTTP OPTIONS (Value:
+ *        "OPTIONS")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Patch HTTP PATCH (Value:
+ *        "PATCH")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Post HTTP POST (Value:
+ *        "POST")
+ *    @arg @c kGTLRCloudTasks_HttpTarget_HttpMethod_Put HTTP PUT (Value: "PUT")
+ */
+@property(nonatomic, copy, nullable) NSString *httpMethod;
+
+/**
+ *  If specified, an [OAuth
+ *  token](https://developers.google.com/identity/protocols/OAuth2) will be
+ *  generated and attached as the `Authorization` header in the HTTP request.
+ *  This type of authorization should generally only be used when calling Google
+ *  APIs hosted on *.googleapis.com.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_OAuthToken *oauthToken;
+
+/**
+ *  If specified, an
+ *  [OIDC](https://developers.google.com/identity/protocols/OpenIDConnect) token
+ *  will be generated and attached as an `Authorization` header in the HTTP
+ *  request. This type of authorization can be used for many scenarios,
+ *  including calling Cloud Run, or endpoints where you intend to validate the
+ *  token yourself.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_OidcToken *oidcToken;
+
+/**
+ *  URI override. When specified, overrides the execution URI for all the tasks
+ *  in the queue.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_UriOverride *uriOverride;
+
 @end
 
 
@@ -1094,6 +1384,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  PathOverride. Path message defines path override for HTTP targets.
+ */
+@interface GTLRCloudTasks_PathOverride : GTLRObject
+
+/** The URI path (e.g., /users/1234). Default is an empty string. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
  *  Request message for PauseQueue.
  */
 @interface GTLRCloudTasks_PauseQueueRequest : GTLRObject
@@ -1196,6 +1497,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  QueryOverride. Query message defines query override for HTTP targets.
+ */
+@interface GTLRCloudTasks_QueryOverride : GTLRObject
+
+/**
+ *  The query parameters (e.g., qparam1=123&qparam2=456). Default is an empty
+ *  string.
+ */
+@property(nonatomic, copy, nullable) NSString *queryParams;
+
+@end
+
+
+/**
  *  A queue is a container of related tasks. Queues are configured to manage how
  *  those tasks are dispatched. Configurable properties include rate limits,
  *  retry options, queue types, and others.
@@ -1209,6 +1524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  no matter what the setting is for the task-level app_engine_routing.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineRouting *appEngineRoutingOverride;
+
+/** Modifies HTTP target for HTTP tasks. */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_HttpTarget *httpTarget;
 
 /**
  *  Caller-specified and required in CreateQueue, after which it becomes output
@@ -1712,6 +2030,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  URI Override. When specified, all the HTTP tasks inside the queue will be
+ *  partially or fully overridden depending on the configured values.
+ */
+@interface GTLRCloudTasks_UriOverride : GTLRObject
+
+/**
+ *  Host override. When specified, replaces the host part of the task URL. For
+ *  example, if the task URL is "https://www.google.com," and host value is set
+ *  to "example.net", the overridden URI will be changed to
+ *  "https://example.net." Host value cannot be an empty string
+ *  (INVALID_ARGUMENT).
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  URI path. When specified, replaces the existing path of the task URL.
+ *  Setting the path value to an empty string clears the URI path segment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_PathOverride *pathOverride;
+
+/**
+ *  Port override. When specified, replaces the port part of the task URI. For
+ *  instance, for a URI http://www.google.com/foo and port=123, the overridden
+ *  URI becomes http://www.google.com:123/foo. Note that the port value must be
+ *  a positive integer. Setting the port to 0 (Zero) clears the URI port.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  URI query. When specified, replaces the query part of the task URI. Setting
+ *  the query value to an empty string clears the URI query segment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_QueryOverride *queryOverride;
+
+/**
+ *  Scheme override. When specified, the task URI scheme is replaced by the
+ *  provided value (HTTP or HTTPS).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_Http Convert the scheme to
+ *        HTTP, e.g., https://www.google.ca will change to http://www.google.ca.
+ *        (Value: "HTTP")
+ *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_Https Convert the scheme to
+ *        HTTPS, e.g., http://www.google.ca will change to
+ *        https://www.google.ca. (Value: "HTTPS")
+ *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_SchemeUnspecified Scheme
+ *        unspecified. Defaults to HTTPS. (Value: "SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+/**
+ *  URI Override Enforce Mode When specified, determines the Target UriOverride
+ *  mode. If not specified, it defaults to ALWAYS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_Always In the
+ *        ALWAYS mode, queue-level configuration overrides all task-level
+ *        configuration (Value: "ALWAYS")
+ *    @arg @c kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_IfNotExists In
+ *        the IF_NOT_EXISTS mode, queue-level configuration is only applied
+ *        where task-level configuration does not exist. (Value:
+ *        "IF_NOT_EXISTS")
+ *    @arg @c kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideEnforceModeUnspecified
+ *        UriOverrideEnforceMode Unspecified. Defaults to ALWAYS. (Value:
+ *        "URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *uriOverrideEnforceMode;
 
 @end
 

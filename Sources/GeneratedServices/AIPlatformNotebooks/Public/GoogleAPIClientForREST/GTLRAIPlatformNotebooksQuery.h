@@ -222,6 +222,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets general backend configurations that might also affect the frontend.
+ *  Location is required by CCFE. Although we could bypass it to send location-
+ *  less request directly to the backend job, we would need CPE (go/cloud-cpe).
+ *  Having the location might also be useful depending on the query.
+ *
+ *  Method: notebooks.projects.locations.instances.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetConfig : GTLRAIPlatformNotebooksQuery
+
+/** Required. Format: `projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Config.
+ *
+ *  Gets general backend configurations that might also affect the frontend.
+ *  Location is required by CCFE. Although we could bypass it to send location-
+ *  less request directly to the backend job, we would need CPE (go/cloud-cpe).
+ *  Having the location might also be useful depending on the query.
+ *
+ *  @param name Required. Format: `projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *

@@ -288,9 +288,9 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
          locationId, maintenancePolicy, maintenanceSchedule, maintenanceVersion,
          memorySizeGb, name, nodes, persistenceConfig, persistenceIamIdentity,
          port, readEndpoint, readEndpointPort, readReplicasMode, redisConfigs,
-         redisVersion, replicaCount, reservedIpRange, secondaryIpRange,
-         serverCaCerts, state, statusMessage, suspensionReasons, tier,
-         transitEncryptionMode;
+         redisVersion, replicaCount, reservedIpRange, satisfiesPzs,
+         secondaryIpRange, serverCaCerts, state, statusMessage,
+         suspensionReasons, tier, transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

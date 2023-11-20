@@ -106,6 +106,7 @@
 @class GTLRGKEOnPrem_VmwareAAGConfig;
 @class GTLRGKEOnPrem_VmwareAddressPool;
 @class GTLRGKEOnPrem_VmwareAdminAddonNodeConfig;
+@class GTLRGKEOnPrem_VmwareAdminAuthorizationConfig;
 @class GTLRGKEOnPrem_VmwareAdminCluster;
 @class GTLRGKEOnPrem_VmwareAdminCluster_Annotations;
 @class GTLRGKEOnPrem_VmwareAdminControlPlaneNodeConfig;
@@ -885,7 +886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @interface GTLRGKEOnPrem_Authorization : GTLRObject
 
 /**
- *  Required. For VMware and bare metal user clusters, users will be granted the
+ *  For VMware and bare metal user clusters, users will be granted the
  *  cluster-admin role on the cluster, which provides full administrative access
  *  to the cluster. For bare metal admin clusters, users will be granted the
  *  cluster-view role, which limits users to read-only access.
@@ -3916,6 +3917,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  VmwareAdminAuthorizationConfig represents configuration for admin cluster
+ *  authorization.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminAuthorizationConfig : GTLRObject
+
+/**
+ *  For VMware admin clusters, users will be granted the cluster-viewer role on
+ *  the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_ClusterUser *> *viewerUsers;
+
+@end
+
+
+/**
  *  Resource that represents a VMware admin cluster.
  */
 @interface GTLRGKEOnPrem_VmwareAdminCluster : GTLRObject
@@ -3936,6 +3952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** The VMware admin cluster anti affinity group configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAAGConfig *antiAffinityGroups;
+
+/** The VMware admin cluster authorization configuration. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminAuthorizationConfig *authorization;
 
 /** The VMware admin cluster auto repair configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAutoRepairConfig *autoRepairConfig;
@@ -4935,8 +4954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareStaticIpConfig *staticIpConfig;
 
 /**
- *  Output only. vcenter_network specifies vCenter network name. Inherited from
- *  the admin cluster.
+ *  vcenter_network specifies vCenter network name. Inherited from the admin
+ *  cluster.
  */
 @property(nonatomic, copy, nullable) NSString *vcenterNetwork;
 

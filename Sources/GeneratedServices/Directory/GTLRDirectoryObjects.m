@@ -1808,7 +1808,27 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 //
 
 @implementation GTLRDirectory_UserEmail
-@dynamic address, customType, primary, type;
+@dynamic address, customType, primary, publicKeyEncryptionCertificates, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"publicKeyEncryptionCertificates" : @"public_key_encryption_certificates" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserEmail_PublicKeyEncryptionCertificates
+//
+
+@implementation GTLRDirectory_UserEmail_PublicKeyEncryptionCertificates
+@dynamic certificate, isDefault, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"isDefault" : @"is_default" };
+}
+
 @end
 
 

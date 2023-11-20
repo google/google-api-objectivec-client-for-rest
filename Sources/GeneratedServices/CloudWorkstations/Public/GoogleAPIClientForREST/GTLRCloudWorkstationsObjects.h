@@ -41,6 +41,7 @@
 @class GTLRCloudWorkstations_Status_Details_Item;
 @class GTLRCloudWorkstations_Workstation;
 @class GTLRCloudWorkstations_Workstation_Annotations;
+@class GTLRCloudWorkstations_Workstation_Env;
 @class GTLRCloudWorkstations_Workstation_Labels;
 @class GTLRCloudWorkstations_WorkstationCluster;
 @class GTLRCloudWorkstations_WorkstationCluster_Annotations;
@@ -1407,6 +1408,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Environment variables passed to the workstation container's
+ *  entrypoint.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_Workstation_Env *env;
+
+/**
  *  Optional. Checksum computed by the server. May be sent on update and delete
  *  requests to make sure that the client has an up-to-date value before
  *  proceeding.
@@ -1484,6 +1491,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *        fetch them all at once.
  */
 @interface GTLRCloudWorkstations_Workstation_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Environment variables passed to the workstation container's
+ *  entrypoint.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudWorkstations_Workstation_Env : GTLRObject
 @end
 
 

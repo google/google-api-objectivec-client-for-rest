@@ -535,9 +535,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_DeviceSession
-@dynamic activeStartTime, androidDevice, androidDeviceList, createTime,
-         displayName, expireTime, inactivityTimeout, name, state,
-         stateHistories, ttl;
+@dynamic activeStartTime, androidDevice, createTime, displayName, expireTime,
+         inactivityTimeout, name, state, stateHistories, ttl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1235,14 +1234,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TestSetup
 @dynamic account, additionalApks, directoriesToPull, dontAutograntPermissions,
-         environmentVariables, filesToPush, networkProfile, systrace;
+         environmentVariables, filesToPush, initialSetupApks, networkProfile,
+         systrace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalApks" : [GTLRTesting_Apk class],
     @"directoriesToPull" : [NSString class],
     @"environmentVariables" : [GTLRTesting_EnvironmentVariable class],
-    @"filesToPush" : [GTLRTesting_DeviceFile class]
+    @"filesToPush" : [GTLRTesting_DeviceFile class],
+    @"initialSetupApks" : [GTLRTesting_Apk class]
   };
   return map;
 }

@@ -37,6 +37,31 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget.ownershipScope
+
+/**
+ *  Both billing account-level users and project-level users have full access to
+ *  the budget, if the users have the required IAM permissions.
+ *
+ *  Value: "ALL_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_AllUsers;
+/**
+ *  Only billing account-level users have full access to the budget.
+ *  Project-level users have read-only access, even if they have the required
+ *  IAM permissions.
+ *
+ *  Value: "BILLING_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_BillingAccount;
+/**
+ *  Unspecified ownership scope, same as ALL_USERS.
+ *
+ *  Value: "OWNERSHIP_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_OwnershipScopeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.calendarPeriod
 
 /**
@@ -165,6 +190,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  thresholds.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule *notificationsRule;
+
+/**
+ *  ownershipScope
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_AllUsers
+ *        Both billing account-level users and project-level users have full
+ *        access to the budget, if the users have the required IAM permissions.
+ *        (Value: "ALL_USERS")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_BillingAccount
+ *        Only billing account-level users have full access to the budget.
+ *        Project-level users have read-only access, even if they have the
+ *        required IAM permissions. (Value: "BILLING_ACCOUNT")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_OwnershipScopeUnspecified
+ *        Unspecified ownership scope, same as ALL_USERS. (Value:
+ *        "OWNERSHIP_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ownershipScope;
 
 /**
  *  Optional. Rules that trigger alerts (notifications of thresholds being

@@ -29,6 +29,7 @@
 @class GTLRSQLAdmin_DatabaseInstance;
 @class GTLRSQLAdmin_DatabaseInstance_FailoverReplica;
 @class GTLRSQLAdmin_DataCacheConfig;
+@class GTLRSQLAdmin_DemoteContext;
 @class GTLRSQLAdmin_DemoteMasterConfiguration;
 @class GTLRSQLAdmin_DemoteMasterContext;
 @class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
@@ -95,6 +96,20 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ApiWarning.code
 
+/**
+ *  Warning when user tries to create/update a user with credentials that have
+ *  previously been compromised by a public data breach.
+ *
+ *  Value: "COMPROMISED_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_CompromisedCredentials;
+/**
+ *  Warning when the operation succeeds but some non-critical workflow state
+ *  failed.
+ *
+ *  Value: "INTERNAL_STATE_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_InternalStateFailure;
 /**
  *  Warning when user provided maxResults parameter exceeds the limit. The
  *  returned result set may be incomplete.
@@ -803,6 +818,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_R
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DatabaseInstance.sqlNetworkArchitecture
+
+/**
+ *  Instance is a Tenancy Unit (TU) instance.
+ *
+ *  Value: "NEW_NETWORK_ARCHITECTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_NewNetworkArchitecture;
+/**
+ *  Instance is an Umbrella instance.
+ *
+ *  Value: "OLD_NETWORK_ARCHITECTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_OldNetworkArchitecture;
+/** Value: "SQL_NETWORK_ARCHITECTURE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_SqlNetworkArchitectureUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.state
 
 /**
@@ -1280,31 +1313,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
 
 /**
  *  Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections, the
- *  client certificate will not be verified. When this value is used, legacy
- *  `require_ssl` flag must be false or unset to avoid the conflict between
+ *  client certificate won't be verified. When this value is used, the legacy
+ *  `require_ssl` flag must be false or cleared to avoid the conflict between
  *  values of two flags.
  *
  *  Value: "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted;
 /**
- *  Only allow connections encrypted with SSL/TLS. When this value is used,
- *  legacy `require_ssl` flag must be false or unset to avoid the conflict
+ *  Only allow connections encrypted with SSL/TLS. When this value is used, the
+ *  legacy `require_ssl` flag must be false or cleared to avoid the conflict
  *  between values of two flags.
  *
  *  Value: "ENCRYPTED_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly;
 /**
- *  SSL mode is unknown.
+ *  The SSL mode is unknown.
  *
  *  Value: "SSL_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified;
 /**
  *  Only allow connections encrypted with SSL/TLS and with valid client
- *  certificates. When this value is used, legacy `require_ssl` flag must be
- *  true or unset to avoid the conflict between values of two flags.
+ *  certificates. When this value is used, the legacy `require_ssl` flag must be
+ *  true or cleared to avoid the conflict between values of two flags.
  *
  *  Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
  */
@@ -1374,6 +1407,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_S
  *  Value: "stable"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable;
+/**
+ *  For instance update that requires a restart, this update track indicates
+ *  your instance prefer to let Cloud SQL choose the timing of restart (within
+ *  its Maintenance window, if applicable) to be at least 5 weeks after the
+ *  notification.
+ *
+ *  Value: "week5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Week5;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Operation.operationType
@@ -1939,6 +1981,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables;
 /**
+ *  The global variable local_infile is off on external server replica.
+ *
+ *  Value: "LOCAL_INFILE_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LocalInfileOff;
+/**
  *  The replication user is missing privileges that are optional.
  *
  *  Value: "MISSING_OPTIONAL_PRIVILEGES"
@@ -1992,6 +2040,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "SQLSERVER_SERVERNAME_MISMATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch;
+/**
+ *  This code instructs customers to turn on point-in-time recovery manually for
+ *  the instance after promoting the Cloud SQL for PostgreSQL instance.
+ *
+ *  Value: "TURN_ON_PITR_AFTER_PROMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote;
 /**
  *  The primary instance has unsupported binary log format.
  *
@@ -2179,6 +2234,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyD
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_BuiltIn;
 /**
+ *  Cloud IAM Group non-login user.
+ *
+ *  Value: "CLOUD_IAM_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroup;
+/**
+ *  Cloud IAM Group login service account.
+ *
+ *  Value: "CLOUD_IAM_GROUP_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount;
+/**
+ *  Cloud IAM Group login user.
+ *
+ *  Value: "CLOUD_IAM_GROUP_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupUser;
+/**
  *  Cloud IAM service account.
  *
  *  Value: "CLOUD_IAM_SERVICE_ACCOUNT"
@@ -2239,6 +2312,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Code to uniquely identify the warning type.
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ApiWarning_Code_CompromisedCredentials Warning when
+ *        user tries to create/update a user with credentials that have
+ *        previously been compromised by a public data breach. (Value:
+ *        "COMPROMISED_CREDENTIALS")
+ *    @arg @c kGTLRSQLAdmin_ApiWarning_Code_InternalStateFailure Warning when
+ *        the operation succeeds but some non-critical workflow state failed.
+ *        (Value: "INTERNAL_STATE_FAILURE")
  *    @arg @c kGTLRSQLAdmin_ApiWarning_Code_MaxResultsExceedsLimit Warning when
  *        user provided maxResults parameter exceeds the limit. The returned
  *        result set may be incomplete. (Value: "MAX_RESULTS_EXCEEDS_LIMIT")
@@ -3189,6 +3269,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_Settings *settings;
 
 /**
+ *  sqlNetworkArchitecture
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_NewNetworkArchitecture
+ *        Instance is a Tenancy Unit (TU) instance. (Value:
+ *        "NEW_NETWORK_ARCHITECTURE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_OldNetworkArchitecture
+ *        Instance is an Umbrella instance. (Value: "OLD_NETWORK_ARCHITECTURE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_SqlNetworkArchitectureUnspecified
+ *        Value "SQL_NETWORK_ARCHITECTURE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *sqlNetworkArchitecture;
+
+/**
  *  The current serving state of the Cloud SQL instance.
  *
  *  Likely values:
@@ -3282,6 +3376,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataCacheEnabled;
+
+@end
+
+
+/**
+ *  This context is used to demote an existing standalone instance to be a Cloud
+ *  SQL read replica for an external database server.
+ */
+@interface GTLRSQLAdmin_DemoteContext : GTLRObject
+
+/** This is always `sql#demoteContext`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Required. The name of the instance which acts as the on-premises primary
+ *  instance in the replication setup.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRepresentativeInstanceName;
 
 @end
 
@@ -3906,14 +4018,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *recoveryOnly;
 
 /**
- *  Optional. StopAt keyword for transaction log import, Applies to Cloud SQL
- *  for SQL Server only
+ *  Optional. The timestamp when the import should stop. This timestamp is in
+ *  the [RFC 3339](https://tools.ietf.org/html/rfc3339) format (for example,
+ *  `2023-10-01T16:19:00.094`). This field is equivalent to the STOPAT keyword
+ *  and applies to Cloud SQL for SQL Server only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *stopAt;
 
 /**
- *  Optional. StopAtMark keyword for transaction log import, Applies to Cloud
- *  SQL for SQL Server only
+ *  Optional. The marked transaction where the import should stop. This field is
+ *  equivalent to the STOPATMARK keyword and applies to Cloud SQL for SQL Server
+ *  only.
  */
 @property(nonatomic, copy, nullable) NSString *stopAtMark;
 
@@ -4080,6 +4195,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Contains details about the demoteMaster operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterContext *demoteMasterContext;
+
+@end
+
+
+/**
+ *  This request is used to demote an existing standalone instance to be a Cloud
+ *  SQL read replica for an external database server.
+ */
+@interface GTLRSQLAdmin_InstancesDemoteRequest : GTLRObject
+
+/** Required. Contains details about the demote operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteContext *demoteContext;
 
 @end
 
@@ -4259,53 +4386,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PscConfig *pscConfig;
 
 /**
- *  LINT.IfChange(require_ssl_deprecate) Whether SSL/TLS connections over IP are
- *  enforced or not. If set to false, allow both non-SSL/non-TLS and SSL/TLS
- *  connections. For SSL/TLS connections, the client certificate will not be
- *  verified. If set to true, only allow connections encrypted with SSL/TLS and
- *  with valid client certificates. If you want to enforce SSL/TLS without
- *  enforcing the requirement for valid client certificates, use the `ssl_mode`
- *  flag instead of the legacy `require_ssl` flag.
- *  LINT.ThenChange(//depot/google3/java/com/google/storage/speckle/boss/admin/actions/InstanceUpdateAction.java:update_api_temp_fix)
+ *  Whether SSL/TLS connections over IP are enforced. If set to false, then
+ *  allow both non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections,
+ *  the client certificate won't be verified. If set to true, then only allow
+ *  connections encrypted with SSL/TLS and with valid client certificates. If
+ *  you want to enforce SSL/TLS without enforcing the requirement for valid
+ *  client certificates, then use the `ssl_mode` flag instead of the legacy
+ *  `require_ssl` flag.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
 /**
- *  Specify how SSL/TLS will be enforced in database connections. This flag is
- *  only supported for PostgreSQL. Use the legacy `require_ssl` flag for
- *  enforcing SSL/TLS in MySQL and SQL Server. But, for PostgreSQL, it is
- *  recommended to use the `ssl_mode` flag instead of the legacy `require_ssl`
- *  flag. To avoid the conflict between those flags in PostgreSQL, only the
- *  following value pairs are valid: ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED,
- *  require_ssl=false; ssl_mode=ENCRYPTED_ONLY, require_ssl=false;
- *  ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED, require_ssl=true; Note that
- *  the value of `ssl_mode` gets priority over the value of the legacy
+ *  Specify how SSL/TLS is enforced in database connections. This flag is
+ *  supported only for PostgreSQL. Use the legacy `require_ssl` flag for
+ *  enforcing SSL/TLS in MySQL and SQL Server. But, for PostgreSQL, use the
+ *  `ssl_mode` flag instead of the legacy `require_ssl` flag. To avoid the
+ *  conflict between those flags in PostgreSQL, only the following value pairs
+ *  are valid: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and
+ *  `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false` *
+ *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` Note
+ *  that the value of `ssl_mode` gets priority over the value of the legacy
  *  `require_ssl`. For example, for the pair `ssl_mode=ENCRYPTED_ONLY,
  *  require_ssl=false`, the `ssl_mode=ENCRYPTED_ONLY` means "only accepts SSL
  *  connection", while the `require_ssl=false` means "both non-SSL and SSL
- *  connections are allowed". The database will respect `ssl_mode` in this case
- *  and only accept SSL connections.
+ *  connections are allowed". The database respects `ssl_mode` in this case and
+ *  only accepts SSL connections.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
  *        Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS
- *        connections, the client certificate will not be verified. When this
- *        value is used, legacy `require_ssl` flag must be false or unset to
+ *        connections, the client certificate won't be verified. When this value
+ *        is used, the legacy `require_ssl` flag must be false or cleared to
  *        avoid the conflict between values of two flags. (Value:
  *        "ALLOW_UNENCRYPTED_AND_ENCRYPTED")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly Only allow
- *        connections encrypted with SSL/TLS. When this value is used, legacy
- *        `require_ssl` flag must be false or unset to avoid the conflict
- *        between values of two flags. (Value: "ENCRYPTED_ONLY")
- *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified SSL mode
- *        is unknown. (Value: "SSL_MODE_UNSPECIFIED")
+ *        connections encrypted with SSL/TLS. When this value is used, the
+ *        legacy `require_ssl` flag must be false or cleared to avoid the
+ *        conflict between values of two flags. (Value: "ENCRYPTED_ONLY")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified The SSL
+ *        mode is unknown. (Value: "SSL_MODE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_TrustedClientCertificateRequired
  *        Only allow connections encrypted with SSL/TLS and with valid client
- *        certificates. When this value is used, legacy `require_ssl` flag must
- *        be true or unset to avoid the conflict between values of two flags.
- *        (Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
+ *        certificates. When this value is used, the legacy `require_ssl` flag
+ *        must be true or cleared to avoid the conflict between values of two
+ *        flags. (Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
  */
 @property(nonatomic, copy, nullable) NSString *sslMode;
 
@@ -4431,6 +4557,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        update that requires a restart, this update track indicates your
  *        instance prefer to let Cloud SQL choose the timing of restart (within
  *        its Maintenance window, if applicable). (Value: "stable")
+ *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Week5 For instance
+ *        update that requires a restart, this update track indicates your
+ *        instance prefer to let Cloud SQL choose the timing of restart (within
+ *        its Maintenance window, if applicable) to be at least 5 weeks after
+ *        the notification. (Value: "week5")
  */
 @property(nonatomic, copy, nullable) NSString *updateTrack;
 
@@ -4555,6 +4686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  resource.
  */
 @interface GTLRSQLAdmin_Operation : GTLRObject
+
+/** An Admin API warning message. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ApiWarning *apiWarning;
 
 /** The context for backup operation, if applicable. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupContext *backupContext;
@@ -5425,6 +5559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables
  *        Source has tables with limited support eg: PostgreSQL tables without
  *        primary keys. (Value: "LIMITED_SUPPORT_TABLES")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LocalInfileOff The
+ *        global variable local_infile is off on external server replica.
+ *        (Value: "LOCAL_INFILE_OFF")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges
  *        The replication user is missing privileges that are optional. (Value:
  *        "MISSING_OPTIONAL_PRIVILEGES")
@@ -5455,6 +5592,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch
  *        SQL Server \@\@SERVERNAME does not match actual host name. (Value:
  *        "SQLSERVER_SERVERNAME_MISMATCH")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote
+ *        This code instructs customers to turn on point-in-time recovery
+ *        manually for the instance after promoting the Cloud SQL for PostgreSQL
+ *        instance. (Value: "TURN_ON_PITR_AFTER_PROMOTE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat
  *        The primary instance has unsupported binary log format. (Value:
  *        "UNSUPPORTED_BINLOG_FORMAT")
@@ -6063,6 +6204,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_User_Type_BuiltIn The database's built-in user type.
  *        (Value: "BUILT_IN")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroup Cloud IAM Group non-login
+ *        user. (Value: "CLOUD_IAM_GROUP")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount Cloud IAM
+ *        Group login service account. (Value:
+ *        "CLOUD_IAM_GROUP_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupUser Cloud IAM Group login
+ *        user. (Value: "CLOUD_IAM_GROUP_USER")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamServiceAccount Cloud IAM service
  *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamUser Cloud IAM user. (Value:

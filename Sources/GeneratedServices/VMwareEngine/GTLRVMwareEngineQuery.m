@@ -36,6 +36,209 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:grant";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.global.dnsBindPermission.grant";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.global.dnsBindPermission.revoke";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_DnsBindPermission class];
+  query.loggingName = @"vmwareengine.projects.locations.global.getDnsBindPermission";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate
+
+@dynamic networkPeeringId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_NetworkPeering class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListNetworkPeeringsResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/peeringRoutes";
+  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListPeeringRoutesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.peeringRoutes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -96,6 +299,136 @@
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
   query.loggingName = @"vmwareengine.projects.locations.networkPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesCreate
+
+@dynamic externalAccessRuleId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/externalAccessRules";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.externalAccessRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.externalAccessRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_ExternalAccessRule class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.externalAccessRules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/externalAccessRules";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListExternalAccessRulesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.externalAccessRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.externalAccessRules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesFetchExternalAddresses
+
+@dynamic networkPolicy, pageSize, pageToken;
+
++ (instancetype)queryWithNetworkPolicy:(NSString *)networkPolicy {
+  NSArray *pathParams = @[ @"networkPolicy" ];
+  NSString *pathURITemplate = @"v1/{+networkPolicy}:fetchExternalAddresses";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesFetchExternalAddresses *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.networkPolicy = networkPolicy;
+  query.expectedObjectClass = [GTLRVMwareEngine_FetchNetworkPolicyExternalAddressesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPolicies.fetchExternalAddresses";
   return query;
 }
 
@@ -368,6 +701,44 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Node class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.clusters.nodes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/nodes";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListNodesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.clusters.nodes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersPatch
 
 @dynamic name, requestId, updateMask, validateOnly;
@@ -495,6 +866,117 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesCreate
+
+@dynamic externalAddressId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/externalAddresses";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.externalAddresses.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.externalAddresses.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_ExternalAddress class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.externalAddresses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/externalAddresses";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListExternalAddressesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.externalAddresses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.externalAddresses.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGet
 
 @dynamic name;
@@ -509,6 +991,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_PrivateCloud class];
   query.loggingName = @"vmwareengine.projects.locations.privateClouds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGetDnsForwarding
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGetDnsForwarding *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_DnsForwarding class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.getDnsForwarding";
   return query;
 }
 
@@ -698,6 +1199,255 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersCreate
+
+@dynamic loggingServerId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_LoggingServer *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/loggingServers";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.loggingServers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.loggingServers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_LoggingServer class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.loggingServers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/loggingServers";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListLoggingServersResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.loggingServers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_LoggingServer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.loggingServers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsCreate
+
+@dynamic managementDnsZoneBindingId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ManagementDnsZoneBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/managementDnsZoneBindings";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_ManagementDnsZoneBinding class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/managementDnsZoneBindings";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListManagementDnsZoneBindingsResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ManagementDnsZoneBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsRepair
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:repair";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsRepair *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.repair";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch
 
 @dynamic name, requestId, updateMask;
@@ -827,7 +1577,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsShowVcenterCredentials
 
-@dynamic privateCloud;
+@dynamic privateCloud, username;
 
 + (instancetype)queryWithPrivateCloud:(NSString *)privateCloud {
   NSArray *pathParams = @[ @"privateCloud" ];
@@ -958,6 +1708,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
   query.loggingName = @"vmwareengine.projects.locations.privateClouds.undelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_DnsForwarding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.updateDnsForwarding";
   return query;
 }
 

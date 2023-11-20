@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// environment
+NSString * const kGTLRAppengineEnvironmentEnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRAppengineEnvironmentFlexible             = @"FLEXIBLE";
+NSString * const kGTLRAppengineEnvironmentStandard             = @"STANDARD";
+
 // includeExtraData
 NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataNone = @"INCLUDE_EXTRA_DATA_NONE";
 NSString * const kGTLRAppengineIncludeExtraDataIncludeExtraDataUnspecified = @"INCLUDE_EXTRA_DATA_UNSPECIFIED";
@@ -490,6 +495,25 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
   query.appsId = appsId;
   query.expectedObjectClass = [GTLRAppengine_Application class];
   query.loggingName = @"appengine.apps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_AppsListRuntimes
+
+@dynamic appsId, environment;
+
++ (instancetype)queryWithAppsId:(NSString *)appsId {
+  NSArray *pathParams = @[ @"appsId" ];
+  NSString *pathURITemplate = @"v1/apps/{appsId}:listRuntimes";
+  GTLRAppengineQuery_AppsListRuntimes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appsId = appsId;
+  query.expectedObjectClass = [GTLRAppengine_ListRuntimesResponse class];
+  query.loggingName = @"appengine.apps.listRuntimes";
   return query;
 }
 

@@ -28,6 +28,25 @@ NSString * const kGTLRVMwareEngine_Cluster_State_Repairing     = @"REPAIRING";
 NSString * const kGTLRVMwareEngine_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_Cluster_State_Updating      = @"UPDATING";
 
+// GTLRVMwareEngine_ExternalAccessRule.action
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Allow = @"ALLOW";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Deny = @"DENY";
+
+// GTLRVMwareEngine_ExternalAccessRule.state
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Active = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Creating = @"CREATING";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Deleting = @"DELETING";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Updating = @"UPDATING";
+
+// GTLRVMwareEngine_ExternalAddress.state
+NSString * const kGTLRVMwareEngine_ExternalAddress_State_Active = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_ExternalAddress_State_Creating = @"CREATING";
+NSString * const kGTLRVMwareEngine_ExternalAddress_State_Deleting = @"DELETING";
+NSString * const kGTLRVMwareEngine_ExternalAddress_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_ExternalAddress_State_Updating = @"UPDATING";
+
 // GTLRVMwareEngine_Hcx.state
 NSString * const kGTLRVMwareEngine_Hcx_State_Active           = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Hcx_State_Creating         = @"CREATING";
@@ -39,6 +58,28 @@ NSString * const kGTLRVMwareEngine_HcxActivationKey_State_Consumed = @"CONSUMED"
 NSString * const kGTLRVMwareEngine_HcxActivationKey_State_Creating = @"CREATING";
 NSString * const kGTLRVMwareEngine_HcxActivationKey_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMwareEngine_LocationMetadata.capabilities
+NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_CapabilityUnspecified = @"CAPABILITY_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_StretchedClusters = @"STRETCHED_CLUSTERS";
+
+// GTLRVMwareEngine_LoggingServer.protocol
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tcp  = @"TCP";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Udp  = @"UDP";
+
+// GTLRVMwareEngine_LoggingServer.sourceType
+NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_Esxi = @"ESXI";
+NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_Vcsa = @"VCSA";
+
+// GTLRVMwareEngine_ManagementDnsZoneBinding.state
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Active = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Creating = @"CREATING";
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Deleting = @"DELETING";
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Failed = @"FAILED";
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Updating = @"UPDATING";
+
 // GTLRVMwareEngine_Network.state
 NSString * const kGTLRVMwareEngine_Network_State_Active        = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Network_State_Creating      = @"CREATING";
@@ -48,13 +89,41 @@ NSString * const kGTLRVMwareEngine_Network_State_Updating      = @"UPDATING";
 
 // GTLRVMwareEngine_Network.type
 NSString * const kGTLRVMwareEngine_Network_Type_Legacy         = @"LEGACY";
+NSString * const kGTLRVMwareEngine_Network_Type_Standard       = @"STANDARD";
 NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRVMwareEngine_NetworkPeering.peerNetworkType
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale = @"DELL_POWERSCALE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes = @"NETAPP_CLOUD_VOLUMES";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified = @"PEER_NETWORK_TYPE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PrivateServicesAccess = @"PRIVATE_SERVICES_ACCESS";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_Standard = @"STANDARD";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_ThirdPartyService = @"THIRD_PARTY_SERVICE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_VmwareEngineNetwork = @"VMWARE_ENGINE_NETWORK";
+
+// GTLRVMwareEngine_NetworkPeering.state
+NSString * const kGTLRVMwareEngine_NetworkPeering_State_Active = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_State_Creating = @"CREATING";
+NSString * const kGTLRVMwareEngine_NetworkPeering_State_Deleting = @"DELETING";
+NSString * const kGTLRVMwareEngine_NetworkPeering_State_Inactive = @"INACTIVE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRVMwareEngine_NetworkService.state
 NSString * const kGTLRVMwareEngine_NetworkService_State_Active = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_NetworkService_State_Reconciling = @"RECONCILING";
 NSString * const kGTLRVMwareEngine_NetworkService_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_NetworkService_State_Unprovisioned = @"UNPROVISIONED";
+
+// GTLRVMwareEngine_Node.state
+NSString * const kGTLRVMwareEngine_Node_State_Active           = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_Node_State_Creating         = @"CREATING";
+NSString * const kGTLRVMwareEngine_Node_State_Failed           = @"FAILED";
+NSString * const kGTLRVMwareEngine_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_Node_State_Upgrading        = @"UPGRADING";
+
+// GTLRVMwareEngine_NodeType.capabilities
+NSString * const kGTLRVMwareEngine_NodeType_Capabilities_CapabilityUnspecified = @"CAPABILITY_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_NodeType_Capabilities_StretchedClusters = @"STRETCHED_CLUSTERS";
 
 // GTLRVMwareEngine_Nsx.state
 NSString * const kGTLRVMwareEngine_Nsx_State_Active           = @"ACTIVE";
@@ -83,6 +152,7 @@ NSString * const kGTLRVMwareEngine_PrivateCloud_State_Updating = @"UPDATING";
 
 // GTLRVMwareEngine_PrivateCloud.type
 NSString * const kGTLRVMwareEngine_PrivateCloud_Type_Standard  = @"STANDARD";
+NSString * const kGTLRVMwareEngine_PrivateCloud_Type_Stretched = @"STRETCHED";
 NSString * const kGTLRVMwareEngine_PrivateCloud_Type_TimeLimited = @"TIME_LIMITED";
 
 // GTLRVMwareEngine_PrivateConnection.peeringState
@@ -191,7 +261,8 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_Cluster
-@dynamic createTime, management, name, nodeTypeConfigs, state, uid, updateTime;
+@dynamic createTime, management, name, nodeTypeConfigs, state,
+         stretchedClusterConfig, uid, updateTime;
 @end
 
 
@@ -221,6 +292,42 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_DnsBindPermission
+//
+
+@implementation GTLRVMwareEngine_DnsBindPermission
+@dynamic name, principals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"principals" : [GTLRVMwareEngine_Principal class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_DnsForwarding
+//
+
+@implementation GTLRVMwareEngine_DnsForwarding
+@dynamic createTime, forwardingRules, name, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forwardingRules" : [GTLRVMwareEngine_ForwardingRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Empty
 //
 
@@ -240,6 +347,99 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ExternalAccessRule
+//
+
+@implementation GTLRVMwareEngine_ExternalAccessRule
+@dynamic action, createTime, descriptionProperty, destinationIpRanges,
+         destinationPorts, ipProtocol, name, priority, sourceIpRanges,
+         sourcePorts, state, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinationIpRanges" : [GTLRVMwareEngine_IpRange class],
+    @"destinationPorts" : [NSString class],
+    @"sourceIpRanges" : [GTLRVMwareEngine_IpRange class],
+    @"sourcePorts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ExternalAddress
+//
+
+@implementation GTLRVMwareEngine_ExternalAddress
+@dynamic createTime, descriptionProperty, externalIp, internalIp, name, state,
+         uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_FetchNetworkPolicyExternalAddressesResponse
+//
+
+@implementation GTLRVMwareEngine_FetchNetworkPolicyExternalAddressesResponse
+@dynamic externalAddresses, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalAddresses" : [GTLRVMwareEngine_ExternalAddress class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"externalAddresses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ForwardingRule
+//
+
+@implementation GTLRVMwareEngine_ForwardingRule
+@dynamic domain, nameServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nameServers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_GrantDnsBindPermissionRequest
+//
+
+@implementation GTLRVMwareEngine_GrantDnsBindPermissionRequest
+@dynamic principal, requestId;
 @end
 
 
@@ -265,6 +465,16 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_IpRange
+//
+
+@implementation GTLRVMwareEngine_IpRange
+@dynamic externalAddress, ipAddress, ipAddressRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_ListClustersResponse
 //
 
@@ -281,6 +491,52 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (NSString *)collectionItemsKey {
   return @"clusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListExternalAccessRulesResponse
+//
+
+@implementation GTLRVMwareEngine_ListExternalAccessRulesResponse
+@dynamic externalAccessRules, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalAccessRules" : [GTLRVMwareEngine_ExternalAccessRule class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"externalAccessRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListExternalAddressesResponse
+//
+
+@implementation GTLRVMwareEngine_ListExternalAddressesResponse
+@dynamic externalAddresses, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalAddresses" : [GTLRVMwareEngine_ExternalAddress class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"externalAddresses";
 }
 
 @end
@@ -333,6 +589,75 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_ListLoggingServersResponse
+//
+
+@implementation GTLRVMwareEngine_ListLoggingServersResponse
+@dynamic loggingServers, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"loggingServers" : [GTLRVMwareEngine_LoggingServer class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"loggingServers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListManagementDnsZoneBindingsResponse
+//
+
+@implementation GTLRVMwareEngine_ListManagementDnsZoneBindingsResponse
+@dynamic managementDnsZoneBindings, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"managementDnsZoneBindings" : [GTLRVMwareEngine_ManagementDnsZoneBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"managementDnsZoneBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListNetworkPeeringsResponse
+//
+
+@implementation GTLRVMwareEngine_ListNetworkPeeringsResponse
+@dynamic networkPeerings, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkPeerings" : [GTLRVMwareEngine_NetworkPeering class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"networkPeerings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_ListNetworkPoliciesResponse
 //
 
@@ -349,6 +674,28 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (NSString *)collectionItemsKey {
   return @"networkPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListNodesResponse
+//
+
+@implementation GTLRVMwareEngine_ListNodesResponse
+@dynamic nextPageToken, nodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [GTLRVMwareEngine_Node class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"nodes";
 }
 
 @end
@@ -394,6 +741,28 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListPeeringRoutesResponse
+//
+
+@implementation GTLRVMwareEngine_ListPeeringRoutesResponse
+@dynamic nextPageToken, peeringRoutes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peeringRoutes" : [GTLRVMwareEngine_PeeringRoute class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"peeringRoutes";
 }
 
 @end
@@ -553,11 +922,40 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_LocationMetadata
+//
+
+@implementation GTLRVMwareEngine_LocationMetadata
+@dynamic capabilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capabilities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_LoggingServer
+//
+
+@implementation GTLRVMwareEngine_LoggingServer
+@dynamic createTime, hostname, name, port, protocol, sourceType, uid,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_ManagementCluster
 //
 
 @implementation GTLRVMwareEngine_ManagementCluster
-@dynamic clusterId, nodeTypeConfigs;
+@dynamic clusterId, nodeTypeConfigs, stretchedClusterConfig;
 @end
 
 
@@ -570,6 +968,22 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (Class)classForAdditionalProperties {
   return [GTLRVMwareEngine_NodeTypeConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ManagementDnsZoneBinding
+//
+
+@implementation GTLRVMwareEngine_ManagementDnsZoneBinding
+@dynamic createTime, descriptionProperty, name, state, uid, updateTime,
+         vmwareEngineNetwork, vpcNetwork;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -608,8 +1022,27 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_NetworkConfig
-@dynamic managementCidr, managementIpAddressLayoutVersion, vmwareEngineNetwork,
-         vmwareEngineNetworkCanonical;
+@dynamic dnsServerIp, managementCidr, managementIpAddressLayoutVersion,
+         vmwareEngineNetwork, vmwareEngineNetworkCanonical;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_NetworkPeering
+//
+
+@implementation GTLRVMwareEngine_NetworkPeering
+@dynamic createTime, descriptionProperty, exchangeSubnetRoutes,
+         exportCustomRoutes, exportCustomRoutesWithPublicIp, importCustomRoutes,
+         importCustomRoutesWithPublicIp, name, peerMtu, peerNetwork,
+         peerNetworkType, state, stateDetails, uid, updateTime,
+         vmwareEngineNetwork;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -642,16 +1075,27 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_Node
+//
+
+@implementation GTLRVMwareEngine_Node
+@dynamic customCoreCount, fqdn, internalIp, name, nodeTypeId, state, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_NodeType
 //
 
 @implementation GTLRVMwareEngine_NodeType
-@dynamic availableCustomCoreCounts, diskSizeGb, displayName, memoryGb, name,
-         nodeTypeId, totalCoreCount, virtualCpuCount;
+@dynamic availableCustomCoreCounts, capabilities, diskSizeGb, displayName,
+         memoryGb, name, nodeTypeId, totalCoreCount, virtualCpuCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"availableCustomCoreCounts" : [NSNumber class]
+    @"availableCustomCoreCounts" : [NSNumber class],
+    @"capabilities" : [NSString class]
   };
   return map;
 }
@@ -763,6 +1207,16 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_Principal
+//
+
+@implementation GTLRVMwareEngine_Principal
+@dynamic serviceAccount, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_PrivateCloud
 //
 
@@ -797,6 +1251,16 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest
+//
+
+@implementation GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_ResetNsxCredentialsRequest
 //
 
@@ -811,7 +1275,17 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_ResetVcenterCredentialsRequest
-@dynamic requestId;
+@dynamic requestId, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_RevokeDnsBindPermissionRequest
+//
+
+@implementation GTLRVMwareEngine_RevokeDnsBindPermissionRequest
+@dynamic principal, requestId;
 @end
 
 
@@ -859,11 +1333,21 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_StretchedClusterConfig
+//
+
+@implementation GTLRVMwareEngine_StretchedClusterConfig
+@dynamic preferredLocation, secondaryLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Subnet
 //
 
 @implementation GTLRVMwareEngine_Subnet
-@dynamic gatewayIp, ipCidrRange, name, state, type;
+@dynamic gatewayIp, ipCidrRange, name, state, type, vlanId;
 @end
 
 

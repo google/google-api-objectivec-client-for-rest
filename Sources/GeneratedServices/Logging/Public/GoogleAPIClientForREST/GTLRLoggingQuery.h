@@ -1455,6 +1455,231 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  Method: logging.billingAccounts.locations.recentQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsRecentQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *  example:projects/my-project/locations/us-central1Note: The location portion
+ *  of the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all recent queries.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListRecentQueriesResponse.
+ *
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:projects/my-project/locations/us-central1Note: The location
+ *    portion of the resource must be specified, but supplying the character -
+ *    in place of LOCATION_ID will return all recent queries.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsRecentQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  Method: logging.billingAccounts.locations.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. The parent resource in which to create the saved query:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/global"
+ *  "organizations/123456789/locations/us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID to use for the saved query, which will become the final
+ *  component of the saved query's resource name.If the saved_query_id is not
+ *  provided, the system will generate an alphanumeric ID.The saved_query_id is
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens, and
+ *  periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param parent Required. The parent resource in which to create the saved
+ *    query: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/global"
+ *    "organizations/123456789/locations/us-central1"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  Method: logging.billingAccounts.locations.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The full resource name of the saved query to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  @param name Required. The full resource name of the saved query to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  Method: logging.billingAccounts.locations.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/us-central1" Note: The locations portion of
+ *  the resource must be specified. To get a list of all saved queries, a
+ *  wildcard character - can be used for LOCATION_ID, for example:
+ *  "projects/my-project/locations/-"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSavedQueriesResponse.
+ *
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/us-central1" Note: The locations portion of
+ *    the resource must be specified. To get a list of all saved queries, a
+ *    wildcard character - can be used for LOCATION_ID, for example:
+ *    "projects/my-project/locations/-"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes all the log entries in a log for the _Default Log Bucket. The log
  *  reappears if it receives new entries. Log entries written shortly before the
  *  delete operation might not be deleted. Entries received after the delete
@@ -3707,6 +3932,231 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  Method: logging.folders.locations.recentQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsRecentQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *  example:projects/my-project/locations/us-central1Note: The location portion
+ *  of the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all recent queries.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListRecentQueriesResponse.
+ *
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:projects/my-project/locations/us-central1Note: The location
+ *    portion of the resource must be specified, but supplying the character -
+ *    in place of LOCATION_ID will return all recent queries.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsRecentQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  Method: logging.folders.locations.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsSavedQueriesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. The parent resource in which to create the saved query:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/global"
+ *  "organizations/123456789/locations/us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID to use for the saved query, which will become the final
+ *  component of the saved query's resource name.If the saved_query_id is not
+ *  provided, the system will generate an alphanumeric ID.The saved_query_id is
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens, and
+ *  periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param parent Required. The parent resource in which to create the saved
+ *    query: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/global"
+ *    "organizations/123456789/locations/us-central1"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsSavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  Method: logging.folders.locations.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsSavedQueriesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The full resource name of the saved query to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  @param name Required. The full resource name of the saved query to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsSavedQueriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  Method: logging.folders.locations.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsSavedQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/us-central1" Note: The locations portion of
+ *  the resource must be specified. To get a list of all saved queries, a
+ *  wildcard character - can be used for LOCATION_ID, for example:
+ *  "projects/my-project/locations/-"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSavedQueriesResponse.
+ *
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/us-central1" Note: The locations portion of
+ *    the resource must be specified. To get a list of all saved queries, a
+ *    wildcard character - can be used for LOCATION_ID, for example:
+ *    "projects/my-project/locations/-"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsSavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -6849,6 +7299,231 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  Method: logging.organizations.locations.recentQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsRecentQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *  example:projects/my-project/locations/us-central1Note: The location portion
+ *  of the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all recent queries.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListRecentQueriesResponse.
+ *
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:projects/my-project/locations/us-central1Note: The location
+ *    portion of the resource must be specified, but supplying the character -
+ *    in place of LOCATION_ID will return all recent queries.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsRecentQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  Method: logging.organizations.locations.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. The parent resource in which to create the saved query:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/global"
+ *  "organizations/123456789/locations/us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID to use for the saved query, which will become the final
+ *  component of the saved query's resource name.If the saved_query_id is not
+ *  provided, the system will generate an alphanumeric ID.The saved_query_id is
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens, and
+ *  periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param parent Required. The parent resource in which to create the saved
+ *    query: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/global"
+ *    "organizations/123456789/locations/us-central1"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsSavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  Method: logging.organizations.locations.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The full resource name of the saved query to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  @param name Required. The full resource name of the saved query to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsSavedQueriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  Method: logging.organizations.locations.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/us-central1" Note: The locations portion of
+ *  the resource must be specified. To get a list of all saved queries, a
+ *  wildcard character - can be used for LOCATION_ID, for example:
+ *  "projects/my-project/locations/-"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSavedQueriesResponse.
+ *
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/us-central1" Note: The locations portion of
+ *    the resource must be specified. To get a list of all saved queries, a
+ *    wildcard character - can be used for LOCATION_ID, for example:
+ *    "projects/my-project/locations/-"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsSavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes all the log entries in a log for the _Default Log Bucket. The log
  *  reappears if it receives new entries. Log entries written shortly before the
  *  delete operation might not be deleted. Entries received after the delete
@@ -8892,6 +9567,231 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  Method: logging.projects.locations.recentQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsRecentQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *  example:projects/my-project/locations/us-central1Note: The location portion
+ *  of the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all recent queries.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListRecentQueriesResponse.
+ *
+ *  Lists the RecentQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:projects/my-project/locations/us-central1Note: The location
+ *    portion of the resource must be specified, but supplying the character -
+ *    in place of LOCATION_ID will return all recent queries.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsRecentQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  Method: logging.projects.locations.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. The parent resource in which to create the saved query:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/global"
+ *  "organizations/123456789/locations/us-central1"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ID to use for the saved query, which will become the final
+ *  component of the saved query's resource name.If the saved_query_id is not
+ *  provided, the system will generate an alphanumeric ID.The saved_query_id is
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens, and
+ *  periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Creates a new SavedQuery for the user making the request.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param parent Required. The parent resource in which to create the saved
+ *    query: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/global"
+ *    "organizations/123456789/locations/us-central1"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsSavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  Method: logging.projects.locations.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The full resource name of the saved query to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes an existing SavedQuery that was created by the user making the
+ *  request.
+ *
+ *  @param name Required. The full resource name of the saved query to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsSavedQueriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  Method: logging.projects.locations.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource to which the listed queries belong.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/us-central1" Note: The locations portion of
+ *  the resource must be specified. To get a list of all saved queries, a
+ *  wildcard character - can be used for LOCATION_ID, for example:
+ *  "projects/my-project/locations/-"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListSavedQueriesResponse.
+ *
+ *  Lists the SavedQueries that were created by the user making the request.
+ *
+ *  @param parent Required. The resource to which the listed queries belong.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For example:
+ *    "projects/my-project/locations/us-central1" Note: The locations portion of
+ *    the resource must be specified. To get a list of all saved queries, a
+ *    wildcard character - can be used for LOCATION_ID, for example:
+ *    "projects/my-project/locations/-"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsSavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

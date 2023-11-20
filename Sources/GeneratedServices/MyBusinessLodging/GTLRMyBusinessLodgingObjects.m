@@ -1675,6 +1675,10 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_Dependen
 NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
 NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderConstruction = @"UNDER_CONSTRUCTION";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRMyBusinessLodging_Accessibility
@@ -2317,3 +2321,5 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
          sauna, saunaException, spa, spaException, treadmill,
          treadmillException, weightMachine, weightMachineException;
 @end
+
+#pragma clang diagnostic pop

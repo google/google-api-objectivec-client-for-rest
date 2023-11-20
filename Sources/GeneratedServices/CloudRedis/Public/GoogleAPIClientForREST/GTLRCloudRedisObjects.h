@@ -1060,6 +1060,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
 /**
+ *  Optional. Output only. Reserved for future use. Zone Separation compliance
+ *  state of the instance. Field name and documentation is obfuscated according
+ *  to go/zs-resource-status.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Optional. Additional IP range for node placement. Required when enabling
  *  read replicas on an existing instance. For DIRECT_PEERING mode value must be
  *  a CIDR range of size /28, or "auto". For PRIVATE_SERVICE_ACCESS mode value

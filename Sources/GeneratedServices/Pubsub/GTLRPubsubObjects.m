@@ -379,7 +379,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_MessageStoragePolicy
-@dynamic allowedPersistenceRegions;
+@dynamic allowedPersistenceRegions, enforceInTransit;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

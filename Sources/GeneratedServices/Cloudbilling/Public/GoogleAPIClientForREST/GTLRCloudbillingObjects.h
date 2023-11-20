@@ -266,6 +266,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
  */
 @property(nonatomic, strong, nullable) NSNumber *open;
 
+/**
+ *  Output only. The billing account's parent resource identifier. Use the
+ *  `MoveBillingAccount` method to update the account's parent resource if it is
+ *  a organization. Format: - organizations/{organization_id}, for example:
+ *  organizations/12345678 - billingAccounts/{billing_account_id}, for example:
+ *  `billingAccounts/012345-567890-ABCDEF`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
 @end
 
 
@@ -580,6 +589,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Request message for `MoveBillingAccount` RPC.
+ */
+@interface GTLRCloudbilling_MoveBillingAccountRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the Organization to reparent the billing
+ *  account under. Must be of the form `organizations/{organization_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
 
 @end
 

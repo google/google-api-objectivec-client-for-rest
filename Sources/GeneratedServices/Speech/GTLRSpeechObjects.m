@@ -29,6 +29,7 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb  = @"AMR_WB";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac   = @"FLAC";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16 = @"LINEAR16";
+NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mp3    = @"MP3";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus = @"OGG_OPUS";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"SPEEX_WITH_HEADER_BYTE";
@@ -208,6 +209,16 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_Entry
+//
+
+@implementation GTLRSpeech_Entry
+@dynamic caseSensitive, replace, search;
 @end
 
 
@@ -440,7 +451,8 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
          enableSeparateRecognitionPerChannel, enableSpokenEmojis,
          enableSpokenPunctuation, enableWordConfidence, enableWordTimeOffsets,
          encoding, languageCode, maxAlternatives, metadata, model,
-         profanityFilter, sampleRateHertz, speechContexts, useEnhanced;
+         profanityFilter, sampleRateHertz, speechContexts,
+         transcriptNormalization, useEnhanced;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -548,6 +560,24 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_TranscriptNormalization
+//
+
+@implementation GTLRSpeech_TranscriptNormalization
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRSpeech_Entry class]
+  };
+  return map;
 }
 
 @end

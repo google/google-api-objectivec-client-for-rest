@@ -12,6 +12,40 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_AnywhereCache
+//
+
+@implementation GTLRStorage_AnywhereCache
+@dynamic admissionPolicy, anywhereCacheId, bucket, createTime, identifier, kind,
+         pendingUpdate, selfLink, state, ttl, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_AnywhereCaches
+//
+
+@implementation GTLRStorage_AnywhereCaches
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_AnywhereCache class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Bucket
 //
 

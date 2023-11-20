@@ -6469,7 +6469,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *)object
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategory *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -6485,7 +6485,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategory class];
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse class];
   query.loggingName = @"apigee.organizations.sites.apicategories.create";
   return query;
 }
@@ -6523,7 +6523,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategory class];
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse class];
   query.loggingName = @"apigee.organizations.sites.apicategories.get";
   return query;
 }
@@ -6553,7 +6553,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *)object
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategory *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -6569,7 +6569,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategory class];
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse class];
   query.loggingName = @"apigee.organizations.sites.apicategories.patch";
   return query;
 }

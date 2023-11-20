@@ -315,6 +315,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_DirectorySearchResult
+//
+
+@implementation GTLRDataform_DirectorySearchResult
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Empty
 //
 
@@ -422,6 +432,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_FileOperation
 @dynamic deleteFile, writeFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_FileSearchResult
+//
+
+@implementation GTLRDataform_FileSearchResult
+@dynamic path;
 @end
 
 
@@ -1124,6 +1144,38 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_SearchFilesResponse
+//
+
+@implementation GTLRDataform_SearchFilesResponse
+@dynamic nextPageToken, searchResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchResults" : [GTLRDataform_SearchResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"searchResults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_SearchResult
+//
+
+@implementation GTLRDataform_SearchResult
+@dynamic directory, file;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_SetIamPolicyRequest
 //
 
@@ -1255,8 +1307,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowInvocation
-@dynamic compilationResult, invocationConfig, invocationTiming, name, state,
-         workflowConfig;
+@dynamic compilationResult, invocationConfig, invocationTiming, name,
+         resolvedCompilationResult, state, workflowConfig;
 @end
 
 

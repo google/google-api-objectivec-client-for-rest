@@ -18,11 +18,13 @@
 @class GTLRShoppingContent_AccountAddress;
 @class GTLRShoppingContent_AccountAdsLink;
 @class GTLRShoppingContent_AccountAutomaticImprovements;
+@class GTLRShoppingContent_AccountBusinessIdentity;
 @class GTLRShoppingContent_AccountBusinessInformation;
 @class GTLRShoppingContent_AccountConversionSettings;
 @class GTLRShoppingContent_AccountCustomerService;
 @class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
+@class GTLRShoppingContent_AccountIdentityType;
 @class GTLRShoppingContent_AccountImageImprovements;
 @class GTLRShoppingContent_AccountImageImprovementsSettings;
 @class GTLRShoppingContent_AccountIssue;
@@ -2363,6 +2365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *automaticLabelIds;
 
+/**
+ *  The business identity attributes can be used to self-declare attributes that
+ *  let customers know more about your business.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessIdentity *businessIdentity;
+
 /** The business information of the account. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessInformation *businessInformation;
 
@@ -2541,6 +2549,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  The [business identity
+ *  attributes](https://support.google.com/merchants/answer/10342414) can be
+ *  used to self-declare attributes that let customers know more about your
+ *  business.
+ */
+@interface GTLRShoppingContent_AccountBusinessIdentity : GTLRObject
+
+/**
+ *  Specifies whether the business identifies itself as being black-owned. This
+ *  optional field is only available for merchants with a business country set
+ *  to "US". This field is not allowed for marketplaces or marketplace sellers.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIdentityType *blackOwned;
+
+/**
+ *  Required. By setting this field, your business may be included in promotions
+ *  for all the selected attributes. If you clear this option, it won't affect
+ *  your identification with any of the attributes. For this field to be set,
+ *  the merchant must self identify with at least one of the
+ *  `AccountIdentityType`. If none are included, the request will be considered
+ *  invalid.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeForPromotions;
+
+/**
+ *  Specifies whether the business identifies itself as being latino-owned. This
+ *  optional field is only available for merchants with a business country set
+ *  to "US". This field is not allowed for marketplaces or marketplace sellers.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIdentityType *latinoOwned;
+
+/**
+ *  Specifies whether the business identifies itself as a small business. This
+ *  optional field is only available for merchants with a business country set
+ *  to "US". It is also not allowed for marketplaces, but it is allowed to
+ *  marketplace sellers.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIdentityType *smallBusiness;
+
+/**
+ *  Specifies whether the business identifies itself as being veteran-owned.
+ *  This optional field is only available for merchants with a business country
+ *  set to "US". This field is not allowed for marketplaces or marketplace
+ *  sellers.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIdentityType *veteranOwned;
+
+/**
+ *  Specifies whether the business identifies itself as being women-owned. This
+ *  optional field is only available for merchants with a business country set
+ *  to "US". This field is not allowed for marketplaces or marketplace sellers.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountIdentityType *womenOwned;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_AccountBusinessInformation
  */
 @interface GTLRShoppingContent_AccountBusinessInformation : GTLRObject
@@ -2693,6 +2761,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  The account identity type used to specify attributes.
+ */
+@interface GTLRShoppingContent_AccountIdentityType : GTLRObject
+
+/**
+ *  Optional. Indicates that the business identifies itself with a given
+ *  identity type. Setting this field does not automatically mean eligibility
+ *  for promotions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selfIdentified;
 
 @end
 
@@ -7702,8 +7787,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_LocalInventory : GTLRObject
 
 /**
- *  Availability of the product. For accepted attribute values, see the local
- *  product inventory feed specification.
+ *  The availability of the product. For accepted attribute values, see the
+ *  local product inventory feed specification.
  */
 @property(nonatomic, copy, nullable) NSString *availability;
 
@@ -7714,7 +7799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomAttribute *> *customAttributes;
 
-/** In-store product location. */
+/** The in-store product location. */
 @property(nonatomic, copy, nullable) NSString *instoreProductLocation;
 
 /**
@@ -7724,31 +7809,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Supported pickup method for this offer. Unless the value is "not supported",
- *  this field must be submitted together with `pickupSla`. For accepted
- *  attribute values, see the local product inventory feed specification.
+ *  The supported pickup method for this offer. Unless the value is "not
+ *  supported", this field must be submitted together with `pickupSla`. For
+ *  accepted attribute values, see the local product inventory feed
+ *  specification.
  */
 @property(nonatomic, copy, nullable) NSString *pickupMethod;
 
 /**
- *  Expected date that an order will be ready for pickup relative to the order
- *  date. Must be submitted together with `pickupMethod`. For accepted attribute
- *  values, see the local product inventory feed specification.
+ *  The expected date that an order will be ready for pickup relative to the
+ *  order date. Must be submitted together with `pickupMethod`. For accepted
+ *  attribute values, see the local product inventory feed specification.
  */
 @property(nonatomic, copy, nullable) NSString *pickupSla;
 
-/** Price of the product. */
+/** The price of the product. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
 /**
- *  Quantity of the product. Must be nonnegative.
+ *  The quantity of the product. Must be nonnegative.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Sale price of the product. Mandatory if `sale_price_effective_date` is
+ *  The sale price of the product. Mandatory if `sale_price_effective_date` is
  *  defined.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *salePrice;
@@ -7759,7 +7845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
 
-/** Required. Store code of this local inventory resource. */
+/** Required. The store code of this local inventory resource. */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 @end
@@ -11945,6 +12031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *predictedConversionsChangeFraction;
 
 /**
+ *  *Deprecated*: This field is no longer supported and will start returning 0.
  *  The predicted change in gross profit as a fraction after introducing the
  *  suggested price compared to current active price. For example, 0.05 is a 5%
  *  predicted increase in gross profit.
@@ -11962,10 +12049,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *predictedImpressionsChangeFraction;
 
-/** The predicted monthly gross profit change currency (ISO 4217 code). */
+/**
+ *  *Deprecated*: This field is no longer supported and will start returning USD
+ *  for all requests. The predicted monthly gross profit change currency (ISO
+ *  4217 code).
+ */
 @property(nonatomic, copy, nullable) NSString *predictedMonthlyGrossProfitChangeCurrencyCode;
 
 /**
+ *  *Deprecated*: This field is no longer supported and will start returning 0.
  *  The predicted change in gross profit in micros (1 millionth of a standard
  *  unit, 1 USD = 1000000 micros) after introducing the suggested price for a
  *  month compared to current active price.
@@ -16381,7 +16473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Type of locations this service ships orders to. Acceptable values are: -
- *  "`delivery`" - "`pickup`" - "`local_delivery`" - "`collection_point`"
+ *  "`delivery`" - "`pickup` (deprecated)" - "`local_delivery`" -
+ *  "`collection_point`"
  */
 @property(nonatomic, copy, nullable) NSString *shipmentType;
 

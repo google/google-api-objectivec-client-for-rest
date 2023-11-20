@@ -230,6 +230,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Deletes multiple conversations in a single request.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.bulkDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent resource to delete conversations from. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Deletes multiple conversations in a single request.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource to delete conversations from.
+ *    Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsBulkDelete
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets conversation statistics.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.calculateStats

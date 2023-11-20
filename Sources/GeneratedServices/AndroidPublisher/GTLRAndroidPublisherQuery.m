@@ -964,6 +964,37 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_EditsTracksCreate
+
+@dynamic editId, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_TrackConfig *)object
+                    packageName:(NSString *)packageName
+                         editId:(NSString *)editId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"editId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks";
+  GTLRAndroidPublisherQuery_EditsTracksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.editId = editId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Track class];
+  query.loggingName = @"androidpublisher.edits.tracks.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_EditsTracksGet
 
 @dynamic editId, packageName, track;

@@ -57,6 +57,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Service;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2ServiceScaling;
 @class GTLRCloudRun_GoogleCloudRunV2Task;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Labels;
@@ -3162,6 +3163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
+/** Optional. Specifies service-level scaling settings */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceScaling *scaling;
+
 /**
  *  Required. The template used to create revisions for this Service.
  *
@@ -3244,6 +3248,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        fetch them all at once.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Service_Labels : GTLRObject
+@end
+
+
+/**
+ *  Scaling settings applied at the service level rather than at the revision
+ *  level.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ServiceScaling : GTLRObject
+
+/**
+ *  total min instances for the service. This number of instances is divided
+ *  among all revisions with specified traffic based on the percent of traffic
+ *  they are receiving. (ALPHA)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
+
 @end
 
 

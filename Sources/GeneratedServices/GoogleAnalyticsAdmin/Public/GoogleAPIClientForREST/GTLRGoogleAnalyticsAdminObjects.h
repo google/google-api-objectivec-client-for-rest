@@ -46,6 +46,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryChangeChangeHistoryResource;
 @class GTLRGoogleAnalyticsAdmin_V1betaChangeHistoryEvent;
 @class GTLRGoogleAnalyticsAdmin_V1betaConversionEvent;
+@class GTLRGoogleAnalyticsAdmin_V1betaConversionEventDefaultConversionValue;
 @class GTLRGoogleAnalyticsAdmin_V1betaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1betaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings;
@@ -1532,6 +1533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 @property(nonatomic, strong, nullable) NSNumber *custom;
 
+/** Optional. Defines a default value/currency for a conversion event. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1betaConversionEventDefaultConversionValue *defaultConversionValue;
+
 /**
  *  Output only. If set, this event can currently be deleted with
  *  DeleteConversionEvent.
@@ -1551,6 +1555,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *  properties/{property}/conversionEvents/{conversion_event}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines a default value/currency for a conversion event. Both value and
+ *  currency must be provided.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaConversionEventDefaultConversionValue : GTLRObject
+
+/**
+ *  When a conversion event for this event_name has no set currency, this
+ *  currency will be applied as the default. Must be in ISO 4217 currency code
+ *  format. See https://en.wikipedia.org/wiki/ISO_4217 for more.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  This value will be used to populate the value for all conversions of the
+ *  specified event_name where the event "value" parameter is unset.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 

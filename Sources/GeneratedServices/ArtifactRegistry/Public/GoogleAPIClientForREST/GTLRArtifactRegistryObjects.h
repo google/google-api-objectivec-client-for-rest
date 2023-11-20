@@ -175,6 +175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_DockerRepository_Public
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Debian;
 /**
+ *  Archived Debian.
+ *
+ *  Value: "DEBIAN_SNAPSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_DebianSnapshot;
+/**
  *  Unspecified repository base.
  *
  *  Value: "REPOSITORY_BASE_UNSPECIFIED"
@@ -995,6 +1001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Likely values:
  *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Debian
  *        Debian. (Value: "DEBIAN")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_DebianSnapshot
+ *        Archived Debian. (Value: "DEBIAN_SNAPSHOT")
  *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified
  *        Unspecified repository base. (Value: "REPOSITORY_BASE_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository_RepositoryBase_Ubuntu
@@ -2189,7 +2197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the repository, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1".
+ *  `projects/p1/locations/us-central1/repositories/repo1`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2568,7 +2576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  A reference to the repository resource, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1".
+ *  `projects/p1/locations/us-central1/repositories/repo1`.
  */
 @property(nonatomic, copy, nullable) NSString *repository;
 

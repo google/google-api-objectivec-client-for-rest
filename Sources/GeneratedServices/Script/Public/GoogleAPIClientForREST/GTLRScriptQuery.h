@@ -70,6 +70,12 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesComplet
  */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed;
 /**
+ *  AppsScript executions are disabled by Admin.
+ *
+ *  Value: "EXECUTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesExecutionDisabled;
+/**
  *  The process failed.
  *
  *  Value: "FAILED"
@@ -225,6 +231,12 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCompleted
  *  Value: "DELAYED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesDelayed;
+/**
+ *  AppsScript executions are disabled by Admin.
+ *
+ *  Value: "EXECUTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesExecutionDisabled;
 /**
  *  The process failed.
  *
@@ -456,6 +468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *        unknown. (Value: "UNKNOWN")
  *    @arg @c kGTLRScriptUserProcessFilterStatusesDelayed The process is
  *        delayed, waiting for quota. (Value: "DELAYED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesExecutionDisabled AppsScript
+ *        executions are disabled by Admin. (Value: "EXECUTION_DISABLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterStatuses;
 
@@ -594,6 +608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *        unknown. (Value: "UNKNOWN")
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesDelayed The process is
  *        delayed, waiting for quota. (Value: "DELAYED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesExecutionDisabled AppsScript
+ *        executions are disabled by Admin. (Value: "EXECUTION_DISABLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterStatuses;
 

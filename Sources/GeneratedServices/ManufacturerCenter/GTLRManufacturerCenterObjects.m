@@ -56,8 +56,8 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_Attributes
-@dynamic additionalImageLink, ageGroup, brand, capacity, color, count,
-         descriptionProperty, disclosureDate, excludedDestination,
+@dynamic additionalImageLink, ageGroup, brand, capacity, certification, color,
+         count, descriptionProperty, disclosureDate, excludedDestination,
          featureDescription, flavor, format, gender, grocery, gtin, imageLink,
          includedDestination, itemGroupId, material, mpn, nutrition, pattern,
          productDetail, productHighlight, productLine, productName,
@@ -72,6 +72,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalImageLink" : [GTLRManufacturerCenter_Image class],
+    @"certification" : [GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification class],
     @"excludedDestination" : [NSString class],
     @"featureDescription" : [GTLRManufacturerCenter_FeatureDescription class],
     @"gtin" : [NSString class],
@@ -155,6 +156,16 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 @implementation GTLRManufacturerCenter_FloatUnit
 @dynamic amount, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification
+//
+
+@implementation GTLRManufacturerCenter_GoogleShoppingManufacturersV1ProductCertification
+@dynamic authority, code, name;
 @end
 
 

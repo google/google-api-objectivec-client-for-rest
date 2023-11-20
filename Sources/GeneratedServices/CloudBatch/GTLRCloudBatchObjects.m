@@ -302,7 +302,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AgentTaskSpec
-@dynamic environment, maxRunDuration, runnables;
+@dynamic environment, maxRunDuration, runnables, userAccount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -311,6 +311,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTaskUserAccount
+//
+
+@implementation GTLRCloudBatch_AgentTaskUserAccount
+@dynamic gid, uid;
 @end
 
 
@@ -382,6 +392,15 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_CloudLoggingOption
+//
+
+@implementation GTLRCloudBatch_CloudLoggingOption
 @end
 
 
@@ -770,7 +789,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_LogsPolicy
-@dynamic destination, logsPath;
+@dynamic cloudLoggingOption, destination, logsPath;
 @end
 
 

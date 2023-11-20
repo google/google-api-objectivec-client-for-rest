@@ -2847,35 +2847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Accepts a proposal to attach a Network Connectivity Center spoke to the hub.
- *
- *  Method: networkconnectivity.projects.locations.spokes.accept
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept : GTLRNetworkconnectivityQuery
-
-/** Required. The name of the spoke to accept. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
- *
- *  Accepts a proposal to attach a Network Connectivity Center spoke to the hub.
- *
- *  @param object The @c GTLRNetworkconnectivity_AcceptSpokeRequest to include
- *    in the query.
- *  @param name Required. The name of the spoke to accept.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Creates a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.create
@@ -3137,41 +3108,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_Spoke *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Rejects a Network Connectivity Center spoke from being attached to the hub.
- *  If the spoke was previously in the `ACTIVE` state, it transitions to the
- *  `INACTIVE` state and is no longer able to connect to other spokes that are
- *  attached to the hub.
- *
- *  Method: networkconnectivity.projects.locations.spokes.reject
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject : GTLRNetworkconnectivityQuery
-
-/** Required. The name of the spoke to reject. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
- *
- *  Rejects a Network Connectivity Center spoke from being attached to the hub.
- *  If the spoke was previously in the `ACTIVE` state, it transitions to the
- *  `INACTIVE` state and is no longer able to connect to other spokes that are
- *  attached to the hub.
- *
- *  @param object The @c GTLRNetworkconnectivity_RejectSpokeRequest to include
- *    in the query.
- *  @param name Required. The name of the spoke to reject.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeRequest *)object
                            name:(NSString *)name;
 
 @end

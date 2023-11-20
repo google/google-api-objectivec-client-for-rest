@@ -12210,18 +12210,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse.
  *
  *  Creates a new API category.
  *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryData to
- *    include in the query.
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategory to include in
+ *    the query.
  *  @param parent Required. Name of the portal. Use the following structure in
  *    your request: `organizations/{org}/sites/{site}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSitesApicategoriesCreate
  */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *)object
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategory *)object
                          parent:(NSString *)parent;
 
 @end
@@ -12274,7 +12274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse.
  *
  *  Gets an API category.
  *
@@ -12335,19 +12335,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategory.
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse.
  *
  *  Updates an API category.
  *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategoryData to
- *    include in the query.
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiCategory to include in
+ *    the query.
  *  @param name Required. Name of the category. Use the following structure in
  *    your request:
  *    `organizations/{org}/sites/{site}/apicategories/{apicategory}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSitesApicategoriesPatch
  */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *)object
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategory *)object
                            name:(NSString *)name;
 
 @end

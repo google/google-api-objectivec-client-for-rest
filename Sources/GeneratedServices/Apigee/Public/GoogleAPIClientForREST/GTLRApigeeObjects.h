@@ -28,7 +28,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig;
-@class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
+@class GTLRApigee_GoogleCloudApigeeV1ApiCategory;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
@@ -1044,7 +1044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetad
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified;
 /**
- *  Free and limited access to Apigee for evaluation purposes only. only.
+ *  Free and limited access to Apigee for evaluation purposes only.
  *
  *  Value: "EVALUATION"
  */
@@ -2121,34 +2121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  The API category resource wrapped with response status, error_code, etc.
+ *  `ApiCategory` represents an API category. [Catalog
+ *  items](/apigee/docs/reference/apis/apigee/rest/v1/organizations.sites.apidocs)
+ *  can be tagged with API categories; users viewing the API catalog in the
+ *  portal will have the option to browse the catalog by category.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiCategory : GTLRObject
-
-/** Details of the category. */
-@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *data;
-
-/** Unique error code for the request, if any. */
-@property(nonatomic, copy, nullable) NSString *errorCode;
-
-/** Description of the operation. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/** Unique ID of the request. */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/** Status of the operation. */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  `ApiCategoryData` represents an API category. Catalog items can be tagged
- *  with API categories; users viewing the API catalog in the portal will have
- *  the option to browse the catalog by category.
- */
-@interface GTLRApigee_GoogleCloudApigeeV1ApiCategoryData : GTLRObject
 
 /**
  *  ID of the category (a UUID).
@@ -2169,6 +2147,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *updateTime;
+
+@end
+
+
+/**
+ *  The API category resource wrapped with response status, error_code, etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiCategoryResponse : GTLRObject
+
+/** The API category resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiCategory *data;
+
+/** Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -5948,12 +5949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  The response for `ListApiCategoriesRequest`.
+ *  The response for `ListApiCategoriesRequest`. Next ID: 6
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiCategoriesResponse : GTLRObject
 
-/** Details of the categories. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *> *data;
+/** The API category resources. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiCategory *> *data;
 
 /** Unique error code for the request, if any. */
 @property(nonatomic, copy, nullable) NSString *errorCode;
@@ -7172,7 +7173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified
  *        Billing type not specified. (Value: "BILLING_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation
- *        Free and limited access to Apigee for evaluation purposes only. only.
+ *        Free and limited access to Apigee for evaluation purposes only.
  *        (Value: "EVALUATION")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Payg
  *        Access to Apigee using a Pay-As-You-Go plan. (Value: "PAYG")

@@ -1518,33 +1518,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:accept";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesAccept *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
-  query.loggingName = @"networkconnectivity.projects.locations.spokes.accept";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesCreate
 
 @dynamic parent, requestId, spokeId;
@@ -1674,33 +1647,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.spokes.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:reject";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesReject *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
-  query.loggingName = @"networkconnectivity.projects.locations.spokes.reject";
   return query;
 }
 

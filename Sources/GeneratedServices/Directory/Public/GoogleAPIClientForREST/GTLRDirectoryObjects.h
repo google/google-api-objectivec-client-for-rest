@@ -67,6 +67,7 @@
 @class GTLRDirectory_User;
 @class GTLRDirectory_User_CustomSchemas;
 @class GTLRDirectory_UserCustomProperties;
+@class GTLRDirectory_UserEmail_PublicKeyEncryptionCertificates;
 @class GTLRDirectory_UserName;
 @class GTLRDirectory_VerificationCode;
 
@@ -4275,7 +4276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  The list of the user's email addresses. The maximum allowed data size for
- *  this field is 10KB.
+ *  this field is 10KB. This excludes `publicKeyEncryptionCertificates`.
  *
  *  Can be any valid JSON type.
  */
@@ -4703,12 +4704,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, strong, nullable) NSNumber *primary;
 
 /**
+ *  Public Key Encryption Certificates. Current limit: 1 per email address, and
+ *  5 per user.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_UserEmail_PublicKeyEncryptionCertificates *publicKeyEncryptionCertificates;
+
+/**
  *  Each entry can have a type which indicates standard types of that entry. For
  *  example email could be of home, work etc. In addition to the standard type,
  *  an entry can have a custom type and can take any value Such types should
  *  have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Public Key Encryption Certificates. Current limit: 1 per email address, and
+ *  5 per user.
+ */
+@interface GTLRDirectory_UserEmail_PublicKeyEncryptionCertificates : GTLRObject
+
+/**
+ *  X.509 encryption certificate in `PEM` format. Must only be an end-entity
+ *  (leaf) certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *certificate;
+
+/**
+ *  Whether this is the default certificate for the given email address.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/**
+ *  Denotes the certificate's state in its lifecycle. Possible values are
+ *  `not_yet_validated`, `valid`, `invalid`, `expired`, and `revoked`.
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

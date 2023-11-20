@@ -1761,15 +1761,34 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_VmwareAdminAuthorizationConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminAuthorizationConfig
+@dynamic viewerUsers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"viewerUsers" : [GTLRGKEOnPrem_ClusterUser class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_VmwareAdminCluster
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminCluster
-@dynamic addonNode, annotations, antiAffinityGroups, autoRepairConfig,
-         bootstrapClusterMembership, controlPlaneNode, createTime,
-         descriptionProperty, endpoint, ETag, fleet, imageType, loadBalancer,
-         localName, name, networkConfig, onPremVersion, platformConfig,
-         preparedSecrets, reconciling, state, status, uid, updateTime, vcenter;
+@dynamic addonNode, annotations, antiAffinityGroups, authorization,
+         autoRepairConfig, bootstrapClusterMembership, controlPlaneNode,
+         createTime, descriptionProperty, endpoint, ETag, fleet, imageType,
+         loadBalancer, localName, name, networkConfig, onPremVersion,
+         platformConfig, preparedSecrets, reconciling, state, status, uid,
+         updateTime, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

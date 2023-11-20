@@ -21,6 +21,7 @@
 @class GTLRSpeech_Context;
 @class GTLRSpeech_CustomClass;
 @class GTLRSpeech_CustomClass_Annotations;
+@class GTLRSpeech_Entry;
 @class GTLRSpeech_Operation;
 @class GTLRSpeech_Operation_Metadata;
 @class GTLRSpeech_Operation_Response;
@@ -35,6 +36,7 @@
 @class GTLRSpeech_SpeakerDiarizationConfig;
 @class GTLRSpeech_Status;
 @class GTLRSpeech_Status_Details_Item;
+@class GTLRSpeech_TranscriptNormalization;
 @class GTLRSpeech_TranscriptOutputConfig;
 @class GTLRSpeech_WordInfo;
 
@@ -130,6 +132,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16;
 /**
+ *  MP3 audio. MP3 encoding is a Beta feature and only available in v1p1beta1.
+ *  Support all standard MP3 bitrates (which range from 32-320 kbps). When using
+ *  this encoding, `sample_rate_hertz` has to match the sample rate of the file
+ *  being used.
+ *
+ *  Value: "MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mp3;
+/**
  *  8-bit samples that compand 14-bit audio samples using G.711 PCMU/mu-law.
  *
  *  Value: "MULAW"
@@ -162,8 +173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpu
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
 /**
  *  Opus encoded audio frames in WebM container
- *  ([OggOpus](https://wiki.xiph.org/OggOpus)). `sample_rate_hertz` must be one
- *  of 8000, 12000, 16000, 24000, or 48000.
+ *  ([WebM](https://www.webmproject.org/docs/container/)). `sample_rate_hertz`
+ *  must be one of 8000, 12000, 16000, 24000, or 48000.
  *
  *  Value: "WEBM_OPUS"
  */
@@ -613,6 +624,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSpeech_Empty : GTLRObject
+@end
+
+
+/**
+ *  A single replacement configuration.
+ */
+@interface GTLRSpeech_Entry : GTLRObject
+
+/**
+ *  Whether the search is case sensitive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
+
+/** What to replace with. Max length is 100 characters. */
+@property(nonatomic, copy, nullable) NSString *replace;
+
+/** What to replace. Max length is 100 characters. */
+@property(nonatomic, copy, nullable) NSString *search;
+
 @end
 
 
@@ -1235,6 +1267,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        `STREAMINFO` are supported. (Value: "FLAC")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Linear16 Uncompressed
  *        16-bit signed little-endian samples (Linear PCM). (Value: "LINEAR16")
+ *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Mp3 MP3 audio. MP3 encoding
+ *        is a Beta feature and only available in v1p1beta1. Support all
+ *        standard MP3 bitrates (which range from 32-320 kbps). When using this
+ *        encoding, `sample_rate_hertz` has to match the sample rate of the file
+ *        being used. (Value: "MP3")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Mulaw 8-bit samples that
  *        compand 14-bit audio samples using G.711 PCMU/mu-law. (Value: "MULAW")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_OggOpus Opus encoded audio
@@ -1256,7 +1293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        length. Only Speex wideband is supported. `sample_rate_hertz` must be
  *        16000. (Value: "SPEEX_WITH_HEADER_BYTE")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_WebmOpus Opus encoded audio
- *        frames in WebM container ([OggOpus](https://wiki.xiph.org/OggOpus)).
+ *        frames in WebM container
+ *        ([WebM](https://www.webmproject.org/docs/container/)).
  *        `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or
  *        48000. (Value: "WEBM_OPUS")
  */
@@ -1334,6 +1372,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  adaptation](https://cloud.google.com/speech-to-text/docs/adaptation).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
+
+/**
+ *  Optional. Use transcription normalization to automatically replace parts of
+ *  the transcript with phrases of your choosing. For StreamingRecognize, this
+ *  normalization only applies to stable partial transcripts (stability > 0.8)
+ *  and final transcripts.
+ */
+@property(nonatomic, strong, nullable) GTLRSpeech_TranscriptNormalization *transcriptNormalization;
 
 /**
  *  Set to true to use an enhanced model for speech recognition. If
@@ -1649,6 +1695,25 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSpeech_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Transcription normalization configuration. Use transcription normalization
+ *  to automatically replace parts of the transcript with phrases of your
+ *  choosing. For StreamingRecognize, this normalization only applies to stable
+ *  partial transcripts (stability > 0.8) and final transcripts.
+ */
+@interface GTLRSpeech_TranscriptNormalization : GTLRObject
+
+/**
+ *  A list of replacement entries. We will perform replacement with one entry at
+ *  a time. For example, the second entry in ["cat" => "dog", "mountain cat" =>
+ *  "mountain dog"] will never be applied because we will always process the
+ *  first entry before it. At most 100 entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Entry *> *entries;
+
 @end
 
 
