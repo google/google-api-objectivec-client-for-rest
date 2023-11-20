@@ -221,7 +221,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CheckConsistencyRequest
-@dynamic consistencyToken;
+@dynamic consistencyToken, standardReadRemoteWrites;
 @end
 
 
@@ -1027,6 +1027,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_StandardIsolation
 @dynamic priority;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_StandardReadRemoteWrites
+//
+
+@implementation GTLRBigtableAdmin_StandardReadRemoteWrites
 @end
 
 

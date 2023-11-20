@@ -4191,7 +4191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ListMembershipsResponse : GTLRCollectionObject
 
 /**
- *  List of memberships in the requested (or first) page.
+ *  Unordered list. List of memberships in the requested (or first) page.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4552,7 +4552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The thread the message belongs to. For example usage, see [Start or reply to
  *  a message
- *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  thread](https://developers.google.com/chat/api/guides/v1/messages/create#create-message-thread).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Thread *thread;
 
@@ -5156,15 +5156,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Resource name for a Google Chat user. Format: `users/{user}`. `users/app`
  *  can be used as an alias for the calling app bot user. For human users,
- *  `{user}` is the same user identifier as: - the `{person_id`} for the
+ *  `{user}` is the same user identifier as: - the `id` for the
  *  [Person](https://developers.google.com/people/api/rest/v1/people) in the
- *  People API, where the Person `resource_name` is `people/{person_id}`. For
- *  example, `users/123456789` in Chat API represents the same person as
- *  `people/123456789` in People API. - the `id` for a
+ *  People API. For example, `users/123456789` in Chat API represents the same
+ *  person as the `123456789` Person profile ID in People API. - the `id` for a
  *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
  *  in the Admin SDK Directory API. - the user's email address can be used as an
  *  alias for `{user}` in API requests. For example, if the People API Person
- *  `resourceName` for `user\@example.com` is `people/123456789`, you can use
+ *  profile ID for `user\@example.com` is `123456789`, you can use
  *  `users/user\@example.com` as an alias to reference `users/123456789`. Only
  *  the canonical resource name (for example `users/123456789`) will be returned
  *  from the API.

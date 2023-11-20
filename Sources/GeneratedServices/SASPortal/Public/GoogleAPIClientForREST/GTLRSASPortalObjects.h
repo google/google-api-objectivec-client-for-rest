@@ -805,13 +805,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @property(nonatomic, strong, nullable) NSNumber *antennaGain;
 
 /**
- *  As above, but as a DoubleValue.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *antennaGainNewField;
-
-/**
  *  If an external antenna is used, the antenna model is optionally provided in
  *  this field. The string has a maximum length of 128 octets.
  */
@@ -833,13 +826,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *eirpCapability;
-
-/**
- *  As above, but as a DoubleValue.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *eirpCapabilityNewField;
 
 /**
  *  Device antenna height in meters. When the `heightType` parameter value is

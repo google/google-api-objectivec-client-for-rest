@@ -968,6 +968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  Response for iSDK to execute strong match flow for post-install attribution.
+ *  Information of the resolved FDL link.
  */
 @interface GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse : GTLRObject
 

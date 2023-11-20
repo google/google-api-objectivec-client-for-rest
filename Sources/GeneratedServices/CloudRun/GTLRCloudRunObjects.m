@@ -870,8 +870,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          createTime, creator, customAudiences, deleteTime, descriptionProperty,
          ETag, expireTime, generation, ingress, labels, lastModifier,
          latestCreatedRevision, latestReadyRevision, launchStage, name,
-         observedGeneration, reconciling, satisfiesPzs, templateProperty,
-         terminalCondition, traffic, trafficStatuses, uid, updateTime, uri;
+         observedGeneration, reconciling, satisfiesPzs, scaling,
+         templateProperty, terminalCondition, traffic, trafficStatuses, uid,
+         updateTime, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -920,6 +921,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2ServiceScaling
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2ServiceScaling
+@dynamic minInstanceCount;
 @end
 
 

@@ -10,6 +10,9 @@
 
 #import <GoogleAPIClientForREST/GTLRCloudDomainsQuery.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRCloudDomainsQuery
 
 @dynamic fields;
@@ -563,3 +566,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop

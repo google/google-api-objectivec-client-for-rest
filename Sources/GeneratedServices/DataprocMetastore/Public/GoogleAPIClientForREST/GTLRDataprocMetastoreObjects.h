@@ -24,6 +24,7 @@
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
 @class GTLRDataprocMetastore_DatabaseDump;
+@class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_ErrorDetails_Details;
 @class GTLRDataprocMetastore_Expr;
@@ -41,6 +42,7 @@
 @class GTLRDataprocMetastore_MaintenanceWindow;
 @class GTLRDataprocMetastore_MetadataExport;
 @class GTLRDataprocMetastore_MetadataImport;
+@class GTLRDataprocMetastore_MetadataIntegration;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
 @class GTLRDataprocMetastore_MultiRegionMetadata;
 @class GTLRDataprocMetastore_NetworkConfig;
@@ -1049,6 +1051,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Specifies how metastore metadata should be integrated with the Data Catalog
+ *  service.
+ */
+@interface GTLRDataprocMetastore_DataCatalogConfig : GTLRObject
+
+/**
+ *  Optional. Defines whether the metastore metadata should be synced to Data
+ *  Catalog. The default value is to disable syncing metastore metadata to Data
+ *  Catalog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1824,6 +1844,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Specifies how metastore metadata should be integrated with external
+ *  services.
+ */
+@interface GTLRDataprocMetastore_MetadataIntegration : GTLRObject
+
+/** Optional. The integration config for the Data Catalog service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataCatalogConfig *dataCatalogConfig;
+
+@end
+
+
+/**
  *  The metadata management activities of the metastore service.
  */
 @interface GTLRDataprocMetastore_MetadataManagementActivity : GTLRObject
@@ -2138,6 +2170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
+ *  Optional. A Cloud Storage URI specifying where the backup artifacts are
+ *  stored, in the format gs:///.
+ */
+@property(nonatomic, copy, nullable) NSString *backupLocation;
+
+/**
  *  Output only. The restore details containing the revision of the service to
  *  be restored to, in format of JSON.
  */
@@ -2330,6 +2368,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  type.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MaintenanceWindow *maintenanceWindow;
+
+/**
+ *  Optional. The setting that defines how metastore metadata should be
+ *  integrated with external services and systems.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MetadataIntegration *metadataIntegration;
 
 /**
  *  Output only. The metadata management activities of the metastore service.

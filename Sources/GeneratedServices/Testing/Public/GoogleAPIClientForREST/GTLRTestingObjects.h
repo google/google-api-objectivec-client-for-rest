@@ -1829,12 +1829,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Required. The requested device */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDevice *androidDevice;
 
-/**
- *  Optional. The list of requested devices. At most two devices may be
- *  simultaneously requested.
- */
-@property(nonatomic, strong, nullable) GTLRTesting_AndroidDeviceList *androidDeviceList GTLR_DEPRECATED;
-
 /** Output only. The time that the Session was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1898,7 +1892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Optional. The amount of time that a device will be initially allocated for.
- *  This can eventually be extended with the ExtendDeviceSession RPC. Default:
+ *  This can eventually be extended with the UpdateDeviceSession RPC. Default:
  *  30 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -3437,6 +3431,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** List of files to push to the device before starting the test. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceFile *> *filesToPush;
+
+/**
+ *  Optional. Initial setup APKs to install before the app under test is
+ *  installed. Currently capped at 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *initialSetupApks;
 
 /**
  *  The network traffic profile used for running the test. Available network

@@ -63,6 +63,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -8959,8 +8960,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 
 
 /**
- *  An eco certificate awarded to the hotel.
+ *  An eco certificate awarded to the hotel. Deprecated: this message is no
+ *  longer populated. All certification data is now provided by BeCause.
  */
+GTLR_DEPRECATED
 @interface GTLRMyBusinessLodging_EcoCertification : GTLRObject
 
 /**
@@ -9225,7 +9228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 @property(nonatomic, copy, nullable) NSString *energySavingThermostatsException;
 
 /**
- *  Output only. Green building design. True if BREEAM-* or LEED-* certified.
+ *  Output only. Green building design. True if the property has been awarded a
+ *  relevant certification.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -14494,8 +14498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 /** Energy efficiency practices implemented at the hotel. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessLodging_EnergyEfficiency *energyEfficiency;
 
-/** Sustainability certifications the hotel has been awarded. */
-@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_SustainabilityCertifications *sustainabilityCertifications;
+/**
+ *  Sustainability certifications the hotel has been awarded. Deprecated: this
+ *  field is no longer populated. All certification data is now provided by
+ *  BeCause.
+ */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_SustainabilityCertifications *sustainabilityCertifications GTLR_DEPRECATED;
 
 /** Sustainable sourcing practices implemented at the hotel. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessLodging_SustainableSourcing *sustainableSourcing;
@@ -14510,8 +14518,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 
 
 /**
- *  Sustainability certifications the hotel has been awarded.
+ *  Sustainability certifications the hotel has been awarded. Deprecated: this
+ *  message is no longer populated. All certification data is now provided by
+ *  BeCause.
  */
+GTLR_DEPRECATED
 @interface GTLRMyBusinessLodging_SustainabilityCertifications : GTLRObject
 
 /**
@@ -14559,8 +14570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessLodging_EcoCertification *> *ecoCertifications;
 
 /**
- *  LEED certification. Deprecated: this field is no longer populated. LEED
- *  certification status is now provided directly by USGBC.
+ *  LEED certification.
  *
  *  Likely values:
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertificationUnspecified
@@ -14577,11 +14587,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_NoLeedCertification
  *        Not certified. (Value: "NO_LEED_CERTIFICATION")
  */
-@property(nonatomic, copy, nullable) NSString *leedCertification GTLR_DEPRECATED;
+@property(nonatomic, copy, nullable) NSString *leedCertification;
 
 /**
- *  LEED certification exception. Deprecated: this field is no longer populated.
- *  LEED certification status is now provided directly by USGBC.
+ *  LEED certification exception.
  *
  *  Likely values:
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnDayOfWeek
@@ -14597,7 +14606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *        Amenity or service is unavailable due to ongoing work orders. (Value:
  *        "UNDER_CONSTRUCTION")
  */
-@property(nonatomic, copy, nullable) NSString *leedCertificationException GTLR_DEPRECATED;
+@property(nonatomic, copy, nullable) NSString *leedCertificationException;
 
 @end
 

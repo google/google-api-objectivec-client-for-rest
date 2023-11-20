@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback.rating
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_RatingUnspecified = @"RATING_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsDown = @"THUMBS_DOWN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback_Rating_ThumbsUp = @"THUMBS_UP";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult.result
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_AggregatedTestResultUnspecified = @"AGGREGATED_TEST_RESULT_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Failed = @"FAILED";
@@ -700,11 +705,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
-@dynamic advancedSettings, avatarUri, defaultLanguageCode, descriptionProperty,
-         displayName, enableSpellCorrection, enableStackdriverLogging,
-         genAppBuilderSettings, gitIntegrationSettings, locked, name,
-         securitySettings, speechToTextSettings, startFlow,
-         supportedLanguageCodes, textToSpeechSettings, timeZone;
+@dynamic advancedSettings, answerFeedbackSettings, avatarUri,
+         defaultLanguageCode, descriptionProperty, displayName,
+         enableSpellCorrection, enableStackdriverLogging, genAppBuilderSettings,
+         gitIntegrationSettings, locked, name, securitySettings,
+         speechToTextSettings, startFlow, supportedLanguageCodes,
+         textToSpeechSettings, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -717,6 +723,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings
+@dynamic enableAnswerFeedback;
 @end
 
 
@@ -778,11 +794,49 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback
+@dynamic customRating, rating, ratingReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedbackRatingReason
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedbackRatingReason
+@dynamic feedback, reasonLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reasonLabels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput
 @dynamic audio, config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig
+@dynamic noBargeInDuration, totalDuration;
 @end
 
 
@@ -895,6 +949,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AudioInput
 @dynamic audio, config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig
+@dynamic noBargeInDuration, totalDuration;
 @end
 
 
@@ -1549,8 +1613,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig
-@dynamic audioEncoding, enableWordInfo, model, modelVariant, phraseHints,
-         sampleRateHertz, singleUtterance;
+@dynamic audioEncoding, bargeInConfig, enableWordInfo, model, modelVariant,
+         phraseHints, sampleRateHertz, singleUtterance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2344,6 +2408,53 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec
+@dynamic conditionBoostSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditionBoostSpecs" : [GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec
+@dynamic boost, condition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs
+@dynamic dataStores, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStores" : [NSString class],
+    @"spec" : [GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3CalculateCoverageResponse
 //
 
@@ -2981,6 +3092,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs
+@dynamic dataStores, filter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStores" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3Flow
 //
 
@@ -3422,8 +3551,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig
-@dynamic audioEncoding, enableWordInfo, model, modelVariant, phraseHints,
-         sampleRateHertz, singleUtterance;
+@dynamic audioEncoding, bargeInConfig, enableWordInfo, model, modelVariant,
+         phraseHints, sampleRateHertz, singleUtterance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4133,7 +4262,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
 @dynamic analyzeQueryTextSentiment, channel, currentPage, disableWebhook,
          endUserMetadata, flowVersions, geoLocation, parameters, payload,
-         sessionEntityTypes, sessionTtl, timeZone, webhookHeaders;
+         searchConfig, sessionEntityTypes, sessionTtl, timeZone, webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4208,10 +4337,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult
-@dynamic advancedSettings, currentPage, diagnosticInfo, dtmf, intent,
-         intentDetectionConfidence, languageCode, match, parameters,
-         responseMessages, sentimentAnalysisResult, text, transcript,
-         triggerEvent, triggerIntent, webhookPayloads, webhookStatuses;
+@dynamic advancedSettings, allowAnswerFeedback, currentPage, diagnosticInfo,
+         dtmf, intent, intentDetectionConfidence, languageCode, match,
+         parameters, responseMessages, sentimentAnalysisResult, text,
+         transcript, triggerEvent, triggerIntent, webhookPayloads,
+         webhookStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4609,6 +4739,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig
+@dynamic boostSpecs, filterSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boostSpecs" : [GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs class],
+    @"filterSpecs" : [GTLRDialogflow_GoogleCloudDialogflowCxV3FilterSpecs class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings
 //
 
@@ -4725,6 +4874,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest
+@dynamic answerFeedback, responseId, updateMask;
 @end
 
 

@@ -21,6 +21,7 @@
 @class GTLRLogging_CopyLogEntriesRequest;
 @class GTLRLogging_CreateBucketRequest;
 @class GTLRLogging_CreateLinkRequest;
+@class GTLRLogging_DefaultSinkConfig;
 @class GTLRLogging_DeleteLinkRequest;
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
@@ -39,6 +40,7 @@
 @class GTLRLogging_LogEntry_ProtoPayload;
 @class GTLRLogging_LogEntryOperation;
 @class GTLRLogging_LogEntrySourceLocation;
+@class GTLRLogging_LogErrorGroup;
 @class GTLRLogging_LogExclusion;
 @class GTLRLogging_LogLine;
 @class GTLRLogging_LogMetric;
@@ -57,10 +59,15 @@
 @class GTLRLogging_Operation;
 @class GTLRLogging_Operation_Metadata;
 @class GTLRLogging_Operation_Response;
+@class GTLRLogging_OpsAnalyticsQuery;
+@class GTLRLogging_Query;
+@class GTLRLogging_RecentQuery;
+@class GTLRLogging_SavedQuery;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
 @class GTLRLogging_Status;
 @class GTLRLogging_Status_Details_Item;
+@class GTLRLogging_SummaryField;
 @class GTLRLogging_SuppressionInfo;
 @class GTLRLogging_UpdateBucketRequest;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
@@ -166,6 +173,30 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_Ope
  *  Value: "OPERATION_STATE_WAITING_FOR_PERMISSIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_DefaultSinkConfig.mode
+
+/**
+ *  The contents of filter will be appended to the built-in _Default sink
+ *  filter. Using the append mode with an empty filter will keep the sink
+ *  inclusion filter unchanged.
+ *
+ *  Value: "APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Append;
+/**
+ *  The filter's write mode is unspecified. This mode must not be used.
+ *
+ *  Value: "FILTER_WRITE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_DefaultSinkConfig_Mode_FilterWriteModeUnspecified;
+/**
+ *  The contents of filter will overwrite the built-in _Default sink filter.
+ *
+ *  Value: "OVERWRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Overwrite;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_IndexConfig.type
@@ -1168,6 +1199,53 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Describes the custom _Default sink configuration that is used to override
+ *  the built-in _Default sink configuration in newly created resource
+ *  containers, such as projects or folders.
+ */
+@interface GTLRLogging_DefaultSinkConfig : GTLRObject
+
+/**
+ *  Optional. Specifies the set of exclusions to be added to the _Default sink
+ *  in newly created resource containers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogExclusion *> *exclusions;
+
+/**
+ *  Optional. An advanced logs filter
+ *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
+ *  exported log entries are those that are in the resource owning the sink and
+ *  that match the filter.For
+ *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND
+ *  severity>=ERRORCannot be empty or unset if mode == OVERWRITE. In order to
+ *  match all logs, use the following line as the value of filter and do not use
+ *  exclusions:logName:*
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Determines the behavior to apply to the built-in _Default sink
+ *  inclusion filter.Exclusions are always appended, as built-in _Default sinks
+ *  have no exclusions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_DefaultSinkConfig_Mode_Append The contents of filter
+ *        will be appended to the built-in _Default sink filter. Using the
+ *        append mode with an empty filter will keep the sink inclusion filter
+ *        unchanged. (Value: "APPEND")
+ *    @arg @c kGTLRLogging_DefaultSinkConfig_Mode_FilterWriteModeUnspecified The
+ *        filter's write mode is unspecified. This mode must not be used.
+ *        (Value: "FILTER_WRITE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_DefaultSinkConfig_Mode_Overwrite The contents of
+ *        filter will overwrite the built-in _Default sink filter. (Value:
+ *        "OVERWRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
  *  The parameters to DeleteLink.
  */
 @interface GTLRLogging_DeleteLinkRequest : GTLRObject
@@ -1881,6 +1959,87 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The response from ListRecentQueries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "recentQueries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListRecentQueriesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  nextPageToken is included. To get the next set of results, call the same
+ *  method again using the value of nextPageToken as pageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of recent queries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_RecentQuery *> *recentQueries;
+
+/**
+ *  The unreachable resources. Each resource can be either 1) a saved query if a
+ *  specific query is unreachable or 2) a location if a specific location is
+ *  unreachable.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/recentQueries/[QUERY_ID]"
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  example:"projects/my-project/locations/global/recentQueries/12345678"
+ *  "projects/my-project/locations/global"If there are unreachable resources,
+ *  the response will first return pages that contain recent queries, and then
+ *  return pages that contain the unreachable resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response from ListSavedQueries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "savedQueries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListSavedQueriesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  nextPageToken is included. To get the next set of results, call the same
+ *  method again using the value of nextPageToken as pageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of saved queries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_SavedQuery *> *savedQueries;
+
+/**
+ *  The unreachable resources. It can be either 1) a saved query if a specific
+ *  query is unreachable or 2) a location if a specific location is unreachabe.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For example:
+ *  "projects/my-project/locations/global/savedQueries/12345678"
+ *  "projects/my-project/locations/global" If there are unreachable resources,
+ *  the response will first return pages that contain saved queries, and then
+ *  return pages that contain the unreachable resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Result returned from ListSinks.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2122,6 +2281,17 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  An individual entry in a log.
  */
 @interface GTLRLogging_LogEntry : GTLRObject
+
+/**
+ *  Output only. The Error Reporting (https://cloud.google.com/error-reporting)
+ *  error groups associated with this LogEntry. Error Reporting sets the values
+ *  for this field during error group creation.For more information, see View
+ *  error details(
+ *  https://cloud.google.com/error-reporting/docs/viewing-errors#view_error_details)This
+ *  field isn't available during log routing
+ *  (https://cloud.google.com/logging/docs/routing/overview)
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogErrorGroup *> *errorGroups;
 
 /**
  *  Optional. Information about the HTTP request associated with this log entry,
@@ -2434,6 +2604,27 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
+ *  Contains metadata that associates the LogEntry to Error Reporting error
+ *  groups.
+ */
+@interface GTLRLogging_LogErrorGroup : GTLRObject
+
+/**
+ *  The id is a unique identifier for a particular error group; it is the last
+ *  part of the error group resource name: /projects//errors/. Example:
+ *  COShysOX0r_51QE The id is derived from key parts of the error-log content
+ *  and is treated as Service Data. For information about how Service Data is
+ *  handled, see Google Cloud Privacy Notice
+ *  (https://cloud.google.com/terms/cloud-privacy-notice).
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -3451,6 +3642,85 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Describes an analytics query that can be run in the Log Analytics page of
+ *  Google Cloud console.Preview: This is a preview feature and may be subject
+ *  to change before final release.
+ */
+@interface GTLRLogging_OpsAnalyticsQuery : GTLRObject
+
+/**
+ *  Required. A logs analytics SQL query, which generally follows BigQuery
+ *  format.This is the SQL query that appears in the Log Analytics UI's query
+ *  editor.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlQueryText;
+
+@end
+
+
+/**
+ *  Describes a Cloud Logging query that can be run in Logs Explorer UI or via
+ *  the logging API.In addition to the query itself, additional information may
+ *  be stored to capture the display configuration and other UI state used in
+ *  association with analysis of query results.
+ */
+@interface GTLRLogging_Query : GTLRObject
+
+/**
+ *  An advanced query using the Logging Query Language
+ *  (https://cloud.google.com/logging/docs/view/logging-query-language). The
+ *  maximum length of the filter is 20000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Characters will be counted from the end of the string.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summaryFieldEnd;
+
+/** The set of summary fields to display for this saved query. */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_SummaryField *> *summaryFields;
+
+/**
+ *  Characters will be counted from the start of the string.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summaryFieldStart;
+
+@end
+
+
+/**
+ *  Describes a recent query executed on the Logs Explorer or Log Analytics page
+ *  within the last ~ 30 days.
+ */
+@interface GTLRLogging_RecentQuery : GTLRObject
+
+/** The timestamp when this query was last run. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRunTime;
+
+/** Logging query that can be executed in Logs Explorer or via Logging API. */
+@property(nonatomic, strong, nullable) GTLRLogging_Query *loggingQuery;
+
+/**
+ *  Output only. Resource name of the recent query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/recentQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support)The QUERY_ID is a
+ *  system generated alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Analytics query that can be executed in Log Analytics. */
+@property(nonatomic, strong, nullable) GTLRLogging_OpsAnalyticsQuery *opsAnalyticsQuery;
+
+@end
+
+
+/**
  *  Complete log information about a single HTTP request to an App Engine
  *  application.
  */
@@ -3623,10 +3893,53 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Describes a query that has been saved by a user.
+ */
+@interface GTLRLogging_SavedQuery : GTLRObject
+
+/** Output only. The timestamp when the saved query was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A human readable description of the saved query.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The user specified title for the SavedQuery. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Logging query that can be executed in Logs Explorer or via Logging API. */
+@property(nonatomic, strong, nullable) GTLRLogging_Query *loggingQuery;
+
+/**
+ *  Output only. Resource name of the saved query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  the saved query is created, the location cannot be changed.If the user
+ *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Analytics query that can be executed in Log Analytics. */
+@property(nonatomic, strong, nullable) GTLRLogging_OpsAnalyticsQuery *opsAnalyticsQuery;
+
+/** Output only. The timestamp when the saved query was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Describes the settings associated with a project, folder, organization,
  *  billing account, or flexible resource.
  */
 @interface GTLRLogging_Settings : GTLRObject
+
+/** Optional. Overrides the built-in configuration for _Default sink. */
+@property(nonatomic, strong, nullable) GTLRLogging_DefaultSinkConfig *defaultSinkConfig;
 
 /**
  *  Optional. If set to true, the _Default sink in newly created projects and
@@ -3671,9 +3984,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *kmsServiceAccountId;
 
 /**
- *  Output only. The service account for the given container. Sinks use this
- *  service account as their writer_identity if no custom service account is
- *  provided.
+ *  Output only. The service account for the given resource container, such as
+ *  project or folder. Log sinks use this service account as their
+ *  writer_identity if no custom service account is provided in the request when
+ *  calling the create sink method.
  */
 @property(nonatomic, copy, nullable) NSString *loggingServiceAccountId;
 
@@ -3786,6 +4100,22 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRLogging_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A field from the LogEntry that is added to the summary line
+ *  (https://cloud.google.com/logging/docs/view/logs-explorer-interface#add-summary-fields)
+ *  for a query in the Logs Explorer.
+ */
+@interface GTLRLogging_SummaryField : GTLRObject
+
+/**
+ *  The field from the LogEntry to include in the summary line, for example
+ *  resource.type or jsonPayload.name.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
 @end
 
 

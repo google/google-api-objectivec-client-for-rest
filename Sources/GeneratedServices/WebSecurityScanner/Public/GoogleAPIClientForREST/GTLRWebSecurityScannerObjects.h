@@ -191,6 +191,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseOwnerAccount;
 /**
+ *  CAI is not able to list assets.
+ *
+ *  Value: "CLOUD_ASSET_INVENTORY_ASSET_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CloudAssetInventoryAssetNotFound;
+/**
  *  There is no error.
  *
  *  Value: "CODE_UNSPECIFIED"
@@ -1275,6 +1281,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseOwnerAccount
  *        The account of the scan creator can not be used for scanning. (Value:
  *        "CANNOT_USE_OWNER_ACCOUNT")
+ *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_CloudAssetInventoryAssetNotFound
+ *        CAI is not able to list assets. (Value:
+ *        "CLOUD_ASSET_INVENTORY_ASSET_NOT_FOUND")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_CodeUnspecified There
  *        is no error. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiBackendError

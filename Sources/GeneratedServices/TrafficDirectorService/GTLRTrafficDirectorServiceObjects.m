@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Traffic Director API (trafficdirector/v2)
+//   Traffic Director API (trafficdirector/v3)
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
@@ -10,6 +10,61 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRTrafficDirectorService_DynamicCluster.clientStatus
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_DynamicEndpointConfig.clientStatus
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_DynamicListener.clientStatus
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_DynamicRouteConfig.clientStatus
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_DynamicScopedRouteConfigs.clientStatus
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_GenericXdsConfig.clientStatus
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Acked = @"ACKED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_GenericXdsConfig.configStatus
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Error = @"ERROR";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_NotSent = @"NOT_SENT";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Stale = @"STALE";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Synced = @"SYNCED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Unknown = @"UNKNOWN";
+
+// GTLRTrafficDirectorService_PerXdsConfig.clientStatus
+NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientAcked = @"CLIENT_ACKED";
+NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientNacked = @"CLIENT_NACKED";
+NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientRequested = @"CLIENT_REQUESTED";
+NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientUnknown = @"CLIENT_UNKNOWN";
 
 // GTLRTrafficDirectorService_PerXdsConfig.status
 NSString * const kGTLRTrafficDirectorService_PerXdsConfig_Status_Error = @"ERROR";
@@ -28,7 +83,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_Address
-@dynamic pipe, socketAddress;
+@dynamic envoyInternalAddress, pipe, socketAddress;
 @end
 
 
@@ -62,10 +117,11 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_ClientConfig
-@dynamic node, xdsConfig;
+@dynamic genericXdsConfigs, node, xdsConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"genericXdsConfigs" : [GTLRTrafficDirectorService_GenericXdsConfig class],
     @"xdsConfig" : [GTLRTrafficDirectorService_PerXdsConfig class]
   };
   return map;
@@ -80,7 +136,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_ClientStatusRequest
-@dynamic nodeMatchers;
+@dynamic excludeResourceContents, node, nodeMatchers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -133,6 +189,30 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTrafficDirectorService_ContextParams
+//
+
+@implementation GTLRTrafficDirectorService_ContextParams
+@dynamic params;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_ContextParams_Params
+//
+
+@implementation GTLRTrafficDirectorService_ContextParams_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTrafficDirectorService_DoubleMatcher
 //
 
@@ -157,7 +237,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_DynamicCluster
-@dynamic cluster, lastUpdated, versionInfo;
+@dynamic clientStatus, cluster, errorState, lastUpdated, versionInfo;
 @end
 
 
@@ -177,11 +257,36 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTrafficDirectorService_DynamicEndpointConfig
+//
+
+@implementation GTLRTrafficDirectorService_DynamicEndpointConfig
+@dynamic clientStatus, endpointConfig, errorState, lastUpdated, versionInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_DynamicEndpointConfig_EndpointConfig
+//
+
+@implementation GTLRTrafficDirectorService_DynamicEndpointConfig_EndpointConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTrafficDirectorService_DynamicListener
 //
 
 @implementation GTLRTrafficDirectorService_DynamicListener
-@dynamic activeState, drainingState, errorState, name, warmingState;
+@dynamic activeState, clientStatus, drainingState, errorState, name,
+         warmingState;
 @end
 
 
@@ -215,7 +320,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_DynamicRouteConfig
-@dynamic lastUpdated, routeConfig, versionInfo;
+@dynamic clientStatus, errorState, lastUpdated, routeConfig, versionInfo;
 @end
 
 
@@ -239,7 +344,8 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_DynamicScopedRouteConfigs
-@dynamic lastUpdated, name, scopedRouteConfigs, versionInfo;
+@dynamic clientStatus, errorState, lastUpdated, name, scopedRouteConfigs,
+         versionInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -267,11 +373,73 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTrafficDirectorService_EndpointsConfigDump
+//
+
+@implementation GTLRTrafficDirectorService_EndpointsConfigDump
+@dynamic dynamicEndpointConfigs, staticEndpointConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dynamicEndpointConfigs" : [GTLRTrafficDirectorService_DynamicEndpointConfig class],
+    @"staticEndpointConfigs" : [GTLRTrafficDirectorService_StaticEndpointConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_EnvoyInternalAddress
+//
+
+@implementation GTLRTrafficDirectorService_EnvoyInternalAddress
+@dynamic endpointId, serverListenerName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTrafficDirectorService_Extension
 //
 
 @implementation GTLRTrafficDirectorService_Extension
-@dynamic category, disabled, name, typeDescriptor, version;
+@dynamic category, disabled, name, typeDescriptor, typeUrls, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"typeUrls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_GenericXdsConfig
+//
+
+@implementation GTLRTrafficDirectorService_GenericXdsConfig
+@dynamic clientStatus, configStatus, errorState, isStaticResource, lastUpdated,
+         name, typeUrl, versionInfo, xdsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_GenericXdsConfig_XdsConfig
+//
+
+@implementation GTLRTrafficDirectorService_GenericXdsConfig_XdsConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -367,7 +535,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_Node
-@dynamic buildVersion, clientFeatures, cluster, extensions, identifier,
+@dynamic clientFeatures, cluster, dynamicParameters, extensions, identifier,
          listeningAddresses, locality, metadata, userAgentBuildVersion,
          userAgentName, userAgentVersion;
 
@@ -382,6 +550,20 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
     @"listeningAddresses" : [GTLRTrafficDirectorService_Address class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_Node_DynamicParameters
+//
+
+@implementation GTLRTrafficDirectorService_Node_DynamicParameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRTrafficDirectorService_ContextParams class];
 }
 
 @end
@@ -430,6 +612,24 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTrafficDirectorService_OrMatcher
+//
+
+@implementation GTLRTrafficDirectorService_OrMatcher
+@dynamic valueMatchers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"valueMatchers" : [GTLRTrafficDirectorService_ValueMatcher class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTrafficDirectorService_PathSegment
 //
 
@@ -444,7 +644,8 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_PerXdsConfig
-@dynamic clusterConfig, listenerConfig, routeConfig, scopedRouteConfig, status;
+@dynamic clientStatus, clusterConfig, endpointConfig, listenerConfig,
+         routeConfig, scopedRouteConfig, status;
 @end
 
 
@@ -552,6 +753,30 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTrafficDirectorService_StaticEndpointConfig
+//
+
+@implementation GTLRTrafficDirectorService_StaticEndpointConfig
+@dynamic endpointConfig, lastUpdated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_StaticEndpointConfig_EndpointConfig
+//
+
+@implementation GTLRTrafficDirectorService_StaticEndpointConfig_EndpointConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTrafficDirectorService_StaticListener
 //
 
@@ -604,7 +829,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_StringMatcher
-@dynamic exact, ignoreCase, prefix, regex, safeRegex, suffix;
+@dynamic contains, exact, ignoreCase, prefix, safeRegex, suffix;
 @end
 
 
@@ -632,7 +857,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_UpdateFailureState
-@dynamic details, failedConfiguration, lastUpdateAttempt;
+@dynamic details, failedConfiguration, lastUpdateAttempt, versionInfo;
 @end
 
 
@@ -656,6 +881,6 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_ValueMatcher
-@dynamic boolMatch, doubleMatch, listMatch, nullMatch, presentMatch,
+@dynamic boolMatch, doubleMatch, listMatch, nullMatch, orMatch, presentMatch,
          stringMatch;
 @end

@@ -165,6 +165,252 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Disables an Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheDisable : GTLRStorageQuery
+
+/** The ID of requested Anywhere Cache instance. */
+@property(nonatomic, copy, nullable) NSString *anywhereCacheId;
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_AnywhereCache.
+ *
+ *  Disables an Anywhere Cache instance.
+ *
+ *  @param bucket Name of the partent bucket
+ *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheDisable
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId;
+
+@end
+
+/**
+ *  Returns the metadata of an Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheGet : GTLRStorageQuery
+
+/** The ID of requested Anywhere Cache instance. */
+@property(nonatomic, copy, nullable) NSString *anywhereCacheId;
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_AnywhereCache.
+ *
+ *  Returns the metadata of an Anywhere Cache instance.
+ *
+ *  @param bucket Name of the partent bucket
+ *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId;
+
+@end
+
+/**
+ *  Creates an Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheInsert : GTLRStorageQuery
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Creates an Anywhere Cache instance.
+ *
+ *  @param object The @c GTLRStorage_AnywhereCache to include in the query.
+ *  @param bucket Name of the partent bucket
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheInsert
+ */
++ (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Returns a list of Anywhere Cache instances of the bucket matching the
+ *  criteria.
+ *
+ *  Method: storage.anywhereCaches.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheList : GTLRStorageQuery
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Maximum number of items return in a single page of responses. Maximum 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRStorage_AnywhereCaches.
+ *
+ *  Returns a list of Anywhere Cache instances of the bucket matching the
+ *  criteria.
+ *
+ *  @param bucket Name of the partent bucket
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Pauses an Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCachePause : GTLRStorageQuery
+
+/** The ID of requested Anywhere Cache instance. */
+@property(nonatomic, copy, nullable) NSString *anywhereCacheId;
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_AnywhereCache.
+ *
+ *  Pauses an Anywhere Cache instance.
+ *
+ *  @param bucket Name of the partent bucket
+ *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
+ *
+ *  @return GTLRStorageQuery_AnywhereCachePause
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId;
+
+@end
+
+/**
+ *  Resumes a paused or disabled Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheResume : GTLRStorageQuery
+
+/** The ID of requested Anywhere Cache instance. */
+@property(nonatomic, copy, nullable) NSString *anywhereCacheId;
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_AnywhereCache.
+ *
+ *  Resumes a paused or disabled Anywhere Cache instance.
+ *
+ *  @param bucket Name of the partent bucket
+ *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheResume
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId;
+
+@end
+
+/**
+ *  Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
+ *
+ *  Method: storage.anywhereCaches.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_AnywhereCacheUpdate : GTLRStorageQuery
+
+/** The ID of requested Anywhere Cache instance. */
+@property(nonatomic, copy, nullable) NSString *anywhereCacheId;
+
+/** Name of the partent bucket */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
+ *
+ *  @param object The @c GTLRStorage_AnywhereCache to include in the query.
+ *  @param bucket Name of the partent bucket
+ *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
+ *
+ *  @return GTLRStorageQuery_AnywhereCacheUpdate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
+                         bucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId;
+
+@end
+
+/**
  *  Permanently deletes the ACL entry for the specified entity on the specified
  *  bucket.
  *

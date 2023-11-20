@@ -223,9 +223,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Deletes a queue. This command will delete the queue even if it has tasks in
- *  it. Note: If you delete a queue, a queue with the same name can't be created
- *  for 7 days. WARNING: Using this method may have unintended side effects if
- *  you are using an App Engine `queue.yaml` or `queue.xml` file to manage your
+ *  it. Note: If you delete a queue, you may be prevented from creating a new
+ *  queue with the same name as the deleted queue for a tombstone window of up
+ *  to 3 days. During this window, the CreateQueue operation may appear to
+ *  recreate the queue, but this can be misleading. If you attempt to create a
+ *  queue with the same name as one that is in the tombstone window, run
+ *  GetQueue to confirm that the queue creation was successful. If GetQueue
+ *  returns 200 response code, your queue was successfully created with the name
+ *  of the previously deleted queue. Otherwise, your queue did not successfully
+ *  recreate. WARNING: Using this method may have unintended side effects if you
+ *  are using an App Engine `queue.yaml` or `queue.xml` file to manage your
  *  queues. Read [Overview of Queue Management and
  *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
  *  this method.
@@ -247,9 +254,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_Empty.
  *
  *  Deletes a queue. This command will delete the queue even if it has tasks in
- *  it. Note: If you delete a queue, a queue with the same name can't be created
- *  for 7 days. WARNING: Using this method may have unintended side effects if
- *  you are using an App Engine `queue.yaml` or `queue.xml` file to manage your
+ *  it. Note: If you delete a queue, you may be prevented from creating a new
+ *  queue with the same name as the deleted queue for a tombstone window of up
+ *  to 3 days. During this window, the CreateQueue operation may appear to
+ *  recreate the queue, but this can be misleading. If you attempt to create a
+ *  queue with the same name as one that is in the tombstone window, run
+ *  GetQueue to confirm that the queue creation was successful. If GetQueue
+ *  returns 200 response code, your queue was successfully created with the name
+ *  of the previously deleted queue. Otherwise, your queue did not successfully
+ *  recreate. WARNING: Using this method may have unintended side effects if you
+ *  are using an App Engine `queue.yaml` or `queue.xml` file to manage your
  *  queues. Read [Overview of Queue Management and
  *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
  *  this method.
@@ -636,6 +650,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates and buffers a new task without the need to explicitly define a Task
+ *  message. The queue must have HTTP target. To create the task with a custom
+ *  ID, use the following format and set TASK_ID to your desired ID:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID:buffer
+ *  To create the task with an automatically generated ID, use the following
+ *  format:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks:buffer.
+ *
+ *  Method: cloudtasks.projects.locations.queues.tasks.buffer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBuffer : GTLRCloudTasksQuery
+
+/**
+ *  Required. The parent queue name. For example:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must
+ *  already exist.
+ */
+@property(nonatomic, copy, nullable) NSString *queue;
+
+/**
+ *  Optional. Task ID for the task being created. If not provided, Cloud Tasks
+ *  generates an ID for the task.
+ */
+@property(nonatomic, copy, nullable) NSString *taskId;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_BufferTaskResponse.
+ *
+ *  Creates and buffers a new task without the need to explicitly define a Task
+ *  message. The queue must have HTTP target. To create the task with a custom
+ *  ID, use the following format and set TASK_ID to your desired ID:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID:buffer
+ *  To create the task with an automatically generated ID, use the following
+ *  format:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks:buffer.
+ *
+ *  @param object The @c GTLRCloudTasks_BufferTaskRequest to include in the
+ *    query.
+ *  @param queue Required. The parent queue name. For example:
+ *    projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must
+ *    already exist.
+ *  @param taskId Optional. Task ID for the task being created. If not provided,
+ *    Cloud Tasks generates an ID for the task.
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBuffer
+ */
++ (instancetype)queryWithObject:(GTLRCloudTasks_BufferTaskRequest *)object
+                          queue:(NSString *)queue
+                         taskId:(NSString *)taskId;
 
 @end
 

@@ -354,6 +354,112 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @end
 
 /**
+ *  Gets a step entry.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.executions.stepEntries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesGet : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Required. The name of the step entry to retrieve. Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/{step_entry}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_StepEntry.
+ *
+ *  Gets a step entry.
+ *
+ *  @param name Required. The name of the step entry to retrieve. Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/{step_entry}
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists step entries for the corresponding workflow execution. Returned
+ *  entries are ordered by their create_time.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.executions.stepEntries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Optional. Filters applied to the `[StepEntries.ListStepEntries]` results.
+ *  The following fields are supported for filtering: `entryId`, `createTime`,
+ *  `updateTime`, `routine`, `step`, `stepType`, `state`. For details, see
+ *  AIP-160. For example, if you are using the Google APIs Explorer:
+ *  `state="SUCCEEDED"` or `createTime>"2023-08-01" AND state="FAILED"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Comma-separated list of fields that specify the ordering applied
+ *  to the `[StepEntries.ListStepEntries]` results. By default the ordering is
+ *  based on ascending `entryId`. The following fields are supported for
+ *  ordering: `entryId`, `createTime`, `updateTime`, `routine`, `step`,
+ *  `stepType`, `state`. For details, see AIP-132.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Number of step entries to return per call. The default max is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListStepEntries` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListStepEntries` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the workflow execution to list entries for. Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The number of step entries to skip. It can be used with or without
+ *  a pageToken. If used with a pageToken, then it indicates the number of step
+ *  entries to skip starting from the requested page.
+ */
+@property(nonatomic, assign) NSInteger skip;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_ListStepEntriesResponse.
+ *
+ *  Lists step entries for the corresponding workflow execution. Returned
+ *  entries are ordered by their create_time.
+ *
+ *  @param parent Required. Name of the workflow execution to list entries for.
+ *    Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Triggers a new execution using the latest revision of the given workflow by
  *  a Pub/Sub push notification.
  *

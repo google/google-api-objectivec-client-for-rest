@@ -2280,9 +2280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForInstances
  *
@@ -2314,9 +2313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2338,8 +2336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForSeries, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForSeries, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForSeries
  *
@@ -2369,8 +2367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForSeries, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForSeries, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2392,8 +2390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForStudies, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForStudies, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForStudies, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.searchForStudies
  *
@@ -2423,8 +2421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForStudies, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForStudies, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForStudies, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2487,8 +2485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call StoreInstances, see [Storing DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#storing_dicom_data).
+ *  to call StoreInstances, see [Store DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.storeInstances
  *
@@ -2519,8 +2517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call StoreInstances, see [Storing DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#storing_dicom_data).
+ *  to call StoreInstances, see [Store DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the DICOM store that is being accessed. For
@@ -2543,8 +2541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  The method returns an Operation which will be marked successful when the
  *  deletion is complete. Warning: Instances cannot be inserted into a study
  *  that is being deleted by an operation until the operation completes. For
- *  samples that show how to call DeleteStudy, see [Deleting a study, series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  samples that show how to call DeleteStudy, see [Delete a study, series, or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.delete
  *
@@ -2569,8 +2567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  The method returns an Operation which will be marked successful when the
  *  deletion is complete. Warning: Instances cannot be inserted into a study
  *  that is being deleted by an operation until the operation completes. For
- *  samples that show how to call DeleteStudy, see [Deleting a study, series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  samples that show how to call DeleteStudy, see [Delete a study, series, or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  @param parent NSString
  *  @param dicomWebPath The path of the DeleteStudy request. For example,
@@ -2590,8 +2588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveStudyMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveStudyMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.retrieveMetadata
  *
@@ -2622,8 +2620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveStudyMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveStudyMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2645,8 +2643,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveStudy, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveStudy, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  to call RetrieveStudy, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.retrieveStudy
  *
@@ -2677,8 +2675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveStudy, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveStudy, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  to call RetrieveStudy, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2700,9 +2698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.searchForInstances
  *
@@ -2734,9 +2731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2758,8 +2754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForSeries, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForSeries, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.searchForSeries
  *
@@ -2789,8 +2785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForSeries, see [Searching for studies, series, instances, and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForSeries, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2811,9 +2807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  transaction. The method returns an Operation which will be marked successful
  *  when the deletion is complete. Warning: Instances cannot be inserted into a
  *  series that is being deleted by an operation until the operation completes.
- *  For samples that show how to call DeleteSeries, see [Deleting a study,
- *  series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  For samples that show how to call DeleteSeries, see [Delete a study, series,
+ *  or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.delete
  *
@@ -2843,9 +2839,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  transaction. The method returns an Operation which will be marked successful
  *  when the deletion is complete. Warning: Instances cannot be inserted into a
  *  series that is being deleted by an operation until the operation completes.
- *  For samples that show how to call DeleteSeries, see [Deleting a study,
- *  series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  For samples that show how to call DeleteSeries, see [Delete a study, series,
+ *  or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2866,8 +2862,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified in the Retrieve transaction. Study and series search results can
  *  take a few seconds to be updated after an instance is deleted using
  *  DeleteInstance. For samples that show how to call DeleteInstance, see
- *  [Deleting a study, series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  [Delete a study, series, or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.delete
  *
@@ -2897,8 +2893,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  specified in the Retrieve transaction. Study and series search results can
  *  take a few seconds to be updated after an instance is deleted using
  *  DeleteInstance. For samples that show how to call DeleteInstance, see
- *  [Deleting a study, series, or
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#deleting_a_study_series_or_instance).
+ *  [Delete a study, series, or
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2920,8 +2916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveFrames, see [DICOM
  *  frames](https://cloud.google.com/healthcare/docs/dicom#dicom_frames) in the
  *  Cloud Healthcare API conformance statement. For samples that show how to
- *  call RetrieveFrames, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  call RetrieveFrames, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveFrames
  *
@@ -2952,8 +2948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveFrames, see [DICOM
  *  frames](https://cloud.google.com/healthcare/docs/dicom#dicom_frames) in the
  *  Cloud Healthcare API conformance statement. For samples that show how to
- *  call RetrieveFrames, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  call RetrieveFrames, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -2977,8 +2973,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveRenderedFrames, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveRenderedFrames, see [Retrieving consumer image
- *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_consumer_image_formats).
+ *  to call RetrieveRenderedFrames, see [Retrieve consumer image
+ *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.frames.retrieveRendered
  *
@@ -3010,8 +3006,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveRenderedFrames, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveRenderedFrames, see [Retrieving consumer image
- *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_consumer_image_formats).
+ *  to call RetrieveRenderedFrames, see [Retrieve consumer image
+ *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3036,8 +3032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  and [DICOM
  *  instances](https://cloud.google.com/healthcare/docs/dicom#dicom_instances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveInstance, see [Retrieving an
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_an_instance).
+ *  to call RetrieveInstance, see [Retrieve an
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-instance).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveInstance
  *
@@ -3070,8 +3066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  and [DICOM
  *  instances](https://cloud.google.com/healthcare/docs/dicom#dicom_instances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveInstance, see [Retrieving an
- *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_an_instance).
+ *  to call RetrieveInstance, see [Retrieve an
+ *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-instance).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3095,8 +3091,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveInstanceMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveInstanceMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveMetadata
  *
@@ -3128,8 +3124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveInstanceMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveInstanceMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3153,8 +3149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveRenderedInstance, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveRenderedInstance, see [Retrieving consumer image
- *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_consumer_image_formats).
+ *  to call RetrieveRenderedInstance, see [Retrieve consumer image
+ *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.retrieveRendered
  *
@@ -3186,8 +3182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveRenderedInstance, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveRenderedInstance, see [Retrieving consumer image
- *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_consumer_image_formats).
+ *  to call RetrieveRenderedInstance, see [Retrieve consumer image
+ *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3211,8 +3207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveSeriesMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveSeriesMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveMetadata
  *
@@ -3244,8 +3240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveSeriesMetadata, see [Retrieving
- *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_metadata).
+ *  to call RetrieveSeriesMetadata, see [Retrieve
+ *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3267,8 +3263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveSeries, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveSeries, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  to call RetrieveSeries, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.retrieveSeries
  *
@@ -3299,8 +3295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of RetrieveSeries, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call RetrieveSeries, see [Retrieving DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieving_dicom_data).
+ *  to call RetrieveSeries, see [Retrieve DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3322,9 +3318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.searchForInstances
  *
@@ -3356,9 +3351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call SearchForInstances, see [Searching for studies, series, instances,
- *  and
- *  frames](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#searching_for_studies_series_instances_and_frames).
+ *  to call SearchForInstances, see [Search for DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3381,8 +3375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call StoreInstances, see [Storing DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#storing_dicom_data).
+ *  to call StoreInstances, see [Store DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.storeInstances
  *
@@ -3413,8 +3407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
- *  to call StoreInstances, see [Storing DICOM
- *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#storing_dicom_data).
+ *  to call StoreInstances, see [Store DICOM
+ *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the DICOM store that is being accessed. For
@@ -5725,7 +5719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
- *  Gets metrics asssociated with the HL7v2 store.
+ *  Gets metrics associated with the HL7v2 store.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.getHL7v2StoreMetrics
  *
@@ -5744,7 +5738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_Hl7V2StoreMetrics.
  *
- *  Gets metrics asssociated with the HL7v2 store.
+ *  Gets metrics associated with the HL7v2 store.
  *
  *  @param name The resource name of the HL7v2 store to get metrics for, in the
  *    format

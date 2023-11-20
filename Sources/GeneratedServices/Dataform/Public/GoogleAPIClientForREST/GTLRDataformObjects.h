@@ -31,8 +31,10 @@
 @class GTLRDataform_Declaration;
 @class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
+@class GTLRDataform_DirectorySearchResult;
 @class GTLRDataform_Expr;
 @class GTLRDataform_FileOperation;
+@class GTLRDataform_FileSearchResult;
 @class GTLRDataform_GitRemoteSettings;
 @class GTLRDataform_IncrementalTableConfig;
 @class GTLRDataform_Interval;
@@ -51,6 +53,7 @@
 @class GTLRDataform_Repository_Labels;
 @class GTLRDataform_ScheduledExecutionRecord;
 @class GTLRDataform_ScheduledReleaseRecord;
+@class GTLRDataform_SearchResult;
 @class GTLRDataform_SshAuthenticationConfig;
 @class GTLRDataform_Status;
 @class GTLRDataform_Status_Details_Item;
@@ -772,6 +775,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Client-facing representation of a directory entry in search results.
+ */
+@interface GTLRDataform_DirectorySearchResult : GTLRObject
+
+/** File system path relative to the workspace root. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -925,6 +939,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Represents the write operation. */
 @property(nonatomic, strong, nullable) GTLRDataform_WriteFile *writeFile;
+
+@end
+
+
+/**
+ *  Client-facing representation of a file entry in search results.
+ */
+@interface GTLRDataform_FileSearchResult : GTLRObject
+
+/** File system path relative to the workspace root. */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 
@@ -2130,6 +2155,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Client-facing representation of a file search response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "searchResults" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_SearchFilesResponse : GTLRCollectionObject
+
+/**
+ *  Optional. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of matched results.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_SearchResult *> *searchResults;
+
+@end
+
+
+/**
+ *  Client-facing representation of a search result entry.
+ */
+@interface GTLRDataform_SearchResult : GTLRObject
+
+/** Details when search result is a directory. */
+@property(nonatomic, strong, nullable) GTLRDataform_DirectorySearchResult *directory;
+
+/** Details when search result is a file. */
+@property(nonatomic, strong, nullable) GTLRDataform_FileSearchResult *file;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRDataform_SetIamPolicyRequest : GTLRObject
@@ -2348,6 +2414,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. The workflow invocation's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resolved compilation result that was used to create this
+ *  invocation. Will be in the format `projects/ * /locations/ * /repositories/
+ *  * /compilationResults/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedCompilationResult;
 
 /**
  *  Output only. This workflow invocation's current state.

@@ -264,10 +264,10 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
 @dynamic allowSubnetCidrRoutesOverlap, checkServiceNetworkingUsePermission,
          computeIdempotencyWindow, consumer, consumerNetwork,
-         descriptionProperty, ipPrefixLength, outsideAllocationPublicIpRange,
-         privateIpv6GoogleAccess, purpose, region, requestedAddress,
-         requestedRanges, role, secondaryIpRangeSpecs, subnetwork,
-         subnetworkUsers, useCustomComputeIdempotencyWindow;
+         descriptionProperty, internalRange, ipPrefixLength,
+         outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
+         region, requestedAddress, requestedRanges, role, secondaryIpRangeSpecs,
+         subnetwork, subnetworkUsers, useCustomComputeIdempotencyWindow;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2088,4 +2088,14 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_VpcServiceControls
+//
+
+@implementation GTLRServiceNetworking_VpcServiceControls
+@dynamic enabled;
 @end

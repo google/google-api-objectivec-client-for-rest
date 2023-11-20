@@ -327,7 +327,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus
-@dynamic documentId, gcsUri, status;
+@dynamic documentId, status;
 @end
 
 

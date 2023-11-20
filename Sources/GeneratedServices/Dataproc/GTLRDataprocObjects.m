@@ -50,6 +50,11 @@ NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus = @"STALE_STAT
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified = @"UNSPECIFIED";
 
+// GTLRDataproc_DiagnoseClusterRequest.tarballAccess
+NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport = @"GOOGLE_CLOUD_SUPPORT";
+NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose = @"GOOGLE_DATAPROC_DIAGNOSE";
+NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified = @"TARBALL_ACCESS_UNSPECIFIED";
+
 // GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional = @"BIDIRECTIONAL";
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork = @"INHERIT_FROM_SUBNETWORK";
@@ -122,6 +127,7 @@ NSString * const kGTLRDataproc_NodeGroup_Roles_RoleUnspecified = @"ROLE_UNSPECIF
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified = @"NODE_GROUP_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Repair = @"REPAIR";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize = @"RESIZE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update = @"UPDATE";
 
@@ -609,8 +615,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiagnoseClusterRequest
-@dynamic diagnosisInterval, job, jobs, tarballGcsDir, yarnApplicationId,
-         yarnApplicationIds;
+@dynamic diagnosisInterval, job, jobs, tarballAccess, tarballGcsDir,
+         yarnApplicationId, yarnApplicationIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -668,7 +674,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_EncryptionConfig
-@dynamic gcePdKmsKeyName;
+@dynamic gcePdKmsKeyName, kmsKey;
 @end
 
 
@@ -920,6 +926,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig
+//
+
+@implementation GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig
+@dynamic kmsKey;
 @end
 
 
@@ -1419,11 +1435,12 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ListJobsResponse
-@dynamic jobs, nextPageToken;
+@dynamic jobs, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobs" : [GTLRDataproc_Job class]
+    @"jobs" : [GTLRDataproc_Job class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1507,11 +1524,12 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ListWorkflowTemplatesResponse
-@dynamic nextPageToken, templates;
+@dynamic nextPageToken, templates, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"templates" : [GTLRDataproc_WorkflowTemplate class]
+    @"templates" : [GTLRDataproc_WorkflowTemplate class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2729,7 +2747,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_UsageMetrics
-@dynamic milliDcuSeconds, shuffleStorageGbSeconds;
+@dynamic acceleratorType, milliAcceleratorSeconds, milliDcuSeconds,
+         shuffleStorageGbSeconds;
 @end
 
 
@@ -2739,8 +2758,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_UsageSnapshot
-@dynamic milliDcu, milliDcuPremium, shuffleStorageGb, shuffleStorageGbPremium,
-         snapshotTime;
+@dynamic acceleratorType, milliAccelerator, milliDcu, milliDcuPremium,
+         shuffleStorageGb, shuffleStorageGbPremium, snapshotTime;
 @end
 
 
@@ -2845,8 +2864,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_WorkflowTemplate
-@dynamic createTime, dagTimeout, identifier, jobs, labels, name, parameters,
-         placement, updateTime, version;
+@dynamic createTime, dagTimeout, encryptionConfig, identifier, jobs, labels,
+         name, parameters, placement, updateTime, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

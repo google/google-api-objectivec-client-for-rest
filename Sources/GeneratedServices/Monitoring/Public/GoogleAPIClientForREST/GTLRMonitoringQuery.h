@@ -3467,6 +3467,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Creates or adds data to one or more time series. The response is empty if
  *  all time series in the request were written. If any time series could not be
  *  written, a corresponding failure message is included in the error response.
+ *  This method does not support resource locations constraint of an
+ *  organization policy
+ *  (https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy).
  *
  *  Method: monitoring.projects.timeSeries.create
  *
@@ -3490,6 +3493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Creates or adds data to one or more time series. The response is empty if
  *  all time series in the request were written. If any time series could not be
  *  written, a corresponding failure message is included in the error response.
+ *  This method does not support resource locations constraint of an
+ *  organization policy
+ *  (https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy).
  *
  *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
  *    the query.
@@ -4378,7 +4384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch : GTLRMonitoringQuery
 
 /**
- *  A unique resource name for this Uptime check configuration. The format is:
+ *  Identifier. A unique resource name for this Uptime check configuration. The
+ *  format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *  [PROJECT_ID_OR_NUMBER] is the Workspace host project associated with the
  *  Uptime check.This field should be omitted when creating the Uptime check
@@ -4407,8 +4414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
- *  @param name A unique resource name for this Uptime check configuration. The
- *    format is:
+ *  @param name Identifier. A unique resource name for this Uptime check
+ *    configuration. The format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *    [PROJECT_ID_OR_NUMBER] is the Workspace host project associated with the
  *    Uptime check.This field should be omitted when creating the Uptime check

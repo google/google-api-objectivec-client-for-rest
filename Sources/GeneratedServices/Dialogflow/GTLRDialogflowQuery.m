@@ -1972,6 +1972,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsSubmitAnswerFeedback
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v3/{+session}:submitAnswerFeedback";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsSubmitAnswerFeedback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback class];
+  query.loggingName = @"dialogflow.projects.locations.agents.sessions.submitAnswerFeedback";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchDelete
 
 @dynamic parent;

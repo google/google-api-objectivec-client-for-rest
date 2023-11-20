@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Traffic Director API (trafficdirector/v2)
+//   Traffic Director API (trafficdirector/v3)
 // Documentation:
 //   https://cloud.google.com/traffic-director
 

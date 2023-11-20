@@ -27,6 +27,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// environment
+
+/**
+ *  Default value.
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineEnvironmentEnvironmentUnspecified;
+/**
+ *  App Engine Flexible
+ *
+ *  Value: "FLEXIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineEnvironmentFlexible;
+/**
+ *  App Engine Standard.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengineEnvironmentStandard;
+
+// ----------------------------------------------------------------------------
 // includeExtraData
 
 /**
@@ -926,6 +948,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    Example: apps/myapp.
  *
  *  @return GTLRAppengineQuery_AppsGet
+ */
++ (instancetype)queryWithAppsId:(NSString *)appsId;
+
+@end
+
+/**
+ *  Lists all the available runtimes for the application.
+ *
+ *  Method: appengine.apps.listRuntimes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_AppsListRuntimes : GTLRAppengineQuery
+
+/**
+ *  Part of `parent`. Required. Name of the parent Application resource.
+ *  Example: apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/**
+ *  Optional. The environment of the Application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengineEnvironmentEnvironmentUnspecified Default value.
+ *        (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRAppengineEnvironmentStandard App Engine Standard. (Value:
+ *        "STANDARD")
+ *    @arg @c kGTLRAppengineEnvironmentFlexible App Engine Flexible (Value:
+ *        "FLEXIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRAppengine_ListRuntimesResponse.
+ *
+ *  Lists all the available runtimes for the application.
+ *
+ *  @param appsId Part of `parent`. Required. Name of the parent Application
+ *    resource. Example: apps/myapp.
+ *
+ *  @return GTLRAppengineQuery_AppsListRuntimes
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId;
 

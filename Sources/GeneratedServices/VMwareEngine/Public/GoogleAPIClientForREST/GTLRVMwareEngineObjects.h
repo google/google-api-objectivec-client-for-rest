@@ -21,17 +21,25 @@
 @class GTLRVMwareEngine_Cluster;
 @class GTLRVMwareEngine_Cluster_NodeTypeConfigs;
 @class GTLRVMwareEngine_Expr;
+@class GTLRVMwareEngine_ExternalAccessRule;
+@class GTLRVMwareEngine_ExternalAddress;
+@class GTLRVMwareEngine_ForwardingRule;
 @class GTLRVMwareEngine_Hcx;
 @class GTLRVMwareEngine_HcxActivationKey;
+@class GTLRVMwareEngine_IpRange;
 @class GTLRVMwareEngine_Location;
 @class GTLRVMwareEngine_Location_Labels;
 @class GTLRVMwareEngine_Location_Metadata;
+@class GTLRVMwareEngine_LoggingServer;
 @class GTLRVMwareEngine_ManagementCluster;
 @class GTLRVMwareEngine_ManagementCluster_NodeTypeConfigs;
+@class GTLRVMwareEngine_ManagementDnsZoneBinding;
 @class GTLRVMwareEngine_Network;
 @class GTLRVMwareEngine_NetworkConfig;
+@class GTLRVMwareEngine_NetworkPeering;
 @class GTLRVMwareEngine_NetworkPolicy;
 @class GTLRVMwareEngine_NetworkService;
+@class GTLRVMwareEngine_Node;
 @class GTLRVMwareEngine_NodeType;
 @class GTLRVMwareEngine_NodeTypeConfig;
 @class GTLRVMwareEngine_Nsx;
@@ -40,10 +48,12 @@
 @class GTLRVMwareEngine_Operation_Response;
 @class GTLRVMwareEngine_PeeringRoute;
 @class GTLRVMwareEngine_Policy;
+@class GTLRVMwareEngine_Principal;
 @class GTLRVMwareEngine_PrivateCloud;
 @class GTLRVMwareEngine_PrivateConnection;
 @class GTLRVMwareEngine_Status;
 @class GTLRVMwareEngine_Status_Details_Item;
+@class GTLRVMwareEngine_StretchedClusterConfig;
 @class GTLRVMwareEngine_Subnet;
 @class GTLRVMwareEngine_Vcenter;
 @class GTLRVMwareEngine_VpcNetwork;
@@ -129,6 +139,96 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Cluster_State_StateUnspecif
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Cluster_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRVMwareEngine_ExternalAccessRule.action
+
+/**
+ *  Defaults to allow.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified;
+/**
+ *  Allows connections that match the other specified components.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Allow;
+/**
+ *  Blocks connections that match the other specified components.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_ExternalAccessRule.state
+
+/**
+ *  The rule is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Active;
+/**
+ *  The rule is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Creating;
+/**
+ *  The rule is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Deleting;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_StateUnspecified;
+/**
+ *  The rule is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAccessRule_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_ExternalAddress.state
+
+/**
+ *  The address is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_Active;
+/**
+ *  The address is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_Creating;
+/**
+ *  The address is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_Deleting;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_StateUnspecified;
+/**
+ *  The address is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRVMwareEngine_Hcx.state
 
 /**
@@ -179,6 +279,107 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_HcxActivationKey_State_Crea
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_HcxActivationKey_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMwareEngine_LocationMetadata.capabilities
+
+/**
+ *  The default value. This value is used if the capability is omitted or
+ *  unknown.
+ *
+ *  Value: "CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_CapabilityUnspecified;
+/**
+ *  Stretch clusters are supported in this location.
+ *
+ *  Value: "STRETCHED_CLUSTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_StretchedClusters;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_LoggingServer.protocol
+
+/**
+ *  Unspecified communications protocol. This is the default value.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified;
+/**
+ *  TCP
+ *
+ *  Value: "TCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tcp;
+/**
+ *  UDP
+ *
+ *  Value: "UDP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Udp;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_LoggingServer.sourceType
+
+/**
+ *  Logs produced by ESXI hosts
+ *
+ *  Value: "ESXI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_Esxi;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_SourceTypeUnspecified;
+/**
+ *  Logs produced by vCenter server
+ *
+ *  Value: "VCSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_SourceType_Vcsa;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_ManagementDnsZoneBinding.state
+
+/**
+ *  The binding is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Active;
+/**
+ *  The binding is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Creating;
+/**
+ *  The binding is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Deleting;
+/**
+ *  The binding has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Failed;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_StateUnspecified;
+/**
+ *  The binding is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRVMwareEngine_Network.state
 
 /**
@@ -224,11 +425,102 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_State_Updating;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_Type_Legacy;
 /**
+ *  Standard network type used for private cloud connectivity.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_Type_Standard;
+/**
  *  The default value. This value should never be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_NetworkPeering.peerNetworkType
+
+/**
+ *  Peering connection used for connecting to Dell PowerScale Filers
+ *
+ *  Value: "DELL_POWERSCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale;
+/**
+ *  Peering connection used for connecting to NetApp Cloud Volumes.
+ *
+ *  Value: "NETAPP_CLOUD_VOLUMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes;
+/**
+ *  Unspecified
+ *
+ *  Value: "PEER_NETWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified;
+/**
+ *  Peering connection used for establishing [private services
+ *  access](https://cloud.google.com/vpc/docs/private-services-access).
+ *
+ *  Value: "PRIVATE_SERVICES_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PrivateServicesAccess;
+/**
+ *  Peering connection used for connecting to another VPC network established by
+ *  the same user. For example, a peering connection to another VPC network in
+ *  the same project or to an on-premises network.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_Standard;
+/**
+ *  Peering connection used for connecting to third-party services. Most
+ *  third-party services require manual setup of reverse peering on the VPC
+ *  network associated with the third-party service.
+ *
+ *  Value: "THIRD_PARTY_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_ThirdPartyService;
+/**
+ *  Peering connection used for connecting to another VMware Engine network.
+ *
+ *  Value: "VMWARE_ENGINE_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_VmwareEngineNetwork;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_NetworkPeering.state
+
+/**
+ *  The peering is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_State_Active;
+/**
+ *  The peering is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_State_Creating;
+/**
+ *  The peering is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_State_Deleting;
+/**
+ *  The peering is not active.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_State_Inactive;
+/**
+ *  Unspecified network peering state. This is the default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMwareEngine_NetworkService.state
@@ -257,6 +549,57 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkService_State_StateU
  *  Value: "UNPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkService_State_Unprovisioned;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_Node.state
+
+/**
+ *  Node is operational and can be used by the user.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Node_State_Active;
+/**
+ *  Node is being provisioned.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Node_State_Creating;
+/**
+ *  Node is in a failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Node_State_Failed;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Node_State_StateUnspecified;
+/**
+ *  Node is undergoing maintenance, e.g.: during private cloud upgrade.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Node_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_NodeType.capabilities
+
+/**
+ *  The default value. This value is used if the capability is omitted or
+ *  unknown.
+ *
+ *  Value: "CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Capabilities_CapabilityUnspecified;
+/**
+ *  This node type supports stretch clusters.
+ *
+ *  Value: "STRETCHED_CLUSTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Capabilities_StretchedClusters;
 
 // ----------------------------------------------------------------------------
 // GTLRVMwareEngine_Nsx.state
@@ -388,6 +731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_PrivateCloud_State_Updating
  *  Value: "STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_PrivateCloud_Type_Standard;
+/**
+ *  Stretched private cloud is a regional resource with redundancy, with a
+ *  minimum of 6 nodes, nodes count has to be even.
+ *
+ *  Value: "STRETCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_PrivateCloud_Type_Stretched;
 /**
  *  Time limited private cloud is a zonal resource, can have only 1 node and has
  *  limited life span. Will be deleted after defined period of time, can be
@@ -805,6 +1155,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Configuration of a stretched cluster. Required for clusters that
+ *  belong to a STRETCHED private cloud.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_StretchedClusterConfig *stretchedClusterConfig;
+
 /** Output only. System-generated unique identifier for the resource. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
@@ -837,6 +1193,58 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 /** Initial username. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  DnsBindPermission resource that contains the accounts having the consumer
+ *  DNS bind permission on the corresponding intranet VPC of the consumer
+ *  project.
+ */
+@interface GTLRVMwareEngine_DnsBindPermission : GTLRObject
+
+/**
+ *  Required. Output only. The name of the resource which stores the
+ *  users/service accounts having the permission to bind to the corresponding
+ *  intranet VPC of the consumer project. DnsBindPermission is a global
+ *  resource. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Users/Service accounts which have access for binding on the
+ *  intranet VPC project corresponding to the consumer project.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_Principal *> *principals;
+
+@end
+
+
+/**
+ *  DNS forwarding config. This config defines a list of domain to name server
+ *  mappings, and is attached to the private cloud for custom domain resolution.
+ */
+@interface GTLRVMwareEngine_DnsForwarding : GTLRObject
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. List of domain mappings to configure */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ForwardingRule *> *forwardingRules;
+
+/**
+ *  Output only. The resource name of this DNS profile. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -896,6 +1304,259 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  External access firewall rules for filtering incoming traffic destined to
+ *  `ExternalAddress` resources.
+ */
+@interface GTLRVMwareEngine_ExternalAccessRule : GTLRObject
+
+/**
+ *  The action that the external access rule performs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified
+ *        Defaults to allow. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_Action_Allow Allows
+ *        connections that match the other specified components. (Value:
+ *        "ALLOW")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_Action_Deny Blocks
+ *        connections that match the other specified components. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  User-provided description for this external access rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If destination ranges are specified, the external access rule applies only
+ *  to the traffic that has a destination IP address in these ranges. The
+ *  specified IP addresses must have reserved external IP addresses in the scope
+ *  of the parent network policy. To match all external IP addresses in the
+ *  scope of the parent network policy, specify `0.0.0.0/0`. To match a specific
+ *  external IP address, specify it using the `IpRange.external_address`
+ *  property.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_IpRange *> *destinationIpRanges;
+
+/**
+ *  A list of destination ports to which the external access rule applies. This
+ *  field is only applicable for the UDP or TCP protocol. Each entry must be
+ *  either an integer or a range. For example: `["22"]`, `["80","443"]`, or
+ *  `["12345-12349"]`. To match all destination ports, specify `["0-65535"]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationPorts;
+
+/**
+ *  The IP protocol to which the external access rule applies. This value can be
+ *  one of the following three protocol strings (not case-sensitive): `tcp`,
+ *  `udp`, or `icmp`.
+ */
+@property(nonatomic, copy, nullable) NSString *ipProtocol;
+
+/**
+ *  Output only. The resource name of this external access rule. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  External access rule priority, which determines the external access rule to
+ *  use when multiple rules apply. If multiple rules have the same priority,
+ *  their ordering is non-deterministic. If specific ordering is required,
+ *  assign unique priorities to enforce such ordering. The external access rule
+ *  priority is an integer from 100 to 4096, both inclusive. Lower integers
+ *  indicate higher precedence. For example, a rule with priority `100` has
+ *  higher precedence than a rule with priority `101`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  If source ranges are specified, the external access rule applies only to
+ *  traffic that has a source IP address in these ranges. These ranges can
+ *  either be expressed in the CIDR format or as an IP address. As only inbound
+ *  rules are supported, `ExternalAddress` resources cannot be the source IP
+ *  addresses of an external access rule. To match all source addresses, specify
+ *  `0.0.0.0/0`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_IpRange *> *sourceIpRanges;
+
+/**
+ *  A list of source ports to which the external access rule applies. This field
+ *  is only applicable for the UDP or TCP protocol. Each entry must be either an
+ *  integer or a range. For example: `["22"]`, `["80","443"]`, or
+ *  `["12345-12349"]`. To match all source ports, specify `["0-65535"]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourcePorts;
+
+/**
+ *  Output only. The state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_State_Active The rule is
+ *        ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_State_Creating The rule is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_State_Deleting The rule is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_State_StateUnspecified The
+ *        default value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_ExternalAccessRule_State_Updating The rule is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents an allocated external IP address and its corresponding internal
+ *  IP address in a private cloud.
+ */
+@interface GTLRVMwareEngine_ExternalAddress : GTLRObject
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  User-provided description for this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The external IP address of a workload VM. */
+@property(nonatomic, copy, nullable) NSString *externalIp;
+
+/** The internal IP address of a workload VM. */
+@property(nonatomic, copy, nullable) NSString *internalIp;
+
+/**
+ *  Output only. The resource name of this external IP address. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_ExternalAddress_State_Active The address is
+ *        ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_ExternalAddress_State_Creating The address is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_ExternalAddress_State_Deleting The address is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRVMwareEngine_ExternalAddress_State_StateUnspecified The
+ *        default value. This value should never be used. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_ExternalAddress_State_Updating The address is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.FetchNetworkPolicyExternalAddresses
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "externalAddresses" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMwareEngine_FetchNetworkPolicyExternalAddressesResponse : GTLRCollectionObject
+
+/**
+ *  A list of external IP addresses assigned to VMware workload VMs within the
+ *  scope of the given network policy.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ExternalAddress *> *externalAddresses;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A forwarding rule is a mapping of a `domain` to `name_servers`. This mapping
+ *  allows VMware Engine to resolve domains for attached private clouds by
+ *  forwarding DNS requests for a given domain to the specified nameservers.
+ */
+@interface GTLRVMwareEngine_ForwardingRule : GTLRObject
+
+/** Required. Domain used to resolve a `name_servers` list. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Required. List of DNS servers to use for domain resolution */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
+
+@end
+
+
+/**
+ *  Request message for VmwareEngine.GrantDnsBindPermission
+ */
+@interface GTLRVMwareEngine_GrantDnsBindPermissionRequest : GTLRObject
+
+/**
+ *  Required. The consumer provided user/service account which needs to be
+ *  granted permission to bind with the intranet VPC corresponding to the
+ *  consumer project.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Principal *principal;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
@@ -974,6 +1635,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  An IP range provided in any one of the supported formats.
+ */
+@interface GTLRVMwareEngine_IpRange : GTLRObject
+
+/**
+ *  The name of an `ExternalAddress` resource. The external address must have
+ *  been reserved in the scope of this external access rule's parent network
+ *  policy. Provide the external address name in the form of
+ *  `projects/{project}/locations/{location}/privateClouds/{private_cloud}/externalAddresses/{external_address}`.
+ *  For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAddress;
+
+/** A single IP address. For example: `10.0.0.5`. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** An IP address range in the CIDR format. For example: `10.0.0.0/24`. */
+@property(nonatomic, copy, nullable) NSString *ipAddressRange;
+
+@end
+
+
+/**
  *  Response message for VmwareEngine.ListClusters
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -990,6 +1675,72 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_Cluster *> *clusters;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached when making an aggregated query using
+ *  wildcards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListExternalAccessRules
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "externalAccessRules" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMwareEngine_ListExternalAccessRulesResponse : GTLRCollectionObject
+
+/**
+ *  A list of external access firewall rules.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ExternalAccessRule *> *externalAccessRules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached when making an aggregated query using
+ *  wildcards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListExternalAddresses
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "externalAddresses" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMwareEngine_ListExternalAddressesResponse : GTLRCollectionObject
+
+/**
+ *  A list of external IP addresses.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ExternalAddress *> *externalAddresses;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -1064,6 +1815,102 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Response message for VmwareEngine.ListLoggingServers
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "loggingServers" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRVMwareEngine_ListLoggingServersResponse : GTLRCollectionObject
+
+/**
+ *  A list of Logging Servers.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_LoggingServer *> *loggingServers;
+
+/**
+ *  A token, which can be send as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached when making an aggregated query using
+ *  wildcards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListManagementDnsZoneBindings
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "managementDnsZoneBindings" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMwareEngine_ListManagementDnsZoneBindingsResponse : GTLRCollectionObject
+
+/**
+ *  A list of management DNS zone bindings.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ManagementDnsZoneBinding *> *managementDnsZoneBindings;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached when making an aggregated query using
+ *  wildcards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListNetworkPeerings
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "networkPeerings" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRVMwareEngine_ListNetworkPeeringsResponse : GTLRCollectionObject
+
+/**
+ *  A list of network peerings.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_NetworkPeering *> *networkPeerings;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for VmwareEngine.ListNetworkPolicies
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1092,6 +1939,33 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  wildcards.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListNodes
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "nodes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVMwareEngine_ListNodesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The nodes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_Node *> *nodes;
 
 @end
 
@@ -1149,6 +2023,33 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListPeeringRoutes
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "peeringRoutes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVMwareEngine_ListPeeringRoutesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of peering routes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_PeeringRoute *> *peeringRoutes;
 
 @end
 
@@ -1368,6 +2269,84 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  VmwareEngine specific metadata for the given google.cloud.location.Location.
+ *  It is returned as a content of the `google.cloud.location.Location.metadata`
+ *  field.
+ */
+@interface GTLRVMwareEngine_LocationMetadata : GTLRObject
+
+/** Output only. Capabilities of this location. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
+
+@end
+
+
+/**
+ *  Logging server to receive vCenter or ESXi logs.
+ */
+@interface GTLRVMwareEngine_LoggingServer : GTLRObject
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Fully-qualified domain name (FQDN) or IP Address of the logging
+ *  server.
+ */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Output only. The resource name of this logging server. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Port number at which the logging server receives logs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Required. Protocol used by vCenter to send logs to a logging server.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified
+ *        Unspecified communications protocol. This is the default value.
+ *        (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Tcp TCP (Value: "TCP")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Udp UDP (Value: "UDP")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  Required. The type of component that produces logs that will be forwarded to
+ *  this logging server.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_SourceType_Esxi Logs produced by
+ *        ESXI hosts (Value: "ESXI")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_SourceType_SourceTypeUnspecified
+ *        The default value. This value should never be used. (Value:
+ *        "SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_SourceType_Vcsa Logs produced by
+ *        vCenter server (Value: "VCSA")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Management cluster configuration.
  */
 @interface GTLRVMwareEngine_ManagementCluster : GTLRObject
@@ -1387,6 +2366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_ManagementCluster_NodeTypeConfigs *nodeTypeConfigs;
 
+/**
+ *  Optional. Configuration of a stretched cluster. Required for STRETCHED
+ *  private clouds.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_StretchedClusterConfig *stretchedClusterConfig;
+
 @end
 
 
@@ -1400,6 +2385,78 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRVMwareEngine_ManagementCluster_NodeTypeConfigs : GTLRObject
+@end
+
+
+/**
+ *  Represents a binding between a network and the management DNS zone. A
+ *  management DNS zone is the Cloud DNS cross-project binding zone that VMware
+ *  Engine creates for each private cloud. It contains FQDNs and corresponding
+ *  IP addresses for the private cloud's ESXi hosts and management VM appliances
+ *  like vCenter and NSX Manager.
+ */
+@interface GTLRVMwareEngine_ManagementDnsZoneBinding : GTLRObject
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  User-provided description for this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The resource name of this binding. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Active The
+ *        binding is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Creating The
+ *        binding is being created. (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Deleting The
+ *        binding is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Failed The
+ *        binding has failed. (Value: "FAILED")
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_StateUnspecified
+ *        The default value. This value should never be used. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_ManagementDnsZoneBinding_State_Updating The
+ *        binding is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Network to bind is a VMware Engine network. Specify the name in the
+ *  following form for VMware engine network:
+ *  `projects/{project}/locations/global/vmwareEngineNetworks/{vmware_engine_network_id}`.
+ *  `{project}` can either be a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *vmwareEngineNetwork;
+
+/**
+ *  Network to bind is a standard consumer VPC. Specify the name in the
+ *  following form for consumer VPC network:
+ *  `projects/{project}/global/networks/{network_id}`. `{project}` can either be
+ *  a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
 @end
 
 
@@ -1460,6 +2517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *        clouds created in projects without a network of type `STANDARD`. This
  *        network type is no longer used for new VMware Engine private cloud
  *        deployments. (Value: "LEGACY")
+ *    @arg @c kGTLRVMwareEngine_Network_Type_Standard Standard network type used
+ *        for private cloud connectivity. (Value: "STANDARD")
  *    @arg @c kGTLRVMwareEngine_Network_Type_TypeUnspecified The default value.
  *        This value should never be used. (Value: "TYPE_UNSPECIFIED")
  */
@@ -1486,6 +2545,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  be done.
  */
 @interface GTLRVMwareEngine_NetworkConfig : GTLRObject
+
+/**
+ *  Output only. DNS Server IP of the Private Cloud. All DNS queries can be
+ *  forwarded to this address for name resolution of Private Cloud's management
+ *  entities like vCenter, NSX-T Manager and ESXi hosts.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsServerIp;
 
 /** Required. Management CIDR used by VMware management appliances. */
 @property(nonatomic, copy, nullable) NSString *managementCidr;
@@ -1516,6 +2582,172 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  `projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmware_engine_network_id}`
  */
 @property(nonatomic, copy, nullable) NSString *vmwareEngineNetworkCanonical;
+
+@end
+
+
+/**
+ *  Details of a network peering.
+ */
+@interface GTLRVMwareEngine_NetworkPeering : GTLRObject
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description for this network peering.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. True if full mesh connectivity is created and managed
+ *  automatically between peered networks; false otherwise. Currently this field
+ *  is always true because Google Compute Engine automatically creates and
+ *  manages subnetwork routes between two VPC networks when peering state is
+ *  'ACTIVE'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exchangeSubnetRoutes;
+
+/**
+ *  Optional. True if custom routes are exported to the peered network; false
+ *  otherwise. The default value is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportCustomRoutes;
+
+/**
+ *  Optional. True if all subnet routes with a public IP address range are
+ *  exported; false otherwise. The default value is true. IPv4 special-use
+ *  ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always
+ *  exported to peers and are not controlled by this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportCustomRoutesWithPublicIp;
+
+/**
+ *  Optional. True if custom routes are imported from the peered network; false
+ *  otherwise. The default value is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importCustomRoutes;
+
+/**
+ *  Optional. True if all subnet routes with public IP address range are
+ *  imported; false otherwise. The default value is true. IPv4 special-use
+ *  ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always
+ *  imported to peers and are not controlled by this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importCustomRoutesWithPublicIp;
+
+/**
+ *  Output only. The resource name of the network peering. Resource names are
+ *  scheme-less URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/networkPeerings/my-peering`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum transmission unit (MTU) in bytes. The default value is
+ *  `1500`. If a value of `0` is provided for this field, VMware Engine uses the
+ *  default value instead.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peerMtu;
+
+/**
+ *  Required. The relative resource name of the network to peer with a standard
+ *  VMware Engine network. The provided network can be a consumer VPC network or
+ *  another standard VMware Engine network. If the `peer_network_type` is
+ *  VMWARE_ENGINE_NETWORK, specify the name in the form:
+ *  `projects/{project}/locations/global/vmwareEngineNetworks/{vmware_engine_network_id}`.
+ *  Otherwise specify the name in the form:
+ *  `projects/{project}/global/networks/{network_id}`, where `{project}` can
+ *  either be a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *peerNetwork;
+
+/**
+ *  Required. The type of the network to peer with the VMware Engine network.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale
+ *        Peering connection used for connecting to Dell PowerScale Filers
+ *        (Value: "DELL_POWERSCALE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes
+ *        Peering connection used for connecting to NetApp Cloud Volumes.
+ *        (Value: "NETAPP_CLOUD_VOLUMES")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified
+ *        Unspecified (Value: "PEER_NETWORK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PrivateServicesAccess
+ *        Peering connection used for establishing [private services
+ *        access](https://cloud.google.com/vpc/docs/private-services-access).
+ *        (Value: "PRIVATE_SERVICES_ACCESS")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_Standard Peering
+ *        connection used for connecting to another VPC network established by
+ *        the same user. For example, a peering connection to another VPC
+ *        network in the same project or to an on-premises network. (Value:
+ *        "STANDARD")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_ThirdPartyService
+ *        Peering connection used for connecting to third-party services. Most
+ *        third-party services require manual setup of reverse peering on the
+ *        VPC network associated with the third-party service. (Value:
+ *        "THIRD_PARTY_SERVICE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_VmwareEngineNetwork
+ *        Peering connection used for connecting to another VMware Engine
+ *        network. (Value: "VMWARE_ENGINE_NETWORK")
+ */
+@property(nonatomic, copy, nullable) NSString *peerNetworkType;
+
+/**
+ *  Output only. State of the network peering. This field has a value of
+ *  'ACTIVE' when there's a matching configuration in the peer network. New
+ *  values may be added to this enum when appropriate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_State_Active The peering is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_State_Creating The peering is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_State_Deleting The peering is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_State_Inactive The peering is not
+ *        active. (Value: "INACTIVE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_State_StateUnspecified
+ *        Unspecified network peering state. This is the default value. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Output Only. Details about the current state of the network
+ *  peering.
+ */
+@property(nonatomic, copy, nullable) NSString *stateDetails;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Required. The relative resource name of the VMware Engine network. Specify
+ *  the name in the following form:
+ *  `projects/{project}/locations/{location}/vmwareEngineNetworks/{vmware_engine_network_id}`
+ *  where `{project}` can either be a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *vmwareEngineNetwork;
 
 @end
 
@@ -1626,6 +2858,64 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Node in a cluster.
+ */
+@interface GTLRVMwareEngine_Node : GTLRObject
+
+/**
+ *  Output only. Customized number of cores
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customCoreCount;
+
+/** Output only. Fully qualified domain name of the node. */
+@property(nonatomic, copy, nullable) NSString *fqdn;
+
+/** Output only. Internal IP address of the node. */
+@property(nonatomic, copy, nullable) NSString *internalIp;
+
+/**
+ *  Output only. The resource name of this node. Resource names are schemeless
+ *  URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster/nodes/my-node
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The canonical identifier of the node type (corresponds to the
+ *  `NodeType`). For example: standard-72.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeTypeId;
+
+/**
+ *  Output only. The state of the appliance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_Node_State_Active Node is operational and can be
+ *        used by the user. (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_Node_State_Creating Node is being provisioned.
+ *        (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_Node_State_Failed Node is in a failed state.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRVMwareEngine_Node_State_StateUnspecified The default value.
+ *        This value should never be used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_Node_State_Upgrading Node is undergoing
+ *        maintenance, e.g.: during private cloud upgrade. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The version number of the VMware ESXi management component in
+ *  this cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Describes node type.
  */
 @interface GTLRVMwareEngine_NodeType : GTLRObject
@@ -1636,6 +2926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *availableCustomCoreCounts;
+
+/** Output only. Capabilities of this node type. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
 
 /**
  *  Output only. The amount of storage available, defined in GB.
@@ -2023,6 +3316,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Users/Service accounts which have access for DNS binding on the intranet VPC
+ *  corresponding to the consumer project.
+ */
+@interface GTLRVMwareEngine_Principal : GTLRObject
+
+/** The service account which needs to be granted the permission. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** The user who needs to be granted permission. */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
  *  Represents a private cloud resource. Private clouds of type `STANDARD` and
  *  `TIME_LIMITED` are zonal resources, `STRETCHED` private clouds are regional.
  */
@@ -2100,6 +3408,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  Likely values:
  *    @arg @c kGTLRVMwareEngine_PrivateCloud_Type_Standard Standard private is a
  *        zonal resource, with 3+ nodes. Default type. (Value: "STANDARD")
+ *    @arg @c kGTLRVMwareEngine_PrivateCloud_Type_Stretched Stretched private
+ *        cloud is a regional resource with redundancy, with a minimum of 6
+ *        nodes, nodes count has to be even. (Value: "STRETCHED")
  *    @arg @c kGTLRVMwareEngine_PrivateCloud_Type_TimeLimited Time limited
  *        private cloud is a zonal resource, can have only 1 node and has
  *        limited life span. Will be deleted after defined period of time, can
@@ -2269,6 +3580,29 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Request message for VmwareEngine.RepairManagementDnsZoneBindings
+ */
+@interface GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest : GTLRObject
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Request message for VmwareEngine.ResetNsxCredentials
  */
 @interface GTLRVMwareEngine_ResetNsxCredentialsRequest : GTLRObject
@@ -2295,6 +3629,46 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  Request message for VmwareEngine.ResetVcenterCredentials
  */
 @interface GTLRVMwareEngine_ResetVcenterCredentialsRequest : GTLRObject
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The username of the user to be to reset the credentials. The
+ *  default value of this field is CloudOwner\@gve.local. The provided value
+ *  should be one of the following: solution-user-01\@gve.local,
+ *  solution-user-02\@gve.local, solution-user-03\@gve.local,
+ *  solution-user-04\@gve.local, solution-user-05\@gve.local,
+ *  zertoadmin\@gve.local.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Request message for VmwareEngine.RevokeDnsBindPermission
+ */
+@interface GTLRVMwareEngine_RevokeDnsBindPermissionRequest : GTLRObject
+
+/**
+ *  Required. The consumer provided user/service account which needs to be
+ *  granted permission to bind with the intranet VPC corresponding to the
+ *  consumer project.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Principal *principal;
 
 /**
  *  Optional. A request ID to identify requests. Specify a unique request ID so
@@ -2384,6 +3758,32 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Configuration of a stretched cluster.
+ */
+@interface GTLRVMwareEngine_StretchedClusterConfig : GTLRObject
+
+/**
+ *  Required. Zone that will remain operational when connection between the two
+ *  zones is lost. Specify the resource name of a zone that belongs to the
+ *  region of the private cloud. For example:
+ *  `projects/{project}/locations/europe-west3-a` where `{project}` can either
+ *  be a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredLocation;
+
+/**
+ *  Required. Additional zone for a higher level of availability and load
+ *  balancing. Specify the resource name of a zone that belongs to the region of
+ *  the private cloud. For example:
+ *  `projects/{project}/locations/europe-west3-b` where `{project}` can either
+ *  be a project number or a project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryLocation;
+
+@end
+
+
+/**
  *  Subnet in a private cloud. Either `management` subnets (such as vMotion)
  *  that are read-only, or `userDefined`, which can also be updated.
  */
@@ -2433,6 +3833,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  "userDefined".
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. VLAN ID of the VLAN on which the subnet is configured
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vlanId;
 
 @end
 

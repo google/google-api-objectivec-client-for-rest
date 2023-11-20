@@ -1430,7 +1430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AutoInstallConstraint *> *autoInstallConstraint;
 
 /**
- *  The auto-install mode. If unset defaults to "doNotAutoInstall".
+ *  The auto-install mode. If unset, defaults to "doNotAutoInstall". An app is
+ *  automatically installed regardless of a set maintenance window.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified
@@ -1562,10 +1563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /** The device report updated with the latest app states. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReport *report;
 
-/**
- *  Retail brand for the device, if set. See
- *  https://developer.android.com/reference/android/os/Build.html#BRAND
- */
+/** Retail brand for the device, if set. See android.os.Build.BRAND */
 @property(nonatomic, copy, nullable) NSString *retailBrand;
 
 /**
@@ -2510,13 +2508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /**
  *  A longer description of the Permissions resource, giving more details of
- *  what it affects. This field may be absent.
+ *  what it affects.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The name of the permission. This field may be absent. */
+/** The name of the permission. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** An opaque string uniquely identifying the permission. */
@@ -2531,9 +2529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @interface GTLRAndroidEnterprise_Policy : GTLRObject
 
 /**
+ *  Controls when automatic app updates on the device can be applied.
  *  Recommended alternative: autoUpdateMode which is set per app, provides
  *  greater flexibility around update frequency. When autoUpdateMode is set to
- *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
+ *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, autoUpdatePolicy has no
  *  effect. "choiceToTheUser" allows the device's user to configure the app
  *  update policy. "always" enables auto updates. "never" disables auto updates.
  *  "wifiOnly" enables auto updates only when the device is connected to wifi.
@@ -2880,7 +2879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AutoInstallPolicy *autoInstallPolicy;
 
 /**
- *  The auto-update mode for the product.
+ *  The auto-update mode for the product. When autoUpdateMode is used, it always
+ *  takes precedence over the user's choice. So when a user makes changes to the
+ *  device settings manually, these changes are ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault
@@ -2913,9 +2914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  An authentication URL configuration for the authenticator app of an identity
  *  provider. This helps to launch the identity provider's authenticator app
  *  during the authentication happening in a private app using Android WebView.
- *  Authenticator app should already be the [default
- *  handler](https://developer.android.com/training/app-links/verify-site-associations)
- *  for the authentication url on the device.
+ *  Authenticator app should already be the default handler for the
+ *  authentication url on the device.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig *> *enterpriseAuthenticationAppLinkConfigs;
 

@@ -14,6 +14,186 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CancelAutomationRunRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_CancelAutomationRunResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automationRuns.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_AutomationRun class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automationRuns.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/automationRuns";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_ListAutomationRunsResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automationRuns.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate
+
+@dynamic automationId, parent, requestId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_Automation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/automations";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete
+
+@dynamic allowMissing, ETag, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Automation class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/automations";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_ListAutomationsResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsPatch
+
+@dynamic allowMissing, name, requestId, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_Automation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.automations.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesCreate
 
 @dynamic deliveryPipelineId, parent, requestId, validateOnly;

@@ -49,6 +49,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
+@class GTLRContainer_EnterpriseConfig;
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
 @class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
@@ -123,6 +124,7 @@
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PubSub;
+@class GTLRContainer_QueuedProvisioning;
 @class GTLRContainer_RangeInfo;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReleaseChannel;
@@ -561,6 +563,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsS
  *  Value: "VPC_SCOPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_EnterpriseConfig.clusterTier
+
+/**
+ *  CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set.
+ *
+ *  Value: "CLUSTER_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_ClusterTierUnspecified;
+/**
+ *  ENTERPRISE indicates a GKE Enterprise cluster.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_Enterprise;
+/**
+ *  STANDARD indicates a standard GKE cluster.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Filter.eventType
@@ -2651,6 +2675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
+/** GKE Enterprise Configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_EnterpriseConfig *enterpriseConfig;
+
 /**
  *  This checksum is computed by the server based on the value of cluster
  *  fields, and may be sent on update requests to ensure the client has an
@@ -3652,6 +3679,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRContainer_Empty : GTLRObject
+@end
+
+
+/**
+ *  EnterpriseConfig is the cluster enterprise configuration.
+ */
+@interface GTLRContainer_EnterpriseConfig : GTLRObject
+
+/**
+ *  Output only. [Output only] cluster_tier specifies the premium tier of the
+ *  cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_EnterpriseConfig_ClusterTier_ClusterTierUnspecified
+ *        CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set. (Value:
+ *        "CLUSTER_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_EnterpriseConfig_ClusterTier_Enterprise ENTERPRISE
+ *        indicates a GKE Enterprise cluster. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRContainer_EnterpriseConfig_ClusterTier_Standard STANDARD
+ *        indicates a standard GKE cluster. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterTier;
+
 @end
 
 
@@ -5614,6 +5664,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *podIpv4CidrSize;
 
+/** Specifies the configuration of queued provisioning. */
+@property(nonatomic, strong, nullable) GTLRContainer_QueuedProvisioning *queuedProvisioning;
+
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -6258,6 +6311,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  QueuedProvisioning defines the queued provisioning used by the node pool.
+ */
+@interface GTLRContainer_QueuedProvisioning : GTLRObject
+
+/**
+ *  Denotes that this nodepool is QRM specific, meaning nodes can be only
+ *  obtained through queuing via the Cluster Autoscaler ProvisioningRequest API.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

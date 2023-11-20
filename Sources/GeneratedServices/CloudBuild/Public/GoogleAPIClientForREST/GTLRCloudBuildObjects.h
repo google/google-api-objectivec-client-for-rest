@@ -17,6 +17,7 @@
 @class GTLRCloudBuild_AuditConfig;
 @class GTLRCloudBuild_AuditLogConfig;
 @class GTLRCloudBuild_Binding;
+@class GTLRCloudBuild_Capabilities;
 @class GTLRCloudBuild_ChildStatusReference;
 @class GTLRCloudBuild_Connection;
 @class GTLRCloudBuild_Connection_Annotations;
@@ -25,6 +26,7 @@
 @class GTLRCloudBuild_EmbeddedTask_Annotations;
 @class GTLRCloudBuild_EmptyDirVolumeSource;
 @class GTLRCloudBuild_EnvVar;
+@class GTLRCloudBuild_ExecAction;
 @class GTLRCloudBuild_Expr;
 @class GTLRCloudBuild_GitHubConfig;
 @class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition;
@@ -48,6 +50,7 @@
 @class GTLRCloudBuild_PipelineTask;
 @class GTLRCloudBuild_PipelineWorkspaceDeclaration;
 @class GTLRCloudBuild_Policy;
+@class GTLRCloudBuild_Probe;
 @class GTLRCloudBuild_PropertySpec;
 @class GTLRCloudBuild_Repository;
 @class GTLRCloudBuild_Repository_Annotations;
@@ -58,6 +61,7 @@
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_Step;
+@class GTLRCloudBuild_StepTemplate;
 @class GTLRCloudBuild_TaskRef;
 @class GTLRCloudBuild_TaskResult;
 @class GTLRCloudBuild_TaskResult_Properties;
@@ -562,6 +566,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Capabilities adds and removes POSIX capabilities from running containers.
+ */
+@interface GTLRCloudBuild_Capabilities : GTLRObject
+
+/** Optional. Added capabilities +optional */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *add;
+
+/** Optional. Removed capabilities +optional */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drop;
+
+@end
+
+
+/**
  *  ChildStatusReference is used to point to the statuses of individual TaskRuns
  *  and Runs within this PipelineRun.
  */
@@ -750,6 +768,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Value of the environment variable. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  ExecAction describes a "run in container" action.
+ */
+@interface GTLRCloudBuild_ExecAction : GTLRObject
+
+/**
+ *  Optional. Command is the command line to execute inside the container, the
+ *  working directory for the command is root ('/') in the container's
+ *  filesystem. The command is simply exec'd, it is not run inside a shell, so
+ *  traditional shell instructions ('|', etc) won't work. To use a shell, you
+ *  need to explicitly call out to that shell. Exit status of 0 is treated as
+ *  live/healthy and non-zero is unhealthy. +optional
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
 @end
 
@@ -1627,6 +1663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Output only. FinallyStartTime is when all non-finally tasks have been
+ *  completed and only finally tasks are being executed. +optional
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *finallyStartTime;
+
+/**
  *  Output only. The `PipelineRun` name with format
  *  `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}`
  */
@@ -1910,6 +1952,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Probe describes a health check to be performed against a container to
+ *  determine whether it is alive or ready to receive traffic.
+ */
+@interface GTLRCloudBuild_Probe : GTLRObject
+
+/** Optional. Exec specifies the action to take. +optional */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ExecAction *exec;
+
+/**
+ *  Optional. How often (in seconds) to perform the probe. Default to 10
+ *  seconds. Minimum value is 1. +optional
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodSeconds;
+
+@end
+
+
+/**
  *  PropertySpec holds information about a property in an object.
  */
 @interface GTLRCloudBuild_PropertySpec : GTLRObject
@@ -2040,11 +2102,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @interface GTLRCloudBuild_SecurityContext : GTLRObject
 
 /**
+ *  Optional. AllowPrivilegeEscalation controls whether a process can gain more
+ *  privileges than its parent process. This bool directly controls if the
+ *  no_new_privs flag will be set on the container process.
+ *  AllowPrivilegeEscalation is true always when the container is: 1) run as
+ *  Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when
+ *  spec.os.name is windows. +optional
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPrivilegeEscalation;
+
+/** Optional. Adds and removes POSIX capabilities from running containers. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Capabilities *capabilities;
+
+/**
  *  Run container in privileged mode.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privileged;
+
+/**
+ *  Optional. The GID to run the entrypoint of the container process. Uses
+ *  runtime default if unset. May also be set in PodSecurityContext. If set in
+ *  both SecurityContext and PodSecurityContext, the value specified in
+ *  SecurityContext takes precedence. Note that this field cannot be set when
+ *  spec.os.name is windows. +optional
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAsGroup;
+
+/**
+ *  Optional. Indicates that the container must run as a non-root user. If true,
+ *  the Kubelet will validate the image at runtime to ensure that it does not
+ *  run as UID 0 (root) and fail to start the container if it does. If unset or
+ *  false, no such validation will be performed. May also be set in
+ *  PodSecurityContext. If set in both SecurityContext and PodSecurityContext,
+ *  the value specified in SecurityContext takes precedence. +optional
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAsNonRoot;
+
+/**
+ *  Optional. The UID to run the entrypoint of the container process. Defaults
+ *  to user specified in image metadata if unspecified. May also be set in
+ *  PodSecurityContext. If set in both SecurityContext and PodSecurityContext,
+ *  the value specified in SecurityContext takes precedence. Note that this
+ *  field cannot be set when spec.os.name is windows. +optional
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAsUser;
 
 @end
 
@@ -2093,10 +2204,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Name of the Sidecar. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Periodic probe of Sidecar service readiness. Container will be
+ *  removed from service endpoints if the probe fails. Cannot be updated. More
+ *  info:
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *  +optional
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Probe *readinessProbe;
+
 /** The contents of an executable file to execute. */
 @property(nonatomic, copy, nullable) NSString *script;
 
-/** Security options the container should be run with. */
+/** Optional. Security options the container should be run with. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SecurityContext *securityContext;
 
 /** Pod volumes to mount into the container's filesystem. */
@@ -2198,6 +2318,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** The contents of an executable file to execute. */
 @property(nonatomic, copy, nullable) NSString *script;
 
+/**
+ *  Optional. SecurityContext defines the security options the Step should be
+ *  run with. If set, the fields of SecurityContext override the equivalent
+ *  fields of PodSecurityContext. More info:
+ *  https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+ *  +optional
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SecurityContext *securityContext;
+
 /** Time after which the Step times out. Defaults to never. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -2206,6 +2335,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Container's working directory. */
 @property(nonatomic, copy, nullable) NSString *workingDir;
+
+@end
+
+
+/**
+ *  StepTemplate can be used as the basis for all step containers within the
+ *  Task, so that the steps inherit settings on the base container.
+ */
+@interface GTLRCloudBuild_StepTemplate : GTLRObject
+
+/**
+ *  Optional. List of environment variables to set in the Step. Cannot be
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_EnvVar *> *env;
 
 @end
 
@@ -2324,6 +2468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Steps of the task. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Step *> *steps;
+
+/**
+ *  Optional. StepTemplate can be used as the basis for all step containers
+ *  within the Task, so that the steps inherit settings on the base container.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_StepTemplate *> *stepTemplate;
 
 /** A collection of volumes that are available to mount into steps. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_VolumeSource *> *volumes;
@@ -2515,6 +2665,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Secret Volume Source. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SecretVolumeSource *secret;
 
+/**
+ *  Optional. SubPath is optionally a directory on the volume which should be
+ *  used for this binding (i.e. the volume will be mounted at this sub
+ *  directory). +optional
+ */
+@property(nonatomic, copy, nullable) NSString *subPath;
+
 /** Volume claim that will be created in the same namespace. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_VolumeClaim *volumeClaim;
 
@@ -2542,6 +2699,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Optional marks a Workspace as not being required in TaskRuns. By
+ *  default this field is false and so declared workspaces are required.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *optional;
+
+/**
  *  ReadOnly dictates whether a mounted volume is writable.
  *
  *  Uses NSNumber of boolValue.
@@ -2559,6 +2724,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Name of the workspace as declared by the task. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. SubPath is optionally a directory on the volume which should be
+ *  used for this binding (i.e. the volume will be mounted at this sub
+ *  directory). +optional
+ */
+@property(nonatomic, copy, nullable) NSString *subPath;
 
 /** Name of the workspace declared by the pipeline. */
 @property(nonatomic, copy, nullable) NSString *workspace;

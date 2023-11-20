@@ -3895,6 +3895,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Updates the feedback received from the user for a single turn of the bot
+ *  response.
+ *
+ *  Method: dialogflow.projects.locations.agents.sessions.submitAnswerFeedback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsSubmitAnswerFeedback : GTLRDialogflowQuery
+
+/** Required. The name of the session the feedback was sent to. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3AnswerFeedback.
+ *
+ *  Updates the feedback received from the user for a single turn of the bot
+ *  response.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest to
+ *    include in the query.
+ *  @param session Required. The name of the session the feedback was sent to.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsSubmitAnswerFeedback
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
  *  Batch deletes test cases.
  *
  *  Method: dialogflow.projects.locations.agents.testCases.batchDelete

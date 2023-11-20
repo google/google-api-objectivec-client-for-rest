@@ -1613,6 +1613,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @end
 
 /**
+ *  Demotes the destination database to become a read replica of the source.
+ *  This is applicable for the following migrations: 1. MySQL to Cloud SQL (for
+ *  MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.demoteDestination
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination : GTLRDatabaseMigrationServiceQuery
+
+/** Name of the migration job resource to demote its destination. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Demotes the destination database to become a read replica of the source.
+ *  This is applicable for the following migrations: 1. MySQL to Cloud SQL (for
+ *  MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_DemoteDestinationRequest
+ *    to include in the query.
+ *  @param name Name of the migration job resource to demote its destination.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_DemoteDestinationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generate a SSH configuration script to configure the reverse SSH
  *  connectivity.
  *

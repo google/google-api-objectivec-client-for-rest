@@ -30,6 +30,22 @@ NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluat
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
 
+// GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing = @"CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling = @"CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed = @"INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown = @"UNKNOWN";
+
+// GTLRPlayIntegrity_AppAccessRiskVerdict.playOrSystemApps
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing = @"CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling = @"CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed = @"INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown = @"UNKNOWN";
+
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unevaluated = @"UNEVALUATED";
@@ -44,13 +60,14 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity = @"MEETS_WEAK_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
-// GTLRPlayIntegrity_UserRemediationDetails.remediation
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_GetUnmodifiedApp = @"GET_UNMODIFIED_APP";
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_InstallAppFromPlay = @"INSTALL_APP_FROM_PLAY";
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_LockBootloader = @"LOCK_BOOTLOADER";
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_RestoreFactoryRom = @"RESTORE_FACTORY_ROM";
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_SignIntoGoogleAccount = @"SIGN_INTO_GOOGLE_ACCOUNT";
-NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUserRemediation = @"UNKNOWN_USER_REMEDIATION";
+// GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk = @"HIGH_RISK";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk = @"MEDIUM_RISK";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoData = @"NO_DATA";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoIssues = @"NO_ISSUES";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayProtectVerdictUnspecified = @"PLAY_PROTECT_VERDICT_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk = @"POSSIBLE_RISK";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated = @"UNEVALUATED";
 
 // ----------------------------------------------------------------------------
 //
@@ -69,6 +86,16 @@ NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUs
 
 @implementation GTLRPlayIntegrity_AccountDetails
 @dynamic accountActivity, appLicensingVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_AppAccessRiskVerdict
+//
+
+@implementation GTLRPlayIntegrity_AppAccessRiskVerdict
+@dynamic otherApps, playOrSystemApps;
 @end
 
 
@@ -131,19 +158,11 @@ NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUs
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlayIntegrity_GuidanceDetails
+//   GTLRPlayIntegrity_EnvironmentDetails
 //
 
-@implementation GTLRPlayIntegrity_GuidanceDetails
-@dynamic userRemediationDetails;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userRemediationDetails" : [GTLRPlayIntegrity_UserRemediationDetails class]
-  };
-  return map;
-}
-
+@implementation GTLRPlayIntegrity_EnvironmentDetails
+@dynamic appAccessRiskVerdict, playProtectVerdict;
 @end
 
 
@@ -173,16 +192,6 @@ NSString * const kGTLRPlayIntegrity_UserRemediationDetails_Remediation_UnknownUs
 //
 
 @implementation GTLRPlayIntegrity_TokenPayloadExternal
-@dynamic accountDetails, appIntegrity, deviceIntegrity, guidanceDetails,
+@dynamic accountDetails, appIntegrity, deviceIntegrity, environmentDetails,
          requestDetails, testingDetails;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPlayIntegrity_UserRemediationDetails
-//
-
-@implementation GTLRPlayIntegrity_UserRemediationDetails
-@dynamic remediation;
 @end

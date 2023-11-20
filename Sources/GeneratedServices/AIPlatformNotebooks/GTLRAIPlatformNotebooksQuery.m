@@ -146,6 +146,25 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/instances:getConfig";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Config class];
+  query.loggingName = @"notebooks.projects.locations.instances.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;

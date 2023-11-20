@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // messageReplyOption
 
 /**
- *  Default. Starts a thread.
+ *  Default. Starts a new thread. Using this option ignores any thread ID or
+ *  `thread_key` that's included.
  *
  *  Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED"
  */
@@ -275,13 +276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Required. Resource name of the user to find direct message with. Format:
- *  `users/{user}`, where `{user}` is either the `{person_id}` for the
+ *  `users/{user}`, where `{user}` is either the `id` for the
  *  [person](https://developers.google.com/people/api/rest/v1/people) from the
  *  People API, or the `id` for the
  *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
- *  in the Directory API. For example, if the People API `Person.resourceName`
- *  is `people/123456789`, you can find a direct message with that person by
- *  using `users/123456789` as the `name`. When [authenticated as a
+ *  in the Directory API. For example, if the People API profile ID is
+ *  `123456789`, you can find a direct message with that person by using
+ *  `users/123456789` as the `name`. When [authenticated as a
  *  user](https://developers.google.com/chat/api/guides/auth/users), you can use
  *  the email as an alias for `{user}`. For example, `users/example\@gmail.com`
  *  where `example\@gmail.com` is the email of the Google Chat user.
@@ -454,11 +455,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  message between two human users, use `users/app`. Unable to add other apps
  *  to the space. - To add a human user, use `users/{user}`, where `{user}` can
  *  be the email address for the user. For users in the same Workspace
- *  organization `{user}` can also be the `{person_id}` for the person from the
- *  People API, or the `id` for the user in the Directory API. For example, if
- *  the People API Person `resourceName` for `user\@example.com` is
- *  `people/123456789`, you can add the user to the space by setting the
- *  `membership.member.name` to `users/user\@example.com` or `users/123456789`.
+ *  organization `{user}` can also be the `id` for the person from the People
+ *  API, or the `id` for the user in the Directory API. For example, if the
+ *  People API Person profile ID for `user\@example.com` is `123456789`, you can
+ *  add the user to the space by setting the `membership.member.name` to
+ *  `users/user\@example.com` or `users/123456789`.
  *
  *  Method: chat.spaces.members.create
  *
@@ -491,11 +492,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  message between two human users, use `users/app`. Unable to add other apps
  *  to the space. - To add a human user, use `users/{user}`, where `{user}` can
  *  be the email address for the user. For users in the same Workspace
- *  organization `{user}` can also be the `{person_id}` for the person from the
- *  People API, or the `id` for the user in the Directory API. For example, if
- *  the People API Person `resourceName` for `user\@example.com` is
- *  `people/123456789`, you can add the user to the space by setting the
- *  `membership.member.name` to `users/user\@example.com` or `users/123456789`.
+ *  organization `{user}` can also be the `id` for the person from the People
+ *  API, or the `id` for the user in the Directory API. For example, if the
+ *  People API Person profile ID for `user\@example.com` is `123456789`, you can
+ *  add the user to the space by setting the `membership.member.name` to
+ *  `users/user\@example.com` or `users/123456789`.
  *
  *  @param object The @c GTLRHangoutsChat_Membership to include in the query.
  *  @param parent Required. The resource name of the space for which to create
@@ -810,7 +811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
- *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *        Default. Starts a new thread. Using this option ignores any thread ID
+ *        or `thread_key` that's included. (Value:
+ *        "MESSAGE_REPLY_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
  *        Creates the message as a reply to the thread specified by thread ID or
  *        `thread_key`. If it fails, the message starts a new thread instead.
@@ -840,7 +843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Supports up to 4000 characters. To start or add to a thread, create a
  *  message and specify a `threadKey` or the thread.name. For example usage, see
  *  [Start or reply to a message
- *  thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  thread](https://developers.google.com/chat/api/guides/v1/messages/create#create-message-thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey GTLR_DEPRECATED;
 
@@ -1478,12 +1481,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  specify the human members to add, add memberships with the appropriate
  *  `member.name` in the `SetUpSpaceRequest`. To add a human user, use
  *  `users/{user}`, where `{user}` can be the email address for the user. For
- *  users in the same Workspace organization `{user}` can also be the
- *  `{person_id}` for the person from the People API, or the `id` for the user
- *  in the Directory API. For example, if the People API Person `resourceName`
- *  for `user\@example.com` is `people/123456789`, you can add the user to the
- *  space by setting the `membership.member.name` to `users/user\@example.com`
- *  or `users/123456789`. For a space or group chat, if the caller blocks or is
+ *  users in the same Workspace organization `{user}` can also be the `id` for
+ *  the person from the People API, or the `id` for the user in the Directory
+ *  API. For example, if the People API Person profile ID for
+ *  `user\@example.com` is `123456789`, you can add the user to the space by
+ *  setting the `membership.member.name` to `users/user\@example.com` or
+ *  `users/123456789`. For a space or group chat, if the caller blocks or is
  *  blocked by some members, then those members aren't added to the created
  *  space. To create a direct message (DM) between the calling user and another
  *  human user, specify exactly one membership to represent the human user. If
@@ -1520,12 +1523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  specify the human members to add, add memberships with the appropriate
  *  `member.name` in the `SetUpSpaceRequest`. To add a human user, use
  *  `users/{user}`, where `{user}` can be the email address for the user. For
- *  users in the same Workspace organization `{user}` can also be the
- *  `{person_id}` for the person from the People API, or the `id` for the user
- *  in the Directory API. For example, if the People API Person `resourceName`
- *  for `user\@example.com` is `people/123456789`, you can add the user to the
- *  space by setting the `membership.member.name` to `users/user\@example.com`
- *  or `users/123456789`. For a space or group chat, if the caller blocks or is
+ *  users in the same Workspace organization `{user}` can also be the `id` for
+ *  the person from the People API, or the `id` for the user in the Directory
+ *  API. For example, if the People API Person profile ID for
+ *  `user\@example.com` is `123456789`, you can add the user to the space by
+ *  setting the `membership.member.name` to `users/user\@example.com` or
+ *  `users/123456789`. For a space or group chat, if the caller blocks or is
  *  blocked by some members, then those members aren't added to the created
  *  space. To create a direct message (DM) between the calling user and another
  *  human user, specify exactly one membership to represent the human user. If

@@ -151,6 +151,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_AlloyDbSettings.databaseVersion
+
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_DatabaseVersionUnspecified;
+/**
+ *  The database version is Postgres 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres14;
+/**
+ *  The database version is Postgres 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 
 /**
@@ -301,6 +323,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  *  Value: "MYSQL_8_0"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8028;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8032;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034;
 /**
  *  PostgreSQL 10.
  *
@@ -2062,6 +2138,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @interface GTLRDatabaseMigrationService_AlloyDbSettings : GTLRObject
 
 /**
+ *  Optional. The database engine major version. This is an optional field. If a
+ *  database version is not supplied at cluster creation time, then a default
+ *  database version will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_DatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres14
+ *        The database version is Postgres 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15
+ *        The database version is Postgres 15. (Value: "POSTGRES_15")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
  *  Optional. The encryption config can be specified to encrypt the data disks
  *  and other persistent data resources of a cluster with a customer-managed
  *  encryption key (CMEK). When this field is not specified, the cluster will
@@ -2505,6 +2597,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        MySQL 5.7. (Value: "MYSQL_5_7")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80
  *        MySQL 8.0. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8018
+ *        The database major version is MySQL 8.0 and the minor version is 18.
+ *        (Value: "MYSQL_8_0_18")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8026
+ *        The database major version is MySQL 8.0 and the minor version is 26.
+ *        (Value: "MYSQL_8_0_26")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8027
+ *        The database major version is MySQL 8.0 and the minor version is 27.
+ *        (Value: "MYSQL_8_0_27")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8028
+ *        The database major version is MySQL 8.0 and the minor version is 28.
+ *        (Value: "MYSQL_8_0_28")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8030
+ *        The database major version is MySQL 8.0 and the minor version is 30.
+ *        (Value: "MYSQL_8_0_30")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8031
+ *        The database major version is MySQL 8.0 and the minor version is 31.
+ *        (Value: "MYSQL_8_0_31")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8032
+ *        The database major version is MySQL 8.0 and the minor version is 32.
+ *        (Value: "MYSQL_8_0_32")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8033
+ *        The database major version is MySQL 8.0 and the minor version is 33.
+ *        (Value: "MYSQL_8_0_33")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034
+ *        The database major version is MySQL 8.0 and the minor version is 34.
+ *        (Value: "MYSQL_8_0_34")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10
  *        PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11
@@ -3386,6 +3505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSNumber *dataCacheEnabled;
 
+@end
+
+
+/**
+ *  Request message for 'DemoteDestination' request.
+ */
+@interface GTLRDatabaseMigrationService_DemoteDestinationRequest : GTLRObject
 @end
 
 
@@ -5497,6 +5623,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  databases.
  */
 @interface GTLRDatabaseMigrationService_PostgreSqlConnectionProfile : GTLRObject
+
+/**
+ *  Optional. If the destination is an AlloyDB database, use this field to
+ *  provide the AlloyDB cluster ID.
+ */
+@property(nonatomic, copy, nullable) NSString *alloydbClusterId;
 
 /**
  *  If the source is a Cloud SQL database, use this field to provide the Cloud

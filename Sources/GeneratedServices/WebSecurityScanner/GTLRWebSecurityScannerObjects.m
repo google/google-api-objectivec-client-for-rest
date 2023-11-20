@@ -42,6 +42,7 @@ NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiNotAcc
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineDefaultHostMissing = @"APPENGINE_DEFAULT_HOST_MISSING";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseGoogleComAccount = @"CANNOT_USE_GOOGLE_COM_ACCOUNT";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseOwnerAccount = @"CANNOT_USE_OWNER_ACCOUNT";
+NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CloudAssetInventoryAssetNotFound = @"CLOUD_ASSET_INVENTORY_ASSET_NOT_FOUND";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiBackendError = @"COMPUTE_API_BACKEND_ERROR";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiNotAccessible = @"COMPUTE_API_NOT_ACCESSIBLE";

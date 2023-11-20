@@ -1390,7 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  The name of the repository, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1".
+ *  `projects/p1/locations/us-central1/repositories/repo1`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1410,7 +1410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param object The @c GTLRArtifactRegistry_Repository to include in the
  *    query.
  *  @param name The name of the repository, for example:
- *    "projects/p1/locations/us-central1/repositories/repo1".
+ *    `projects/p1/locations/us-central1/repositories/repo1`.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPatch
  */

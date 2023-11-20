@@ -301,8 +301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -312,13 +312,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -554,8 +554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -565,13 +565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -807,8 +807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -818,13 +818,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -916,7 +916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a config for Discovery to scan and profile storage.
+ *  Creates a config for discovery to scan and profile storage.
  *
  *  Method: dlp.organizations.locations.discoveryConfigs.create
  *
@@ -937,7 +937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Creates a config for Discovery to scan and profile storage.
+ *  Creates a config for discovery to scan and profile storage.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
  *    to include in the query.
@@ -955,7 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a Discovery configuration.
+ *  Deletes a discovery configuration.
  *
  *  Method: dlp.organizations.locations.discoveryConfigs.delete
  *
@@ -973,7 +973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a Discovery configuration.
+ *  Deletes a discovery configuration.
  *
  *  @param name Required. Resource name of the project and the config, for
  *    example `projects/dlp-test-project/discoveryConfigs/53234423`.
@@ -985,7 +985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a Discovery configuration.
+ *  Gets a discovery configuration.
  *
  *  Method: dlp.organizations.locations.discoveryConfigs.get
  *
@@ -1003,7 +1003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Gets a Discovery configuration.
+ *  Gets a discovery configuration.
  *
  *  @param name Required. Resource name of the project and the configuration,
  *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
@@ -1015,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists Discovery configurations.
+ *  Lists discovery configurations.
  *
  *  Method: dlp.organizations.locations.discoveryConfigs.list
  *
@@ -1026,8 +1026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of config fields to order by, followed by `asc` or
- *  `desc` postfix. This list is case-insensitive, default sorting order is
- *  ascending, redundant space characters are insignificant. Example: `name
+ *  `desc` postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `last_run_time`:
  *  corresponds to the last time the DiscoveryConfig ran. - `name`: corresponds
  *  to the DiscoveryConfig's name. - `status`: corresponds to DiscoveryConfig's
@@ -1035,11 +1035,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Size of the page, can be limited by a server. */
+/** Size of the page. This value can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  ListDiscoveryConfigs. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1056,7 +1056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse.
  *
- *  Lists Discovery configurations.
+ *  Lists discovery configurations.
  *
  *  @param parent Required. Parent resource name. The format of this value is as
  *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
@@ -1075,7 +1075,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates a Discovery configuration.
+ *  Updates a discovery configuration.
  *
  *  Method: dlp.organizations.locations.discoveryConfigs.patch
  *
@@ -1093,7 +1093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Updates a Discovery configuration.
+ *  Updates a discovery configuration.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
  *    to include in the query.
@@ -1145,12 +1145,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc, end_time
- *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  the time the job was created. - `end_time`: corresponds to the time the job
- *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
- *  `state`
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
+ *  end_time asc, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to the time the job was created. - `end_time`: corresponds to
+ *  the time the job ended. - `name`: corresponds to the job's name. - `state`:
+ *  corresponds to `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1359,8 +1359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -1370,13 +1370,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1616,8 +1616,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of triggeredJob fields to order by, followed by `asc`
- *  or `desc` postfix. This list is case-insensitive, default sorting order is
- *  ascending, redundant space characters are insignificant. Example: `name
+ *  or `desc` postfix. This list is case insensitive. The default sorting order
+ *  is ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the JobTrigger was created. - `update_time`:
  *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
@@ -1627,11 +1627,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Size of the page, can be limited by a server. */
+/** Size of the page. This value can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  ListJobTriggers. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1867,8 +1867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc,
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the most recent version of the resource was created.
  *  - `state`: corresponds to the state of the resource. - `name`: corresponds
@@ -1877,13 +1877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2112,8 +2112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc,
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the most recent version of the resource was created.
  *  - `state`: corresponds to the state of the resource. - `name`: corresponds
@@ -2122,13 +2122,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2530,8 +2530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -2541,13 +2541,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2831,12 +2831,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc, end_time
- *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  the time the job was created. - `end_time`: corresponds to the time the job
- *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
- *  `state`
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
+ *  end_time asc, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to the time the job was created. - `end_time`: corresponds to
+ *  the time the job ended. - `name`: corresponds to the job's name. - `state`:
+ *  corresponds to `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3103,8 +3103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -3114,13 +3114,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3395,8 +3395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of triggeredJob fields to order by, followed by `asc`
- *  or `desc` postfix. This list is case-insensitive, default sorting order is
- *  ascending, redundant space characters are insignificant. Example: `name
+ *  or `desc` postfix. This list is case insensitive. The default sorting order
+ *  is ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the JobTrigger was created. - `update_time`:
  *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
@@ -3406,11 +3406,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Size of the page, can be limited by a server. */
+/** Size of the page. This value can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  ListJobTriggers. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3819,8 +3819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -3830,13 +3830,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3928,7 +3928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a config for Discovery to scan and profile storage.
+ *  Creates a config for discovery to scan and profile storage.
  *
  *  Method: dlp.projects.locations.discoveryConfigs.create
  *
@@ -3949,7 +3949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Creates a config for Discovery to scan and profile storage.
+ *  Creates a config for discovery to scan and profile storage.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
  *    to include in the query.
@@ -3967,7 +3967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a Discovery configuration.
+ *  Deletes a discovery configuration.
  *
  *  Method: dlp.projects.locations.discoveryConfigs.delete
  *
@@ -3985,7 +3985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a Discovery configuration.
+ *  Deletes a discovery configuration.
  *
  *  @param name Required. Resource name of the project and the config, for
  *    example `projects/dlp-test-project/discoveryConfigs/53234423`.
@@ -3997,7 +3997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a Discovery configuration.
+ *  Gets a discovery configuration.
  *
  *  Method: dlp.projects.locations.discoveryConfigs.get
  *
@@ -4015,7 +4015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Gets a Discovery configuration.
+ *  Gets a discovery configuration.
  *
  *  @param name Required. Resource name of the project and the configuration,
  *    for example `projects/dlp-test-project/discoveryConfigs/53234423`.
@@ -4027,7 +4027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists Discovery configurations.
+ *  Lists discovery configurations.
  *
  *  Method: dlp.projects.locations.discoveryConfigs.list
  *
@@ -4038,8 +4038,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of config fields to order by, followed by `asc` or
- *  `desc` postfix. This list is case-insensitive, default sorting order is
- *  ascending, redundant space characters are insignificant. Example: `name
+ *  `desc` postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `last_run_time`:
  *  corresponds to the last time the DiscoveryConfig ran. - `name`: corresponds
  *  to the DiscoveryConfig's name. - `status`: corresponds to DiscoveryConfig's
@@ -4047,11 +4047,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Size of the page, can be limited by a server. */
+/** Size of the page. This value can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  ListDiscoveryConfigs. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -4068,7 +4068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDiscoveryConfigsResponse.
  *
- *  Lists Discovery configurations.
+ *  Lists discovery configurations.
  *
  *  @param parent Required. Parent resource name. The format of this value is as
  *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
@@ -4087,7 +4087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates a Discovery configuration.
+ *  Updates a discovery configuration.
  *
  *  Method: dlp.projects.locations.discoveryConfigs.patch
  *
@@ -4105,7 +4105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.
  *
- *  Updates a Discovery configuration.
+ *  Updates a discovery configuration.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest
  *    to include in the query.
@@ -4378,12 +4378,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc, end_time
- *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  the time the job was created. - `end_time`: corresponds to the time the job
- *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
- *  `state`
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
+ *  end_time asc, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to the time the job was created. - `end_time`: corresponds to
+ *  the time the job ended. - `name`: corresponds to the job's name. - `state`:
+ *  corresponds to `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4650,8 +4650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the template was created. - `update_time`:
  *  corresponds to the time the template was last updated. - `name`: corresponds
@@ -4661,13 +4661,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -4980,8 +4980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of triggeredJob fields to order by, followed by `asc`
- *  or `desc` postfix. This list is case-insensitive, default sorting order is
- *  ascending, redundant space characters are insignificant. Example: `name
+ *  or `desc` postfix. This list is case insensitive. The default sorting order
+ *  is ascending. Redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the JobTrigger was created. - `update_time`:
  *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
@@ -4991,11 +4991,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Size of the page, can be limited by a server. */
+/** Size of the page. This value can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  ListJobTriggers. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -5231,8 +5231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc,
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the most recent version of the resource was created.
  *  - `state`: corresponds to the state of the resource. - `name`: corresponds
@@ -5241,13 +5241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -5476,8 +5476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name asc,
+ *  postfix. This list is case insensitive. The default sorting order is
+ *  ascending. Redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
  *  corresponds to the time the most recent version of the resource was created.
  *  - `state`: corresponds to the state of the resource. - `name`: corresponds
@@ -5486,13 +5486,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by the server. If zero server returns a
- *  page of max size 100.
+ *  Size of the page. This value can be limited by the server. If zero server
+ *  returns a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call to
+ *  Page token to continue retrieval. Comes from the previous call to
  *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;

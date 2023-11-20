@@ -54,6 +54,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi = @"PSC_
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService = @"PSC_PUBLISHED_SERVICE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc = @"PSC_VPC_SC";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg = @"SERVERLESS_NEG";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket = @"STORAGE_BUCKET";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 
 // GTLRNetworkManagement_DropInfo.cause
@@ -130,6 +131,7 @@ NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpc
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule = @"NETWORK_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule = @"NETWORK_REGIONAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule = @"SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_UnsupportedFirewallPolicyRule = @"UNSUPPORTED_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
 
 // GTLRNetworkManagement_ForwardInfo.target

@@ -665,8 +665,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_Workstation
-@dynamic annotations, createTime, deleteTime, displayName, ETag, host, labels,
-         name, reconciling, startTime, state, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, env, ETag, host,
+         labels, name, reconciling, startTime, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -681,6 +681,20 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_Workstation_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_Workstation_Env
+//
+
+@implementation GTLRCloudWorkstations_Workstation_Env
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

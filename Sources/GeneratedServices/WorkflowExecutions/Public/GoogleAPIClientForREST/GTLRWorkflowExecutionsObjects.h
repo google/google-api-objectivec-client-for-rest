@@ -16,8 +16,10 @@
 
 @class GTLRWorkflowExecutions_Callback;
 @class GTLRWorkflowExecutions_Error;
+@class GTLRWorkflowExecutions_Exception;
 @class GTLRWorkflowExecutions_Execution;
 @class GTLRWorkflowExecutions_Execution_Labels;
+@class GTLRWorkflowExecutions_NavigationInfo;
 @class GTLRWorkflowExecutions_Position;
 @class GTLRWorkflowExecutions_PubsubMessage;
 @class GTLRWorkflowExecutions_PubsubMessage_Attributes;
@@ -26,6 +28,8 @@
 @class GTLRWorkflowExecutions_StateError;
 @class GTLRWorkflowExecutions_Status;
 @class GTLRWorkflowExecutions_Step;
+@class GTLRWorkflowExecutions_StepEntry;
+@class GTLRWorkflowExecutions_StepEntryMetadata;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -128,6 +132,198 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_KmsEr
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_StepEntry.state
+
+/**
+ *  The step entry failed with an error.
+ *
+ *  Value: "STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateFailed;
+/**
+ *  The step entry is in progress.
+ *
+ *  Value: "STATE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateInProgress;
+/**
+ *  The step entry finished successfully.
+ *
+ *  Value: "STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateSucceeded;
+/**
+ *  Invalid state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_StepEntry.stepType
+
+/**
+ *  The step entry assigns new variable(s).
+ *
+ *  Value: "STEP_ASSIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepAssign;
+/**
+ *  The step entry calls a subworkflow/stdlib.
+ *
+ *  Value: "STEP_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepCall;
+/**
+ *  The step entry executes a condition inside a switch.
+ *
+ *  Value: "STEP_CONDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepCondition;
+/**
+ *  The step entry calls a connector.
+ *
+ *  Value: "STEP_CONNECTOR_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepConnectorCall;
+/**
+ *  The step entry executes the except part of a try/retry/except block.
+ *
+ *  Value: "STEP_EXCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepExcept;
+/**
+ *  The step entry executes a for loop.
+ *
+ *  Value: "STEP_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepFor;
+/**
+ *  The step entry executes a iteration of a for loop.
+ *
+ *  Value: "STEP_FOR_ITERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepForIteration;
+/**
+ *  The step entry jumps to another step.
+ *
+ *  Value: "STEP_GOTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepGoto;
+/**
+ *  The step entry executes a series of parallel branch(es).
+ *
+ *  Value: "STEP_PARALLEL_BRANCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranch;
+/**
+ *  The step entry executes a branch of a parallel branch.
+ *
+ *  Value: "STEP_PARALLEL_BRANCH_ENTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranchEntry;
+/**
+ *  The step entry executes a parallel for loop.
+ *
+ *  Value: "STEP_PARALLEL_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelFor;
+/**
+ *  The step entry raises an error.
+ *
+ *  Value: "STEP_RAISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepRaise;
+/**
+ *  The step entry executes the retry part of a try/retry/except block.
+ *
+ *  Value: "STEP_RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepRetry;
+/**
+ *  The step entry returns.
+ *
+ *  Value: "STEP_RETURN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepReturn;
+/**
+ *  The step entry calls a standard library routine.
+ *
+ *  Value: "STEP_STD_LIB_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepStdLibCall;
+/**
+ *  The step entry calls a subworklfow.
+ *
+ *  Value: "STEP_SUBWORKFLOW_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepSubworkflowCall;
+/**
+ *  The step entry executes a switch-case block.
+ *
+ *  Value: "STEP_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepSwitch;
+/**
+ *  The step entry executes the try part of a try/retry/except block.
+ *
+ *  Value: "STEP_TRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTry;
+/**
+ *  The step entry executes a try/retry/except block.
+ *
+ *  Value: "STEP_TRY_RETRY_EXCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTryRetryExcept;
+/**
+ *  Invalid step type.
+ *
+ *  Value: "STEP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_StepEntryMetadata.progressType
+
+/**
+ *  Current step entry is in progress of a FOR step.
+ *
+ *  Value: "PROGRESS_TYPE_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeFor;
+/**
+ *  Current step entry is in progress of a PARALLEL BRANCH step.
+ *
+ *  Value: "PROGRESS_TYPE_PARALLEL_BRANCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelBranch;
+/**
+ *  Current step entry is in progress of a PARALLEL FOR step.
+ *
+ *  Value: "PROGRESS_TYPE_PARALLEL_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelFor;
+/**
+ *  Current step entry is in progress of a RETRY step.
+ *
+ *  Value: "PROGRESS_TYPE_RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeRetry;
+/**
+ *  Current step entry is in progress of a SWITCH step.
+ *
+ *  Value: "PROGRESS_TYPE_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeSwitch;
+/**
+ *  Current step entry does not have any progress data.
+ *
+ *  Value: "PROGRESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeUnspecified;
+
 /**
  *  An instance of a Callback created by an execution.
  */
@@ -181,6 +377,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 
 /** Stack trace with detailed information of where error was generated. */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StackTrace *stackTrace;
+
+@end
+
+
+/**
+ *  Exception describes why the step entry failed.
+ */
+@interface GTLRWorkflowExecutions_Exception : GTLRObject
+
+/** Error message represented as a JSON string. */
+@property(nonatomic, copy, nullable) NSString *payload;
 
 @end
 
@@ -380,6 +587,81 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 
 
 /**
+ *  Response message for ExecutionHistory.ListStepEntries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "stepEntries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRWorkflowExecutions_ListStepEntriesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListStepEntriesRequest.page_token field in the subsequent call to
+ *  `ListStepEntries` method to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of entries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StepEntry *> *stepEntries;
+
+/**
+ *  Indicates the total number of StepEntries that matched the request filter.
+ *  For running executions, this number shows the number of StepEntries that are
+ *  executed thus far.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  NavigationInfo describes what steps if any come before or after this step,
+ *  or what steps are parents or children of this step.
+ */
+@interface GTLRWorkflowExecutions_NavigationInfo : GTLRObject
+
+/**
+ *  Step entries that can be reached by "stepping into" e.g. a subworkflow call.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *children;
+
+/**
+ *  The index of the next step in the current workflow, if any.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *next;
+
+/**
+ *  The step entry, if any, that can be reached by "stepping out" of the current
+ *  workflow being executed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parent;
+
+/**
+ *  The index of the previous step in the current workflow, if any.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *previous;
+
+@end
+
+
+/**
  *  Position contains source position information about the stack trace element
  *  such as line number, column number and length of the code block in bytes.
  */
@@ -561,6 +843,167 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 
 /** Name of a step within the routine. */
 @property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  An StepEntry contains debugging information for a step transition in a
+ *  workflow execution.
+ */
+@interface GTLRWorkflowExecutions_StepEntry : GTLRObject
+
+/** Output only. The creation time of the step entry. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The numeric ID of this step entry, used for navigation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entryId;
+
+/** Output only. The exception thrown by the step entry. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Exception *exception;
+
+/**
+ *  Output only. The full resource name of the step entry. Each step entry has a
+ *  unique entry ID, which is a monotonically increasing counter. Step entry
+ *  names have the format:
+ *  `projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/{step_entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The NavigationInfo associated to this step. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_NavigationInfo *navigationInfo;
+
+/**
+ *  Output only. The name of the routine this step entry belongs to. A routine
+ *  name is the subworkflow name defined in the YAML source code. The top level
+ *  routine name is `main`.
+ */
+@property(nonatomic, copy, nullable) NSString *routine;
+
+/**
+ *  Output only. The state of the step entry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateFailed The step entry
+ *        failed with an error. (Value: "STATE_FAILED")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateInProgress The step
+ *        entry is in progress. (Value: "STATE_IN_PROGRESS")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateSucceeded The step
+ *        entry finished successfully. (Value: "STATE_SUCCEEDED")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateUnspecified Invalid
+ *        state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The name of the step this step entry belongs to. */
+@property(nonatomic, copy, nullable) NSString *step;
+
+/** Output only. The StepEntryMetadata associated to this step. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StepEntryMetadata *stepEntryMetadata;
+
+/**
+ *  Output only. The type of the step this step entry belongs to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepAssign The step
+ *        entry assigns new variable(s). (Value: "STEP_ASSIGN")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepCall The step entry
+ *        calls a subworkflow/stdlib. (Value: "STEP_CALL")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepCondition The step
+ *        entry executes a condition inside a switch. (Value: "STEP_CONDITION")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepConnectorCall The
+ *        step entry calls a connector. (Value: "STEP_CONNECTOR_CALL")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepExcept The step
+ *        entry executes the except part of a try/retry/except block. (Value:
+ *        "STEP_EXCEPT")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepFor The step entry
+ *        executes a for loop. (Value: "STEP_FOR")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepForIteration The
+ *        step entry executes a iteration of a for loop. (Value:
+ *        "STEP_FOR_ITERATION")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepGoto The step entry
+ *        jumps to another step. (Value: "STEP_GOTO")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranch The
+ *        step entry executes a series of parallel branch(es). (Value:
+ *        "STEP_PARALLEL_BRANCH")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranchEntry
+ *        The step entry executes a branch of a parallel branch. (Value:
+ *        "STEP_PARALLEL_BRANCH_ENTRY")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelFor The
+ *        step entry executes a parallel for loop. (Value: "STEP_PARALLEL_FOR")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepRaise The step
+ *        entry raises an error. (Value: "STEP_RAISE")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepRetry The step
+ *        entry executes the retry part of a try/retry/except block. (Value:
+ *        "STEP_RETRY")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepReturn The step
+ *        entry returns. (Value: "STEP_RETURN")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepStdLibCall The step
+ *        entry calls a standard library routine. (Value: "STEP_STD_LIB_CALL")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepSubworkflowCall The
+ *        step entry calls a subworklfow. (Value: "STEP_SUBWORKFLOW_CALL")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepSwitch The step
+ *        entry executes a switch-case block. (Value: "STEP_SWITCH")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepTry The step entry
+ *        executes the try part of a try/retry/except block. (Value: "STEP_TRY")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepTryRetryExcept The
+ *        step entry executes a try/retry/except block. (Value:
+ *        "STEP_TRY_RETRY_EXCEPT")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_StepType_StepTypeUnspecified
+ *        Invalid step type. (Value: "STEP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stepType;
+
+/** Output only. The most recently updated time of the step entry. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  StepEntryMetadata contains metadata information about this step.
+ */
+@interface GTLRWorkflowExecutions_StepEntryMetadata : GTLRObject
+
+/**
+ *  Progress number represents the current state of the current progress. eg: A
+ *  step entry represents the 4th iteration in a progress of PROGRESS_TYPE_FOR.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressNumber;
+
+/**
+ *  Progress type of this step entry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeFor
+ *        Current step entry is in progress of a FOR step. (Value:
+ *        "PROGRESS_TYPE_FOR")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelBranch
+ *        Current step entry is in progress of a PARALLEL BRANCH step. (Value:
+ *        "PROGRESS_TYPE_PARALLEL_BRANCH")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelFor
+ *        Current step entry is in progress of a PARALLEL FOR step. (Value:
+ *        "PROGRESS_TYPE_PARALLEL_FOR")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeRetry
+ *        Current step entry is in progress of a RETRY step. (Value:
+ *        "PROGRESS_TYPE_RETRY")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeSwitch
+ *        Current step entry is in progress of a SWITCH step. (Value:
+ *        "PROGRESS_TYPE_SWITCH")
+ *    @arg @c kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeUnspecified
+ *        Current step entry does not have any progress data. (Value:
+ *        "PROGRESS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *progressType;
+
+/** Child thread id that this step entry belongs to. */
+@property(nonatomic, copy, nullable) NSString *threadId;
 
 @end
 

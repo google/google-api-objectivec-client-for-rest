@@ -58,6 +58,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource.bucketObjectType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio = @"AUDIO";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified = @"BUCKET_OBJECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Transcript = @"TRANSCRIPT";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig.medium
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_Chat = @"CHAT";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
@@ -127,6 +132,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1En
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource.bucketObjectType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio = @"AUDIO";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified = @"BUCKET_OBJECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Transcript = @"TRANSCRIPT";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig.medium
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_Chat = @"CHAT";
@@ -337,7 +347,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsMetadata
 @dynamic completedAnalysesCount, createTime, endTime, failedAnalysesCount,
-         request, totalRequestedAnalysesCount;
+         partialErrors, request, totalRequestedAnalysesCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -358,6 +376,43 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsResponse
 @dynamic failedAnalysisCount, successfulAnalysisCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsMetadata
+@dynamic createTime, endTime, partialErrors, request;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest
+@dynamic filter, force, maxDeleteCount, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsResponse
 @end
 
 
@@ -827,7 +882,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest
-@dynamic conversationConfig, gcsSource, parent, transcriptObjectConfig;
+@dynamic conversationConfig, gcsSource, parent, redactionConfig, speechConfig,
+         transcriptObjectConfig;
 @end
 
 
@@ -837,7 +893,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig
-@dynamic agentId;
+@dynamic agentChannel, agentId, customerChannel;
 @end
 
 
@@ -847,7 +903,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource
-@dynamic bucketUri;
+@dynamic bucketObjectType, bucketUri;
 @end
 
 
@@ -1322,7 +1378,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsMetadata
 @dynamic completedAnalysesCount, createTime, endTime, failedAnalysesCount,
-         request, totalRequestedAnalysesCount;
+         partialErrors, request, totalRequestedAnalysesCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1343,6 +1407,43 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsResponse
 @dynamic failedAnalysisCount, successfulAnalysisCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsMetadata
+@dynamic createTime, endTime, partialErrors, request;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest
+@dynamic filter, force, maxDeleteCount, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsResponse
 @end
 
 
@@ -1928,7 +2029,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest
-@dynamic conversationConfig, gcsSource, parent, transcriptObjectConfig;
+@dynamic conversationConfig, gcsSource, parent, redactionConfig, speechConfig,
+         transcriptObjectConfig;
 @end
 
 
@@ -1938,7 +2040,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig
-@dynamic agentId;
+@dynamic agentChannel, agentId, customerChannel;
 @end
 
 
@@ -1948,7 +2050,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource
-@dynamic bucketUri;
+@dynamic bucketObjectType, bucketUri;
 @end
 
 

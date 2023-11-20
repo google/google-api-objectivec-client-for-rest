@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Traffic Director API (trafficdirector/v2)
+//   Traffic Director API (trafficdirector/v3)
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
@@ -23,7 +23,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v2/discovery:client_status";
+  NSString *pathURITemplate = @"v3/discovery:client_status";
   GTLRTrafficDirectorServiceQuery_DiscoveryClientStatus *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

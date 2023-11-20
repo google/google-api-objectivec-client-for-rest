@@ -331,6 +331,37 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
 
 @end
 
+@implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBuffer
+
+@dynamic queue, taskId;
+
++ (instancetype)queryWithObject:(GTLRCloudTasks_BufferTaskRequest *)object
+                          queue:(NSString *)queue
+                         taskId:(NSString *)taskId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"queue", @"taskId"
+  ];
+  NSString *pathURITemplate = @"v2/{+queue}/tasks/{taskId}:buffer";
+  GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBuffer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.queue = queue;
+  query.taskId = taskId;
+  query.expectedObjectClass = [GTLRCloudTasks_BufferTaskResponse class];
+  query.loggingName = @"cloudtasks.projects.locations.queues.tasks.buffer";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCreate
 
 @dynamic parent;

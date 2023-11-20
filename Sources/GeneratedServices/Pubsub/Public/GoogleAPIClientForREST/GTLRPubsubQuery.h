@@ -116,8 +116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  The ID to use for the schema, which will become the final component of the
  *  schema's resource name. See
- *  https://cloud.google.com/pubsub/docs/admin#resource_names for resource name
- *  constraints.
+ *  https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names for
+ *  resource name constraints.
  */
 @property(nonatomic, copy, nullable) NSString *schemaId;
 
@@ -615,9 +615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  field. If the name is not provided in the request, the server will assign a
  *  random name for this snapshot on the same project as the subscription,
  *  conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
- *  name is populated in the returned Snapshot object. Note that for REST API
- *  requests, you must specify a name in the request.
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  generated name is populated in the returned Snapshot object. Note that for
+ *  REST API requests, you must specify a name in the request.
  *
  *  Method: pubsub.projects.snapshots.create
  *
@@ -632,8 +632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  in the request, the server will assign a random name for this snapshot on
  *  the same project as the subscription. Note that for REST API requests, you
  *  must specify a name. See the [resource name
- *  rules](https://cloud.google.com/pubsub/docs/admin#resource_names). Format is
- *  `projects/{project}/snapshots/{snap}`.
+ *  rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+ *  Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -652,9 +652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  field. If the name is not provided in the request, the server will assign a
  *  random name for this snapshot on the same project as the subscription,
  *  conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
- *  name is populated in the returned Snapshot object. Note that for REST API
- *  requests, you must specify a name in the request.
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  generated name is populated in the returned Snapshot object. Note that for
+ *  REST API requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
@@ -662,8 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    not provided in the request, the server will assign a random name for this
  *    snapshot on the same project as the subscription. Note that for REST API
  *    requests, you must specify a name. See the [resource name
- *    rules](https://cloud.google.com/pubsub/docs/admin#resource_names). Format
- *    is `projects/{project}/snapshots/{snap}`.
+ *    rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+ *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsCreate
  */
@@ -1027,14 +1027,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). If the
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
  *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
  *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
  *  request, the server will assign a random name for this subscription on the
  *  same project as the topic, conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
- *  name is populated in the returned Subscription object. Note that for REST
- *  API requests, you must specify a name in the request.
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  generated name is populated in the returned Subscription object. Note that
+ *  for REST API requests, you must specify a name in the request.
  *
  *  Method: pubsub.projects.subscriptions.create
  *
@@ -1058,14 +1058,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  Fetches a @c GTLRPubsub_Subscription.
  *
  *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). If the
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). If the
  *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
  *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
  *  request, the server will assign a random name for this subscription on the
  *  same project as the topic, conforming to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
- *  name is populated in the returned Subscription object. Note that for REST
- *  API requests, you must specify a name in the request.
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+ *  generated name is populated in the returned Subscription object. Note that
+ *  for REST API requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_Subscription to include in the query.
  *  @param name Required. The name of the subscription. It must have the format
@@ -1573,7 +1573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  Creates the given topic with the given name. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *
  *  Method: pubsub.projects.topics.create
  *
@@ -1597,7 +1597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  Fetches a @c GTLRPubsub_Topic.
  *
  *  Creates the given topic with the given name. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
+ *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
  *  @param name Required. The name of the topic. It must have the format

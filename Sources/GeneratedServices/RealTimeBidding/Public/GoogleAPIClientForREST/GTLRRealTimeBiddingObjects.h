@@ -2439,8 +2439,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 
 /**
- *  Deprecated. This will be removed in October 2023. For more information, see
- *  the release notes:
+ *  This has been sunset as of October 2023, and will return an error response
+ *  if called. For more information, see the release notes:
  *  https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api
  *  Response for a request to get remarketing tag.
  */

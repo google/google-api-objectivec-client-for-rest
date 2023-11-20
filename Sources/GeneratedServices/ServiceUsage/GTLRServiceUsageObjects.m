@@ -1061,6 +1061,71 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy
+@dynamic annotations, createTime, enableRules, ETag, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableRules" : [GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule
+@dynamic categories, groups, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class],
+    @"groups" : [NSString class],
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaUpdateConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaUpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoSettings
 //
 

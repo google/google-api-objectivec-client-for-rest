@@ -115,6 +115,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres14;
+/**
+ *  The database version is Postgres 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres15;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Backup.state
@@ -251,6 +257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersio
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres14;
+/**
+ *  The database version is Postgres 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Cluster.state
@@ -863,6 +875,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExposedToRemoteAccess;
 /**
+ *  Represents if a group is replicating across regions. Checks for resources
+ *  that are configured to have redundancy, and ongoing replication, across
+ *  regions.
+ *
+ *  Value: "SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions;
+/**
  *  Represents if the last backup of a resource failed.
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_FAILED"
@@ -941,13 +961,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_REGIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotAvailableInMultipleRegions;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotAvailableInMultipleRegions GTLR_DEPRECATED;
 /**
  *  Represents if the resource is available in multiple zones or not.
  *
  *  Value: "SIGNAL_TYPE_NOT_AVAILABLE_IN_MULTIPLE_ZONES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotAvailableInMultipleZones;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotAvailableInMultipleZones GTLR_DEPRECATED;
 /**
  *  Represents if the log_statement database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to DDL (all data definition statements).
@@ -962,6 +982,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotLoggingTemporaryFiles;
+/**
+ *  Represents if a resource is protected by automatic failover. Checks for
+ *  resources that are configured to have redundancy within a region that
+ *  enables automatic failover.
+ *
+ *  Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
+/**
+ *  Represents if public IP is enabled.
+ *  LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
+ *
+ *  Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled;
 /**
  *  Represents if the log_duration database flag for a Cloud SQL for PostgreSQL
  *  instance is not set to on.
@@ -986,7 +1021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 /**
  *  Represents if the 3625 (trace flag) database flag for a Cloud SQL for SQL
  *  Server instance is not set to on.
- *  LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
  *
  *  Value: "SIGNAL_TYPE_SENSITIVE_TRACE_INFO_NOT_MASKED"
  */
@@ -1402,6 +1436,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_
  *  Value: "POSTGRES_14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres14;
+/**
+ *  The database version is Postgres 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres15;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.valueType
@@ -1615,6 +1655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "POSTGRES_13")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres14 The
  *        database version is Postgres 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres15 The
+ *        database version is Postgres 15. (Value: "POSTGRES_15")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -1909,6 +1951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "POSTGRES_13")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres14 The
  *        database version is Postgres 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15 The
+ *        database version is Postgres 15. (Value: "POSTGRES_15")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -2290,6 +2334,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. An optional hint to the endpoint to generate a client ceritificate
+ *  that can be used by AlloyDB connectors to exchange additional metadata with
+ *  the server after TLS handshake.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useMetadataExchange;
 
 @end
 
@@ -2957,7 +3010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *allocatedIpRange;
 
 /**
- *  Required. The resource link for the VPC network in which cluster resources
+ *  Optional. The resource link for the VPC network in which cluster resources
  *  are created and from which they are accessible via Private IP. The network
  *  must belong to the same project as the cluster. It is specified in the form:
  *  "projects/{project_number}/global/networks/{network_id}". This is required
@@ -3793,6 +3846,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the remote access database flag for a Cloud SQL for SQL
  *        Server instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions
+ *        Represents if a group is replicating across regions. Checks for
+ *        resources that are configured to have redundancy, and ongoing
+ *        replication, across regions. (Value:
+ *        "SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLastBackupFailed
  *        Represents if the last backup of a resource failed. (Value:
  *        "SIGNAL_TYPE_LAST_BACKUP_FAILED")
@@ -3846,6 +3904,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the log_temp_files database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to "0". (NOTE: 0 = ON) (Value:
  *        "SIGNAL_TYPE_NOT_LOGGING_TEMPORARY_FILES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover
+ *        Represents if a resource is protected by automatic failover. Checks
+ *        for resources that are configured to have redundancy within a region
+ *        that enables automatic failover. (Value:
+ *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled
+ *        Represents if public IP is enabled.
+ *        LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
+ *        (Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQueryDurationsNotLogged
  *        Represents if the log_duration database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -3860,9 +3927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "SIGNAL_TYPE_QUERY_STATISTICS_LOGGED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeSensitiveTraceInfoNotMasked
  *        Represents if the 3625 (trace flag) database flag for a Cloud SQL for
- *        SQL Server instance is not set to on.
- *        LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
- *        (Value: "SIGNAL_TYPE_SENSITIVE_TRACE_INFO_NOT_MASKED")
+ *        SQL Server instance is not set to on. (Value:
+ *        "SIGNAL_TYPE_SENSITIVE_TRACE_INFO_NOT_MASKED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeServerAuthenticationNotRequired
  *        Represents if The contained database authentication database flag for
  *        a Cloud SQL for SQL Server instance is not set to off. (Value:

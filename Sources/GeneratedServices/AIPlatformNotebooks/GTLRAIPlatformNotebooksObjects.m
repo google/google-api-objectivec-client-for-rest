@@ -153,6 +153,24 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_Config
+//
+
+@implementation GTLRAIPlatformNotebooks_Config
+@dynamic availableImages, defaultValues, supportedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableImages" : [GTLRAIPlatformNotebooks_ImageRelease class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_ContainerImage
 //
 
@@ -168,6 +186,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_DataDisk
 @dynamic diskEncryption, diskSizeGb, diskType, kmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_DefaultValues
+//
+
+@implementation GTLRAIPlatformNotebooks_DefaultValues
+@dynamic machineType;
 @end
 
 
@@ -286,6 +314,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_GPUDriverConfig
 @dynamic customGpuDriverPath, enableGpuDriver;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ImageRelease
+//
+
+@implementation GTLRAIPlatformNotebooks_ImageRelease
+@dynamic imageName, releaseName;
 @end
 
 
@@ -642,6 +680,25 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_StopInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_SupportedValues
+//
+
+@implementation GTLRAIPlatformNotebooks_SupportedValues
+@dynamic acceleratorTypes, machineTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceleratorTypes" : [NSString class],
+    @"machineTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

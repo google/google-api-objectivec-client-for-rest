@@ -61,6 +61,496 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Grants the bind permission to the customer provided principal(user / service
+ *  account) to bind their DNS zone with the intranet VPC associated with the
+ *  project.
+ *
+ *  Method: vmwareengine.projects.locations.global.dnsBindPermission.grant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the resource which stores the users/service accounts
+ *  having the permission to bind to the corresponding intranet VPC of the
+ *  consumer project. DnsBindPermission is a global resource. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Grants the bind permission to the customer provided principal(user / service
+ *  account) to bind their DNS zone with the intranet VPC associated with the
+ *  project.
+ *
+ *  @param object The @c GTLRVMwareEngine_GrantDnsBindPermissionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource which stores the
+ *    users/service accounts having the permission to bind to the corresponding
+ *    intranet VPC of the consumer project. DnsBindPermission is a global
+ *    resource. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/dnsBindPermission`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Revokes the bind permission from the customer provided principal(user /
+ *  service account) on the intranet VPC associated with the consumer project.
+ *
+ *  Method: vmwareengine.projects.locations.global.dnsBindPermission.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the resource which stores the users/service accounts
+ *  having the permission to bind to the corresponding intranet VPC of the
+ *  consumer project. DnsBindPermission is a global resource. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Revokes the bind permission from the customer provided principal(user /
+ *  service account) on the intranet VPC associated with the consumer project.
+ *
+ *  @param object The @c GTLRVMwareEngine_RevokeDnsBindPermissionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource which stores the
+ *    users/service accounts having the permission to bind to the corresponding
+ *    intranet VPC of the consumer project. DnsBindPermission is a global
+ *    resource. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/dnsBindPermission`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets all the principals having bind permission on the intranet VPC
+ *  associated with the consumer project granted by the Grant API.
+ *
+ *  Method: vmwareengine.projects.locations.global.getDnsBindPermission
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the resource which stores the users/service accounts
+ *  having the permission to bind to the corresponding intranet VPC of the
+ *  consumer project. DnsBindPermission is a global resource. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_DnsBindPermission.
+ *
+ *  Gets all the principals having bind permission on the intranet VPC
+ *  associated with the consumer project granted by the Grant API.
+ *
+ *  @param name Required. The name of the resource which stores the
+ *    users/service accounts having the permission to bind to the corresponding
+ *    intranet VPC of the consumer project. DnsBindPermission is a global
+ *    resource. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/dnsBindPermission`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new network peering between the peer network and VMware Engine
+ *  network provided in a `NetworkPeering` resource.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the new `NetworkPeering`. This
+ *  identifier must be unique among `NetworkPeering` resources within the parent
+ *  and becomes the final token in the name URI. The identifier must meet the
+ *  following requirements: * Only contains 1-63 alphanumeric characters and
+ *  hyphens * Begins with an alphabetical character * Ends with a non-hyphen
+ *  character * Not formatted as a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *networkPeeringId;
+
+/**
+ *  Required. The resource name of the location to create the new network
+ *  peering in. This value is always `global`, because `NetworkPeering` is a
+ *  global resource. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example: `projects/my-project/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Creates a new network peering between the peer network and VMware Engine
+ *  network provided in a `NetworkPeering` resource.
+ *
+ *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
+ *    query.
+ *  @param parent Required. The resource name of the location to create the new
+ *    network peering in. This value is always `global`, because
+ *    `NetworkPeering` is a global resource. Resource names are schemeless URIs
+ *    that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `NetworkPeering` resource. When a network peering is deleted for a
+ *  VMware Engine network, the peer network becomes inaccessible to that VMware
+ *  Engine network.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the network peering to be deleted. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/networkPeerings/my-peering`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a `NetworkPeering` resource. When a network peering is deleted for a
+ *  VMware Engine network, the peer network becomes inaccessible to that VMware
+ *  Engine network.
+ *
+ *  @param name Required. The resource name of the network peering to be
+ *    deleted. Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/networkPeerings/my-peering`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a `NetworkPeering` resource by its resource name. The resource
+ *  contains details of the network peering, such as peered networks, import and
+ *  export custom route configurations, and peering state.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the network peering to retrieve. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/networkPeerings/my-peering`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_NetworkPeering.
+ *
+ *  Retrieves a `NetworkPeering` resource by its resource name. The resource
+ *  contains details of the network peering, such as peered networks, import and
+ *  export custom route configurations, and peering state.
+ *
+ *  @param name Required. The resource name of the network peering to retrieve.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/networkPeerings/my-peering`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `NetworkPeering` resources in a given project.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of network peerings, you can exclude
+ *  the ones named `example-peering` by specifying `name != "example-peering"`.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (name = "example-peering") (createTime >
+ *  "2021-04-12T08:15:10.40Z") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (name = "example-peering-1") AND (createTime >
+ *  "2021-04-12T08:15:10.40Z") OR (name = "example-peering-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of network peerings to return in one page. The maximum
+ *  value is coerced to 1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListNetworkPeerings` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListNetworkPeerings` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location (global) to query for network
+ *  peerings. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListNetworkPeeringsResponse.
+ *
+ *  Lists `NetworkPeering` resources in a given project.
+ *
+ *  @param parent Required. The resource name of the location (global) to query
+ *    for network peerings. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example: `projects/my-project/locations/global`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Modifies a `NetworkPeering` resource. Only the `description` field can be
+ *  updated. Only fields specified in `updateMask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of the network peering. Resource names are
+ *  scheme-less URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/networkPeerings/my-peering`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `NetworkPeering` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Modifies a `NetworkPeering` resource. Only the `description` field can be
+ *  updated. Only fields specified in `updateMask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
+ *    query.
+ *  @param name Output only. The resource name of the network peering. Resource
+ *    names are scheme-less URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/networkPeerings/my-peering`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the network peering routes exchanged over a peering connection.
+ *
+ *  Method: vmwareengine.projects.locations.global.networkPeerings.peeringRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response.
+ *  Currently, only filtering on the `direction` field is supported. To return
+ *  routes imported from the peer network, provide "direction=INCOMING". To
+ *  return routes exported from the VMware Engine network, provide
+ *  "direction=OUTGOING". Other filter expressions return an error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of peering routes to return in one page. The service may
+ *  return fewer than this value. The maximum value is coerced to 1000. The
+ *  default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListPeeringRoutes` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListPeeringRoutes` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the network peering to retrieve peering
+ *  routes from. Resource names are schemeless URIs that follow the conventions
+ *  in https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/networkPeerings/my-peering`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListPeeringRoutesResponse.
+ *
+ *  Lists the network peering routes exchanged over a peering connection.
+ *
+ *  @param parent Required. The resource name of the network peering to retrieve
+ *    peering routes from. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example: `projects/my-project/locations/global/networkPeerings/my-peering`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: vmwareengine.projects.locations.list
@@ -226,6 +716,357 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new external access rule in a given network policy.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.externalAccessRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the `ExternalAccessRule` to be
+ *  created. This identifier must be unique among `ExternalAccessRule` resources
+ *  within the parent and becomes the final token in the name URI. The
+ *  identifier must meet the following requirements: * Only contains 1-63
+ *  alphanumeric characters and hyphens * Begins with an alphabetical character
+ *  * Ends with a non-hyphen character * Not formatted as a UUID * Complies with
+ *  [RFC 1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccessRuleId;
+
+/**
+ *  Required. The resource name of the network policy to create a new external
+ *  access firewall rule in. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  A request ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server guarantees that a request doesn't
+ *  result in creation of duplicate commitments for at least 60 minutes. For
+ *  example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if the original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Creates a new external access rule in a given network policy.
+ *
+ *  @param object The @c GTLRVMwareEngine_ExternalAccessRule to include in the
+ *    query.
+ *  @param parent Required. The resource name of the network policy to create a
+ *    new external access firewall rule in. Resource names are schemeless URIs
+ *    that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single external access rule.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.externalAccessRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the external access firewall rule to delete.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a single external access rule.
+ *
+ *  @param name Required. The resource name of the external access firewall rule
+ *    to delete. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single external access rule.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.externalAccessRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the external access firewall rule to
+ *  retrieve. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ExternalAccessRule.
+ *
+ *  Gets details of a single external access rule.
+ *
+ *  @param name Required. The resource name of the external access firewall rule
+ *    to retrieve. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `ExternalAccessRule` resources in the specified network policy.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.externalAccessRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of external access rules, you can
+ *  exclude the ones named `example-rule` by specifying `name !=
+ *  "example-rule"`. To filter on multiple expressions, provide each separate
+ *  expression within parentheses. For example: ``` (name = "example-rule")
+ *  (createTime > "2021-04-12T08:15:10.40Z") ``` By default, each expression is
+ *  an `AND` expression. However, you can include `AND` and `OR` expressions
+ *  explicitly. For example: ``` (name = "example-rule-1") AND (createTime >
+ *  "2021-04-12T08:15:10.40Z") OR (name = "example-rule-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of external access rules to return in one page. The
+ *  service may return fewer than this value. The maximum value is coerced to
+ *  1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListExternalAccessRulesRequest`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListExternalAccessRulesRequest` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the network policy to query for external
+ *  access firewall rules. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListExternalAccessRulesResponse.
+ *
+ *  Lists `ExternalAccessRule` resources in the specified network policy.
+ *
+ *  @param parent Required. The resource name of the network policy to query for
+ *    external access firewall rules. Resource names are schemeless URIs that
+ *    follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single external access rule. Only fields
+ *  specified in `update_mask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.externalAccessRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of this external access rule. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `ExternalAccessRule` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Updates the parameters of a single external access rule. Only fields
+ *  specified in `update_mask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_ExternalAccessRule to include in the
+ *    query.
+ *  @param name Output only. The resource name of this external access rule.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy/externalAccessRules/my-rule`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists external IP addresses assigned to VMware workload VMs within the scope
+ *  of the given network policy.
+ *
+ *  Method: vmwareengine.projects.locations.networkPolicies.fetchExternalAddresses
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesFetchExternalAddresses : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the network policy to query for assigned
+ *  external IP addresses. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ */
+@property(nonatomic, copy, nullable) NSString *networkPolicy;
+
+/**
+ *  The maximum number of external IP addresses to return in one page. The
+ *  service may return fewer than this value. The maximum value is coerced to
+ *  1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `FetchNetworkPolicyExternalAddresses`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  parameters provided to `FetchNetworkPolicyExternalAddresses`, except for
+ *  `page_size` and `page_token`, must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_FetchNetworkPolicyExternalAddressesResponse.
+ *
+ *  Lists external IP addresses assigned to VMware workload VMs within the scope
+ *  of the given network policy.
+ *
+ *  @param networkPolicy Required. The resource name of the network policy to
+ *    query for assigned external IP addresses. Resource names are schemeless
+ *    URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/networkPolicies/my-policy`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesFetchExternalAddresses
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithNetworkPolicy:(NSString *)networkPolicy;
 
 @end
 
@@ -888,6 +1729,89 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single node.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.clusters.nodes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the node to retrieve. For example:
+ *  `projects/{project}/locations/{location}/privateClouds/{private_cloud}/clusters/{cluster}/nodes/{node}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Node.
+ *
+ *  Gets details of a single node.
+ *
+ *  @param name Required. The resource name of the node to retrieve. For
+ *    example:
+ *    `projects/{project}/locations/{location}/privateClouds/{private_cloud}/clusters/{cluster}/nodes/{node}`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists nodes in a given cluster.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.clusters.nodes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesList : GTLRVMwareEngineQuery
+
+/**
+ *  The maximum number of nodes to return in one page. The service may return
+ *  fewer than this value. The maximum value is coerced to 1000. The default
+ *  value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListNodes` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListNodes` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the cluster to be queried for nodes. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListNodesResponse.
+ *
+ *  Lists nodes in a given cluster.
+ *
+ *  @param parent Required. The resource name of the cluster to be queried for
+ *    nodes. Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Modifies a `Cluster` resource. Only fields specified in `updateMask` are
  *  applied. During operation processing, the resource is temporarily in the
  *  `ACTIVE` state before the operation fully completes. For that period of
@@ -1192,6 +2116,312 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new `ExternalAddress` resource in a given private cloud. The
+ *  network policy that corresponds to the private cloud must have the external
+ *  IP address network service enabled (`NetworkPolicy.external_ip`).
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.externalAddresses.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the `ExternalAddress` to be
+ *  created. This identifier must be unique among `ExternalAddress` resources
+ *  within the parent and becomes the final token in the name URI. The
+ *  identifier must meet the following requirements: * Only contains 1-63
+ *  alphanumeric characters and hyphens * Begins with an alphabetical character
+ *  * Ends with a non-hyphen character * Not formatted as a UUID * Complies with
+ *  [RFC 1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *externalAddressId;
+
+/**
+ *  Required. The resource name of the private cloud to create a new external IP
+ *  address in. Resource names are schemeless URIs that follow the conventions
+ *  in https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Creates a new `ExternalAddress` resource in a given private cloud. The
+ *  network policy that corresponds to the private cloud must have the external
+ *  IP address network service enabled (`NetworkPolicy.external_ip`).
+ *
+ *  @param object The @c GTLRVMwareEngine_ExternalAddress to include in the
+ *    query.
+ *  @param parent Required. The resource name of the private cloud to create a
+ *    new external IP address in. Resource names are schemeless URIs that follow
+ *    the conventions in https://cloud.google.com/apis/design/resource_names.
+ *    For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single external IP address. When you delete an external IP
+ *  address, connectivity between the external IP address and the corresponding
+ *  internal IP address is lost.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.externalAddresses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the external IP address to delete. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-ip`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a single external IP address. When you delete an external IP
+ *  address, connectivity between the external IP address and the corresponding
+ *  internal IP address is lost.
+ *
+ *  @param name Required. The resource name of the external IP address to
+ *    delete. Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-ip`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single external IP address.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.externalAddresses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the external IP address to retrieve. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-ip`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ExternalAddress.
+ *
+ *  Gets details of a single external IP address.
+ *
+ *  @param name Required. The resource name of the external IP address to
+ *    retrieve. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-ip`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists external IP addresses assigned to VMware workload VMs in a given
+ *  private cloud.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.externalAddresses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of IP addresses, you can exclude the
+ *  ones named `example-ip` by specifying `name != "example-ip"`. To filter on
+ *  multiple expressions, provide each separate expression within parentheses.
+ *  For example: ``` (name = "example-ip") (createTime >
+ *  "2021-04-12T08:15:10.40Z") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (name = "example-ip-1") AND (createTime >
+ *  "2021-04-12T08:15:10.40Z") OR (name = "example-ip-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of external IP addresses to return in one page. The
+ *  service may return fewer than this value. The maximum value is coerced to
+ *  1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListExternalAddresses` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListExternalAddresses` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the private cloud to be queried for external
+ *  IP addresses. Resource names are schemeless URIs that follow the conventions
+ *  in https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListExternalAddressesResponse.
+ *
+ *  Lists external IP addresses assigned to VMware workload VMs in a given
+ *  private cloud.
+ *
+ *  @param parent Required. The resource name of the private cloud to be queried
+ *    for external IP addresses. Resource names are schemeless URIs that follow
+ *    the conventions in https://cloud.google.com/apis/design/resource_names.
+ *    For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single external IP address. Only fields
+ *  specified in `update_mask` are applied. During operation processing, the
+ *  resource is temporarily in the `ACTIVE` state before the operation fully
+ *  completes. For that period of time, you can't update the resource. Use the
+ *  operation status to determine when the processing fully completes.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.externalAddresses.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of this external IP address. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `ExternalAddress` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Updates the parameters of a single external IP address. Only fields
+ *  specified in `update_mask` are applied. During operation processing, the
+ *  resource is temporarily in the `ACTIVE` state before the operation fully
+ *  completes. For that period of time, you can't update the resource. Use the
+ *  operation status to determine when the processing fully completes.
+ *
+ *  @param object The @c GTLRVMwareEngine_ExternalAddress to include in the
+ *    query.
+ *  @param name Output only. The resource name of this external IP address.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves a `PrivateCloud` resource by its resource name.
  *
  *  Method: vmwareengine.projects.locations.privateClouds.get
@@ -1220,6 +2450,40 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  *
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the `DnsForwarding` config.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.getDnsForwarding
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGetDnsForwarding : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of a `DnsForwarding` to retrieve. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_DnsForwarding.
+ *
+ *  Gets details of the `DnsForwarding` config.
+ *
+ *  @param name Required. The resource name of a `DnsForwarding` to retrieve.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsGetDnsForwarding
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1639,6 +2903,645 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new logging server for a given private cloud.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.loggingServers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the `LoggingServer` to be created.
+ *  This identifier must be unique among `LoggingServer` resources within the
+ *  parent and becomes the final token in the name URI. The identifier must meet
+ *  the following requirements: * Only contains 1-63 alphanumeric characters and
+ *  hyphens * Begins with an alphabetical character * Ends with a non-hyphen
+ *  character * Not formatted as a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *loggingServerId;
+
+/**
+ *  Required. The resource name of the private cloud to create a new Logging
+ *  Server in. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Create a new logging server for a given private cloud.
+ *
+ *  @param object The @c GTLRVMwareEngine_LoggingServer to include in the query.
+ *  @param parent Required. The resource name of the private cloud to create a
+ *    new Logging Server in. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_LoggingServer *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single logging server.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.loggingServers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the logging server to delete. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a single logging server.
+ *
+ *  @param name Required. The resource name of the logging server to delete.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a logging server.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.loggingServers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the Logging Server to retrieve. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_LoggingServer.
+ *
+ *  Gets details of a logging server.
+ *
+ *  @param name Required. The resource name of the Logging Server to retrieve.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists logging servers configured for a given private cloud.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.loggingServers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of logging servers, you can exclude the
+ *  ones named `example-server` by specifying `name != "example-server"`. To
+ *  filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (name = "example-server") (createTime >
+ *  "2021-04-12T08:15:10.40Z") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (name = "example-server-1") AND (createTime >
+ *  "2021-04-12T08:15:10.40Z") OR (name = "example-server-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of logging servers to return in one page. The service may
+ *  return fewer than this value. The maximum value is coerced to 1000. The
+ *  default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListLoggingServersRequest` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListLoggingServersRequest` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the private cloud to be queried for logging
+ *  servers. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListLoggingServersResponse.
+ *
+ *  Lists logging servers configured for a given private cloud.
+ *
+ *  @param parent Required. The resource name of the private cloud to be queried
+ *    for logging servers. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single logging server. Only fields specified in
+ *  `update_mask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.loggingServers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of this logging server. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `LoggingServer` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Updates the parameters of a single logging server. Only fields specified in
+ *  `update_mask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_LoggingServer to include in the query.
+ *  @param name Output only. The resource name of this logging server. Resource
+ *    names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/loggingServers/my-logging-server`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsLoggingServersPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_LoggingServer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `ManagementDnsZoneBinding` resource in a private cloud. This
+ *  RPC creates the DNS binding and the resource that represents the DNS binding
+ *  of the consumer VPC network to the management DNS zone. A management DNS
+ *  zone is the Cloud DNS cross-project binding zone that VMware Engine creates
+ *  for each private cloud. It contains FQDNs and corresponding IP addresses for
+ *  the private cloud's ESXi hosts and management VM appliances like vCenter and
+ *  NSX Manager.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the `ManagementDnsZoneBinding`
+ *  resource to be created. This identifier must be unique among
+ *  `ManagementDnsZoneBinding` resources within the parent and becomes the final
+ *  token in the name URI. The identifier must meet the following requirements:
+ *  * Only contains 1-63 alphanumeric characters and hyphens * Begins with an
+ *  alphabetical character * Ends with a non-hyphen character * Not formatted as
+ *  a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *managementDnsZoneBindingId;
+
+/**
+ *  Required. The resource name of the private cloud to create a new management
+ *  DNS zone binding for. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Creates a new `ManagementDnsZoneBinding` resource in a private cloud. This
+ *  RPC creates the DNS binding and the resource that represents the DNS binding
+ *  of the consumer VPC network to the management DNS zone. A management DNS
+ *  zone is the Cloud DNS cross-project binding zone that VMware Engine creates
+ *  for each private cloud. It contains FQDNs and corresponding IP addresses for
+ *  the private cloud's ESXi hosts and management VM appliances like vCenter and
+ *  NSX Manager.
+ *
+ *  @param object The @c GTLRVMwareEngine_ManagementDnsZoneBinding to include in
+ *    the query.
+ *  @param parent Required. The resource name of the private cloud to create a
+ *    new management DNS zone binding for. Resource names are schemeless URIs
+ *    that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ManagementDnsZoneBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone
+ *  binding is deleted, the corresponding consumer VPC network is no longer
+ *  bound to the management DNS zone.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the management DNS zone binding to delete.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone
+ *  binding is deleted, the corresponding consumer VPC network is no longer
+ *  bound to the management DNS zone.
+ *
+ *  @param name Required. The resource name of the management DNS zone binding
+ *    to delete. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a 'ManagementDnsZoneBinding' resource by its resource name.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the management DNS zone binding to retrieve.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ManagementDnsZoneBinding.
+ *
+ *  Retrieves a 'ManagementDnsZoneBinding' resource by its resource name.
+ *
+ *  @param name Required. The resource name of the management DNS zone binding
+ *    to retrieve. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Consumer VPCs bound to Management DNS Zone of a given private cloud.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of Management DNS Zone Bindings, you
+ *  can exclude the ones named `example-management-dns-zone-binding` by
+ *  specifying `name != "example-management-dns-zone-binding"`. To filter on
+ *  multiple expressions, provide each separate expression within parentheses.
+ *  For example: ``` (name = "example-management-dns-zone-binding") (createTime
+ *  > "2021-04-12T08:15:10.40Z") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (name = "example-management-dns-zone-binding-1") AND
+ *  (createTime > "2021-04-12T08:15:10.40Z") OR (name =
+ *  "example-management-dns-zone-binding-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of management DNS zone bindings to return in one page.
+ *  The service may return fewer than this value. The maximum value is coerced
+ *  to 1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListManagementDnsZoneBindings` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListManagementDnsZoneBindings` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the private cloud to be queried for
+ *  management DNS zone bindings. Resource names are schemeless URIs that follow
+ *  the conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListManagementDnsZoneBindingsResponse.
+ *
+ *  Lists Consumer VPCs bound to Management DNS Zone of a given private cloud.
+ *
+ *  @param parent Required. The resource name of the private cloud to be queried
+ *    for management DNS zone bindings. Resource names are schemeless URIs that
+ *    follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a `ManagementDnsZoneBinding` resource. Only fields specified in
+ *  `update_mask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of this binding. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `ManagementDnsZoneBinding` resource by the update. The fields specified in
+ *  the `update_mask` are relative to the resource, not the full request. A
+ *  field will be overwritten if it is in the mask. If the user does not provide
+ *  a mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Updates a `ManagementDnsZoneBinding` resource. Only fields specified in
+ *  `update_mask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_ManagementDnsZoneBinding to include in
+ *    the query.
+ *  @param name Output only. The resource name of this binding. Resource names
+ *    are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_ManagementDnsZoneBinding *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retries to create a `ManagementDnsZoneBinding` resource that is in failed
+ *  state.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.managementDnsZoneBindings.repair
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsRepair : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the management DNS zone binding to repair.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Retries to create a `ManagementDnsZoneBinding` resource that is in failed
+ *  state.
+ *
+ *  @param object The @c GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the management DNS zone binding
+ *    to repair. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/managementDnsZoneBindings/my-management-dns-zone-binding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsRepair
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Modifies a `PrivateCloud` resource. Only the following fields can be
  *  updated: `description`. Only fields specified in `updateMask` are applied.
  *  During operation processing, the resource is temporarily in the `ACTIVE`
@@ -1869,6 +3772,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  */
 @property(nonatomic, copy, nullable) NSString *privateCloud;
+
+/**
+ *  Optional. The username of the user to be queried for credentials. The
+ *  default value of this field is CloudOwner\@gve.local. The provided value
+ *  must be one of the following: CloudOwner\@gve.local,
+ *  solution-user-01\@gve.local, solution-user-02\@gve.local,
+ *  solution-user-03\@gve.local, solution-user-04\@gve.local,
+ *  solution-user-05\@gve.local, zertoadmin\@gve.local.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Credentials.
@@ -2111,6 +4024,70 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUndelete
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_UndeletePrivateCloudRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the parameters of the `DnsForwarding` config, like associated
+ *  domains. Only fields specified in `update_mask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.updateDnsForwarding
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. The resource name of this DNS profile. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `DnsForwarding` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Updates the parameters of the `DnsForwarding` config, like associated
+ *  domains. Only fields specified in `update_mask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_DnsForwarding to include in the query.
+ *  @param name Output only. The resource name of this DNS profile. Resource
+ *    names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_DnsForwarding *)object
                            name:(NSString *)name;
 
 @end

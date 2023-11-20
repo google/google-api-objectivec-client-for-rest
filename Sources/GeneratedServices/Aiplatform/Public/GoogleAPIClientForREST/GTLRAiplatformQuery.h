@@ -2866,6 +2866,152 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Create a DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The parent location resource where this DeploymentResourcePool
+ *  will be created. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Create a DeploymentResourcePool.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest
+ *    to include in the query.
+ *  @param parent Required. The parent location resource where this
+ *    DeploymentResourcePool will be created. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the DeploymentResourcePool to delete. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Delete a DeploymentResourcePool.
+ *
+ *  @param name Required. The name of the DeploymentResourcePool to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the DeploymentResourcePool to retrieve. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool.
+ *
+ *  Get a DeploymentResourcePool.
+ *
+ *  @param name Required. The name of the DeploymentResourcePool to retrieve.
+ *    Format:
+ *    `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List DeploymentResourcePools in a location.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsList : GTLRAiplatformQuery
+
+/**
+ *  The maximum number of DeploymentResourcePools to return. The service may
+ *  return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDeploymentResourcePools` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListDeploymentResourcePools` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent Location which owns this collection of
+ *  DeploymentResourcePools. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListDeploymentResourcePoolsResponse.
+ *
+ *  List DeploymentResourcePools in a location.
+ *
+ *  @param parent Required. The parent Location which owns this collection of
+ *    DeploymentResourcePools. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -3056,6 +3202,121 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsOperationsWait
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List DeployedModels that have been deployed on this DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.queryDeployedModels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsQueryDeployedModels : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the target DeploymentResourcePool to query. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentResourcePool;
+
+/**
+ *  The maximum number of DeployedModels to return. The service may return fewer
+ *  than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `QueryDeployedModels` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `QueryDeployedModels` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1QueryDeployedModelsResponse.
+ *
+ *  List DeployedModels that have been deployed on this DeploymentResourcePool.
+ *
+ *  @param deploymentResourcePool Required. The name of the target
+ *    DeploymentResourcePool to query. Format:
+ *    `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsQueryDeployedModels
+ */
++ (instancetype)queryWithDeploymentResourcePool:(NSString *)deploymentResourcePool;
+
+@end
+
+/**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 
@@ -3728,6 +3989,1722 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1UndeployModelRequest *)object
                        endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Creates a new FeatureGroup in a given project and location.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The ID to use for this FeatureGroup, which will become the final
+ *  component of the FeatureGroup's resource name. This value may be up to 60
+ *  characters, and valid characters are `[a-z0-9_]`. The first character cannot
+ *  be a number. The value must be unique within the project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *featureGroupId;
+
+/**
+ *  Required. The resource name of the Location to create FeatureGroups. Format:
+ *  `projects/{project}/locations/{location}'`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a new FeatureGroup in a given project and location.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create
+ *    FeatureGroups. Format: `projects/{project}/locations/{location}'`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsDelete : GTLRAiplatformQuery
+
+/**
+ *  If set to true, any Features under this FeatureGroup will also be deleted.
+ *  (Otherwise, the request will only work if the FeatureGroup has no Features.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the FeatureGroup to be deleted. Format:
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a single FeatureGroup.
+ *
+ *  @param name Required. The name of the FeatureGroup to be deleted. Format:
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Feature in a given FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The ID to use for the Feature, which will become the final
+ *  component of the Feature's resource name. This value may be up to 128
+ *  characters, and valid characters are `[a-z0-9_]`. The first character cannot
+ *  be a number. The value must be unique within an EntityType/FeatureGroup.
+ */
+@property(nonatomic, copy, nullable) NSString *featureId;
+
+/**
+ *  Required. The resource name of the EntityType or FeatureGroup to create a
+ *  Feature. Format for entity_type as parent:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a new Feature in a given FeatureGroup.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Feature to
+ *    include in the query.
+ *  @param parent Required. The resource name of the EntityType or FeatureGroup
+ *    to create a Feature. Format for entity_type as parent:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Feature *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Feature.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Features to be deleted. Format:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a single Feature.
+ *
+ *  @param name Required. The name of the Features to be deleted. Format:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Feature.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Feature resource. Format for entity_type as
+ *  parent:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Feature.
+ *
+ *  Gets details of a single Feature.
+ *
+ *  @param name Required. The name of the Feature resource. Format for
+ *    entity_type as parent:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Features in a given FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesList : GTLRAiplatformQuery
+
+/**
+ *  Lists the Features that match the filter expression. The following filters
+ *  are supported: * `value_type`: Supports = and != comparisons. *
+ *  `create_time`: Supports =, !=, <, >, >=, and <= comparisons. Values must be
+ *  in RFC 3339 format. * `update_time`: Supports =, !=, <, >, >=, and <=
+ *  comparisons. Values must be in RFC 3339 format. * `labels`: Supports
+ *  key-value equality as well as key presence. Examples: * `value_type =
+ *  DOUBLE` --> Features whose type is DOUBLE. * `create_time >
+ *  \\"2020-01-31T15:30:00.000000Z\\" OR update_time >
+ *  \\"2020-01-31T15:30:00.000000Z\\"` --> EntityTypes created or updated after
+ *  2020-01-31T15:30:00.000000Z. * `labels.active = yes AND labels.env = prod`
+ *  --> Features having both (active: yes) and (env: prod) labels. *
+ *  `labels.env: *` --> Any Feature which has a label with 'env' as the key.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Only applicable for Vertex AI Feature Store (Legacy). If set, return the
+ *  most recent ListFeaturesRequest.latest_stats_count of stats for each Feature
+ *  in response. Valid value is [0, 10]. If number of stats exists <
+ *  ListFeaturesRequest.latest_stats_count, return all existing stats.
+ */
+@property(nonatomic, assign) NSInteger latestStatsCount;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: * `feature_id` *
+ *  `value_type` (Not supported for FeatureRegistry Feature) * `create_time` *
+ *  `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of Features to return. The service may return fewer than
+ *  this value. If unspecified, at most 1000 Features will be returned. The
+ *  maximum value is 1000; any value greater than 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous FeaturestoreService.ListFeatures call
+ *  or FeatureRegistryService.ListFeatures call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures
+ *  must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list Features. Format for
+ *  entity_type as parent:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  Format for feature_group as parent:
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListFeaturesResponse.
+ *
+ *  Lists Features in a given FeatureGroup.
+ *
+ *  @param parent Required. The resource name of the Location to list Features.
+ *    Format for entity_type as parent:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    Format for feature_group as parent:
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.operations.listWait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsListWait : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsListWait
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the parameters of a single Feature.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesPatch : GTLRAiplatformQuery
+
+/**
+ *  Immutable. Name of the Feature. Format:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+ *  The last part feature is assigned by the client. The feature can be up to 64
+ *  characters long and can consist only of ASCII Latin letters A-Z and a-z,
+ *  underscore(_), and ASCII digits 0-9 starting with a letter. The value will
+ *  be unique given an entity type.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask is used to specify the fields to be overwritten in the Features
+ *  resource by the update. The fields specified in the update_mask are relative
+ *  to the resource, not the full request. A field will be overwritten if it is
+ *  in the mask. If the user does not provide a mask then only the non-empty
+ *  fields present in the request will be overwritten. Set the update_mask to
+ *  `*` to override all fields. Updatable fields: * `description` * `labels` *
+ *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single Feature.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Feature to
+ *    include in the query.
+ *  @param name Immutable. Name of the Feature. Format:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}`
+ *    The last part feature is assigned by the client. The feature can be up to
+ *    64 characters long and can consist only of ASCII Latin letters A-Z and
+ *    a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value
+ *    will be unique given an entity type.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Feature *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsGet : GTLRAiplatformQuery
+
+/** Required. The name of the FeatureGroup resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup.
+ *
+ *  Gets details of a single FeatureGroup.
+ *
+ *  @param name Required. The name of the FeatureGroup resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FeatureGroups in a given project and location.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsList : GTLRAiplatformQuery
+
+/**
+ *  Lists the FeatureGroups that match the filter expression. The following
+ *  fields are supported: * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`,
+ *  and `>=` comparisons. Values must be in RFC 3339 format. * `update_time`:
+ *  Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons. Values must be in
+ *  RFC 3339 format. * `labels`: Supports key-value equality and key presence.
+ *  Examples: * `create_time > "2020-01-01" OR update_time > "2020-01-01"`
+ *  FeatureGroups created or updated after 2020-01-01. * `labels.env = "prod"`
+ *  FeatureGroups with label "env" set to "prod".
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported Fields: * `create_time`
+ *  * `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of FeatureGroups to return. The service may return fewer
+ *  than this value. If unspecified, at most 100 FeatureGroups will be returned.
+ *  The maximum value is 100; any value greater than 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  FeatureGroupAdminService.ListFeatureGroups call. Provide this to retrieve
+ *  the subsequent page. When paginating, all other parameters provided to
+ *  FeatureGroupAdminService.ListFeatureGroups must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list FeatureGroups. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureGroupsResponse.
+ *
+ *  Lists FeatureGroups in a given project and location.
+ *
+ *  @param parent Required. The resource name of the Location to list
+ *    FeatureGroups. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.operations.listWait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsListWait : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsListWait
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the parameters of a single FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Name of the FeatureGroup. Format:
+ *  `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask is used to specify the fields to be overwritten in the
+ *  FeatureGroup resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  only the non-empty fields present in the request will be overwritten. Set
+ *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single FeatureGroup.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup to
+ *    include in the query.
+ *  @param name Output only. Name of the FeatureGroup. Format:
+ *    `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new FeatureOnlineStore in a given project and location.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The ID to use for this FeatureOnlineStore, which will become the
+ *  final component of the FeatureOnlineStore's resource name. This value may be
+ *  up to 60 characters, and valid characters are `[a-z0-9_]`. The first
+ *  character cannot be a number. The value must be unique within the project
+ *  and location.
+ */
+@property(nonatomic, copy, nullable) NSString *featureOnlineStoreId;
+
+/**
+ *  Required. The resource name of the Location to create FeatureOnlineStores.
+ *  Format: `projects/{project}/locations/{location}'`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a new FeatureOnlineStore in a given project and location.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore to include in the
+ *    query.
+ *  @param parent Required. The resource name of the Location to create
+ *    FeatureOnlineStores. Format: `projects/{project}/locations/{location}'`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain
+ *  any FeatureViews.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresDelete : GTLRAiplatformQuery
+
+/**
+ *  If set to true, any FeatureViews and Features for this FeatureOnlineStore
+ *  will also be deleted. (Otherwise, the request will only work if the
+ *  FeatureOnlineStore has no FeatureViews.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the FeatureOnlineStore to be deleted. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain
+ *  any FeatureViews.
+ *
+ *  @param name Required. The name of the FeatureOnlineStore to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new FeatureView in a given FeatureOnlineStore.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The ID to use for the FeatureView, which will become the final
+ *  component of the FeatureView's resource name. This value may be up to 60
+ *  characters, and valid characters are `[a-z0-9_]`. The first character cannot
+ *  be a number. The value must be unique within a FeatureOnlineStore.
+ */
+@property(nonatomic, copy, nullable) NSString *featureViewId;
+
+/**
+ *  Required. The resource name of the FeatureOnlineStore to create
+ *  FeatureViews. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Immutable. If set to true, one on demand sync will be run immediately,
+ *  regardless whether the FeatureView.sync_config is configured or not.
+ */
+@property(nonatomic, assign) BOOL runSyncImmediately;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a new FeatureView in a given FeatureOnlineStore.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureView to
+ *    include in the query.
+ *  @param parent Required. The resource name of the FeatureOnlineStore to
+ *    create FeatureViews. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the FeatureView to be deleted. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a single FeatureView.
+ *
+ *  @param name Required. The name of the FeatureView to be deleted. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single FeatureViewSync.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFeatureViewSyncsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the FeatureViewSync resource. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync.
+ *
+ *  Gets details of a single FeatureViewSync.
+ *
+ *  @param name Required. The name of the FeatureViewSync resource. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFeatureViewSyncsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FeatureViewSyncs in a given FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFeatureViewSyncsList : GTLRAiplatformQuery
+
+/**
+ *  Lists the FeatureViewSyncs that match the filter expression. The following
+ *  filters are supported: * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`,
+ *  and `<=` comparisons. Values must be in RFC 3339 format. Examples: *
+ *  `create_time > \\"2020-01-31T15:30:00.000000Z\\"` --> FeatureViewSyncs
+ *  created after 2020-01-31T15:30:00.000000Z.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: * `create_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of FeatureViewSyncs to return. The service may return
+ *  fewer than this value. If unspecified, at most 1000 FeatureViewSyncs will be
+ *  returned. The maximum value is 1000; any value greater than 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  FeatureOnlineStoreAdminService.ListFeatureViewSyncs call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to FeatureOnlineStoreAdminService.ListFeatureViewSyncs must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the FeatureView to list FeatureViewSyncs.
+ *  Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureViewSyncsResponse.
+ *
+ *  Lists FeatureViewSyncs in a given FeatureView.
+ *
+ *  @param parent Required. The resource name of the FeatureView to list
+ *    FeatureViewSyncs. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFeatureViewSyncsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Fetch feature values under a FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.fetchFeatureValues
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFetchFeatureValues : GTLRAiplatformQuery
+
+/**
+ *  Required. FeatureView resource format
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ */
+@property(nonatomic, copy, nullable) NSString *featureView;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse.
+ *
+ *  Fetch feature values under a FeatureView.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest to include
+ *    in the query.
+ *  @param featureView Required. FeatureView resource format
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsFetchFeatureValues
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest *)object
+                    featureView:(NSString *)featureView;
+
+@end
+
+/**
+ *  Gets details of a single FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the FeatureView resource. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureView.
+ *
+ *  Gets details of a single FeatureView.
+ *
+ *  @param name Required. The name of the FeatureView resource. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FeatureViews in a given FeatureOnlineStore.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsList : GTLRAiplatformQuery
+
+/**
+ *  Lists the FeatureViews that match the filter expression. The following
+ *  filters are supported: * `create_time`: Supports `=`, `!=`, `<`, `>`, `>=`,
+ *  and `<=` comparisons. Values must be in RFC 3339 format. * `update_time`:
+ *  Supports `=`, `!=`, `<`, `>`, `>=`, and `<=` comparisons. Values must be in
+ *  RFC 3339 format. * `labels`: Supports key-value equality as well as key
+ *  presence. Examples: * `create_time > \\"2020-01-31T15:30:00.000000Z\\" OR
+ *  update_time > \\"2020-01-31T15:30:00.000000Z\\"` --> FeatureViews created or
+ *  updated after 2020-01-31T15:30:00.000000Z. * `labels.active = yes AND
+ *  labels.env = prod` --> FeatureViews having both (active: yes) and (env:
+ *  prod) labels. * `labels.env: *` --> Any FeatureView which has a label with
+ *  'env' as the key.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: *
+ *  `feature_view_id` * `create_time` * `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of FeatureViews to return. The service may return fewer
+ *  than this value. If unspecified, at most 1000 FeatureViews will be returned.
+ *  The maximum value is 1000; any value greater than 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  FeatureOnlineStoreAdminService.ListFeatureViews call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to FeatureOnlineStoreAdminService.ListFeatureViews must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the FeatureOnlineStore to list FeatureViews.
+ *  Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureViewsResponse.
+ *
+ *  Lists FeatureViews in a given FeatureOnlineStore.
+ *
+ *  @param parent Required. The resource name of the FeatureOnlineStore to list
+ *    FeatureViews. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.listWait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsListWait : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsListWait
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the parameters of a single FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Name of the FeatureView. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask is used to specify the fields to be overwritten in the
+ *  FeatureView resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  only the non-empty fields present in the request will be overwritten. Set
+ *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single FeatureView.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureView to
+ *    include in the query.
+ *  @param name Output only. Name of the FeatureView. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Triggers on-demand sync for the FeatureView.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.sync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSync : GTLRAiplatformQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *featureView;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewResponse.
+ *
+ *  Triggers on-demand sync for the FeatureView.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewRequest to include in
+ *    the query.
+ *  @param featureView Required. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSync
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewRequest *)object
+                    featureView:(NSString *)featureView;
+
+@end
+
+/**
+ *  Gets details of a single FeatureOnlineStore.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGet : GTLRAiplatformQuery
+
+/** Required. The name of the FeatureOnlineStore resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore.
+ *
+ *  Gets details of a single FeatureOnlineStore.
+ *
+ *  @param name Required. The name of the FeatureOnlineStore resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FeatureOnlineStores in a given project and location.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresList : GTLRAiplatformQuery
+
+/**
+ *  Lists the FeatureOnlineStores that match the filter expression. The
+ *  following fields are supported: * `create_time`: Supports `=`, `!=`, `<`,
+ *  `>`, `<=`, and `>=` comparisons. Values must be in RFC 3339 format. *
+ *  `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons.
+ *  Values must be in RFC 3339 format. * `labels`: Supports key-value equality
+ *  and key presence. Examples: * `create_time > "2020-01-01" OR update_time >
+ *  "2020-01-01"` FeatureOnlineStores created or updated after 2020-01-01. *
+ *  `labels.env = "prod"` FeatureOnlineStores with label "env" set to "prod".
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported Fields: * `create_time`
+ *  * `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of FeatureOnlineStores to return. The service may return
+ *  fewer than this value. If unspecified, at most 100 FeatureOnlineStores will
+ *  be returned. The maximum value is 100; any value greater than 100 will be
+ *  coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  FeatureOnlineStoreAdminService.ListFeatureOnlineStores call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to FeatureOnlineStoreAdminService.ListFeatureOnlineStores must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list FeatureOnlineStores.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListFeatureOnlineStoresResponse.
+ *
+ *  Lists FeatureOnlineStores in a given project and location.
+ *
+ *  @param parent Required. The resource name of the Location to list
+ *    FeatureOnlineStores. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.operations.listWait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsListWait : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsListWait
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the parameters of a single FeatureOnlineStore.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Name of the FeatureOnlineStore. Format:
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask is used to specify the fields to be overwritten in the
+ *  FeatureOnlineStore resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then only the non-empty fields present in the request will be overwritten.
+ *  Set the update_mask to `*` to override all fields. Updatable fields: *
+ *  `big_query_source` * `labels` * `sync_config`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single FeatureOnlineStore.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore to include in the
+ *    query.
+ *  @param name Output only. Name of the FeatureOnlineStore. Format:
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -12042,6 +14019,75 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsWait
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 

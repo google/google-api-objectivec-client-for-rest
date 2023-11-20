@@ -18,12 +18,17 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAdScheduleInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAssetInteractionTarget;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonAudienceInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonBusinessProfileLocation;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonCustomParameter;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonDeviceInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonEnhancedCpc;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonFrequencyCapEntry;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonImageAsset;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonImageDimension;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonKeyword;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonLanguageInfo;
@@ -53,6 +58,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetRestriction;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetRoas;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTargetSpend;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonTextAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonUnifiedCallAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonUnifiedCalloutAsset;
@@ -63,6 +69,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonValue;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonWebpageConditionInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonWebpageInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonYoutubeVideoAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorDetails;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorLocation;
@@ -84,8 +91,15 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAssetCombinationData;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupSignal;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupTopCombinationView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSetAsset;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAudience;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignAsset;
@@ -101,6 +115,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignSelectiveOptimization;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignShoppingSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignTrackingSetting;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesCartDataSalesView;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionFloodlightSettings;
@@ -118,10 +134,23 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesGeoTargetConstant;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesKeywordView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesLanguageConstant;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimension;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionPath;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBrand;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductItemId;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesProductGroupView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesShoppingPerformanceView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row;
@@ -333,6 +362,325 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAgeRa
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage.servedAssetFieldType
+
+/**
+ *  This asset is used as an image.
+ *
+ *  Value: "AD_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AdImage;
+/**
+ *  The asset is used as a business logo.
+ *
+ *  Value: "BUSINESS_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessLogo;
+/**
+ *  The asset was used as business name.
+ *
+ *  Value: "BUSINESS_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessName;
+/**
+ *  The asset was used as business name in portrait image.
+ *
+ *  Value: "BUSINESS_NAME_IN_PORTRAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessNameInPortrait;
+/**
+ *  This asset is used as a call.
+ *
+ *  Value: "CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Call;
+/**
+ *  This asset is used as a callout.
+ *
+ *  Value: "CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Callout;
+/**
+ *  The asset was used as a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_CallToAction;
+/**
+ *  The asset was used in a description. Use this only if there is only one
+ *  description in the ad. Otherwise, use the DESCRIPTION_1 or DESCRIPTION_\@
+ *  enums
+ *
+ *  Value: "DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description;
+/**
+ *  The asset is used in description 1.
+ *
+ *  Value: "DESCRIPTION_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description1;
+/**
+ *  The asset is used in description 2.
+ *
+ *  Value: "DESCRIPTION_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description2;
+/**
+ *  The asset was used as description in portrait image.
+ *
+ *  Value: "DESCRIPTION_IN_PORTRAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait;
+/**
+ *  The asset was used in a headline. Use this only if there is only one
+ *  headline in the ad. Otherwise, use the HEADLINE_1, HEADLINE_2 or HEADLINE_3
+ *  enums
+ *
+ *  Value: "HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline;
+/**
+ *  The asset is used in headline 1.
+ *
+ *  Value: "HEADLINE_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline1;
+/**
+ *  The asset is used in headline 2.
+ *
+ *  Value: "HEADLINE_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline2;
+/**
+ *  The asset is used in headline 3.
+ *
+ *  Value: "HEADLINE_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline3;
+/**
+ *  The asset was used as a headline in portrait image.
+ *
+ *  Value: "HEADLINE_IN_PORTRAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineInPortrait;
+/**
+ *  The asset was used as a landscape logo.
+ *
+ *  Value: "LANDSCAPE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LandscapeLogo;
+/**
+ *  The asset is used as a lead form.
+ *
+ *  Value: "LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LeadForm;
+/**
+ *  The asset was used as a logo.
+ *
+ *  Value: "LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Logo;
+/**
+ *  The asset was used in a long headline (used in MultiAssetResponsiveAd).
+ *
+ *  Value: "LONG_HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LongHeadline;
+/**
+ *  The asset was used as a marketing image.
+ *
+ *  Value: "MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MarketingImage;
+/**
+ *  The asset was used as a marketing image in portrait image.
+ *
+ *  Value: "MARKETING_IMAGE_IN_PORTRAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MarketingImageInPortrait;
+/**
+ *  This asset is used as a mobile app.
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MobileApp;
+/**
+ *  The asset was used as a portrait marketing image.
+ *
+ *  Value: "PORTRAIT_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_PortraitMarketingImage;
+/**
+ *  This asset is used as a price.
+ *
+ *  Value: "PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Price;
+/**
+ *  This asset is used as a promotion.
+ *
+ *  Value: "PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Promotion;
+/**
+ *  This asset is used as a sitelink.
+ *
+ *  Value: "SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Sitelink;
+/**
+ *  The asset was used as a square marketing image.
+ *
+ *  Value: "SQUARE_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_SquareMarketingImage;
+/**
+ *  This asset is used as a structured snippet.
+ *
+ *  Value: "STRUCTURED_SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_StructuredSnippet;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Unspecified;
+/**
+ *  The asset was used as a YouTube video.
+ *
+ *  Value: "YOU_TUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_YouTubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset.callToAction
+
+/**
+ *  The call to action type is apply now.
+ *
+ *  Value: "APPLY_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ApplyNow;
+/**
+ *  The call to action type is book now.
+ *
+ *  Value: "BOOK_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_BookNow;
+/**
+ *  The call to action type is buy now.
+ *
+ *  Value: "BUY_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_BuyNow;
+/**
+ *  The call to action type is contact us.
+ *
+ *  Value: "CONTACT_US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ContactUs;
+/**
+ *  The call to action type is donate now.
+ *
+ *  Value: "DONATE_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_DonateNow;
+/**
+ *  The call to action type is download.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Download;
+/**
+ *  The call to action type is get quote.
+ *
+ *  Value: "GET_QUOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_GetQuote;
+/**
+ *  The call to action type is learn more.
+ *
+ *  Value: "LEARN_MORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_LearnMore;
+/**
+ *  The call to action type is order now.
+ *
+ *  Value: "ORDER_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_OrderNow;
+/**
+ *  The call to action type is play now.
+ *
+ *  Value: "PLAY_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_PlayNow;
+/**
+ *  The call to action type is see more.
+ *
+ *  Value: "SEE_MORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_SeeMore;
+/**
+ *  The call to action type is shop now.
+ *
+ *  Value: "SHOP_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ShopNow;
+/**
+ *  The call to action type is sign up.
+ *
+ *  Value: "SIGN_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_SignUp;
+/**
+ *  The call to action type is start now.
+ *
+ *  Value: "START_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_StartNow;
+/**
+ *  The call to action type is subscribe.
+ *
+ *  Value: "SUBSCRIBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Subscribe;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Unspecified;
+/**
+ *  The call to action type is visit site.
+ *
+ *  Value: "VISIT_SITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_VisitSite;
+/**
+ *  The call to action type is watch now.
+ *
+ *  Value: "WATCH_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_WatchNow;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonDeviceInfo.type
 
 /**
@@ -411,6 +759,95 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonGende
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonImageAsset.mimeType
+
+/**
+ *  MIME type of audio/mp3.
+ *
+ *  Value: "AUDIO_MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_AudioMp3;
+/**
+ *  MIME type of audio/wav.
+ *
+ *  Value: "AUDIO_WAV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_AudioWav;
+/**
+ *  MIME type of application/x-shockwave-flash.
+ *
+ *  Value: "FLASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Flash;
+/**
+ *  MIME type of application/x-html5-ad-zip.
+ *
+ *  Value: "HTML5_AD_ZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Html5AdZip;
+/**
+ *  MIME type of image/gif.
+ *
+ *  Value: "IMAGE_GIF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImageGif;
+/**
+ *  MIME type of image/jpeg.
+ *
+ *  Value: "IMAGE_JPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImageJpeg;
+/**
+ *  MIME type of image/png.
+ *
+ *  Value: "IMAGE_PNG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImagePng;
+/**
+ *  MIME type of application/vnd.ms-excel.
+ *
+ *  Value: "MSEXCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Msexcel;
+/**
+ *  MIME type of application/msword.
+ *
+ *  Value: "MSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Msword;
+/**
+ *  MIME type of application/pdf.
+ *
+ *  Value: "PDF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Pdf;
+/**
+ *  MIME type of application/rtf.
+ *
+ *  Value: "RTF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Rtf;
+/**
+ *  MIME type of text/html.
+ *
+ *  Value: "TEXT_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_TextHtml;
+/**
+ *  The received value is not known in this version. This is a response-only
+ *  value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Unknown;
+/**
+ *  The mime type has not been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonKeywordInfo.matchType
@@ -996,6 +1433,144 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegme
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_Device_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.productChannel
+
+/**
+ *  The item is sold in local stores.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Local;
+/**
+ *  The item is sold online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Online;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.productChannelExclusivity
+
+/**
+ *  The item is matched to its online or local stores counterpart, indicating it
+ *  is available for purchase in both ShoppingProductChannels.
+ *
+ *  Value: "MULTI_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_MultiChannel;
+/**
+ *  The item is sold through one channel only, either local stores or online as
+ *  indicated by its ProductChannel.
+ *
+ *  Value: "SINGLE_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_SingleChannel;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.productCondition
+
+/**
+ *  The product condition is new.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_New;
+/**
+ *  The product condition is old.
+ *
+ *  Value: "OLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Old;
+/**
+ *  The product condition is refurbished.
+ *
+ *  Value: "REFURBISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Refurbished;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Unspecified;
+/**
+ *  The product condition is used.
+ *
+ *  Value: "USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Used;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.productSoldCondition
+
+/**
+ *  The product condition is new.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_New;
+/**
+ *  The product condition is old.
+ *
+ *  Value: "OLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Old;
+/**
+ *  The product condition is refurbished.
+ *
+ *  Value: "REFURBISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Refurbished;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Unspecified;
+/**
+ *  The product condition is used.
+ *
+ *  Value: "USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Used;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare.location
 
 /**
@@ -1304,7 +1879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthenticationError_LoginCookieRequired;
 /**
- *  User in the cookie is not a valid Ads user.
+ *  The Google account that generated the OAuth access token is not associated
+ *  with a Search Ads 360 account. Create a new account, or add the Google
+ *  account to an existing Search Ads 360 account.
  *
  *  Value: "NOT_ADS_USER"
  */
@@ -3707,6 +4284,362 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAs
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAsset_Type_YoutubeVideo;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup.adStrength
+
+/**
+ *  Average strength.
+ *
+ *  Value: "AVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Average;
+/**
+ *  Excellent strength.
+ *
+ *  Value: "EXCELLENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Excellent;
+/**
+ *  Good strength.
+ *
+ *  Value: "GOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Good;
+/**
+ *  No ads could be generated.
+ *
+ *  Value: "NO_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_NoAds;
+/**
+ *  The ad strength is currently pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Pending;
+/**
+ *  Poor strength.
+ *
+ *  Value: "POOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Poor;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup.status
+
+/**
+ *  The asset group is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Enabled;
+/**
+ *  The asset group is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Paused;
+/**
+ *  The asset group is removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Removed;
+/**
+ *  The received value is not known in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Unknown;
+/**
+ *  The status has not been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset.fieldType
+
+/**
+ *  The asset is linked for use to select an ad image.
+ *
+ *  Value: "AD_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_AdImage;
+/**
+ *  The asset is linked to indicate that a hotels campaign is "Book on Google"
+ *  enabled.
+ *
+ *  Value: "BOOK_ON_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BookOnGoogle;
+/**
+ *  The asset is linked for use as a business logo.
+ *
+ *  Value: "BUSINESS_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BusinessLogo;
+/**
+ *  The asset is linked for use as a business name.
+ *
+ *  Value: "BUSINESS_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BusinessName;
+/**
+ *  The asset is linked for use as a Call extension.
+ *
+ *  Value: "CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Call;
+/**
+ *  The asset is linked for use as a Callout extension.
+ *
+ *  Value: "CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Callout;
+/**
+ *  The asset is linked for use to select a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION_SELECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_CallToActionSelection;
+/**
+ *  The asset is linked for use as a description.
+ *
+ *  Value: "DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Description;
+/**
+ *  The asset is linked for use as a headline.
+ *
+ *  Value: "HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Headline;
+/**
+ *  The asset is linked for use as a Hotel Callout extension.
+ *
+ *  Value: "HOTEL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_HotelCallout;
+/**
+ *  The asset is linked for use as a hotel property in a Performance Max for
+ *  travel goals campaign.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_HotelProperty;
+/**
+ *  The asset is linked for use as a landscape logo.
+ *
+ *  Value: "LANDSCAPE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LandscapeLogo;
+/**
+ *  The asset is linked for use as a Lead Form extension.
+ *
+ *  Value: "LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LeadForm;
+/**
+ *  The asset is linked for use as a logo.
+ *
+ *  Value: "LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Logo;
+/**
+ *  The asset is linked for use as a long headline.
+ *
+ *  Value: "LONG_HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LongHeadline;
+/**
+ *  The asset is linked for use as mandatory ad text.
+ *
+ *  Value: "MANDATORY_AD_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MandatoryAdText;
+/**
+ *  The asset is linked for use as a marketing image.
+ *
+ *  Value: "MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MarketingImage;
+/**
+ *  The asset is linked for use as a media bundle.
+ *
+ *  Value: "MEDIA_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MediaBundle;
+/**
+ *  The asset is linked for use as a Mobile App extension.
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MobileApp;
+/**
+ *  The asset is linked for use as a portrait marketing image.
+ *
+ *  Value: "PORTRAIT_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_PortraitMarketingImage;
+/**
+ *  The asset is linked for use as a Price extension.
+ *
+ *  Value: "PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Price;
+/**
+ *  The asset is linked for use as a Promotion extension.
+ *
+ *  Value: "PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Promotion;
+/**
+ *  The asset is linked for use as a Sitelink.
+ *
+ *  Value: "SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Sitelink;
+/**
+ *  The asset is linked for use as a square marketing image.
+ *
+ *  Value: "SQUARE_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_SquareMarketingImage;
+/**
+ *  The asset is linked for use as a Structured Snippet extension.
+ *
+ *  Value: "STRUCTURED_SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_StructuredSnippet;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Unspecified;
+/**
+ *  The asset is linked for use as a non YouTube logo.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Video;
+/**
+ *  The asset is linked for use as a YouTube video.
+ *
+ *  Value: "YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_YoutubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset.status
+
+/**
+ *  Asset link is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Enabled;
+/**
+ *  Asset link is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Paused;
+/**
+ *  Asset link has been removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Removed;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter.type
+
+/**
+ *  Subdivision of products along some listing dimensions.
+ *
+ *  Value: "SUBDIVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Subdivision;
+/**
+ *  An excluded listing group filter leaf node.
+ *
+ *  Value: "UNIT_EXCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_UnitExcluded;
+/**
+ *  An included listing group filter leaf node.
+ *
+ *  Value: "UNIT_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_UnitIncluded;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter.vertical
+
+/**
+ *  Represents the shopping vertical.
+ *
+ *  Value: "SHOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Shopping;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSetAsset.status
 
 /**
@@ -4866,8 +5799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget.period
 
 /**
- *  Custom budget, added back in V5. Custom bugdet can be used with total_amount
- *  to specify lifetime budget limit.
+ *  Custom budget can be used with total_amount to specify lifetime budget
+ *  limit.
  *
  *  Value: "CUSTOM_PERIOD"
  */
@@ -5275,6 +6208,270 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignOptimizationGoalSetting_OptimizationGoalTypes_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion.assetFieldType
+
+/**
+ *  The asset is linked for use to select an ad image.
+ *
+ *  Value: "AD_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_AdImage;
+/**
+ *  The asset is linked to indicate that a hotels campaign is "Book on Google"
+ *  enabled.
+ *
+ *  Value: "BOOK_ON_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BookOnGoogle;
+/**
+ *  The asset is linked for use as a business logo.
+ *
+ *  Value: "BUSINESS_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BusinessLogo;
+/**
+ *  The asset is linked for use as a business name.
+ *
+ *  Value: "BUSINESS_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BusinessName;
+/**
+ *  The asset is linked for use as a Call extension.
+ *
+ *  Value: "CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Call;
+/**
+ *  The asset is linked for use as a Callout extension.
+ *
+ *  Value: "CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Callout;
+/**
+ *  The asset is linked for use to select a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION_SELECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_CallToActionSelection;
+/**
+ *  The asset is linked for use as a description.
+ *
+ *  Value: "DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Description;
+/**
+ *  The asset is linked for use as a headline.
+ *
+ *  Value: "HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Headline;
+/**
+ *  The asset is linked for use as a Hotel Callout extension.
+ *
+ *  Value: "HOTEL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_HotelCallout;
+/**
+ *  The asset is linked for use as a hotel property in a Performance Max for
+ *  travel goals campaign.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_HotelProperty;
+/**
+ *  The asset is linked for use as a landscape logo.
+ *
+ *  Value: "LANDSCAPE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LandscapeLogo;
+/**
+ *  The asset is linked for use as a Lead Form extension.
+ *
+ *  Value: "LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LeadForm;
+/**
+ *  The asset is linked for use as a logo.
+ *
+ *  Value: "LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Logo;
+/**
+ *  The asset is linked for use as a long headline.
+ *
+ *  Value: "LONG_HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LongHeadline;
+/**
+ *  The asset is linked for use as mandatory ad text.
+ *
+ *  Value: "MANDATORY_AD_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MandatoryAdText;
+/**
+ *  The asset is linked for use as a marketing image.
+ *
+ *  Value: "MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MarketingImage;
+/**
+ *  The asset is linked for use as a media bundle.
+ *
+ *  Value: "MEDIA_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MediaBundle;
+/**
+ *  The asset is linked for use as a Mobile App extension.
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MobileApp;
+/**
+ *  The asset is linked for use as a portrait marketing image.
+ *
+ *  Value: "PORTRAIT_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_PortraitMarketingImage;
+/**
+ *  The asset is linked for use as a Price extension.
+ *
+ *  Value: "PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Price;
+/**
+ *  The asset is linked for use as a Promotion extension.
+ *
+ *  Value: "PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Promotion;
+/**
+ *  The asset is linked for use as a Sitelink.
+ *
+ *  Value: "SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Sitelink;
+/**
+ *  The asset is linked for use as a square marketing image.
+ *
+ *  Value: "SQUARE_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_SquareMarketingImage;
+/**
+ *  The asset is linked for use as a Structured Snippet extension.
+ *
+ *  Value: "STRUCTURED_SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_StructuredSnippet;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Unspecified;
+/**
+ *  The asset is linked for use as a non YouTube logo.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Video;
+/**
+ *  The asset is linked for use as a YouTube video.
+ *
+ *  Value: "YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_YoutubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion.attributionType
+
+/**
+ *  The conversion is attributed to a criterion and ad pair.
+ *
+ *  Value: "CRITERION_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_CriterionAd;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Unspecified;
+/**
+ *  The conversion is attributed to a visit.
+ *
+ *  Value: "VISIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Visit;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion.productChannel
+
+/**
+ *  The item is sold in local stores.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Local;
+/**
+ *  The item is sold online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Online;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion.status
+
+/**
+ *  The conversion is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Enabled;
+/**
+ *  The conversion has been removed.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Removed;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction.category
@@ -6302,6 +7499,280 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLa
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesLabel_Status_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory.level
+
+/**
+ *  Level 1.
+ *
+ *  Value: "LEVEL1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level1;
+/**
+ *  Level 2.
+ *
+ *  Value: "LEVEL2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level2;
+/**
+ *  Level 3.
+ *
+ *  Value: "LEVEL3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level3;
+/**
+ *  Level 4.
+ *
+ *  Value: "LEVEL4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level4;
+/**
+ *  Level 5.
+ *
+ *  Value: "LEVEL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level5;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel.channel
+
+/**
+ *  The item is sold in local stores.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Local;
+/**
+ *  The item is sold online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Online;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition.condition
+
+/**
+ *  The product condition is new.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_New;
+/**
+ *  The product condition is refurbished.
+ *
+ *  Value: "REFURBISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Refurbished;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Unspecified;
+/**
+ *  The product condition is used.
+ *
+ *  Value: "USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Used;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute.index
+
+/**
+ *  First listing group filter custom attribute.
+ *
+ *  Value: "INDEX0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index0;
+/**
+ *  Second listing group filter custom attribute.
+ *
+ *  Value: "INDEX1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index1;
+/**
+ *  Third listing group filter custom attribute.
+ *
+ *  Value: "INDEX2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index2;
+/**
+ *  Fourth listing group filter custom attribute.
+ *
+ *  Value: "INDEX3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index3;
+/**
+ *  Fifth listing group filter custom attribute.
+ *
+ *  Value: "INDEX4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index4;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType.level
+
+/**
+ *  Level 1.
+ *
+ *  Value: "LEVEL1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level1;
+/**
+ *  Level 2.
+ *
+ *  Value: "LEVEL2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level2;
+/**
+ *  Level 3.
+ *
+ *  Value: "LEVEL3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level3;
+/**
+ *  Level 4.
+ *
+ *  Value: "LEVEL4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level4;
+/**
+ *  Level 5.
+ *
+ *  Value: "LEVEL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level5;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant.level
+
+/**
+ *  Level 1.
+ *
+ *  Value: "LEVEL1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level1;
+/**
+ *  Level 2.
+ *
+ *  Value: "LEVEL2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level2;
+/**
+ *  Level 3.
+ *
+ *  Value: "LEVEL3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level3;
+/**
+ *  Level 4.
+ *
+ *  Value: "LEVEL4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level4;
+/**
+ *  Level 5.
+ *
+ *  Value: "LEVEL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level5;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant.status
+
+/**
+ *  The category is active and can be used for bidding.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Active;
+/**
+ *  The category is obsolete. Used only for reporting purposes.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Obsolete;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field.category
 
 /**
@@ -6493,6 +7964,214 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUs
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesUserList_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit.assetFieldType
+
+/**
+ *  The asset is linked for use to select an ad image.
+ *
+ *  Value: "AD_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_AdImage;
+/**
+ *  The asset is linked to indicate that a hotels campaign is "Book on Google"
+ *  enabled.
+ *
+ *  Value: "BOOK_ON_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BookOnGoogle;
+/**
+ *  The asset is linked for use as a business logo.
+ *
+ *  Value: "BUSINESS_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BusinessLogo;
+/**
+ *  The asset is linked for use as a business name.
+ *
+ *  Value: "BUSINESS_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BusinessName;
+/**
+ *  The asset is linked for use as a Call extension.
+ *
+ *  Value: "CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Call;
+/**
+ *  The asset is linked for use as a Callout extension.
+ *
+ *  Value: "CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Callout;
+/**
+ *  The asset is linked for use to select a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION_SELECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_CallToActionSelection;
+/**
+ *  The asset is linked for use as a description.
+ *
+ *  Value: "DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Description;
+/**
+ *  The asset is linked for use as a headline.
+ *
+ *  Value: "HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Headline;
+/**
+ *  The asset is linked for use as a Hotel Callout extension.
+ *
+ *  Value: "HOTEL_CALLOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_HotelCallout;
+/**
+ *  The asset is linked for use as a hotel property in a Performance Max for
+ *  travel goals campaign.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_HotelProperty;
+/**
+ *  The asset is linked for use as a landscape logo.
+ *
+ *  Value: "LANDSCAPE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LandscapeLogo;
+/**
+ *  The asset is linked for use as a Lead Form extension.
+ *
+ *  Value: "LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LeadForm;
+/**
+ *  The asset is linked for use as a logo.
+ *
+ *  Value: "LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Logo;
+/**
+ *  The asset is linked for use as a long headline.
+ *
+ *  Value: "LONG_HEADLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LongHeadline;
+/**
+ *  The asset is linked for use as mandatory ad text.
+ *
+ *  Value: "MANDATORY_AD_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MandatoryAdText;
+/**
+ *  The asset is linked for use as a marketing image.
+ *
+ *  Value: "MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MarketingImage;
+/**
+ *  The asset is linked for use as a media bundle.
+ *
+ *  Value: "MEDIA_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MediaBundle;
+/**
+ *  The asset is linked for use as a Mobile App extension.
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MobileApp;
+/**
+ *  The asset is linked for use as a portrait marketing image.
+ *
+ *  Value: "PORTRAIT_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_PortraitMarketingImage;
+/**
+ *  The asset is linked for use as a Price extension.
+ *
+ *  Value: "PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Price;
+/**
+ *  The asset is linked for use as a Promotion extension.
+ *
+ *  Value: "PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Promotion;
+/**
+ *  The asset is linked for use as a Sitelink.
+ *
+ *  Value: "SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Sitelink;
+/**
+ *  The asset is linked for use as a square marketing image.
+ *
+ *  Value: "SQUARE_MARKETING_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_SquareMarketingImage;
+/**
+ *  The asset is linked for use as a Structured Snippet extension.
+ *
+ *  Value: "STRUCTURED_SNIPPET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_StructuredSnippet;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Unspecified;
+/**
+ *  The asset is linked for use as a non YouTube logo.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Video;
+/**
+ *  The asset is linked for use as a YouTube video.
+ *
+ *  Value: "YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_YoutubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit.productChannel
+
+/**
+ *  The item is sold in local stores.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Local;
+/**
+ *  The item is sold online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Online;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Request.summaryRowSetting
 
 /**
@@ -6677,6 +8356,112 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Contains the usage information of the asset.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage : GTLRObject
+
+/** Resource name of the asset. */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/**
+ *  The served field type of the asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AdImage
+ *        This asset is used as an image. (Value: "AD_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessLogo
+ *        The asset is used as a business logo. (Value: "BUSINESS_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessName
+ *        The asset was used as business name. (Value: "BUSINESS_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessNameInPortrait
+ *        The asset was used as business name in portrait image. (Value:
+ *        "BUSINESS_NAME_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Call
+ *        This asset is used as a call. (Value: "CALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Callout
+ *        This asset is used as a callout. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_CallToAction
+ *        The asset was used as a call-to-action. (Value: "CALL_TO_ACTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description
+ *        The asset was used in a description. Use this only if there is only
+ *        one description in the ad. Otherwise, use the DESCRIPTION_1 or
+ *        DESCRIPTION_\@ enums (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description1
+ *        The asset is used in description 1. (Value: "DESCRIPTION_1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Description2
+ *        The asset is used in description 2. (Value: "DESCRIPTION_2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait
+ *        The asset was used as description in portrait image. (Value:
+ *        "DESCRIPTION_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline
+ *        The asset was used in a headline. Use this only if there is only one
+ *        headline in the ad. Otherwise, use the HEADLINE_1, HEADLINE_2 or
+ *        HEADLINE_3 enums (Value: "HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline1
+ *        The asset is used in headline 1. (Value: "HEADLINE_1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline2
+ *        The asset is used in headline 2. (Value: "HEADLINE_2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline3
+ *        The asset is used in headline 3. (Value: "HEADLINE_3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineInPortrait
+ *        The asset was used as a headline in portrait image. (Value:
+ *        "HEADLINE_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LandscapeLogo
+ *        The asset was used as a landscape logo. (Value: "LANDSCAPE_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LeadForm
+ *        The asset is used as a lead form. (Value: "LEAD_FORM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Logo
+ *        The asset was used as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_LongHeadline
+ *        The asset was used in a long headline (used in
+ *        MultiAssetResponsiveAd). (Value: "LONG_HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MarketingImage
+ *        The asset was used as a marketing image. (Value: "MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MarketingImageInPortrait
+ *        The asset was used as a marketing image in portrait image. (Value:
+ *        "MARKETING_IMAGE_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_MobileApp
+ *        This asset is used as a mobile app. (Value: "MOBILE_APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_PortraitMarketingImage
+ *        The asset was used as a portrait marketing image. (Value:
+ *        "PORTRAIT_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Price
+ *        This asset is used as a price. (Value: "PRICE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Promotion
+ *        This asset is used as a promotion. (Value: "PROMOTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Sitelink
+ *        This asset is used as a sitelink. (Value: "SITELINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_SquareMarketingImage
+ *        The asset was used as a square marketing image. (Value:
+ *        "SQUARE_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_StructuredSnippet
+ *        This asset is used as a structured snippet. (Value:
+ *        "STRUCTURED_SNIPPET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Unknown
+ *        The received value is not known in this version. This is a
+ *        response-only value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Unspecified
+ *        No value has been specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_YouTubeVideo
+ *        The asset was used as a YouTube video. (Value: "YOU_TUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *servedAssetFieldType;
+
+@end
+
+
+/**
+ *  An audience criterion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonAudienceInfo : GTLRObject
+
+/** The Audience resource name. */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+@end
+
+
+/**
  *  Business Profile location data synced from the linked Business Profile
  *  account.
  */
@@ -6701,6 +8486,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Business Profile account.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
+
+@end
+
+
+/**
+ *  A call to action asset.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset : GTLRObject
+
+/**
+ *  Call to action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ApplyNow
+ *        The call to action type is apply now. (Value: "APPLY_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_BookNow
+ *        The call to action type is book now. (Value: "BOOK_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_BuyNow
+ *        The call to action type is buy now. (Value: "BUY_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ContactUs
+ *        The call to action type is contact us. (Value: "CONTACT_US")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_DonateNow
+ *        The call to action type is donate now. (Value: "DONATE_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Download
+ *        The call to action type is download. (Value: "DOWNLOAD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_GetQuote
+ *        The call to action type is get quote. (Value: "GET_QUOTE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_LearnMore
+ *        The call to action type is learn more. (Value: "LEARN_MORE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_OrderNow
+ *        The call to action type is order now. (Value: "ORDER_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_PlayNow
+ *        The call to action type is play now. (Value: "PLAY_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_SeeMore
+ *        The call to action type is see more. (Value: "SEE_MORE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_ShopNow
+ *        The call to action type is shop now. (Value: "SHOP_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_SignUp
+ *        The call to action type is sign up. (Value: "SIGN_UP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_StartNow
+ *        The call to action type is start now. (Value: "START_NOW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Subscribe
+ *        The call to action type is subscribe. (Value: "SUBSCRIBE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_VisitSite
+ *        The call to action type is visit site. (Value: "VISIT_SITE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset_CallToAction_WatchNow
+ *        The call to action type is watch now. (Value: "WATCH_NOW")
+ */
+@property(nonatomic, copy, nullable) NSString *callToAction;
 
 @end
 
@@ -6790,6 +8629,85 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An Image asset.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonImageAsset : GTLRObject
+
+/**
+ *  File size of the image asset in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileSize;
+
+/** Metadata for this image at its original size. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonImageDimension *fullSize;
+
+/**
+ *  MIME type of the image asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_AudioMp3
+ *        MIME type of audio/mp3. (Value: "AUDIO_MP3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_AudioWav
+ *        MIME type of audio/wav. (Value: "AUDIO_WAV")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Flash
+ *        MIME type of application/x-shockwave-flash. (Value: "FLASH")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Html5AdZip
+ *        MIME type of application/x-html5-ad-zip. (Value: "HTML5_AD_ZIP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImageGif
+ *        MIME type of image/gif. (Value: "IMAGE_GIF")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImageJpeg
+ *        MIME type of image/jpeg. (Value: "IMAGE_JPEG")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_ImagePng
+ *        MIME type of image/png. (Value: "IMAGE_PNG")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Msexcel
+ *        MIME type of application/vnd.ms-excel. (Value: "MSEXCEL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Msword
+ *        MIME type of application/msword. (Value: "MSWORD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Pdf
+ *        MIME type of application/pdf. (Value: "PDF")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Rtf
+ *        MIME type of application/rtf. (Value: "RTF")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_TextHtml
+ *        MIME type of text/html. (Value: "TEXT_HTML")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Unknown
+ *        The received value is not known in this version. This is a
+ *        response-only value. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonImageAsset_MimeType_Unspecified
+ *        The mime type has not been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Metadata for an image at a certain size, either original or resized.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonImageDimension : GTLRObject
+
+/**
+ *  Height of the image.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *heightPixels;
+
+/** A URL that returns the image with this height and width. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/**
+ *  Width of the image.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
 @end
 
@@ -7230,6 +9148,167 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *clientAccountConversionsValue;
 
 /**
+ *  Client account cross-sell cost of goods sold (COGS) is the total cost of
+ *  products sold as a result of advertising a different product. How it works:
+ *  You report conversions with cart data for completed purchases on your
+ *  website. If the ad that was interacted with before the purchase has an
+ *  associated product (see Shopping Ads) then this product is considered the
+ *  advertised product. Any product included in the order the customer places is
+ *  a sold product. If these products don't match then this is considered
+ *  cross-sell. Cross-sell cost of goods sold is the total cost of the products
+ *  sold that weren't advertised. Example: Someone clicked on a Shopping ad for
+ *  a hat then bought the same hat and a shirt. The hat has a cost of goods sold
+ *  value of $3, the shirt has a cost of goods sold value of $5. The cross-sell
+ *  cost of goods sold for this order is $5. This metric is only available if
+ *  you report conversions with cart data. This metric is a monetary value and
+ *  returned in the customer's currency by default. See the metrics_currency
+ *  parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountCrossSellCostOfGoodsSoldMicros;
+
+/**
+ *  Client account cross-sell gross profit is the profit you made from products
+ *  sold as a result of advertising a different product, minus cost of goods
+ *  sold (COGS). How it works: You report conversions with cart data for
+ *  completed purchases on your website. If the ad that was interacted with
+ *  before the purchase has an associated product (see Shopping Ads) then this
+ *  product is considered the advertised product. Any product included in the
+ *  purchase is a sold product. If these products don't match then this is
+ *  considered cross-sell. Cross-sell gross profit is the revenue you made from
+ *  cross-sell attributed to your ads minus the cost of the goods sold. Example:
+ *  Someone clicked on a Shopping ad for a hat then bought the same hat and a
+ *  shirt. The shirt is priced $20 and has a cost of goods sold value of $5. The
+ *  cross-sell gross profit of this order is $15 = $20 - $5. This metric is only
+ *  available if you report conversions with cart data. This metric is a
+ *  monetary value and returned in the customer's currency by default. See the
+ *  metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountCrossSellGrossProfitMicros;
+
+/**
+ *  Client account cross-sell revenue is the total amount you made from products
+ *  sold as a result of advertising a different product. How it works: You
+ *  report conversions with cart data for completed purchases on your website.
+ *  If the ad that was interacted with before the purchase has an associated
+ *  product (see Shopping Ads) then this product is considered the advertised
+ *  product. Any product included in the order the customer places is a sold
+ *  product. If these products don't match then this is considered cross-sell.
+ *  Cross-sell revenue is the total value you made from cross-sell attributed to
+ *  your ads. Example: Someone clicked on a Shopping ad for a hat then bought
+ *  the same hat and a shirt. The hat is priced $10 and the shirt is priced $20.
+ *  The cross-sell revenue of this order is $20. This metric is only available
+ *  if you report conversions with cart data. This metric is a monetary value
+ *  and returned in the customer's currency by default. See the metrics_currency
+ *  parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountCrossSellRevenueMicros;
+
+/**
+ *  Client account cross-sell units sold is the total number of products sold as
+ *  a result of advertising a different product. How it works: You report
+ *  conversions with cart data for completed purchases on your website. If the
+ *  ad that was interacted with before the purchase has an associated product
+ *  (see Shopping Ads) then this product is considered the advertised product.
+ *  Any product included in the order the customer places is a sold product. If
+ *  these products don't match then this is considered cross-sell. Cross-sell
+ *  units sold is the total number of cross-sold products from all orders
+ *  attributed to your ads. Example: Someone clicked on a Shopping ad for a hat
+ *  then bought the same hat, a shirt and a jacket. The cross-sell units sold in
+ *  this order is 2. This metric is only available if you report conversions
+ *  with cart data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountCrossSellUnitsSold;
+
+/**
+ *  Client account lead cost of goods sold (COGS) is the total cost of products
+ *  sold as a result of advertising the same product. How it works: You report
+ *  conversions with cart data for completed purchases on your website. If the
+ *  ad that was interacted with has an associated product (see Shopping Ads)
+ *  then this product is considered the advertised product. Any product included
+ *  in the order the customer places is a sold product. If the advertised and
+ *  sold products match, then the cost of these goods is counted under lead cost
+ *  of goods sold. Example: Someone clicked on a Shopping ad for a hat then
+ *  bought the same hat and a shirt. The hat has a cost of goods sold value of
+ *  $3, the shirt has a cost of goods sold value of $5. The lead cost of goods
+ *  sold for this order is $3. This metric is only available if you report
+ *  conversions with cart data. This metric is a monetary value and returned in
+ *  the customer's currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountLeadCostOfGoodsSoldMicros;
+
+/**
+ *  Client account lead gross profit is the profit you made from products sold
+ *  as a result of advertising the same product, minus cost of goods sold
+ *  (COGS). How it works: You report conversions with cart data for completed
+ *  purchases on your website. If the ad that was interacted with before the
+ *  purchase has an associated product (see Shopping Ads) then this product is
+ *  considered the advertised product. Any product included in the order the
+ *  customer places is a sold product. If the advertised and sold products
+ *  match, then the revenue you made from these sales minus the cost of goods
+ *  sold is your lead gross profit. Example: Someone clicked on a Shopping ad
+ *  for a hat then bought the same hat and a shirt. The hat is priced $10 and
+ *  has a cost of goods sold value of $3. The lead gross profit of this order is
+ *  $7 = $10 - $3. This metric is only available if you report conversions with
+ *  cart data. This metric is a monetary value and returned in the customer's
+ *  currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountLeadGrossProfitMicros;
+
+/**
+ *  Client account lead revenue is the total amount you made from products sold
+ *  as a result of advertising the same product. How it works: You report
+ *  conversions with cart data for completed purchases on your website. If the
+ *  ad that was interacted with before the purchase has an associated product
+ *  (see Shopping Ads) then this product is considered the advertised product.
+ *  Any product included in the order the customer places is a sold product. If
+ *  the advertised and sold products match, then the total value you made from
+ *  the sales of these products is shown under lead revenue. Example: Someone
+ *  clicked on a Shopping ad for a hat then bought the same hat and a shirt. The
+ *  hat is priced $10 and the shirt is priced $20. The lead revenue of this
+ *  order is $10. This metric is only available if you report conversions with
+ *  cart data. This metric is a monetary value and returned in the customer's
+ *  currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountLeadRevenueMicros;
+
+/**
+ *  Client account lead units sold is the total number of products sold as a
+ *  result of advertising the same product. How it works: You report conversions
+ *  with cart data for completed purchases on your website. If the ad that was
+ *  interacted with before the purchase has an associated product (see Shopping
+ *  Ads) then this product is considered the advertised product. Any product
+ *  included in the order the customer places is a sold product. If the
+ *  advertised and sold products match, then the total number of these products
+ *  sold is shown under lead units sold. Example: Someone clicked on a Shopping
+ *  ad for a hat then bought the same hat, a shirt and a jacket. The lead units
+ *  sold in this order is 1. This metric is only available if you report
+ *  conversions with cart data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientAccountLeadUnitsSold;
+
+/**
  *  The total number of view-through conversions. These happen when a customer
  *  sees an image or rich media ad, then later completes a conversion on your
  *  site without interacting with (for example, clicking on) another ad.
@@ -7383,6 +9462,87 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *crossDeviceConversionsValue;
 
 /**
+ *  Cross-sell cost of goods sold (COGS) is the total cost of products sold as a
+ *  result of advertising a different product. How it works: You report
+ *  conversions with cart data for completed purchases on your website. If the
+ *  ad that was interacted with before the purchase has an associated product
+ *  (see Shopping Ads) then this product is considered the advertised product.
+ *  Any product included in the order the customer places is a sold product. If
+ *  these products don't match then this is considered cross-sell. Cross-sell
+ *  cost of goods sold is the total cost of the products sold that weren't
+ *  advertised. Example: Someone clicked on a Shopping ad for a hat then bought
+ *  the same hat and a shirt. The hat has a cost of goods sold value of $3, the
+ *  shirt has a cost of goods sold value of $5. The cross-sell cost of goods
+ *  sold for this order is $5. This metric is only available if you report
+ *  conversions with cart data. This metric is a monetary value and returned in
+ *  the customer's currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossSellCostOfGoodsSoldMicros;
+
+/**
+ *  Cross-sell gross profit is the profit you made from products sold as a
+ *  result of advertising a different product, minus cost of goods sold (COGS).
+ *  How it works: You report conversions with cart data for completed purchases
+ *  on your website. If the ad that was interacted with before the purchase has
+ *  an associated product (see Shopping Ads) then this product is considered the
+ *  advertised product. Any product included in the purchase is a sold product.
+ *  If these products don't match then this is considered cross-sell. Cross-sell
+ *  gross profit is the revenue you made from cross-sell attributed to your ads
+ *  minus the cost of the goods sold. Example: Someone clicked on a Shopping ad
+ *  for a hat then bought the same hat and a shirt. The shirt is priced $20 and
+ *  has a cost of goods sold value of $5. The cross-sell gross profit of this
+ *  order is $15 = $20 - $5. This metric is only available if you report
+ *  conversions with cart data. This metric is a monetary value and returned in
+ *  the customer's currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossSellGrossProfitMicros;
+
+/**
+ *  Cross-sell revenue is the total amount you made from products sold as a
+ *  result of advertising a different product. How it works: You report
+ *  conversions with cart data for completed purchases on your website. If the
+ *  ad that was interacted with before the purchase has an associated product
+ *  (see Shopping Ads) then this product is considered the advertised product.
+ *  Any product included in the order the customer places is a sold product. If
+ *  these products don't match then this is considered cross-sell. Cross-sell
+ *  revenue is the total value you made from cross-sell attributed to your ads.
+ *  Example: Someone clicked on a Shopping ad for a hat then bought the same hat
+ *  and a shirt. The hat is priced $10 and the shirt is priced $20. The
+ *  cross-sell revenue of this order is $20. This metric is only available if
+ *  you report conversions with cart data. This metric is a monetary value and
+ *  returned in the customer's currency by default. See the metrics_currency
+ *  parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossSellRevenueMicros;
+
+/**
+ *  Cross-sell units sold is the total number of products sold as a result of
+ *  advertising a different product. How it works: You report conversions with
+ *  cart data for completed purchases on your website. If the ad that was
+ *  interacted with before the purchase has an associated product (see Shopping
+ *  Ads) then this product is considered the advertised product. Any product
+ *  included in the order the customer places is a sold product. If these
+ *  products don't match then this is considered cross-sell. Cross-sell units
+ *  sold is the total number of cross-sold products from all orders attributed
+ *  to your ads. Example: Someone clicked on a Shopping ad for a hat then bought
+ *  the same hat, a shirt and a jacket. The cross-sell units sold in this order
+ *  is 2. This metric is only available if you report conversions with cart
+ *  data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossSellUnitsSold;
+
+/**
  *  The number of clicks your ad receives (Clicks) divided by the number of
  *  times your ad is shown (Impressions).
  *
@@ -7493,6 +9653,84 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *invalidClicks;
+
+/**
+ *  Lead cost of goods sold (COGS) is the total cost of products sold as a
+ *  result of advertising the same product. How it works: You report conversions
+ *  with cart data for completed purchases on your website. If the ad that was
+ *  interacted with has an associated product (see Shopping Ads) then this
+ *  product is considered the advertised product. Any product included in the
+ *  order the customer places is a sold product. If the advertised and sold
+ *  products match, then the cost of these goods is counted under lead cost of
+ *  goods sold. Example: Someone clicked on a Shopping ad for a hat then bought
+ *  the same hat and a shirt. The hat has a cost of goods sold value of $3, the
+ *  shirt has a cost of goods sold value of $5. The lead cost of goods sold for
+ *  this order is $3. This metric is only available if you report conversions
+ *  with cart data. This metric is a monetary value and returned in the
+ *  customer's currency by default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leadCostOfGoodsSoldMicros;
+
+/**
+ *  Lead gross profit is the profit you made from products sold as a result of
+ *  advertising the same product, minus cost of goods sold (COGS). How it works:
+ *  You report conversions with cart data for completed purchases on your
+ *  website. If the ad that was interacted with before the purchase has an
+ *  associated product (see Shopping Ads) then this product is considered the
+ *  advertised product. Any product included in the order the customer places is
+ *  a sold product. If the advertised and sold products match, then the revenue
+ *  you made from these sales minus the cost of goods sold is your lead gross
+ *  profit. Example: Someone clicked on a Shopping ad for a hat then bought the
+ *  same hat and a shirt. The hat is priced $10 and has a cost of goods sold
+ *  value of $3. The lead gross profit of this order is $7 = $10 - $3. This
+ *  metric is only available if you report conversions with cart data. This
+ *  metric is a monetary value and returned in the customer's currency by
+ *  default. See the metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leadGrossProfitMicros;
+
+/**
+ *  Lead revenue is the total amount you made from products sold as a result of
+ *  advertising the same product. How it works: You report conversions with cart
+ *  data for completed purchases on your website. If the ad that was interacted
+ *  with before the purchase has an associated product (see Shopping Ads) then
+ *  this product is considered the advertised product. Any product included in
+ *  the order the customer places is a sold product. If the advertised and sold
+ *  products match, then the total value you made from the sales of these
+ *  products is shown under lead revenue. Example: Someone clicked on a Shopping
+ *  ad for a hat then bought the same hat and a shirt. The hat is priced $10 and
+ *  the shirt is priced $20. The lead revenue of this order is $10. This metric
+ *  is only available if you report conversions with cart data. This metric is a
+ *  monetary value and returned in the customer's currency by default. See the
+ *  metrics_currency parameter at
+ *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leadRevenueMicros;
+
+/**
+ *  Lead units sold is the total number of products sold as a result of
+ *  advertising the same product. How it works: You report conversions with cart
+ *  data for completed purchases on your website. If the ad that was interacted
+ *  with before the purchase has an associated product (see Shopping Ads) then
+ *  this product is considered the advertised product. Any product included in
+ *  the order the customer places is a sold product. If the advertised and sold
+ *  products match, then the total number of these products sold is shown under
+ *  lead units sold. Example: Someone clicked on a Shopping ad for a hat then
+ *  bought the same hat, a shirt and a jacket. The lead units sold in this order
+ *  is 1. This metric is only available if you report conversions with cart
+ *  data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leadUnitsSold;
 
 /**
  *  The percentage of mobile clicks that go to a mobile-friendly page.
@@ -8040,6 +10278,201 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *month;
 
+/** Bidding category (level 1) of the product. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryLevel1;
+
+/** Bidding category (level 2) of the product. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryLevel2;
+
+/** Bidding category (level 3) of the product. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryLevel3;
+
+/** Bidding category (level 4) of the product. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryLevel4;
+
+/** Bidding category (level 5) of the product. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryLevel5;
+
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *productBrand;
+
+/**
+ *  Channel of the product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Local
+ *        The item is sold in local stores. (Value: "LOCAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Online
+ *        The item is sold online. (Value: "ONLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannel_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *productChannel;
+
+/**
+ *  Channel exclusivity of the product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_MultiChannel
+ *        The item is matched to its online or local stores counterpart,
+ *        indicating it is available for purchase in both
+ *        ShoppingProductChannels. (Value: "MULTI_CHANNEL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_SingleChannel
+ *        The item is sold through one channel only, either local stores or
+ *        online as indicated by its ProductChannel. (Value: "SINGLE_CHANNEL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductChannelExclusivity_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *productChannelExclusivity;
+
+/**
+ *  Condition of the product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_New
+ *        The product condition is new. (Value: "NEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Old
+ *        The product condition is old. (Value: "OLD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Refurbished
+ *        The product condition is refurbished. (Value: "REFURBISHED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductCondition_Used
+ *        The product condition is used. (Value: "USED")
+ */
+@property(nonatomic, copy, nullable) NSString *productCondition;
+
+/**
+ *  Resource name of the geo target constant for the country of sale of the
+ *  product.
+ */
+@property(nonatomic, copy, nullable) NSString *productCountry;
+
+/** Custom attribute 0 of the product. */
+@property(nonatomic, copy, nullable) NSString *productCustomAttribute0;
+
+/** Custom attribute 1 of the product. */
+@property(nonatomic, copy, nullable) NSString *productCustomAttribute1;
+
+/** Custom attribute 2 of the product. */
+@property(nonatomic, copy, nullable) NSString *productCustomAttribute2;
+
+/** Custom attribute 3 of the product. */
+@property(nonatomic, copy, nullable) NSString *productCustomAttribute3;
+
+/** Custom attribute 4 of the product. */
+@property(nonatomic, copy, nullable) NSString *productCustomAttribute4;
+
+/** Item ID of the product. */
+@property(nonatomic, copy, nullable) NSString *productItemId;
+
+/** Resource name of the language constant for the language of the product. */
+@property(nonatomic, copy, nullable) NSString *productLanguage;
+
+/** Bidding category (level 1) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBiddingCategoryLevel1;
+
+/** Bidding category (level 2) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBiddingCategoryLevel2;
+
+/** Bidding category (level 3) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBiddingCategoryLevel3;
+
+/** Bidding category (level 4) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBiddingCategoryLevel4;
+
+/** Bidding category (level 5) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBiddingCategoryLevel5;
+
+/** Brand of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldBrand;
+
+/**
+ *  Condition of the product sold.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_New
+ *        The product condition is new. (Value: "NEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Old
+ *        The product condition is old. (Value: "OLD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Refurbished
+ *        The product condition is refurbished. (Value: "REFURBISHED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Used
+ *        The product condition is used. (Value: "USED")
+ */
+@property(nonatomic, copy, nullable) NSString *productSoldCondition;
+
+/** Custom attribute 0 of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldCustomAttribute0;
+
+/** Custom attribute 1 of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldCustomAttribute1;
+
+/** Custom attribute 2 of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldCustomAttribute2;
+
+/** Custom attribute 3 of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldCustomAttribute3;
+
+/** Custom attribute 4 of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldCustomAttribute4;
+
+/** Item ID of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldItemId;
+
+/** Title of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTitle;
+
+/** Type (level 1) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTypeL1;
+
+/** Type (level 2) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTypeL2;
+
+/** Type (level 3) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTypeL3;
+
+/** Type (level 4) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTypeL4;
+
+/** Type (level 5) of the product sold. */
+@property(nonatomic, copy, nullable) NSString *productSoldTypeL5;
+
+/** Store ID of the product. */
+@property(nonatomic, copy, nullable) NSString *productStoreId;
+
+/** Title of the product. */
+@property(nonatomic, copy, nullable) NSString *productTitle;
+
+/** Type (level 1) of the product. */
+@property(nonatomic, copy, nullable) NSString *productTypeL1;
+
+/** Type (level 2) of the product. */
+@property(nonatomic, copy, nullable) NSString *productTypeL2;
+
+/** Type (level 3) of the product. */
+@property(nonatomic, copy, nullable) NSString *productTypeL3;
+
+/** Type (level 4) of the product. */
+@property(nonatomic, copy, nullable) NSString *productTypeL4;
+
+/** Type (level 5) of the product. */
+@property(nonatomic, copy, nullable) NSString *productTypeL5;
+
 /**
  *  Quarter as represented by the date of the first day of a quarter. Uses the
  *  calendar year for quarters, for example, the second quarter of 2018 starts
@@ -8301,6 +10734,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetSpendMicros GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  A Text asset.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonTextAsset : GTLRObject
+
+/** Text content of the text asset. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -8730,6 +11174,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A YouTube asset.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonYoutubeVideoAsset : GTLRObject
+
+/**
+ *  YouTube video id. This is the 11 character string value used in the YouTube
+ *  video URL.
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeVideoId;
+
+/** YouTube video title. */
+@property(nonatomic, copy, nullable) NSString *youtubeVideoTitle;
+
+@end
+
+
+/**
  *  The error reason represented by type and enum.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode : GTLRObject
@@ -8768,7 +11229,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Login cookie is required for authentication. (Value:
  *        "LOGIN_COOKIE_REQUIRED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthenticationError_NotAdsUser
- *        User in the cookie is not a valid Ads user. (Value: "NOT_ADS_USER")
+ *        The Google account that generated the OAuth access token is not
+ *        associated with a Search Ads 360 account. Create a new account, or add
+ *        the Google account to an existing Search Ads 360 account. (Value:
+ *        "NOT_ADS_USER")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_AuthenticationError_OauthTokenDisabled
  *        OAuth token in the header has been disabled. (Value:
  *        "OAUTH_TOKEN_DISABLED")
@@ -9176,7 +11640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *queryError;
 
 /**
- *  An error with the amonut of quota remaining.
+ *  An error with the amount of quota remaining.
  *
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QuotaError_ResourceExhausted
@@ -10447,6 +12911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** Output only. A unified callout asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUnifiedCalloutAsset *calloutAsset;
 
+/** Immutable. A call to action asset. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonCallToActionAsset *callToActionAsset;
+
 /**
  *  Output only. The timestamp when this asset was created. The timestamp is in
  *  the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
@@ -10487,6 +12954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
+/** Output only. An image asset. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonImageAsset *imageAsset;
+
 /**
  *  Output only. The datetime when this asset was last modified. The datetime is
  *  in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss" format.
@@ -10498,6 +12968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** A mobile app asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset *mobileAppAsset;
+
+/** Optional name of the asset. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. A unified page feed asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUnifiedPageFeedAsset *pageFeedAsset;
@@ -10531,6 +13004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The status has not been specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/** Output only. A text asset. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonTextAsset *textAsset;
 
 /** URL template for constructing a tracking URL. */
 @property(nonatomic, copy, nullable) NSString *trackingUrlTemplate;
@@ -10602,6 +13078,368 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/** Immutable. A YouTube video asset. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonYoutubeVideoAsset *youtubeVideoAsset;
+
+@end
+
+
+/**
+ *  An asset group. AssetGroupAsset is used to link an asset to the asset group.
+ *  AssetGroupSignal is used to associate a signal to an asset group.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup : GTLRObject
+
+/**
+ *  Output only. Overall ad strength of this asset group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Average
+ *        Average strength. (Value: "AVERAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Excellent
+ *        Excellent strength. (Value: "EXCELLENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Good
+ *        Good strength. (Value: "GOOD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_NoAds
+ *        No ads could be generated. (Value: "NO_ADS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Pending
+ *        The ad strength is currently pending. (Value: "PENDING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Poor
+ *        Poor strength. (Value: "POOR")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_AdStrength_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adStrength;
+
+/**
+ *  Immutable. The campaign with which this asset group is associated. The asset
+ *  which is linked to the asset group.
+ */
+@property(nonatomic, copy, nullable) NSString *campaign;
+
+/**
+ *  A list of final mobile URLs after all cross domain redirects. In performance
+ *  max, by default, the urls are eligible for expansion unless opted out.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalMobileUrls;
+
+/**
+ *  A list of final URLs after all cross domain redirects. In performance max,
+ *  by default, the urls are eligible for expansion unless opted out.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalUrls;
+
+/**
+ *  Output only. The ID of the asset group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Required. Name of the asset group. Required. It must have a minimum length
+ *  of 1 and maximum length of 128. It must be unique under a campaign.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  First part of text that may appear appended to the url displayed in the ad.
+ */
+@property(nonatomic, copy, nullable) NSString *path1;
+
+/**
+ *  Second part of text that may appear appended to the url displayed in the ad.
+ *  This field can only be set when path1 is set.
+ */
+@property(nonatomic, copy, nullable) NSString *path2;
+
+/**
+ *  Immutable. The resource name of the asset group. Asset group resource names
+ *  have the form: `customers/{customer_id}/assetGroups/{asset_group_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The status of the asset group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Enabled
+ *        The asset group is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Paused
+ *        The asset group is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Removed
+ *        The asset group is removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Unknown
+ *        The received value is not known in this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup_Status_Unspecified
+ *        The status has not been specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  AssetGroupAsset is the link between an asset and an asset group. Adding an
+ *  AssetGroupAsset links an asset with an asset group.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset : GTLRObject
+
+/** Immutable. The asset which this asset group asset is linking. */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/** Immutable. The asset group which this asset group asset is linking. */
+@property(nonatomic, copy, nullable) NSString *assetGroup;
+
+/**
+ *  The description of the placement of the asset within the asset group. For
+ *  example: HEADLINE, YOUTUBE_VIDEO etc
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_AdImage
+ *        The asset is linked for use to select an ad image. (Value: "AD_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BookOnGoogle
+ *        The asset is linked to indicate that a hotels campaign is "Book on
+ *        Google" enabled. (Value: "BOOK_ON_GOOGLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BusinessLogo
+ *        The asset is linked for use as a business logo. (Value:
+ *        "BUSINESS_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_BusinessName
+ *        The asset is linked for use as a business name. (Value:
+ *        "BUSINESS_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Call
+ *        The asset is linked for use as a Call extension. (Value: "CALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Callout
+ *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_CallToActionSelection
+ *        The asset is linked for use to select a call-to-action. (Value:
+ *        "CALL_TO_ACTION_SELECTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Description
+ *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Headline
+ *        The asset is linked for use as a headline. (Value: "HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_HotelCallout
+ *        The asset is linked for use as a Hotel Callout extension. (Value:
+ *        "HOTEL_CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_HotelProperty
+ *        The asset is linked for use as a hotel property in a Performance Max
+ *        for travel goals campaign. (Value: "HOTEL_PROPERTY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LandscapeLogo
+ *        The asset is linked for use as a landscape logo. (Value:
+ *        "LANDSCAPE_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LeadForm
+ *        The asset is linked for use as a Lead Form extension. (Value:
+ *        "LEAD_FORM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Logo
+ *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LongHeadline
+ *        The asset is linked for use as a long headline. (Value:
+ *        "LONG_HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MandatoryAdText
+ *        The asset is linked for use as mandatory ad text. (Value:
+ *        "MANDATORY_AD_TEXT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MarketingImage
+ *        The asset is linked for use as a marketing image. (Value:
+ *        "MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MediaBundle
+ *        The asset is linked for use as a media bundle. (Value: "MEDIA_BUNDLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_MobileApp
+ *        The asset is linked for use as a Mobile App extension. (Value:
+ *        "MOBILE_APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_PortraitMarketingImage
+ *        The asset is linked for use as a portrait marketing image. (Value:
+ *        "PORTRAIT_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Price
+ *        The asset is linked for use as a Price extension. (Value: "PRICE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Promotion
+ *        The asset is linked for use as a Promotion extension. (Value:
+ *        "PROMOTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Sitelink
+ *        The asset is linked for use as a Sitelink. (Value: "SITELINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_SquareMarketingImage
+ *        The asset is linked for use as a square marketing image. (Value:
+ *        "SQUARE_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_StructuredSnippet
+ *        The asset is linked for use as a Structured Snippet extension. (Value:
+ *        "STRUCTURED_SNIPPET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Video
+ *        The asset is linked for use as a non YouTube logo. (Value: "VIDEO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_YoutubeVideo
+ *        The asset is linked for use as a YouTube video. (Value:
+ *        "YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *fieldType;
+
+/**
+ *  Immutable. The resource name of the asset group asset. Asset group asset
+ *  resource name have the form:
+ *  `customers/{customer_id}/assetGroupAssets/{asset_group_id}~{asset_id}~{field_type}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The status of the link between an asset and asset group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Enabled
+ *        Asset link is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Paused
+ *        Asset link is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Removed
+ *        Asset link has been removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Asset group asset combination data
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAssetCombinationData : GTLRObject
+
+/** Output only. Served assets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage *> *assetCombinationServedAssets;
+
+@end
+
+
+/**
+ *  AssetGroupListingGroupFilter represents a listing group filter tree node in
+ *  an asset group.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter : GTLRObject
+
+/**
+ *  Immutable. The asset group which this asset group listing group filter is
+ *  part of.
+ */
+@property(nonatomic, copy, nullable) NSString *assetGroup;
+
+/**
+ *  Dimension value with which this listing group is refining its parent.
+ *  Undefined for the root group.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimension *caseValue;
+
+/**
+ *  Output only. The ID of the ListingGroupFilter.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Immutable. Resource name of the parent listing group subdivision. Null for
+ *  the root listing group filter node.
+ */
+@property(nonatomic, copy, nullable) NSString *parentListingGroupFilter;
+
+/** Output only. The path of dimensions defining this listing group filter. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionPath *path;
+
+/**
+ *  Immutable. The resource name of the asset group listing group filter. Asset
+ *  group listing group filter resource name have the form:
+ *  `customers/{customer_id}/assetGroupListingGroupFilters/{asset_group_id}~{listing_group_filter_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Immutable. Type of a listing group filter node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Subdivision
+ *        Subdivision of products along some listing dimensions. (Value:
+ *        "SUBDIVISION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_UnitExcluded
+ *        An excluded listing group filter leaf node. (Value: "UNIT_EXCLUDED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_UnitIncluded
+ *        An included listing group filter leaf node. (Value: "UNIT_INCLUDED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Type_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Immutable. The vertical the current node tree represents. All nodes in the
+ *  same tree must belong to the same vertical.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Shopping
+ *        Represents the shopping vertical. (Value: "SHOPPING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vertical;
+
+@end
+
+
+/**
+ *  AssetGroupSignal represents a signal in an asset group. The existence of a
+ *  signal tells the performance max campaign who's most likely to convert.
+ *  Performance Max uses the signal to look for new people with similar or
+ *  stronger intent to find conversions across Search, Display, Video, and more.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupSignal : GTLRObject
+
+/** Immutable. The asset group which this asset group signal belongs to. */
+@property(nonatomic, copy, nullable) NSString *assetGroup;
+
+/**
+ *  Immutable. The audience signal to be used by the performance max campaign.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonAudienceInfo *audience;
+
+/**
+ *  Immutable. The resource name of the asset group signal. Asset group signal
+ *  resource name have the form:
+ *  `customers/{customer_id}/assetGroupSignals/{asset_group_id}~{signal_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A view on the usage of ad group ad asset combination.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupTopCombinationView : GTLRObject
+
+/** Output only. The top combinations of assets that served together. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAssetCombinationData *> *assetGroupTopCombinations;
+
+/**
+ *  Output only. The resource name of the asset group top combination view.
+ *  AssetGroup Top Combination view resource names have the form:
+ *  `"customers/{customer_id}/assetGroupTopCombinationViews/{asset_group_id}~{asset_combination_category}"
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
 @end
 
 
@@ -10663,6 +13501,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The status has not been specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Audience is an effective targeting option that lets you intersect different
+ *  segment attributes, such as detailed demographics and affinities, to create
+ *  audiences that represent sections of your target segments.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAudience : GTLRObject
+
+/**
+ *  Description of this audience.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. ID of the audience.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Required. Name of the audience. It should be unique across all audiences. It
+ *  must have a minimum length of 1 and maximum length of 255.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The resource name of the audience. Audience names have the form:
+ *  `customers/{customer_id}/audiences/{audience_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -11589,9 +14465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_CustomPeriod
- *        Custom budget, added back in V5. Custom bugdet can be used with
- *        total_amount to specify lifetime budget limit. (Value:
- *        "CUSTOM_PERIOD")
+ *        Custom budget can be used with total_amount to specify lifetime budget
+ *        limit. (Value: "CUSTOM_PERIOD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_Daily
  *        Daily budget. (Value: "DAILY")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget_Period_FixedDaily
@@ -12023,6 +14898,301 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Output only. The url used for dynamic tracking. */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
+
+@end
+
+
+/**
+ *  Cart data sales view.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCartDataSalesView : GTLRObject
+
+/**
+ *  Output only. The resource name of the Cart data sales view. Cart data sales
+ *  view resource names have the form:
+ *  `customers/{customer_id}/cartDataSalesView`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A conversion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion : GTLRObject
+
+/**
+ *  Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adId;
+
+/**
+ *  Output only. For offline conversions, this is an ID provided by advertisers.
+ *  If an advertiser doesn't specify such an ID, Search Ads 360 generates one.
+ *  For online conversions, this is equal to the id column or the
+ *  floodlight_order_id column depending on the advertiser's Floodlight
+ *  instructions.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserConversionId;
+
+/**
+ *  Output only. Asset field type of the conversion event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_AdImage
+ *        The asset is linked for use to select an ad image. (Value: "AD_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BookOnGoogle
+ *        The asset is linked to indicate that a hotels campaign is "Book on
+ *        Google" enabled. (Value: "BOOK_ON_GOOGLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BusinessLogo
+ *        The asset is linked for use as a business logo. (Value:
+ *        "BUSINESS_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_BusinessName
+ *        The asset is linked for use as a business name. (Value:
+ *        "BUSINESS_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Call
+ *        The asset is linked for use as a Call extension. (Value: "CALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Callout
+ *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_CallToActionSelection
+ *        The asset is linked for use to select a call-to-action. (Value:
+ *        "CALL_TO_ACTION_SELECTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Description
+ *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Headline
+ *        The asset is linked for use as a headline. (Value: "HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_HotelCallout
+ *        The asset is linked for use as a Hotel Callout extension. (Value:
+ *        "HOTEL_CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_HotelProperty
+ *        The asset is linked for use as a hotel property in a Performance Max
+ *        for travel goals campaign. (Value: "HOTEL_PROPERTY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LandscapeLogo
+ *        The asset is linked for use as a landscape logo. (Value:
+ *        "LANDSCAPE_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LeadForm
+ *        The asset is linked for use as a Lead Form extension. (Value:
+ *        "LEAD_FORM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Logo
+ *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LongHeadline
+ *        The asset is linked for use as a long headline. (Value:
+ *        "LONG_HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MandatoryAdText
+ *        The asset is linked for use as mandatory ad text. (Value:
+ *        "MANDATORY_AD_TEXT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MarketingImage
+ *        The asset is linked for use as a marketing image. (Value:
+ *        "MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MediaBundle
+ *        The asset is linked for use as a media bundle. (Value: "MEDIA_BUNDLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_MobileApp
+ *        The asset is linked for use as a Mobile App extension. (Value:
+ *        "MOBILE_APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_PortraitMarketingImage
+ *        The asset is linked for use as a portrait marketing image. (Value:
+ *        "PORTRAIT_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Price
+ *        The asset is linked for use as a Price extension. (Value: "PRICE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Promotion
+ *        The asset is linked for use as a Promotion extension. (Value:
+ *        "PROMOTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Sitelink
+ *        The asset is linked for use as a Sitelink. (Value: "SITELINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_SquareMarketingImage
+ *        The asset is linked for use as a square marketing image. (Value:
+ *        "SQUARE_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_StructuredSnippet
+ *        The asset is linked for use as a Structured Snippet extension. (Value:
+ *        "STRUCTURED_SNIPPET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Video
+ *        The asset is linked for use as a non YouTube logo. (Value: "VIDEO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_YoutubeVideo
+ *        The asset is linked for use as a YouTube video. (Value:
+ *        "YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *assetFieldType;
+
+/**
+ *  Output only. ID of the asset which was interacted with during the conversion
+ *  event.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetId;
+
+/**
+ *  Output only. What the conversion is attributed to: Visit or Keyword+Ad.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_CriterionAd
+ *        The conversion is attributed to a criterion and ad pair. (Value:
+ *        "CRITERION_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AttributionType_Visit
+ *        The conversion is attributed to a visit. (Value: "VISIT")
+ */
+@property(nonatomic, copy, nullable) NSString *attributionType;
+
+/**
+ *  Output only. A unique string, for the visit that the conversion is
+ *  attributed to, that is passed to the landing page as the click id URL
+ *  parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *clickId;
+
+/** Output only. The timestamp of the conversion event. */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+/**
+ *  Output only. The timestamp of the last time the conversion was modified.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionLastModifiedDateTime;
+
+/**
+ *  Output only. The quantity of items recorded by the conversion, as determined
+ *  by the qty url parameter. The advertiser is responsible for dynamically
+ *  populating the parameter (such as number of items sold in the conversion),
+ *  otherwise it defaults to 1.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionQuantity;
+
+/**
+ *  Output only. The adjusted revenue in micros for the conversion event. This
+ *  will always be in the currency of the serving account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionRevenueMicros;
+
+/**
+ *  Output only. The timestamp of the visit that the conversion is attributed
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionVisitDateTime;
+
+/**
+ *  Output only. Search Ads 360 criterion ID. A value of 0 indicates that the
+ *  criterion is unattributed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *criterionId;
+
+/**
+ *  Output only. The Floodlight order ID provided by the advertiser for the
+ *  conversion.
+ */
+@property(nonatomic, copy, nullable) NSString *floodlightOrderId;
+
+/**
+ *  Output only. The original, unchanged revenue associated with the Floodlight
+ *  event (in the currency of the current report), before Floodlight currency
+ *  instruction modifications.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floodlightOriginalRevenue;
+
+/**
+ *  Output only. The ID of the conversion
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. The SearchAds360 inventory account ID containing the product
+ *  that was clicked on. SearchAds360 generates this ID when you link an
+ *  inventory account in SearchAds360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+/**
+ *  Output only. The sales channel of the product that was clicked on: Online or
+ *  Local.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Local
+ *        The item is sold in local stores. (Value: "LOCAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Online
+ *        The item is sold online. (Value: "ONLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_ProductChannel_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *productChannel;
+
+/**
+ *  Output only. The country (ISO-3166-format) registered for the inventory feed
+ *  that contains the product clicked on.
+ */
+@property(nonatomic, copy, nullable) NSString *productCountryCode;
+
+/** Output only. The ID of the product clicked on. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Output only. The language (ISO-639-1) that has been set for the Merchant
+ *  Center feed containing data about the product.
+ */
+@property(nonatomic, copy, nullable) NSString *productLanguageCode;
+
+/**
+ *  Output only. The store in the Local Inventory Ad that was clicked on. This
+ *  should match the store IDs used in your local products feed.
+ */
+@property(nonatomic, copy, nullable) NSString *productStoreId;
+
+/**
+ *  Output only. The resource name of the conversion. Conversion resource names
+ *  have the form:
+ *  `customers/{customer_id}/conversions/{ad_group_id}~{criterion_id}~{ds_conversion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. The status of the conversion, either ENABLED or REMOVED..
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Enabled
+ *        The conversion is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Removed
+ *        The conversion has been removed. (Value: "REMOVED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Output only. The SearchAds360 visit ID that the conversion is attributed to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visitId;
 
 @end
 
@@ -13256,6 +16426,274 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A language.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesLanguageConstant : GTLRObject
+
+/**
+ *  Output only. The language code, for example, "en_US", "en_AU", "es", "fr",
+ *  etc.
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Output only. The ID of the language constant.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. The full name of the language in English, for example, "English
+ *  (US)", "Spanish", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resource name of the language constant. Language constant
+ *  resource names have the form: `languageConstants/{criterion_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Whether the language is targetable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetable;
+
+@end
+
+
+/**
+ *  Listing dimensions for the asset group listing group filter.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimension : GTLRObject
+
+/** Bidding category of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory *productBiddingCategory;
+
+/** Brand of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBrand *productBrand;
+
+/** Locality of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel *productChannel;
+
+/** Condition of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition *productCondition;
+
+/** Custom attribute of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute *productCustomAttribute;
+
+/** Item id of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductItemId *productItemId;
+
+/** Type of a product offer. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType *productType;
+
+@end
+
+
+/**
+ *  The path defining of dimensions defining a listing group filter.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionPath : GTLRObject
+
+/**
+ *  Output only. The complete path of dimensions through the listing group
+ *  filter hierarchy (excluding the root node) to this listing group filter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimension *> *dimensions;
+
+@end
+
+
+/**
+ *  One element of a bidding category at a certain level. Top-level categories
+ *  are at level 1, their children at level 2, and so on. We currently support
+ *  up to 5 levels. The user must specify a dimension type that indicates the
+ *  level of the category. All cases of the same subdivision must have the same
+ *  dimension type (category level).
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory : GTLRObject
+
+/**
+ *  ID of the product bidding category. This ID is equivalent to the
+ *  google_product_category ID as described in this article:
+ *  https://support.google.com/merchants/answer/6324436
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Indicates the level of the category in the taxonomy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level1
+ *        Level 1. (Value: "LEVEL1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level2
+ *        Level 2. (Value: "LEVEL2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level3
+ *        Level 3. (Value: "LEVEL3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level4
+ *        Level 4. (Value: "LEVEL4")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Level5
+ *        Level 5. (Value: "LEVEL5")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBiddingCategory_Level_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *level;
+
+@end
+
+
+/**
+ *  Brand of the product.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductBrand : GTLRObject
+
+/** String value of the product brand. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Locality of a product offer.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel : GTLRObject
+
+/**
+ *  Value of the locality.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Local
+ *        The item is sold in local stores. (Value: "LOCAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Online
+ *        The item is sold online. (Value: "ONLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductChannel_Channel_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+@end
+
+
+/**
+ *  Condition of a product offer.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition : GTLRObject
+
+/**
+ *  Value of the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_New
+ *        The product condition is new. (Value: "NEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Refurbished
+ *        The product condition is refurbished. (Value: "REFURBISHED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCondition_Condition_Used
+ *        The product condition is used. (Value: "USED")
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+@end
+
+
+/**
+ *  Custom attribute of a product offer.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute : GTLRObject
+
+/**
+ *  Indicates the index of the custom attribute.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index0
+ *        First listing group filter custom attribute. (Value: "INDEX0")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index1
+ *        Second listing group filter custom attribute. (Value: "INDEX1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index2
+ *        Third listing group filter custom attribute. (Value: "INDEX2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index3
+ *        Fourth listing group filter custom attribute. (Value: "INDEX3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Index4
+ *        Fifth listing group filter custom attribute. (Value: "INDEX4")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductCustomAttribute_Index_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *index;
+
+/** String value of the product custom attribute. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Item id of a product offer.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductItemId : GTLRObject
+
+/** Value of the id. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Type of a product offer.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType : GTLRObject
+
+/**
+ *  Level of the type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level1
+ *        Level 1. (Value: "LEVEL1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level2
+ *        Level 2. (Value: "LEVEL2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level3
+ *        Level 3. (Value: "LEVEL3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level4
+ *        Level 4. (Value: "LEVEL4")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Level5
+ *        Level 5. (Value: "LEVEL5")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesListingGroupFilterDimensionProductType_Level_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *level;
+
+/** Value of the type. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A location view summarizes the performance of campaigns by Location
  *  criteria.
  */
@@ -13267,6 +16705,89 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A Product Bidding Category.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant : GTLRObject
+
+/**
+ *  Output only. Two-letter upper-case country code of the product bidding
+ *  category.
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  Output only. ID of the product bidding category. This ID is equivalent to
+ *  the google_product_category ID as described in this article:
+ *  https://support.google.com/merchants/answer/6324436.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Output only. Language code of the product bidding category. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Output only. Level of the product bidding category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level1
+ *        Level 1. (Value: "LEVEL1")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level2
+ *        Level 2. (Value: "LEVEL2")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level3
+ *        Level 3. (Value: "LEVEL3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level4
+ *        Level 4. (Value: "LEVEL4")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Level5
+ *        Level 5. (Value: "LEVEL5")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Level_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *level;
+
+/**
+ *  Output only. Display value of the product bidding category localized
+ *  according to language_code.
+ */
+@property(nonatomic, copy, nullable) NSString *localizedName;
+
+/** Output only. Resource name of the parent product bidding category. */
+@property(nonatomic, copy, nullable) NSString *productBiddingCategoryConstantParent;
+
+/**
+ *  Output only. The resource name of the product bidding category. Product
+ *  bidding category resource names have the form:
+ *  `productBiddingCategoryConstants/{country_code}~{level}~{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Status of the product bidding category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Active
+ *        The category is active and can be used for bidding. (Value: "ACTIVE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Obsolete
+ *        The category is obsolete. Used only for reporting purposes. (Value:
+ *        "OBSOLETE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -13445,6 +16966,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Shopping performance view. Provides Shopping campaign statistics aggregated
+ *  at several product dimension levels. Product dimension values from Merchant
+ *  Center such as brand, category, custom attributes, product condition and
+ *  product type will reflect the state of each dimension as of the date and
+ *  time when the corresponding event was recorded.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesShoppingPerformanceView : GTLRObject
+
+/**
+ *  Output only. The resource name of the Shopping performance view. Shopping
+ *  performance view resource names have the form:
+ *  `customers/{customer_id}/shoppingPerformanceView`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A user list. This is a list of users a customer may target.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList : GTLRObject
@@ -13498,6 +17038,195 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A visit.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit : GTLRObject
+
+/**
+ *  Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adId;
+
+/**
+ *  Output only. Asset field type of the visit event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_AdImage
+ *        The asset is linked for use to select an ad image. (Value: "AD_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BookOnGoogle
+ *        The asset is linked to indicate that a hotels campaign is "Book on
+ *        Google" enabled. (Value: "BOOK_ON_GOOGLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BusinessLogo
+ *        The asset is linked for use as a business logo. (Value:
+ *        "BUSINESS_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_BusinessName
+ *        The asset is linked for use as a business name. (Value:
+ *        "BUSINESS_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Call
+ *        The asset is linked for use as a Call extension. (Value: "CALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Callout
+ *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_CallToActionSelection
+ *        The asset is linked for use to select a call-to-action. (Value:
+ *        "CALL_TO_ACTION_SELECTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Description
+ *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Headline
+ *        The asset is linked for use as a headline. (Value: "HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_HotelCallout
+ *        The asset is linked for use as a Hotel Callout extension. (Value:
+ *        "HOTEL_CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_HotelProperty
+ *        The asset is linked for use as a hotel property in a Performance Max
+ *        for travel goals campaign. (Value: "HOTEL_PROPERTY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LandscapeLogo
+ *        The asset is linked for use as a landscape logo. (Value:
+ *        "LANDSCAPE_LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LeadForm
+ *        The asset is linked for use as a Lead Form extension. (Value:
+ *        "LEAD_FORM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Logo
+ *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LongHeadline
+ *        The asset is linked for use as a long headline. (Value:
+ *        "LONG_HEADLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MandatoryAdText
+ *        The asset is linked for use as mandatory ad text. (Value:
+ *        "MANDATORY_AD_TEXT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MarketingImage
+ *        The asset is linked for use as a marketing image. (Value:
+ *        "MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MediaBundle
+ *        The asset is linked for use as a media bundle. (Value: "MEDIA_BUNDLE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_MobileApp
+ *        The asset is linked for use as a Mobile App extension. (Value:
+ *        "MOBILE_APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_PortraitMarketingImage
+ *        The asset is linked for use as a portrait marketing image. (Value:
+ *        "PORTRAIT_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Price
+ *        The asset is linked for use as a Price extension. (Value: "PRICE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Promotion
+ *        The asset is linked for use as a Promotion extension. (Value:
+ *        "PROMOTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Sitelink
+ *        The asset is linked for use as a Sitelink. (Value: "SITELINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_SquareMarketingImage
+ *        The asset is linked for use as a square marketing image. (Value:
+ *        "SQUARE_MARKETING_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_StructuredSnippet
+ *        The asset is linked for use as a Structured Snippet extension. (Value:
+ *        "STRUCTURED_SNIPPET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Video
+ *        The asset is linked for use as a non YouTube logo. (Value: "VIDEO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_YoutubeVideo
+ *        The asset is linked for use as a YouTube video. (Value:
+ *        "YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *assetFieldType;
+
+/**
+ *  Output only. ID of the asset which was interacted with during the visit
+ *  event.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetId;
+
+/**
+ *  Output only. A unique string for each visit that is passed to the landing
+ *  page as the click id URL parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *clickId;
+
+/**
+ *  Output only. Search Ads 360 keyword ID. A value of 0 indicates that the
+ *  keyword is unattributed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *criterionId;
+
+/**
+ *  Output only. The ID of the visit.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. The Search Ads 360 inventory account ID containing the product
+ *  that was clicked on. Search Ads 360 generates this ID when you link an
+ *  inventory account in Search Ads 360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+/**
+ *  Output only. The sales channel of the product that was clicked on: Online or
+ *  Local.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Local
+ *        The item is sold in local stores. (Value: "LOCAL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Online
+ *        The item is sold online. (Value: "ONLINE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_ProductChannel_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *productChannel;
+
+/**
+ *  Output only. The country (ISO-3166 format) registered for the inventory feed
+ *  that contains the product clicked on.
+ */
+@property(nonatomic, copy, nullable) NSString *productCountryCode;
+
+/** Output only. The ID of the product clicked on. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Output only. The language (ISO-639-1) that has been set for the Merchant
+ *  Center feed containing data about the product.
+ */
+@property(nonatomic, copy, nullable) NSString *productLanguageCode;
+
+/**
+ *  Output only. The store in the Local Inventory Ad that was clicked on. This
+ *  should match the store IDs used in your local products feed.
+ */
+@property(nonatomic, copy, nullable) NSString *productStoreId;
+
+/**
+ *  Output only. The resource name of the visit. Visit resource names have the
+ *  form:
+ *  `customers/{customer_id}/visits/{ad_group_id}~{criterion_id}~{ds_visit_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. The timestamp of the visit event. The timestamp is in the
+ *  customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+ */
+@property(nonatomic, copy, nullable) NSString *visitDateTime;
 
 @end
 
@@ -13610,11 +17339,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The asset referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset *asset;
 
+/** The asset group referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroup *assetGroup;
+
+/** The asset group asset referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset *assetGroupAsset;
+
+/** The asset group listing group filter referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter *assetGroupListingGroupFilter;
+
+/** The asset group signal referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupSignal *assetGroupSignal;
+
+/** The asset group top combination view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupTopCombinationView *assetGroupTopCombinationView;
+
 /** The asset set referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSet *assetSet;
 
 /** The asset set asset referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetSetAsset *assetSetAsset;
+
+/** The Audience referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAudience *audience;
 
 /** The bidding strategy referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesBiddingStrategy *biddingStrategy;
@@ -13639,6 +17386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The campaign label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel *campaignLabel;
+
+/** The cart data sales view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCartDataSalesView *cartDataSalesView;
+
+/** The event level conversion referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversion *conversion;
 
 /** The conversion action referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction *conversionAction;
@@ -13676,11 +17429,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesLabel *label;
 
+/** The language constant referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesLanguageConstant *languageConstant;
+
 /** The location view referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView *locationView;
 
 /** The metrics. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonMetrics *metrics;
+
+/** The Product Bidding Category referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesProductBiddingCategoryConstant *productBiddingCategoryConstant;
 
 /** The product group view referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesProductGroupView *productGroupView;
@@ -13688,8 +17447,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The segments. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSegments *segments;
 
+/** The shopping performance view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesShoppingPerformanceView *shoppingPerformanceView;
+
 /** The user list referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList *userList;
+
+/** The event level visit referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit *visit;
 
 /** The webpage view referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView *webpageView;

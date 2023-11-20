@@ -25,6 +25,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_DialogflowIntents;
@@ -96,6 +97,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_CustomHighlighterMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats;
@@ -190,7 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig.summarizationModel
 
 /**
- *  The Insights baseline model.
+ *  The CCAI baseline model.
  *
  *  Value: "BASELINE_MODEL"
  */
@@ -428,6 +430,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource.bucketObjectType
+
+/**
+ *  The object is an audio file.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio;
+/**
+ *  The object type is unspecified and will default to TRANSCRIPT.
+ *
+ *  Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified;
+/**
+ *  The object is a transcript.
+ *
+ *  Value: "TRANSCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Transcript;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig.medium
 
 /**
@@ -538,7 +562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
 
 /**
- *  The Insights baseline model.
+ *  The CCAI baseline model.
  *
  *  Value: "BASELINE_MODEL"
  */
@@ -774,6 +798,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "WRITE_TRUNCATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource.bucketObjectType
+
+/**
+ *  The object is an audio file.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio;
+/**
+ *  The object type is unspecified and will default to TRANSCRIPT.
+ *
+ *  Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified;
+/**
+ *  The object is a transcript.
+ *
+ *  Value: "TRANSCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Transcript;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig.medium
@@ -1200,7 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
- *        The Insights baseline model. (Value: "BASELINE_MODEL")
+ *        The CCAI baseline model. (Value: "BASELINE_MODEL")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -1329,6 +1375,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *failedAnalysesCount;
 
+/**
+ *  Output only. Partial errors during bulk analyze operation that might cause
+ *  the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest *request;
 
@@ -1389,6 +1441,69 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *successfulAnalysisCount;
 
+@end
+
+
+/**
+ *  The metadata for a bulk delete conversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Partial errors during bulk delete conversations operation that might cause
+ *  the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** The original request for bulk delete. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest *request;
+
+@end
+
+
+/**
+ *  The request to delete conversations in bulk.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest : GTLRObject
+
+/** Filter used to select the subset of conversations to delete. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  If set to true, all of this conversation's analyses will also be deleted.
+ *  Otherwise, the request will only succeed if the conversation has no
+ *  analyses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Maximum number of conversations to delete.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDeleteCount;
+
+/**
+ *  Required. The parent resource to delete conversations from. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The response for a bulk delete conversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsResponse : GTLRObject
 @end
 
 
@@ -1601,7 +1716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  The conversation source, which is a combination of transcript and audio.
+ *  The conversation source, which is a combination of transcript, audio, and
+ *  metadata.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource : GTLRObject
 
@@ -2421,6 +2537,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Required. The parent resource for new conversations. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/**
+ *  Optional. DLP settings for transcript redaction. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig *redactionConfig;
+
+/**
+ *  Optional. Default Speech-to-Text configuration. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig *speechConfig;
+
 /** Configuration for when `source` contains conversation transcripts. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig *transcriptObjectConfig;
 
@@ -2433,10 +2561,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig : GTLRObject
 
 /**
+ *  Optional. For audio conversations, this field indicates which of the
+ *  channels, 1 or 2, contains the agent. Note that this must be set for audio
+ *  conversations to be properly displayed and analyzed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentChannel;
+
+/**
  *  An opaque, user-specified string representing the human agent who handled
  *  the conversations.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
+ *  Optional. For audio conversations, this field indicates which of the
+ *  channels, 1 or 2, contains the customer. Note that this must be set for
+ *  audio conversations to be properly displayed and analyzed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customerChannel;
 
 @end
 
@@ -2445,6 +2591,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Configuration for Cloud Storage bucket sources.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource : GTLRObject
+
+/**
+ *  Optional. Specifies the type of the objects in `bucket_uri`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio
+ *        The object is an audio file. (Value: "AUDIO")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified
+ *        The object type is unspecified and will default to TRANSCRIPT. (Value:
+ *        "BUCKET_OBJECT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Transcript
+ *        The object is a transcript. (Value: "TRANSCRIPT")
+ */
+@property(nonatomic, copy, nullable) NSString *bucketObjectType;
 
 /** Required. The Cloud Storage bucket containing source objects. */
 @property(nonatomic, copy, nullable) NSString *bucketUri;
@@ -3306,7 +3466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
- *        The Insights baseline model. (Value: "BASELINE_MODEL")
+ *        The CCAI baseline model. (Value: "BASELINE_MODEL")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -3435,6 +3595,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *failedAnalysesCount;
 
+/**
+ *  Output only. Partial errors during bulk analyze operation that might cause
+ *  the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *request;
 
@@ -3495,6 +3661,69 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *successfulAnalysisCount;
 
+@end
+
+
+/**
+ *  The metadata for a bulk delete conversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Partial errors during bulk delete conversations operation that might cause
+ *  the operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** The original request for bulk delete. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest *request;
+
+@end
+
+
+/**
+ *  The request to delete conversations in bulk.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest : GTLRObject
+
+/** Filter used to select the subset of conversations to delete. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  If set to true, all of this conversation's analyses will also be deleted.
+ *  Otherwise, the request will only succeed if the conversation has no
+ *  analyses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Maximum number of conversations to delete.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDeleteCount;
+
+/**
+ *  Required. The parent resource to delete conversations from. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The response for a bulk delete conversations operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsResponse : GTLRObject
 @end
 
 
@@ -3875,7 +4104,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  The conversation source, which is a combination of transcript and audio.
+ *  The conversation source, which is a combination of transcript, audio, and
+ *  metadata.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource : GTLRObject
 
@@ -4710,6 +4940,18 @@ GTLR_DEPRECATED
 /** Required. The parent resource for new conversations. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/**
+ *  Optional. DLP settings for transcript redaction. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
+
+/**
+ *  Optional. Default Speech-to-Text configuration. Optional, will default to
+ *  the config specified in Settings.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
+
 /** Configuration for when `source` contains conversation transcripts. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig *transcriptObjectConfig;
 
@@ -4722,10 +4964,28 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig : GTLRObject
 
 /**
+ *  Optional. For audio conversations, this field indicates which of the
+ *  channels, 1 or 2, contains the agent. Note that this must be set for audio
+ *  conversations to be properly displayed and analyzed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentChannel;
+
+/**
  *  An opaque, user-specified string representing the human agent who handled
  *  the conversations.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
+ *  Optional. For audio conversations, this field indicates which of the
+ *  channels, 1 or 2, contains the customer. Note that this must be set for
+ *  audio conversations to be properly displayed and analyzed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customerChannel;
 
 @end
 
@@ -4734,6 +4994,20 @@ GTLR_DEPRECATED
  *  Configuration for Cloud Storage bucket sources.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource : GTLRObject
+
+/**
+ *  Optional. Specifies the type of the objects in `bucket_uri`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio
+ *        The object is an audio file. (Value: "AUDIO")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified
+ *        The object type is unspecified and will default to TRANSCRIPT. (Value:
+ *        "BUCKET_OBJECT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Transcript
+ *        The object is a transcript. (Value: "TRANSCRIPT")
+ */
+@property(nonatomic, copy, nullable) NSString *bucketObjectType;
 
 /** Required. The Cloud Storage bucket containing source objects. */
 @property(nonatomic, copy, nullable) NSString *bucketUri;

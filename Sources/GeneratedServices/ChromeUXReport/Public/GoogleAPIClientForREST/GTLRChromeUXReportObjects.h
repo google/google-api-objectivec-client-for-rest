@@ -23,6 +23,7 @@
 @class GTLRChromeUXReport_HistoryRecord_Metrics;
 @class GTLRChromeUXReport_Key;
 @class GTLRChromeUXReport_Metric;
+@class GTLRChromeUXReport_Metric_Fractions;
 @class GTLRChromeUXReport_MetricTimeseries;
 @class GTLRChromeUXReport_Percentiles;
 @class GTLRChromeUXReport_Record;
@@ -392,6 +393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  */
 @interface GTLRChromeUXReport_Metric : GTLRObject
 
+/** For enum metrics, provides fractions which add up to approximately 1.0. */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_Metric_Fractions *fractions;
+
 /**
  *  The histogram of user experiences for a metric. The histogram will have at
  *  least one bin and the densities of all bins will add up to ~1.
@@ -405,6 +409,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_Percentiles *percentiles;
 
+@end
+
+
+/**
+ *  For enum metrics, provides fractions which add up to approximately 1.0.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of doubleValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRChromeUXReport_Metric_Fractions : GTLRObject
 @end
 
 

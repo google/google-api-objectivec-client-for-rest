@@ -31,6 +31,7 @@
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
+@class GTLRSecurityCommandCenter_CloudLoggingEntry;
 @class GTLRSecurityCommandCenter_Compliance;
 @class GTLRSecurityCommandCenter_Connection;
 @class GTLRSecurityCommandCenter_Contact;
@@ -88,6 +89,7 @@
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
 @class GTLRSecurityCommandCenter_LoadBalancer;
+@class GTLRSecurityCommandCenter_LogEntry;
 @class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
 @class GTLRSecurityCommandCenter_Node;
@@ -2503,6 +2505,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Metadata taken from a [Cloud Logging
+ *  LogEntry](https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry)
+ */
+@interface GTLRSecurityCommandCenter_CloudLoggingEntry : GTLRObject
+
+/** A unique identifier for the log entry. */
+@property(nonatomic, copy, nullable) NSString *insertId;
+
+/**
+ *  The type of the log (part of `log_name`. `log_name` is the resource name of
+ *  the log to which this log entry belongs). For example:
+ *  `cloudresourcemanager.googleapis.com/activity`. Note that this field is not
+ *  URL-encoded, unlike the `LOG_ID` field in `LogEntry`.
+ */
+@property(nonatomic, copy, nullable) NSString *logId;
+
+/**
+ *  The organization, folder, or project of the monitored resource that produced
+ *  this log entry.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceContainer;
+
+/** The time the event described by the log entry occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
  *  Contains compliance information about a security standard indicating unmet
  *  recommendations.
  */
@@ -3363,6 +3394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The load balancers associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_LoadBalancer *> *loadBalancers;
+
+/** Log entries that are relevant to the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_LogEntry *> *logEntries;
 
 /**
  *  MITRE ATT&CK tactics and techniques related to this finding. See:
@@ -5585,6 +5619,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  An individual entry in a log.
+ */
+@interface GTLRSecurityCommandCenter_LogEntry : GTLRObject
+
+/** An individual entry in a log stored in Cloud Logging. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudLoggingEntry *cloudLoggingEntry;
+
+@end
+
+
+/**
  *  A signature corresponding to memory page hashes.
  */
 @interface GTLRSecurityCommandCenter_MemoryHashSignature : GTLRObject
@@ -5744,6 +5789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  AccessReview.
  */
 @interface GTLRSecurityCommandCenter_Object : GTLRObject
+
+/** Pod containers associated with this finding, if any. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Container *> *containers;
 
 /** Kubernetes object group, such as "policy.k8s.io/v1". */
 @property(nonatomic, copy, nullable) NSString *group;

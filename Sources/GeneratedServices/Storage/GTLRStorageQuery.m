@@ -52,6 +52,175 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_AnywhereCacheDisable
+
+@dynamic anywhereCacheId, bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId {
+  NSArray *pathParams = @[
+    @"anywhereCacheId", @"bucket"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/disable";
+  GTLRStorageQuery_AnywhereCacheDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.anywhereCacheId = anywhereCacheId;
+  query.expectedObjectClass = [GTLRStorage_AnywhereCache class];
+  query.loggingName = @"storage.anywhereCaches.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCacheGet
+
+@dynamic anywhereCacheId, bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId {
+  NSArray *pathParams = @[
+    @"anywhereCacheId", @"bucket"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}";
+  GTLRStorageQuery_AnywhereCacheGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.anywhereCacheId = anywhereCacheId;
+  query.expectedObjectClass = [GTLRStorage_AnywhereCache class];
+  query.loggingName = @"storage.anywhereCaches.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCacheInsert
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches";
+  GTLRStorageQuery_AnywhereCacheInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.anywhereCaches.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCacheList
+
+@dynamic bucket, pageSize, pageToken;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCache";
+  GTLRStorageQuery_AnywhereCacheList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_AnywhereCaches class];
+  query.loggingName = @"storage.anywhereCaches.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCachePause
+
+@dynamic anywhereCacheId, bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId {
+  NSArray *pathParams = @[
+    @"anywhereCacheId", @"bucket"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/pause";
+  GTLRStorageQuery_AnywhereCachePause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.anywhereCacheId = anywhereCacheId;
+  query.expectedObjectClass = [GTLRStorage_AnywhereCache class];
+  query.loggingName = @"storage.anywhereCaches.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCacheResume
+
+@dynamic anywhereCacheId, bucket;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId {
+  NSArray *pathParams = @[
+    @"anywhereCacheId", @"bucket"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/resume";
+  GTLRStorageQuery_AnywhereCacheResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.anywhereCacheId = anywhereCacheId;
+  query.expectedObjectClass = [GTLRStorage_AnywhereCache class];
+  query.loggingName = @"storage.anywhereCaches.resume";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_AnywhereCacheUpdate
+
+@dynamic anywhereCacheId, bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
+                         bucket:(NSString *)bucket
+                anywhereCacheId:(NSString *)anywhereCacheId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"anywhereCacheId", @"bucket"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}";
+  GTLRStorageQuery_AnywhereCacheUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.anywhereCacheId = anywhereCacheId;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.anywhereCaches.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketAccessControlsDelete
 
 @dynamic bucket, entity, userProject;

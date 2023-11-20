@@ -900,13 +900,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @interface GTLRPubsub_MessageStoragePolicy : GTLRObject
 
 /**
- *  Optional. A list of IDs of GCP regions where messages that are published to
- *  the topic may be persisted in storage. Messages published by publishers
- *  running in non-allowed GCP regions (or running outside of GCP altogether)
- *  will be routed for storage in one of the allowed regions. An empty list
- *  means that no regions are allowed, and is not a valid configuration.
+ *  Optional. A list of IDs of Google Cloud regions where messages that are
+ *  published to the topic may be persisted in storage. Messages published by
+ *  publishers running in non-allowed Google Cloud regions (or running outside
+ *  of Google Cloud altogether) are routed for storage in one of the allowed
+ *  regions. An empty list means that no regions are allowed, and is not a valid
+ *  configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedPersistenceRegions;
+
+/**
+ *  Optional. If true, `allowed_persistence_regions` is also used to enforce
+ *  in-transit guarantees for messages. That is, Pub/Sub will fail Publish
+ *  operations on this topic and subscribe operations on any subscription
+ *  attached to this topic in any region that is not in
+ *  `allowed_persistence_regions`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforceInTransit;
 
 @end
 

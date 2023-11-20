@@ -63,6 +63,7 @@
 @class GTLRAnalyticsData_RunPivotReportResponse;
 @class GTLRAnalyticsData_RunReportRequest;
 @class GTLRAnalyticsData_RunReportResponse;
+@class GTLRAnalyticsData_SamplingMetadata;
 @class GTLRAnalyticsData_SchemaRestrictionResponse;
 @class GTLRAnalyticsData_StringFilter;
 
@@ -1909,6 +1910,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, copy, nullable) NSString *emptyReason;
 
 /**
+ *  If this report results is
+ *  [sampled](https://support.google.com/analytics/answer/13331292), this
+ *  describes the percentage of events used in this report. One
+ *  `samplingMetadatas` is populated for each date range. Each
+ *  `samplingMetadatas` corresponds to a date range in order that date ranges
+ *  were specified in the request. However if the results are not sampled, this
+ *  field will not be defined.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_SamplingMetadata *> *samplingMetadatas;
+
+/**
  *  Describes the schema restrictions actively enforced in creating this report.
  *  To learn more, see [Access and data-restriction
  *  management](https://support.google.com/analytics/answer/10851388).
@@ -1921,9 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  possible for a request to be subject to thresholding thresholding and no
  *  data is absent from the report, and this happens when all data is above the
  *  thresholds. To learn more, see [Data
- *  thresholds](https://support.google.com/analytics/answer/9383630) and [About
- *  Demographics and
- *  Interests](https://support.google.com/analytics/answer/2799357).
+ *  thresholds](https://support.google.com/analytics/answer/9383630).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2399,6 +2409,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /** If requested, the totaled values of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *totals;
+
+@end
+
+
+/**
+ *  If this report results is
+ *  [sampled](https://support.google.com/analytics/answer/13331292), this
+ *  describes the percentage of events used in this report. Sampling is the
+ *  practice of analyzing a subset of all data in order to uncover the
+ *  meaningful information in the larger data set.
+ */
+@interface GTLRAnalyticsData_SamplingMetadata : GTLRObject
+
+/**
+ *  The total number of events read in this sampled report for a date range.
+ *  This is the size of the subset this property's data that was analyzed in
+ *  this report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplesReadCount;
+
+/**
+ *  The total number of events present in this property's data that could have
+ *  been analyzed in this report for a date range. Sampling uncovers the
+ *  meaningful information about the larger data set, and this is the size of
+ *  the larger data set. To calculate the percentage of available data that was
+ *  used in this report, compute `samplesReadCount/samplingSpaceSize`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingSpaceSize;
 
 @end
 

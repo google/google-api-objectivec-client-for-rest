@@ -186,6 +186,25 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_Capabilities
+//
+
+@implementation GTLRCloudBuild_Capabilities
+@dynamic add, drop;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"add" : [NSString class],
+    @"drop" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_ChildStatusReference
 //
 
@@ -292,6 +311,24 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 @implementation GTLRCloudBuild_EnvVar
 @dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ExecAction
+//
+
+@implementation GTLRCloudBuild_ExecAction
+@dynamic command;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"command" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -729,9 +766,9 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 @implementation GTLRCloudBuild_PipelineRun
 @dynamic annotations, childReferences, completionTime, conditions, createTime,
-         ETag, name, params, pipelineRef, pipelineRunStatus, pipelineSpec,
-         resolvedPipelineSpec, serviceAccount, skippedTasks, startTime,
-         timeouts, uid, updateTime, workerPool, workflow, workspaces;
+         ETag, finallyStartTime, name, params, pipelineRef, pipelineRunStatus,
+         pipelineSpec, resolvedPipelineSpec, serviceAccount, skippedTasks,
+         startTime, timeouts, uid, updateTime, workerPool, workflow, workspaces;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -848,6 +885,16 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_Probe
+//
+
+@implementation GTLRCloudBuild_Probe
+@dynamic exec, periodSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_PropertySpec
 //
 
@@ -912,7 +959,8 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_SecurityContext
-@dynamic privileged;
+@dynamic allowPrivilegeEscalation, capabilities, privileged, runAsGroup,
+         runAsNonRoot, runAsUser;
 @end
 
 
@@ -932,8 +980,8 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_Sidecar
-@dynamic args, command, env, image, name, script, securityContext, volumeMounts,
-         workingDir;
+@dynamic args, command, env, image, name, readinessProbe, script,
+         securityContext, volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1004,8 +1052,8 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_Step
-@dynamic args, command, env, image, name, script, timeout, volumeMounts,
-         workingDir;
+@dynamic args, command, env, image, name, script, securityContext, timeout,
+         volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1013,6 +1061,24 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
     @"command" : [NSString class],
     @"env" : [GTLRCloudBuild_EnvVar class],
     @"volumeMounts" : [GTLRCloudBuild_VolumeMount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_StepTemplate
+//
+
+@implementation GTLRCloudBuild_StepTemplate
+@dynamic env;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"env" : [GTLRCloudBuild_EnvVar class]
   };
   return map;
 }
@@ -1074,7 +1140,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 @implementation GTLRCloudBuild_TaskSpec
 @dynamic descriptionProperty, managedSidecars, params, results, sidecars, steps,
-         volumes, workspaces;
+         stepTemplate, volumes, workspaces;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1087,6 +1153,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
     @"results" : [GTLRCloudBuild_TaskResult class],
     @"sidecars" : [GTLRCloudBuild_Sidecar class],
     @"steps" : [GTLRCloudBuild_Step class],
+    @"stepTemplate" : [GTLRCloudBuild_StepTemplate class],
     @"volumes" : [GTLRCloudBuild_VolumeSource class],
     @"workspaces" : [GTLRCloudBuild_WorkspaceDeclaration class]
   };
@@ -1206,7 +1273,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_WorkspaceBinding
-@dynamic name, secret, volumeClaim;
+@dynamic name, secret, subPath, volumeClaim;
 @end
 
 
@@ -1216,7 +1283,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_WorkspaceDeclaration
-@dynamic descriptionProperty, mountPath, name, readOnly;
+@dynamic descriptionProperty, mountPath, name, optional, readOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1231,5 +1298,5 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_WorkspacePipelineTaskBinding
-@dynamic name, workspace;
+@dynamic name, subPath, workspace;
 @end

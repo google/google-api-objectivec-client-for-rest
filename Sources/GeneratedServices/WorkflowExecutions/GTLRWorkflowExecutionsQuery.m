@@ -158,6 +158,44 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @end
 
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_StepEntry class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.stepEntries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, skip;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/stepEntries";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_ListStepEntriesResponse class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.stepEntries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsTriggerPubsubExecution
 
 @dynamic workflow;

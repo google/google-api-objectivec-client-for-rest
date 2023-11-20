@@ -188,6 +188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_Proce
  */
 FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed;
 /**
+ *  AppsScript executions are disabled by Admin.
+ *
+ *  Value: "EXECUTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ExecutionDisabled;
+/**
  *  The process failed.
  *
  *  Value: "FAILED"
@@ -856,6 +862,9 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  *        The process has completed. (Value: "COMPLETED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed The
  *        process is delayed, waiting for quota. (Value: "DELAYED")
+ *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ExecutionDisabled
+ *        AppsScript executions are disabled by Admin. (Value:
+ *        "EXECUTION_DISABLED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Failed The
  *        process failed. (Value: "FAILED")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused The

@@ -214,16 +214,6 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkconnectivity_AcceptSpokeRequest
-//
-
-@implementation GTLRNetworkconnectivity_AcceptSpokeRequest
-@dynamic requestId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkconnectivity_AuditConfig
 //
 
@@ -1143,16 +1133,6 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_RejectHubSpokeResponse
 @dynamic spoke;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_RejectSpokeRequest
-//
-
-@implementation GTLRNetworkconnectivity_RejectSpokeRequest
-@dynamic details, requestId;
 @end
 
 

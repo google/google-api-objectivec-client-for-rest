@@ -31,6 +31,11 @@ NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceed
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions = @"OPERATION_STATE_WAITING_FOR_PERMISSIONS";
 
+// GTLRLogging_DefaultSinkConfig.mode
+NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Append    = @"APPEND";
+NSString * const kGTLRLogging_DefaultSinkConfig_Mode_FilterWriteModeUnspecified = @"FILTER_WRITE_MODE_UNSPECIFIED";
+NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Overwrite = @"OVERWRITE";
+
 // GTLRLogging_IndexConfig.type
 NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeInteger = @"INDEX_TYPE_INTEGER";
 NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeString = @"INDEX_TYPE_STRING";
@@ -254,6 +259,24 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_CreateLinkRequest
 @dynamic link, linkId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_DefaultSinkConfig
+//
+
+@implementation GTLRLogging_DefaultSinkConfig
+@dynamic exclusions, filter, mode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusions" : [GTLRLogging_LogExclusion class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -591,6 +614,52 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ListRecentQueriesResponse
+//
+
+@implementation GTLRLogging_ListRecentQueriesResponse
+@dynamic nextPageToken, recentQueries, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentQueries" : [GTLRLogging_RecentQuery class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"recentQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_ListSavedQueriesResponse
+//
+
+@implementation GTLRLogging_ListSavedQueriesResponse
+@dynamic nextPageToken, savedQueries, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"savedQueries" : [GTLRLogging_SavedQuery class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"savedQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListSinksResponse
 //
 
@@ -712,10 +781,18 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogEntry
-@dynamic httpRequest, insertId, jsonPayload, labels, logName, metadata,
-         operation, protoPayload, receiveTimestamp, resource, severity,
-         sourceLocation, spanId, split, textPayload, timestamp, trace,
+@dynamic errorGroups, httpRequest, insertId, jsonPayload, labels, logName,
+         metadata, operation, protoPayload, receiveTimestamp, resource,
+         severity, sourceLocation, spanId, split, textPayload, timestamp, trace,
          traceSampled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorGroups" : [GTLRLogging_LogErrorGroup class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -783,6 +860,21 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogEntrySourceLocation
 @dynamic file, function, line;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_LogErrorGroup
+//
+
+@implementation GTLRLogging_LogErrorGroup
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -1049,6 +1141,44 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_OpsAnalyticsQuery
+//
+
+@implementation GTLRLogging_OpsAnalyticsQuery
+@dynamic sqlQueryText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Query
+//
+
+@implementation GTLRLogging_Query
+@dynamic filter, summaryFieldEnd, summaryFields, summaryFieldStart;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summaryFields" : [GTLRLogging_SummaryField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_RecentQuery
+//
+
+@implementation GTLRLogging_RecentQuery
+@dynamic lastRunTime, loggingQuery, name, opsAnalyticsQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_RequestLog
 //
 
@@ -1073,11 +1203,27 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_SavedQuery
+//
+
+@implementation GTLRLogging_SavedQuery
+@dynamic createTime, descriptionProperty, displayName, loggingQuery, name,
+         opsAnalyticsQuery, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_Settings
 //
 
 @implementation GTLRLogging_Settings
-@dynamic disableDefaultSink, kmsKeyName, kmsServiceAccountId,
+@dynamic defaultSinkConfig, disableDefaultSink, kmsKeyName, kmsServiceAccountId,
          loggingServiceAccountId, name, storageLocation;
 @end
 
@@ -1131,6 +1277,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_SummaryField
+//
+
+@implementation GTLRLogging_SummaryField
+@dynamic field;
 @end
 
 

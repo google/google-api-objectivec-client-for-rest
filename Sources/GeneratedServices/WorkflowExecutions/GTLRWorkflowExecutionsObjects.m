@@ -32,6 +32,42 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Unavailable = @"UNAVAIL
 NSString * const kGTLRWorkflowExecutions_StateError_Type_KmsError = @"KMS_ERROR";
 NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRWorkflowExecutions_StepEntry.state
+NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateFailed = @"STATE_FAILED";
+NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateInProgress = @"STATE_IN_PROGRESS";
+NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateSucceeded = @"STATE_SUCCEEDED";
+NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWorkflowExecutions_StepEntry.stepType
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepAssign = @"STEP_ASSIGN";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepCall = @"STEP_CALL";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepCondition = @"STEP_CONDITION";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepConnectorCall = @"STEP_CONNECTOR_CALL";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepExcept = @"STEP_EXCEPT";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepFor = @"STEP_FOR";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepForIteration = @"STEP_FOR_ITERATION";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepGoto = @"STEP_GOTO";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranch = @"STEP_PARALLEL_BRANCH";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelBranchEntry = @"STEP_PARALLEL_BRANCH_ENTRY";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepParallelFor = @"STEP_PARALLEL_FOR";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepRaise = @"STEP_RAISE";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepRetry = @"STEP_RETRY";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepReturn = @"STEP_RETURN";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepStdLibCall = @"STEP_STD_LIB_CALL";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepSubworkflowCall = @"STEP_SUBWORKFLOW_CALL";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepSwitch = @"STEP_SWITCH";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTry = @"STEP_TRY";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTryRetryExcept = @"STEP_TRY_RETRY_EXCEPT";
+NSString * const kGTLRWorkflowExecutions_StepEntry_StepType_StepTypeUnspecified = @"STEP_TYPE_UNSPECIFIED";
+
+// GTLRWorkflowExecutions_StepEntryMetadata.progressType
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeFor = @"PROGRESS_TYPE_FOR";
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelBranch = @"PROGRESS_TYPE_PARALLEL_BRANCH";
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeParallelFor = @"PROGRESS_TYPE_PARALLEL_FOR";
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeRetry = @"PROGRESS_TYPE_RETRY";
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeSwitch = @"PROGRESS_TYPE_SWITCH";
+NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_ProgressTypeUnspecified = @"PROGRESS_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRWorkflowExecutions_Callback
@@ -66,6 +102,16 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 
 @implementation GTLRWorkflowExecutions_Error
 @dynamic context, payload, stackTrace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_Exception
+//
+
+@implementation GTLRWorkflowExecutions_Exception
+@dynamic payload;
 @end
 
 
@@ -143,6 +189,46 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 
 + (NSString *)collectionItemsKey {
   return @"executions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_ListStepEntriesResponse
+//
+
+@implementation GTLRWorkflowExecutions_ListStepEntriesResponse
+@dynamic nextPageToken, stepEntries, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stepEntries" : [GTLRWorkflowExecutions_StepEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"stepEntries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_NavigationInfo
+//
+
+@implementation GTLRWorkflowExecutions_NavigationInfo
+@dynamic children, next, parent, previous;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"children" : [NSNumber class]
+  };
+  return map;
 }
 
 @end
@@ -245,6 +331,27 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYP
 
 @implementation GTLRWorkflowExecutions_Step
 @dynamic routine, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_StepEntry
+//
+
+@implementation GTLRWorkflowExecutions_StepEntry
+@dynamic createTime, entryId, exception, name, navigationInfo, routine, state,
+         step, stepEntryMetadata, stepType, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_StepEntryMetadata
+//
+
+@implementation GTLRWorkflowExecutions_StepEntryMetadata
+@dynamic progressNumber, progressType, threadId;
 @end
 
 

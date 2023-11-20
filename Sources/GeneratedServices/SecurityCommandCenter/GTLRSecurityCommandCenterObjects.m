@@ -627,6 +627,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_CloudLoggingEntry
+//
+
+@implementation GTLRSecurityCommandCenter_CloudLoggingEntry
+@dynamic insertId, logId, resourceContainer, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Compliance
 //
 
@@ -925,11 +935,11 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
          cloudDlpInspection, compliances, connections, contacts, containers,
          createTime, database, descriptionProperty, eventTime, exfiltration,
          externalSystems, externalUri, files, findingClass, iamBindings,
-         indicator, kernelRootkit, kubernetes, loadBalancers, mitreAttack,
-         moduleName, mute, muteInitiator, muteUpdateTime, name, nextSteps,
-         orgPolicies, parent, parentDisplayName, processes, resourceName,
-         securityMarks, securityPosture, severity, sourceProperties, state,
-         vulnerability;
+         indicator, kernelRootkit, kubernetes, loadBalancers, logEntries,
+         mitreAttack, moduleName, mute, muteInitiator, muteUpdateTime, name,
+         nextSteps, orgPolicies, parent, parentDisplayName, processes,
+         resourceName, securityMarks, securityPosture, severity,
+         sourceProperties, state, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -943,6 +953,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
     @"files" : [GTLRSecurityCommandCenter_File class],
     @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
     @"loadBalancers" : [GTLRSecurityCommandCenter_LoadBalancer class],
+    @"logEntries" : [GTLRSecurityCommandCenter_LogEntry class],
     @"orgPolicies" : [GTLRSecurityCommandCenter_OrgPolicy class],
     @"processes" : [GTLRSecurityCommandCenter_Process class]
   };
@@ -1893,6 +1904,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_LogEntry
+//
+
+@implementation GTLRSecurityCommandCenter_LogEntry
+@dynamic cloudLoggingEntry;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_MemoryHashSignature
 //
 
@@ -1980,7 +2001,14 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_Object
-@dynamic group, kind, name, ns;
+@dynamic containers, group, kind, name, ns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containers" : [GTLRSecurityCommandCenter_Container class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

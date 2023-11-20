@@ -955,8 +955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  organizations/organization_number/savedQueries/saved_query_id If both
  *  `analysis_query` and `saved_analysis_query` are provided, they will be
  *  merged together with the `saved_analysis_query` as base and the
- *  `analysis_query` as overrides. For more details of the merge behavior,
- *  please refer to the
+ *  `analysis_query` as overrides. For more details of the merge behavior, refer
+ *  to the
  *  [MergeFrom](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details)
  *  doc. Note that you cannot override primitive fields with default value, such
  *  as 0 or empty string, etc., because we use proto3, which doesn't support
@@ -1186,13 +1186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_Asset : GTLRObject
 
 /**
- *  Please also refer to the [access level user
+ *  Also refer to the [access level user
  *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-levels).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel *accessLevel;
 
 /**
- *  Please also refer to the [access policy user
+ *  Also refer to the [access policy user
  *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy *accessPolicy;
@@ -1267,7 +1267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
 
 /**
- *  Please also refer to the [service perimeter user
+ *  Also refer to the [service perimeter user
  *  guide](https://cloud.google.com/vpc-service-controls/docs/overview).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter *servicePerimeter;
@@ -1291,7 +1291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The type of this attached resource. Example:
  *  `osconfig.googleapis.com/Inventory` You can find the supported attached
  *  asset types of each resource in this table:
- *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types`
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
@@ -5300,7 +5300,7 @@ GTLR_DEPRECATED
  *  metadata fields that are returned by the List or Get APIs provided by the
  *  corresponding Google Cloud service (e.g., Compute Engine). see [API
  *  references and supported searchable
- *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
+ *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  to see which fields are included. You can search values of these fields
  *  through free text search. However, you should not consume the field
  *  programically as the field names and values may change as the Google Cloud
@@ -5387,9 +5387,9 @@ GTLR_DEPRECATED
  *  name or
  *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
  *  name. This field only presents for the purpose of backward compatibility.
- *  Please use the `kms_keys` field to retrieve Cloud KMS key information. This
- *  field is available only when the resource's Protobuf contains it and will
- *  only be populated for [these resource
+ *  Use the `kms_keys` field to retrieve Cloud KMS key information. This field
+ *  is available only when the resource's Protobuf contains it and will only be
+ *  populated for [these resource
  *  types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
  *  for backward compatible purposes. To search against the `kms_key`: * Use a
  *  field query. Example: `kmsKey:key` * Use a free text query. Example: `key`
@@ -5495,13 +5495,9 @@ GTLR_DEPRECATED
 
 /**
  *  The actual content of Security Command Center security marks associated with
- *  the asset. Note that both staging & prod SecurityMarks are attached on prod
- *  resources. In CAS preprod/prod, both staging & prod SecurityMarks are
- *  ingested and returned in the following `security_marks` map. In that case,
- *  the prefix "staging." will be added to the keys of all the staging marks. To
- *  search against SCC SecurityMarks field: * Use a field query: - query by a
- *  given key value pair. Example: `sccSecurityMarks.foo=bar` - query by a given
- *  key's existence. Example: `sccSecurityMarks.foo:*`
+ *  the asset. To search against SCC SecurityMarks field: * Use a field query: -
+ *  query by a given key value pair. Example: `sccSecurityMarks.foo=bar` - query
+ *  by a given key's existence. Example: `sccSecurityMarks.foo:*`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_SccSecurityMarks *sccSecurityMarks;
 
@@ -5523,8 +5519,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  This field is only present for the purpose of backward compatibility. Please
- *  use the `tags` field instead. TagKey namespaced names, in the format of
+ *  This field is only present for the purpose of backward compatibility. Use
+ *  the `tags` field instead. TagKey namespaced names, in the format of
  *  {ORG_ID}/{TAG_KEY_SHORT_NAME}. To search against the `tagKeys`: * Use a
  *  field query. Example: - `tagKeys:"123456789/env*"` -
  *  `tagKeys="123456789/env"` - `tagKeys:"env"` * Use a free text query.
@@ -5543,8 +5539,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Tag *> *tags;
 
 /**
- *  This field is only present for the purpose of backward compatibility. Please
- *  use the `tags` field instead. TagValue IDs, in the format of
+ *  This field is only present for the purpose of backward compatibility. Use
+ *  the `tags` field instead. TagValue IDs, in the format of
  *  tagValues/{TAG_VALUE_ID}. To search against the `tagValueIds`: * Use a field
  *  query. Example: - `tagValueIds="tagValues/456"` * Use a free text query.
  *  Example: - `456`
@@ -5552,8 +5548,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValueIds GTLR_DEPRECATED;
 
 /**
- *  This field is only present for the purpose of backward compatibility. Please
- *  use the `tags` field instead. TagValue namespaced names, in the format of
+ *  This field is only present for the purpose of backward compatibility. Use
+ *  the `tags` field instead. TagValue namespaced names, in the format of
  *  {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}. To search against the
  *  `tagValues`: * Use a field query. Example: - `tagValues:"env"` -
  *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
@@ -5591,7 +5587,7 @@ GTLR_DEPRECATED
  *  metadata fields that are returned by the List or Get APIs provided by the
  *  corresponding Google Cloud service (e.g., Compute Engine). see [API
  *  references and supported searchable
- *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
+ *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  to see which fields are included. You can search values of these fields
  *  through free text search. However, you should not consume the field
  *  programically as the field names and values may change as the Google Cloud
@@ -5646,13 +5642,9 @@ GTLR_DEPRECATED
 
 /**
  *  The actual content of Security Command Center security marks associated with
- *  the asset. Note that both staging & prod SecurityMarks are attached on prod
- *  resources. In CAS preprod/prod, both staging & prod SecurityMarks are
- *  ingested and returned in the following `security_marks` map. In that case,
- *  the prefix "staging." will be added to the keys of all the staging marks. To
- *  search against SCC SecurityMarks field: * Use a field query: - query by a
- *  given key value pair. Example: `sccSecurityMarks.foo=bar` - query by a given
- *  key's existence. Example: `sccSecurityMarks.foo:*`
+ *  the asset. To search against SCC SecurityMarks field: * Use a field query: -
+ *  query by a given key value pair. Example: `sccSecurityMarks.foo=bar` - query
+ *  by a given key's existence. Example: `sccSecurityMarks.foo:*`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6092,7 +6084,7 @@ GTLR_DEPRECATED
  *  instance as defined by Compute Engine:
  *  `https://cloud.google.com/compute/docs/reference/rest/v1/instances`. You can
  *  find the resource definition for each supported resource type in this table:
- *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_VersionedResource_Resource *resource;
 
@@ -6114,7 +6106,7 @@ GTLR_DEPRECATED
  *  instance as defined by Compute Engine:
  *  `https://cloud.google.com/compute/docs/reference/rest/v1/instances`. You can
  *  find the resource definition for each supported resource type in this table:
- *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types`
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

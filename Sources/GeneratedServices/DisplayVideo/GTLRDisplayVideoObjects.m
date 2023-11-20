@@ -60,13 +60,13 @@ NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_Minimu
 NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_MinimumVolume_VideoVolumePercentUnspecified = @"VIDEO_VOLUME_PERCENT_UNSPECIFIED";
 
 // GTLRDisplayVideo_AdGroup.adGroupFormat
-NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAction = @"AD_GROUP_FORMAT_ACTION";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAudio = @"AD_GROUP_FORMAT_AUDIO";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper = @"AD_GROUP_FORMAT_BUMPER";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream = @"AD_GROUP_FORMAT_IN_STREAM";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead = @"AD_GROUP_FORMAT_MASTHEAD";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatNonSkippableInStream = @"AD_GROUP_FORMAT_NON_SKIPPABLE_IN_STREAM";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatReach = @"AD_GROUP_FORMAT_REACH";
+NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatResponsive = @"AD_GROUP_FORMAT_RESPONSIVE";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatUnspecified = @"AD_GROUP_FORMAT_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatVideoDiscovery = @"AD_GROUP_FORMAT_VIDEO_DISCOVERY";
 
@@ -471,6 +471,16 @@ NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_Carr
 NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeIsp = @"CARRIER_AND_ISP_TYPE_ISP";
 NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeUnspecified = @"CARRIER_AND_ISP_TYPE_UNSPECIFIED";
 
+// GTLRDisplayVideo_Consent.adPersonalization
+NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusDenied = @"CONSENT_STATUS_DENIED";
+NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusGranted = @"CONSENT_STATUS_GRANTED";
+NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusUnspecified = @"CONSENT_STATUS_UNSPECIFIED";
+
+// GTLRDisplayVideo_Consent.adUserData
+NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusDenied = @"CONSENT_STATUS_DENIED";
+NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusGranted = @"CONSENT_STATUS_GRANTED";
+NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusUnspecified = @"CONSENT_STATUS_UNSPECIFIED";
+
 // GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails.contentDuration
 NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration0To1Min = @"CONTENT_DURATION_0_TO_1_MIN";
 NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration15To30Min = @"CONTENT_DURATION_15_TO_30_MIN";
@@ -606,6 +616,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6 = @"SDF_VERSION_6";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -2165,6 +2176,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 = @"SDF_VERSIO
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 = @"SDF_VERSION_6";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2179,6 +2191,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 = @"SDF_VERSION_6";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory
@@ -3652,6 +3665,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_Consent
+//
+
+@implementation GTLRDisplayVideo_Consent
+@dynamic adPersonalization, adUserData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ContactInfo
 //
 
@@ -3677,7 +3700,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_ContactInfoList
-@dynamic contactInfos;
+@dynamic consent, contactInfos;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5961,7 +5984,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_MobileDeviceIdList
-@dynamic mobileDeviceIds;
+@dynamic consent, mobileDeviceIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

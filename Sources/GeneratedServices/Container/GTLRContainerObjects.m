@@ -96,6 +96,11 @@ NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_ClusterScope = @"CLUST
 NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
 NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope = @"VPC_SCOPE";
 
+// GTLRContainer_EnterpriseConfig.clusterTier
+NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_ClusterTierUnspecified = @"CLUSTER_TIER_UNSPECIFIED";
+NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_Standard = @"STANDARD";
+
 // GTLRContainer_Filter.eventType
 NSString * const kGTLRContainer_Filter_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRContainer_Filter_EventType_SecurityBulletinEvent = @"SECURITY_BULLETIN_EVENT";
@@ -640,11 +645,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          costManagementConfig, createTime, currentMasterVersion,
          currentNodeCount, currentNodeVersion, databaseEncryption,
          defaultMaxPodsConstraint, descriptionProperty, enableK8sBetaApis,
-         enableKubernetesAlpha, enableTpu, endpoint, ETag, expireTime, fleet,
-         identifier, identityServiceConfig, initialClusterVersion,
-         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
-         labelFingerprint, legacyAbac, location, locations, loggingConfig,
-         loggingService, maintenancePolicy, masterAuth,
+         enableKubernetesAlpha, enableTpu, endpoint, enterpriseConfig, ETag,
+         expireTime, fleet, identifier, identityServiceConfig,
+         initialClusterVersion, initialNodeCount, instanceGroupUrls,
+         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
+         loggingConfig, loggingService, maintenancePolicy, masterAuth,
          masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
          monitoringService, name, network, networkConfig, networkPolicy,
          nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
@@ -917,6 +922,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_EnterpriseConfig
+//
+
+@implementation GTLRContainer_EnterpriseConfig
+@dynamic clusterTier;
 @end
 
 
@@ -1760,8 +1775,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic autoscaling, bestEffortProvisioning, conditions, config, ETag,
          initialNodeCount, instanceGroupUrls, locations, management,
          maxPodsConstraint, name, networkConfig, placementPolicy,
-         podIpv4CidrSize, selfLink, status, statusMessage, updateInfo,
-         upgradeSettings, version;
+         podIpv4CidrSize, queuedProvisioning, selfLink, status, statusMessage,
+         updateInfo, upgradeSettings, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1975,6 +1990,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PubSub
 @dynamic enabled, filter, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_QueuedProvisioning
+//
+
+@implementation GTLRContainer_QueuedProvisioning
+@dynamic enabled;
 @end
 
 

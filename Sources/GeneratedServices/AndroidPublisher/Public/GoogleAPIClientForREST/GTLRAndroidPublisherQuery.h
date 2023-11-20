@@ -1761,6 +1761,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Creates a new track.
+ *
+ *  Method: androidpublisher.edits.tracks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_EditsTracksCreate : GTLRAndroidPublisherQuery
+
+/** Required. Identifier of the edit. */
+@property(nonatomic, copy, nullable) NSString *editId;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Track.
+ *
+ *  Creates a new track.
+ *
+ *  @param object The @c GTLRAndroidPublisher_TrackConfig to include in the
+ *    query.
+ *  @param packageName Required. Package name of the app.
+ *  @param editId Required. Identifier of the edit.
+ *
+ *  @return GTLRAndroidPublisherQuery_EditsTracksCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_TrackConfig *)object
+                    packageName:(NSString *)packageName
+                         editId:(NSString *)editId;
+
+@end
+
+/**
  *  Gets a track.
  *
  *  Method: androidpublisher.edits.tracks.get
@@ -2935,7 +2969,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Required. The latest version is 2022/02. */
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices for the resource have to be
+ *  specified according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available. The latest
+ *  version is 2022/02.
+ */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3209,7 +3253,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Required. The latest version is 2022/02. */
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices for the resource have to be
+ *  specified according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available. The latest
+ *  version is 2022/02.
+ */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3270,7 +3324,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Required. The latest version is 2022/02. */
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices for the resource have to be
+ *  specified according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available. The latest
+ *  version is 2022/02.
+ */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**
@@ -3439,7 +3503,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Required. The latest version is 2022/02. */
+/**
+ *  Required. A string representing the version of available regions being used
+ *  for the specified resource. Regional prices for the resource have to be
+ *  specified according to the information published in [this
+ *  article](https://support.google.com/googleplay/android-developer/answer/10532353).
+ *  Each time the supported locations substantially change, the version will be
+ *  incremented. Using this field will ensure that creating and updating the
+ *  resource with an older region's version and set of regional prices and
+ *  currencies will succeed even though a new version is available. The latest
+ *  version is 2022/02.
+ */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
 /**

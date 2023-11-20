@@ -29,6 +29,7 @@
 @class GTLRAppengine_CreateVersionMetadataV1;
 @class GTLRAppengine_CreateVersionMetadataV1Alpha;
 @class GTLRAppengine_CreateVersionMetadataV1Beta;
+@class GTLRAppengine_Date;
 @class GTLRAppengine_Deployment;
 @class GTLRAppengine_Deployment_Files;
 @class GTLRAppengine_DiskUtilization;
@@ -62,6 +63,7 @@
 @class GTLRAppengine_RequestUtilization;
 @class GTLRAppengine_ResourceRecord;
 @class GTLRAppengine_Resources;
+@class GTLRAppengine_Runtime;
 @class GTLRAppengine_ScriptHandler;
 @class GTLRAppengine_Service;
 @class GTLRAppengine_Service_GeneratedCustomerMetadata;
@@ -80,6 +82,7 @@
 @class GTLRAppengine_Version_BetaSettings;
 @class GTLRAppengine_Version_BuildEnvVariables;
 @class GTLRAppengine_Version_EnvVariables;
+@class GTLRAppengine_Version_GeneratedCustomerMetadata;
 @class GTLRAppengine_Volume;
 @class GTLRAppengine_VpcAccessConnector;
 @class GTLRAppengine_ZipInfo;
@@ -775,6 +778,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Cname;
  *  Value: "RECORD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Runtime.environment
+
+/**
+ *  Default value.
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Environment_EnvironmentUnspecified;
+/**
+ *  App Engine Flexible
+ *
+ *  Value: "FLEXIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Environment_Flexible;
+/**
+ *  App Engine Standard.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Environment_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Runtime.stage
+
+/**
+ *  The runtime is in the Alpha stage.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Alpha;
+/**
+ *  The runtime is in the Beta stage.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Beta;
+/**
+ *  The runtime is no longer supported.
+ *
+ *  Value: "DECOMMISSIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Decommissioned;
+/**
+ *  The runtime is deprecated.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Deprecated;
+/**
+ *  The runtime is in development.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Development;
+/**
+ *  The runtime is end of support.
+ *
+ *  Value: "END_OF_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_EndOfSupport;
+/**
+ *  The runtime is generally available.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_Ga;
+/**
+ *  Not specified.
+ *
+ *  Value: "RUNTIME_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Runtime_Stage_RuntimeStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_SslSettings.sslManagementType
@@ -1716,6 +1793,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: A full date, with non-zero year, month, and day values. A month
+ *  and day, with a zero year (for example, an anniversary). A year on its own,
+ *  with a zero month and a zero day. A year and month, with a zero day (for
+ *  example, a credit card expiration date).Related types: google.type.TimeOfDay
+ *  google.type.DateTime google.protobuf.Timestamp
+ */
+@interface GTLRAppengine_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
  *  Request message for Instances.DebugInstance.
  */
 @interface GTLRAppengine_DebugInstanceRequest : GTLRObject
@@ -2515,6 +2632,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for Applications.ListRuntimes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "runtimes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAppengine_ListRuntimesResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The runtimes available to the requested application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_Runtime *> *runtimes;
 
 @end
 
@@ -3494,6 +3635,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  Runtime versions for App Engine.
+ */
+@interface GTLRAppengine_Runtime : GTLRObject
+
+/** Date when Runtime is decommissioned. */
+@property(nonatomic, strong, nullable) GTLRAppengine_Date *decommissionedDate;
+
+/** Date when Runtime is deprecated. */
+@property(nonatomic, strong, nullable) GTLRAppengine_Date *deprecationDate;
+
+/** Date when Runtime is end of support. */
+@property(nonatomic, strong, nullable) GTLRAppengine_Date *endOfSupportDate;
+
+/**
+ *  The environment of the runtime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Runtime_Environment_EnvironmentUnspecified Default
+ *        value. (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRAppengine_Runtime_Environment_Flexible App Engine Flexible
+ *        (Value: "FLEXIBLE")
+ *    @arg @c kGTLRAppengine_Runtime_Environment_Standard App Engine Standard.
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/** The name of the runtime, e.g., 'go113', 'nodejs12', etc. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The stage of life this runtime is in, e.g., BETA, GA, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Alpha The runtime is in the Alpha
+ *        stage. (Value: "ALPHA")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Beta The runtime is in the Beta
+ *        stage. (Value: "BETA")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Decommissioned The runtime is no
+ *        longer supported. (Value: "DECOMMISSIONED")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Deprecated The runtime is deprecated.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Development The runtime is in
+ *        development. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_EndOfSupport The runtime is end of
+ *        support. (Value: "END_OF_SUPPORT")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_Ga The runtime is generally
+ *        available. (Value: "GA")
+ *    @arg @c kGTLRAppengine_Runtime_Stage_RuntimeStageUnspecified Not
+ *        specified. (Value: "RUNTIME_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
+
+/** Warning messages, e.g., a deprecation warning. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
  *  Executes a script to handle the request that matches the URL pattern.
  */
 @interface GTLRAppengine_ScriptHandler : GTLRObject
@@ -4103,6 +4303,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_FlexibleRuntimeSettings *flexibleRuntimeSettings;
 
 /**
+ *  Additional Google Generated Customer Metadata, this field won't be provided
+ *  by default and can be requested by setting the IncludeExtraData field in
+ *  GetVersionRequest
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_Version_GeneratedCustomerMetadata *generatedCustomerMetadata;
+
+/**
  *  An ordered list of URL-matching patterns that should be applied to incoming
  *  requests. The first matching URL handles the request and other request
  *  handlers are not attempted.Only returned in GET requests if view=FULL is
@@ -4113,7 +4320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 /**
  *  Configures health checking for instances. Unhealthy instances are stopped
  *  and replaced with new instances. Only applicable in the App Engine flexible
- *  environment.Only returned in GET requests if view=FULL is set.
+ *  environment.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_HealthCheck *healthCheck;
 
@@ -4148,8 +4355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /**
  *  Configures liveness health checking for instances. Unhealthy instances are
- *  stopped and replaced with new instancesOnly returned in GET requests if
- *  view=FULL is set.
+ *  stopped and replaced with new instances
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_LivenessCheck *livenessCheck;
 
@@ -4181,8 +4387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /**
  *  Configures readiness health checking for instances. Unhealthy instances are
- *  not put into the backend traffic rotation.Only returned in GET requests if
- *  view=FULL is set.
+ *  not put into the backend traffic rotation.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ReadinessCheck *readinessCheck;
 
@@ -4303,6 +4508,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        fetch them all at once.
  */
 @interface GTLRAppengine_Version_EnvVariables : GTLRObject
+@end
+
+
+/**
+ *  Additional Google Generated Customer Metadata, this field won't be provided
+ *  by default and can be requested by setting the IncludeExtraData field in
+ *  GetVersionRequest
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAppengine_Version_GeneratedCustomerMetadata : GTLRObject
 @end
 
 

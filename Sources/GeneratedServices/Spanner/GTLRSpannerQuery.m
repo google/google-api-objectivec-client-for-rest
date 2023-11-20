@@ -245,6 +245,82 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instanceConfigs.ssdCaches.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instanceConfigs.ssdCaches.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instanceConfigs.ssdCaches.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_ListOperationsResponse class];
+  query.loggingName = @"spanner.projects.instanceConfigs.ssdCaches.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupOperationsList
 
 @dynamic filter, pageSize, pageToken, parent;

@@ -518,7 +518,18 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaConversionEvent
-@dynamic countingMethod, createTime, custom, deletable, eventName, name;
+@dynamic countingMethod, createTime, custom, defaultConversionValue, deletable,
+         eventName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaConversionEventDefaultConversionValue
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaConversionEventDefaultConversionValue
+@dynamic currencyCode, value;
 @end
 
 

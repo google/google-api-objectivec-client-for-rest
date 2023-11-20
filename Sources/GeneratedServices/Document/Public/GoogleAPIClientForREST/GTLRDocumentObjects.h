@@ -1743,12 +1743,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
 
-/**
- *  The gcs_uri of the auto-labeling document, which uniquely identifies a
- *  dataset document.
- */
-@property(nonatomic, copy, nullable) NSString *gcsUri GTLR_DEPRECATED;
-
 /** The status of the document auto-labeling. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
 
@@ -2313,7 +2307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  The metadata proto of ResyncDataset method.
+ *  The metadata proto of `ResyncDataset` method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata : GTLRObject
 
@@ -2321,8 +2315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 /**
- *  The list of dataset resync statuses. Not checked when `dataset_documents` is
- *  specified in ResyncRequest.
+ *  The list of dataset resync statuses. Not checked when
+ *  ResyncDatasetRequest.dataset_documents is specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus *> *datasetResyncStatuses;
 
@@ -2354,7 +2348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The status of resyncing the dataset with regards to the detected
- *  inconsistency. Empty if `validate_only` is true in the request.
+ *  inconsistency. Empty if ResyncDatasetRequest.validate_only is `true`.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
 
@@ -2389,7 +2383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The status of resyncing the document with regards to the detected
- *  inconsistency. Empty if `validate_only` is true in the request.
+ *  inconsistency. Empty if ResyncDatasetRequest.validate_only is `true`.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
 
@@ -5994,8 +5988,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset : GTLRObject
 
-/** Optional. Document AI Warehouse-based dataset configuration. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig *documentWarehouseConfig;
+/**
+ *  Optional. Derepcated. Warehouse-based dataset configuration is not supported
+ *  today.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig *documentWarehouseConfig GTLR_DEPRECATED;
 
 /**
  *  Optional. User-managed Cloud Storage dataset configuration. Use this

@@ -520,6 +520,25 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGetVpcServiceControls
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/vpcServiceControls";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGetVpcServiceControls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_VpcServiceControls class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.getVpcServiceControls";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate
 
 @dynamic parent;

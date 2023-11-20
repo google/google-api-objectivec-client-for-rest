@@ -56,6 +56,12 @@ NSString * const kGTLRMonitoring_AlertPolicy_Combiner_AndWithMatchingResource = 
 NSString * const kGTLRMonitoring_AlertPolicy_Combiner_CombineUnspecified = @"COMBINE_UNSPECIFIED";
 NSString * const kGTLRMonitoring_AlertPolicy_Combiner_Or       = @"OR";
 
+// GTLRMonitoring_AlertPolicy.severity
+NSString * const kGTLRMonitoring_AlertPolicy_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRMonitoring_AlertPolicy_Severity_Error    = @"ERROR";
+NSString * const kGTLRMonitoring_AlertPolicy_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRMonitoring_AlertPolicy_Severity_Warning  = @"WARNING";
+
 // GTLRMonitoring_CollectdValue.dataSourceType
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Absolute = @"ABSOLUTE";
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Counter = @"COUNTER";
@@ -331,7 +337,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 @implementation GTLRMonitoring_AlertPolicy
 @dynamic alertStrategy, combiner, conditions, creationRecord, displayName,
          documentation, enabled, mutationRecord, name, notificationChannels,
-         userLabels, validity;
+         severity, userLabels, validity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

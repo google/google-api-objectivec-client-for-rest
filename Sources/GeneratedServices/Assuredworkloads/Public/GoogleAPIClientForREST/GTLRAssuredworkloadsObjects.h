@@ -49,6 +49,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest.acknowledgeType
+
+/**
+ *  Acknowledge type unspecified.
+ *
+ *  Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_AcknowledgeTypeUnspecified;
+/**
+ *  Acknowledge specified orgPolicy violation and also associated resource
+ *  violations.
+ *
+ *  Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_ExistingChildResourceViolations;
+/**
+ *  Acknowledge only the specific violation.
+ *
+ *  Value: "SINGLE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
@@ -58,8 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners;
 /**
- *  Assured Workloads for Australia Regions and Support controls Available for
- *  public preview consumption. Don't create production workloads.
+ *  Assured Workloads for Australia Regions and Support controls
  *
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
@@ -231,6 +253,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_State_Unresolved;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation.violationType
+
+/**
+ *  Org Policy Violation.
+ *
+ *  Value: "ORG_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_OrgPolicy;
+/**
+ *  Resource Violation.
+ *
+ *  Value: "RESOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_Resource;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "VIOLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_ViolationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation.remediationType
 
 /**
@@ -254,6 +298,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListDeniedValuesOrgPolicyViolation;
 /**
+ *  Remediation type for resource violation.
+ *
+ *  Value: "REMEDIATION_RESOURCE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation;
+/**
  *  Remediation type for gcp.restrictCmekCryptoKeyProjects
  *
  *  Value: "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION"
@@ -276,8 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners;
 /**
- *  Assured Workloads for Australia Regions and Support controls Available for
- *  public preview consumption. Don't create production workloads.
+ *  Assured Workloads for Australia Regions and Support controls
  *
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
@@ -667,6 +716,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest : GTLRObject
 
 /**
+ *  Optional. Acknowledge type of specified violation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_AcknowledgeTypeUnspecified
+ *        Acknowledge type unspecified. (Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_ExistingChildResourceViolations
+ *        Acknowledge specified orgPolicy violation and also associated resource
+ *        violations. (Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation
+ *        Acknowledge only the specific violation. (Value: "SINGLE_VIOLATION")
+ */
+@property(nonatomic, copy, nullable) NSString *acknowledgeType;
+
+/**
  *  Required. Business justification explaining the need for violation
  *  acknowledgement
  */
@@ -733,7 +796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /**
  *  Type of the asset being analyzed. Possible values will be among the ones
  *  listed
- *  [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
+ *  [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types).
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
@@ -754,9 +817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Assured Workloads for Partners; (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
- *        Assured Workloads for Australia Regions and Support controls Available
- *        for public preview consumption. Don't create production workloads.
- *        (Value: "AU_REGIONS_AND_US_SUPPORT")
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -976,7 +1038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Workload monitoring Violation. Next Id: 28
+ *  Workload monitoring Violation.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation : GTLRObject
 
@@ -994,6 +1056,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  acknowledged field is marked as false.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *acknowledgementTime;
+
+/**
+ *  Optional. Output only. Violation Id of the org-policy violation due to which
+ *  the resource violation is caused. Empty for org-policy violations.
+ */
+@property(nonatomic, copy, nullable) NSString *associatedOrgPolicyViolationId;
 
 /**
  *  Output only. Immutable. Audit Log Link for violated resource Format:
@@ -1049,6 +1117,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *orgPolicyConstraint GTLR_DEPRECATED;
 
+/**
+ *  Optional. Output only. Parent project number where resource is present.
+ *  Empty for org-policy violations.
+ */
+@property(nonatomic, copy, nullable) NSString *parentProjectNumber;
+
 /** Output only. Compliance violation remediation */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation *remediation;
 
@@ -1057,6 +1131,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  is ACTIVE this will be empty.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *resolveTime;
+
+/**
+ *  Optional. Output only. Name of the resource like
+ *  //storage.googleapis.com/myprojectxyz-testbucket. Empty for org-policy
+ *  violations.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Optional. Output only. Type of the resource like
+ *  compute.googleapis.com/Disk, etc. Empty for org-policy violations.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
  *  Output only. State of the violation
@@ -1076,11 +1163,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Output only. The last time when the Violation record was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Output only. Type of the violation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_OrgPolicy
+ *        Org Policy Violation. (Value: "ORG_POLICY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_Resource
+ *        Resource Violation. (Value: "RESOURCE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_ViolationType_ViolationTypeUnspecified
+ *        Unspecified type. (Value: "VIOLATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *violationType;
+
 @end
 
 
 /**
- *  Violation exception detail. Next Id: 6
+ *  Violation exception detail.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext : GTLRObject
 
@@ -1130,6 +1230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Remediation type for list org policy which have denied values in the
  *        monitoring rule (Value:
  *        "REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation
+ *        Remediation type for resource violation. (Value:
+ *        "REMEDIATION_RESOURCE_VIOLATION")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation
  *        Remediation type for gcp.restrictCmekCryptoKeyProjects (Value:
  *        "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION")
@@ -1213,9 +1316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Assured Workloads for Partners; (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
- *        Assured Workloads for Australia Regions and Support controls Available
- *        for public preview consumption. Don't create production workloads.
- *        (Value: "AU_REGIONS_AND_US_SUPPORT")
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -1267,7 +1369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Output only. Urls for services which are compliant for this Assured
  *  Workload, but which are currently disallowed by the ResourceUsageRestriction
  *  org policy. Invoke RestrictAllowedResources endpoint to allow your project
- *  developers to use these services in their environment."
+ *  developers to use these services in their environment.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *compliantButDisallowedServices;
 
@@ -1281,7 +1383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Optional. Represents the Ekm Provisioning State of the given workload. */
+/**
+ *  Output only. Represents the Ekm Provisioning State of the given workload.
+ */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse *ekmProvisioningResponse;
 
 /**
@@ -1431,11 +1535,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus : GTLRObject
 
 /**
+ *  Number of current resource violations which are not acknowledged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgedResourceViolationCount;
+
+/**
  *  Number of current orgPolicy violations which are acknowledged.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationCount;
+
+/**
+ *  Number of current resource violations which are acknowledged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeResourceViolationCount;
 
 /**
  *  Number of current orgPolicy violations which are not acknowledged.

@@ -1087,17 +1087,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
 
 /**
  *  Automatically generate profiles for all tables, even if the table type is
- *  not yet fully supported for analysis. These unsupported profiles will be
- *  generated with errors to indicate their partial support. When support is
- *  added, they will automatically be profiled during the next scheduled run.
+ *  not yet fully supported for analysis. Profiles for unsupported tables will
+ *  be generated with errors to indicate their partial support. When full
+ *  support is added, the tables will automatically be profiled during the next
+ *  scheduled run.
  *
  *  Value: "BIG_QUERY_COLLECTION_ALL_TYPES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryConditions_TypeCollection_BigQueryCollectionAllTypes;
 /**
  *  Only those types fully supported will be profiled. Will expand automatically
- *  as new support is added. Unsupported table types will not have a profile
- *  generated.
+ *  as Cloud DLP adds support for new table types. Unsupported table types will
+ *  not have partial profiles generated.
  *
  *  Value: "BIG_QUERY_COLLECTION_ONLY_SUPPORTED_TYPES"
  */
@@ -1113,13 +1114,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryC
 // GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.status
 
 /**
- *  The Discovery config is paused temporarily.
+ *  The discovery config is paused temporarily.
  *
  *  Value: "PAUSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_Status_Paused;
 /**
- *  The Discovery config is currently active.
+ *  The discovery config is currently active.
  *
  *  Value: "RUNNING"
  */
@@ -2648,7 +2649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Target used to match against for Discovery with BigQuery tables
+ *  Target used to match against for discovery with BigQuery tables
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryDiscoveryTarget : GTLRObject
 
@@ -2669,7 +2670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Disabled *disabled;
 
 /**
- *  Required. The tables the Discovery cadence applies to. The first target with
+ *  Required. The tables the discovery cadence applies to. The first target with
  *  a matching filter will be the one to apply to a table.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryFilter *filter;
@@ -2857,11 +2858,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The types of bigquery tables supported by Cloud DLP.
+ *  The types of BigQuery tables supported by Cloud DLP.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes : GTLRObject
 
-/** A set of bigquery table types. */
+/** A set of BigQuery table types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *types;
 
 @end
@@ -3457,7 +3458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The name of the profile. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Other types found within this column. List will be un-ordered. */
+/** Other types found within this column. List will be unordered. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary *> *otherMatches;
 
 /**
@@ -3498,7 +3499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** The resource name to the table data profile. */
+/** The resource name of the table data profile. */
 @property(nonatomic, copy, nullable) NSString *tableDataProfile;
 
 /** The resource name of the table this column is within. */
@@ -3720,7 +3721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest : GTLRObject
 
 /**
- *  The config id can contain uppercase and lowercase letters, numbers, and
+ *  The config ID can contain uppercase and lowercase letters, numbers, and
  *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\d-_]+`.
  *  The maximum length is 100 characters. Can be empty to allow the system to
  *  generate one.
@@ -4084,9 +4085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Sensitivity for this CustomInfoType. If this CustomInfoType extends an
- *  existing InfoType, the sensitivity here will take precedent over that of the
- *  original InfoType. If unset for a CustomInfoType, it will default to HIGH.
- *  This only applies to data profiling.
+ *  existing InfoType, the sensitivity here will take precedence over that of
+ *  the original InfoType. If unset for a CustomInfoType, it will default to
+ *  HIGH. This only applies to data profiling.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
 
@@ -4120,8 +4121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The schema of data to be saved to the BigQuery when the `DataProfileAction`
- *  is enabled.
+ *  The schema of data to be saved to the BigQuery table when the
+ *  `DataProfileAction` is enabled.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfileBigQueryRowSchema : GTLRObject
 
@@ -4139,8 +4140,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot : GTLRObject
 
-/** A copy of the configuration used to generate this profile. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig *dataProfileJob;
+/**
+ *  A copy of the configuration used to generate this profile. This is
+ *  deprecated and will be replaced by DiscoveryConfig. DataProfileJobConfig
+ *  will still be written here for Discovery in BigQuery for backwards
+ *  compatibility, but will not be updated with new fields, while
+ *  DiscoveryConfig will.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig *dataProfileJob GTLR_DEPRECATED;
 
 /**
  *  A copy of the inspection config used to generate this profile. This is a
@@ -4173,7 +4180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  specified, it will be copied to that region and used instead. If no global
  *  or region-specific template is provided for a region with data, that
  *  region's data will not be scanned. For more information, see
- *  https://cloud.google.com/dlp/docs/data-profiles#data_residency.
+ *  https://cloud.google.com/dlp/docs/data-profiles#data-residency.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inspectTemplates;
 
@@ -4801,16 +4808,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Do nothing.
+ *  Do not profile the tables.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Disabled : GTLRObject
 @end
 
 
 /**
- *  Requirements that must be true before a table is scanned in Discovery for
+ *  Requirements that must be true before a table is scanned in discovery for
  *  the first time. There is an AND relationship between the top-level
- *  attributes.
+ *  attributes. Additionally, minimum conditions with an OR relationship that
+ *  must be met before Cloud DLP scans a table can be set (like a minimum row
+ *  count or a minimum table age).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryConditions : GTLRObject
 
@@ -4824,26 +4833,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OrConditions *orConditions;
 
 /**
- *  Restrict Discovery to categories of table types.
+ *  Restrict discovery to categories of table types.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryConditions_TypeCollection_BigQueryCollectionAllTypes
  *        Automatically generate profiles for all tables, even if the table type
- *        is not yet fully supported for analysis. These unsupported profiles
- *        will be generated with errors to indicate their partial support. When
- *        support is added, they will automatically be profiled during the next
- *        scheduled run. (Value: "BIG_QUERY_COLLECTION_ALL_TYPES")
+ *        is not yet fully supported for analysis. Profiles for unsupported
+ *        tables will be generated with errors to indicate their partial
+ *        support. When full support is added, the tables will automatically be
+ *        profiled during the next scheduled run. (Value:
+ *        "BIG_QUERY_COLLECTION_ALL_TYPES")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryConditions_TypeCollection_BigQueryCollectionOnlySupportedTypes
  *        Only those types fully supported will be profiled. Will expand
- *        automatically as new support is added. Unsupported table types will
- *        not have a profile generated. (Value:
- *        "BIG_QUERY_COLLECTION_ONLY_SUPPORTED_TYPES")
+ *        automatically as Cloud DLP adds support for new table types.
+ *        Unsupported table types will not have partial profiles generated.
+ *        (Value: "BIG_QUERY_COLLECTION_ONLY_SUPPORTED_TYPES")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryConditions_TypeCollection_BigQueryCollectionUnspecified
  *        Unused. (Value: "BIG_QUERY_COLLECTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *typeCollection;
 
-/** Restrict Discovery to specific table types. */
+/** Restrict discovery to specific table types. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes *types;
 
 @end
@@ -4852,9 +4862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Determines what tables will have profiles generated within an organization
  *  or project. Includes the ability to filter by regular expression patterns on
- *  project ID, dataset ID, and table ID. Also lets you set minimum conditions
- *  that must be met before Cloud DLP scans a table (like a minimum row count or
- *  a minimum table age).
+ *  project ID, dataset ID, and table ID.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryFilter : GTLRObject
 
@@ -4878,8 +4886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration for Discovery to scan resources for profile generation. Only
- *  one Discovery configuration may exist per organization, folder, or project.
+ *  Configuration for discovery to scan resources for profile generation. Only
+ *  one discovery configuration may exist per organization, folder, or project.
  *  The generated data profiles are retained according to the [data retention
  *  policy] (https://cloud.google.com/dlp/docs/data-profiles#retention).
  */
@@ -4912,7 +4920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  specified, it will be copied to that region and used instead. If no global
  *  or region-specific template is provided for a region with data, that
  *  region's data will not be scanned. For more information, see
- *  https://cloud.google.com/dlp/docs/data-profiles#data_residency.
+ *  https://cloud.google.com/dlp/docs/data-profiles#data-residency.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inspectTemplates;
 
@@ -4934,9 +4942,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_Status_Paused The
- *        Discovery config is paused temporarily. (Value: "PAUSED")
+ *        discovery config is paused temporarily. (Value: "PAUSED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_Status_Running The
- *        Discovery config is currently active. (Value: "RUNNING")
+ *        discovery config is currently active. (Value: "RUNNING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_Status_StatusUnspecified
  *        Unused (Value: "STATUS_UNSPECIFIED")
  */
@@ -5003,7 +5011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The location to begin a Discovery scan. Denotes an organization ID or folder
+ *  The location to begin a discovery scan. Denotes an organization ID or folder
  *  ID within an organization.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryStartingLocation : GTLRObject
@@ -6308,11 +6316,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  InfoType values returned by ListInfoTypes or listed at
  *  https://cloud.google.com/dlp/docs/infotypes-reference. When no InfoTypes or
  *  CustomInfoTypes are specified in a request, the system may automatically
- *  choose what detectors to run. By default this may be all types, but may
- *  change over time as detectors are updated. If you need precise control and
- *  predictability as to what detectors are run you should specify specific
- *  InfoTypes listed in the reference, otherwise a default list will be used,
- *  which may change over time.
+ *  choose a default list of detectors to run, which may change over time. If
+ *  you need precise control and predictability as to what detectors are run you
+ *  should specify specific InfoTypes listed in the reference, otherwise a
+ *  default list will be used, which may change over time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -7126,7 +7133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *> *deidentifyTemplates;
 
 /**
- *  If the next page is available then the next page token to be used in
+ *  If the next page is available then the next page token to be used in the
  *  following ListDeidentifyTemplates request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -7153,8 +7160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig *> *discoveryConfigs;
 
 /**
- *  If the next page is available then the next page token to be used in
- *  following ListDiscoveryConfigs request.
+ *  If the next page is available then this value is the next page token to be
+ *  used in the following ListDiscoveryConfigs request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -7215,7 +7222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectTemplate *> *inspectTemplates;
 
 /**
- *  If the next page is available then the next page token to be used in
+ *  If the next page is available then the next page token to be used in the
  *  following ListInspectTemplates request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -7242,8 +7249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2JobTrigger *> *jobTriggers;
 
 /**
- *  If the next page is available then the next page token to be used in
- *  following ListJobTriggers request.
+ *  If the next page is available then this value is the next page token to be
+ *  used in the following ListJobTriggers request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -7261,7 +7268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse : GTLRCollectionObject
 
 /**
- *  If the next page is available then the next page token to be used in
+ *  If the next page is available then the next page token to be used in the
  *  following ListStoredInfoTypes request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -8220,7 +8227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  De-id options.
+ *  De-identification options.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RequestedDeidentifyOptions : GTLRObject
 
@@ -9397,7 +9404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2UpdateDiscoveryConfigRequest : GTLRObject
 
-/** New DiscoveryConfig value. */
+/** Required. New DiscoveryConfig value. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig *discoveryConfig;
 
 /**

@@ -996,7 +996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignals *fraudSignals;
 
 /**
- *  Output only. The resource name for the Assessment in the format
+ *  Output only. Identifier. The resource name for the Assessment in the format
  *  `projects/{project}/assessments/{assessment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1314,7 +1314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The resource name for the FirewallPolicy in the format
+ *  Identifier. The resource name for the FirewallPolicy in the format
  *  `projects/{project}/firewallpolicies/{firewallpolicy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1540,7 +1540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels *labels;
 
 /**
- *  The resource name for the Key in the format `projects/{project}/keys/{key}`.
+ *  Identifier. The resource name for the Key in the format
+ *  `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1690,7 +1691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics *> *challengeMetrics;
 
 /**
- *  Output only. The name of the metrics, in the format
+ *  Output only. Identifier. The name of the metrics, in the format
  *  `projects/{project}/keys/{key}/metrics`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1783,8 +1784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup : GTLRObject
 
 /**
- *  Required. The resource name for the related account group in the format
- *  `projects/{project}/relatedaccountgroups/{related_account_group}`.
+ *  Required. Identifier. The resource name for the related account group in the
+ *  format `projects/{project}/relatedaccountgroups/{related_account_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1807,7 +1808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *hashedAccountId;
 
 /**
- *  Required. The resource name for this membership in the format
+ *  Required. Identifier. The resource name for this membership in the format
  *  `projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

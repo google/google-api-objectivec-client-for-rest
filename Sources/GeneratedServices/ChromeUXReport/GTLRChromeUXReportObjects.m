@@ -126,13 +126,27 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_Metric
-@dynamic histogram, percentiles;
+@dynamic fractions, histogram, percentiles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"histogram" : [GTLRChromeUXReport_Bin class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeUXReport_Metric_Fractions
+//
+
+@implementation GTLRChromeUXReport_Metric_Fractions
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end

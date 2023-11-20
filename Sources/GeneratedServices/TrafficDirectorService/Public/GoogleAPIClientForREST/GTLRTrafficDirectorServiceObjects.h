@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Traffic Director API (trafficdirector/v2)
+//   Traffic Director API (trafficdirector/v3)
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
@@ -17,10 +17,14 @@
 @class GTLRTrafficDirectorService_BuildVersion_Metadata;
 @class GTLRTrafficDirectorService_ClientConfig;
 @class GTLRTrafficDirectorService_ClustersConfigDump;
+@class GTLRTrafficDirectorService_ContextParams;
+@class GTLRTrafficDirectorService_ContextParams_Params;
 @class GTLRTrafficDirectorService_DoubleMatcher;
 @class GTLRTrafficDirectorService_DoubleRange;
 @class GTLRTrafficDirectorService_DynamicCluster;
 @class GTLRTrafficDirectorService_DynamicCluster_Cluster;
+@class GTLRTrafficDirectorService_DynamicEndpointConfig;
+@class GTLRTrafficDirectorService_DynamicEndpointConfig_EndpointConfig;
 @class GTLRTrafficDirectorService_DynamicListener;
 @class GTLRTrafficDirectorService_DynamicListenerState;
 @class GTLRTrafficDirectorService_DynamicListenerState_Listener;
@@ -28,7 +32,11 @@
 @class GTLRTrafficDirectorService_DynamicRouteConfig_RouteConfig;
 @class GTLRTrafficDirectorService_DynamicScopedRouteConfigs;
 @class GTLRTrafficDirectorService_DynamicScopedRouteConfigs_ScopedRouteConfigs_Item;
+@class GTLRTrafficDirectorService_EndpointsConfigDump;
+@class GTLRTrafficDirectorService_EnvoyInternalAddress;
 @class GTLRTrafficDirectorService_Extension;
+@class GTLRTrafficDirectorService_GenericXdsConfig;
+@class GTLRTrafficDirectorService_GenericXdsConfig_XdsConfig;
 @class GTLRTrafficDirectorService_GoogleRE2;
 @class GTLRTrafficDirectorService_InlineScopedRouteConfigs;
 @class GTLRTrafficDirectorService_InlineScopedRouteConfigs_ScopedRouteConfigs_Item;
@@ -36,9 +44,11 @@
 @class GTLRTrafficDirectorService_ListMatcher;
 @class GTLRTrafficDirectorService_Locality;
 @class GTLRTrafficDirectorService_Node;
+@class GTLRTrafficDirectorService_Node_DynamicParameters;
 @class GTLRTrafficDirectorService_Node_Metadata;
 @class GTLRTrafficDirectorService_NodeMatcher;
 @class GTLRTrafficDirectorService_NullMatch;
+@class GTLRTrafficDirectorService_OrMatcher;
 @class GTLRTrafficDirectorService_PathSegment;
 @class GTLRTrafficDirectorService_PerXdsConfig;
 @class GTLRTrafficDirectorService_Pipe;
@@ -49,6 +59,8 @@
 @class GTLRTrafficDirectorService_SocketAddress;
 @class GTLRTrafficDirectorService_StaticCluster;
 @class GTLRTrafficDirectorService_StaticCluster_Cluster;
+@class GTLRTrafficDirectorService_StaticEndpointConfig;
+@class GTLRTrafficDirectorService_StaticEndpointConfig_EndpointConfig;
 @class GTLRTrafficDirectorService_StaticListener;
 @class GTLRTrafficDirectorService_StaticListener_Listener;
 @class GTLRTrafficDirectorService_StaticRouteConfig;
@@ -70,10 +82,320 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_DynamicCluster.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_DynamicEndpointConfig.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_DynamicListener.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_DynamicRouteConfig.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_DynamicScopedRouteConfigs.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_GenericXdsConfig.clientStatus
+
+/**
+ *  Client received this resource and replied with ACK.
+ *
+ *  Value: "ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Acked;
+/**
+ *  This resource has been requested by the client but has either not been
+ *  delivered by the server or was previously delivered by the server and then
+ *  subsequently removed from resources provided by the server. For more
+ *  information, please refer to the :ref:`"Knowing When a Requested Resource
+ *  Does Not Exist" ` section.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_DoesNotExist;
+/**
+ *  Client received this resource and replied with NACK.
+ *
+ *  Value: "NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked;
+/**
+ *  Client requested this resource but hasn't received any update from
+ *  management server. The client will not fail requests, but will queue them
+ *  until update arrives or the client times out waiting for the resource.
+ *
+ *  Value: "REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested;
+/**
+ *  Resource status is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_GenericXdsConfig.configStatus
+
+/**
+ *  Management server has sent the config to client but received NACK. The
+ *  attached config dump will be the latest config (the rejected one), since it
+ *  is the persisted version in the management server.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Error;
+/**
+ *  Config is not sent.
+ *
+ *  Value: "NOT_SENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_NotSent;
+/**
+ *  Management server has sent the config to client but hasn’t received
+ *  ACK/NACK.
+ *
+ *  Value: "STALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Stale;
+/**
+ *  Management server has sent the config to client and received ACK.
+ *
+ *  Value: "SYNCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Synced;
+/**
+ *  Status info is not available/unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTrafficDirectorService_PerXdsConfig.clientStatus
+
+/**
+ *  Client received the config and replied with ACK.
+ *
+ *  Value: "CLIENT_ACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientAcked;
+/**
+ *  Client received the config and replied with NACK. Notably, the attached
+ *  config dump is not the NACKed version, but the most recent accepted one. If
+ *  no config is accepted yet, the attached config dump will be empty.
+ *
+ *  Value: "CLIENT_NACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientNacked;
+/**
+ *  Client requested the config but hasn't received any config from management
+ *  server yet.
+ *
+ *  Value: "CLIENT_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientRequested;
+/**
+ *  Config status is not available/unknown.
+ *
+ *  Value: "CLIENT_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRTrafficDirectorService_PerXdsConfig.status
 
 /**
- *  Management server has sent the config to client but received NACK.
+ *  Management server has sent the config to client but received NACK. The
+ *  attached config dump will be the latest config (the rejected one), since it
+ *  is the persisted version in the management server.
  *
  *  Value: "ERROR"
  */
@@ -119,6 +441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @interface GTLRTrafficDirectorService_Address : GTLRObject
 
+/** Specifies a user-space address handled by :ref:`internal listeners `. */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_EnvoyInternalAddress *envoyInternalAddress;
+
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_Pipe *pipe;
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_SocketAddress *socketAddress;
 
@@ -161,10 +486,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @interface GTLRTrafficDirectorService_ClientConfig : GTLRObject
 
+/**
+ *  Represents generic xDS config and the exact config structure depends on the
+ *  type URL (like Cluster if it is CDS)
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_GenericXdsConfig *> *genericXdsConfigs;
+
 /** Node for a particular client. */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_Node *node;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_PerXdsConfig *> *xdsConfig;
+/**
+ *  This field is deprecated in favor of generic_xds_configs which is much
+ *  simpler and uniform in structure.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_PerXdsConfig *> *xdsConfig GTLR_DEPRECATED;
 
 @end
 
@@ -173,6 +508,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  Request for client status of clients identified by a list of NodeMatchers.
  */
 @interface GTLRTrafficDirectorService_ClientStatusRequest : GTLRObject
+
+/**
+ *  If true, the server will not include the resource contents in the response
+ *  (i.e., the generic_xds_configs.xds_config field will not be populated).
+ *  [#not-implemented-hide:]
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeResourceContents;
+
+/** The node making the csds request. */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_Node *node;
 
 /**
  *  Management server can use these match criteria to identify clients. The
@@ -230,6 +577,34 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
+ *  Additional parameters that can be used to select resource variants. These
+ *  include any global context parameters, per-resource type client feature
+ *  capabilities and per-resource type functional attributes. All per-resource
+ *  type attributes will be `xds.resource.` prefixed and some of these are
+ *  documented below: `xds.resource.listening_address`: The value is "IP:port"
+ *  (e.g. "10.1.1.3:8080") which is the listening address of a Listener. Used in
+ *  a Listener resource query.
+ */
+@interface GTLRTrafficDirectorService_ContextParams : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ContextParams_Params *params;
+
+@end
+
+
+/**
+ *  GTLRTrafficDirectorService_ContextParams_Params
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_ContextParams_Params : GTLRObject
+@end
+
+
+/**
  *  Specifies the way to match a double value.
  */
 @interface GTLRTrafficDirectorService_DoubleMatcher : GTLRObject
@@ -275,12 +650,45 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Describes a dynamically loaded cluster via the CDS API.
+ *  Describes a dynamically loaded cluster via the CDS API. [#next-free-field:
+ *  6]
  */
 @interface GTLRTrafficDirectorService_DynamicCluster : GTLRObject
 
+/**
+ *  The client status of this resource. [#not-implemented-hide:]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
+
 /** The cluster config. */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_DynamicCluster_Cluster *cluster;
+
+/**
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  ``error_state`` field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty. [#not-implemented-hide:]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
 
 /** The timestamp when the Cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
@@ -309,8 +717,75 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
+ *  [#next-free-field: 6]
+ */
+@interface GTLRTrafficDirectorService_DynamicEndpointConfig : GTLRObject
+
+/**
+ *  The client status of this resource. [#not-implemented-hide:]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
+
+/** The endpoint config. */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_DynamicEndpointConfig_EndpointConfig *endpointConfig;
+
+/**
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  ``error_state`` field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty. [#not-implemented-hide:]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
+
+/**
+ *  [#not-implemented-hide:] The timestamp when the Endpoint was last updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
+
+/**
+ *  [#not-implemented-hide:] This is the per-resource version information. This
+ *  version is currently taken from the :ref:`version_info ` field at the time
+ *  that the endpoint configuration was loaded.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
+
+@end
+
+
+/**
+ *  The endpoint config.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_DynamicEndpointConfig_EndpointConfig : GTLRObject
+@end
+
+
+/**
  *  Describes a dynamically loaded listener via the LDS API. [#next-free-field:
- *  6]
+ *  7]
  */
 @interface GTLRTrafficDirectorService_DynamicListener : GTLRObject
 
@@ -319,6 +794,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  that are available to service data plane traffic.
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_DynamicListenerState *activeState;
+
+/**
+ *  The client status of this resource. [#not-implemented-hide:]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
 
 /**
  *  The listener state for any draining listener by this name. These are
@@ -330,7 +829,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_DynamicListenerState *drainingState;
 
 /**
- *  Set if the last update failed, cleared after the next successful update.
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  ``error_state`` field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty.
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
 
@@ -387,9 +889,41 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  GTLRTrafficDirectorService_DynamicRouteConfig
+ *  [#next-free-field: 6]
  */
 @interface GTLRTrafficDirectorService_DynamicRouteConfig : GTLRObject
+
+/**
+ *  The client status of this resource. [#not-implemented-hide:]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
+
+/**
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  ``error_state`` field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty. [#not-implemented-hide:]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
 
 /** The timestamp when the Route was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
@@ -420,9 +954,41 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  GTLRTrafficDirectorService_DynamicScopedRouteConfigs
+ *  [#next-free-field: 7]
  */
 @interface GTLRTrafficDirectorService_DynamicScopedRouteConfigs : GTLRObject
+
+/**
+ *  The client status of this resource. [#not-implemented-hide:]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
+
+/**
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  ``error_state`` field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty. [#not-implemented-hide:]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
 
 /** The timestamp when the scoped route config set was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
@@ -456,7 +1022,44 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Version and identification for an Envoy extension. [#next-free-field: 6]
+ *  Envoy's admin fill this message with all currently known endpoints. Endpoint
+ *  configuration information can be used to recreate an Envoy configuration by
+ *  populating all endpoints as static endpoints or by returning them in an EDS
+ *  response.
+ */
+@interface GTLRTrafficDirectorService_EndpointsConfigDump : GTLRObject
+
+/** The dynamically loaded endpoint configs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_DynamicEndpointConfig *> *dynamicEndpointConfigs;
+
+/** The statically loaded endpoint configs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_StaticEndpointConfig *> *staticEndpointConfigs;
+
+@end
+
+
+/**
+ *  The address represents an envoy internal listener. [#comment:
+ */
+@interface GTLRTrafficDirectorService_EnvoyInternalAddress : GTLRObject
+
+/**
+ *  Specifies an endpoint identifier to distinguish between multiple endpoints
+ *  for the same internal listener in a single upstream pool. Only used in the
+ *  upstream addresses for tracking changes to individual endpoints. This, for
+ *  example, may be set to the final destination IP for the target internal
+ *  listener.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointId;
+
+/** Specifies the :ref:`name ` of the internal listener. */
+@property(nonatomic, copy, nullable) NSString *serverListenerName;
+
+@end
+
+
+/**
+ *  Version and identification for an Envoy extension. [#next-free-field: 7]
  */
 @interface GTLRTrafficDirectorService_Extension : GTLRObject
 
@@ -486,7 +1089,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  [#not-implemented-hide:] Type descriptor of extension configuration proto.
  *  [#comment:
  */
-@property(nonatomic, copy, nullable) NSString *typeDescriptor;
+@property(nonatomic, copy, nullable) NSString *typeDescriptor GTLR_DEPRECATED;
+
+/** Type URLs of extension configuration protos. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *typeUrls;
 
 /**
  *  The version is a property of the extension and maintained independently of
@@ -495,6 +1101,114 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_BuildVersion *version;
 
+@end
+
+
+/**
+ *  GenericXdsConfig is used to specify the config status and the dump of any
+ *  xDS resource identified by their type URL. It is the generalized version of
+ *  the now deprecated ListenersConfigDump, ClustersConfigDump etc
+ *  [#next-free-field: 10]
+ */
+@interface GTLRTrafficDirectorService_GenericXdsConfig : GTLRObject
+
+/**
+ *  Per xDS resource status from the view of a xDS client
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Acked
+ *        Client received this resource and replied with ACK. (Value: "ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_DoesNotExist
+ *        This resource has been requested by the client but has either not been
+ *        delivered by the server or was previously delivered by the server and
+ *        then subsequently removed from resources provided by the server. For
+ *        more information, please refer to the :ref:`"Knowing When a Requested
+ *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked
+ *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested
+ *        Client requested this resource but hasn't received any update from
+ *        management server. The client will not fail requests, but will queue
+ *        them until update arrives or the client times out waiting for the
+ *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Unknown
+ *        Resource status is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus;
+
+/**
+ *  Per xDS resource config status. It is generated by management servers. It
+ *  will not be present if the CSDS server is an xDS client.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Error
+ *        Management server has sent the config to client but received NACK. The
+ *        attached config dump will be the latest config (the rejected one),
+ *        since it is the persisted version in the management server. (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_NotSent
+ *        Config is not sent. (Value: "NOT_SENT")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Stale
+ *        Management server has sent the config to client but hasn’t received
+ *        ACK/NACK. (Value: "STALE")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Synced
+ *        Management server has sent the config to client and received ACK.
+ *        (Value: "SYNCED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Unknown
+ *        Status info is not available/unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *configStatus;
+
+/**
+ *  Set if the last update failed, cleared after the next successful update. The
+ *  *error_state* field contains the rejected version of this particular
+ *  resource along with the reason and timestamp. For successfully updated or
+ *  acknowledged resource, this field should be empty. [#not-implemented-hide:]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState *errorState;
+
+/**
+ *  Is static resource is true if it is specified in the config supplied through
+ *  the file at the startup.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isStaticResource;
+
+/** Timestamp when the xDS resource was last updated */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
+
+/** Name of the xDS resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type_url represents the fully qualified name of xDS resource type like
+ *  envoy.v3.Cluster, envoy.v3.ClusterLoadAssignment etc.
+ */
+@property(nonatomic, copy, nullable) NSString *typeUrl;
+
+/**
+ *  This is the :ref:`version_info ` in the last processed xDS discovery
+ *  response. If there are only static bootstrap listeners, this field will be
+ *  ""
+ */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
+
+/** The xDS resource config. Actual content depends on the type */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_GenericXdsConfig_XdsConfig *xdsConfig;
+
+@end
+
+
+/**
+ *  The xDS resource config. Actual content depends on the type
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_GenericXdsConfig_XdsConfig : GTLRObject
 @end
 
 
@@ -509,8 +1223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  logged, respectively. ``re2.max_program_size.error_level`` defaults to 100,
  *  and ``re2.max_program_size.warn_level`` has no default if unset (will not
  *  check/log a warning). Envoy emits two stats for tracking the program size of
- *  regexes: the histogram `re2.program_size`, which records the program size,
- *  and the counter `re2.exceeded_warn_level`, which is incremented each time
+ *  regexes: the histogram ``re2.program_size``, which records the program size,
+ *  and the counter ``re2.exceeded_warn_level``, which is incremented each time
  *  the program size exceeds the warn level threshold.
  */
 @interface GTLRTrafficDirectorService_GoogleRE2 : GTLRObject
@@ -522,7 +1236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  configured max program size can be increased or the regex can be simplified.
  *  If not specified, the default is 100. This field is deprecated; regexp
  *  validation should be performed on the management server instead of being
- *  done by each individual client.
+ *  done by each individual client. .. note:: Although this field is deprecated,
+ *  the program size will still be checked against the global
+ *  ``re2.max_program_size.error_level`` runtime value.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -629,23 +1345,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 /**
  *  Identifies a specific Envoy instance. The node identifier is presented to
  *  the management server, which may use this identifier to distinguish per
- *  Envoy configuration for serving. [#next-free-field: 12]
+ *  Envoy configuration for serving. [#next-free-field: 13]
  */
 @interface GTLRTrafficDirectorService_Node : GTLRObject
 
 /**
- *  This is motivated by informing a management server during canary which
- *  version of Envoy is being tested in a heterogeneous fleet. This will be set
- *  by Envoy in management server RPCs. This field is deprecated in favor of the
- *  user_agent_name and user_agent_version values.
- */
-@property(nonatomic, copy, nullable) NSString *buildVersion GTLR_DEPRECATED;
-
-/**
  *  Client feature support list. These are well known features described in the
  *  Envoy API repository for a given major version of an API. Client features
- *  use reverse DNS naming scheme, for example `com.acme.feature`. See :ref:`the
- *  list of features ` that xDS client may support.
+ *  use reverse DNS naming scheme, for example ``com.acme.feature``. See
+ *  :ref:`the list of features ` that xDS client may support.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clientFeatures;
 
@@ -658,6 +1366,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  via :option:`--service-cluster`.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Map from xDS resource type URL to dynamic context parameters. These may vary
+ *  at runtime (unlike other fields in this message). For example, the xDS
+ *  client may have a shard identifier that changes during the lifetime of the
+ *  xDS client. In Envoy, this would be achieved by updating the dynamic context
+ *  on the Server::Instance's LocalInfo context provider. The shard ID dynamic
+ *  parameter then appears in this field during future discovery requests.
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_Node_DynamicParameters *dynamicParameters;
 
 /** List of extensions and their versions supported by the node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_Extension *> *extensions;
@@ -676,9 +1394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  Known listening ports on the node as a generic hint to the management server
  *  for filtering :ref:`listeners ` to be returned. For example, if there is a
  *  listener bound to port 80, the list can optionally contain the SocketAddress
- *  `(0.0.0.0,80)`. The field is optional and just a hint.
+ *  ``(0.0.0.0,80)``. The field is optional and just a hint.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_Address *> *listeningAddresses;
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_Address *> *listeningAddresses GTLR_DEPRECATED;
 
 /** Locality specifying where the Envoy instance is running. */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_Locality *locality;
@@ -704,6 +1422,24 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @property(nonatomic, copy, nullable) NSString *userAgentVersion;
 
+@end
+
+
+/**
+ *  Map from xDS resource type URL to dynamic context parameters. These may vary
+ *  at runtime (unlike other fields in this message). For example, the xDS
+ *  client may have a shard identifier that changes during the lifetime of the
+ *  xDS client. In Envoy, this would be achieved by updating the dynamic context
+ *  on the Server::Instance's LocalInfo context provider. The shard ID dynamic
+ *  parameter then appears in this field during future discovery requests.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRTrafficDirectorService_ContextParams. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRTrafficDirectorService_Node_DynamicParameters : GTLRObject
 @end
 
 
@@ -742,6 +1478,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
+ *  Specifies a list of alternatives for the match.
+ */
+@interface GTLRTrafficDirectorService_OrMatcher : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRTrafficDirectorService_ValueMatcher *> *valueMatchers;
+
+@end
+
+
+/**
  *  Specifies the segment in a path to retrieve value from Struct.
  */
 @interface GTLRTrafficDirectorService_PathSegment : GTLRObject
@@ -753,22 +1499,49 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Detailed config (per xDS) with status. [#next-free-field: 6]
+ *  Detailed config (per xDS) with status. [#next-free-field: 8]
  */
 @interface GTLRTrafficDirectorService_PerXdsConfig : GTLRObject
 
+/**
+ *  Client config status is populated by xDS clients. Will not be present if the
+ *  CSDS server is an xDS server. No matter what the client config status is,
+ *  xDS clients should always dump the most recent accepted xDS config. ..
+ *  attention:: This field is deprecated. Use :ref:`ClientResourceStatus ` for
+ *  per-resource config status instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientAcked
+ *        Client received the config and replied with ACK. (Value:
+ *        "CLIENT_ACKED")
+ *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientNacked
+ *        Client received the config and replied with NACK. Notably, the
+ *        attached config dump is not the NACKed version, but the most recent
+ *        accepted one. If no config is accepted yet, the attached config dump
+ *        will be empty. (Value: "CLIENT_NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientRequested
+ *        Client requested the config but hasn't received any config from
+ *        management server yet. (Value: "CLIENT_REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientUnknown
+ *        Config status is not available/unknown. (Value: "CLIENT_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *clientStatus GTLR_DEPRECATED;
+
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ClustersConfigDump *clusterConfig;
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_EndpointsConfigDump *endpointConfig;
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ListenersConfigDump *listenerConfig;
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_RoutesConfigDump *routeConfig;
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ScopedRoutesConfigDump *scopedRouteConfig;
 
 /**
- *  status
+ *  Config status generated by management servers. Will not be present if the
+ *  CSDS server is an xDS client.
  *
  *  Likely values:
  *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_Status_Error Management
- *        server has sent the config to client but received NACK. (Value:
- *        "ERROR")
+ *        server has sent the config to client but received NACK. The attached
+ *        config dump will be the latest config (the rejected one), since it is
+ *        the persisted version in the management server. (Value: "ERROR")
  *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_Status_NotSent Config is
  *        not sent. (Value: "NOT_SENT")
  *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_Status_Stale Management
@@ -814,11 +1587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @interface GTLRTrafficDirectorService_RegexMatcher : GTLRObject
 
 /** Google's RE2 regex engine. */
-@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_GoogleRE2 *googleRe2;
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_GoogleRE2 *googleRe2 GTLR_DEPRECATED;
 
 /**
  *  The regex match string. The string must be supported by the configured
- *  engine.
+ *  engine. The regex is matched against the full string, not as a partial
+ *  match.
  */
 @property(nonatomic, copy, nullable) NSString *regex;
 
@@ -907,9 +1681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  :ref:`FilterChainMatch `.] When used within an upstream :ref:`BindConfig `,
  *  the address controls the source address of outbound connections. For
  *  :ref:`clusters `, the cluster type determines whether the address must be an
- *  IP (*STATIC* or *EDS* clusters) or a hostname resolved by DNS (*STRICT_DNS*
- *  or *LOGICAL_DNS* clusters). Address resolution can be customized via
- *  :ref:`resolver_name `.
+ *  IP (``STATIC`` or ``EDS`` clusters) or a hostname resolved by DNS
+ *  (``STRICT_DNS`` or ``LOGICAL_DNS`` clusters). Address resolution can be
+ *  customized via :ref:`resolver_name `.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
@@ -949,7 +1723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  If this is empty, a context dependent default applies. If the address is a
  *  concrete IP address, no resolution will occur. If address is a hostname this
  *  should be set for resolution other than DNS. Specifying a custom resolver
- *  with *STRICT_DNS* or *LOGICAL_DNS* will generate an error at runtime.
+ *  with ``STRICT_DNS`` or ``LOGICAL_DNS`` will generate an error at runtime.
  */
 @property(nonatomic, copy, nullable) NSString *resolverName;
 
@@ -979,6 +1753,34 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRTrafficDirectorService_StaticCluster_Cluster : GTLRObject
+@end
+
+
+/**
+ *  GTLRTrafficDirectorService_StaticEndpointConfig
+ */
+@interface GTLRTrafficDirectorService_StaticEndpointConfig : GTLRObject
+
+/** The endpoint config. */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_StaticEndpointConfig_EndpointConfig *endpointConfig;
+
+/**
+ *  [#not-implemented-hide:] The timestamp when the Endpoint was last updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
+
+@end
+
+
+/**
+ *  The endpoint config.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_StaticEndpointConfig_EndpointConfig : GTLRObject
 @end
 
 
@@ -1035,21 +1837,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Specifies the way to match a string. [#next-free-field: 7]
+ *  Specifies the way to match a string. [#next-free-field: 8]
  */
 @interface GTLRTrafficDirectorService_StringMatcher : GTLRObject
 
 /**
+ *  The input string must have the substring specified here. Note: empty
+ *  contains match is not allowed, please use regex instead. Examples: * ``abc``
+ *  matches the value ``xyz.abc.def``
+ */
+@property(nonatomic, copy, nullable) NSString *contains;
+
+/**
  *  The input string must match exactly the string specified here. Examples: *
- *  *abc* only matches the value *abc*.
+ *  ``abc`` only matches the value ``abc``.
  */
 @property(nonatomic, copy, nullable) NSString *exact;
 
 /**
- *  If true, indicates the exact/prefix/suffix matching should be case
+ *  If true, indicates the exact/prefix/suffix/contains matching should be case
  *  insensitive. This has no effect for the safe_regex match. For example, the
- *  matcher *data* will match both input string *Data* and *data* if set to
- *  true.
+ *  matcher ``data`` will match both input string ``Data`` and ``data`` if set
+ *  to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1057,28 +1866,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 /**
  *  The input string must have the prefix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * *abc* matches the value
- *  *abc.xyz*
+ *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
+ *  ``abc.xyz``
  */
 @property(nonatomic, copy, nullable) NSString *prefix;
-
-/**
- *  The input string must match the regular expression specified here. The regex
- *  grammar is defined `here `_. Examples: * The regex ``\\d{3}`` matches the
- *  value *123* * The regex ``\\d{3}`` does not match the value *1234* * The
- *  regex ``\\d{3}`` does not match the value *123.456* .. attention:: This
- *  field has been deprecated in favor of `safe_regex` as it is not safe for use
- *  with untrusted input in all cases.
- */
-@property(nonatomic, copy, nullable) NSString *regex GTLR_DEPRECATED;
 
 /** The input string must match the regular expression specified here. */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_RegexMatcher *safeRegex;
 
 /**
  *  The input string must have the suffix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * *abc* matches the value
- *  *xyz.abc*
+ *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
+ *  ``xyz.abc``
  */
 @property(nonatomic, copy, nullable) NSString *suffix;
 
@@ -1087,8 +1886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 /**
  *  StructMatcher provides a general interface to check if a given value is
- *  matched in google.protobuf.Struct. It uses `path` to retrieve the value from
- *  the struct and then check if it's matched to the specified value. For
+ *  matched in google.protobuf.Struct. It uses ``path`` to retrieve the value
+ *  from the struct and then check if it's matched to the specified value. For
  *  example, for the following Struct: .. code-block:: yaml fields: a:
  *  struct_value: fields: b: struct_value: fields: c: string_value: pro t:
  *  list_value: values: - string_value: m - string_value: n The following
@@ -1125,19 +1924,24 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 /**
  *  What the component configuration would have been if the update had
- *  succeeded.
+ *  succeeded. This field may not be populated by xDS clients due to storage
+ *  overhead.
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_UpdateFailureState_FailedConfiguration *failedConfiguration;
 
 /** Time of the latest failed update attempt. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateAttempt;
 
+/** This is the version of the rejected resource. [#not-implemented-hide:] */
+@property(nonatomic, copy, nullable) NSString *versionInfo;
+
 @end
 
 
 /**
  *  What the component configuration would have been if the update had
- *  succeeded.
+ *  succeeded. This field may not be populated by xDS clients due to storage
+ *  overhead.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1151,7 +1955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 /**
  *  Specifies the way to match a ProtobufWkt::Value. Primitive values and
  *  ListValue are supported. StructValue is not supported and is always not
- *  matched. [#next-free-field: 7]
+ *  matched. [#next-free-field: 8]
  */
 @interface GTLRTrafficDirectorService_ValueMatcher : GTLRObject
 
@@ -1179,6 +1983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  If specified, a match occurs if and only if the target value is a NullValue.
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_NullMatch *nullMatch;
+
+/**
+ *  If specified, a match occurs if and only if any of the alternatives in the
+ *  match accept the value.
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_OrMatcher *orMatch;
 
 /**
  *  If specified, value match will be performed based on whether the path is

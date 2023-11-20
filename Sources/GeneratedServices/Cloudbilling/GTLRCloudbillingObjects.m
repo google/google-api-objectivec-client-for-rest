@@ -88,7 +88,7 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 //
 
 @implementation GTLRCloudbilling_BillingAccount
-@dynamic displayName, masterBillingAccount, name, open;
+@dynamic displayName, masterBillingAccount, name, open, parent;
 @end
 
 
@@ -248,6 +248,16 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 @implementation GTLRCloudbilling_Money
 @dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_MoveBillingAccountRequest
+//
+
+@implementation GTLRCloudbilling_MoveBillingAccountRequest
+@dynamic destinationParent;
 @end
 
 

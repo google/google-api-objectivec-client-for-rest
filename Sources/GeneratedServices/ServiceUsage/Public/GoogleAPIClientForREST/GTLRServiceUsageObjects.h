@@ -53,6 +53,8 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity;
 @class GTLRServiceUsage_GoogleApiServiceusageV1Service;
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
+@class GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations;
+@class GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule;
 @class GTLRServiceUsage_GoSettings;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
@@ -2832,6 +2834,102 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
 
+@end
+
+
+/**
+ *  Consumer Policy is a set of rules that define what services or service
+ *  groups can be used for a cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations *annotations;
+
+/**
+ *  Output only. The time the policy was created. For singleton policies, this
+ *  is the first touch of the policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Enable rules define usable services, groups, and categories. There can
+ *  currently be at most one `EnableRule`. This restriction will be lifted in
+ *  later releases.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule *> *enableRules;
+
+/**
+ *  Output only. An opaque tag indicating the current version of the policy,
+ *  used for concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported: `projects/12345/consumerPolicies/default`,
+ *  `folders/12345/consumerPolicies/default`,
+ *  `organizations/12345/consumerPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations : GTLRObject
+@end
+
+
+/**
+ *  The consumer policy rule that defines enabled services, groups, and
+ *  categories.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule : GTLRObject
+
+/**
+ *  The names of the categories that are enabled. Example:
+ *  `categories/googleServices`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+/**
+ *  The names of the service groups that are enabled. Example:
+ *  `services/container.googleapis.com/groups/dependencies`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
+
+/**
+ *  The names of the services that are enabled. Example:
+ *  `services/storage.googleapis.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+@end
+
+
+/**
+ *  Metadata for the `UpdateConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2alphaUpdateConsumerPolicyMetadata : GTLRObject
 @end
 
 

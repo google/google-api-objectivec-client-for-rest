@@ -819,6 +819,33 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_DemoteDestinationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:demoteDestination";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_Operation class];
+  query.loggingName = @"datamigration.projects.locations.migrationJobs.demoteDestination";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateSshScript
 
 @dynamic migrationJob;

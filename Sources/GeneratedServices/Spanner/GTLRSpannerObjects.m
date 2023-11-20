@@ -123,6 +123,11 @@ NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite       = @"READ_WRITE";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness         = @"WITNESS";
 
+// GTLRSpanner_ReplicaSelection.type
+NSString * const kGTLRSpanner_ReplicaSelection_Type_ReadOnly   = @"READ_ONLY";
+NSString * const kGTLRSpanner_ReplicaSelection_Type_ReadWrite  = @"READ_WRITE";
+NSString * const kGTLRSpanner_ReplicaSelection_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRSpanner_RequestOptions.priority
 NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityHigh = @"PRIORITY_HIGH";
 NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityLow = @"PRIORITY_LOW";
@@ -168,6 +173,36 @@ NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified 
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk  = @"CHUNK";
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key    = @"KEY";
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"KEY_UNIT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AutoscalingConfig
+//
+
+@implementation GTLRSpanner_AutoscalingConfig
+@dynamic autoscalingLimits, autoscalingTargets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AutoscalingLimits
+//
+
+@implementation GTLRSpanner_AutoscalingLimits
+@dynamic maxNodes, maxProcessingUnits, minNodes, minProcessingUnits;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AutoscalingTargets
+//
+
+@implementation GTLRSpanner_AutoscalingTargets
+@dynamic highPriorityCpuUtilizationPercent, storageUtilizationPercent;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -550,6 +585,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_DirectedReadOptions
+//
+
+@implementation GTLRSpanner_DirectedReadOptions
+@dynamic excludeReplicas, includeReplicas;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Empty
 //
 
@@ -574,6 +619,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_EncryptionInfo
 @dynamic encryptionStatus, encryptionType, kmsKeyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ExcludeReplicas
+//
+
+@implementation GTLRSpanner_ExcludeReplicas
+@dynamic replicaSelections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaSelections" : [GTLRSpanner_ReplicaSelection class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -619,8 +682,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic dataBoostEnabled, params, paramTypes, partitionToken, queryMode,
-         queryOptions, requestOptions, resumeToken, seqno, sql, transaction;
+@dynamic dataBoostEnabled, directedReadOptions, params, paramTypes,
+         partitionToken, queryMode, queryOptions, requestOptions, resumeToken,
+         seqno, sql, transaction;
 @end
 
 
@@ -727,6 +791,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_IncludeReplicas
+//
+
+@implementation GTLRSpanner_IncludeReplicas
+@dynamic autoFailoverDisabled, replicaSelections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaSelections" : [GTLRSpanner_ReplicaSelection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_IndexAdvice
 //
 
@@ -797,9 +879,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic config, createTime, displayName, endpointUris, freeInstanceMetadata,
-         instanceType, labels, name, nodeCount, processingUnits, state,
-         updateTime;
+@dynamic autoscalingConfig, config, createTime, displayName, endpointUris,
+         freeInstanceMetadata, instanceType, labels, name, nodeCount,
+         processingUnits, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1654,8 +1736,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ReadRequest
-@dynamic columns, dataBoostEnabled, index, keySet, limit, partitionToken,
-         requestOptions, resumeToken, table, transaction;
+@dynamic columns, dataBoostEnabled, directedReadOptions, index, keySet, limit,
+         partitionToken, requestOptions, resumeToken, table, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1684,6 +1766,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_ReplicaInfo
 @dynamic defaultLeaderLocation, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ReplicaSelection
+//
+
+@implementation GTLRSpanner_ReplicaSelection
+@dynamic location, type;
 @end
 
 

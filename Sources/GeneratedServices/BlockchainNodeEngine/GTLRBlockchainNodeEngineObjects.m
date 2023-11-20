@@ -39,6 +39,7 @@ NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_ExecutionClient_Geth 
 NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_Mainnet = @"MAINNET";
 NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_NetworkUnspecified = @"NETWORK_UNSPECIFIED";
 NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater = @"TESTNET_GOERLI_PRATER";
+NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetHolesky = @"TESTNET_HOLESKY";
 NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetSepolia = @"TESTNET_SEPOLIA";
 
 // GTLRBlockchainNodeEngine_EthereumDetails.nodeType
@@ -59,7 +60,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 
 @implementation GTLRBlockchainNodeEngine_BlockchainNode
 @dynamic blockchainType, connectionInfo, createTime, ethereumDetails, labels,
-         name, state, updateTime;
+         name, privateServiceConnectEnabled, state, updateTime;
 @end
 
 

@@ -666,17 +666,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsStreamsPatch
 
-@dynamic cdcStrategySpecificStartPositionMysqlLogPositionLogFile,
-         cdcStrategySpecificStartPositionMysqlLogPositionLogPosition, force,
-         name, requestId, updateMask, validateOnly;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"cdcStrategySpecificStartPositionMysqlLogPositionLogFile" : @"cdcStrategy.specificStartPosition.mysqlLogPosition.logFile",
-    @"cdcStrategySpecificStartPositionMysqlLogPositionLogPosition" : @"cdcStrategy.specificStartPosition.mysqlLogPosition.logPosition"
-  };
-  return map;
-}
+@dynamic force, name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDatastream_Stream *)object
                            name:(NSString *)name {

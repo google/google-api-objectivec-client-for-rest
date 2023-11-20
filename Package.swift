@@ -170,6 +170,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_BigQueryConnectionService"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_BigQueryDataPolicyService",
+            targets: ["GoogleAPIClientForREST_BigQueryDataPolicyService"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_BigQueryDataTransfer",
             targets: ["GoogleAPIClientForREST_BigQueryDataTransfer"]
         ),
@@ -716,6 +720,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Logging",
             targets: ["GoogleAPIClientForREST_Logging"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Looker",
+            targets: ["GoogleAPIClientForREST_Looker"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ManagedServiceforMicrosoftActiveDirectoryConsumerAPI",
@@ -1348,6 +1356,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_BigQueryConnectionService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/BigQueryConnectionService",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BigQueryDataPolicyService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/BigQueryDataPolicyService",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2170,6 +2184,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Logging",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Logging",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Looker",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Looker",
             publicHeadersPath: "Public"
         ),
         .target(

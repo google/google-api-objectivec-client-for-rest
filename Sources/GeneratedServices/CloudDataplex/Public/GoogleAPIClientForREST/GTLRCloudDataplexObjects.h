@@ -58,6 +58,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActionsBigQueryExport;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimension;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult;
@@ -82,7 +83,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_ColumnScore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionScore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionSpec;
@@ -1149,6 +1152,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Gover
  *  Value: "EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified;
+/**
+ *  Rule processing errors.
+ *
+ *  Value: "GOVERNANCE_RULE_ERRORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleErrors;
+/**
+ *  Number of resources matched with particular Query.
+ *
+ *  Value: "GOVERNANCE_RULE_MATCHED_RESOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources;
+/**
+ *  Rule processing exceeds the allowed limit.
+ *
+ *  Value: "GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleSearchLimitExceeds;
 /**
  *  Resource IAM policy update event.
  *
@@ -3421,6 +3442,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  DataQualityColumnResult provides a more detailed, per-column view of the
+ *  results.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult : GTLRObject
+
+/** Output only. The column specified in the DataQualityRule. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Output only. The column-level data quality score for this data scan job if
+ *  and only if the 'column' field is set.The score ranges between between 0,
+ *  100 (up to two decimal points).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
  *  A dimension captures data quality intent about a defined subset of the rules
  *  specified.
  */
@@ -3454,6 +3496,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSNumber *passed;
 
+/**
+ *  Output only. The dimension-level data quality score for this data scan job
+ *  if and only if the 'dimension' field is set.The score ranges between 0, 100
+ *  (up to two decimal points).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
 @end
 
 
@@ -3462,7 +3513,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult : GTLRObject
 
-/** A list of results at the dimension level. */
+/**
+ *  Output only. A list of results at the column level.A column will have a
+ *  corresponding DataQualityColumnResult if and only if there is at least one
+ *  rule with the 'column' field set to it.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityColumnResult *> *columns;
+
+/**
+ *  A list of results at the dimension level.A dimension will have a
+ *  corresponding DataQualityDimensionResult if and only if there is at least
+ *  one rule with the 'dimension' field set to it.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityDimensionResult *> *dimensions;
 
 /**
@@ -3487,6 +3549,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** The data scanned for this result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData *scannedData;
+
+/**
+ *  Output only. The overall data quality score.The score ranges between 0, 100
+ *  (up to two decimal points).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -4309,11 +4379,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult : GTLRObject
 
 /**
+ *  The score of each column scanned in the data scan job. The key of the map is
+ *  the name of the column. The value is the data quality score for the
+ *  column.The score ranges between 0, 100 (up to two decimal points).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_ColumnScore *columnScore;
+
+/**
  *  The result of each dimension for data quality result. The key of the map is
  *  the name of the dimension. The value is the bool value depicting whether the
  *  dimension result was pass or not.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed *dimensionPassed;
+
+/**
+ *  The score of each dimension for data quality result. The key of the map is
+ *  the name of the dimension. The value is the data quality score for the
+ *  dimension.The score ranges between 0, 100 (up to two decimal points).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionScore *dimensionScore;
 
 /**
  *  Whether the data quality result was pass or not.
@@ -4329,6 +4413,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
 
+/**
+ *  The table-level data quality score for the data scan job.The data quality
+ *  score ranges between 0, 100 (up to two decimal points).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  The score of each column scanned in the data scan job. The key of the map is
+ *  the name of the column. The value is the data quality score for the
+ *  column.The score ranges between 0, 100 (up to two decimal points).
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of floatValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_ColumnScore : GTLRObject
 @end
 
 
@@ -4343,6 +4449,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed : GTLRObject
+@end
+
+
+/**
+ *  The score of each dimension for data quality result. The key of the map is
+ *  the name of the dimension. The value is the data quality score for the
+ *  dimension.The score ranges between 0, 100 (up to two decimal points).
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of floatValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionScore : GTLRObject
 @end
 
 
@@ -5208,6 +5328,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        BigQuery taxonomy created. (Value: "BIGQUERY_TAXONOMY_CREATE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_EventTypeUnspecified
  *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleErrors
+ *        Rule processing errors. (Value: "GOVERNANCE_RULE_ERRORS")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources
+ *        Number of resources matched with particular Query. (Value:
+ *        "GOVERNANCE_RULE_MATCHED_RESOURCES")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleSearchLimitExceeds
+ *        Rule processing exceeds the allowed limit. (Value:
+ *        "GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_ResourceIamPolicyUpdate
  *        Resource IAM policy update event. (Value:
  *        "RESOURCE_IAM_POLICY_UPDATE")

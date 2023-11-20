@@ -264,7 +264,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  The resource name for the FirewallPolicy in the format
+ *  Identifier. The resource name for the FirewallPolicy in the format
  *  `projects/{project}/firewallpolicies/{firewallpolicy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -286,8 +286,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
  *    include in the query.
- *  @param name The resource name for the FirewallPolicy in the format
- *    `projects/{project}/firewallpolicies/{firewallpolicy}`.
+ *  @param name Identifier. The resource name for the FirewallPolicy in the
+ *    format `projects/{project}/firewallpolicies/{firewallpolicy}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesPatch
  */
@@ -523,7 +523,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysPatch : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  The resource name for the Key in the format `projects/{project}/keys/{key}`.
+ *  Identifier. The resource name for the Key in the format
+ *  `projects/{project}/keys/{key}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -543,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key to include in
  *    the query.
- *  @param name The resource name for the Key in the format
+ *  @param name Identifier. The resource name for the Key in the format
  *    `projects/{project}/keys/{key}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysPatch

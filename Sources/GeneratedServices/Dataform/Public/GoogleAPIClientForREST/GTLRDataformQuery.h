@@ -2191,6 +2191,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Finds the contents of a given Workspace directory by filter.
+ *
+ *  Method: dataform.projects.locations.repositories.workspaces.searchFiles
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles : GTLRDataformQuery
+
+/**
+ *  Optional. Optional filter for the returned list in go/filtering format.
+ *  Filtering is only currently supported on the `path` field.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of search results to return. The server may return
+ *  fewer items than requested. If unspecified, the server will pick an
+ *  appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `SearchFilesRequest` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `SearchFilesRequest` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The workspace's name. */
+@property(nonatomic, copy, nullable) NSString *workspace;
+
+/**
+ *  Fetches a @c GTLRDataform_SearchFilesResponse.
+ *
+ *  Finds the contents of a given Workspace directory by filter.
+ *
+ *  @param workspace Required. The workspace's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithWorkspace:(NSString *)workspace;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
