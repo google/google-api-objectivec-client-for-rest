@@ -1904,6 +1904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "EXISTING_DATA_IN_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica;
+/**
+ *  The minor version of replica database is incompatible with the source.
+ *
+ *  Value: "INCOMPATIBLE_DATABASE_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion;
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
 /**
@@ -2026,6 +2032,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "RISKY_BACKUP_ADMIN_PRIVILEGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege;
+/**
+ *  This warning message indicates that Cloud SQL uses the maximum number of
+ *  subscriptions to migrate data from the source to the destination.
+ *
+ *  Value: "SOURCE_MAX_SUBSCRIPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions;
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
 /**
@@ -4386,12 +4399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PscConfig *pscConfig;
 
 /**
+ *  Use `ssl_mode` instead for MySQL and PostgreSQL. SQL Server uses this flag.
  *  Whether SSL/TLS connections over IP are enforced. If set to false, then
  *  allow both non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections,
  *  the client certificate won't be verified. If set to true, then only allow
  *  connections encrypted with SSL/TLS and with valid client certificates. If
  *  you want to enforce SSL/TLS without enforcing the requirement for valid
- *  client certificates, then use the `ssl_mode` flag instead of the legacy
+ *  client certificates, then use the `ssl_mode` flag instead of the
  *  `require_ssl` flag.
  *
  *  Uses NSNumber of boolValue.
@@ -4399,20 +4413,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
 /**
- *  Specify how SSL/TLS is enforced in database connections. This flag is
- *  supported only for PostgreSQL. Use the legacy `require_ssl` flag for
- *  enforcing SSL/TLS in MySQL and SQL Server. But, for PostgreSQL, use the
- *  `ssl_mode` flag instead of the legacy `require_ssl` flag. To avoid the
- *  conflict between those flags in PostgreSQL, only the following value pairs
- *  are valid: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and
- *  `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false` *
- *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` Note
- *  that the value of `ssl_mode` gets priority over the value of the legacy
- *  `require_ssl`. For example, for the pair `ssl_mode=ENCRYPTED_ONLY,
- *  require_ssl=false`, the `ssl_mode=ENCRYPTED_ONLY` means "only accepts SSL
- *  connection", while the `require_ssl=false` means "both non-SSL and SSL
- *  connections are allowed". The database respects `ssl_mode` in this case and
- *  only accepts SSL connections.
+ *  SQL Server uses the `require_ssl` flag. You can set the value for this flag
+ *  to 'true' or 'false'.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
@@ -5521,6 +5523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica
  *        The replica instance contains existing data. (Value:
  *        "EXISTING_DATA_IN_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion
+ *        The minor version of replica database is incompatible with the source.
+ *        (Value: "INCOMPATIBLE_DATABASE_MINOR_VERSION")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion
  *        Value "INCOMPATIBLE_DATABASE_VERSION"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions
@@ -5584,6 +5589,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Additional BACKUP_ADMIN privilege is granted to the replication user
  *        which may lock source MySQL 8 instance for DDLs during initial sync.
  *        (Value: "RISKY_BACKUP_ADMIN_PRIVILEGE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions
+ *        This warning message indicates that Cloud SQL uses the maximum number
+ *        of subscriptions to migrate data from the source to the destination.
+ *        (Value: "SOURCE_MAX_SUBSCRIPTIONS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified
  *        Value "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning

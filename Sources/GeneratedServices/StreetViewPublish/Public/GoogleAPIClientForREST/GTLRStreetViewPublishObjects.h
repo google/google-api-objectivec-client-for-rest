@@ -243,6 +243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureR
  */
 FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution;
 /**
+ *  Mast is down.
+ *
+ *  Value: "MAST_DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_MastDown;
+/**
  *  No overlap between the time frame of GPS track and the time frame of video.
  *
  *  Value: "NO_OVERLAP_GPS"
@@ -981,6 +987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *        data is too erratic to be processed. (Value: "JUMPY_GPS")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution
  *        Video frame's resolution is too small. (Value: "LOW_RESOLUTION")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_MastDown Mast
+ *        is down. (Value: "MAST_DOWN")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_NoOverlapGps No
  *        overlap between the time frame of GPS track and the time frame of
  *        video. (Value: "NO_OVERLAP_GPS")

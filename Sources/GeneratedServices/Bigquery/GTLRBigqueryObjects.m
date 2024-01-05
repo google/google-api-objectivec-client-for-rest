@@ -115,6 +115,7 @@ NSString * const kGTLRBigquery_Model_ModelType_Xgboost         = @"XGBOOST";
 
 // GTLRBigquery_RemoteModelInfo.remoteServiceType
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1 = @"CLOUD_AI_NATURAL_LANGUAGE_V1";
+NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiSpeechToTextV2 = @"CLOUD_AI_SPEECH_TO_TEXT_V2";
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslateV3 = @"CLOUD_AI_TRANSLATE_V3";
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiVisionV1 = @"CLOUD_AI_VISION_V1";
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified = @"REMOTE_SERVICE_TYPE_UNSPECIFIED";
@@ -419,6 +420,12 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Auto = @"AUTO";
 NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Exact = @"EXACT";
 NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Hist = @"HIST";
 NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified = @"TREE_METHOD_UNSPECIFIED";
+
+// GTLRBigquery_VectorSearchStatistics.indexUsageMode
+NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_FullyUsed = @"FULLY_USED";
+NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_IndexUsageModeUnspecified = @"INDEX_USAGE_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_PartiallyUsed = @"PARTIALLY_USED";
+NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"UNUSED";
 
 // ----------------------------------------------------------------------------
 //
@@ -2536,7 +2543,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_RemoteModelInfo
 @dynamic connection, endpoint, maxBatchingRows, remoteModelVersion,
-         remoteServiceType;
+         remoteServiceType, speechRecognizer;
 @end
 
 
@@ -3431,6 +3438,24 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_UserDefinedFunctionResource
 @dynamic inlineCode, resourceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_VectorSearchStatistics
+//
+
+@implementation GTLRBigquery_VectorSearchStatistics
+@dynamic indexUnusedReasons, indexUsageMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexUnusedReasons" : [GTLRBigquery_IndexUnusedReason class]
+  };
+  return map;
+}
+
 @end
 
 

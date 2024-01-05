@@ -35,7 +35,6 @@
 @class GTLRCloudBatch_AllocationPolicy_Labels;
 @class GTLRCloudBatch_AttachedDisk;
 @class GTLRCloudBatch_Barrier;
-@class GTLRCloudBatch_CloudLoggingOption;
 @class GTLRCloudBatch_ComputeResource;
 @class GTLRCloudBatch_Container;
 @class GTLRCloudBatch_Disk;
@@ -1097,6 +1096,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** Service account that VMs will run as. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_ServiceAccount *serviceAccount;
 
+/**
+ *  Optional. Tags applied to the VM instances. The tags identify valid sources
+ *  or targets for network firewalls. Each tag must be 1-63 characters long, and
+ *  comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
 @end
 
 
@@ -1156,14 +1162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBatch_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
- *  CloudLoggingOption contains additional settings for cloud logging generated
- *  by Batch job.
- */
-@interface GTLRCloudBatch_CloudLoggingOption : GTLRObject
 @end
 
 
@@ -1245,6 +1243,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  commands are appended as arguments to the ENTRYPOINT.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
+
+/**
+ *  Optional. If set to true, container will run with Image streaming. The
+ *  container runtime will be changed to containerd instead of docker.
+ *  Currently, only imageUri, commands, entrypoint and volumes are supported and
+ *  any other fields will be ignored. Please refer
+ *  [here](https://github.com/GoogleCloudPlatform/batch-samples/tree/main/api-samples/image-streaming)
+ *  for the feature requirements and limitations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableImageStreaming;
 
 /** Overrides the `ENTRYPOINT` specified in the container. */
 @property(nonatomic, copy, nullable) NSString *entrypoint;
@@ -1947,12 +1957,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  preserved.
  */
 @interface GTLRCloudBatch_LogsPolicy : GTLRObject
-
-/**
- *  Optional. Additional settings for Cloud Logging. It will only take effect
- *  when the destination of LogsPolicy is set to CLOUD_LOGGING.
- */
-@property(nonatomic, strong, nullable) GTLRCloudBatch_CloudLoggingOption *cloudLoggingOption;
 
 /**
  *  Where logs should be saved.

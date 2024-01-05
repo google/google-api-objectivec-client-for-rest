@@ -40,6 +40,254 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an audience export for later retrieval. This method quickly returns
+ *  the audience export's resource name and initiates a long running
+ *  asynchronous request to form an audience export. To export the users in an
+ *  audience export, first create the audience export through this method and
+ *  then send the audience resource name to the `QueryAudienceExport` method.
+ *  See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. An audience export is
+ *  a snapshot of the users currently in the audience at the time of audience
+ *  export creation. Creating audience exports for one audience on different
+ *  days will return different results as users enter and exit the audience.
+ *  Audiences in Google Analytics 4 allow you to segment your users in the ways
+ *  that are important to your business. To learn more, see
+ *  https://support.google.com/analytics/answer/9267572. Audience exports
+ *  contain the users in each audience. Audience Export APIs have some methods
+ *  at alpha and other methods at beta stability. The intention is to advance
+ *  methods to beta stability after some feedback and adoption. To give your
+ *  feedback on this API, complete the [Google Analytics Audience Export API
+ *  Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  Method: analyticsdata.properties.audienceExports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesAudienceExportsCreate : GTLRAnalyticsDataQuery
+
+/**
+ *  Required. The parent resource where this audience export will be created.
+ *  Format: `properties/{property}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_Operation.
+ *
+ *  Creates an audience export for later retrieval. This method quickly returns
+ *  the audience export's resource name and initiates a long running
+ *  asynchronous request to form an audience export. To export the users in an
+ *  audience export, first create the audience export through this method and
+ *  then send the audience resource name to the `QueryAudienceExport` method.
+ *  See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. An audience export is
+ *  a snapshot of the users currently in the audience at the time of audience
+ *  export creation. Creating audience exports for one audience on different
+ *  days will return different results as users enter and exit the audience.
+ *  Audiences in Google Analytics 4 allow you to segment your users in the ways
+ *  that are important to your business. To learn more, see
+ *  https://support.google.com/analytics/answer/9267572. Audience exports
+ *  contain the users in each audience. Audience Export APIs have some methods
+ *  at alpha and other methods at beta stability. The intention is to advance
+ *  methods to beta stability after some feedback and adoption. To give your
+ *  feedback on this API, complete the [Google Analytics Audience Export API
+ *  Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  @param object The @c GTLRAnalyticsData_AudienceExport to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this audience export will
+ *    be created. Format: `properties/{property}`
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesAudienceExportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_AudienceExport *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets configuration metadata about a specific audience export. This method
+ *  can be used to understand an audience export after it has been created. See
+ *  [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  Method: analyticsdata.properties.audienceExports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesAudienceExportsGet : GTLRAnalyticsDataQuery
+
+/**
+ *  Required. The audience export resource name. Format:
+ *  `properties/{property}/audienceExports/{audience_export}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_AudienceExport.
+ *
+ *  Gets configuration metadata about a specific audience export. This method
+ *  can be used to understand an audience export after it has been created. See
+ *  [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  @param name Required. The audience export resource name. Format:
+ *    `properties/{property}/audienceExports/{audience_export}`
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesAudienceExportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all audience exports for a property. This method can be used for you
+ *  to find and reuse existing audience exports rather than creating unnecessary
+ *  new audience exports. The same audience can have multiple audience exports
+ *  that represent the export of users that were in an audience on different
+ *  days. See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  Method: analyticsdata.properties.audienceExports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesAudienceExportsList : GTLRAnalyticsDataQuery
+
+/**
+ *  Optional. The maximum number of audience exports to return. The service may
+ *  return fewer than this value. If unspecified, at most 200 audience exports
+ *  will be returned. The maximum value is 1000 (higher values will be coerced
+ *  to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListAudienceExports` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListAudienceExports` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. All audience exports for this property will be listed in the
+ *  response. Format: `properties/{property}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_ListAudienceExportsResponse.
+ *
+ *  Lists all audience exports for a property. This method can be used for you
+ *  to find and reuse existing audience exports rather than creating unnecessary
+ *  new audience exports. The same audience can have multiple audience exports
+ *  that represent the export of users that were in an audience on different
+ *  days. See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  @param parent Required. All audience exports for this property will be
+ *    listed in the response. Format: `properties/{property}`
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesAudienceExportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves an audience export of users. After creating an audience, the users
+ *  are not immediately available for exporting. First, a request to
+ *  `CreateAudienceExport` is necessary to create an audience export of users,
+ *  and then second, this method is used to retrieve the users in the audience
+ *  export. See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audiences in Google
+ *  Analytics 4 allow you to segment your users in the ways that are important
+ *  to your business. To learn more, see
+ *  https://support.google.com/analytics/answer/9267572. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  Method: analyticsdata.properties.audienceExports.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesAudienceExportsQuery : GTLRAnalyticsDataQuery
+
+/**
+ *  Required. The name of the audience export to retrieve users from. Format:
+ *  `properties/{property}/audienceExports/{audience_export}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_QueryAudienceExportResponse.
+ *
+ *  Retrieves an audience export of users. After creating an audience, the users
+ *  are not immediately available for exporting. First, a request to
+ *  `CreateAudienceExport` is necessary to create an audience export of users,
+ *  and then second, this method is used to retrieve the users in the audience
+ *  export. See [Creating an Audience
+ *  Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics)
+ *  for an introduction to Audience Exports with examples. Audiences in Google
+ *  Analytics 4 allow you to segment your users in the ways that are important
+ *  to your business. To learn more, see
+ *  https://support.google.com/analytics/answer/9267572. Audience Export APIs
+ *  have some methods at alpha and other methods at beta stability. The
+ *  intention is to advance methods to beta stability after some feedback and
+ *  adoption. To give your feedback on this API, complete the [Google Analytics
+ *  Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form.
+ *
+ *  @param object The @c GTLRAnalyticsData_QueryAudienceExportRequest to include
+ *    in the query.
+ *  @param name Required. The name of the audience export to retrieve users
+ *    from. Format: `properties/{property}/audienceExports/{audience_export}`
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesAudienceExportsQuery
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_QueryAudienceExportRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns multiple pivot reports in a batch. All reports must be for the same
  *  GA4 Property.
  *

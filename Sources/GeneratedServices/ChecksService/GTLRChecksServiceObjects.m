@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest.appBinaryFileType
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidAab = @"ANDROID_AAB";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidApk = @"ANDROID_APK";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AppBinaryFileTypeUnspecified = @"APP_BINARY_FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_IosIpa = @"IOS_IPA";
+
 // GTLRChecksService_GoogleChecksReportV1alphaAppBundle.releaseType
 NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAppBundle_ReleaseType_AppBundleReleaseTypeUnspecified = @"APP_BUNDLE_RELEASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAppBundle_ReleaseType_PreRelease = @"PRE_RELEASE";
@@ -309,7 +315,7 @@ NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvi
 //
 
 @implementation GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest
-@dynamic codeReferenceId;
+@dynamic appBinaryFileType, codeReferenceId;
 @end
 
 

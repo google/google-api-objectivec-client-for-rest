@@ -27,6 +27,16 @@ NSString * const kGTLRNetworkServices_EndpointPolicy_Type_EndpointPolicyTypeUnsp
 NSString * const kGTLRNetworkServices_EndpointPolicy_Type_GrpcServer = @"GRPC_SERVER";
 NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDECAR_PROXY";
 
+// GTLRNetworkServices_Gateway.envoyHeaders
+NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";
+NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_EnvoyHeadersUnspecified = @"ENVOY_HEADERS_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_None = @"NONE";
+
+// GTLRNetworkServices_Gateway.ipVersion
+NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv4   = @"IPV4";
+NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6   = @"IPV6";
+NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
+
 // GTLRNetworkServices_Gateway.type
 NSString * const kGTLRNetworkServices_Gateway_Type_OpenMesh    = @"OPEN_MESH";
 NSString * const kGTLRNetworkServices_Gateway_Type_SecureWebGateway = @"SECURE_WEB_GATEWAY";
@@ -49,6 +59,11 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_PermanentRe
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_ResponseCodeUnspecified = @"RESPONSE_CODE_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_SeeOther = @"SEE_OTHER";
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect = @"TEMPORARY_REDIRECT";
+
+// GTLRNetworkServices_Mesh.envoyHeaders
+NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";
+NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified = @"ENVOY_HEADERS_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None   = @"NONE";
 
 // ----------------------------------------------------------------------------
 //
@@ -213,8 +228,8 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 
 @implementation GTLRNetworkServices_Gateway
 @dynamic addresses, certificateUrls, createTime, descriptionProperty,
-         gatewaySecurityPolicy, labels, name, network, ports, scope, selfLink,
-         serverTlsPolicy, subnetwork, type, updateTime;
+         envoyHeaders, gatewaySecurityPolicy, ipVersion, labels, name, network,
+         ports, scope, selfLink, serverTlsPolicy, subnetwork, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -370,7 +385,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_GrpcRouteRouteAction
-@dynamic destinations, faultInjectionPolicy, retryPolicy,
+@dynamic destinations, faultInjectionPolicy, idleTimeout, retryPolicy,
          statefulSessionAffinity, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -498,7 +513,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_HttpRouteDestination
-@dynamic serviceName, weight;
+@dynamic requestHeaderModifier, responseHeaderModifier, serviceName, weight;
 @end
 
 
@@ -601,6 +616,16 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_HttpRouteHttpDirectResponse
+//
+
+@implementation GTLRNetworkServices_HttpRouteHttpDirectResponse
+@dynamic bytesBody, status, stringBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_HttpRouteQueryParameterMatch
 //
 
@@ -626,7 +651,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_HttpRouteRequestMirrorPolicy
-@dynamic destination;
+@dynamic destination, mirrorPercent;
 @end
 
 
@@ -654,9 +679,10 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_HttpRouteRouteAction
-@dynamic corsPolicy, destinations, faultInjectionPolicy, redirect,
-         requestHeaderModifier, requestMirrorPolicy, responseHeaderModifier,
-         retryPolicy, statefulSessionAffinity, timeout, urlRewrite;
+@dynamic corsPolicy, destinations, directResponse, faultInjectionPolicy,
+         idleTimeout, redirect, requestHeaderModifier, requestMirrorPolicy,
+         responseHeaderModifier, retryPolicy, statefulSessionAffinity, timeout,
+         urlRewrite;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -991,8 +1017,8 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_Mesh
-@dynamic createTime, descriptionProperty, interceptionPort, labels, name,
-         selfLink, updateTime;
+@dynamic createTime, descriptionProperty, envoyHeaders, interceptionPort,
+         labels, name, selfLink, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1204,7 +1230,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_TcpRouteRouteAction
-@dynamic destinations, originalDestination;
+@dynamic destinations, idleTimeout, originalDestination;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1335,7 +1361,7 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRe
 //
 
 @implementation GTLRNetworkServices_TlsRouteRouteAction
-@dynamic destinations;
+@dynamic destinations, idleTimeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -12,9 +12,8 @@
 #import <GoogleAPIClientForREST/GTLRSmartDeviceManagement.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-NSString * const kGTLRAuthScopeSmartDeviceManagementCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeSmartDeviceManagementSdmService = @"https://www.googleapis.com/auth/sdm.service";
 
 // ----------------------------------------------------------------------------

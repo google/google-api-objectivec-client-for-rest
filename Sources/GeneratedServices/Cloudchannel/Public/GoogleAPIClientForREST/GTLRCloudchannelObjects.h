@@ -1777,6 +1777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  The definition of a report column. Specifies the data properties in the
  *  corresponding position of the report rows.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1Column : GTLRObject
 
 /**
@@ -1865,6 +1866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  A representation of usage or invoice date ranges.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange : GTLRObject
 
 /**
@@ -2313,6 +2315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  For example, "Google Cloud Daily Spend", "Google Workspace License
  *  Activity", etc.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1Report : GTLRObject
 
 /**
@@ -2346,6 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  The result of a RunReportJob operation. Contains the name to use in
  *  FetchReportResultsRequest.report_job and the status of the operation.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob : GTLRObject
 
 /**
@@ -2365,6 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  CloudChannelReportsService.RunReportJob and
  *  CloudChannelReportsService.FetchReportResults.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata : GTLRObject
 
 /** The date range of reported usage. */
@@ -2394,6 +2399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Status of a report generation process.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus : GTLRObject
 
 /** The report generation's completion time. */
@@ -2425,6 +2431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Response message for CloudChannelReportsService.RunReportJob.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1RunReportJobResponse : GTLRObject
 
 /**
@@ -2929,6 +2936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  The definition of a report column. Specifies the data properties in the
  *  corresponding position of the report rows.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1Column : GTLRObject
 
 /**
@@ -3241,6 +3249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  A representation of usage or invoice date ranges.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1DateRange : GTLRObject
 
 /**
@@ -3637,6 +3646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Request message for CloudChannelReportsService.FetchReportResults.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest : GTLRObject
 
 /**
@@ -3674,6 +3684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsResponse : GTLRCollectionObject
 
 /**
@@ -4008,6 +4019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1ListReportsResponse : GTLRCollectionObject
 
 /**
@@ -4924,6 +4936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  For example, "Google Cloud Daily Spend", "Google Workspace License
  *  Activity", etc.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1Report : GTLRObject
 
 /**
@@ -4957,6 +4970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  The result of a RunReportJob operation. Contains the name to use in
  *  FetchReportResultsRequest.report_job and the status of the operation.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1ReportJob : GTLRObject
 
 /**
@@ -4976,6 +4990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  CloudChannelReportsService.RunReportJob and
  *  CloudChannelReportsService.FetchReportResults.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata : GTLRObject
 
 /** The date range of reported usage. */
@@ -5005,6 +5020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Status of a report generation process.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1ReportStatus : GTLRObject
 
 /** The report generation's completion time. */
@@ -5036,6 +5052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  A single report value.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1ReportValue : GTLRObject
 
 /**
@@ -5181,6 +5198,7 @@ GTLR_DEPRECATED
 /**
  *  A row of report values.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1Row : GTLRObject
 
 /**
@@ -5198,6 +5216,7 @@ GTLR_DEPRECATED
 /**
  *  Request message for CloudChannelReportsService.RunReportJob.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest : GTLRObject
 
 /** Optional. The range of usage or invoice dates to include in the result. */
@@ -5226,6 +5245,7 @@ GTLR_DEPRECATED
 /**
  *  Response message for CloudChannelReportsService.RunReportJob.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleCloudChannelV1RunReportJobResponse : GTLRObject
 
 /**

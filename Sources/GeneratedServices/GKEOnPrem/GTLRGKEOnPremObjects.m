@@ -1931,7 +1931,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_VmwareAdminVCenterConfig
 @dynamic address, caCertData, cluster, datacenter, dataDisk, datastore, folder,
-         resourcePool;
+         resourcePool, storagePolicyName;
 @end
 
 

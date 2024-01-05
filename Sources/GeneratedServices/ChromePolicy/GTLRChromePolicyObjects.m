@@ -22,6 +22,13 @@ NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycl
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiPreview = @"API_PREVIEW";
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiUnspecified = @"API_UNSPECIFIED";
 
+// GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema.supportedPlatforms
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowser = @"CHROME_BROWSER";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowserForAndroid = @"CHROME_BROWSER_FOR_ANDROID";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowserForIos = @"CHROME_BROWSER_FOR_IOS";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeOs = @"CHROME_OS";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
+
 // GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema.validTargetResources
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_Group = @"GROUP";
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_OrgUnit = @"ORG_UNIT";
@@ -429,7 +436,8 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema
 @dynamic accessRestrictions, additionalTargetKeyNames, categoryTitle,
          definition, fieldDescriptions, name, notices, policyApiLifecycle,
-         policyDescription, schemaName, supportUri, validTargetResources;
+         policyDescription, schemaName, supportedPlatforms, supportUri,
+         validTargetResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -437,6 +445,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
     @"additionalTargetKeyNames" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1AdditionalTargetKeyName class],
     @"fieldDescriptions" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaFieldDescription class],
     @"notices" : [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchemaNoticeDescription class],
+    @"supportedPlatforms" : [NSString class],
     @"validTargetResources" : [NSString class]
   };
   return map;

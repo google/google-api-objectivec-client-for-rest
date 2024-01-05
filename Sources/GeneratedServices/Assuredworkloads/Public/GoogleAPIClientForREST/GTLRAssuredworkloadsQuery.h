@@ -266,6 +266,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Enable resource violation monitoring for a workload.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.enableResourceMonitoring
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableResourceMonitoring : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The `name` field is used to identify the workload. Format:
+ *  organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse.
+ *
+ *  Enable resource violation monitoring for a workload.
+ *
+ *  @param name Required. The `name` field is used to identify the workload.
+ *    Format:
+ *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableResourceMonitoring
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets Assured Workload associated with a CRM Node
  *
  *  Method: assuredworkloads.organizations.locations.workloads.get

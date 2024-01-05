@@ -70,6 +70,25 @@
 
 @end
 
+@implementation GTLRCloudProfilerQuery_ProjectsProfilesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/profiles";
+  GTLRCloudProfilerQuery_ProjectsProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudProfiler_ListProfilesResponse class];
+  query.loggingName = @"cloudprofiler.projects.profiles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudProfilerQuery_ProjectsProfilesPatch
 
 @dynamic name, updateMask;

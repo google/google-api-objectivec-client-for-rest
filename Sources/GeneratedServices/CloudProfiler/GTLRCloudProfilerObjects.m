@@ -77,6 +77,28 @@ NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall   = @"WALL";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudProfiler_ListProfilesResponse
+//
+
+@implementation GTLRCloudProfiler_ListProfilesResponse
+@dynamic nextPageToken, profiles, skippedProfiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"profiles" : [GTLRCloudProfiler_Profile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"profiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudProfiler_Profile
 //
 

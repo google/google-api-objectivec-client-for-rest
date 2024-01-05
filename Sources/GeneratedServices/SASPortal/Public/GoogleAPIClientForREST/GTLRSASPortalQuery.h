@@ -717,6 +717,28 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Checks whether account is legacy.
+ *
+ *  Method: sasportal.customers.listLegacyOrganizations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
+ */
+@interface GTLRSASPortalQuery_CustomersListLegacyOrganizations : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListLegacyOrganizationsResponse.
+ *
+ *  Checks whether account is legacy.
+ *
+ *  @return GTLRSASPortalQuery_CustomersListLegacyOrganizations
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Migrates a SAS organization to the cloud. This will create GCP projects for
  *  each deployment and associate them. The SAS Organization is linked to the
  *  gcp project that called the command. go/sas-legacy-customer-migration

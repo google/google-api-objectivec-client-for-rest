@@ -415,6 +415,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource
+@dynamic bucket, readOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2GRPCAction
 //
 
@@ -634,6 +644,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource
+@dynamic path, readOnly, server;
 @end
 
 
@@ -1067,7 +1087,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Volume
-@dynamic cloudSqlInstance, emptyDir, name, secret;
+@dynamic cloudSqlInstance, emptyDir, gcs, name, nfs, secret;
 @end
 
 

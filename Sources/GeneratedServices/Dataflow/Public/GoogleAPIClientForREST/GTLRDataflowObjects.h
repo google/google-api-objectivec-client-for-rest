@@ -175,6 +175,7 @@
 @class GTLRDataflow_StreamingComputationTask;
 @class GTLRDataflow_StreamingConfigTask;
 @class GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap;
+@class GTLRDataflow_StreamingScalingReport;
 @class GTLRDataflow_StreamingSetupTask;
 @class GTLRDataflow_StreamingSideInputLocation;
 @class GTLRDataflow_StreamingStageLocation;
@@ -543,6 +544,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_ShuffleMode_Shuffle
  *  Value: "VM_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_ShuffleMode_VmBased;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_Environment.streamingMode
+
+/**
+ *  Message deduplication is not performed. Messages might be processed multiple
+ *  times, and the results are applied multiple times. Note: Setting this value
+ *  also enables Streaming Engine and Streaming Engine resource-based billing.
+ *
+ *  Value: "STREAMING_MODE_AT_LEAST_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeAtLeastOnce;
+/**
+ *  In this mode, message deduplication is performed against persistent state to
+ *  make sure each message is processed and committed to storage exactly once.
+ *
+ *  Value: "STREAMING_MODE_EXACTLY_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeExactlyOnce;
+/**
+ *  Run in the default mode.
+ *
+ *  Value: "STREAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageState.executionStageState
@@ -2952,6 +2978,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *shuffleMode;
 
 /**
+ *  Optional. Specifies the Streaming Engine message processing guarantees.
+ *  Reduces cost and latency but might result in duplicate messages committed to
+ *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
+ *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
+ *  case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_Environment_StreamingMode_StreamingModeAtLeastOnce
+ *        Message deduplication is not performed. Messages might be processed
+ *        multiple times, and the results are applied multiple times. Note:
+ *        Setting this value also enables Streaming Engine and Streaming Engine
+ *        resource-based billing. (Value: "STREAMING_MODE_AT_LEAST_ONCE")
+ *    @arg @c kGTLRDataflow_Environment_StreamingMode_StreamingModeExactlyOnce
+ *        In this mode, message deduplication is performed against persistent
+ *        state to make sure each message is processed and committed to storage
+ *        exactly once. (Value: "STREAMING_MODE_EXACTLY_ONCE")
+ *    @arg @c kGTLRDataflow_Environment_StreamingMode_StreamingModeUnspecified
+ *        Run in the default mode. (Value: "STREAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingMode;
+
+/**
  *  The prefix of the resources the system should use for temporary storage. The
  *  system will append the suffix "/temp-{JOBNAME} to this resource prefix,
  *  where {JOBNAME} is the value of the job_name field. The resulting bucket and
@@ -2967,8 +3015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_UserAgent *userAgent;
 
 /**
- *  Output only. Whether the job uses the new streaming engine billing model
- *  based on resource usage.
+ *  Output only. Whether the job uses the Streaming Engine resource-based
+ *  billing model.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3818,8 +3866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  The current state of the job. Jobs are created in the `JOB_STATE_STOPPED`
  *  state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may
  *  asynchronously enter a terminal state. After a job has reached a terminal
- *  state, no further state updates may be made. This field may be mutated by
- *  the Cloud Dataflow service; callers cannot mutate it.
+ *  state, no further state updates may be made. This field might be mutated by
+ *  the Dataflow service; callers cannot mutate it.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateCancelled
@@ -3899,8 +3947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_JobExecutionInfo *executionInfo;
 
 /**
- *  The unique ID of this job. This field is set by the Cloud Dataflow service
- *  when the Job is created, and is immutable for the life of the job.
+ *  The unique ID of this job. This field is set by the Dataflow service when
+ *  the job is created, and is immutable for the life of the job.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3930,11 +3978,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The user-specified Cloud Dataflow job name. Only one Job with a given name
+ *  The user-specified Dataflow job name. Only one active job with a given name
  *  can exist in a project within one region at any given time. Jobs in
  *  different regions can have the same name. If a caller attempts to create a
- *  Job with the same name as an already-existing Job, the attempt returns the
- *  existing Job. The name must match the regular expression
+ *  job with the same name as an active job that already exists, the attempt
+ *  returns the existing job. The name must match the regular expression
  *  `[a-z]([-a-z0-9]{0,1022}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3947,7 +3995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_PipelineDescription *pipelineDescription;
 
-/** The ID of the Cloud Platform project that the job belongs to. */
+/** The ID of the Google Cloud project that the job belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -4106,7 +4154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_TransformNameMapping *transformNameMapping;
 
 /**
- *  The type of Cloud Dataflow job.
+ *  The type of Dataflow job.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_Job_Type_JobTypeBatch A batch job with a
@@ -5896,6 +5944,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSNumber *minNumWorkers;
 
+/**
+ *  Target worker utilization, compared against the aggregate utilization of the
+ *  worker pool by autoscaler, to determine upscaling and downscaling when
+ *  absent other constraints such as backlog.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workerUtilizationHint;
+
 @end
 
 
@@ -7204,6 +7261,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Contains per-user worker telemetry used in streaming autoscaling.
+ */
+@interface GTLRDataflow_StreamingScalingReport : GTLRObject
+
+/**
+ *  Current acive bundle count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeBundleCount;
+
+/**
+ *  Current acive thread count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeThreadCount;
+
+/**
+ *  Maximum bundle count limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumBundleCount;
+
+/**
+ *  Maximum bytes count limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumBytesCount;
+
+/**
+ *  Maximum thread count limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumThreadCount;
+
+/**
+ *  Current outstanding bytes count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outstandingBytesCount;
+
+@end
+
+
+/**
  *  A task which initializes part of a streaming Dataflow job.
  */
 @interface GTLRDataflow_StreamingSetupTask : GTLRObject
@@ -7746,6 +7853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  LABEL_UNSPECIFIED should not be used here.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessage_Labels *labels;
+
+/** Contains per-user worker telemetry used in streaming autoscaling. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingScalingReport *streamingScalingReport;
 
 /** The timestamp of the worker_message. */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;

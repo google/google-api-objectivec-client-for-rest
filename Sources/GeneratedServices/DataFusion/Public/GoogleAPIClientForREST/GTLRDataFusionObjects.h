@@ -39,7 +39,10 @@
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
 @class GTLRDataFusion_OperationMetadata_AdditionalStatus;
+@class GTLRDataFusion_PersistentDiskData;
 @class GTLRDataFusion_Policy;
+@class GTLRDataFusion_PrivateServiceConnectConfig;
+@class GTLRDataFusion_ServiceData;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
 @class GTLRDataFusion_Version;
@@ -272,6 +275,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataFusion_NetworkConfig.connectionType
+
+/**
+ *  No specific connection type was requested, the default value of VPC_PEERING
+ *  is chosen.
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified;
+/**
+ *  Requests the use of Private Service Connect Interfaces for connecting the
+ *  consumer and tenant projects.
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT_INTERFACES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces;
+/**
+ *  Requests the use of VPC peerings for connecting the consumer and tenant
+ *  projects.
+ *
+ *  Value: "VPC_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_VpcPeering;
+
+// ----------------------------------------------------------------------------
 // GTLRDataFusion_Version.type
 
 /**
@@ -493,6 +521,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Next tag: 7
+ */
+@interface GTLRDataFusion_DataResidencyAugmentedView : GTLRObject
+
+/**
+ *  Cloud resource to Google owned production object mapping in the form of
+ *  GURIs. The GURIs should be available in DG KB storage/cns tables. This is
+ *  the preferred way of providing cloud resource mappings. For further details
+ *  please read go/cloud-resource-monitoring_sig
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoGuris;
+
+/**
+ *  Cloud resource to Google owned production object mapping in the form of
+ *  prefixes. These should be available in DG KB storage/cns tables. The entity
+ *  type, which is the part of the string before the first colon in the GURI,
+ *  must be completely specified in prefix. For details about GURI please read
+ *  go/guri. For further details about the field please read
+ *  go/cloud-resource-monitoring_sig.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoPrefixes;
+
+/**
+ *  Service-specific data. Only required for pre-determined services. Generally
+ *  used to bind a Cloud Resource to some a TI container that uniquely specifies
+ *  a customer. See milestone 2 of DRZ KR8 SIG for more information.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_ServiceData *serviceData;
+
+/**
+ *  The list of project_id's of the tenant projects in the 'google.com' org
+ *  which serve the Cloud Resource. See go/drz-mst-sig for more details.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tpIds;
+
+@end
+
+
+/**
  *  DNS peering configuration. These configurations are used to create DNS
  *  peering with the customer Cloud DNS.
  */
@@ -628,6 +695,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Encryption Keys (CMEK) feature.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_CryptoKeyConfig *cryptoKeyConfig;
+
+/**
+ *  Optional. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataplexDataLineageIntegrationEnabled;
 
 /**
  *  User-managed service account to set on Dataproc when Cloud Data Fusion
@@ -1061,19 +1135,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @interface GTLRDataFusion_NetworkConfig : GTLRObject
 
 /**
- *  The IP range in CIDR notation to use for the managed Data Fusion instance
- *  nodes. This range must not overlap with any other ranges used in the
- *  customer network.
+ *  Optional. Type of connection for establishing private IP connectivity
+ *  between the Data Fusion customer project VPC and the corresponding tenant
+ *  project from a predefined list of available connection modes. If this field
+ *  is unspecified for a private instance, VPC peering is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified
+ *        No specific connection type was requested, the default value of
+ *        VPC_PEERING is chosen. (Value: "CONNECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces
+ *        Requests the use of Private Service Connect Interfaces for connecting
+ *        the consumer and tenant projects. (Value:
+ *        "PRIVATE_SERVICE_CONNECT_INTERFACES")
+ *    @arg @c kGTLRDataFusion_NetworkConfig_ConnectionType_VpcPeering Requests
+ *        the use of VPC peerings for connecting the consumer and tenant
+ *        projects. (Value: "VPC_PEERING")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  Optional. The IP range in CIDR notation to use for the managed Data Fusion
+ *  instance nodes. This range must not overlap with any other ranges used in
+ *  the Data Fusion instance network. This is required only when using
+ *  connection type VPC_PEERING. Format: a.b.c.d/22 Example: 192.168.0.0/22
  */
 @property(nonatomic, copy, nullable) NSString *ipAllocation;
 
 /**
- *  Name of the network in the customer project with which the Tenant Project
- *  will be peered for executing pipelines. In case of shared VPC where the
- *  network resides in another host project the network should specified in the
- *  form of projects/{host-project-id}/global/networks/{network}
+ *  Optional. Name of the network in the customer project with which the Tenant
+ *  Project will be peered for executing pipelines. This is required only when
+ *  using connection type VPC peering. In case of shared VPC where the network
+ *  resides in another host project the network should specified in the form of
+ *  projects/{host-project-id}/global/networks/{network}. This is only required
+ *  for connectivity type VPC_PEERING.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. Configuration for Private Service Connect. This is required only
+ *  when using connection type PRIVATE_SERVICE_CONNECT_INTERFACES.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_PrivateServiceConnectConfig *privateServiceConnectConfig;
 
 @end
 
@@ -1215,6 +1318,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Persistent Disk service-specific Data. Contains information that may not be
+ *  appropriate for the generic DRZ Augmented View. This currently includes LSV
+ *  Colossus Roots and GCS Buckets.
+ */
+@interface GTLRDataFusion_PersistentDiskData : GTLRObject
+
+/**
+ *  Path to Colossus root for an LSV. NOTE: Unlike `cr_ti_guris` and
+ *  `cr_ti_prefixes`, the field `cfs_roots` below does not need to be a GUri or
+ *  GUri prefix. It can simply be any valid CFS or CFS2 Path. The DRZ KR8 SIG
+ *  has more details overall, but generally the `cfs_roots` provided here should
+ *  be scoped to an individual Persistent Disk. An example for a PD Disk with a
+ *  disk ID 3277719120423414466, follows: * `cr_ti_guris` could be
+ *  ‘/cfs2/pj/pd-cloud-prod’ as this is a valid GUri present in the DG KB and
+ *  contains enough information to perform location monitoring and scope
+ *  ownership of the Production Object. * `cfs_roots` would be:
+ *  ‘/cfs2/pj/pd-cloud-staging/lsv000001234\@/
+ *  lsv/projects~773365403387~zones~2700~disks~3277719120423414466
+ *  ~bank-blue-careful-3526-lsv00054DB1B7254BA3/’ as this allows us to enumerate
+ *  the files on CFS2 that belong to an individual Disk.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cfsRoots;
+
+/**
+ *  The GCS Buckets that back this snapshot or image. This is required as
+ *  `cr_ti_prefixes` and `cr_ti_guris` only accept TI resources. This should be
+ *  the globally unique bucket name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gcsBucketNames;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -1306,9 +1443,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Configuration for using Private Service Connect to establish connectivity
+ *  between the Data Fusion consumer project and the corresponding tenant
+ *  project.
+ */
+@interface GTLRDataFusion_PrivateServiceConnectConfig : GTLRObject
+
+/**
+ *  Output only. The CIDR block to which the CDF instance can't route traffic to
+ *  in the consumer project VPC. The size of this block is /25. The format of
+ *  this field is governed by RFC 4632. Example: 240.0.0.0/25
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveUnreachableCidrBlock;
+
+/**
+ *  Required. The reference to the network attachment used to establish private
+ *  connectivity. It will be of the form
+ *  projects/{project-id}/regions/{region}/networkAttachments/{network-attachment-id}.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/**
+ *  Optional. Input only. The CIDR block to which the CDF instance can't route
+ *  traffic to in the consumer project VPC. The size of this block should be at
+ *  least /25. This range should not overlap with the primary address range of
+ *  any subnetwork used by the network attachment. This range can be used for
+ *  other purposes in the consumer VPC as long as there is no requirement for
+ *  CDF to reach destinations using these addresses. If this value is not
+ *  provided, the server chooses a non RFC 1918 address range. The format of
+ *  this field is governed by RFC 4632. Example: 192.168.0.0/25
+ */
+@property(nonatomic, copy, nullable) NSString *unreachableCidrBlock;
+
+@end
+
+
+/**
  *  Request message for restarting a Data Fusion instance.
  */
 @interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  This message defines service-specific data that certain service teams must
+ *  provide as part of the Data Residency Augmented View for a resource. Next
+ *  ID: 2
+ */
+@interface GTLRDataFusion_ServiceData : GTLRObject
+
+/**
+ *  Auxiliary data for the persistent disk pipeline provided to provide the LSV
+ *  Colossus Roots and GCS Buckets.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_PersistentDiskData *pd;
+
 @end
 
 

@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -197,8 +197,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for how to filter the returned billing accounts. This only supports
  *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  under a single provided parent billing account. (e.g.
- *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  under a single provided parent billing account. (for example,
+ *  `master_billing_account=billingAccounts/012345-678901-ABCDEF`). Boolean
  *  algebra and other fields are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -217,8 +217,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent resource to list billing accounts from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -448,8 +448,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -473,8 +473,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
  *  @param parent Optional. The parent to create a billing account from. Format:
- *    - organizations/{organization_id} eg organizations/12345678 -
- *    billingAccounts/{billing_account_id} eg
+ *    - `organizations/{organization_id}`, for example, `organizations/12345678`
+ *    - `billingAccounts/{billing_account_id}`, for example,
  *    `billingAccounts/012345-567890-ABCDEF`
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsSubAccountsCreate
@@ -501,8 +501,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for how to filter the returned billing accounts. This only supports
  *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  under a single provided parent billing account. (e.g.
- *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  under a single provided parent billing account. (for example,
+ *  `master_billing_account=billingAccounts/012345-678901-ABCDEF`). Boolean
  *  algebra and other fields are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -521,8 +521,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent resource to list billing accounts from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -535,9 +535,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param parent Optional. The parent resource to list billing accounts from.
- *    Format: - organizations/{organization_id} eg organizations/12345678 -
- *    billingAccounts/{billing_account_id} eg
- *    `billingAccounts/012345-567890-ABCDEF`
+ *    Format: - `organizations/{organization_id}`, for example,
+ *    `organizations/12345678` - `billingAccounts/{billing_account_id}`, for
+ *    example, `billingAccounts/012345-567890-ABCDEF`
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsSubAccountsList
  *
@@ -615,8 +615,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -640,8 +640,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
  *  @param parent Optional. The parent to create a billing account from. Format:
- *    - organizations/{organization_id} eg organizations/12345678 -
- *    billingAccounts/{billing_account_id} eg
+ *    - `organizations/{organization_id}`, for example, `organizations/12345678`
+ *    - `billingAccounts/{billing_account_id}`, for example,
  *    `billingAccounts/012345-567890-ABCDEF`
  *
  *  @return GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate
@@ -668,8 +668,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Options for how to filter the returned billing accounts. This only supports
  *  filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  under a single provided parent billing account. (e.g.
- *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  under a single provided parent billing account. (for example,
+ *  `master_billing_account=billingAccounts/012345-678901-ABCDEF`). Boolean
  *  algebra and other fields are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -688,8 +688,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent resource to list billing accounts from. Format: -
- *  organizations/{organization_id} eg organizations/12345678 -
- *  billingAccounts/{billing_account_id} eg
+ *  `organizations/{organization_id}`, for example, `organizations/12345678` -
+ *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -702,9 +702,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  [view](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param parent Optional. The parent resource to list billing accounts from.
- *    Format: - organizations/{organization_id} eg organizations/12345678 -
- *    billingAccounts/{billing_account_id} eg
- *    `billingAccounts/012345-567890-ABCDEF`
+ *    Format: - `organizations/{organization_id}`, for example,
+ *    `organizations/12345678` - `billingAccounts/{billing_account_id}`, for
+ *    example, `billingAccounts/012345-567890-ABCDEF`
  *
  *  @return GTLRCloudbillingQuery_OrganizationsBillingAccountsList
  *
@@ -728,8 +728,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudbillingQuery_OrganizationsBillingAccountsMove : GTLRCloudbillingQuery
 
 /**
- *  Required. The resource name of the Organization to reparent the billing
- *  account under. Must be of the form `organizations/{organization_id}`.
+ *  Required. The resource name of the Organization to move the billing account
+ *  under. Must be of the form `organizations/{organization_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *destinationParent;
 
@@ -747,7 +747,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Changes which parent organization a billing account belongs to.
  *
  *  @param destinationParent Required. The resource name of the Organization to
- *    reparent the billing account under. Must be of the form
+ *    move the billing account under. Must be of the form
  *    `organizations/{organization_id}`.
  *  @param name Required. The resource name of the billing account to move. Must
  *    be of the form `billingAccounts/{billing_account_id}`. The specified

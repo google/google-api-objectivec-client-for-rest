@@ -597,11 +597,10 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ClusterUpgradeMembershipState
-@dynamic fleet, ignored, scopes, upgrades;
+@dynamic ignored, upgrades;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"scopes" : [NSString class],
     @"upgrades" : [GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState class]
   };
   return map;

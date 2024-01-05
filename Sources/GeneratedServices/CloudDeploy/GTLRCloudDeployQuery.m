@@ -14,6 +14,121 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate
+
+@dynamic customTargetTypeId, parent, requestId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CustomTargetType *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customTargetTypes";
+  GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.customTargetTypes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesDelete
+
+@dynamic allowMissing, ETag, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.customTargetTypes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_CustomTargetType class];
+  query.loggingName = @"clouddeploy.projects.locations.customTargetTypes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customTargetTypes";
+  GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_ListCustomTargetTypesResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.customTargetTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch
+
+@dynamic allowMissing, name, requestId, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CustomTargetType *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.customTargetTypes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsCancel
 
 @dynamic name;

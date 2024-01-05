@@ -22,6 +22,8 @@
 @class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
 @class GTLRDirectory_CalendarResource;
+@class GTLRDirectory_ChangeChromeOsDeviceStatusResult;
+@class GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded;
 @class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
@@ -63,6 +65,8 @@
 @class GTLRDirectory_Schema;
 @class GTLRDirectory_SchemaFieldSpec;
 @class GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec;
+@class GTLRDirectory_Status;
+@class GTLRDirectory_Status_Details_Item;
 @class GTLRDirectory_Token;
 @class GTLRDirectory_User;
 @class GTLRDirectory_User_CustomSchemas;
@@ -108,6 +112,127 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_Seve
  *  Value: "SEVERITY_WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest.changeChromeOsDeviceStatusAction
+
+/**
+ *  Deprovisions a ChromeOS device. If you have ChromeOS devices that are no
+ *  longer being used in your organization, you should deprovision them so that
+ *  you’re no longer managing them. Deprovisioning the device removes all
+ *  policies that were on the device as well as device-level printers and the
+ *  ability to use the device as a kiosk. Depending on the upgrade that’s
+ *  associated with the device this action might release the license back into
+ *  the license pool; which allows you to use the license on a different device.
+ *
+ *  Value: "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDeprovision;
+/**
+ *  Disables a ChromeOS device. Use this action if a user loses their device or
+ *  it’s stolen, this makes it such that the device is still managed, so it will
+ *  still receive policies, but no one can use it. Depending on the upgrade
+ *  that’s associated with the device this action might release the license back
+ *  into the license pool; which allows you to use the license on a different
+ *  device.
+ *
+ *  Value: "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DISABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDisable;
+/**
+ *  Reenables a ChromeOS device to be used after being disabled. Reenables the
+ *  device once it's no longer lost or it's been recovered. This allows the
+ *  device to be used again. Depending on the upgrade associated with the device
+ *  this might consume one license from the license pool, meaning that if there
+ *  aren't enough licenses available the operation will fail.
+ *
+ *  Value: "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_REENABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionReenable;
+/**
+ *  Default value. Value is unused.
+ *
+ *  Value: "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest.deprovisionReason
+
+/**
+ *  Different model replacement. You are replacing this device with an upgraded
+ *  or newer device model.
+ *
+ *  Value: "DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDifferentModelReplacement;
+/**
+ *  The device's domain was changed.
+ *
+ *  Value: "DEPROVISION_REASON_DOMAIN_MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDomainMove GTLR_DEPRECATED;
+/**
+ *  A reason was not required. For example, the licenses were returned to the
+ *  customer's license pool.
+ *
+ *  Value: "DEPROVISION_REASON_NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonNotRequired;
+/**
+ *  The device was deprovisioned for a legacy reason that is no longer
+ *  supported.
+ *
+ *  Value: "DEPROVISION_REASON_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonOther GTLR_DEPRECATED;
+/**
+ *  The device was deprovisioned by the Repair Service Center. Can only be set
+ *  by Repair Service Center during RMA.
+ *
+ *  Value: "DEPROVISION_REASON_REPAIR_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRepairCenter;
+/**
+ *  Retiring from fleet. You are donating, discarding, or otherwise removing the
+ *  device from use.
+ *
+ *  Value: "DEPROVISION_REASON_RETIRING_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRetiringDevice;
+/**
+ *  Same model replacement. You have return materials authorization (RMA) or you
+ *  are replacing a malfunctioning device under warranty with the same device
+ *  model.
+ *
+ *  Value: "DEPROVISION_REASON_SAME_MODEL_REPLACEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonSameModelReplacement;
+/**
+ *  Service expired for the device.
+ *
+ *  Value: "DEPROVISION_REASON_SERVICE_EXPIRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonServiceExpiration GTLR_DEPRECATED;
+/**
+ *  The deprovision reason is unknown.
+ *
+ *  Value: "DEPROVISION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUnspecified;
+/**
+ *  The device was upgraded.
+ *
+ *  Value: "DEPROVISION_REASON_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgrade GTLR_DEPRECATED;
+/**
+ *  ChromeOS Flex upgrade transfer. This is a ChromeOS Flex device that you are
+ *  replacing with a Chromebook within a year.
+ *
+ *  Value: "DEPROVISION_REASON_UPGRADE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer;
 
 // ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
@@ -953,6 +1078,116 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  A request for changing the status of a batch of ChromeOS devices.
+ */
+@interface GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest : GTLRObject
+
+/**
+ *  Required. The action to take on the ChromeOS device in order to change its
+ *  status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDeprovision
+ *        Deprovisions a ChromeOS device. If you have ChromeOS devices that are
+ *        no longer being used in your organization, you should deprovision them
+ *        so that you’re no longer managing them. Deprovisioning the device
+ *        removes all policies that were on the device as well as device-level
+ *        printers and the ability to use the device as a kiosk. Depending on
+ *        the upgrade that’s associated with the device this action might
+ *        release the license back into the license pool; which allows you to
+ *        use the license on a different device. (Value:
+ *        "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDisable
+ *        Disables a ChromeOS device. Use this action if a user loses their
+ *        device or it’s stolen, this makes it such that the device is still
+ *        managed, so it will still receive policies, but no one can use it.
+ *        Depending on the upgrade that’s associated with the device this action
+ *        might release the license back into the license pool; which allows you
+ *        to use the license on a different device. (Value:
+ *        "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DISABLE")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionReenable
+ *        Reenables a ChromeOS device to be used after being disabled. Reenables
+ *        the device once it's no longer lost or it's been recovered. This
+ *        allows the device to be used again. Depending on the upgrade
+ *        associated with the device this might consume one license from the
+ *        license pool, meaning that if there aren't enough licenses available
+ *        the operation will fail. (Value:
+ *        "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_REENABLE")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionUnspecified
+ *        Default value. Value is unused. (Value:
+ *        "CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *changeChromeOsDeviceStatusAction;
+
+/**
+ *  Optional. The reason behind a device deprovision. Must be provided if
+ *  'changeChromeOsDeviceStatusAction' is set to
+ *  'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION'. Otherwise, omit this
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDifferentModelReplacement
+ *        Different model replacement. You are replacing this device with an
+ *        upgraded or newer device model. (Value:
+ *        "DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDomainMove
+ *        The device's domain was changed. (Value:
+ *        "DEPROVISION_REASON_DOMAIN_MOVE")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonNotRequired
+ *        A reason was not required. For example, the licenses were returned to
+ *        the customer's license pool. (Value:
+ *        "DEPROVISION_REASON_NOT_REQUIRED")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonOther
+ *        The device was deprovisioned for a legacy reason that is no longer
+ *        supported. (Value: "DEPROVISION_REASON_OTHER")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRepairCenter
+ *        The device was deprovisioned by the Repair Service Center. Can only be
+ *        set by Repair Service Center during RMA. (Value:
+ *        "DEPROVISION_REASON_REPAIR_CENTER")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRetiringDevice
+ *        Retiring from fleet. You are donating, discarding, or otherwise
+ *        removing the device from use. (Value:
+ *        "DEPROVISION_REASON_RETIRING_DEVICE")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonSameModelReplacement
+ *        Same model replacement. You have return materials authorization (RMA)
+ *        or you are replacing a malfunctioning device under warranty with the
+ *        same device model. (Value:
+ *        "DEPROVISION_REASON_SAME_MODEL_REPLACEMENT")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonServiceExpiration
+ *        Service expired for the device. (Value:
+ *        "DEPROVISION_REASON_SERVICE_EXPIRATION")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUnspecified
+ *        The deprovision reason is unknown. (Value:
+ *        "DEPROVISION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgrade
+ *        The device was upgraded. (Value: "DEPROVISION_REASON_UPGRADE")
+ *    @arg @c kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer
+ *        ChromeOS Flex upgrade transfer. This is a ChromeOS Flex device that
+ *        you are replacing with a Chromebook within a year. (Value:
+ *        "DEPROVISION_REASON_UPGRADE_TRANSFER")
+ */
+@property(nonatomic, copy, nullable) NSString *deprovisionReason;
+
+/**
+ *  Required. List of the IDs of the ChromeOS devices to change. Maximum 50.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
+
+@end
+
+
+/**
+ *  The response of changing the status of a batch of ChromeOS devices.
+ */
+@interface GTLRDirectory_BatchChangeChromeOsDeviceStatusResponse : GTLRObject
+
+/** The results for each of the ChromeOS devices provided in the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChangeChromeOsDeviceStatusResult *> *changeChromeOsDeviceStatusResults;
+
+@end
+
+
+/**
  *  Request for adding new printers in batch.
  */
 @interface GTLRDirectory_BatchCreatePrintersRequest : GTLRObject
@@ -1317,6 +1552,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+@end
+
+
+/**
+ *  The result of a single ChromeOS device for a Change state operation.
+ */
+@interface GTLRDirectory_ChangeChromeOsDeviceStatusResult : GTLRObject
+
+/** The unique ID of the ChromeOS device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The error result of the operation in case of failure. */
+@property(nonatomic, strong, nullable) GTLRDirectory_Status *error;
+
+/** The device could change its status successfully. */
+@property(nonatomic, strong, nullable) GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded *response;
+
+@end
+
+
+/**
+ *  Response for a successful ChromeOS device status change.
+ */
+@interface GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded : GTLRObject
 @end
 
 
@@ -4135,6 +4394,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /** A list of UserSchema objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Schema *> *schemas;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRDirectory_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRDirectory_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDirectory_Status_Details_Item : GTLRObject
 @end
 
 

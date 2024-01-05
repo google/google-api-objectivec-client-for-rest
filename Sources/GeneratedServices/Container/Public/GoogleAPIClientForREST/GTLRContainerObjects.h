@@ -1520,6 +1520,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Vulnerab
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled;
 /**
+ *  Applies the Security Posture's vulnerability on cluster Enterprise level
+ *  features.
+ *
+ *  Value: "VULNERABILITY_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise;
+/**
  *  Default value not specified.
  *
  *  Value: "VULNERABILITY_MODE_UNSPECIFIED"
@@ -2089,6 +2096,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableMetrics;
+
+/**
+ *  Enable Relay component
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRelay;
 
 /**
  *  Method used to make Relay available
@@ -6752,6 +6766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled
  *        Disables vulnerability scanning on the cluster. (Value:
  *        "VULNERABILITY_DISABLED")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise
+ *        Applies the Security Posture's vulnerability on cluster Enterprise
+ *        level features. (Value: "VULNERABILITY_ENTERPRISE")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified
  *        Default value not specified. (Value: "VULNERABILITY_MODE_UNSPECIFIED")
  */

@@ -47,6 +47,17 @@ NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen1 = @"GEN_1";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen2 = @"GEN_2";
 
+// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata.operationType
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_AbortFunctionUpgrade = @"ABORT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CommitFunctionUpgrade = @"COMMIT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CreateFunction = @"CREATE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_DeleteFunction = @"DELETE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_OperationtypeUnspecified = @"OPERATIONTYPE_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic = @"ROLLBACK_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_SetupFunctionUpgradeConfig = @"SETUP_FUNCTION_UPGRADE_CONFIG";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_UpdateFunction = @"UPDATE_FUNCTION";
+
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build = @"BUILD";
@@ -73,6 +84,17 @@ NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen1 = @"GEN_1";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen2 = @"GEN_2";
 
+// GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata.operationType
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_AbortFunctionUpgrade = @"ABORT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CommitFunctionUpgrade = @"COMMIT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CreateFunction = @"CREATE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_DeleteFunction = @"DELETE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_OperationtypeUnspecified = @"OPERATIONTYPE_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic = @"ROLLBACK_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_SetupFunctionUpgradeConfig = @"SETUP_FUNCTION_UPGRADE_CONFIG";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_UpdateFunction = @"UPDATE_FUNCTION";
+
 // GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.name
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Build = @"BUILD";
@@ -98,6 +120,17 @@ NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Seve
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata_Environments_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata_Environments_Gen1 = @"GEN_1";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata_Environments_Gen2 = @"GEN_2";
+
+// GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata.operationType
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_AbortFunctionUpgrade = @"ABORT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade = @"COMMIT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CreateFunction = @"CREATE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction = @"DELETE_FUNCTION";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_OperationtypeUnspecified = @"OPERATIONTYPE_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RedirectFunctionUpgradeTraffic = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RollbackFunctionUpgradeTraffic = @"ROLLBACK_FUNCTION_UPGRADE_TRAFFIC";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_SetupFunctionUpgradeConfig = @"SETUP_FUNCTION_UPGRADE_CONFIG";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_UpdateFunction = @"UPDATE_FUNCTION";
 
 // GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.name
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ArtifactRegistry = @"ARTIFACT_REGISTRY";
@@ -267,7 +300,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_EventTrigger
-@dynamic channel, eventFilters, eventType, pubsubTopic, retryPolicy,
+@dynamic channel, eventFilters, eventType, pubsubTopic, retryPolicy, service,
          serviceAccountEmail, trigger, triggerRegion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -396,8 +429,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
+         requestResource, sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -475,8 +508,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
+         requestResource, sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -554,8 +587,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, requestResource,
-         sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
+         requestResource, sourceToken, stages, statusDetail, target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

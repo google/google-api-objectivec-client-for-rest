@@ -37,6 +37,9 @@
 @class GTLRCompute_AddressList_Warning_Data_Item;
 @class GTLRCompute_AdvancedMachineFeatures;
 @class GTLRCompute_AliasIpRange;
+@class GTLRCompute_AllocationAggregateReservation;
+@class GTLRCompute_AllocationAggregateReservationReservedResourceInfo;
+@class GTLRCompute_AllocationAggregateReservationReservedResourceInfoAccelerator;
 @class GTLRCompute_AllocationResourceStatus;
 @class GTLRCompute_AllocationResourceStatusSpecificSKUAllocation;
 @class GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk;
@@ -666,6 +669,8 @@
 @class GTLRCompute_SecurityPolicyRuleHttpHeaderActionHttpHeaderOption;
 @class GTLRCompute_SecurityPolicyRuleMatcher;
 @class GTLRCompute_SecurityPolicyRuleMatcherConfig;
+@class GTLRCompute_SecurityPolicyRuleMatcherExprOptions;
+@class GTLRCompute_SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions;
 @class GTLRCompute_SecurityPolicyRuleNetworkMatcher;
 @class GTLRCompute_SecurityPolicyRuleNetworkMatcherUserDefinedFieldMatch;
 @class GTLRCompute_SecurityPolicyRulePreconfiguredWafConfig;
@@ -2189,6 +2194,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Undecla
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_AllocationAggregateReservation.vmFamily
+
+/** Value: "VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLiteDeviceCt5l;
+/** Value: "VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLitePodSliceCt5lp;
+/** Value: "VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuPodSliceCt4p;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AllocationAggregateReservation.workloadType
+
+/**
+ *  Reserved resources will be optimized for BATCH workloads, such as ML
+ *  training.
+ *
+ *  Value: "BATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Batch;
+/**
+ *  Reserved resources will be optimized for SERVING workloads, such as ML
+ *  inference.
+ *
+ *  Value: "SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Serving;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.interface
 
 /** Value: "NVME" */
@@ -3447,27 +3482,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_CompressionMode_D
 // GTLRCompute_BackendService.loadBalancingScheme
 
 /**
- *  Signifies that this will be used for external HTTP(S), SSL Proxy, TCP Proxy,
- *  or Network Load Balancing
+ *  Signifies that this will be used for classic Application Load Balancers,
+ *  global external proxy Network Load Balancers, or external passthrough
+ *  Network Load Balancers.
  *
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External;
 /**
- *  Signifies that this will be used for External Managed HTTP(S) Load
- *  Balancing.
+ *  Signifies that this will be used for global external Application Load
+ *  Balancers, regional external Application Load Balancers, or regional
+ *  external proxy Network Load Balancers.
  *
  *  Value: "EXTERNAL_MANAGED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged;
 /**
- *  Signifies that this will be used for Internal TCP/UDP Load Balancing.
+ *  Signifies that this will be used for internal passthrough Network Load
+ *  Balancers.
  *
  *  Value: "INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Internal;
 /**
- *  Signifies that this will be used for Internal HTTP(S) Load Balancing.
+ *  Signifies that this will be used for internal Application Load Balancers.
  *
  *  Value: "INTERNAL_MANAGED"
  */
@@ -23217,6 +23255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_V100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
+/** Value: "PREEMPTIBLE_TPU_LITE_DEVICE_V5" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleTpuLiteDeviceV5;
+/** Value: "PREEMPTIBLE_TPU_LITE_PODSLICE_V5" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleTpuLitePodsliceV5;
+/** Value: "PREEMPTIBLE_TPU_PODSLICE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleTpuPodsliceV4;
 /** Value: "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork;
 /** Value: "PSC_INTERNAL_LB_FORWARDING_RULES" */
@@ -23295,6 +23339,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetSslProxies;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetTcpProxies;
 /** Value: "TARGET_VPN_GATEWAYS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
+/** Value: "TPU_LITE_DEVICE_V5" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TpuLiteDeviceV5;
+/** Value: "TPU_LITE_PODSLICE_V5" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TpuLitePodsliceV5;
+/** Value: "TPU_PODSLICE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TpuPodsliceV4;
 /** Value: "URL_MAPS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_UrlMaps;
 /** Value: "VPN_GATEWAYS" */
@@ -28068,6 +28118,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptio
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_RegionCode;
 /** Value: "SNI" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni;
+/** Value: "TLS_JA3_FINGERPRINT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_TlsJa3Fingerprint;
+/** Value: "USER_IP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_UserIp;
 /** Value: "XFF_IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp;
 
@@ -28088,6 +28142,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptio
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_RegionCode;
 /** Value: "SNI" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Sni;
+/** Value: "TLS_JA3_FINGERPRINT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_TlsJa3Fingerprint;
+/** Value: "USER_IP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_UserIp;
 /** Value: "XFF_IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_XffIp;
 
@@ -39306,6 +39364,83 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  This reservation type is specified by total resource amounts (e.g. total
+ *  count of CPUs) and can account for multiple instance SKUs. In other words,
+ *  one can create instances of varying shapes against this reservation.
+ */
+@interface GTLRCompute_AllocationAggregateReservation : GTLRObject
+
+/** [Output only] List of resources currently in use. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AllocationAggregateReservationReservedResourceInfo *> *inUseResources;
+
+/** List of reserved resources (CPUs, memory, accelerators). */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AllocationAggregateReservationReservedResourceInfo *> *reservedResources;
+
+/**
+ *  The VM family that all instances scheduled against this reservation must
+ *  belong to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLiteDeviceCt5l
+ *        Value "VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L"
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLitePodSliceCt5lp
+ *        Value "VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP"
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuPodSliceCt4p
+ *        Value "VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P"
+ */
+@property(nonatomic, copy, nullable) NSString *vmFamily;
+
+/**
+ *  The workload type of the instances that will target this reservation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_WorkloadType_Batch
+ *        Reserved resources will be optimized for BATCH workloads, such as ML
+ *        training. (Value: "BATCH")
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_WorkloadType_Serving
+ *        Reserved resources will be optimized for SERVING workloads, such as ML
+ *        inference. (Value: "SERVING")
+ *    @arg @c kGTLRCompute_AllocationAggregateReservation_WorkloadType_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *workloadType;
+
+@end
+
+
+/**
+ *  GTLRCompute_AllocationAggregateReservationReservedResourceInfo
+ */
+@interface GTLRCompute_AllocationAggregateReservationReservedResourceInfo : GTLRObject
+
+/** Properties of accelerator resources in this reservation. */
+@property(nonatomic, strong, nullable) GTLRCompute_AllocationAggregateReservationReservedResourceInfoAccelerator *accelerator;
+
+@end
+
+
+/**
+ *  GTLRCompute_AllocationAggregateReservationReservedResourceInfoAccelerator
+ */
+@interface GTLRCompute_AllocationAggregateReservationReservedResourceInfoAccelerator : GTLRObject
+
+/**
+ *  Number of accelerators of specified type.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceleratorCount;
+
+/**
+ *  Full or partial URL to accelerator type. e.g.
+ *  "projects/{PROJECT}/zones/{ZONE}/acceleratorTypes/ct4l"
+ */
+@property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+@end
+
+
+/**
  *  [Output Only] Contains output only fields.
  */
 @interface GTLRCompute_AllocationResourceStatus : GTLRObject
@@ -39678,6 +39813,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  type of the disk, not the URL. For example: pd-standard.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Whether this disk is using confidential compute mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 /**
  *  Labels to apply to this disk. These can be later modified by the
@@ -41733,13 +41875,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_BackendService : GTLRObject
 
 /**
- *  Lifetime of cookies in seconds. This setting is applicable to external and
- *  internal HTTP(S) load balancers and Traffic Director and requires
- *  GENERATED_COOKIE or HTTP_COOKIE session affinity. If set to 0, the cookie is
- *  non-persistent and lasts only until the end of the browser session (or
- *  equivalent). The maximum allowed value is two weeks (1,209,600). Not
- *  supported when the backend service is referenced by a URL map that is bound
- *  to target gRPC proxy that has validateForProxyless field set to true.
+ *  Lifetime of cookies in seconds. This setting is applicable to Application
+ *  Load Balancers and Traffic Director and requires GENERATED_COOKIE or
+ *  HTTP_COOKIE session affinity. If set to 0, the cookie is non-persistent and
+ *  lasts only until the end of the browser session (or equivalent). The maximum
+ *  allowed value is two weeks (1,209,600). Not supported when the backend
+ *  service is referenced by a URL map that is bound to target gRPC proxy that
+ *  has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -41774,8 +41916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Connection Tracking configuration for this BackendService. Connection
- *  tracking policy settings are only available for Network Load Balancing and
- *  Internal TCP/UDP Load Balancing.
+ *  tracking policy settings are only available for external passthrough Network
+ *  Load Balancers and internal passthrough Network Load Balancers.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceConnectionTrackingPolicy *connectionTrackingPolicy;
 
@@ -41826,8 +41968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *edgeSecurityPolicy;
 
 /**
- *  If true, enables Cloud CDN for the backend service of an external HTTP(S)
- *  load balancer.
+ *  If true, enables Cloud CDN for the backend service of a global external
+ *  Application Load Balancer.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -41836,10 +41978,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Requires at least one backend instance group to be defined as a backup
  *  (failover) backend. For load balancers that have configurable failover:
- *  [Internal TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
- *  and [external TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
+ *  [Internal passthrough Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
+ *  and [external passthrough Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
  */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceFailoverPolicy *failoverPolicy;
 
@@ -41869,7 +42011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The configurations for Identity-Aware Proxy on this resource. Not available
- *  for Internal TCP/UDP Load Balancing and Network Load Balancing.
+ *  for internal passthrough Network Load Balancers and external passthrough
+ *  Network Load Balancers.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceIAP *iap;
 
@@ -41896,17 +42039,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_External Signifies
- *        that this will be used for external HTTP(S), SSL Proxy, TCP Proxy, or
- *        Network Load Balancing (Value: "EXTERNAL")
+ *        that this will be used for classic Application Load Balancers, global
+ *        external proxy Network Load Balancers, or external passthrough Network
+ *        Load Balancers. (Value: "EXTERNAL")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged
- *        Signifies that this will be used for External Managed HTTP(S) Load
- *        Balancing. (Value: "EXTERNAL_MANAGED")
+ *        Signifies that this will be used for global external Application Load
+ *        Balancers, regional external Application Load Balancers, or regional
+ *        external proxy Network Load Balancers. (Value: "EXTERNAL_MANAGED")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_Internal Signifies
- *        that this will be used for Internal TCP/UDP Load Balancing. (Value:
- *        "INTERNAL")
+ *        that this will be used for internal passthrough Network Load
+ *        Balancers. (Value: "INTERNAL")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged
- *        Signifies that this will be used for Internal HTTP(S) Load Balancing.
- *        (Value: "INTERNAL_MANAGED")
+ *        Signifies that this will be used for internal Application Load
+ *        Balancers. (Value: "INTERNAL_MANAGED")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged
  *        Signifies that this will be used by Traffic Director. (Value:
  *        "INTERNAL_SELF_MANAGED")
@@ -42066,8 +42211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Deprecated in favor of portName. The TCP port to connect on the backend. The
- *  default value is 80. For Internal TCP/UDP Load Balancing and Network Load
- *  Balancing, omit port.
+ *  default value is 80. For internal passthrough Network Load Balancers and
+ *  external passthrough Network Load Balancers, omit port.
  *
  *  Uses NSNumber of intValue.
  */
@@ -42078,8 +42223,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  communication to the backend VMs in that group. The named port must be
  *  [defined on each backend instance
  *  group](https://cloud.google.com/load-balancing/docs/backend-service#named_ports).
- *  This parameter has no meaning if the backends are NEGs. For Internal TCP/UDP
- *  Load Balancing and Network Load Balancing, omit port_name.
+ *  This parameter has no meaning if the backends are NEGs. For internal
+ *  passthrough Network Load Balancers and external passthrough Network Load
+ *  Balancers, omit port_name.
  */
 @property(nonatomic, copy, nullable) NSString *portName;
 
@@ -42651,8 +42797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *connectionPersistenceOnUnhealthyBackends;
 
 /**
- *  Enable Strong Session Affinity for Network Load Balancing. This option is
- *  not available publicly.
+ *  Enable Strong Session Affinity for external passthrough Network Load
+ *  Balancers. This option is not available publicly.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -42660,12 +42806,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Specifies how long to keep a Connection Tracking entry while there is no
- *  matching traffic (in seconds). For Internal TCP/UDP Load Balancing: - The
- *  minimum (default) is 10 minutes and the maximum is 16 hours. - It can be set
- *  only if Connection Tracking is less than 5-tuple (i.e. Session Affinity is
- *  CLIENT_IP_NO_DESTINATION, CLIENT_IP or CLIENT_IP_PROTO, and Tracking Mode is
- *  PER_SESSION). For Network Load Balancer the default is 60 seconds. This
- *  option is not available publicly.
+ *  matching traffic (in seconds). For internal passthrough Network Load
+ *  Balancers: - The minimum (default) is 10 minutes and the maximum is 16
+ *  hours. - It can be set only if Connection Tracking is less than 5-tuple
+ *  (i.e. Session Affinity is CLIENT_IP_NO_DESTINATION, CLIENT_IP or
+ *  CLIENT_IP_PROTO, and Tracking Mode is PER_SESSION). For external passthrough
+ *  Network Load Balancers the default is 60 seconds. This option is not
+ *  available publicly.
  *
  *  Uses NSNumber of intValue.
  */
@@ -42696,10 +42843,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  For load balancers that have configurable failover: [Internal TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
- *  and [external TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
+ *  For load balancers that have configurable failover: [Internal passthrough
+ *  Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
+ *  and [external passthrough Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
  *  On failover or failback, this field indicates whether connection draining
  *  will be honored. Google Cloud has a fixed connection draining timeout of 10
  *  minutes. A setting of true terminates existing TCP connections to the active
@@ -42722,10 +42870,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  primary and all backup backend VMs are unhealthy.If set to false,
  *  connections are distributed among all primary VMs when all primary and all
  *  backup backend VMs are unhealthy. For load balancers that have configurable
- *  failover: [Internal TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
- *  and [external TCP/UDP Load
- *  Balancing](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
+ *  failover: [Internal passthrough Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/internal/failover-overview)
+ *  and [external passthrough Network Load
+ *  Balancers](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
  *  The default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -45299,6 +45447,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the disk later.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
+
+/**
+ *  Whether this disk is using confidential compute mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 /**
  *  A list of features to enable on the guest operating system. Applicable only
@@ -48960,8 +49115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  *
  *  [Regional](https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules)
  *  A forwarding rule and its corresponding IP address represent the frontend
- *  configuration of a Google Cloud Platform load balancer. Forwarding rules can
- *  also reference target instances and Cloud VPN Classic gateways
+ *  configuration of a Google Cloud load balancer. Forwarding rules can also
+ *  reference target instances and Cloud VPN Classic gateways
  *  (targetVpnGateway). For more information, read Forwarding rule concepts and
  *  Using protocol forwarding.
  */
@@ -48970,9 +49125,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  This field is used along with the backend_service field for internal load
  *  balancing or with the target field for internal TargetInstance. If set to
- *  true, clients can access the Internal TCP/UDP Load Balancer, Internal
- *  HTTP(S) and TCP Proxy Load Balancer from all regions. If false, only allows
- *  access from the local region the load balancer is located at. Note that for
+ *  true, clients can access the internal passthrough Network Load Balancers,
+ *  the regional internal Application Load Balancer, and the regional internal
+ *  proxy Network Load Balancer from all regions. If false, only allows access
+ *  from the local region the load balancer is located at. Note that for
  *  INTERNAL_MANAGED forwarding rules, this field cannot be changed after the
  *  forwarding rule is created.
  *
@@ -49008,16 +49164,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Identifies the backend service to which the forwarding rule sends traffic.
- *  Required for Internal TCP/UDP Load Balancing and Network Load Balancing;
- *  must be omitted for all other load balancer types.
+ *  Required for internal and external passthrough Network Load Balancers; must
+ *  be omitted for all other load balancer types.
  */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
 /**
- *  [Output Only] The URL for the corresponding base Forwarding Rule. By base
- *  Forwarding Rule, we mean the Forwarding Rule that has the same IP address,
- *  protocol, and port settings with the current Forwarding Rule, but without
- *  sourceIPRanges specified. Always empty if the current Forwarding Rule does
+ *  [Output Only] The URL for the corresponding base forwarding rule. By base
+ *  forwarding rule, we mean the forwarding rule that has the same IP address,
+ *  protocol, and port settings with the current forwarding rule, but without
+ *  sourceIPRanges specified. Always empty if the current forwarding rule does
  *  not have sourceIPRanges specified.
  */
 @property(nonatomic, copy, nullable) NSString *baseForwardingRule;
@@ -49125,7 +49281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] Type of the resource. Always compute#forwardingRule for
- *  Forwarding Rule resources.
+ *  forwarding rule resources.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -49203,13 +49359,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This field is not used for global external load balancing. For Internal
- *  TCP/UDP Load Balancing, this field identifies the network that the load
- *  balanced IP should belong to for this Forwarding Rule. If the subnetwork is
- *  specified, the network of the subnetwork will be used. If neither subnetwork
- *  nor this field is specified, the default network will be used. For Private
- *  Service Connect forwarding rules that forward traffic to Google APIs, a
- *  network must be provided.
+ *  This field is not used for global external load balancing. For internal
+ *  passthrough Network Load Balancers, this field identifies the network that
+ *  the load balanced IP should belong to for this forwarding rule. If the
+ *  subnetwork is specified, the network of the subnetwork will be used. If
+ *  neither subnetwork nor this field is specified, the default network will be
+ *  used. For Private Service Connect forwarding rules that forward traffic to
+ *  Google APIs, a network must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -49283,7 +49439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
 /**
- *  [Output Only] The PSC connection id of the PSC Forwarding Rule.
+ *  [Output Only] The PSC connection id of the PSC forwarding rule.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -49329,7 +49485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ForwardingRuleServiceDirectoryRegistration *> *serviceDirectoryRegistrations;
 
 /**
- *  An optional prefix to the service name for this Forwarding Rule. If
+ *  An optional prefix to the service name for this forwarding rule. If
  *  specified, the prefix is the first label of the fully qualified service
  *  name. The label must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the label must be 1-63 characters long and match the regular
@@ -49341,16 +49497,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *serviceLabel;
 
 /**
- *  [Output Only] The internal fully qualified service name for this Forwarding
- *  Rule. This field is only used for internal load balancing.
+ *  [Output Only] The internal fully qualified service name for this forwarding
+ *  rule. This field is only used for internal load balancing.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
- *  If not empty, this Forwarding Rule will only forward the traffic when the
+ *  If not empty, this forwarding rule will only forward the traffic when the
  *  source IP address matches one of the IP addresses or CIDR ranges set here.
- *  Note that a Forwarding Rule can only have up to 64 source IP ranges, and
- *  this field can only be used with a regional Forwarding Rule whose scheme is
+ *  Note that a forwarding rule can only have up to 64 source IP ranges, and
+ *  this field can only be used with a regional forwarding rule whose scheme is
  *  EXTERNAL. Each source_ip_range entry should be either an IP address (for
  *  example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
  */
@@ -49358,11 +49514,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This field identifies the subnetwork that the load balanced IP should belong
- *  to for this Forwarding Rule, used in internal load balancing and network
- *  load balancing with IPv6. If the network specified is in auto subnet mode,
- *  this field is optional. However, a subnetwork must be specified if the
- *  network is in custom subnet mode or when creating external forwarding rule
- *  with IPv6.
+ *  to for this forwarding rule, used with internal load balancers and external
+ *  passthrough Network Load Balancers with IPv6. If the network specified is in
+ *  auto subnet mode, this field is optional. However, a subnetwork must be
+ *  specified if the network is in custom subnet mode or when creating external
+ *  forwarding rule with IPv6.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -49782,9 +49938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Describes the auto-registration of the Forwarding Rule to Service Directory.
+ *  Describes the auto-registration of the forwarding rule to Service Directory.
  *  The region and project of the Service Directory resource generated from this
- *  registration will be the same as this Forwarding Rule.
+ *  registration will be the same as this forwarding rule.
  */
 @interface GTLRCompute_ForwardingRuleServiceDirectoryRegistration : GTLRObject
 
@@ -49801,7 +49957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  [Optional] Service Directory region to register this global forwarding rule
  *  under. Default to "us-central1". Only used for PSC for Google APIs. All PSC
- *  for Google APIs Forwarding Rules on the same network should use the same
+ *  for Google APIs forwarding rules on the same network should use the same
  *  Service Directory region.
  */
 @property(nonatomic, copy, nullable) NSString *serviceDirectoryRegion;
@@ -50142,7 +50298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Not supported by target pools. The health check supports all backends
  *  supported by the backend service provided the backend can be health checked.
  *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
@@ -50150,7 +50306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
  *  port by referring to the backend service. Only supported by backend services
  *  for proxy load balancers. Not supported by target pools. Not supported by
- *  backend services for pass-through load balancers. Supports all backends that
+ *  backend services for passthrough load balancers. Supports all backends that
  *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
  *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
  *  backends, the health check uses the port number specified for each endpoint
@@ -50293,18 +50449,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Regional](/compute/docs/reference/rest/v1/regionHealthChecks) *
  *  [Global](/compute/docs/reference/rest/v1/healthChecks) These health check
  *  resources can be used for load balancing and for autohealing VMs in a
- *  managed instance group (MIG). **Load balancing** The following load balancer
- *  can use either regional or global health check: * Internal TCP/UDP load
- *  balancer The following load balancers require regional health check: *
- *  Internal HTTP(S) load balancer * Backend service-based network load balancer
- *  Traffic Director and the following load balancers require global health
- *  check: * External HTTP(S) load balancer * TCP proxy load balancer * SSL
- *  proxy load balancer The following load balancer require [legacy HTTP health
- *  checks](/compute/docs/reference/rest/v1/httpHealthChecks): * Target
- *  pool-based network load balancer **Autohealing in MIGs** The health checks
- *  that you use for autohealing VMs in a MIG can be either regional or global.
- *  For more information, see Set up an application health check and
- *  autohealing. For more information, see Health checks overview.
+ *  managed instance group (MIG). **Load balancing** Health check requirements
+ *  vary depending on the type of load balancer. For details about the type of
+ *  health check supported for each load balancer and corresponding backend
+ *  type, see Health checks overview: Load balancer guide. **Autohealing in
+ *  MIGs** The health checks that you use for autohealing VMs in a MIG can be
+ *  either regional or global. For more information, see Set up an application
+ *  health check and autohealing. For more information, see Health checks
+ *  overview.
  */
 @interface GTLRCompute_HealthCheck : GTLRObject
 
@@ -51526,7 +51678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Not supported by target pools. The health check supports all backends
  *  supported by the backend service provided the backend can be health checked.
  *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
@@ -51534,7 +51686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
  *  port by referring to the backend service. Only supported by backend services
  *  for proxy load balancers. Not supported by target pools. Not supported by
- *  backend services for pass-through load balancers. Supports all backends that
+ *  backend services for passthrough load balancers. Supports all backends that
  *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
  *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
  *  backends, the health check uses the port number specified for each endpoint
@@ -51829,7 +51981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Also supported in legacy HTTP health checks for target pools. The health
  *  check supports all backends supported by the backend service provided the
  *  backend can be health checked. For example, GCE_VM_IP network endpoint
@@ -52638,7 +52790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Not supported by target pools. The health check supports all backends
  *  supported by the backend service provided the backend can be health checked.
  *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
@@ -52646,7 +52798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
  *  port by referring to the backend service. Only supported by backend services
  *  for proxy load balancers. Not supported by target pools. Not supported by
- *  backend services for pass-through load balancers. Supports all backends that
+ *  backend services for passthrough load balancers. Supports all backends that
  *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
  *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
  *  backends, the health check uses the port number specified for each endpoint
@@ -53031,6 +53183,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Whether this image is created from a confidential compute mode disk. [Output
+ *  Only]: This field is not set by user, but from source disk.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 /**
  *  The name of the image family to which this image belongs. The image family
@@ -53736,6 +53896,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the values requested by user in the corresponding input only field.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_ResourceStatus *resourceStatus;
+
+/**
+ *  [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -72844,6 +73011,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_V100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleTpuLiteDeviceV5 Value
+ *        "PREEMPTIBLE_TPU_LITE_DEVICE_V5"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleTpuLitePodsliceV5 Value
+ *        "PREEMPTIBLE_TPU_LITE_PODSLICE_V5"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleTpuPodsliceV4 Value
+ *        "PREEMPTIBLE_TPU_PODSLICE_V4"
  *    @arg @c kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork
  *        Value "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK"
  *    @arg @c kGTLRCompute_Quota_Metric_PscInternalLbForwardingRules Value
@@ -72907,6 +73080,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "TARGET_TCP_PROXIES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetVpnGateways Value
  *        "TARGET_VPN_GATEWAYS"
+ *    @arg @c kGTLRCompute_Quota_Metric_TpuLiteDeviceV5 Value
+ *        "TPU_LITE_DEVICE_V5"
+ *    @arg @c kGTLRCompute_Quota_Metric_TpuLitePodsliceV5 Value
+ *        "TPU_LITE_PODSLICE_V5"
+ *    @arg @c kGTLRCompute_Quota_Metric_TpuPodsliceV4 Value "TPU_PODSLICE_V4"
  *    @arg @c kGTLRCompute_Quota_Metric_UrlMaps Value "URL_MAPS"
  *    @arg @c kGTLRCompute_Quota_Metric_VpnGateways Value "VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_VpnTunnels Value "VPN_TUNNELS"
@@ -74945,6 +75123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  information, read Reserving zonal resources.
  */
 @interface GTLRCompute_Reservation : GTLRObject
+
+/** Reservation for aggregated resources, providing shape flexibility. */
+@property(nonatomic, strong, nullable) GTLRCompute_AllocationAggregateReservation *aggregateReservation;
 
 /**
  *  [Output Only] Full or partial URL to a parent commitment. This field
@@ -80305,6 +80486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_Expr *expr;
 
 /**
+ *  The configuration options available when specifying a user defined CEVAL
+ *  expression (i.e., 'expr').
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcherExprOptions *exprOptions;
+
+/**
  *  Preconfigured versioned expression. If this field is specified, config must
  *  also be specified. Available preconfigured expressions along with their
  *  requirements are: SRC_IPS_V1 - must specify the corresponding src_ip_range
@@ -80327,6 +80514,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** CIDR IP address range. Maximum number of src_ip_ranges allowed is 10. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyRuleMatcherExprOptions
+ */
+@interface GTLRCompute_SecurityPolicyRuleMatcherExprOptions : GTLRObject
+
+/**
+ *  reCAPTCHA configuration options to be applied for the rule. If the rule does
+ *  not evaluate reCAPTCHA tokens, this field will have no effect.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions *recaptchaOptions;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions
+ */
+@interface GTLRCompute_SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions : GTLRObject
+
+/**
+ *  A list of site keys to be used during the validation of reCAPTCHA
+ *  action-tokens. The provided site keys need to be created from reCAPTCHA API
+ *  under the same project where the security policy is created.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actionTokenSiteKeys;
+
+/**
+ *  A list of site keys to be used during the validation of reCAPTCHA
+ *  session-tokens. The provided site keys need to be created from reCAPTCHA API
+ *  under the same project where the security policy is created.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sessionTokenSiteKeys;
 
 @end
 
@@ -80541,7 +80764,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  name indication in the TLS session of the HTTPS request. The key value is
  *  truncated to the first 128 bytes. The key type defaults to ALL on a HTTP
  *  session. - REGION_CODE: The country/region from which the request
- *  originates.
+ *  originates. - TLS_JA3_FINGERPRINT: JA3 TLS/SSL fingerprint if the client
+ *  connects using HTTPS, HTTP/2 or HTTP/3. If not available, the key type
+ *  defaults to ALL. - USER_IP: The IP address of the originating client, which
+ *  is resolved based on "userIpRequestHeaders" configured with the security
+ *  policy. If there is no "userIpRequestHeaders" configuration or an IP address
+ *  cannot be resolved from it, the key type defaults to IP.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_All
@@ -80558,6 +80786,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "REGION_CODE"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni
  *        Value "SNI"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_TlsJa3Fingerprint
+ *        Value "TLS_JA3_FINGERPRINT"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_UserIp
+ *        Value "USER_IP"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp
  *        Value "XFF_IP"
  */
@@ -80636,7 +80868,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  name indication in the TLS session of the HTTPS request. The key value is
  *  truncated to the first 128 bytes. The key type defaults to ALL on a HTTP
  *  session. - REGION_CODE: The country/region from which the request
- *  originates.
+ *  originates. - TLS_JA3_FINGERPRINT: JA3 TLS/SSL fingerprint if the client
+ *  connects using HTTPS, HTTP/2 or HTTP/3. If not available, the key type
+ *  defaults to ALL. - USER_IP: The IP address of the originating client, which
+ *  is resolved based on "userIpRequestHeaders" configured with the security
+ *  policy. If there is no "userIpRequestHeaders" configuration or an IP address
+ *  cannot be resolved from it, the key type defaults to IP.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_All
@@ -80653,6 +80890,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "REGION_CODE"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Sni
  *        Value "SNI"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_TlsJa3Fingerprint
+ *        Value "TLS_JA3_FINGERPRINT"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_UserIp
+ *        Value "USER_IP"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_XffIp
  *        Value "XFF_IP"
  */
@@ -81932,6 +82173,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *downloadBytes;
+
+/**
+ *  Whether this snapshot is created from a confidential compute mode disk.
+ *  [Output Only]: This field is not set by user, but from source disk.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 /**
  *  [Output Only] A list of features to enable on the guest operating system.
@@ -83301,7 +83550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Not supported by target pools. The health check supports all backends
  *  supported by the backend service provided the backend can be health checked.
  *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
@@ -83309,7 +83558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
  *  port by referring to the backend service. Only supported by backend services
  *  for proxy load balancers. Not supported by target pools. Not supported by
- *  backend services for pass-through load balancers. Supports all backends that
+ *  backend services for passthrough load balancers. Supports all backends that
  *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
  *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
  *  backends, the health check uses the port number specified for each endpoint
@@ -83903,9 +84152,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents an SSL Policy resource. Use SSL policies to control the SSL
- *  features, such as versions and cipher suites, offered by an HTTPS or SSL
- *  Proxy load balancer. For more information, read SSL Policy Concepts.
+ *  Represents an SSL Policy resource. Use SSL policies to control SSL features,
+ *  such as versions and cipher suites, that are offered by Application Load
+ *  Balancers and proxy Network Load Balancers. For more information, read SSL
+ *  policies overview.
  */
 @interface GTLRCompute_SslPolicy : GTLRObject
 
@@ -87488,10 +87738,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a Target Pool resource. Target pools are used for network TCP/UDP
- *  load balancing. A target pool references member instances, an associated
- *  legacy HttpHealthCheck resource, and, optionally, a backup target pool. For
- *  more information, read Using target pools.
+ *  Represents a Target Pool resource. Target pools are used with external
+ *  passthrough Network Load Balancers. A target pool references member
+ *  instances, an associated legacy HttpHealthCheck resource, and, optionally, a
+ *  backup target pool. For more information, read Using target pools.
  */
 @interface GTLRCompute_TargetPool : GTLRObject
 
@@ -88313,9 +88563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Represents a Target SSL Proxy resource. A target SSL proxy is a component of
- *  a SSL Proxy load balancer. Global forwarding rules reference a target SSL
- *  proxy, and the target proxy then references an external backend service. For
- *  more information, read Using Target Proxies.
+ *  a Proxy Network Load Balancer. The forwarding rule references the target SSL
+ *  proxy, and the target proxy then references a backend service. For more
+ *  information, read Proxy Network Load Balancer overview.
  */
 @interface GTLRCompute_TargetSslProxy : GTLRObject
 
@@ -88769,9 +89019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Represents a Target TCP Proxy resource. A target TCP proxy is a component of
- *  a TCP Proxy load balancer. Global forwarding rules reference target TCP
- *  proxy, and the target proxy then references an external backend service. For
- *  more information, read TCP Proxy Load Balancing overview.
+ *  a Proxy Network Load Balancer. The forwarding rule references the target TCP
+ *  proxy, and the target proxy then references a backend service. For more
+ *  information, read Proxy Network Load Balancer overview.
  */
 @interface GTLRCompute_TargetTcpProxy : GTLRObject
 
@@ -89899,7 +90149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how a port is selected for health checking. Can be one of the
  *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
  *  the port field in the health check. Supported by backend services for
- *  pass-through load balancers and backend services for proxy load balancers.
+ *  passthrough load balancers and backend services for proxy load balancers.
  *  Not supported by target pools. The health check supports all backends
  *  supported by the backend service provided the backend can be health checked.
  *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
@@ -89907,7 +90157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
  *  port by referring to the backend service. Only supported by backend services
  *  for proxy load balancers. Not supported by target pools. Not supported by
- *  backend services for pass-through load balancers. Supports all backends that
+ *  backend services for passthrough load balancers. Supports all backends that
  *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
  *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
  *  backends, the health check uses the port number specified for each endpoint

@@ -549,6 +549,33 @@
 
 @end
 
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Policy class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -617,6 +644,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAnalyticsHub_RevokeSubscriptionResponse class];
   query.loggingName = @"analyticshub.projects.locations.subscriptions.revoke";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Policy class];
+  query.loggingName = @"analyticshub.projects.locations.subscriptions.setIamPolicy";
   return query;
 }
 

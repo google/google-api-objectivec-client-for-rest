@@ -2201,8 +2201,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles : GTLRDataformQuery
 
 /**
- *  Optional. Optional filter for the returned list in go/filtering format.
- *  Filtering is only currently supported on the `path` field.
+ *  Optional. Optional filter for the returned list in filtering format.
+ *  Filtering is only currently supported on the `path` field. See
+ *  https://google.aip.dev/160 for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

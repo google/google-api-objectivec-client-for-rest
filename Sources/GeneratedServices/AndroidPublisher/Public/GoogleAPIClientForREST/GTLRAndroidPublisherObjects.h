@@ -19,6 +19,8 @@
 @class GTLRAndroidPublisher_Abi;
 @class GTLRAndroidPublisher_AbiTargeting;
 @class GTLRAndroidPublisher_AcquisitionTargetingRule;
+@class GTLRAndroidPublisher_ActivateBasePlanRequest;
+@class GTLRAndroidPublisher_ActivateSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_Apk;
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_ApkDescription;
@@ -37,6 +39,8 @@
 @class GTLRAndroidPublisher_ConvertedRegionPrice;
 @class GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices;
 @class GTLRAndroidPublisher_CountryTargeting;
+@class GTLRAndroidPublisher_DeactivateBasePlanRequest;
+@class GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_DeferredItemReplacement;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
@@ -64,18 +68,23 @@
 @class GTLRAndroidPublisher_GeneratedSplitApk;
 @class GTLRAndroidPublisher_GeneratedStandaloneApk;
 @class GTLRAndroidPublisher_GeneratedUniversalApk;
+@class GTLRAndroidPublisher_GetSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_Image;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_InAppProduct_Listings;
 @class GTLRAndroidPublisher_InAppProduct_Prices;
 @class GTLRAndroidPublisher_InAppProductListing;
+@class GTLRAndroidPublisher_InappproductsDeleteRequest;
+@class GTLRAndroidPublisher_InappproductsUpdateRequest;
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_LanguageTargeting;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode;
+@class GTLRAndroidPublisher_MigrateBasePlanPricesRequest;
+@class GTLRAndroidPublisher_MigrateBasePlanPricesResponse;
 @class GTLRAndroidPublisher_ModuleMetadata;
 @class GTLRAndroidPublisher_ModuleTargeting;
 @class GTLRAndroidPublisher_Money;
@@ -137,6 +146,10 @@
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
 @class GTLRAndroidPublisher_TrackTargetedCountry;
+@class GTLRAndroidPublisher_UpdateBasePlanStateRequest;
+@class GTLRAndroidPublisher_UpdateSubscriptionOfferRequest;
+@class GTLRAndroidPublisher_UpdateSubscriptionOfferStateRequest;
+@class GTLRAndroidPublisher_UpdateSubscriptionRequest;
 @class GTLRAndroidPublisher_UpgradeTargetingRule;
 @class GTLRAndroidPublisher_User;
 @class GTLRAndroidPublisher_UserComment;
@@ -203,6 +216,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Abi_Alias_X86;
  *  Value: "X86_64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Abi_Alias_X8664;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ActivateBasePlanRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ActivateSubscriptionOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_AssetModuleMetadata.deliveryType
@@ -350,6 +415,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reas
  *  Value: "CANCEL_SURVEY_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeactivateBasePlanRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_DeobfuscationFile.symbolType
@@ -552,6 +669,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Ina
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_InappproductsDeleteRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_InappproductsUpdateRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
 
 /** Value: "WITHDRAWAL_RIGHT_DIGITAL_CONTENT" */
@@ -560,6 +729,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndCom
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService;
 /** Value: "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_MigrateBasePlanPricesRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ModuleMetadata.deliveryType
@@ -1135,6 +1330,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InP
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UpdateSubscriptionOfferRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UpdateSubscriptionRequest.latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_User.accessState
 
 /**
@@ -1344,6 +1591,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for ActivateBasePlan.
  */
 @interface GTLRAndroidPublisher_ActivateBasePlanRequest : GTLRObject
+
+/** Required. The unique base plan ID of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The parent app (package name) of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -1351,6 +1629,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for ActivateSubscriptionOffer.
  */
 @interface GTLRAndroidPublisher_ActivateSubscriptionOfferRequest : GTLRObject
+
+/** Required. The parent base plan (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The unique offer ID of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -1751,6 +2063,172 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request message for BatchGetSubscriptionOffers endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  update different subscriptions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GetSubscriptionOfferRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchGetSubscriptionOffers endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetSubscriptionOffersResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SubscriptionOffer *> *subscriptionOffers;
+
+@end
+
+
+/**
+ *  Response message for BatchGetSubscriptions endpoint.
+ */
+@interface GTLRAndroidPublisher_BatchGetSubscriptionsResponse : GTLRObject
+
+/** The list of requested subscriptions, in the same order as the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  Request message for BatchMigrateBasePlanPrices.
+ */
+@interface GTLRAndroidPublisher_BatchMigrateBasePlanPricesRequest : GTLRObject
+
+/**
+ *  Required. Up to 100 price migration requests. All requests must update
+ *  different base plans.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_MigrateBasePlanPricesRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchMigrateBasePlanPrices.
+ */
+@interface GTLRAndroidPublisher_BatchMigrateBasePlanPricesResponse : GTLRObject
+
+/**
+ *  Contains one response per requested price migration, in the same order as
+ *  the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_MigrateBasePlanPricesResponse *> *responses;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateBasePlanStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateBasePlanStatesRequest : GTLRObject
+
+/**
+ *  Required. The update request list of up to 100 elements. All requests must
+ *  update different base plans.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateBasePlanStateRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateBasePlanStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateBasePlanStatesResponse : GTLRObject
+
+/**
+ *  The list of updated subscriptions. This list will match the requests one to
+ *  one, in the same order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateSubscriptionOffers.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionOffersRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  update different subscription offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateSubscriptionOfferRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateSubscriptionOffers.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionOffersResponse : GTLRObject
+
+/** The updated subscription offers list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SubscriptionOffer *> *subscriptionOffers;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateSubscriptionOfferStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesRequest : GTLRObject
+
+/**
+ *  Required. The update request list of up to 100 elements. All requests must
+ *  update different offers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateSubscriptionOfferStateRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateSubscriptionOfferStates.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesResponse : GTLRObject
+
+/** The updated subscription offers list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SubscriptionOffer *> *subscriptionOffers;
+
+@end
+
+
+/**
+ *  Request message for BatchUpdateSubscription.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionsRequest : GTLRObject
+
+/**
+ *  Required. A list of update requests of up to 100 elements. All requests must
+ *  update different subscriptions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UpdateSubscriptionRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchUpdateSubscription.
+ */
+@interface GTLRAndroidPublisher_BatchUpdateSubscriptionsResponse : GTLRObject
+
+/** The updated subscriptions list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Subscription *> *subscriptions;
+
+@end
+
+
+/**
  *  Information about an app bundle. The resource for BundlesService.
  */
 @interface GTLRAndroidPublisher_Bundle : GTLRObject
@@ -1967,6 +2445,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for DeactivateBasePlan.
  */
 @interface GTLRAndroidPublisher_DeactivateBasePlanRequest : GTLRObject
+
+/** Required. The unique base plan ID of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The parent app (package name) of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -1974,6 +2483,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for DeactivateSubscriptionOffer.
  */
 @interface GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest : GTLRObject
+
+/** Required. The parent base plan (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Required. The unique offer ID of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 @end
 
 
@@ -2759,6 +3302,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request message for GetSubscriptionOffer.
+ */
+@interface GTLRAndroidPublisher_GetSubscriptionOfferRequest : GTLRObject
+
+/** Required. The parent base plan (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The unique offer ID of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
  *  An access grant resource.
  */
 @interface GTLRAndroidPublisher_Grant : GTLRObject
@@ -2984,6 +3547,94 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request to delete multiple in-app products.
+ */
+@interface GTLRAndroidPublisher_InappproductsBatchDeleteRequest : GTLRObject
+
+/**
+ *  Individual delete requests. At least one request is required. Can contain up
+ *  to 100 requests. All requests must correspond to different in-app products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InappproductsDeleteRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response message for BatchGetSubscriptions endpoint.
+ */
+@interface GTLRAndroidPublisher_InappproductsBatchGetResponse : GTLRObject
+
+/**
+ *  The list of requested in-app products, in the same order as the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InAppProduct *> *inappproduct;
+
+@end
+
+
+/**
+ *  Request to update or insert one or more in-app products.
+ */
+@interface GTLRAndroidPublisher_InappproductsBatchUpdateRequest : GTLRObject
+
+/**
+ *  Required. Individual update requests. At least one request is required. Can
+ *  contain up to 100 requests. All requests must correspond to different in-app
+ *  products.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InappproductsUpdateRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response for a batch in-app product update.
+ */
+@interface GTLRAndroidPublisher_InappproductsBatchUpdateResponse : GTLRObject
+
+/** The updated or inserted in-app products. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InAppProduct *> *inappproducts;
+
+@end
+
+
+/**
+ *  Request to delete an in-app product.
+ */
+@interface GTLRAndroidPublisher_InappproductsDeleteRequest : GTLRObject
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_InappproductsDeleteRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Unique identifier for the in-app product. */
+@property(nonatomic, copy, nullable) NSString *sku;
+
+@end
+
+
+/**
  *  Response listing all in-app products.
  */
 @interface GTLRAndroidPublisher_InappproductsListResponse : GTLRObject
@@ -3001,6 +3652,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** Pagination token, to handle a number of products that is over one page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
+
+@end
+
+
+/**
+ *  Request to update an in-app product.
+ */
+@interface GTLRAndroidPublisher_InappproductsUpdateRequest : GTLRObject
+
+/**
+ *  If set to true, and the in-app product with the given package_name and sku
+ *  doesn't exist, the in-app product will be created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  If true the prices for all regions targeted by the parent app that don't
+ *  have a price specified for this in-app product will be auto converted to the
+ *  target currency based on the default price. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoConvertMissingPrices;
+
+/** The new in-app product. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct *inappproduct;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Unique identifier for the in-app product. */
+@property(nonatomic, copy, nullable) NSString *sku;
 
 @end
 
@@ -3308,6 +4014,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Request message for MigrateBasePlanPrices.
  */
 @interface GTLRAndroidPublisher_MigrateBasePlanPricesRequest : GTLRObject
+
+/** Required. The unique base plan ID of the base plan to update prices on. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_MigrateBasePlanPricesRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. Package name of the parent app. Must be equal to the package_name
+ *  field on the Subscription resource.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The ID of the subscription to update. Must be equal to the
+ *  product_id field on the Subscription resource.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /** Required. The regional prices to update. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalPriceMigrationConfig *> *regionalPriceMigrations;
@@ -5609,6 +6351,155 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** The country to target, as a two-letter CLDR code. */
 @property(nonatomic, copy, nullable) NSString *countryCode;
+
+@end
+
+
+/**
+ *  Request message to update the state of a subscription base plan.
+ */
+@interface GTLRAndroidPublisher_UpdateBasePlanStateRequest : GTLRObject
+
+/**
+ *  Activates a base plan. Once activated, base plans will be available to new
+ *  subscribers.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ActivateBasePlanRequest *activateBasePlanRequest;
+
+/**
+ *  Deactivates a base plan. Once deactivated, the base plan will become
+ *  unavailable to new subscribers, but existing subscribers will maintain their
+ *  subscription
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivateBasePlanRequest *deactivateBasePlanRequest;
+
+@end
+
+
+/**
+ *  Request message for UpdateSubscriptionOffer.
+ */
+@interface GTLRAndroidPublisher_UpdateSubscriptionOfferRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, and the subscription offer with the given
+ *  package_name, product_id, base_plan_id and offer_id doesn't exist, an offer
+ *  will be created. If a new offer is created, update_mask is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The version of the available regions being used for the
+ *  subscription_offer.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/** Required. The subscription offer to update. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionOffer *subscriptionOffer;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message to update the state of a subscription offer.
+ */
+@interface GTLRAndroidPublisher_UpdateSubscriptionOfferStateRequest : GTLRObject
+
+/**
+ *  Activates an offer. Once activated, the offer will be available to new
+ *  subscribers.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ActivateSubscriptionOfferRequest *activateSubscriptionOfferRequest;
+
+/**
+ *  Deactivates an offer. Once deactivated, the offer will become unavailable to
+ *  new subscribers, but existing subscribers will maintain their subscription
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest *deactivateSubscriptionOfferRequest;
+
+@end
+
+
+/**
+ *  Request message for UpdateSubscription.
+ */
+@interface GTLRAndroidPublisher_UpdateSubscriptionRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, and the subscription with the given package_name
+ *  and product_id doesn't exist, the subscription will be created. If a new
+ *  subscription is created, update_mask is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ *    @arg @c kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
+/**
+ *  Required. The version of the available regions being used for the
+ *  subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionsVersion *regionsVersion;
+
+/** Required. The subscription to update. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Subscription *subscription;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

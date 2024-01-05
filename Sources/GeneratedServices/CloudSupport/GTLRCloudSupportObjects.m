@@ -75,7 +75,7 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 //
 
 @implementation GTLRCloudSupport_Actor
-@dynamic displayName, email, googleSupport;
+@dynamic displayName, email, googleSupport, username;
 @end
 
 

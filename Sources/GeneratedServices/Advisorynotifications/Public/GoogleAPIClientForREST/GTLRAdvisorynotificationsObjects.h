@@ -226,7 +226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
 
 /**
  *  The resource name of the notification. Format:
- *  organizations/{organization}/locations/{location}/notifications/{notification}.
+ *  organizations/{organization}/locations/{location}/notifications/{notification}
+ *  or projects/{project}/locations/{location}/notifications/{notification}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -284,7 +285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. The resource name of the settings to retrieve. Format:
+ *  Identifier. The resource name of the settings to retrieve. Format:
  *  organizations/{organization}/locations/{location}/settings.
  */
 @property(nonatomic, copy, nullable) NSString *name;

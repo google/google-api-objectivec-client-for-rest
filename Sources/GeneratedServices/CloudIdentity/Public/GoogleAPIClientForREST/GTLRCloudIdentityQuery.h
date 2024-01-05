@@ -1491,9 +1491,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  The ID of the entity. For Google-managed entities, the `id` should be the
- *  email address of an existing group or user. For external-identity-mapped
- *  entities, the `id` must be a string conforming to the Identity Source's
- *  requirements. Must be unique within a `namespace`.
+ *  email address of an existing group or user. Email addresses need to adhere
+ *  to [name guidelines for users and
+ *  groups](https://support.google.com/a/answer/9193374). For
+ *  external-identity-mapped entities, the `id` must be a string conforming to
+ *  the Identity Source's requirements. Must be unique within a `namespace`.
  */
 @property(nonatomic, copy, nullable) NSString *groupKeyId;
 
@@ -1832,9 +1834,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  The ID of the entity. For Google-managed entities, the `id` should be the
- *  email address of an existing group or user. For external-identity-mapped
- *  entities, the `id` must be a string conforming to the Identity Source's
- *  requirements. Must be unique within a `namespace`.
+ *  email address of an existing group or user. Email addresses need to adhere
+ *  to [name guidelines for users and
+ *  groups](https://support.google.com/a/answer/9193374). For
+ *  external-identity-mapped entities, the `id` must be a string conforming to
+ *  the Identity Source's requirements. Must be unique within a `namespace`.
  */
 @property(nonatomic, copy, nullable) NSString *memberKeyId;
 
@@ -2193,11 +2197,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Can contain optional inclusion operators on `labels` such as
  *  `'cloudidentity.googleapis.com/groups.discussion_forum' in labels`). * Can
  *  contain an optional equality operator on `domain_name`. e.g. `domain_name ==
- *  'abc.com'` * Can contain optional `startsWith/contains/equality` operators
- *  on `group_key`, e.g. `group_key.startsWith('dev')`,
- *  `group_key.contains('dev'), group_key == 'dev\@abc.com'` * Can contain
- *  optional `startsWith/contains/equality` operators on `display_name`, such as
- *  `display_name.startsWith('dev')` , `display_name.contains('dev')`,
+ *  'examplepetstore.com'` * Can contain optional `startsWith/contains/equality`
+ *  operators on `group_key`, e.g. `group_key.startsWith('dev')`,
+ *  `group_key.contains('dev'), group_key == 'dev\@examplepetstore.com'` * Can
+ *  contain optional `startsWith/contains/equality` operators on `display_name`,
+ *  such as `display_name.startsWith('dev')` , `display_name.contains('dev')`,
  *  `display_name == 'dev'`
  */
 @property(nonatomic, copy, nullable) NSString *query;

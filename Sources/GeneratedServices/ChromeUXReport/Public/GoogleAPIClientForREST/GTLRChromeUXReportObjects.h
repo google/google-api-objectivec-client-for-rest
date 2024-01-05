@@ -18,6 +18,7 @@
 @class GTLRChromeUXReport_Bin;
 @class GTLRChromeUXReport_CollectionPeriod;
 @class GTLRChromeUXReport_Date;
+@class GTLRChromeUXReport_FractionTimeseries;
 @class GTLRChromeUXReport_HistoryKey;
 @class GTLRChromeUXReport_HistoryRecord;
 @class GTLRChromeUXReport_HistoryRecord_Metrics;
@@ -25,6 +26,7 @@
 @class GTLRChromeUXReport_Metric;
 @class GTLRChromeUXReport_Metric_Fractions;
 @class GTLRChromeUXReport_MetricTimeseries;
+@class GTLRChromeUXReport_MetricTimeseries_FractionTimeseries;
 @class GTLRChromeUXReport_Percentiles;
 @class GTLRChromeUXReport_Record;
 @class GTLRChromeUXReport_Record_Metrics;
@@ -248,6 +250,23 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 
 /**
+ *  For enum metrics, provides fraction timeseries which add up to approximately
+ *  1.0 per entry (k-th element into the repeated fractions field for any k <=
+ *  len) across fraction_timeseries.
+ */
+@interface GTLRChromeUXReport_FractionTimeseries : GTLRObject
+
+/**
+ *  Values between 0.0 and 1.0 (inclusive) and NaN.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *fractions;
+
+@end
+
+
+/**
  *  Key defines all the dimensions that identify this record as unique.
  */
 @interface GTLRChromeUXReport_HistoryKey : GTLRObject
@@ -433,6 +452,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @interface GTLRChromeUXReport_MetricTimeseries : GTLRObject
 
 /**
+ *  Mapping from labels to timeseries of fractions attributed to this label.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeUXReport_MetricTimeseries_FractionTimeseries *fractionTimeseries;
+
+/**
  *  The histogram of user experiences for a metric. The histogram will have at
  *  least one bin and the densities of all bins will add up to ~1, for each
  *  timeseries entry.
@@ -446,6 +470,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_TimeseriesPercentiles *percentilesTimeseries;
 
+@end
+
+
+/**
+ *  Mapping from labels to timeseries of fractions attributed to this label.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRChromeUXReport_FractionTimeseries. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRChromeUXReport_MetricTimeseries_FractionTimeseries : GTLRObject
 @end
 
 

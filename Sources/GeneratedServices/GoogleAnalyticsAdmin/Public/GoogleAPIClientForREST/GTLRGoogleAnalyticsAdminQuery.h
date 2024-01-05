@@ -272,13 +272,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a customized report of data access records. The report provides
  *  records of each time a user reads Google Analytics reporting data. Access
  *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
+ *  for a property. Reports may be requested for any property, but dimensions
+ *  that aren't related to quota can only be requested on Google Analytics 360
+ *  properties. This method is only available to Administrators. These data
+ *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
+ *  and other products like Firebase & Admob that can retrieve data from Google
+ *  Analytics through a linkage. These records don't include property
+ *  configuration changes like adding a stream or changing a property's time
+ *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
  *
  *  Method: analyticsadmin.accounts.runAccessReport
@@ -305,13 +306,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a customized report of data access records. The report provides
  *  records of each time a user reads Google Analytics reporting data. Access
  *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
+ *  for a property. Reports may be requested for any property, but dimensions
+ *  that aren't related to quota can only be requested on Google Analytics 360
+ *  properties. This method is only available to Administrators. These data
+ *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
+ *  and other products like Firebase & Admob that can retrieve data from Google
+ *  Analytics through a linkage. These records don't include property
+ *  configuration changes like adding a stream or changing a property's time
+ *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
@@ -1879,13 +1881,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a customized report of data access records. The report provides
  *  records of each time a user reads Google Analytics reporting data. Access
  *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
+ *  for a property. Reports may be requested for any property, but dimensions
+ *  that aren't related to quota can only be requested on Google Analytics 360
+ *  properties. This method is only available to Administrators. These data
+ *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
+ *  and other products like Firebase & Admob that can retrieve data from Google
+ *  Analytics through a linkage. These records don't include property
+ *  configuration changes like adding a stream or changing a property's time
+ *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
  *
  *  Method: analyticsadmin.properties.runAccessReport
@@ -1912,13 +1915,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a customized report of data access records. The report provides
  *  records of each time a user reads Google Analytics reporting data. Access
  *  records are retained for up to 2 years. Data Access Reports can be requested
- *  for a property. The property must be in Google Analytics 360. This method is
- *  only available to Administrators. These data access records include GA4 UI
- *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
- *  Firebase & Admob that can retrieve data from Google Analytics through a
- *  linkage. These records don't include property configuration changes like
- *  adding a stream or changing a property's time zone. For configuration change
- *  history, see
+ *  for a property. Reports may be requested for any property, but dimensions
+ *  that aren't related to quota can only be requested on Google Analytics 360
+ *  properties. This method is only available to Administrators. These data
+ *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
+ *  and other products like Firebase & Admob that can retrieve data from Google
+ *  Analytics through a linkage. These records don't include property
+ *  configuration changes like adding a stream or changing a property's time
+ *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest

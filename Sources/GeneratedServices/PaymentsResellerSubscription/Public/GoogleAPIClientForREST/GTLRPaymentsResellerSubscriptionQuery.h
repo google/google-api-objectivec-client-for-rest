@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.products.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersProductsList : GTLRPaymentsResellerSubscriptionQuery
 
@@ -96,10 +99,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  To find eligible promotions for the current user. The API requires user
- *  authorization via OAuth. The user is inferred from the authenticated OAuth
- *  credential.
+ *  authorization via OAuth. The bare minimum oauth scope `openid` is
+ *  sufficient, which will skip the consent screen.
  *
  *  Method: paymentsresellersubscription.partners.promotions.findEligible
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible : GTLRPaymentsResellerSubscriptionQuery
 
@@ -114,8 +120,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse.
  *
  *  To find eligible promotions for the current user. The API requires user
- *  authorization via OAuth. The user is inferred from the authenticated OAuth
- *  credential.
+ *  authorization via OAuth. The bare minimum oauth scope `openid` is
+ *  sufficient, which will skip the consent screen.
  *
  *  @param object The @c
  *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
@@ -135,6 +141,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  partner. It should be autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.promotions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsList : GTLRPaymentsResellerSubscriptionQuery
 
@@ -200,6 +209,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  called directly by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCancel : GTLRPaymentsResellerSubscriptionQuery
 
@@ -237,6 +249,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  credentials. This API must be authorized by the end user using OAuth.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCreate : GTLRPaymentsResellerSubscriptionQuery
 
@@ -282,6 +297,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  OAuth.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.entitle
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsEntitle : GTLRPaymentsResellerSubscriptionQuery
 
@@ -322,6 +340,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  called directly by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.extend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsExtend : GTLRPaymentsResellerSubscriptionQuery
 
@@ -359,6 +380,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsGet : GTLRPaymentsResellerSubscriptionQuery
 
@@ -393,6 +417,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  directly by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.provision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision : GTLRPaymentsResellerSubscriptionQuery
 
@@ -440,6 +467,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.undoCancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsUndoCancel : GTLRPaymentsResellerSubscriptionQuery
 

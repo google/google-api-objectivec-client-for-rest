@@ -14,6 +14,7 @@
 // Constants
 
 // GTLRAccessApproval_AccessReason.type
+NSString * const kGTLRAccessApproval_AccessReason_Type_CloudInitiatedAccess = @"CLOUD_INITIATED_ACCESS";
 NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";

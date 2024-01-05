@@ -90,6 +90,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
+ *  Optional. The regions to which to assert that the key was written. If
+ *  unspecified, defaults to all regions. Regions are listed at
+ *  https://cloud.google.com/about/locations#region.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+/**
  *  Fetches a @c GTLRCloudOSLogin_ImportSshPublicKeyResponse.
  *
  *  Adds an SSH public key and returns the profile information. Default POSIX

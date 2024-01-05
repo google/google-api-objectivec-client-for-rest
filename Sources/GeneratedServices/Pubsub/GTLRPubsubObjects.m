@@ -83,7 +83,8 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_BigQueryConfig
-@dynamic dropUnknownFields, state, table, useTopicSchema, writeMetadata;
+@dynamic dropUnknownFields, state, table, useTableSchema, useTopicSchema,
+         writeMetadata;
 @end
 
 

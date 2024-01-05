@@ -131,7 +131,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 + (instancetype)queryWithBucket:(NSString *)bucket {
   NSArray *pathParams = @[ @"bucket" ];
-  NSString *pathURITemplate = @"b/{bucket}/anywhereCache";
+  NSString *pathURITemplate = @"b/{bucket}/anywhereCaches";
   GTLRStorageQuery_AnywhereCacheList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

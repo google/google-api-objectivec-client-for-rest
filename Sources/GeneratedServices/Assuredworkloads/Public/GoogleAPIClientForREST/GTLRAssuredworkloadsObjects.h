@@ -711,7 +711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 /**
- *  Request for acknowledging the violation Next Id: 5
+ *  Request for acknowledging the violation
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest : GTLRObject
 
@@ -872,6 +872,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Optional. The parent of the workload. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+@end
+
+
+/**
+ *  Response for EnableResourceMonitoring endpoint.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse : GTLRObject
 @end
 
 

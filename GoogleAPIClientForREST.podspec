@@ -184,6 +184,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Appengine/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Appengine/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AppHub' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AppHub/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AppHub/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Area120Tables' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Area120Tables/**/*.{h,m}'
@@ -1358,6 +1363,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/VMwareEngine/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/VMwareEngine/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Walletobjects' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Walletobjects/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Walletobjects/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Webfonts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

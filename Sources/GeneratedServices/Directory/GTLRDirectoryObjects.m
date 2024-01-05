@@ -21,6 +21,25 @@ NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityInfo = @"SEVER
 NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning = @"SEVERITY_WARNING";
 
+// GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest.changeChromeOsDeviceStatusAction
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDeprovision = @"CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DEPROVISION";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionDisable = @"CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_DISABLE";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionReenable = @"CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_REENABLE";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_ChangeChromeOsDeviceStatusAction_ChangeChromeOsDeviceStatusActionUnspecified = @"CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED";
+
+// GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest.deprovisionReason
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDifferentModelReplacement = @"DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonDomainMove = @"DEPROVISION_REASON_DOMAIN_MOVE";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonNotRequired = @"DEPROVISION_REASON_NOT_REQUIRED";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonOther = @"DEPROVISION_REASON_OTHER";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRepairCenter = @"DEPROVISION_REASON_REPAIR_CENTER";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonRetiringDevice = @"DEPROVISION_REASON_RETIRING_DEVICE";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonSameModelReplacement = @"DEPROVISION_REASON_SAME_MODEL_REPLACEMENT";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonServiceExpiration = @"DEPROVISION_REASON_SERVICE_EXPIRATION";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUnspecified = @"DEPROVISION_REASON_UNSPECIFIED";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgrade = @"DEPROVISION_REASON_UPGRADE";
+NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer = @"DEPROVISION_REASON_UPGRADE_TRANSFER";
+
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement = @"DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove = @"DEPROVISION_REASON_DOMAIN_MOVE";
@@ -210,6 +229,42 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_AuxiliaryMessage
 @dynamic auxiliaryMessage, fieldMask, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest
+//
+
+@implementation GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest
+@dynamic changeChromeOsDeviceStatusAction, deprovisionReason, deviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchChangeChromeOsDeviceStatusResponse
+//
+
+@implementation GTLRDirectory_BatchChangeChromeOsDeviceStatusResponse
+@dynamic changeChromeOsDeviceStatusResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changeChromeOsDeviceStatusResults" : [GTLRDirectory_ChangeChromeOsDeviceStatusResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -471,6 +526,25 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChangeChromeOsDeviceStatusResult
+//
+
+@implementation GTLRDirectory_ChangeChromeOsDeviceStatusResult
+@dynamic deviceId, error, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded
+//
+
+@implementation GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded
 @end
 
 
@@ -1641,6 +1715,38 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
     @"schemas" : [GTLRDirectory_Schema class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_Status
+//
+
+@implementation GTLRDirectory_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDirectory_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_Status_Details_Item
+//
+
+@implementation GTLRDirectory_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

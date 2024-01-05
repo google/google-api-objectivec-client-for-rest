@@ -282,6 +282,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Disabled = 
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Enabled = @"ENABLED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Archived = @"ARCHIVED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_ObservabilityUnspecified = @"OBSERVABILITY_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.riskLevel
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Low = @"LOW";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moderate = @"MODERATE";
@@ -880,6 +885,42 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"attribute" : [GTLRApigee_GoogleCloudApigeeV1Attribute class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsResponse
+@dynamic securityIncidents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityIncidents" : [GTLRApigee_GoogleCloudApigeeV1SecurityIncident class]
   };
   return map;
 }
@@ -3929,8 +3970,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityIncident
-@dynamic detectionTypes, displayName, firstDetectedTime, lastDetectedTime, name,
-         riskLevel, trafficCount;
+@dynamic detectionTypes, displayName, firstDetectedTime, lastDetectedTime,
+         lastObservabilityChangeTime, name, observability, riskLevel,
+         trafficCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4104,6 +4146,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecuritySettings
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecuritySettings
+@dynamic mlRetrainingFeedbackEnabled, name;
 @end
 
 
@@ -4448,6 +4500,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1UpdateError
 @dynamic code, message, resource, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest
+@dynamic securityIncident, updateMask;
 @end
 
 

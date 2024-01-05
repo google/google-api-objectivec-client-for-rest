@@ -285,6 +285,147 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Creates a `BusinessMessagesLink` in Merchant Center account.
+ *
+ *  Method: content.accounts.businessmessageslinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsBusinessmessageslinksCreate : GTLRShoppingContentQuery
+
+/** Required. The ID of the Merchant Center account. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_BusinessMessagesLink.
+ *
+ *  Creates a `BusinessMessagesLink` in Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_BusinessMessagesLink to include in
+ *    the query.
+ *  @param accountId Required. The ID of the Merchant Center account.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsBusinessmessageslinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_BusinessMessagesLink *)object
+                      accountId:(long long)accountId;
+
+@end
+
+/**
+ *  Deletes the specified `BusinessMessagesLink` resource from Merchant Center
+ *  account.
+ *
+ *  Method: content.accounts.businessmessageslinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsBusinessmessageslinksDelete : GTLRShoppingContentQuery
+
+/** Required. The ID of the Merchant Center account. */
+@property(nonatomic, assign) long long accountId;
+
+/** Required. The identifier for the Business Messages Link. */
+@property(nonatomic, copy, nullable) NSString *businessMessagesLinkId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the specified `BusinessMessagesLink` resource from Merchant Center
+ *  account.
+ *
+ *  @param accountId Required. The ID of the Merchant Center account.
+ *  @param businessMessagesLinkId Required. The identifier for the Business
+ *    Messages Link.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsBusinessmessageslinksDelete
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+            businessMessagesLinkId:(NSString *)businessMessagesLinkId;
+
+@end
+
+/**
+ *  Retrieves `BusinessMessagesLink` in Merchant Center account.
+ *
+ *  Method: content.accounts.businessmessageslinks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsBusinessmessageslinksGet : GTLRShoppingContentQuery
+
+/** Required. The ID of the Merchant Center account. */
+@property(nonatomic, assign) long long accountId;
+
+/** Required. The identifier for the Business Messages Link. */
+@property(nonatomic, copy, nullable) NSString *businessMessagesLinkId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_BusinessMessagesLink.
+ *
+ *  Retrieves `BusinessMessagesLink` in Merchant Center account.
+ *
+ *  @param accountId Required. The ID of the Merchant Center account.
+ *  @param businessMessagesLinkId Required. The identifier for the Business
+ *    Messages Link.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsBusinessmessageslinksGet
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+            businessMessagesLinkId:(NSString *)businessMessagesLinkId;
+
+@end
+
+/**
+ *  Lists the `BusinessMessagesLink` resources for Merchant Center account.
+ *
+ *  Method: content.accounts.businessmessageslinks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsBusinessmessageslinksList : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Optional. The maximum number of `BusinessMessagesLink` resources for the
+ *  Merchant Center account to return. Defaults to 50; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListBusinessMessagesLinks`
+ *  call. Provide the page token to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListBusinessMessagesLinks`
+ *  must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListBusinessMessagesLinksResponse.
+ *
+ *  Lists the `BusinessMessagesLink` resources for Merchant Center account.
+ *
+ *  @param accountId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsBusinessmessageslinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId;
+
+@end
+
+/**
  *  Claims the website of a Merchant Center sub-account. Merchant accounts with
  *  approved third-party CSSs aren't required to claim a website.
  *
@@ -3333,7 +3474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Optional. The [IETF BCP-47](https://tools.ietf.org/html/bcp47) language code
  *  used to localize support content. If not set, the result will be in default
- *  language ('en-US').
+ *  language `en-US`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3380,7 +3521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Optional. The [IETF BCP-47](https://tools.ietf.org/html/bcp47) language code
  *  used to localize support content. If not set, the result will be in default
- *  language ('en-US').
+ *  language `en-US`.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -5617,79 +5758,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Lists the metrics report for a given Repricing product.
- *
- *  Method: content.productstatuses.repricingreports.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_ProductstatusesRepricingreportsList : GTLRShoppingContentQuery
-
-/**
- *  Gets Repricing reports on and before this date in the merchant's timezone.
- *  You can only retrieve data up to 7 days ago (default) or earlier. Format is
- *  YYYY-MM-DD.
- */
-@property(nonatomic, copy, nullable) NSString *endDate;
-
-/** Required. Id of the merchant who owns the Repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  Maximum number of days of reports to return. There can be more than one rule
- *  report returned per day. For example, if 3 rule types got applied to the
- *  same product within a 24-hour period, then a page_size of 1 will return 3
- *  rule reports. The page size defaults to 50 and values above 1000 are coerced
- *  to 1000. This service may return fewer days of reports than this value, for
- *  example, if the time between your start and end date is less than the page
- *  size.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Token (if provided) to retrieve the subsequent page. All other parameters
- *  must match the original call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Id of the Repricing product. Also known as the
- *  [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
- */
-@property(nonatomic, copy, nullable) NSString *productId;
-
-/** Id of the Repricing rule. If specified, only gets this rule's reports. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Gets Repricing reports on and after this date in the merchant's timezone, up
- *  to one year ago. Do not use a start date later than 7 days ago (default).
- *  Format is YYYY-MM-DD.
- */
-@property(nonatomic, copy, nullable) NSString *startDate;
-
-/**
- *  Fetches a @c GTLRShoppingContent_ListRepricingProductReportsResponse.
- *
- *  Lists the metrics report for a given Repricing product.
- *
- *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
- *  @param productId Required. Id of the Repricing product. Also known as the
- *    [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
- *
- *  @return GTLRShoppingContentQuery_ProductstatusesRepricingreportsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                          productId:(NSString *)productId;
-
-@end
-
-/**
  *  Updates an existing product in your Merchant Center account. Only updates
  *  attributes provided in the request.
  *
@@ -6340,271 +6408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_SearchRequest *)object
                      merchantId:(long long)merchantId;
-
-@end
-
-/**
- *  Creates a repricing rule for your Merchant Center account.
- *
- *  Method: content.repricingrules.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesCreate : GTLRShoppingContentQuery
-
-/** Required. The id of the merchant who owns the repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/** Required. The id of the rule to create. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_RepricingRule.
- *
- *  Creates a repricing rule for your Merchant Center account.
- *
- *  @param object The @c GTLRShoppingContent_RepricingRule to include in the
- *    query.
- *  @param merchantId Required. The id of the merchant who owns the repricing
- *    rule.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesCreate
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
-                     merchantId:(long long)merchantId;
-
-@end
-
-/**
- *  Deletes a repricing rule in your Merchant Center account.
- *
- *  Method: content.repricingrules.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesDelete : GTLRShoppingContentQuery
-
-/** Required. The id of the merchant who owns the repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/** Required. The id of the rule to Delete. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a repricing rule in your Merchant Center account.
- *
- *  @param merchantId Required. The id of the merchant who owns the repricing
- *    rule.
- *  @param ruleId Required. The id of the rule to Delete.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesDelete
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId;
-
-@end
-
-/**
- *  Retrieves a repricing rule from your Merchant Center account.
- *
- *  Method: content.repricingrules.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesGet : GTLRShoppingContentQuery
-
-/** Required. The id of the merchant who owns the repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/** Required. The id of the rule to retrieve. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_RepricingRule.
- *
- *  Retrieves a repricing rule from your Merchant Center account.
- *
- *  @param merchantId Required. The id of the merchant who owns the repricing
- *    rule.
- *  @param ruleId Required. The id of the rule to retrieve.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesGet
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId;
-
-@end
-
-/**
- *  Lists the repricing rules in your Merchant Center account.
- *
- *  Method: content.repricingrules.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesList : GTLRShoppingContentQuery
-
-/**
- *  [CLDR country
- *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) (for
- *  example, "US"), used as a filter on repricing rules.
- */
-@property(nonatomic, copy, nullable) NSString *countryCode;
-
-/**
- *  The two-letter ISO 639-1 language code associated with the repricing rule,
- *  used as a filter.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/** Required. The id of the merchant who owns the repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  The maximum number of repricing rules to return. The service may return
- *  fewer than this value. If unspecified, at most 50 rules will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token, received from a previous `ListRepricingRules` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListRepricingRules` must match the call that provided the page
- *  token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRShoppingContent_ListRepricingRulesResponse.
- *
- *  Lists the repricing rules in your Merchant Center account.
- *
- *  @param merchantId Required. The id of the merchant who owns the repricing
- *    rule.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId;
-
-@end
-
-/**
- *  Updates a repricing rule in your Merchant Center account. All mutable fields
- *  will be overwritten in each update request. In each update, you must provide
- *  all required mutable fields, or an error will be thrown. If you do not
- *  provide an optional field in the update request, if that field currently
- *  exists, it will be deleted from the rule.
- *
- *  Method: content.repricingrules.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesPatch : GTLRShoppingContentQuery
-
-/** Required. The id of the merchant who owns the repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/** Required. The id of the rule to update. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_RepricingRule.
- *
- *  Updates a repricing rule in your Merchant Center account. All mutable fields
- *  will be overwritten in each update request. In each update, you must provide
- *  all required mutable fields, or an error will be thrown. If you do not
- *  provide an optional field in the update request, if that field currently
- *  exists, it will be deleted from the rule.
- *
- *  @param object The @c GTLRShoppingContent_RepricingRule to include in the
- *    query.
- *  @param merchantId Required. The id of the merchant who owns the repricing
- *    rule.
- *  @param ruleId Required. The id of the rule to update.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesPatch
- */
-+ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
-                     merchantId:(long long)merchantId
-                         ruleId:(NSString *)ruleId;
-
-@end
-
-/**
- *  *Deprecated*: New merchants can't start using this service. Lists the
- *  metrics report for a given Repricing rule.
- *
- *  Method: content.repricingrules.repricingreports.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_RepricingrulesRepricingreportsList : GTLRShoppingContentQuery
-
-/**
- *  Gets Repricing reports on and before this date in the merchant's timezone.
- *  You can only retrieve data up to 7 days ago (default) or earlier. Format:
- *  YYYY-MM-DD.
- */
-@property(nonatomic, copy, nullable) NSString *endDate;
-
-/** Required. Id of the merchant who owns the Repricing rule. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  Maximum number of daily reports to return. Each report includes data from a
- *  single 24-hour period. The page size defaults to 50 and values above 1000
- *  are coerced to 1000. This service may return fewer days than this value, for
- *  example, if the time between your start and end date is less than page size.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Token (if provided) to retrieve the subsequent page. All other parameters
- *  must match the original call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Id of the Repricing rule. */
-@property(nonatomic, copy, nullable) NSString *ruleId;
-
-/**
- *  Gets Repricing reports on and after this date in the merchant's timezone, up
- *  to one year ago. Do not use a start date later than 7 days ago (default).
- *  Format: YYYY-MM-DD.
- */
-@property(nonatomic, copy, nullable) NSString *startDate;
-
-/**
- *  Fetches a @c GTLRShoppingContent_ListRepricingRuleReportsResponse.
- *
- *  *Deprecated*: New merchants can't start using this service. Lists the
- *  metrics report for a given Repricing rule.
- *
- *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
- *  @param ruleId Required. Id of the Repricing rule.
- *
- *  @return GTLRShoppingContentQuery_RepricingrulesRepricingreportsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId;
 
 @end
 

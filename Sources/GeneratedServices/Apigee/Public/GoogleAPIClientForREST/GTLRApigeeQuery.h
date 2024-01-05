@@ -8067,6 +8067,45 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  BatchUpdateSecurityIncident updates multiple existing security incidents.
+ *
+ *  Method: apigee.organizations.environments.securityIncidents.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsBatchUpdate : GTLRApigeeQuery
+
+/**
+ *  Optional. The parent resource shared by all security incidents being
+ *  updated. If this is set, the parent field in the
+ *  UpdateSecurityIncidentRequest messages must either be empty or match this
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsResponse.
+ *
+ *  BatchUpdateSecurityIncident updates multiple existing security incidents.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest to
+ *    include in the query.
+ *  @param parent Optional. The parent resource shared by all security incidents
+ *    being updated. If this is set, the parent field in the
+ *    UpdateSecurityIncidentRequest messages must either be empty or match this
+ *    field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  GetSecurityIncident gets the specified security incident. Returns NOT_FOUND
  *  if security incident is not present for the specified organization and
  *  environment.
@@ -8158,6 +8197,52 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  UpdateSecurityIncidents updates an existing security incident.
+ *
+ *  Method: apigee.organizations.environments.securityIncidents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsPatch : GTLRApigeeQuery
+
+/**
+ *  Immutable. Name of the security incident resource. Format:
+ *  organizations/{org}/environments/{environment}/securityIncidents/{incident}
+ *  Example:
+ *  organizations/apigee-org/environments/dev/securityIncidents/1234-5678-9101-1111
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Allowed fields are:
+ *  LINT.IfChange(allowed_update_fields_comment) - observability
+ *  LINT.ThenChange()
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityIncident.
+ *
+ *  UpdateSecurityIncidents updates an existing security incident.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityIncident to
+ *    include in the query.
+ *  @param name Immutable. Name of the security incident resource. Format:
+ *    organizations/{org}/environments/{environment}/securityIncidents/{incident}
+ *    Example:
+ *    organizations/apigee-org/environments/dev/securityIncidents/1234-5678-9101-1111
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityIncident *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -9580,6 +9665,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    following format: 'organizations/{org}/runtimeConfig'.
  *
  *  @return GTLRApigeeQuery_OrganizationsGetRuntimeConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GetSecuritySettings gets the security settings for API Security.
+ *
+ *  Method: apigee.organizations.getSecuritySettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetSecuritySettings : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the SecuritySettings to retrieve. This will always be:
+ *  'organizations/{org}/securitySettings'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecuritySettings.
+ *
+ *  GetSecuritySettings gets the security settings for API Security.
+ *
+ *  @param name Required. The name of the SecuritySettings to retrieve. This
+ *    will always be: 'organizations/{org}/securitySettings'.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetSecuritySettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -12383,6 +12498,49 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Organization *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  UpdateSecuritySettings updates the current security settings for API
+ *  Security.
+ *
+ *  Method: apigee.organizations.updateSecuritySettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsUpdateSecuritySettings : GTLRApigeeQuery
+
+/**
+ *  Identifier. Full resource name is always
+ *  `organizations/{org}/securitySettings`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Allowed fields are: -
+ *  ml_retraining_feedback_enabled
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecuritySettings.
+ *
+ *  UpdateSecuritySettings updates the current security settings for API
+ *  Security.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecuritySettings to
+ *    include in the query.
+ *  @param name Identifier. Full resource name is always
+ *    `organizations/{org}/securitySettings`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsUpdateSecuritySettings
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecuritySettings *)object
                            name:(NSString *)name;
 
 @end

@@ -206,6 +206,66 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  Reports readiness status of the connector. Similar logic to GetStatus but
+ *  modified for kubernetes health check to understand.
+ *
+ *  Method: connectors.projects.locations.connections.checkReadiness
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckReadiness : GTLRConnectorsQuery
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_CheckReadinessResponse.
+ *
+ *  Reports readiness status of the connector. Similar logic to GetStatus but
+ *  modified for kubernetes health check to understand.
+ *
+ *  @param name NSString
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckReadiness
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Reports the status of the connection. Note that when the connection is in a
+ *  state that is not ACTIVE, the implementation of this RPC method must return
+ *  a Status with the corresponding State instead of returning a gRPC status
+ *  code that is not "OK", which indicates that ConnectionStatus itself, not the
+ *  connection, failed.
+ *
+ *  Method: connectors.projects.locations.connections.checkStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus : GTLRConnectorsQuery
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_CheckStatusResponse.
+ *
+ *  Reports the status of the connection. Note that when the connection is in a
+ *  state that is not ACTIVE, the implementation of this RPC method must return
+ *  a Status with the corresponding State instead of returning a gRPC status
+ *  code that is not "OK", which indicates that ConnectionStatus itself, not the
+ *  connection, failed.
+ *
+ *  @param name NSString
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new entity row of the specified entity type in the external
  *  system. The field values for creating the row are contained in the body of
  *  the request. The response message contains a `Entity` message object
@@ -594,6 +654,36 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  ExchangeAuthCode exchanges the OAuth authorization code (and other necessary
+ *  data) for an access token (and associated credentials).
+ *
+ *  Method: connectors.projects.locations.connections.exchangeAuthCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsExchangeAuthCode : GTLRConnectorsQuery
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_ExchangeAuthCodeResponse.
+ *
+ *  ExchangeAuthCode exchanges the OAuth authorization code (and other necessary
+ *  data) for an access token (and associated credentials).
+ *
+ *  @param object The @c GTLRConnectors_ExchangeAuthCodeRequest to include in
+ *    the query.
+ *  @param name NSString
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsExchangeAuthCode
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_ExchangeAuthCodeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Executes a SQL statement specified in the body of the request. An example of
  *  this SQL statement in the case of Salesforce connector would be 'select *
  *  from Account a, Order o where a.Id = o.AccountId'.
@@ -627,6 +717,36 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRConnectors_ExecuteSqlQueryRequest *)object
                      connection:(NSString *)connection;
+
+@end
+
+/**
+ *  RefreshAccessToken exchanges the OAuth refresh token (and other necessary
+ *  data) for a new access token (and new associated credentials).
+ *
+ *  Method: connectors.projects.locations.connections.refreshAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsRefreshAccessToken : GTLRConnectorsQuery
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_RefreshAccessTokenResponse.
+ *
+ *  RefreshAccessToken exchanges the OAuth refresh token (and other necessary
+ *  data) for a new access token (and new associated credentials).
+ *
+ *  @param object The @c GTLRConnectors_RefreshAccessTokenRequest to include in
+ *    the query.
+ *  @param name NSString
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsRefreshAccessToken
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_RefreshAccessTokenRequest *)object
+                           name:(NSString *)name;
 
 @end
 

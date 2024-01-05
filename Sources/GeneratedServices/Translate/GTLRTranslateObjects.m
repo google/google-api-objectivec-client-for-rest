@@ -12,6 +12,83 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_AdaptiveMtDataset
+//
+
+@implementation GTLRTranslate_AdaptiveMtDataset
+@dynamic createTime, displayName, exampleCount, name, sourceLanguageCode,
+         targetLanguageCode, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_AdaptiveMtFile
+//
+
+@implementation GTLRTranslate_AdaptiveMtFile
+@dynamic createTime, displayName, entryCount, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_AdaptiveMtSentence
+//
+
+@implementation GTLRTranslate_AdaptiveMtSentence
+@dynamic createTime, name, sourceSentence, targetSentence, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_AdaptiveMtTranslateRequest
+//
+
+@implementation GTLRTranslate_AdaptiveMtTranslateRequest
+@dynamic content, dataset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"content" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_AdaptiveMtTranslateResponse
+//
+
+@implementation GTLRTranslate_AdaptiveMtTranslateResponse
+@dynamic languageCode, translations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"translations" : [GTLRTranslate_AdaptiveMtTranslation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_AdaptiveMtTranslation
+//
+
+@implementation GTLRTranslate_AdaptiveMtTranslation
+@dynamic translatedText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_BatchDocumentInputConfig
 //
 
@@ -364,6 +441,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_FileInputSource
+//
+
+@implementation GTLRTranslate_FileInputSource
+@dynamic content, displayName, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_GcsDestination
 //
 
@@ -478,6 +565,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_ImportAdaptiveMtFileRequest
+//
+
+@implementation GTLRTranslate_ImportAdaptiveMtFileRequest
+@dynamic fileInputSource, gcsInputSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ImportAdaptiveMtFileResponse
+//
+
+@implementation GTLRTranslate_ImportAdaptiveMtFileResponse
+@dynamic adaptiveMtFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_ImportDataRequest
 //
 
@@ -529,6 +636,72 @@
     @"languageCodes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListAdaptiveMtDatasetsResponse
+//
+
+@implementation GTLRTranslate_ListAdaptiveMtDatasetsResponse
+@dynamic adaptiveMtDatasets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adaptiveMtDatasets" : [GTLRTranslate_AdaptiveMtDataset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adaptiveMtDatasets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListAdaptiveMtFilesResponse
+//
+
+@implementation GTLRTranslate_ListAdaptiveMtFilesResponse
+@dynamic adaptiveMtFiles, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adaptiveMtFiles" : [GTLRTranslate_AdaptiveMtFile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adaptiveMtFiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListAdaptiveMtSentencesResponse
+//
+
+@implementation GTLRTranslate_ListAdaptiveMtSentencesResponse
+@dynamic adaptiveMtSentences, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adaptiveMtSentences" : [GTLRTranslate_AdaptiveMtSentence class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adaptiveMtSentences";
 }
 
 @end

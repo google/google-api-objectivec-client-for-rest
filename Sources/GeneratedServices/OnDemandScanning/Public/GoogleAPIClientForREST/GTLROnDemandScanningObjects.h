@@ -510,6 +510,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnera
 // GTLROnDemandScanning_PackageData.packageType
 
 /**
+ *  PHP packages from Composer package manager.
+ *
+ *  Value: "COMPOSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Composer;
+/**
  *  Go third-party packages.
  *
  *  Value: "GO"
@@ -534,6 +540,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Npm;
 /**
+ *  Nuget (C#/.NET) packages.
+ *
+ *  Value: "NUGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Nuget;
+/**
  *  Operating System
  *
  *  Value: "OS"
@@ -547,6 +559,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
  *  Value: "PYPI"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Pypi;
+/**
+ *  Ruby packges (from RubyGems package manager).
+ *
+ *  Value: "RUBYGEMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Rubygems;
+/**
+ *  Rust packages from Cargo (Github ecosystem is `RUST`).
+ *
+ *  Value: "RUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Rust;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_PackageIssue.effectiveSeverity
@@ -2618,6 +2642,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  The type of package: os, maven, go, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Composer PHP
+ *        packages from Composer package manager. (Value: "COMPOSER")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Go Go third-party
  *        packages. (Value: "GO")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_GoStdlib Go
@@ -2626,12 +2652,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        from Maven. (Value: "MAVEN")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Npm NPM packages.
  *        (Value: "NPM")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Nuget Nuget
+ *        (C#/.NET) packages. (Value: "NUGET")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Os Operating System
  *        (Value: "OS")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified
  *        Value "PACKAGE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Pypi Python
  *        packages. (Value: "PYPI")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rubygems Ruby
+ *        packges (from RubyGems package manager). (Value: "RUBYGEMS")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rust Rust packages
+ *        from Cargo (Github ecosystem is `RUST`). (Value: "RUST")
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 

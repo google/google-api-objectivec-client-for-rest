@@ -2368,7 +2368,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPatch : GTLRDataCatalogQuery
 
 /**
- *  Output only. Resource name of this taxonomy in URL format. Note: Policy tag
+ *  Identifier. Resource name of this taxonomy in URL format. Note: Policy tag
  *  manager generates unique taxonomy IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2390,7 +2390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy to
  *    include in the query.
- *  @param name Output only. Resource name of this taxonomy in URL format. Note:
+ *  @param name Identifier. Resource name of this taxonomy in URL format. Note:
  *    Policy tag manager generates unique taxonomy IDs.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPatch
@@ -2585,7 +2585,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsPatch : GTLRDataCatalogQuery
 
 /**
- *  Output only. Resource name of this policy tag in the URL format. The policy
+ *  Identifier. Resource name of this policy tag in the URL format. The policy
  *  tag manager generates unique taxonomy IDs and policy tag IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2608,7 +2608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag to
  *    include in the query.
- *  @param name Output only. Resource name of this policy tag in the URL format.
+ *  @param name Identifier. Resource name of this policy tag in the URL format.
  *    The policy tag manager generates unique taxonomy IDs and policy tag IDs.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsPatch

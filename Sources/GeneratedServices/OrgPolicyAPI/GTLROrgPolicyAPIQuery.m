@@ -65,7 +65,11 @@
 
 @implementation GTLROrgPolicyAPIQuery_FoldersPoliciesDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -325,7 +329,11 @@
 
 @implementation GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -474,7 +482,11 @@
 
 @implementation GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

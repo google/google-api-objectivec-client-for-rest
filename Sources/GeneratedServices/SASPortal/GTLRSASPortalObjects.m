@@ -400,6 +400,24 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_ListLegacyOrganizationsResponse
+//
+
+@implementation GTLRSASPortal_ListLegacyOrganizationsResponse
+@dynamic organizationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizationIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_ListNodesResponse
 //
 

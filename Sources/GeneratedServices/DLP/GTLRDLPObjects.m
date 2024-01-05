@@ -1094,7 +1094,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot
-@dynamic dataProfileJob, inspectConfig;
+@dynamic dataProfileJob, discoveryConfig, inspectConfig;
 @end
 
 

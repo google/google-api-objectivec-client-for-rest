@@ -24,6 +24,8 @@
 @class GTLRVault_AccountCountError;
 @class GTLRVault_AccountInfo;
 @class GTLRVault_AddHeldAccountResult;
+@class GTLRVault_CalendarExportOptions;
+@class GTLRVault_CalendarOptions;
 @class GTLRVault_CloudStorageFile;
 @class GTLRVault_CloudStorageSink;
 @class GTLRVault_CorpusQuery;
@@ -116,6 +118,71 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_AccountCountError_ErrorType_Unknow
  *  Value: "WILDCARD_TOO_BROAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_AccountCountError_ErrorType_WildcardTooBroad;
+
+// ----------------------------------------------------------------------------
+// GTLRVault_CalendarExportOptions.exportFormat
+
+/**
+ *  No export format specified.
+ *
+ *  Value: "EXPORT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Ics;
+/**
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
+ *
+ *  Value: "MBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Mbox;
+/**
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
+ *
+ *  Value: "PST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Pst;
+
+// ----------------------------------------------------------------------------
+// GTLRVault_CalendarOptions.responseStatuses
+
+/**
+ *  The participant plans to attend.
+ *
+ *  Value: "ATTENDEE_RESPONSE_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseAccepted;
+/**
+ *  The participant does not plan to attend.
+ *
+ *  Value: "ATTENDEE_RESPONSE_DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseDeclined;
+/**
+ *  The participant has been invited but has not responded yet.
+ *
+ *  Value: "ATTENDEE_RESPONSE_NEEDS_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseNeedsAction;
+/**
+ *  The participant expects to possibly attend.
+ *
+ *  Value: "ATTENDEE_RESPONSE_TENTATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseTentative;
+/**
+ *  Attendee response unspecified. If this is set no filtering on responses will
+ *  be done, all other attendee responses that are part of the query options are
+ *  ignored.
+ *
+ *  Value: "ATTENDEE_RESPONSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarOptions_ResponseStatuses_AttendeeResponseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_CountArtifactsRequest.view
@@ -236,6 +303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -258,6 +331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_P
  *  Value: "EXPORT_FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics;
 /**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
@@ -304,6 +383,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_Voicema
 // GTLRVault_Hold.corpus
 
 /**
+ *  Calendar.
+ *
+ *  Value: "CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Calendar;
+/**
  *  No service specified.
  *
  *  Value: "CORPUS_TYPE_UNSPECIFIED"
@@ -349,6 +434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Voice;
  *  Value: "EXPORT_FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Ics;
 /**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
@@ -445,6 +536,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecif
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.corpus
 
+/**
+ *  Calendar.
+ *
+ *  Value: "CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Calendar;
 /**
  *  No service specified.
  *
@@ -638,6 +735,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive GTLR_
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
+ *  Export as ICS. Only available for Calendar.
+ *
+ *  Value: "ICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ics;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -810,6 +913,75 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sendEmails;
+
+@end
+
+
+/**
+ *  The options for Calendar exports.
+ */
+@interface GTLRVault_CalendarExportOptions : GTLRObject
+
+/**
+ *  The file format for exported text messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_ExportFormatUnspecified
+ *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Ics Export as ICS.
+ *        Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Mbox Export as MBOX.
+ *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Pst Export as PST.
+ *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
+ *        (Value: "PST")
+ */
+@property(nonatomic, copy, nullable) NSString *exportFormat;
+
+@end
+
+
+/**
+ *  Additional options for Calendar search
+ */
+@interface GTLRVault_CalendarOptions : GTLRObject
+
+/**
+ *  Matches only those events whose location contains all of the words in the
+ *  given set. If the string contains quoted phrases, this method only matches
+ *  those events whose location contain the exact phrase. Entries in the set are
+ *  considered in "and". Word splitting example: ["New Zealand"] vs
+ *  ["New","Zealand"] "New Zealand": matched by both "New and better Zealand":
+ *  only matched by the later
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locationQuery;
+
+/**
+ *  Matches only those events that do not contain any of the words in the given
+ *  set in title, description, location, or attendees. Entries in the set are
+ *  considered in "or".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *minusWords;
+
+/**
+ *  Matches only those events whose attendees contain all of the words in the
+ *  given set. Entries in the set are considered in "and".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *peopleQuery;
+
+/**
+ *  Matches only events for which the custodian gave one of these responses. If
+ *  the set is empty or contains ATTENDEE_RESPONSE_UNSPECIFIED there will be no
+ *  filtering on responses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *responseStatuses;
+
+/**
+ *  Search the current version of the Calendar event, but export the contents of
+ *  the last version saved before 12:00 AM UTC on the specified date. Enter the
+ *  date in UTC.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionDate;
 
 @end
 
@@ -1107,6 +1279,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Identifies the parent export that spawned this child export.
+ *  This is only set on child exports.
+ */
+@property(nonatomic, copy, nullable) NSString *parentExportId;
+
 /** The query parameters used to create the export. */
 @property(nonatomic, strong, nullable) GTLRVault_Query *query;
 
@@ -1138,6 +1316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Additional options for exports
  */
 @interface GTLRVault_ExportOptions : GTLRObject
+
+/** Option available for Calendar export. */
+@property(nonatomic, strong, nullable) GTLRVault_CalendarExportOptions *calendarOptions;
 
 /** Options for Drive exports. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveExportOptions *driveOptions;
@@ -1247,6 +1428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Likely values:
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Ics Export as ICS.
+ *        Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
@@ -1269,6 +1452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Likely values:
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics Export as
+ *        ICS. Only available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox Export as
  *        MBOX. Only available for Gmail, Groups, Hangouts and Voice. (Value:
  *        "MBOX")
@@ -1489,6 +1674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  The service to be searched.
  *
  *  Likely values:
+ *    @arg @c kGTLRVault_Hold_Corpus_Calendar Calendar. (Value: "CALENDAR")
  *    @arg @c kGTLRVault_Hold_Corpus_CorpusTypeUnspecified No service specified.
  *        (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive, including Meet and Sites.
@@ -1711,6 +1897,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Likely values:
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Ics Export as ICS. Only
+ *        available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST. Only
@@ -1718,6 +1906,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
+
+/**
+ *  Optional. To enable exporting linked Drive files, set to **true**.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportLinkedDriveFiles;
 
 /**
  *  To export confidential mode content, set to **true**.
@@ -1952,10 +2147,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** Required when **SearchMethod** is **ACCOUNT**. */
 @property(nonatomic, strong, nullable) GTLRVault_AccountInfo *accountInfo;
 
+/** Set Calendar search-specific options. */
+@property(nonatomic, strong, nullable) GTLRVault_CalendarOptions *calendarOptions;
+
 /**
  *  The Google Workspace service to search.
  *
  *  Likely values:
+ *    @arg @c kGTLRVault_Query_Corpus_Calendar Calendar. (Value: "CALENDAR")
  *    @arg @c kGTLRVault_Query_Corpus_CorpusTypeUnspecified No service
  *        specified. (Value: "CORPUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Corpus_Drive Drive, including Meet and Sites.
@@ -2323,6 +2522,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Ics Export as ICS. Only
+ *        available for Calendar. (Value: "ICS")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST. Only

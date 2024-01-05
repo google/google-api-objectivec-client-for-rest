@@ -182,6 +182,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride;
 @class GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig;
 @class GTLRApigee_GoogleCloudApigeeV1UpdateError;
+@class GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest;
 @class GTLRApigee_GoogleIamV1AuditConfig;
 @class GTLRApigee_GoogleIamV1AuditLogConfig;
 @class GTLRApigee_GoogleIamV1Binding;
@@ -752,9 +753,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_St
 // GTLRApigee_GoogleCloudApigeeV1Environment.type
 
 /**
- *  Base environment has limited capacity and capabilities and are usually used
- *  when you are getting started with Apigee or while experimenting. Refer to
- *  Apigee's public documentation for more details.
+ *  This is the default type. Base environment has limited capacity and
+ *  capabilities and are usually used when you are getting started with Apigee
+ *  or while experimenting. Refer to Apigee's public documentation for more
+ *  details.
  *
  *  Value: "BASE"
  */
@@ -774,7 +776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_Type_EnvironmentTypeUnspecified;
 /**
- *  This is the default type and it supports API management features and higher
+ *  Intermediate environment supports API management features and higher
  *  capacity than Base environment. Refer to Apigee's public documentation for
  *  more details.
  *
@@ -1453,6 +1455,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
+
+/**
+ *  The incident is currently active. Can change to this status from archived.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Active;
+/**
+ *  The incident is currently archived and was archived by the customer.
+ *
+ *  Value: "ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Archived;
+/**
+ *  The incident observability is unspecified.
+ *
+ *  Value: "OBSERVABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_ObservabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.riskLevel
@@ -3148,6 +3172,31 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of attributes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attribute;
+
+@end
+
+
+/**
+ *  Request for BatchUpdateSecurityIncident.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest : GTLRObject
+
+/**
+ *  Optional. Required. The request message specifying the resources to update.
+ *  A maximum of 1000 can be modified in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response for BatchUpdateSecurityIncident.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsResponse : GTLRObject
+
+/** Output only. Updated security incidents */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityIncident *> *securityIncidents;
 
 @end
 
@@ -4854,7 +4903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Optional. Url of the forward proxy to be applied to the runtime instances in
  *  this environment. Must be in the format of {scheme}://{hostname}:{port}.
  *  Note that scheme must be one of "http" or "https", and port must be
- *  supplied.
+ *  supplied. To remove a forward proxy setting, update the field to an empty
+ *  value.
  */
 @property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
@@ -4909,10 +4959,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Optional. EnvironmentType selected for the environment.
  *
  *  Likely values:
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Base Base
- *        environment has limited capacity and capabilities and are usually used
- *        when you are getting started with Apigee or while experimenting. Refer
- *        to Apigee's public documentation for more details. (Value: "BASE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Base This is the
+ *        default type. Base environment has limited capacity and capabilities
+ *        and are usually used when you are getting started with Apigee or while
+ *        experimenting. Refer to Apigee's public documentation for more
+ *        details. (Value: "BASE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Comprehensive
  *        Comprehensive environment supports advanced capabilites and even
  *        higher capacity than Intermediate environment. Refer to Apigee's
@@ -4920,8 +4971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_EnvironmentTypeUnspecified
  *        Environment type not specified. (Value:
  *        "ENVIRONMENT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Intermediate This
- *        is the default type and it supports API management features and higher
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_Type_Intermediate
+ *        Intermediate environment supports API management features and higher
  *        capacity than Base environment. Refer to Apigee's public documentation
  *        for more details. (Value: "INTERMEDIATE")
  */
@@ -9193,6 +9244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastDetectedTime;
 
+/** Output only. The time when the incident observability was last changed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastObservabilityChangeTime;
+
 /**
  *  Immutable. Name of the security incident resource. Format:
  *  organizations/{org}/environments/{environment}/securityIncidents/{incident}
@@ -9200,6 +9254,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  organizations/apigee-org/environments/dev/securityIncidents/1234-5678-9101-1111
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates if the user archived this incident.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Active
+ *        The incident is currently active. Can change to this status from
+ *        archived. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Archived
+ *        The incident is currently archived and was archived by the customer.
+ *        (Value: "ARCHIVED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_ObservabilityUnspecified
+ *        The incident observability is unspecified. (Value:
+ *        "OBSERVABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *observability;
 
 /**
  *  Output only. Risk level of the incident.
@@ -9238,8 +9308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display name of the security profile. */
-@property(nonatomic, copy, nullable) NSString *displayName;
+/** DEPRECATED: DO NOT USE Display name of the security profile. */
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /** List of environments attached to security profile. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment *> *environments;
@@ -9280,11 +9350,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *revisionId;
 
 /**
- *  Output only. The time when revision was published. Once published, the
- *  security profile revision cannot be updated further and can be attached to
- *  environments.
+ *  Output only. DEPRECATED: DO NOT USE The time when revision was published.
+ *  Once published, the security profile revision cannot be updated further and
+ *  can be attached to environments.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *revisionPublishTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionPublishTime GTLR_DEPRECATED;
 
 /** Output only. The time when revision was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *revisionUpdateTime;
@@ -9326,11 +9396,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Revision ID of the security profile.
+ *  DEPRECATED: DO NOT USE Revision ID of the security profile.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *securityProfileRevisionId;
+@property(nonatomic, strong, nullable) NSNumber *securityProfileRevisionId GTLR_DEPRECATED;
 
 @end
 
@@ -9617,6 +9687,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** State of retrieving ResultView. */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  SecuritySettings reflects the current state of the SecuritySettings feature.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecuritySettings : GTLRObject
+
+/**
+ *  Optional. If true the user consents to the use of ML models for Abuse
+ *  detection.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mlRetrainingFeedbackEnabled;
+
+/**
+ *  Identifier. Full resource name is always
+ *  `organizations/{org}/securitySettings`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -10459,6 +10551,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for UpdateSecurityIncident.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1UpdateSecurityIncidentRequest : GTLRObject
+
+/**
+ *  Required. The security incident to update. Must contain all existing
+ *  populated fields of the current incident.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityIncident *securityIncident;
+
+/**
+ *  Required. The list of fields to update. Allowed fields are:
+ *  LINT.IfChange(allowed_update_fields_comment) - observability
+ *  LINT.ThenChange()
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -10558,9 +10673,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -10574,7 +10705,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

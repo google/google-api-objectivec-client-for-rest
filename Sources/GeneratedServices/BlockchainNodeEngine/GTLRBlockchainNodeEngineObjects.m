@@ -115,7 +115,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 @implementation GTLRBlockchainNodeEngine_EthereumDetails
 @dynamic additionalEndpoints, apiEnableAdmin, apiEnableDebug,
          beaconFeeRecipient, consensusClient, executionClient, gethDetails,
-         network, nodeType;
+         network, nodeType, validatorConfig;
 @end
 
 
@@ -330,6 +330,24 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBlockchainNodeEngine_ValidatorConfig
+//
+
+@implementation GTLRBlockchainNodeEngine_ValidatorConfig
+@dynamic mevRelayUrls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mevRelayUrls" : [NSString class]
+  };
+  return map;
 }
 
 @end

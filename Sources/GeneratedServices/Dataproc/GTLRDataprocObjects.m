@@ -1391,11 +1391,12 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ListBatchesResponse
-@dynamic batches, nextPageToken;
+@dynamic batches, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"batches" : [GTLRDataproc_Batch class]
+    @"batches" : [GTLRDataproc_Batch class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

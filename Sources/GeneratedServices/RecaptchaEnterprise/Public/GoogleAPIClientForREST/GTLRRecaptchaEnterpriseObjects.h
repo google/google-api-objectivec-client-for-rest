@@ -1798,14 +1798,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership : GTLRObject
 
 /**
- *  The unique stable hashed user identifier of the member. The identifier
- *  corresponds to a `hashed_account_id` provided in a previous
- *  `CreateAssessment` or `AnnotateAssessment` call.
+ *  The unique stable account identifier of the member. The identifier
+ *  corresponds to an `account_id` provided in a previous `CreateAssessment` or
+ *  `AnnotateAssessment` call.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  Deprecated: use `account_id` instead. The unique stable hashed account
+ *  identifier of the member. The identifier corresponds to a
+ *  `hashed_account_id` provided in a previous `CreateAssessment` or
+ *  `AnnotateAssessment` call.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *hashedAccountId;
+@property(nonatomic, copy, nullable) NSString *hashedAccountId GTLR_DEPRECATED;
 
 /**
  *  Required. Identifier. The resource name for this membership in the format
@@ -1924,14 +1932,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest : GTLRObject
 
 /**
- *  Optional. The unique stable hashed user identifier used to search
- *  connections. The identifier should correspond to a `hashed_account_id`
- *  provided in a previous `CreateAssessment` or `AnnotateAssessment` call.
+ *  Optional. The unique stable account identifier used to search connections.
+ *  The identifier should correspond to an `account_id` provided in a previous
+ *  `CreateAssessment` or `AnnotateAssessment` call. Either hashed_account_id or
+ *  account_id must be set, but not both.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  Optional. Deprecated: use `account_id` instead. The unique stable hashed
+ *  account identifier used to search connections. The identifier should
+ *  correspond to a `hashed_account_id` provided in a previous
+ *  `CreateAssessment` or `AnnotateAssessment` call. Either hashed_account_id or
+ *  account_id must be set, but not both.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *hashedAccountId;
+@property(nonatomic, copy, nullable) NSString *hashedAccountId GTLR_DEPRECATED;
 
 /**
  *  Optional. The maximum number of groups to return. The service might return

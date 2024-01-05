@@ -117,6 +117,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists profiles which have been collected so far and for which the caller has
+ *  permission to view.
+ *
+ *  Method: cloudprofiler.projects.profiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudProfilerCloudPlatform
+ *    @c kGTLRAuthScopeCloudProfilerMonitoring
+ *    @c kGTLRAuthScopeCloudProfilerMonitoringWrite
+ */
+@interface GTLRCloudProfilerQuery_ProjectsProfilesList : GTLRCloudProfilerQuery
+
+/**
+ *  The maximum number of items to return. Default page_size is 1000. Max limit
+ *  is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The token to continue pagination and get profiles from a particular page.
+ *  When paginating, all other parameters provided to `ListProfiles` must match
+ *  the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of profiles. Format:
+ *  projects/{user_project_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudProfiler_ListProfilesResponse.
+ *
+ *  Lists profiles which have been collected so far and for which the caller has
+ *  permission to view.
+ *
+ *  @param parent Required. The parent, which owns this collection of profiles.
+ *    Format: projects/{user_project_id}
+ *
+ *  @return GTLRCloudProfilerQuery_ProjectsProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  UpdateProfile updates the profile bytes and labels on the profile resource
  *  created in the online mode. Updating the bytes for profiles created in the
  *  offline mode is currently not supported: the profile content must be

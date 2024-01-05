@@ -60,6 +60,7 @@ NSString * const kGTLRDatastream_Validation_State_Failed       = @"FAILED";
 NSString * const kGTLRDatastream_Validation_State_NotExecuted  = @"NOT_EXECUTED";
 NSString * const kGTLRDatastream_Validation_State_Passed       = @"PASSED";
 NSString * const kGTLRDatastream_Validation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDatastream_Validation_State_Warning      = @"WARNING";
 
 // GTLRDatastream_ValidationMessage.level
 NSString * const kGTLRDatastream_ValidationMessage_Level_Error = @"ERROR";

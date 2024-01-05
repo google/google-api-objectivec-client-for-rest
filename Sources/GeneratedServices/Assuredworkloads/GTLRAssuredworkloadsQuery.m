@@ -128,6 +128,25 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableResourceMonitoring
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enableResourceMonitoring";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableResourceMonitoring *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.enableResourceMonitoring";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsGet
 
 @dynamic name;

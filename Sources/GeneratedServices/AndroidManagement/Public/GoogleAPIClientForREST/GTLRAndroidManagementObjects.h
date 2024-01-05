@@ -4045,8 +4045,8 @@ GTLR_DEPRECATED
 /**
  *  Policy for an individual app. Note: Application availability on a given
  *  device cannot be changed using this policy if installAppsDisabled is
- *  enabled. The maximum number of applications that you can specify per
- *  enterprise policy is 3,000.
+ *  enabled. The maximum number of applications that you can specify per policy
+ *  is 3,000.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy : GTLRObject
 
@@ -8016,7 +8016,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *appAutoUpdatePolicy;
 
-/** Policy applied to apps. */
+/** Policy applied to apps. This can have at most 3,000 elements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
 
 /**

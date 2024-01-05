@@ -6898,7 +6898,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_User
-@dynamic assignedUserRoles, displayName, email, name, userId;
+@dynamic assignedUserRoles, displayName, email, lastLoginTime, name, userId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -111,3 +111,41 @@ NSString * const kGTLRAdvisorynotificationsViewNotificationViewUnspecified = @"N
 }
 
 @end
+
+@implementation GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsGet
+
+@dynamic languageCode, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification class];
+  query.loggingName = @"advisorynotifications.projects.locations.notifications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsList
+
+@dynamic languageCode, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notifications";
+  GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1ListNotificationsResponse class];
+  query.loggingName = @"advisorynotifications.projects.locations.notifications.list";
+  return query;
+}
+
+@end

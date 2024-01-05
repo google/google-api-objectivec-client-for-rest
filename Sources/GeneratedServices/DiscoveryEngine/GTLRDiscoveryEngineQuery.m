@@ -842,6 +842,144 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}:converse";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.converse";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/conversations";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/conversations";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.conversations.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsGet
 
 @dynamic name;

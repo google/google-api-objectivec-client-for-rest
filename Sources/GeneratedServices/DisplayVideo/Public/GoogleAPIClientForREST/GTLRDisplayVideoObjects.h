@@ -2919,7 +2919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusGranted;
 /**
- *  Consent is not specified.
+ *  Not specified.
  *
  *  Value: "CONSENT_STATUS_UNSPECIFIED"
  */
@@ -2941,7 +2941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentS
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusGranted;
 /**
- *  Consent is not specified.
+ *  Not specified.
  *
  *  Value: "CONSENT_STATUS_UNSPECIFIED"
  */
@@ -17928,7 +17928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusGranted
  *        Consent is granted. (Value: "CONSENT_STATUS_GRANTED")
  *    @arg @c kGTLRDisplayVideo_Consent_AdPersonalization_ConsentStatusUnspecified
- *        Consent is not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ *        Not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *adPersonalization;
 
@@ -17940,8 +17940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        is denied. (Value: "CONSENT_STATUS_DENIED")
  *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusGranted Consent
  *        is granted. (Value: "CONSENT_STATUS_GRANTED")
- *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusUnspecified
- *        Consent is not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_Consent_AdUserData_ConsentStatusUnspecified Not
+ *        specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *adUserData;
 
@@ -18001,7 +18001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_ContactInfoList : GTLRObject
 
-/** Input only. User consent status. */
+/** Input only. The consent setting for the users in contact_infos. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
 
 /**
@@ -26222,7 +26222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_MobileDeviceIdList : GTLRObject
 
-/** Input only. User consent status. */
+/** Input only. The consent setting for the users in mobile_device_ids. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
 
 /**
@@ -27540,13 +27540,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. The targeting_option_id of a TargetingOption of type
  *  `TARGETING_TYPE_POI`. Accepted POI targeting option IDs can be retrieved
- *  using SearchTargetingOptions. If targeting a specific latitude/longitude
- *  coordinate removed from an address or POI name, you can generate the
- *  necessary targeting option ID by rounding the desired coordinate values to
- *  the 6th decimal place, removing the decimals, and concatenating the string
- *  values separated by a semicolon. For example, you can target the
- *  latitude/longitude pair of 40.7414691, -74.003387 using the targeting option
- *  ID "40741469;-74003387".
+ *  using `targetingTypes.targetingOptions.search`. If targeting a specific
+ *  latitude/longitude coordinate removed from an address or POI name, you can
+ *  generate the necessary targeting option ID by rounding the desired
+ *  coordinate values to the 6th decimal place, removing the decimals, and
+ *  concatenating the string values separated by a semicolon. For example, you
+ *  can target the latitude/longitude pair of 40.7414691, -74.003387 using the
+ *  targeting option ID "40741469;-74003387". **Upon** **creation, this field
+ *  value will be updated to append a semicolon and** **alphanumerical hash
+ *  value if only latitude/longitude coordinates are** **provided.**
  */
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
@@ -29334,6 +29336,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Required. Immutable. The email address used to identify the user. */
 @property(nonatomic, copy, nullable) NSString *email;
+
+/** Output only. The timestamp when the user last logged in DV360 UI. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
 /** Output only. The resource name of the user. */
 @property(nonatomic, copy, nullable) NSString *name;

@@ -19,6 +19,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: Associate you with your personal info on Google
+ *
+ *  Value "openid"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePaymentsResellerSubscriptionOpenid;
+
+// ----------------------------------------------------------------------------
+//   GTLRPaymentsResellerSubscriptionService
+//
+
 /**
  *  Service for executing Payments Reseller Subscription API queries.
  */

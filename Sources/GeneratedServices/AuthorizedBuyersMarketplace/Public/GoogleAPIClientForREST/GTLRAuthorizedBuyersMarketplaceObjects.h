@@ -194,6 +194,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_S
 // GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativeFormat
 
 /**
+ *  Audio creatives that can play during audio content or point to a third party
+ *  ad server.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Audio;
+/**
  *  A placeholder for an unspecified creative format.
  *
  *  Value: "CREATIVE_FORMAT_UNSPECIFIED"
@@ -1354,6 +1361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  guaranteed and preferred deals.
  *
  *  Likely values:
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Audio
+ *        Audio creatives that can play during audio content or point to a third
+ *        party ad server. (Value: "AUDIO")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_CreativeFormatUnspecified
  *        A placeholder for an unspecified creative format. (Value:
  *        "CREATIVE_FORMAT_UNSPECIFIED")

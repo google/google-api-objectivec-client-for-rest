@@ -346,6 +346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_Passed;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_StateUnspecified;
+/**
+ *  Validation executed with warnings.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_ValidationMessage.level
@@ -2367,6 +2373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *        "PASSED")
  *    @arg @c kGTLRDatastream_Validation_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_Validation_State_Warning Validation executed with
+ *        warnings. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

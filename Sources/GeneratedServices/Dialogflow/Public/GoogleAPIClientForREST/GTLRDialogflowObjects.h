@@ -157,6 +157,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsFallbackSettingsPromptTemplate;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Generator;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
@@ -180,6 +182,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_EndUserMetadata;
@@ -268,7 +271,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
-@class GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
@@ -277,7 +279,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
-@class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -349,7 +350,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
-@class GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
@@ -358,7 +358,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
-@class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo;
@@ -616,9 +615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
 /**
  *  Use the best available variant of the Speech model that the caller is
- *  eligible for. Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow/docs/data-logging) for how to make
- *  your project eligible for enhanced models.
+ *  eligible for.
  *
  *  Value: "USE_BEST_AVAILABLE"
  */
@@ -628,10 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  the given model and request language, Dialogflow falls back to the standard
  *  variant. The [Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *  describes which models have enhanced variants. * If the API caller isn't
- *  eligible for enhanced models, Dialogflow returns an error. Please see the
- *  [Dialogflow docs](https://cloud.google.com/dialogflow/docs/data-logging) for
- *  how to make your project eligible.
+ *  describes which models have enhanced variants.
  *
  *  Value: "USE_ENHANCED"
  */
@@ -1412,9 +1406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Inpu
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
 /**
  *  Use the best available variant of the Speech model that the caller is
- *  eligible for. Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow/docs/data-logging) for how to make
- *  your project eligible for enhanced models.
+ *  eligible for.
  *
  *  Value: "USE_BEST_AVAILABLE"
  */
@@ -1424,10 +1416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Inpu
  *  the given model and request language, Dialogflow falls back to the standard
  *  variant. The [Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *  describes which models have enhanced variants. * If the API caller isn't
- *  eligible for enhanced models, Dialogflow returns an error. Please see the
- *  [Dialogflow docs](https://cloud.google.com/dialogflow/docs/data-logging) for
- *  how to make your project eligible.
+ *  describes which models have enhanced variants.
  *
  *  Value: "USE_ENHANCED"
  */
@@ -4127,11 +4116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that an utterance has been detected. Note that no-speech event is not
  *  expected in this phase. The client provides this configuration in terms of
  *  the durations of those two phases. The durations are measured in terms of
- *  the audio length fromt the the start of the input audio. The flow goes like
- *  below: --> Time without speech detection | utterance only | utterance or
- *  no-speech event | | +-------------+ | +------------+ | +---------------+
- *  ----------+ no barge-in +-|-+ barge-in +-|-+ normal period +-----------
- *  +-------------+ | +------------+ | +---------------+ No-speech event is a
+ *  the audio length from the the start of the input audio. No-speech event is a
  *  response with END_OF_UTTERANCE without any transcript following up.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3BargeInConfig : GTLRObject
@@ -4332,11 +4317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  that an utterance has been detected. Note that no-speech event is not
  *  expected in this phase. The client provides this configuration in terms of
  *  the durations of those two phases. The durations are measured in terms of
- *  the audio length fromt the the start of the input audio. The flow goes like
- *  below: --> Time without speech detection | utterance only | utterance or
- *  no-speech event | | +-------------+ | +------------+ | +---------------+
- *  ----------+ no barge-in +-|-+ barge-in +-|-+ normal period +-----------
- *  +-------------+ | +------------+ | +---------------+ No-speech event is a
+ *  the audio length from the the start of the input audio. No-speech event is a
  *  response with END_OF_UTTERANCE without any transcript following up.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1BargeInConfig : GTLRObject
@@ -5407,18 +5388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableWordInfo;
 
 /**
- *  Optional. Which Speech model to select for the given request. Select the
- *  model best suited to your domain to get best results. If a model is not
- *  explicitly specified, then we auto-select a model based on the parameters in
- *  the InputAudioConfig. If enhanced speech model is enabled for the agent and
- *  an enhanced version of the specified model for the language does not exist,
- *  then the speech is recognized using the standard version of the specified
- *  model. Refer to [Cloud Speech API
- *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
- *  for more details. If you specify a model, the following models typically
- *  have the best performance: - phone_call (best for Agent Assist and
- *  telephony) - latest_short (best for Dialogflow non-telephony) -
- *  command_and_search (best for very short utterances and commands)
+ *  Optional. Which Speech model to select for the given request. For more
+ *  information, see [Speech
+ *  models](https://cloud.google.com/dialogflow/cx/docs/concept/speech-models).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -5431,20 +5403,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        USE_BEST_AVAILABLE. (Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_ModelVariant_UseBestAvailable
  *        Use the best available variant of the Speech model that the caller is
- *        eligible for. Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
- *        to make your project eligible for enhanced models. (Value:
- *        "USE_BEST_AVAILABLE")
+ *        eligible for. (Value: "USE_BEST_AVAILABLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_ModelVariant_UseEnhanced
  *        Use an enhanced model variant: * If an enhanced variant does not exist
  *        for the given model and request language, Dialogflow falls back to the
  *        standard variant. The [Cloud Speech
  *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *        describes which models have enhanced variants. * If the API caller
- *        isn't eligible for enhanced models, Dialogflow returns an error.
- *        Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
- *        to make your project eligible. (Value: "USE_ENHANCED")
+ *        describes which models have enhanced variants. (Value: "USE_ENHANCED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig_ModelVariant_UseStandard
  *        Use standard model variant even if an enhanced model is available. See
  *        the [Cloud Speech
@@ -5755,6 +5720,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings *advancedSettings;
 
+/**
+ *  The description of the page. The maximum length is 500 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -5925,6 +5897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  in the form of text. 2. An intent query that specifies which intent to
  *  trigger. 3. Natural language speech audio to be processed. 4. An event to be
  *  triggered. 5. DTMF digits to invoke an intent and fill in parameter value.
+ *  6. The results of a tool executed by the client.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1QueryInput : GTLRObject
 
@@ -9197,6 +9170,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *businessDescription;
 
+/**
+ *  Whether to disable fallback to Data Store search results (in case the LLM
+ *  couldn't pick a proper answer). Per default the feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableDataStoreFallback;
+
+@end
+
+
+/**
+ *  Generators contain prompt to be sent to the LLM model to generate text. The
+ *  prompt can contain parameters which will be resolved before calling the
+ *  model. It can optionally contain banned phrases to ensure the model
+ *  responses are safe.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Generator : GTLRObject
+
+/**
+ *  Required. The human-readable name of the generator, unique within the agent.
+ *  The prompt contains pre-defined parameters such as $conversation,
+ *  $last-user-utterance, etc. populated by Dialogflow. It can also contain
+ *  custom placeholders which will be resolved during fulfillment.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The unique identifier of the generator. Must be set for the
+ *  Generators.UpdateGenerator method. Generators.CreateGenerate populates the
+ *  name automatically. Format: `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. List of custom placeholders in the prompt text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder *> *placeholders;
+
+/** Required. Prompt for the LLM model. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase *promptText;
+
+@end
+
+
+/**
+ *  Represents a custom placeholder in the prompt text.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder : GTLRObject
+
+/**
+ *  Unique ID used to map custom placeholder to parameters in fulfillment.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Custom placeholder value in the prompt text. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -9552,18 +9583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableWordInfo;
 
 /**
- *  Optional. Which Speech model to select for the given request. Select the
- *  model best suited to your domain to get best results. If a model is not
- *  explicitly specified, then we auto-select a model based on the parameters in
- *  the InputAudioConfig. If enhanced speech model is enabled for the agent and
- *  an enhanced version of the specified model for the language does not exist,
- *  then the speech is recognized using the standard version of the specified
- *  model. Refer to [Cloud Speech API
- *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
- *  for more details. If you specify a model, the following models typically
- *  have the best performance: - phone_call (best for Agent Assist and
- *  telephony) - latest_short (best for Dialogflow non-telephony) -
- *  command_and_search (best for very short utterances and commands)
+ *  Optional. Which Speech model to select for the given request. For more
+ *  information, see [Speech
+ *  models](https://cloud.google.com/dialogflow/cx/docs/concept/speech-models).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -9576,20 +9598,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        USE_BEST_AVAILABLE. (Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_ModelVariant_UseBestAvailable
  *        Use the best available variant of the Speech model that the caller is
- *        eligible for. Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
- *        to make your project eligible for enhanced models. (Value:
- *        "USE_BEST_AVAILABLE")
+ *        eligible for. (Value: "USE_BEST_AVAILABLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_ModelVariant_UseEnhanced
  *        Use an enhanced model variant: * If an enhanced variant does not exist
  *        for the given model and request language, Dialogflow falls back to the
  *        standard variant. The [Cloud Speech
  *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *        describes which models have enhanced variants. * If the API caller
- *        isn't eligible for enhanced models, Dialogflow returns an error.
- *        Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
- *        to make your project eligible. (Value: "USE_ENHANCED")
+ *        describes which models have enhanced variants. (Value: "USE_ENHANCED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_ModelVariant_UseStandard
  *        Use standard model variant even if an enhanced model is available. See
  *        the [Cloud Speech
@@ -10135,6 +10150,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Flow *> *flows;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Generators.ListGenerators.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "generators" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListGeneratorsResponse : GTLRCollectionObject
+
+/**
+ *  The list of generators. There will be a maximum number of items returned
+ *  based on the page_size field in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Generator *> *generators;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no more
@@ -10727,6 +10770,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
 
+/**
+ *  The description of the page. The maximum length is 500 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -10893,10 +10943,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Text input which can be used for prompt or banned phrases.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase : GTLRObject
+
+/** Required. Text input which can be used for prompt or banned phrases. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  Represents the query input. It can contain one of: 1. A conversational query
  *  in the form of text. 2. An intent query that specifies which intent to
  *  trigger. 3. Natural language speech audio to be processed. 4. An event to be
  *  triggered. 5. DTMF digits to invoke an intent and fill in parameter value.
+ *  6. The results of a tool executed by the client.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput : GTLRObject
 
@@ -11023,9 +11085,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. Sets Dialogflow session life time. By default, a Dialogflow
- *  session remains active and its data is stored for 30 minutes after the last
- *  request is sent for the session. This value should be no longer than 1 day.
+ *  Optional. Configure lifetime of the Dialogflow session. By default, a
+ *  Dialogflow session remains active and its data is stored for 30 minutes
+ *  after the last request is sent for the session. This value should be no
+ *  longer than 1 day.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *sessionTtl;
 
@@ -14011,30 +14074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  A customer-managed encryption key specification that can be applied to all
- *  created resources (e.g. Conversation).
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec : GTLRObject
-
-/**
- *  Required. The name of customer-managed encryption key that is used to secure
- *  a resource and its sub-resources. If empty, the resource is secured by the
- *  default Google encryption key. Only the key in the same location as this
- *  resource is allowed to be used for encryption. Format:
- *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
- */
-@property(nonatomic, copy, nullable) NSString *kmsKey;
-
-/**
- *  Immutable. The resource name of the encryption key specification resource.
- *  Format: projects/{project}/locations/{location}/encryptionSpec
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -14330,33 +14369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
-
-@end
-
-
-/**
- *  Metadata for initializing a location-level encryption specification.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata : GTLRObject
-
-/** Output only. The original request for initialization. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest *request;
-
-@end
-
-
-/**
- *  The request to initialize a location-level encryption specification.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest : GTLRObject
-
-/**
- *  Required. The encryption spec used for CMEK encryption. It is required that
- *  the kms key is in the same region as the endpoint. The same key will be used
- *  for all provisioned resources, if encryption is available. If the
- *  kms_key_name is left empty, no encryption will be enforced.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec *encryptionSpec;
 
 @end
 
@@ -17027,30 +17039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  A customer-managed encryption key specification that can be applied to all
- *  created resources (e.g. Conversation).
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec : GTLRObject
-
-/**
- *  Required. The name of customer-managed encryption key that is used to secure
- *  a resource and its sub-resources. If empty, the resource is secured by the
- *  default Google encryption key. Only the key in the same location as this
- *  resource is allowed to be used for encryption. Format:
- *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
- */
-@property(nonatomic, copy, nullable) NSString *kmsKey;
-
-/**
- *  Immutable. The resource name of the encryption key specification resource.
- *  Format: projects/{project}/locations/{location}/encryptionSpec
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -17387,33 +17375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
-
-@end
-
-
-/**
- *  Metadata for initializing a location-level encryption specification.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata : GTLRObject
-
-/** Output only. The original request for initialization. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest *request;
-
-@end
-
-
-/**
- *  The request to initialize a location-level encryption specification.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest : GTLRObject
-
-/**
- *  Required. The encryption spec used for CMEK encryption. It is required that
- *  the kms key is in the same region as the endpoint. The same key will be used
- *  for all provisioned resources, if encryption is available. If the
- *  kms_key_name is left empty, no encryption will be enforced.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec *encryptionSpec;
 
 @end
 

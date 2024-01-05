@@ -10578,8 +10578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  still creating an instance, the currentAction is CREATING. If a previous
  *  action failed, the list displays the errors for that failed action. The
  *  orderBy query parameter is not supported. The `pageToken` query parameter is
- *  supported only in the alpha and beta API and only if the group's
- *  `listManagedInstancesResults` field is set to `PAGINATED`.
+ *  supported only if the group's `listManagedInstancesResults` field is set to
+ *  `PAGINATED`.
  *
  *  Method: compute.instanceGroupManagers.listManagedInstances
  *
@@ -10683,8 +10683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  still creating an instance, the currentAction is CREATING. If a previous
  *  action failed, the list displays the errors for that failed action. The
  *  orderBy query parameter is not supported. The `pageToken` query parameter is
- *  supported only in the alpha and beta API and only if the group's
- *  `listManagedInstancesResults` field is set to `PAGINATED`.
+ *  supported only if the group's `listManagedInstancesResults` field is set to
+ *  `PAGINATED`.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -14468,8 +14468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_InstancesStop : GTLRComputeQuery
 
 /**
- *  If true, discard the contents of any attached localSSD partitions. Default
- *  value is false.
+ *  This property is required if the instance has any attached Local SSD disks.
+ *  If false, Local SSD data will be preserved when the instance is suspended.
+ *  If true, the contents of any attached Local SSD disks will be discarded.
  */
 @property(nonatomic, assign) BOOL discardLocalSsd;
 
@@ -14539,8 +14540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_InstancesSuspend : GTLRComputeQuery
 
 /**
- *  If true, discard the contents of any attached localSSD partitions. Default
- *  value is false.
+ *  This property is required if the instance has any attached Local SSD disks.
+ *  If false, Local SSD data will be preserved when the instance is suspended.
+ *  If true, the contents of any attached Local SSD disks will be discarded.
  */
 @property(nonatomic, assign) BOOL discardLocalSsd;
 
@@ -28200,9 +28202,8 @@ GTLR_DEPRECATED
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
  *  group has scheduled for its instances. The orderBy query parameter is not
- *  supported. The `pageToken` query parameter is supported only in the alpha
- *  and beta API and only if the group's `listManagedInstancesResults` field is
- *  set to `PAGINATED`.
+ *  supported. The `pageToken` query parameter is supported only if the group's
+ *  `listManagedInstancesResults` field is set to `PAGINATED`.
  *
  *  Method: compute.regionInstanceGroupManagers.listManagedInstances
  *
@@ -28299,9 +28300,8 @@ GTLR_DEPRECATED
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
  *  group has scheduled for its instances. The orderBy query parameter is not
- *  supported. The `pageToken` query parameter is supported only in the alpha
- *  and beta API and only if the group's `listManagedInstancesResults` field is
- *  set to `PAGINATED`.
+ *  supported. The `pageToken` query parameter is supported only if the group's
+ *  `listManagedInstancesResults` field is set to `PAGINATED`.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -34054,6 +34054,116 @@ GTLR_DEPRECATED
                         project:(NSString *)project
                          region:(NSString *)region
                          urlMap:(NSString *)urlMap;
+
+@end
+
+/**
+ *  Retrieves the list of Zone resources under the specific region available to
+ *  the specified project.
+ *
+ *  Method: compute.regionZones.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionZonesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_ZoneList.
+ *
+ *  Retrieves the list of Zone resources under the specific region available to
+ *  the specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionZonesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 
@@ -42473,8 +42583,8 @@ GTLR_DEPRECATED
 /**
  *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
- *  clients and the SSL proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  clients and the load balancer. They do not affect the connection between the
+ *  load balancer and the backends.
  *
  *  Method: compute.targetSslProxies.setSslPolicy
  *
@@ -42511,8 +42621,8 @@ GTLR_DEPRECATED
  *
  *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
- *  clients and the SSL proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  clients and the load balancer. They do not affect the connection between the
+ *  load balancer and the backends.
  *
  *  @param object The @c GTLRCompute_SslPolicyReference to include in the query.
  *  @param project Project ID for this request.

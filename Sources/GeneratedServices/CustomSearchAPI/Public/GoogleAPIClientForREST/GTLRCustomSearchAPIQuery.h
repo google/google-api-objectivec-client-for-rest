@@ -585,11 +585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 /** Query */
 @property(nonatomic, copy, nullable) NSString *q;
 
-/**
- *  Specifies that all search results should be pages that are related to the
- *  specified URL.
- */
-@property(nonatomic, copy, nullable) NSString *relatedSite;
+/** Deprecated. */
+@property(nonatomic, copy, nullable) NSString *relatedSite GTLR_DEPRECATED;
 
 /**
  *  Filters based on licensing. Supported values include: `cc_publicdomain`,
@@ -939,11 +936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 /** Query */
 @property(nonatomic, copy, nullable) NSString *q;
 
-/**
- *  Specifies that all search results should be pages that are related to the
- *  specified URL.
- */
-@property(nonatomic, copy, nullable) NSString *relatedSite;
+/** Deprecated. */
+@property(nonatomic, copy, nullable) NSString *relatedSite GTLR_DEPRECATED;
 
 /**
  *  Filters based on licensing. Supported values include: `cc_publicdomain`,

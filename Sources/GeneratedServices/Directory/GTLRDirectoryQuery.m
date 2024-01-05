@@ -65,6 +65,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRDirectoryQuery
 
 @dynamic fields;
@@ -314,6 +317,33 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   query.deviceId = deviceId;
   query.expectedObjectClass = [GTLRDirectory_ChromeOsDevice class];
   query.loggingName = @"directory.chromeosdevices.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomerDevicesChromeosBatchChangeStatus
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest *)object
+                     customerId:(NSString *)customerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos:batchChangeStatus";
+  GTLRDirectoryQuery_CustomerDevicesChromeosBatchChangeStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRDirectory_BatchChangeChromeOsDeviceStatusResponse class];
+  query.loggingName = @"admin.customer.devices.chromeos.batchChangeStatus";
   return query;
 }
 
@@ -3058,3 +3088,5 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 }
 
 @end
+
+#pragma clang diagnostic pop

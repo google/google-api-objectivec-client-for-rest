@@ -986,6 +986,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 
 
 /**
+ *  Response for [ListLegacyOrganizations].
+ *  [spectrum.sas.portal.v1alpha1.Provisioning.ListLegacyOrganizations].
+ */
+@interface GTLRSASPortal_ListLegacyOrganizationsResponse : GTLRObject
+
+/**
+ *  Optional. IDs of legacy SAS organizations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *organizationIds;
+
+@end
+
+
+/**
  *  Response for ListNodes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over

@@ -319,8 +319,8 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 //
 
 @implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2DeltaUpdateLabelRequestUpdateFieldTypeRequest
-@dynamic dateOptions, identifier, integerOptions, longTextOptions,
-         selectionOptions, textOptions, updateMask, userOptions;
+@dynamic dateOptions, identifier, integerOptions, selectionOptions, textOptions,
+         updateMask, userOptions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -604,16 +604,6 @@ NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequ
 
 @implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldListOptions
 @dynamic maxEntries;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLongTextOptions
-//
-
-@implementation GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLongTextOptions
-@dynamic maxLength, minLength;
 @end
 
 

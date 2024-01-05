@@ -57,7 +57,6 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
-NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity = @"MEETS_WEAK_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
@@ -68,6 +67,14 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_NoIssu
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayProtectVerdictUnspecified = @"PLAY_PROTECT_VERDICT_UNSPECIFIED";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk = @"POSSIBLE_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated = @"UNEVALUATED";
+
+// GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_DeviceActivityLevelUnspecified = @"DEVICE_ACTIVITY_LEVEL_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level1 = @"LEVEL_1";
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level2 = @"LEVEL_2";
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level3 = @"LEVEL_3";
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level4 = @"LEVEL_4";
+NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Unevaluated = @"UNEVALUATED";
 
 // ----------------------------------------------------------------------------
 //
@@ -144,7 +151,7 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Uneval
 //
 
 @implementation GTLRPlayIntegrity_DeviceIntegrity
-@dynamic deviceRecognitionVerdict;
+@dynamic deviceRecognitionVerdict, recentDeviceActivity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -163,6 +170,16 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Uneval
 
 @implementation GTLRPlayIntegrity_EnvironmentDetails
 @dynamic appAccessRiskVerdict, playProtectVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_RecentDeviceActivity
+//
+
+@implementation GTLRPlayIntegrity_RecentDeviceActivity
+@dynamic deviceActivityLevel;
 @end
 
 

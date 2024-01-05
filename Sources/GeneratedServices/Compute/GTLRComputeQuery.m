@@ -15645,6 +15645,30 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionZonesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/zones";
+  GTLRComputeQuery_RegionZonesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ZoneList class];
+  query.loggingName = @"compute.regionZones.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ReservationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,

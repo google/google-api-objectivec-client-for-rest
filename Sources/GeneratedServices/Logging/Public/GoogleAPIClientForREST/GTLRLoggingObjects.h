@@ -1216,10 +1216,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
  *  exported log entries are those that are in the resource owning the sink and
  *  that match the filter.For
- *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND
- *  severity>=ERRORCannot be empty or unset if mode == OVERWRITE. In order to
- *  match all logs, use the following line as the value of filter and do not use
- *  exclusions:logName:*
+ *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERRORTo
+ *  match all logs, don't add exclusions and use the following line as the value
+ *  of filter:logName:*Cannot be empty or unset when the value of mode is
+ *  OVERWRITE.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2616,11 +2616,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The id is a unique identifier for a particular error group; it is the last
- *  part of the error group resource name: /projects//errors/. Example:
- *  COShysOX0r_51QE The id is derived from key parts of the error-log content
- *  and is treated as Service Data. For information about how Service Data is
- *  handled, see Google Cloud Privacy Notice
- *  (https://cloud.google.com/terms/cloud-privacy-notice).
+ *  part of the error group resource name:
+ *  /project/[PROJECT_ID]/errors/[ERROR_GROUP_ID]. Example: COShysOX0r_51QE. The
+ *  id is derived from key parts of the error-log content and is treated as
+ *  Service Data. For information about how Service Data is handled, see Google
+ *  Cloud Privacy Notice (https://cloud.google.com/terms/cloud-privacy-notice).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2895,9 +2895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Describes a sink used to export log entries to one of the following
- *  destinations in any project: a Cloud Storage bucket, a BigQuery dataset, a
- *  Pub/Sub topic or a Cloud Logging log bucket. A logs filter controls which
- *  log entries are exported. The sink must be created within a project,
+ *  destinations: a Cloud Logging log bucket, a Cloud Storage bucket, a BigQuery
+ *  dataset, a Pub/Sub topic, a Cloud project.A logs filter controls which log
+ *  entries are exported. The sink must be created within a project,
  *  organization, billing account, or folder.
  */
 @interface GTLRLogging_LogSink : GTLRObject
@@ -2976,9 +2976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. The client-assigned sink identifier, unique within the project.For
- *  example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
+ *  example: "my-syslog-errors-to-pubsub".Sink identifiers are limited to 100
  *  characters and can include only the following characters: upper and
- *  lower-case alphanumeric characters, underscores, hyphens, and periods. First
+ *  lower-case alphanumeric characters, underscores, hyphens, periods.First
  *  character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3071,10 +3071,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Filter that restricts which log entries in a bucket are visible in this
- *  view.Filters are restricted to be a logical AND of ==/!= of any of the
- *  following: originating project/folder/organization/billing account. resource
- *  type log idFor example:SOURCE("projects/myproject") AND resource.type =
- *  "gce_instance" AND LOG_ID("stdout")
+ *  view.Filters must be logical conjunctions that use the AND operator, and
+ *  they can use any of the following qualifiers: SOURCE(), which specifies a
+ *  project, folder, organization, or billing account of origin. resource.type,
+ *  which specifies the resource type. LOG_ID(), which identifies the log.They
+ *  can also use the negations of these qualifiers with the NOT operator.For
+ *  example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND
+ *  NOT LOG_ID("stdout")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3933,8 +3936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes the settings associated with a project, folder, organization,
- *  billing account, or flexible resource.
+ *  Describes the settings associated with a project, folder, organization, or
+ *  billing account.
  */
 @interface GTLRLogging_Settings : GTLRObject
 
@@ -3957,16 +3960,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
  *  For
  *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
- *  enable CMEK for the Log Router, set this field to a valid kms_key_name for
- *  which the associated service account has the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
- *  Cloud KMS key used by the Log Router can be updated by changing the
- *  kms_key_name to a new valid key name. Encryption operations that are in
- *  progress will be completed with the key that was in use when they started.
- *  Decryption operations will be completed using the key that was used at the
- *  time of encryption unless access to that key has been revoked.To disable
- *  CMEK for the Log Router, set this field to an empty string.See Enabling CMEK
- *  for Log Router
+ *  enable CMEK, set this field to a valid kms_key_name for which the associated
+ *  service account has the required roles/cloudkms.cryptoKeyEncrypterDecrypter
+ *  role assigned for the key.The Cloud KMS key used by the Log Router can be
+ *  updated by changing the kms_key_name to a new valid key name.To disable CMEK
+ *  for the Log Router, set this field to an empty string.See Enabling CMEK for
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  */
@@ -3974,12 +3973,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Output only. The service account that will be used by the Log Router to
- *  access your Cloud KMS key.Before enabling CMEK for Log Router, you must
- *  first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the
- *  service account that the Log Router will use to access your Cloud KMS key.
- *  Use GetSettings to obtain the service account ID.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  access your Cloud KMS key.Before enabling CMEK, you must first assign the
+ *  role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that
+ *  will be used to access your Cloud KMS key. Use GetSettings to obtain the
+ *  service account ID.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *kmsServiceAccountId;
 
@@ -3995,12 +3994,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The storage location that Cloud Logging will use to create new
- *  resources when a location is needed but not explicitly provided. The use
- *  cases includes: The location of _Default and _Required log bucket for newly
- *  created projects and folders.Example value: europe-west1.Note: this setting
- *  does not affect the location of resources where a location is explicitly
- *  provided when created, such as custom log buckets.
+ *  Optional. The storage location for the _Default and _Required log buckets of
+ *  newly created projects and folders, unless the storage location is
+ *  explicitly provided.Example value: europe-west1.Note: this setting does not
+ *  affect the location of resources where a location is explicitly provided
+ *  when created, such as custom log buckets.
  */
 @property(nonatomic, copy, nullable) NSString *storageLocation;
 

@@ -2305,14 +2305,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_EncryptionConfig : GTLRObject
 
 /**
- *  Optional. The Cloud KMS key name to use for PD disk encryption for all
- *  instances in the cluster.
+ *  Optional. The Cloud KMS key resource name to use for persistent disk
+ *  encryption for all instances in the cluster. See Use CMEK with cluster data
+ *  (https://cloud.google.com//dataproc/docs/concepts/configuring-clusters/customer-managed-encryption#use_cmek_with_cluster_data)
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *gcePdKmsKeyName;
 
 /**
- *  Optional. The Cloud KMS key name to use for encrypting customer core content
- *  in spanner and cluster PD disk for all instances in the cluster.
+ *  Optional. The Cloud KMS key resource name to use for cluster persistent disk
+ *  and job argument encryption. See Use CMEK with cluster data
+ *  (https://cloud.google.com//dataproc/docs/concepts/configuring-clusters/customer-managed-encryption#use_cmek_with_cluster_data)
+ *  for more information.When this key resource name is provided, the following
+ *  job arguments of the following job types submitted to the cluster are
+ *  encrypted using CMEK: FlinkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/FlinkJob)
+ *  HadoopJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/HadoopJob)
+ *  SparkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkJob)
+ *  SparkRJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkRJob)
+ *  PySparkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PySparkJob)
+ *  SparkSqlJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkSqlJob)
+ *  scriptVariables and queryList.queries HiveJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/HiveJob)
+ *  scriptVariables and queryList.queries PigJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PigJob)
+ *  scriptVariables and queryList.queries PrestoJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PrestoJob)
+ *  scriptVariables and queryList.queries
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -2936,13 +2960,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Encryption settings for the encrypting customer core content. NEXT ID: 2
+ *  Encryption settings for encrypting workflow template job arguments.
  */
 @interface GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig : GTLRObject
 
 /**
- *  Optional. The Cloud KMS key name to use for encrypting customer core
- *  content.
+ *  Optional. The Cloud KMS key name to use for encrypting workflow template job
+ *  arguments.When this this key is provided, the following workflow template
+ *  job arguments
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/use-workflows#adding_jobs_to_a_template),
+ *  if present, are CMEK encrypted
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/customer-managed-encryption#use_cmek_with_workflow_template_data):
+ *  FlinkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/FlinkJob)
+ *  HadoopJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/HadoopJob)
+ *  SparkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkJob)
+ *  SparkRJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkRJob)
+ *  PySparkJob args
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PySparkJob)
+ *  SparkSqlJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/SparkSqlJob)
+ *  scriptVariables and queryList.queries HiveJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/HiveJob)
+ *  scriptVariables and queryList.queries PigJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PigJob)
+ *  scriptVariables and queryList.queries PrestoJob
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/PrestoJob)
+ *  scriptVariables and queryList.queries
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -3873,9 +3920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *keystoreUri;
 
-/**
- *  Optional. The uri of the KMS key used to encrypt various sensitive files.
- */
+/** Optional. The URI of the KMS key used to encrypt sensitive files. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyUri;
 
 /**
@@ -4087,6 +4132,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Output only. List of Batches that could not be included in the response.
+ *  Attempting to get one of these resources may indicate why it was not
+ *  included in the list response.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -4144,9 +4196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Output only. List of jobs that could not be included in the response.
- *  Attempting to get one of these resources may indicate why it was not
- *  included in the list response.
+ *  Output only. List of jobs with kms_key-encrypted parameters that could not
+ *  be decrypted. A response to a jobs.get request may indicate the reason for
+ *  the decryption failure for a specific job.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -6881,7 +6933,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
 
-/** Optional. Encryption settings for the encrypting customer core content. */
+/**
+ *  Optional. Encryption settings for encrypting workflow template job
+ *  arguments.
+ */
 @property(nonatomic, strong, nullable) GTLRDataproc_GoogleCloudDataprocV1WorkflowTemplateEncryptionConfig *encryptionConfig;
 
 /**

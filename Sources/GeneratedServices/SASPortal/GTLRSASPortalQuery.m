@@ -495,6 +495,21 @@
 
 @end
 
+@implementation GTLRSASPortalQuery_CustomersListLegacyOrganizations
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1alpha1/customers:listLegacyOrganizations";
+  GTLRSASPortalQuery_CustomersListLegacyOrganizations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSASPortal_ListLegacyOrganizationsResponse class];
+  query.loggingName = @"sasportal.customers.listLegacyOrganizations";
+  return query;
+}
+
+@end
+
 @implementation GTLRSASPortalQuery_CustomersMigrateOrganization
 
 + (instancetype)queryWithObject:(GTLRSASPortal_MigrateOrganizationRequest *)object {

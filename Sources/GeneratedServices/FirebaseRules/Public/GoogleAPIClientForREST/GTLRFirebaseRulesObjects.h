@@ -539,6 +539,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @interface GTLRFirebaseRules_Ruleset : GTLRObject
 
+/**
+ *  Immutable. Intended resource to which this Ruleset should be released. May
+ *  be left blank to signify the resource associated with the default release.
+ *  Expected format: firestore.googleapis.com/projects//databases/
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentPoint;
+
 /** Output only. Time the `Ruleset` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 

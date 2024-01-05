@@ -1273,31 +1273,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.instanceType
 
 /** Value: "INSTANCE_TYPE_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_InstanceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_InstanceTypeUnspecified GTLR_DEPRECATED;
 /**
  *  For rest of the other categories.
  *
  *  Value: "OTHER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Other;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Other GTLR_DEPRECATED;
 /**
  *  A regular primary database instance.
  *
  *  Value: "PRIMARY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Primary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Primary GTLR_DEPRECATED;
 /**
  *  An instance acting as a read-replica.
  *
  *  Value: "READ_REPLICA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_ReadReplica;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_ReadReplica GTLR_DEPRECATED;
 /**
  *  A cluster or an instance acting as a secondary.
  *
  *  Value: "SECONDARY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary GTLR_DEPRECATED;
+/**
+ *  For rest of the other categories.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeOther;
+/**
+ *  A regular primary database instance.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypePrimary;
+/**
+ *  An instance acting as a read-replica.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_READ_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica;
+/**
+ *  A cluster or an instance acting as a secondary.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_SECONDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary;
+/**
+ *  For rest of the other categories.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings.retentionUnit
@@ -1331,12 +1361,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.engine
 
 /**
+ *  Cloud Spanner with Postgres dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect;
+/**
+ *  MySQL binary running as an engine in the database instance.
+ *
+ *  Value: "ENGINE_MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql;
+/**
+ *  Native database binary running as engine in instance.
+ *
+ *  Value: "ENGINE_NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineNative;
+/**
  *  Other refers to rest of other database engine. This is to be when engine is
  *  known, but it is not present in this enum.
  *
  *  Value: "ENGINE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineOther;
+/**
+ *  Postgres binary running as engine in database instance.
+ *
+ *  Value: "ENGINE_POSTGRES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EnginePostgres;
+/**
+ *  SQLServer binary running as engine in database instance.
+ *
+ *  Value: "ENGINE_SQL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineSqlServer;
 /**
  *  UNSPECIFIED means engine type is not known or available.
  *
@@ -1348,31 +1408,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "MYSQL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Mysql;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Mysql GTLR_DEPRECATED;
 /**
  *  Native database binary running as engine in instance.
  *
  *  Value: "NATIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Native;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Native GTLR_DEPRECATED;
 /**
  *  Postgres binary running as engine in database instance.
  *
  *  Value: "POSTGRES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Postgres;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Postgres GTLR_DEPRECATED;
 /**
  *  Cloud Spanner with Postgres dialect.
  *
  *  Value: "SPANGRES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Spangres;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Spangres GTLR_DEPRECATED;
 /**
  *  SQLServer binary running as engine in database instance.
  *
  *  Value: "SQL_SERVER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_SqlServer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_SqlServer GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.type
@@ -1382,19 +1442,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "ALLOYDB"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Alloydb;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Alloydb GTLR_DEPRECATED;
 /**
  *  Cloud SQL product area in GCP
  *
  *  Value: "CLOUD_SQL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_CloudSql;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_CloudSql GTLR_DEPRECATED;
 /**
  *  On premises database product.
  *
  *  Value: "ON_PREM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_OnPrem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_OnPrem GTLR_DEPRECATED;
+/**
+ *  AlloyDB product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_ALLOYDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb;
+/**
+ *  Cloud SQL product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_CLOUD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql;
+/**
+ *  On premises database product.
+ *
+ *  Value: "PRODUCT_TYPE_ON_PREM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem;
 /**
  *  Other refers to rest of other product type. This is to be when product type
  *  is known, but it is not present in this enum.
@@ -1402,6 +1480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOther;
+/**
+ *  Spanner product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_SPANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeSpanner;
 /**
  *  UNSPECIFIED means product type is not known or available.
  *
@@ -1413,7 +1497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SPANNER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Spanner;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Spanner GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.supportedDbVersions
@@ -1726,6 +1810,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The size of the backup in bytes.
  *
  *  Uses NSNumber of longLongValue.
@@ -2024,6 +2115,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Cross Region replication config specific to SECONDARY cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_SecondaryConfig *secondaryConfig;
@@ -2672,6 +2770,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The current serving state of the instance.
@@ -3749,8 +3854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Closest parent container of this resource. In GCP, 'container' refers to a
  *  Cloud Resource Manager project. It must be resource name of a Cloud Resource
- *  Manager project with the format of "provider//", such as "gcp/projects/123".
- *  For GCP provided resources, number should be project number.
+ *  Manager project with the format of "provider//", such as "projects/123". For
+ *  GCP provided resources, number should be project number.
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
@@ -4150,6 +4255,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        An instance acting as a read-replica. (Value: "READ_REPLICA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary
  *        A cluster or an instance acting as a secondary. (Value: "SECONDARY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeOther
+ *        For rest of the other categories. (Value: "SUB_RESOURCE_TYPE_OTHER")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypePrimary
+ *        A regular primary database instance. (Value:
+ *        "SUB_RESOURCE_TYPE_PRIMARY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica
+ *        An instance acting as a read-replica. (Value:
+ *        "SUB_RESOURCE_TYPE_READ_REPLICA")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary
+ *        A cluster or an instance acting as a secondary. (Value:
+ *        "SUB_RESOURCE_TYPE_SECONDARY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified
+ *        For rest of the other categories. (Value:
+ *        "SUB_RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
 
@@ -4169,9 +4288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Closest parent Cloud Resource Manager container of this resource. It must be
- *  resource name of a Cloud Resource Manager project with the format of
- *  "provider//", such as "gcp/projects/123". For GCP provided resources, number
- *  should be project number.
+ *  resource name of a Cloud Resource Manager project with the format of "/",
+ *  such as "projects/123". For GCP provided resources, number should be project
+ *  number.
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
@@ -4281,10 +4400,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  The specific engine that the underlying database is running.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect
+ *        Cloud Spanner with Postgres dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql
+ *        MySQL binary running as an engine in the database instance. (Value:
+ *        "ENGINE_MYSQL")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineNative
+ *        Native database binary running as engine in instance. (Value:
+ *        "ENGINE_NATIVE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineOther
  *        Other refers to rest of other database engine. This is to be when
  *        engine is known, but it is not present in this enum. (Value:
  *        "ENGINE_OTHER")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EnginePostgres
+ *        Postgres binary running as engine in database instance. (Value:
+ *        "ENGINE_POSTGRES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineSqlServer
+ *        SQLServer binary running as engine in database instance. (Value:
+ *        "ENGINE_SQL_SERVER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineUnspecified
  *        UNSPECIFIED means engine type is not known or available. (Value:
  *        "ENGINE_UNSPECIFIED")
@@ -4314,10 +4448,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Cloud SQL product area in GCP (Value: "CLOUD_SQL")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_OnPrem
  *        On premises database product. (Value: "ON_PREM")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb
+ *        AlloyDB product area in GCP (Value: "PRODUCT_TYPE_ALLOYDB")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql
+ *        Cloud SQL product area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem
+ *        On premises database product. (Value: "PRODUCT_TYPE_ON_PREM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOther
  *        Other refers to rest of other product type. This is to be when product
  *        type is known, but it is not present in this enum. (Value:
  *        "PRODUCT_TYPE_OTHER")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeSpanner
+ *        Spanner product area in GCP (Value: "PRODUCT_TYPE_SPANNER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeUnspecified
  *        UNSPECIFIED means product type is not known or available. (Value:
  *        "PRODUCT_TYPE_UNSPECIFIED")

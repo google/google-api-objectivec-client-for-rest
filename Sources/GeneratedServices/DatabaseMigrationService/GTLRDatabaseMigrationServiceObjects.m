@@ -59,6 +59,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8032 = @"MYSQL_8_0_32";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";

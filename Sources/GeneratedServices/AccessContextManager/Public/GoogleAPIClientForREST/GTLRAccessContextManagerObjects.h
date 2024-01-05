@@ -47,6 +47,7 @@
 @class GTLRAccessContextManager_ServicePerimeterConfig;
 @class GTLRAccessContextManager_Status;
 @class GTLRAccessContextManager_Status_Details_Item;
+@class GTLRAccessContextManager_SupportedService;
 @class GTLRAccessContextManager_VpcAccessibleServices;
 @class GTLRAccessContextManager_VpcNetworkSource;
 @class GTLRAccessContextManager_VpcSubNetwork;
@@ -369,6 +370,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_SupportedService.supportStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimplemented;
+
 /**
  *  An `AccessLevel` is a label that can be applied to requests to Google Cloud
  *  services, along with a list of requirements necessary for the label to be
@@ -684,9 +757,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -700,7 +789,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1475,20 +1567,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
+ *  A response to `ListSupportedServicesRequest`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "supportedServices" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAccessContextManager_ListSupportedServicesResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of results. If the value is
+ *  empty, no further results remain.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of services supported by VPC Service Controls instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_SupportedService *> *supportedServices;
+
+@end
+
+
+/**
  *  An allowed method or permission of a service specified in ApiOperation.
  */
 @interface GTLRAccessContextManager_MethodSelector : GTLRObject
 
 /**
- *  Value for `method` should be a valid method name for the corresponding
- *  `service_name` in ApiOperation. If `*` used as value for `method`, then ALL
- *  methods and permissions are allowed.
+ *  A valid method name for the corresponding `service_name` in ApiOperation. If
+ *  `*` is used as the value for the `method`, then ALL methods and permissions
+ *  are allowed.
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  Value for `permission` should be a valid Cloud IAM permission for the
- *  corresponding `service_name` in ApiOperation.
+ *  A valid Cloud IAM permission for the corresponding `service_name` in
+ *  ApiOperation.
  */
 @property(nonatomic, copy, nullable) NSString *permission;
 
@@ -1998,6 +2117,94 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAccessContextManager_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  `SupportedService` specifies the VPC Service Controls and its properties.
+ */
+@interface GTLRAccessContextManager_SupportedService : GTLRObject
+
+/**
+ *  True if the service is available on the restricted VIP. Services on the
+ *  restricted VIP typically either support VPC Service Controls or are core
+ *  infrastructure services required for the functioning of Google Cloud.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableOnRestrictedVip;
+
+/**
+ *  True if the service is supported with some limitations. Check
+ *  [documentation](https://cloud.google.com/vpc-service-controls/docs/supported-products)
+ *  for details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knownLimitations;
+
+/**
+ *  The service name or address of the supported service, such as
+ *  `service.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of the supported methods. This field exists only in response to
+ *  GetSupportedService
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_MethodSelector *> *supportedMethods;
+
+/**
+ *  The support stage of the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don't have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Beta Beta
+ *        is the point at which we are ready to open a release for any customer
+ *        to use. There are no SLA or technical support obligations in a Beta
+ *        release. Products will be complete from a feature perspective, but may
+ *        have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_SupportStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *supportStage;
+
+/** The name of the supported product, such as 'Cloud Product API'. */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 

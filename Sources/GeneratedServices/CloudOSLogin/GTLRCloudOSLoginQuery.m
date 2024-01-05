@@ -37,7 +37,14 @@
 
 @implementation GTLRCloudOSLoginQuery_UsersImportSshPublicKey
 
-@dynamic parent, projectId;
+@dynamic parent, projectId, regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRCloudOSLogin_SshPublicKey *)object
                          parent:(NSString *)parent {

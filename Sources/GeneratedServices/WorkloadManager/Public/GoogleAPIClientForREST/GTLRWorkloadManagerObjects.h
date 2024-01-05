@@ -40,6 +40,7 @@
 @class GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties;
 @class GTLRWorkloadManager_SapDiscoveryMetadata;
 @class GTLRWorkloadManager_SapDiscoveryResource;
+@class GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties;
 @class GTLRWorkloadManager_SapValidation;
 @class GTLRWorkloadManager_SapValidationValidationDetail;
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
@@ -141,6 +142,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Del
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryComponent.topologyType
+
+/**
+ *  A scale-out multi-node system.
+ *
+ *  Value: "TOPOLOGY_SCALE_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleOut;
+/**
+ *  A scale-up single node system.
+ *
+ *  Value: "TOPOLOGY_SCALE_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleUp;
+/**
+ *  Unspecified topology.
+ *
+ *  Value: "TOPOLOGY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties.applicationType
@@ -1168,6 +1191,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Optional. The metadata for SAP system discovery data. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryMetadata *metadata;
 
+/** Optional. The GCP project number that this SapSystem belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectNumber;
+
 /**
  *  Output only. A combination of database SID, database instance URI and tenant
  *  DB name to make a unique identifier per-system.
@@ -1191,6 +1217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Optional. The component is a SAP database. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties *databaseProperties;
 
+/**
+ *  Optional. A list of host URIs that are part of the HA configuration if
+ *  present. An empty list indicates the component is not configured for HA.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *haHosts;
+
 /** Required. Pantheon Project in which the resources reside. */
 @property(nonatomic, copy, nullable) NSString *hostProject;
 
@@ -1203,6 +1235,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @property(nonatomic, copy, nullable) NSString *sid;
 
+/**
+ *  Optional. The detected topology of the component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleOut
+ *        A scale-out multi-node system. (Value: "TOPOLOGY_SCALE_OUT")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleUp
+ *        A scale-up single node system. (Value: "TOPOLOGY_SCALE_UP")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyTypeUnspecified
+ *        Unspecified topology. (Value: "TOPOLOGY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *topologyType;
+
 @end
 
 
@@ -1210,6 +1255,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  A set of properties describing an SAP Application layer.
  */
 @interface GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties : GTLRObject
+
+/**
+ *  Optional. Indicates whether this is a Java or ABAP Netweaver instance. true
+ *  means it is ABAP, false means it is Java.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *abap;
 
 /**
  *  Required. Type of the application. Netweaver, etc.
@@ -1224,6 +1277,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** Optional. Resource URI of the recognized ASCS host of the application. */
 @property(nonatomic, copy, nullable) NSString *ascsUri;
+
+/** Optional. Kernel version for Netweaver running in the system. */
+@property(nonatomic, copy, nullable) NSString *kernelVersion;
 
 /**
  *  Optional. Resource URI of the recognized shared NFS of the application. May
@@ -1253,6 +1309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *        SAP MAX_DB (Value: "MAX_DB")
  */
 @property(nonatomic, copy, nullable) NSString *databaseType;
+
+/** Optional. The version of the database software running in the system. */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
 
 /** Required. URI of the recognized primary instance of the database. */
 @property(nonatomic, copy, nullable) NSString *primaryInstanceUri;
@@ -1293,6 +1352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  Message describing a resource.
  */
 @interface GTLRWorkloadManager_SapDiscoveryResource : GTLRObject
+
+/** Optional. A set of properties only applying to instance type resources. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties *instanceProperties;
 
 /** Optional. A list of resource URIs related to this resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedResources;
@@ -1360,13 +1422,42 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  A set of properties only present for an instance type resource
+ */
+@interface GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties : GTLRObject
+
+/**
+ *  Optional. A list of instance URIs that are part of a cluster with this one.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clusterInstances;
+
+/** Optional. A virtual hostname of the instance if it has one. */
+@property(nonatomic, copy, nullable) NSString *virtualHostname;
+
+@end
+
+
+/**
  *  A presentation of SAP workload insight. The schema of SAP workloads
  *  validation related data.
  */
 @interface GTLRWorkloadManager_SapValidation : GTLRObject
 
+/**
+ *  Required. The project_id of the cloud project that the Insight data comes
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /** Optional. A list of SAP validation metrics data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapValidationValidationDetail *> *validationDetails;
+
+/**
+ *  Optional. The zone of the instance that the Insight data comes from.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -1378,6 +1469,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** Optional. The pairs of metrics data: field name & field value. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapValidationValidationDetail_Details *details;
+
+/**
+ *  Optional. Was there a SAP system detected for this validation type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPresent;
 
 /**
  *  Optional. The SAP system that the validation data is from.

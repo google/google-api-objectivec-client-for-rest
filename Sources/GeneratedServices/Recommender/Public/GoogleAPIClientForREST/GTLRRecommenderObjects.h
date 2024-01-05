@@ -343,6 +343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleTypeMoney *cost;
 
+/** The approximate cost savings in the billing account's local currency. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleTypeMoney *costInLocalCurrency;
+
 /** Duration for which this cost applies. */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -384,7 +387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
 
-/** Use with CategoryType.RELAIBILITY */
+/** Use with CategoryType.RELIABILITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection *reliabilityProjection;
 
 /** Use with CategoryType.SECURITY */

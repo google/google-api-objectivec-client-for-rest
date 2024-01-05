@@ -32,6 +32,293 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new CustomTargetType in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.customTargetTypes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate : GTLRCloudDeployQuery
+
+/** Required. ID of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetTypeId;
+
+/**
+ *  Required. The parent collection in which the `CustomTargetType` should be
+ *  created in. Format should be
+ *  `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Creates a new CustomTargetType in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
+ *    query.
+ *  @param parent Required. The parent collection in which the
+ *    `CustomTargetType` should be created in. Format should be
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CustomTargetType *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single CustomTargetType.
+ *
+ *  Method: clouddeploy.projects.locations.customTargetTypes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesDelete : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, then deleting an already deleted or non-existing
+ *  `CustomTargetType` will succeed.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the `CustomTargetType` to delete. Format must be
+ *  `projects/{project_id}/locations/{location_name}/customTargetTypes/{custom_target_type}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to true, the request is validated but no actual change is
+ *  made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Deletes a single CustomTargetType.
+ *
+ *  @param name Required. The name of the `CustomTargetType` to delete. Format
+ *    must be
+ *    `projects/{project_id}/locations/{location_name}/customTargetTypes/{custom_target_type}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single CustomTargetType.
+ *
+ *  Method: clouddeploy.projects.locations.customTargetTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `CustomTargetType`. Format must be
+ *  `projects/{project_id}/locations/{location_name}/customTargetTypes/{custom_target_type}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_CustomTargetType.
+ *
+ *  Gets details of a single CustomTargetType.
+ *
+ *  @param name Required. Name of the `CustomTargetType`. Format must be
+ *    `projects/{project_id}/locations/{location_name}/customTargetTypes/{custom_target_type}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CustomTargetTypes in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.customTargetTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesList : GTLRCloudDeployQuery
+
+/**
+ *  Optional. Filter custom target types to be returned. See
+ *  https://google.aip.dev/160 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of `CustomTargetType` objects to return. The
+ *  service may return fewer than this value. If unspecified, at most 50
+ *  `CustomTargetType` objects will be returned. The maximum value is 1000;
+ *  values above 1000 will be set to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListCustomTargetTypes`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other provided parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent that owns this collection of custom target types.
+ *  Format must be `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListCustomTargetTypesResponse.
+ *
+ *  Lists CustomTargetTypes in a given project and location.
+ *
+ *  @param parent Required. The parent that owns this collection of custom
+ *    target types. Format must be
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single CustomTargetType.
+ *
+ *  Method: clouddeploy.projects.locations.customTargetTypes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, updating a `CustomTargetType` that does not exist
+ *  will result in the creation of a new `CustomTargetType`.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. Name of the `CustomTargetType`. Format is
+ *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `CustomTargetType` resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Updates a single CustomTargetType.
+ *
+ *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
+ *    query.
+ *  @param name Optional. Name of the `CustomTargetType`. Format is
+ *    `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_CustomTargetType *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Cancels an AutomationRun. The `state` of the `AutomationRun` after
  *  cancelling is `CANCELLED`. `CancelAutomationRun` can be called on
  *  AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a
@@ -133,8 +420,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which owns this collection of automationRuns. Format
- *  must be
+ *  Required. The parent `Delivery Pipeline`, which owns this collection of
+ *  automationRuns. Format must be
  *  `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -144,8 +431,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists AutomationRuns in a given project and location.
  *
- *  @param parent Required. The parent, which owns this collection of
- *    automationRuns. Format must be
+ *  @param parent Required. The parent `Delivery Pipeline`, which owns this
+ *    collection of automationRuns. Format must be
  *    `projects/{project}/locations/{location}/deliveryPipelines/{delivery_pipeline}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationRunsList
@@ -345,8 +632,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which owns this collection of automations. Format must
- *  be
+ *  Required. The parent `Delivery Pipeline`, which owns this collection of
+ *  automations. Format must be
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -356,8 +643,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Automations in a given project and location.
  *
- *  @param parent Required. The parent, which owns this collection of
- *    automations. Format must be
+ *  @param parent Required. The parent `Delivery Pipeline`, which owns this
+ *    collection of automations. Format must be
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsList

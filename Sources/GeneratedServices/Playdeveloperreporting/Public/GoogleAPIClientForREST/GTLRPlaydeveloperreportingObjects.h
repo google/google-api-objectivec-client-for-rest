@@ -391,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Metric set resource where the anomaly was detected. */
 @property(nonatomic, copy, nullable) NSString *metricSet;
 
-/** Name of the anomaly. Format: apps/{app}/anomalies/{anomaly} */
+/** Identifier. Name of the anomaly. Format: apps/{app}/anomalies/{anomaly} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Timeline specification that covers the anomaly period. */
@@ -470,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/anrRateMetricSet */
+/** Identifier. The resource name. Format: apps/{app}/anrRateMetricSet */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -488,7 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The resource name. Format: apps/{app} */
+/** Identifier. The resource name. Format: apps/{app} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Package name of the app. Example: `com.example.app123`. */
@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/crashRateMetricSet */
+/** Identifier. The resource name. Format: apps/{app}/crashRateMetricSet */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -810,7 +810,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The resource name of the issue. Format: apps/{app}/errorIssues/{issue} */
+/**
+ *  Identifier. The resource name of the issue. Format:
+ *  apps/{app}/errorIssues/{issue}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -842,6 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  permission for the app.
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport : GTLRObject
+
+/** The app version on which an event in this error report occurred on. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion *appVersion;
 
 /** A device model on which an event in this error report occurred on. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DeviceModelSummary *deviceModel;
@@ -894,6 +900,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *        Unspecified error type. (Value: "ERROR_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Version control system information from
+ *  BUNDLE-METADATA/version-control-info.textproto or
+ *  META-INF/version-control-info.textproto of the app bundle or APK,
+ *  respectively.
+ */
+@property(nonatomic, copy, nullable) NSString *vcsInformation;
 
 @end
 
@@ -956,7 +970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/excessiveWakeupRateMetricSet */
+/**
+ *  Identifier. The resource name. Format:
+ *  apps/{app}/excessiveWakeupRateMetricSet
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2278,7 +2295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/slowRenderingRateMetricSet */
+/**
+ *  Identifier. The resource name. Format: apps/{app}/slowRenderingRateMetricSet
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2342,7 +2361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/slowStartRateMetricSet */
+/**
+ *  Identifier. The resource name. Format: apps/{app}/slowStartRateMetricSet
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2407,7 +2428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
 /**
- *  The resource name. Format: apps/{app}/stuckBackgroundWakelockRateMetricSet
+ *  Identifier. The resource name. Format:
+ *  apps/{app}/stuckBackgroundWakelockRateMetricSet
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -1060,6 +1060,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
 /**
+ *  Optional. Output only. Reserved for future use. Zone Isolation compliance
+ *  state of the instance. Field name and documentation is obfuscated according
+ *  to go/per-resource-zi-bit-semantics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
  *  Optional. Output only. Reserved for future use. Zone Separation compliance
  *  state of the instance. Field name and documentation is obfuscated according
  *  to go/zs-resource-status.

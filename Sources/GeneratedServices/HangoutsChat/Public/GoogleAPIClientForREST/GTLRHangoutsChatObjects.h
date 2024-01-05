@@ -75,6 +75,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1TextParagraph;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widgets;
+@class GTLRHangoutsChat_Group;
 @class GTLRHangoutsChat_HostAppDataSourceMarkup;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
@@ -88,6 +89,7 @@
 @class GTLRHangoutsChat_QuotedMessageMetadata;
 @class GTLRHangoutsChat_Reaction;
 @class GTLRHangoutsChat_Section;
+@class GTLRHangoutsChat_SelectionItems;
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
 @class GTLRHangoutsChat_Space;
@@ -101,6 +103,7 @@
 @class GTLRHangoutsChat_Thread;
 @class GTLRHangoutsChat_TimeInput;
 @class GTLRHangoutsChat_TimeZone;
+@class GTLRHangoutsChat_UpdatedWidget;
 @class GTLRHangoutsChat_User;
 @class GTLRHangoutsChat_UserMentionMetadata;
 @class GTLRHangoutsChat_WidgetMarkup;
@@ -157,6 +160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateM
  *  Value: "UPDATE_USER_MESSAGE_CARDS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards;
+/**
+ *  Widget text autocomplete options query.
+ *
+ *  Value: "UPDATE_WIDGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateWidget;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ActionStatus.statusCode
@@ -568,6 +577,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Remove
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
+/**
+ *  A user updates a widget in a card message or dialog.
+ *
+ *  Value: "WIDGET_UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_WidgetUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1Action.interaction
@@ -1428,7 +1443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ActionResponse : GTLRObject
 
 /**
- *  Input only. A response to an event related to a
+ *  Input only. A response to an interaction event related to a
  *  [dialog](https://developers.google.com/chat/how-tos/dialogs). Must be
  *  accompanied by `ResponseType.Dialog`.
  */
@@ -1456,8 +1471,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        response to a `MESSAGE` event with a matched url, or a `CARD_CLICKED`
  *        event where the message sender type is `HUMAN`. Text is ignored.
  *        (Value: "UPDATE_USER_MESSAGE_CARDS")
+ *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateWidget Widget text
+ *        autocomplete options query. (Value: "UPDATE_WIDGET")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/** Input only. The response of the updated widget. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_UpdatedWidget *updatedWidget;
 
 /**
  *  Input only. URL for users to authenticate or configure. (Only for
@@ -1820,7 +1840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  a Google Chat message. Only Chat apps can create cards. If your Chat app
  *  [authenticates as a
  *  user](https://developers.google.com/chat/api/guides/auth/users), the message
- *  can't contain cards.
+ *  can't contain cards. [Card
+ *  builder](https://addons.gsuite.google.com/uikit/builder)
  */
 @interface GTLRHangoutsChat_CardWithId : GTLRObject
 
@@ -2293,6 +2314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        removes the Chat app from a space. (Value: "REMOVED_FROM_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_WidgetUpdated A user
+ *        updates a widget in a card message or dialog. (Value:
+ *        "WIDGET_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2624,8 +2648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Add-on. Cards support a defined layout, interactive UI elements like
  *  buttons, and rich media like images. Use cards to present detailed
  *  information, gather information from users, and guide users to take a next
- *  step. To learn how to build cards, see the following documentation: * For
- *  Google Chat apps, see [Design dynamic, interactive, and consistent UIs with
+ *  step. [Card builder](https://addons.gsuite.google.com/uikit/builder) To
+ *  learn how to build cards, see the following documentation: * For Google Chat
+ *  apps, see [Design dynamic, interactive, and consistent UIs with
  *  cards](https://developers.google.com/chat/ui). * For Google Workspace
  *  Add-ons, see [Card-based
  *  interfaces](https://developers.google.com/apps-script/add-ons/concepts/cards).
@@ -3947,6 +3972,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  A Google Group in Google Chat.
+ */
+@interface GTLRHangoutsChat_Group : GTLRObject
+
+/**
+ *  Resource name for a Google Group. Represents a
+ *  [group](https://cloud.google.com/identity/docs/reference/rest/v1/groups) in
+ *  Cloud Identity Groups API. Format: groups/{group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Chat apps only. For a `SelectionInput` widget that uses a multiselect menu,
  *  a data source from a Google Workspace application. The data source populates
  *  selection items for the multiselect menu.
@@ -4319,10 +4359,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Membership : GTLRObject
 
 /**
- *  Output only. The creation time of the membership, such as when a member
- *  joined or was invited to join a space.
+ *  Optional. Immutable. The creation time of the membership, such as when a
+ *  member joined or was invited to join a space. [Developer
+ *  Preview](https://developers.google.com/workspace/preview): This field is
+ *  output only, except when used to import historical memberships in import
+ *  mode spaces.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The Google Group the membership corresponds to. Only supports read
+ *  operations. Other operations, like creating or updating a membership, aren't
+ *  currently supported.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Group *groupMember;
 
 /**
  *  The Google Chat user or app the membership corresponds to. If your Chat app
@@ -4423,7 +4473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  user](https://developers.google.com/chat/api/guides/auth/users), the
  *  messages can't contain cards. To learn about cards and how to create them,
  *  see [Design dynamic, interactive, and consistent UIs with
- *  cards](https://developers.google.com/chat/ui).
+ *  cards](https://developers.google.com/chat/ui). [Card
+ *  builder](https://addons.gsuite.google.com/uikit/builder)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
 
@@ -4508,6 +4559,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. Input for creating a message, otherwise output only. The user
+ *  that can view the message. When set, the message is private and only visible
+ *  to the specified user and the Chat app. Link previews and attachments aren't
+ *  supported for private messages. Only Chat apps can send private messages. If
+ *  your Chat app [authenticates as a
+ *  user](https://developers.google.com/chat/api/guides/auth/users) to send a
+ *  message, the message can't be private and must omit this field. For details,
+ *  see [Send private messages to Google Chat
+ *  users](https://developers.google.com/chat/api/guides/v1/messages/private).
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_User *privateMessageViewer;
 
 /**
  *  Output only. Information about a message that's quoted by a Google Chat user
@@ -4653,6 +4717,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** A section must contain at least one widget. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_WidgetMarkup *> *widgets;
+
+@end
+
+
+/**
+ *  List of widget autocomplete results.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRHangoutsChat_SelectionItems : GTLRCollectionObject
+
+/**
+ *  An array of the SelectionItem objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1SelectionItem *> *items;
 
 @end
 
@@ -5105,6 +5188,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offset;
+
+@end
+
+
+/**
+ *  The response of the updated widget. Used to provide autocomplete options for
+ *  a widget.
+ */
+@interface GTLRHangoutsChat_UpdatedWidget : GTLRObject
+
+/** List of widget autocomplete results */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_SelectionItems *suggestions;
+
+/**
+ *  The ID of the updated widget. The ID must match the one for the widget that
+ *  triggered the update request.
+ */
+@property(nonatomic, copy, nullable) NSString *widget;
 
 @end
 

@@ -4264,6 +4264,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsBatchUpdate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/securityIncidents:batchUpdate";
+  GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsResponse class];
+  query.loggingName = @"apigee.organizations.environments.securityIncidents.batchUpdate";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsGet
 
 @dynamic name;
@@ -4297,6 +4324,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.parent = parent;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse class];
   query.loggingName = @"apigee.organizations.environments.securityIncidents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityIncident *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsSecurityIncidentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecurityIncident class];
+  query.loggingName = @"apigee.organizations.environments.securityIncidents.patch";
   return query;
 }
 
@@ -5064,6 +5118,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RuntimeConfig class];
   query.loggingName = @"apigee.organizations.getRuntimeConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsGetSecuritySettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsGetSecuritySettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecuritySettings class];
+  query.loggingName = @"apigee.organizations.getSecuritySettings";
   return query;
 }
 
@@ -6598,6 +6671,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1Organization class];
   query.loggingName = @"apigee.organizations.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsUpdateSecuritySettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecuritySettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsUpdateSecuritySettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecuritySettings class];
+  query.loggingName = @"apigee.organizations.updateSecuritySettings";
   return query;
 }
 

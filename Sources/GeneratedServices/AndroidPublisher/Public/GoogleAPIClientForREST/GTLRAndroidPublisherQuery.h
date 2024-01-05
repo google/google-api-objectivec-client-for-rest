@@ -131,6 +131,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots;
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 // ----------------------------------------------------------------------------
+// latencyTolerance
+
+/**
+ *  The update will propagate to clients within several minutes on average and
+ *  up to a few hours in rare cases. Throughput is limited to 7,200 updates per
+ *  app per hour.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive;
+/**
+ *  The update will propagate to clients within 24 hours. Supports high
+ *  throughput of up to 720,000 updates per app per hour using batch
+ *  modification methods.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant;
+/**
+ *  Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *
+ *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -2269,6 +2295,126 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Deletes in-app products (managed products or subscriptions). Set the
+ *  latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput. This method should not be used to delete subscriptions. See
+ *  [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  Method: androidpublisher.inappproducts.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_InappproductsBatchDelete : GTLRAndroidPublisherQuery
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes in-app products (managed products or subscriptions). Set the
+ *  latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput. This method should not be used to delete subscriptions. See
+ *  [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  @param object The @c GTLRAndroidPublisher_InappproductsBatchDeleteRequest to
+ *    include in the query.
+ *  @param packageName Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_InappproductsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchDeleteRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Reads multiple in-app products, which can be managed products or
+ *  subscriptions. This method should not be used to retrieve subscriptions. See
+ *  [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  Method: androidpublisher.inappproducts.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_InappproductsBatchGet : GTLRAndroidPublisherQuery
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Unique identifier for the in-app products. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sku;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_InappproductsBatchGetResponse.
+ *
+ *  Reads multiple in-app products, which can be managed products or
+ *  subscriptions. This method should not be used to retrieve subscriptions. See
+ *  [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  @param packageName Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_InappproductsBatchGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Updates or inserts one or more in-app products (managed products or
+ *  subscriptions). Set the latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput. This method should no longer be used to update subscriptions.
+ *  See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  Method: androidpublisher.inappproducts.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_InappproductsBatchUpdate : GTLRAndroidPublisherQuery
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_InappproductsBatchUpdateResponse.
+ *
+ *  Updates or inserts one or more in-app products (managed products or
+ *  subscriptions). Set the latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput. This method should no longer be used to update subscriptions.
+ *  See [this
+ *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
+ *  for more information.
+ *
+ *  @param object The @c GTLRAndroidPublisher_InappproductsBatchUpdateRequest to
+ *    include in the query.
+ *  @param packageName Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_InappproductsBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchUpdateRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
  *  Deletes an in-app product (a managed product or a subscription). This method
  *  should no longer be used to delete subscriptions. See [this
  *  article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html)
@@ -2280,6 +2426,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2456,6 +2623,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
+
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -2508,6 +2696,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  target currency based on the default price. Defaults to false.
  */
 @property(nonatomic, assign) BOOL autoConvertMissingPrices;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2738,6 +2947,105 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Batch variant of the MigrateBasePlanPrices endpoint. Set the
+ *  latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.batchMigratePrices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchMigratePrices : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be created or updated. Must be equal to the package_name field on all the
+ *  Subscription resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent subscription, if all updated offers
+ *  belong to the same subscription. If this batch update spans multiple
+ *  subscriptions, set this field to "-". Must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchMigrateBasePlanPricesResponse.
+ *
+ *  Batch variant of the MigrateBasePlanPrices endpoint. Set the
+ *  latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchMigrateBasePlanPricesRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be created or updated. Must be equal to the
+ *    package_name field on all the Subscription resources.
+ *  @param productId Required. The product ID of the parent subscription, if all
+ *    updated offers belong to the same subscription. If this batch update spans
+ *    multiple subscriptions, set this field to "-". Must be set.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchMigratePrices
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchMigrateBasePlanPricesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Activates or deactivates base plans across one or multiple subscriptions.
+ *  Set the latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.batchUpdateStates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchUpdateStates : GTLRAndroidPublisherQuery
+
+/** Required. The parent app (package name) of the updated base plans. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent subscription, if all updated base
+ *  plans belong to the same subscription. If this batch update spans multiple
+ *  subscriptions, set this field to "-". Must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdateBasePlanStatesResponse.
+ *
+ *  Activates or deactivates base plans across one or multiple subscriptions.
+ *  Set the latencyTolerance field on nested requests to
+ *  PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update
+ *  throughput.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchUpdateBasePlanStatesRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    base plans.
+ *  @param productId Required. The product ID of the parent subscription, if all
+ *    updated base plans belong to the same subscription. If this batch update
+ *    spans multiple subscriptions, set this field to "-". Must be set.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchUpdateStates
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateBasePlanStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
  *  Deactivates a base plan. Once deactivated, the base plan will become
  *  unavailable to new subscribers, but existing subscribers will maintain their
  *  subscription
@@ -2928,6 +3236,185 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
                       productId:(NSString *)productId
                      basePlanId:(NSString *)basePlanId
                         offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Reads one or more subscription offers.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent base plan (ID) for which the offers should be read. May
+ *  be specified as '-' to read offers from multiple base plans.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be created or updated. Must be equal to the package_name field on all the
+ *  requests.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent subscription, if all updated offers
+ *  belong to the same subscription. If this request spans multiple
+ *  subscriptions, set this field to "-". Must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchGetSubscriptionOffersResponse.
+ *
+ *  Reads one or more subscription offers.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be created or updated. Must be equal to the
+ *    package_name field on all the requests.
+ *  @param productId Required. The product ID of the parent subscription, if all
+ *    updated offers belong to the same subscription. If this request spans
+ *    multiple subscriptions, set this field to "-". Must be set.
+ *  @param basePlanId Required. The parent base plan (ID) for which the offers
+ *    should be read. May be specified as '-' to read offers from multiple base
+ *    plans.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchGet
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Updates a batch of subscription offers. Set the latencyTolerance field on
+ *  nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to
+ *  achieve maximum update throughput.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent base plan (ID) for which the offers should be updated.
+ *  May be specified as '-' to update offers from multiple base plans.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. The parent app (package name) of the updated subscription offers.
+ *  Must be equal to the package_name field on all the updated SubscriptionOffer
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent subscription, if all updated offers
+ *  belong to the same subscription. If this request spans multiple
+ *  subscriptions, set this field to "-". Must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdateSubscriptionOffersResponse.
+ *
+ *  Updates a batch of subscription offers. Set the latencyTolerance field on
+ *  nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to
+ *  achieve maximum update throughput.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchUpdateSubscriptionOffersRequest to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    subscription offers. Must be equal to the package_name field on all the
+ *    updated SubscriptionOffer resources.
+ *  @param productId Required. The product ID of the parent subscription, if all
+ *    updated offers belong to the same subscription. If this request spans
+ *    multiple subscriptions, set this field to "-". Must be set.
+ *  @param basePlanId Required. The parent base plan (ID) for which the offers
+ *    should be updated. May be specified as '-' to update offers from multiple
+ *    base plans.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Updates a batch of subscription offer states. Set the latencyTolerance field
+ *  on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to
+ *  achieve maximum update throughput.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdateStates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdateStates : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent base plan (ID) for which the offers should be updated.
+ *  May be specified as '-' to update offers from multiple base plans.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. The parent app (package name) of the updated subscription offers.
+ *  Must be equal to the package_name field on all the updated SubscriptionOffer
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The product ID of the parent subscription, if all updated offers
+ *  belong to the same subscription. If this request spans multiple
+ *  subscriptions, set this field to "-". Must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesResponse.
+ *
+ *  Updates a batch of subscription offer states. Set the latencyTolerance field
+ *  on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to
+ *  achieve maximum update throughput.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesRequest to include
+ *    in the query.
+ *  @param packageName Required. The parent app (package name) of the updated
+ *    subscription offers. Must be equal to the package_name field on all the
+ *    updated SubscriptionOffer resources.
+ *  @param productId Required. The product ID of the parent subscription, if all
+ *    updated offers belong to the same subscription. If this request spans
+ *    multiple subscriptions, set this field to "-". Must be set.
+ *  @param basePlanId Required. The parent base plan (ID) for which the offers
+ *    should be updated. May be specified as '-' to update offers from multiple
+ *    base plans.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdateStates
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
 
 @end
 
@@ -3230,10 +3717,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersPatch : GTLRAndroidPublisherQuery
 
 /**
+ *  Optional. If set to true, and the subscription offer with the given
+ *  package_name, product_id, base_plan_id and offer_id doesn't exist, an offer
+ *  will be created. If a new offer is created, update_mask is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. Immutable. The ID of the base plan to which this offer is an
  *  extension.
  */
 @property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
 
 /**
  *  Required. Immutable. Unique ID of this subscription offer. Must be unique
@@ -3296,6 +3811,82 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
                       productId:(NSString *)productId
                      basePlanId:(NSString *)basePlanId
                         offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Reads one or more subscriptions.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be retrieved. Must be equal to the package_name field on all the requests.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. A list of up to 100 subscription product IDs to retrieve. All the
+ *  IDs must be different.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productIds;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchGetSubscriptionsResponse.
+ *
+ *  Reads one or more subscriptions.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be retrieved. Must be equal to the package_name field
+ *    on all the requests.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Updates a batch of subscriptions. Set the latencyTolerance field on nested
+ *  requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve
+ *  maximum update throughput.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchUpdate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be updated. Must be equal to the package_name field on all the Subscription
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_BatchUpdateSubscriptionsResponse.
+ *
+ *  Updates a batch of subscriptions. Set the latencyTolerance field on nested
+ *  requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve
+ *  maximum update throughput.
+ *
+ *  @param object The @c GTLRAndroidPublisher_BatchUpdateSubscriptionsRequest to
+ *    include in the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be updated. Must be equal to the package_name field
+ *    on all the Subscription resources.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionsRequest *)object
+                    packageName:(NSString *)packageName;
 
 @end
 
@@ -3491,6 +4082,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsPatch : GTLRAndroidPublisherQuery
+
+/**
+ *  Optional. If set to true, and the subscription with the given package_name
+ *  and product_id doesn't exist, the subscription will be created. If a new
+ *  subscription is created, update_mask is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. The latency tolerance for the propagation of this product update.
+ *  Defaults to latency-sensitive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified
+ *        Defaults to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE.
+ *        (Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive
+ *        The update will propagate to clients within several minutes on average
+ *        and up to a few hours in rare cases. Throughput is limited to 7,200
+ *        updates per app per hour. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE")
+ *    @arg @c kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant
+ *        The update will propagate to clients within 24 hours. Supports high
+ *        throughput of up to 720,000 updates per app per hour using batch
+ *        modification methods. (Value:
+ *        "PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT")
+ */
+@property(nonatomic, copy, nullable) NSString *latencyTolerance;
 
 /** Immutable. Package name of the parent app. */
 @property(nonatomic, copy, nullable) NSString *packageName;

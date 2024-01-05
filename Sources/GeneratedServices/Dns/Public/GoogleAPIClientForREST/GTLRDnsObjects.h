@@ -707,9 +707,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -723,7 +739,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2255,6 +2274,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @interface GTLRDns_RRSetRoutingPolicy : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *geo;
+
+/**
+ *  The selfLink attribute of the HealthCheck resource to use for this
+ *  RRSetRoutingPolicy.
+ *  https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy *primaryBackup;
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyWrrPolicy *wrr;
@@ -2333,10 +2360,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  HealthCheckTargets describes endpoints to health-check when responding to
  *  Routing Policy queries. Only the healthy endpoints will be included in the
- *  response.
+ *  response. Only one of internal_load_balancer and external_endpoints should
+ *  be set.
  */
 @interface GTLRDns_RRSetRoutingPolicyHealthCheckTargets : GTLRObject
 
+/**
+ *  The Internet IP addresses to be health checked. The format matches the
+ *  format of ResourceRecordSet.rrdata as defined in RFC 1035 (section 5) and
+ *  RFC 1034 (section 3.6.1)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalEndpoints;
+
+/** Configuration for internal load balancers to be health checked. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyLoadBalancerTarget *> *internalLoadBalancers;
 
 @end

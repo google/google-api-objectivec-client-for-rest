@@ -249,7 +249,7 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_Ruleset
-@dynamic createTime, metadata, name, source;
+@dynamic attachmentPoint, createTime, metadata, name, source;
 @end
 
 

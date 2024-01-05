@@ -97,6 +97,44 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckReadiness
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:checkReadiness";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckReadiness *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_CheckReadinessResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.checkReadiness";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:checkStatus";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_CheckStatusResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.checkStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate
 
 @dynamic parent;
@@ -299,6 +337,33 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsExchangeAuthCode
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_ExchangeAuthCodeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:exchangeAuthCode";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsExchangeAuthCode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_ExchangeAuthCodeResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.exchangeAuthCode";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery
 
 @dynamic connection;
@@ -321,6 +386,33 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
   query.connection = connection;
   query.expectedObjectClass = [GTLRConnectors_ExecuteSqlQueryResponse class];
   query.loggingName = @"connectors.projects.locations.connections.executeSqlQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsRefreshAccessToken
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_RefreshAccessTokenRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:refreshAccessToken";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsRefreshAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_RefreshAccessTokenResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.refreshAccessToken";
   return query;
 }
 

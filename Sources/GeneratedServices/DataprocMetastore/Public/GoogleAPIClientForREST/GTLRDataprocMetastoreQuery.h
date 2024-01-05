@@ -687,6 +687,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Alter metadata table properties.
+ *
+ *  Method: metastore.projects.locations.services.alterTableProperties
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterTableProperties : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the Dataproc Metastore service
+ *  that's being used to mutate metadata table properties, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Alter metadata table properties.
+ *
+ *  @param object The @c GTLRDataprocMetastore_AlterTablePropertiesRequest to
+ *    include in the query.
+ *  @param service Required. The relative resource name of the Dataproc
+ *    Metastore service that's being used to mutate metadata table properties,
+ *    in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterTableProperties
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterTablePropertiesRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
  *  Creates a new backup in a given project and location.
  *
  *  Method: metastore.projects.locations.services.backups.create

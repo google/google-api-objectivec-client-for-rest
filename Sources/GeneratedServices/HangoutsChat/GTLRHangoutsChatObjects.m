@@ -21,6 +21,7 @@ NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig = @"REQUEST
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage = @"UPDATE_MESSAGE";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards = @"UPDATE_USER_MESSAGE_CARDS";
+NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateWidget = @"UPDATE_WIDGET";
 
 // GTLRHangoutsChat_ActionStatus.statusCode
 NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Aborted = @"ABORTED";
@@ -96,6 +97,7 @@ NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked = @"CARD_CLI
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message = @"MESSAGE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace = @"REMOVED_FROM_SPACE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_WidgetUpdated = @"WIDGET_UPDATED";
 
 // GTLRHangoutsChat_GoogleAppsCardV1Action.interaction
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
@@ -326,7 +328,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_ActionResponse
-@dynamic dialogAction, type, url;
+@dynamic dialogAction, type, updatedWidget, url;
 @end
 
 
@@ -1053,6 +1055,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Group
+//
+
+@implementation GTLRHangoutsChat_Group
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_HostAppDataSourceMarkup
 //
 
@@ -1216,7 +1228,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Membership
-@dynamic createTime, member, name, role, state;
+@dynamic createTime, groupMember, member, name, role, state;
 @end
 
 
@@ -1229,8 +1241,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @dynamic actionResponse, annotations, argumentText, attachedGifs, attachment,
          cards, cardsV2, clientAssignedMessageId, createTime, deleteTime,
          deletionMetadata, emojiReactionSummaries, fallbackText, formattedText,
-         lastUpdateTime, matchedUrl, name, quotedMessageMetadata, sender,
-         slashCommand, space, text, thread, threadReply;
+         lastUpdateTime, matchedUrl, name, privateMessageViewer,
+         quotedMessageMetadata, sender, slashCommand, space, text, thread,
+         threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1298,6 +1311,24 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"widgets" : [GTLRHangoutsChat_WidgetMarkup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SelectionItems
+//
+
+@implementation GTLRHangoutsChat_SelectionItems
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRHangoutsChat_GoogleAppsCardV1SelectionItem class]
   };
   return map;
 }
@@ -1482,6 +1513,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_UpdatedWidget
+//
+
+@implementation GTLRHangoutsChat_UpdatedWidget
+@dynamic suggestions, widget;
 @end
 
 

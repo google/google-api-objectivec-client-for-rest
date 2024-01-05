@@ -2759,7 +2759,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  scanned is rounded down. Must be between 0 and 100, inclusively. Both 0 and
  *  100 means no limit. Defaults to 0. Only one of rows_limit and
  *  rows_limit_percent can be specified. Cannot be used in conjunction with
- *  TimespanConfig.
+ *  TimespanConfig. Caution: A [known
+ *  issue](https://cloud.google.com/dlp/docs/known-issues#bq-sampling) is
+ *  causing the `rowsLimitPercent` field to behave unexpectedly. We recommend
+ *  using `rowsLimit` instead.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4142,12 +4145,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A copy of the configuration used to generate this profile. This is
- *  deprecated and will be replaced by DiscoveryConfig. DataProfileJobConfig
- *  will still be written here for Discovery in BigQuery for backwards
- *  compatibility, but will not be updated with new fields, while
+ *  deprecated, and the DiscoveryConfig field is preferred moving forward.
+ *  DataProfileJobConfig will still be written here for Discovery in BigQuery
+ *  for backwards compatibility, but will not be updated with new fields, while
  *  DiscoveryConfig will.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig *dataProfileJob GTLR_DEPRECATED;
+
+/** A copy of the configuration used to generate this profile. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig *discoveryConfig;
 
 /**
  *  A copy of the inspection config used to generate this profile. This is a

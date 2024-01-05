@@ -978,7 +978,15 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_MethodSettings
-@dynamic longRunning, selector;
+@dynamic autoPopulatedFields, longRunning, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoPopulatedFields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1245,7 +1253,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 @implementation GTLRServiceConsumerManagement_Publishing
 @dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
          githubLabel, librarySettings, methodSettings, newIssueUri,
-         organization, protoReferenceDocumentationUri;
+         organization, protoReferenceDocumentationUri,
+         restReferenceDocumentationUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
