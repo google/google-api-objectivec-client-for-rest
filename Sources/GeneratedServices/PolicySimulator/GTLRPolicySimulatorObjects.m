@@ -178,7 +178,12 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy
-@dynamic alternate, dryRunSpec, name, spec;
+@dynamic alternate, dryRunSpec, ETag, name, spec;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

@@ -1570,6 +1570,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 @end
 
+/**
+ *  Returns a VPC-SC supported service based on the service name.
+ *
+ *  Method: accesscontextmanager.services.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_ServicesGet : GTLRAccessContextManagerQuery
+
+/**
+ *  The name of the service to get information about. The names must be in the
+ *  same format as used in defining a service perimeter, for example,
+ *  `storage.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_SupportedService.
+ *
+ *  Returns a VPC-SC supported service based on the service name.
+ *
+ *  @param name The name of the service to get information about. The names must
+ *    be in the same format as used in defining a service perimeter, for
+ *    example, `storage.googleapis.com`.
+ *
+ *  @return GTLRAccessContextManagerQuery_ServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all VPC-SC supported services.
+ *
+ *  Method: accesscontextmanager.services.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_ServicesList : GTLRAccessContextManagerQuery
+
+/**
+ *  This flag specifies the maximum number of services to return per page.
+ *  Default is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to start on a later page. Default is the first page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_ListSupportedServicesResponse.
+ *
+ *  Lists all VPC-SC supported services.
+ *
+ *  @return GTLRAccessContextManagerQuery_ServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsDetectLanguage : GTLRTranslateQuery
 
@@ -84,6 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsGetSupportedLanguages : GTLRTranslateQuery
 
@@ -132,6 +134,445 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRTranslateQuery_ProjectsGetSupportedLanguages
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all AdaptiveMtSentences under a given file/dataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.adaptiveMtSentences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesAdaptiveMtSentencesList : GTLRTranslateQuery
+
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListAdaptiveMtSentencesRequest.next_page_token returned
+ *  from the previous call to `ListTranslationMemories` method. The first page
+ *  is returned if `page_token` is empty or missing.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the project from which to list the Adaptive
+ *  MT files. The following format lists all sentences under a file.
+ *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
+ *  The following format lists all sentences within a dataset.
+ *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListAdaptiveMtSentencesResponse.
+ *
+ *  Lists all AdaptiveMtSentences under a given file/dataset.
+ *
+ *  @param parent Required. The resource name of the project from which to list
+ *    the Adaptive MT files. The following format lists all sentences under a
+ *    file.
+ *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
+ *    The following format lists all sentences within a dataset.
+ *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesAdaptiveMtSentencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an AdaptiveMtFile along with its sentences.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesDelete : GTLRTranslateQuery
+
+/**
+ *  Required. The resource name of the file to delete, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Empty.
+ *
+ *  Deletes an AdaptiveMtFile along with its sentences.
+ *
+ *  @param name Required. The resource name of the file to delete, in form of
+ *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets and AdaptiveMtFile
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesGet : GTLRTranslateQuery
+
+/**
+ *  Required. The resource name of the file, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_AdaptiveMtFile.
+ *
+ *  Gets and AdaptiveMtFile
+ *
+ *  @param name Required. The resource name of the file, in form of
+ *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all AdaptiveMtFiles associated to an AdaptiveMtDataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesList : GTLRTranslateQuery
+
+/** Optional. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of ListAdaptiveMtFilesResponse.next_page_token
+ *  returned from the previous call to `ListAdaptiveMtFiles` method. The first
+ *  page is returned if `page_token`is empty or missing.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the project from which to list the Adaptive
+ *  MT files.
+ *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListAdaptiveMtFilesResponse.
+ *
+ *  Lists all AdaptiveMtFiles associated to an AdaptiveMtDataset.
+ *
+ *  @param parent Required. The resource name of the project from which to list
+ *    the Adaptive MT files.
+ *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all AdaptiveMtSentences under a given file/dataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.adaptiveMtSentences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtSentencesList : GTLRTranslateQuery
+
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListAdaptiveMtSentencesRequest.next_page_token returned
+ *  from the previous call to `ListTranslationMemories` method. The first page
+ *  is returned if `page_token` is empty or missing.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the project from which to list the Adaptive
+ *  MT files. The following format lists all sentences under a file.
+ *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
+ *  The following format lists all sentences within a dataset.
+ *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListAdaptiveMtSentencesResponse.
+ *
+ *  Lists all AdaptiveMtSentences under a given file/dataset.
+ *
+ *  @param parent Required. The resource name of the project from which to list
+ *    the Adaptive MT files. The following format lists all sentences under a
+ *    file.
+ *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
+ *    The following format lists all sentences within a dataset.
+ *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtSentencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an Adaptive MT dataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsCreate : GTLRTranslateQuery
+
+/**
+ *  Required. Name of the parent project. In form of
+ *  `projects/{project-number-or-id}/locations/{location-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_AdaptiveMtDataset.
+ *
+ *  Creates an Adaptive MT dataset.
+ *
+ *  @param object The @c GTLRTranslate_AdaptiveMtDataset to include in the
+ *    query.
+ *  @param parent Required. Name of the parent project. In form of
+ *    `projects/{project-number-or-id}/locations/{location-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_AdaptiveMtDataset *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Adaptive MT dataset, including all its entries and associated
+ *  metadata.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsDelete : GTLRTranslateQuery
+
+/**
+ *  Required. Name of the dataset. In the form of
+ *  `projects/{project-number-or-id}/locations/{location-id}/adaptiveMtDatasets/{adaptive-mt-dataset-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Empty.
+ *
+ *  Deletes an Adaptive MT dataset, including all its entries and associated
+ *  metadata.
+ *
+ *  @param name Required. Name of the dataset. In the form of
+ *    `projects/{project-number-or-id}/locations/{location-id}/adaptiveMtDatasets/{adaptive-mt-dataset-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Adaptive MT dataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsGet : GTLRTranslateQuery
+
+/**
+ *  Required. Name of the dataset. In the form of
+ *  `projects/{project-number-or-id}/locations/{location-id}/adaptiveMtDatasets/{adaptive-mt-dataset-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_AdaptiveMtDataset.
+ *
+ *  Gets the Adaptive MT dataset.
+ *
+ *  @param name Required. Name of the dataset. In the form of
+ *    `projects/{project-number-or-id}/locations/{location-id}/adaptiveMtDatasets/{adaptive-mt-dataset-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports an AdaptiveMtFile and adds all of its sentences into the
+ *  AdaptiveMtDataset.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.importAdaptiveMtFile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsImportAdaptiveMtFile : GTLRTranslateQuery
+
+/**
+ *  Required. The resource name of the file, in form of
+ *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ImportAdaptiveMtFileResponse.
+ *
+ *  Imports an AdaptiveMtFile and adds all of its sentences into the
+ *  AdaptiveMtDataset.
+ *
+ *  @param object The @c GTLRTranslate_ImportAdaptiveMtFileRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the file, in form of
+ *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsImportAdaptiveMtFile
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_ImportAdaptiveMtFileRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all Adaptive MT datasets for which the caller has read permission.
+ *
+ *  Method: translate.projects.locations.adaptiveMtDatasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsList : GTLRTranslateQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Filter is
+ *  not supported yet.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. The server may return fewer results than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  ListAdaptiveMtDatasetsResponse.next_page_token returned from the previous
+ *  call to `ListAdaptiveMtDatasets` method. The first page is returned if
+ *  `page_token`is empty or missing.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the project from which to list the Adaptive
+ *  MT datasets. `projects/{project-number-or-id}/locations/{location-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListAdaptiveMtDatasetsResponse.
+ *
+ *  Lists all Adaptive MT datasets for which the caller has read permission.
+ *
+ *  @param parent Required. The resource name of the project from which to list
+ *    the Adaptive MT datasets.
+ *    `projects/{project-number-or-id}/locations/{location-id}`
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Translate text using Adaptive MT.
+ *
+ *  Method: translate.projects.locations.adaptiveMtTranslate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsAdaptiveMtTranslate : GTLRTranslateQuery
+
+/**
+ *  Required. Location to make a regional call. Format:
+ *  `projects/{project-number-or-id}/locations/{location-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_AdaptiveMtTranslateResponse.
+ *
+ *  Translate text using Adaptive MT.
+ *
+ *  @param object The @c GTLRTranslate_AdaptiveMtTranslateRequest to include in
+ *    the query.
+ *  @param parent Required. Location to make a regional call. Format:
+ *    `projects/{project-number-or-id}/locations/{location-id}`.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtTranslate
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_AdaptiveMtTranslateRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -241,6 +682,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDatasetsCreate : GTLRTranslateQuery
 
@@ -384,6 +826,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDatasetsGet : GTLRTranslateQuery
 
@@ -444,6 +887,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDatasetsList : GTLRTranslateQuery
 
@@ -491,6 +935,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDetectLanguage : GTLRTranslateQuery
 
@@ -562,6 +1007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGetSupportedLanguages : GTLRTranslateQuery
 
@@ -651,6 +1097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesDelete : GTLRTranslateQuery
 
@@ -678,6 +1125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGet : GTLRTranslateQuery
 
@@ -761,6 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesGet : GTLRTranslateQuery
 
@@ -787,6 +1236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesList : GTLRTranslateQuery
 
@@ -869,6 +1319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesList : GTLRTranslateQuery
 
@@ -1115,6 +1566,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsModelsList : GTLRTranslateQuery
 
@@ -1366,6 +1818,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsRomanizeText : GTLRTranslateQuery
 
@@ -1449,6 +1902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsTranslateText : GTLRTranslateQuery
 
@@ -1493,6 +1947,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsRomanizeText : GTLRTranslateQuery
 
@@ -1533,6 +1988,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsTranslateText : GTLRTranslateQuery
 

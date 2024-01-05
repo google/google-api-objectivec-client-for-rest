@@ -928,6 +928,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the IAM policy.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGetIamPolicy : GTLRAnalyticsHubQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Policy.
+ *
+ *  Gets the IAM policy.
+ *
+ *  @param object The @c GTLRAnalyticsHub_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists all subscriptions in a given project and location.
  *
  *  Method: analyticshub.projects.locations.subscriptions.list
@@ -1042,6 +1079,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsHub_RevokeSubscriptionRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the IAM policy.
+ *
+ *  Method: analyticshub.projects.locations.subscriptions.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsHubBigquery
+ *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
+ */
+@interface GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsSetIamPolicy : GTLRAnalyticsHubQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAnalyticsHub_Policy.
+ *
+ *  Sets the IAM policy.
+ *
+ *  @param object The @c GTLRAnalyticsHub_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAnalyticsHubQuery_ProjectsLocationsSubscriptionsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

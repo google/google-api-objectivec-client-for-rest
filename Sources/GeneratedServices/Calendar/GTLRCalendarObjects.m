@@ -378,12 +378,13 @@
 @implementation GTLRCalendar_Event
 @dynamic anyoneCanAddSelf, attachments, attendees, attendeesOmitted, colorId,
          conferenceData, created, creator, descriptionProperty, end,
-         endTimeUnspecified, ETag, eventType, extendedProperties, gadget,
-         guestsCanInviteOthers, guestsCanModify, guestsCanSeeOtherGuests,
-         hangoutLink, htmlLink, iCalUID, identifier, kind, location, locked,
-         organizer, originalStartTime, privateCopy, recurrence,
-         recurringEventId, reminders, sequence, source, start, status, summary,
-         transparency, updated, visibility, workingLocationProperties;
+         endTimeUnspecified, ETag, eventType, extendedProperties,
+         focusTimeProperties, gadget, guestsCanInviteOthers, guestsCanModify,
+         guestsCanSeeOtherGuests, hangoutLink, htmlLink, iCalUID, identifier,
+         kind, location, locked, organizer, originalStartTime,
+         outOfOfficeProperties, privateCopy, recurrence, recurringEventId,
+         reminders, sequence, source, start, status, summary, transparency,
+         updated, visibility, workingLocationProperties;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -576,6 +577,26 @@
 
 @implementation GTLRCalendar_EventDateTime
 @dynamic date, dateTime, timeZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EventFocusTimeProperties
+//
+
+@implementation GTLRCalendar_EventFocusTimeProperties
+@dynamic autoDeclineMode, chatStatus, declineMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_EventOutOfOfficeProperties
+//
+
+@implementation GTLRCalendar_EventOutOfOfficeProperties
+@dynamic autoDeclineMode, declineMessage;
 @end
 
 

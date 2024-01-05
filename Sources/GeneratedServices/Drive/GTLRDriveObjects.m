@@ -239,7 +239,7 @@
 
 @implementation GTLRDrive_ContentRestriction
 @dynamic ownerRestricted, readOnly, reason, restrictingUser, restrictionTime,
-         type;
+         systemRestricted, type;
 @end
 
 

@@ -16,6 +16,7 @@
 
 @class GTLRCloudProfiler_Deployment;
 @class GTLRCloudProfiler_Deployment_Labels;
+@class GTLRCloudProfiler_Profile;
 @class GTLRCloudProfiler_Profile_Labels;
 
 // Generated comments include content from the discovery document; avoid them
@@ -216,6 +217,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  *        fetch them all at once.
  */
 @interface GTLRCloudProfiler_Deployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  ListProfileResponse contains the list of collected profiles for deployments
+ *  in projects which the user has permissions to view.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "profiles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudProfiler_ListProfilesResponse : GTLRCollectionObject
+
+/**
+ *  Token to receive the next page of results. This field maybe empty if there
+ *  are no more profiles to fetch.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of profiles fetched.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudProfiler_Profile *> *profiles;
+
+/**
+ *  Number of profiles that were skipped in the current page since they were not
+ *  able to be fetched successfully. This should typically be zero. A non-zero
+ *  value may indicate a transient failure, in which case if the number is too
+ *  high for your use case, the call may be retried.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippedProfiles;
+
 @end
 
 

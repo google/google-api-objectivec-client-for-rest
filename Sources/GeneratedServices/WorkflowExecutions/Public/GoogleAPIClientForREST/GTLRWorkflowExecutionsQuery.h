@@ -150,7 +150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @end
 
 /**
- *  Creates a new execution using the latest revision of the given workflow.
+ *  Creates a new execution using the latest revision of the given workflow. For
+ *  more information, see Execute a workflow.
  *
  *  Method: workflowexecutions.projects.locations.workflows.executions.create
  *
@@ -169,7 +170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 /**
  *  Fetches a @c GTLRWorkflowExecutions_Execution.
  *
- *  Creates a new execution using the latest revision of the given workflow.
+ *  Creates a new execution using the latest revision of the given workflow. For
+ *  more information, see Execute a workflow.
  *
  *  @param object The @c GTLRWorkflowExecutions_Execution to include in the
  *    query.

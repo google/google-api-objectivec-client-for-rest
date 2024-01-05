@@ -46,6 +46,8 @@
 @class GTLRCalendar_EventAttachment;
 @class GTLRCalendar_EventAttendee;
 @class GTLRCalendar_EventDateTime;
+@class GTLRCalendar_EventFocusTimeProperties;
+@class GTLRCalendar_EventOutOfOfficeProperties;
 @class GTLRCalendar_EventReminder;
 @class GTLRCalendar_EventWorkingLocationProperties;
 @class GTLRCalendar_EventWorkingLocationProperties_CustomLocation;
@@ -980,6 +982,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Extended properties of the event. */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties *extendedProperties;
 
+/** Focus Time event data. Used if eventType is focusTime. */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventFocusTimeProperties *focusTimeProperties;
+
 /**
  *  A gadget that extends this event. Gadgets are deprecated; this structure is
  *  instead only used for returning birthday calendar metadata.
@@ -1086,6 +1091,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  time. Immutable.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *originalStartTime;
+
+/** Out of office event data. Used if eventType is outOfOffice. */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventOutOfOfficeProperties *outOfOfficeProperties;
 
 /**
  *  If set to True, Event propagation is disabled. Note that it is not the same
@@ -1566,6 +1574,62 @@ NS_ASSUME_NONNULL_BEGIN
  *  for the event start/end.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  GTLRCalendar_EventFocusTimeProperties
+ */
+@interface GTLRCalendar_EventFocusTimeProperties : GTLRObject
+
+/**
+ *  Whether to decline meeting invitations which overlap Focus Time events.
+ *  Valid values are declineNone, meaning that no meeting invitations are
+ *  declined; declineAllConflictingInvitations, meaning that all conflicting
+ *  meeting invitations that conflict with the event are declined; and
+ *  declineOnlyNewConflictingInvitations, meaning that only new conflicting
+ *  meeting invitations which arrive while the Focus Time event is present are
+ *  to be declined.
+ */
+@property(nonatomic, copy, nullable) NSString *autoDeclineMode;
+
+/**
+ *  The status to mark the user in Chat and related products. This can be
+ *  available or doNotDisturb.
+ */
+@property(nonatomic, copy, nullable) NSString *chatStatus;
+
+/**
+ *  Response message to set if an existing event or new invitation is
+ *  automatically declined by Calendar.
+ */
+@property(nonatomic, copy, nullable) NSString *declineMessage;
+
+@end
+
+
+/**
+ *  GTLRCalendar_EventOutOfOfficeProperties
+ */
+@interface GTLRCalendar_EventOutOfOfficeProperties : GTLRObject
+
+/**
+ *  Whether to decline meeting invitations which overlap Out of office events.
+ *  Valid values are declineNone, meaning that no meeting invitations are
+ *  declined; declineAllConflictingInvitations, meaning that all conflicting
+ *  meeting invitations that conflict with the event are declined; and
+ *  declineOnlyNewConflictingInvitations, meaning that only new conflicting
+ *  meeting invitations which arrive while the Out of office event is present
+ *  are to be declined.
+ */
+@property(nonatomic, copy, nullable) NSString *autoDeclineMode;
+
+/**
+ *  Response message to set if an existing event or new invitation is
+ *  automatically declined by Calendar.
+ */
+@property(nonatomic, copy, nullable) NSString *declineMessage;
 
 @end
 

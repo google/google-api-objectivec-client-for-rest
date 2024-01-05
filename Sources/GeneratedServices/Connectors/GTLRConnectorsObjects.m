@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRConnectors_CheckStatusResponse.state
+NSString * const kGTLRConnectors_CheckStatusResponse_State_Active = @"ACTIVE";
+NSString * const kGTLRConnectors_CheckStatusResponse_State_AuthError = @"AUTH_ERROR";
+NSString * const kGTLRConnectors_CheckStatusResponse_State_Error = @"ERROR";
+NSString * const kGTLRConnectors_CheckStatusResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRConnectors_Field.dataType
 NSString * const kGTLRConnectors_Field_DataType_Array          = @"ARRAY";
 NSString * const kGTLRConnectors_Field_DataType_Bigint         = @"BIGINT";
@@ -108,6 +114,15 @@ NSString * const kGTLRConnectors_InputParameter_DataType_Uuid  = @"UUID";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varbinary = @"VARBINARY";
 NSString * const kGTLRConnectors_InputParameter_DataType_Varchar = @"VARCHAR";
 
+// GTLRConnectors_Instance.state
+NSString * const kGTLRConnectors_Instance_State_Creating       = @"CREATING";
+NSString * const kGTLRConnectors_Instance_State_Deleting       = @"DELETING";
+NSString * const kGTLRConnectors_Instance_State_Error          = @"ERROR";
+NSString * const kGTLRConnectors_Instance_State_Ready          = @"READY";
+NSString * const kGTLRConnectors_Instance_State_Repairing      = @"REPAIRING";
+NSString * const kGTLRConnectors_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRConnectors_Instance_State_Updating       = @"UPDATING";
+
 // GTLRConnectors_JsonSchema.jdbcType
 NSString * const kGTLRConnectors_JsonSchema_JdbcType_Array     = @"ARRAY";
 NSString * const kGTLRConnectors_JsonSchema_JdbcType_Bigint    = @"BIGINT";
@@ -154,6 +169,11 @@ NSString * const kGTLRConnectors_JsonSchema_JdbcType_Tinyint   = @"TINYINT";
 NSString * const kGTLRConnectors_JsonSchema_JdbcType_Uuid      = @"UUID";
 NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varbinary = @"VARBINARY";
 NSString * const kGTLRConnectors_JsonSchema_JdbcType_Varchar   = @"VARCHAR";
+
+// GTLRConnectors_MaintenancePolicy.state
+NSString * const kGTLRConnectors_MaintenancePolicy_State_Deleting = @"DELETING";
+NSString * const kGTLRConnectors_MaintenancePolicy_State_Ready = @"READY";
+NSString * const kGTLRConnectors_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRConnectors_QueryParameter.dataType
 NSString * const kGTLRConnectors_QueryParameter_DataType_Array = @"ARRAY";
@@ -249,6 +269,34 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Uuid  = @"UUID";
 NSString * const kGTLRConnectors_ResultMetadata_DataType_Varbinary = @"VARBINARY";
 NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
+// GTLRConnectors_Schedule.day
+NSString * const kGTLRConnectors_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRConnectors_Schedule_Day_Friday           = @"FRIDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Monday           = @"MONDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Saturday         = @"SATURDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Sunday           = @"SUNDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Thursday         = @"THURSDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Tuesday          = @"TUESDAY";
+NSString * const kGTLRConnectors_Schedule_Day_Wednesday        = @"WEDNESDAY";
+
+// GTLRConnectors_UpdatePolicy.channel
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_Earlier  = @"EARLIER";
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_Later    = @"LATER";
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week1    = @"WEEK1";
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week2    = @"WEEK2";
+NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_AccessCredentials
+//
+
+@implementation GTLRConnectors_AccessCredentials
+@dynamic accessToken, expiresIn, refreshToken;
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRConnectors_Action
@@ -270,6 +318,61 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_CheckReadinessResponse
+//
+
+@implementation GTLRConnectors_CheckReadinessResponse
+@dynamic status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_CheckStatusResponse
+//
+
+@implementation GTLRConnectors_CheckStatusResponse
+@dynamic descriptionProperty, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_DailyCycle
+//
+
+@implementation GTLRConnectors_DailyCycle
+@dynamic duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Date
+//
+
+@implementation GTLRConnectors_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_DenyMaintenancePeriod
+//
+
+@implementation GTLRConnectors_DenyMaintenancePeriod
+@dynamic endDate, startDate, time;
 @end
 
 
@@ -321,6 +424,25 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExchangeAuthCodeRequest
+//
+
+@implementation GTLRConnectors_ExchangeAuthCodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExchangeAuthCodeResponse
+//
+
+@implementation GTLRConnectors_ExchangeAuthCodeResponse
+@dynamic accessCredentials;
 @end
 
 
@@ -484,6 +606,112 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_Instance
+//
+
+@implementation GTLRConnectors_Instance
+@dynamic consumerDefinedName, createTime, instanceType, labels,
+         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
+         name, notificationParameters, producerMetadata, provisionedResources,
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"provisionedResources" : [GTLRConnectors_ProvisionedResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_Labels
+//
+
+@implementation GTLRConnectors_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_MaintenancePolicyNames
+//
+
+@implementation GTLRConnectors_Instance_MaintenancePolicyNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_MaintenanceSchedules
+//
+
+@implementation GTLRConnectors_Instance_MaintenanceSchedules
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_MaintenanceSchedule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_NotificationParameters
+//
+
+@implementation GTLRConnectors_Instance_NotificationParameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_NotificationParameter class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_ProducerMetadata
+//
+
+@implementation GTLRConnectors_Instance_ProducerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Instance_SoftwareVersions
+//
+
+@implementation GTLRConnectors_Instance_SoftwareVersions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_JsonSchema
 //
 
@@ -610,6 +838,143 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_MaintenancePolicy
+//
+
+@implementation GTLRConnectors_MaintenancePolicy
+@dynamic createTime, descriptionProperty, labels, name, state, updatePolicy,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_MaintenancePolicy_Labels
+//
+
+@implementation GTLRConnectors_MaintenancePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_MaintenanceSchedule
+//
+
+@implementation GTLRConnectors_MaintenanceSchedule
+@dynamic canReschedule, endTime, rolloutManagementPolicy, scheduleDeadlineTime,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_MaintenanceSettings
+//
+
+@implementation GTLRConnectors_MaintenanceSettings
+@dynamic exclude, isRollback, maintenancePolicies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_MaintenanceSettings_MaintenancePolicies
+//
+
+@implementation GTLRConnectors_MaintenanceSettings_MaintenancePolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_MaintenancePolicy class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_MaintenanceWindow
+//
+
+@implementation GTLRConnectors_MaintenanceWindow
+@dynamic dailyCycle, weeklyCycle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_NodeSloMetadata
+//
+
+@implementation GTLRConnectors_NodeSloMetadata
+@dynamic location, nodeId, perSliEligibility;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_NotificationParameter
+//
+
+@implementation GTLRConnectors_NotificationParameter
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_PerSliSloEligibility
+//
+
+@implementation GTLRConnectors_PerSliSloEligibility
+@dynamic eligibilities;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_PerSliSloEligibility_Eligibilities
+//
+
+@implementation GTLRConnectors_PerSliSloEligibility_Eligibilities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_SloEligibility class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ProvisionedResource
+//
+
+@implementation GTLRConnectors_ProvisionedResource
+@dynamic resourceType, resourceUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_Query
 //
 
@@ -648,6 +1013,25 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_RefreshAccessTokenRequest
+//
+
+@implementation GTLRConnectors_RefreshAccessTokenRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_RefreshAccessTokenResponse
+//
+
+@implementation GTLRConnectors_RefreshAccessTokenResponse
+@dynamic accessCredentials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ResultMetadata
 //
 
@@ -658,6 +1042,54 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Schedule
+//
+
+@implementation GTLRConnectors_Schedule
+@dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_SloEligibility
+//
+
+@implementation GTLRConnectors_SloEligibility
+@dynamic eligible, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_SloMetadata
+//
+
+@implementation GTLRConnectors_SloMetadata
+@dynamic nodes, perSliEligibility, tier;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [GTLRConnectors_NodeSloMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_TimeOfDay
+//
+
+@implementation GTLRConnectors_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end
 
 
@@ -680,6 +1112,42 @@ NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_UpdatePolicy
+//
+
+@implementation GTLRConnectors_UpdatePolicy
+@dynamic channel, denyMaintenancePeriods, window;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"denyMaintenancePeriods" : [GTLRConnectors_DenyMaintenancePeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_WeeklyCycle
+//
+
+@implementation GTLRConnectors_WeeklyCycle
+@dynamic schedule;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedule" : [GTLRConnectors_Schedule class]
+  };
+  return map;
 }
 
 @end

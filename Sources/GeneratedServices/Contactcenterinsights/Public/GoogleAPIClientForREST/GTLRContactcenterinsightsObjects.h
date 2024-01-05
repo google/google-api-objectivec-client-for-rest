@@ -439,7 +439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio;
 /**
- *  The object type is unspecified and will default to TRANSCRIPT.
+ *  The object type is unspecified and will default to `TRANSCRIPT`.
  *
  *  Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED"
  */
@@ -809,7 +809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio;
 /**
- *  The object type is unspecified and will default to TRANSCRIPT.
+ *  The object type is unspecified and will default to `TRANSCRIPT`.
  *
  *  Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED"
  */
@@ -1716,8 +1716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  The conversation source, which is a combination of transcript, audio, and
- *  metadata.
+ *  The conversation source, which is a combination of transcript and audio.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource : GTLRObject
 
@@ -2599,8 +2598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Audio
  *        The object is an audio file. (Value: "AUDIO")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified
- *        The object type is unspecified and will default to TRANSCRIPT. (Value:
- *        "BUCKET_OBJECT_TYPE_UNSPECIFIED")
+ *        The object type is unspecified and will default to `TRANSCRIPT`.
+ *        (Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource_BucketObjectType_Transcript
  *        The object is a transcript. (Value: "TRANSCRIPT")
  */
@@ -3212,14 +3211,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. DLP settings for transcript redaction. Optional, will default to
- *  the config specified in Settings.
+ *  Optional. DLP settings for transcript redaction. Will default to the config
+ *  specified in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig *redactionConfig;
 
 /**
- *  Optional. Default Speech-to-Text configuration. Optional, will default to
- *  the config specified in Settings.
+ *  Optional. Speech-to-Text configuration. Will default to the config specified
+ *  in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig *speechConfig;
 
@@ -4104,8 +4103,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  The conversation source, which is a combination of transcript, audio, and
- *  metadata.
+ *  The conversation source, which is a combination of transcript and audio.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource : GTLRObject
 
@@ -5002,8 +5000,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Audio
  *        The object is an audio file. (Value: "AUDIO")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_BucketObjectTypeUnspecified
- *        The object type is unspecified and will default to TRANSCRIPT. (Value:
- *        "BUCKET_OBJECT_TYPE_UNSPECIFIED")
+ *        The object type is unspecified and will default to `TRANSCRIPT`.
+ *        (Value: "BUCKET_OBJECT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource_BucketObjectType_Transcript
  *        The object is a transcript. (Value: "TRANSCRIPT")
  */
@@ -6042,14 +6040,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. DLP settings for transcript redaction. Optional, will default to
- *  the config specified in Settings.
+ *  Optional. DLP settings for transcript redaction. Will default to the config
+ *  specified in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
 
 /**
- *  Optional. Default Speech-to-Text configuration. Optional, will default to
- *  the config specified in Settings.
+ *  Optional. Speech-to-Text configuration. Will default to the config specified
+ *  in Settings.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
 

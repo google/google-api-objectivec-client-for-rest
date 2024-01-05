@@ -771,6 +771,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec *dryRunSpec;
 
 /**
+ *  Optional. An opaque tag indicating the current state of the policy, used for
+ *  concurrency control. This 'etag' is computed by the server based on the
+ *  value of other fields, and may be sent on update and delete requests to
+ *  ensure the client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint which this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
@@ -796,12 +804,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec : GTLRObject
 
 /**
- *  An opaque tag indicating the current version of the policy, used for
+ *  An opaque tag indicating the current version of the policySpec, used for
  *  concurrency control. This field is ignored if used in a `CreatePolicy`
- *  request. When the policy` is returned from either a `GetPolicy` or a
+ *  request. When the policy is returned from either a `GetPolicy` or a
  *  `ListPolicies` request, this `etag` indicates the version of the current
- *  policy to use when executing a read-modify-write loop. When the policy is
- *  returned from a `GetEffectivePolicy` request, the `etag` will be unset.
+ *  policySpec to use when executing a read-modify-write loop. When the policy
+ *  is returned from a `GetEffectivePolicy` request, the `etag` will be unset.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -2173,9 +2181,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2189,7 +2213,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

@@ -141,6 +141,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesDelete : GTLROrgPolicyAPIQuery
 
 /**
+ *  Optional. The current etag of policy. If an etag is provided and does not
+ *  match the current etag of the policy, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Required. Name of the policy to delete. See the policy entry for naming
  *  rules.
  */
@@ -658,6 +665,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete : GTLROrgPolicyAPIQuery
 
 /**
+ *  Optional. The current etag of policy. If an etag is provided and does not
+ *  match the current etag of the policy, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Required. Name of the policy to delete. See the policy entry for naming
  *  rules.
  */
@@ -973,6 +987,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete : GTLROrgPolicyAPIQuery
+
+/**
+ *  Optional. The current etag of policy. If an etag is provided and does not
+ *  match the current etag of the policy, deletion will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Required. Name of the policy to delete. See the policy entry for naming

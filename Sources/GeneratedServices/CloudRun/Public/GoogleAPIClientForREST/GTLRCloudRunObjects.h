@@ -33,6 +33,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate;
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2GRPCAction;
 @class GTLRCloudRun_GoogleCloudRunV2HTTPGetAction;
 @class GTLRCloudRun_GoogleCloudRunV2HTTPHeader;
@@ -40,6 +41,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2NetworkInterface;
+@class GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2Overrides;
 @class GTLRCloudRun_GoogleCloudRunV2Probe;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
@@ -1748,6 +1750,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Represents a GCS Bucket mounted as a volume.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource : GTLRObject
+
+/** GCS Bucket name */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  If true, mount the GCS bucket as read-only
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
+@end
+
+
+/**
  *  GRPCAction describes an action involving a GRPC port.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2GRPCAction : GTLRObject
@@ -2226,6 +2246,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Represents an NFS mount.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource : GTLRObject
+
+/** Path that is exported by the NFS server. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  If true, mount the NFS volume as read only
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
+/** Hostname or IP address of the NFS server */
+@property(nonatomic, copy, nullable) NSString *server;
+
+@end
+
+
+/**
  *  RunJob Overrides that contains Execution fields to be overridden.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Overrides : GTLRObject
@@ -2319,16 +2360,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2ResourceRequirements : GTLRObject
 
 /**
- *  Determines whether CPU should be throttled or not outside of requests.
+ *  Determines whether CPU is only allocated during requests (true by default).
+ *  However, if ResourceRequirements is set, the caller must explicitly set this
+ *  field to true to preserve the default behavior.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuIdle;
 
 /**
- *  Only ´memory´ and 'cpu' are supported. Notes: * The only supported values
- *  for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of
- *  memory. For more information, go to
+ *  Only `memory` and `cpu` keys in the map are supported. Notes: * The only
+ *  supported values for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires
+ *  at least 2Gi of memory. For more information, go to
  *  https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory'
  *  values and syntax, go to
  *  https://cloud.google.com/run/docs/configuring/memory-limits
@@ -2348,9 +2391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Only ´memory´ and 'cpu' are supported. Notes: * The only supported values
- *  for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of
- *  memory. For more information, go to
+ *  Only `memory` and `cpu` keys in the map are supported. Notes: * The only
+ *  supported values for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires
+ *  at least 2Gi of memory. For more information, go to
  *  https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory'
  *  values and syntax, go to
  *  https://cloud.google.com/run/docs/configuring/memory-limits
@@ -3753,8 +3796,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Ephemeral storage used as a shared volume. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource *emptyDir;
 
+/** Persistent storage backed by a Google Cloud Storage bucket. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource *gcs;
+
 /** Required. Volume's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** For NFS Voumes, contains the path to the nfs Volume */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource *nfs;
 
 /** Secret represents a secret that should populate this volume. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SecretVolumeSource *secret;

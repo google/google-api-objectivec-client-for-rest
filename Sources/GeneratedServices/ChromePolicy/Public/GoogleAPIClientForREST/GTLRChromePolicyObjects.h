@@ -102,6 +102,40 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV
 FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyApiLifecycle_PolicyApiLifecycleStage_ApiUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema.supportedPlatforms
+
+/**
+ *  Chrome Browser for OSX/Windows/Linux.
+ *
+ *  Value: "CHROME_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowser;
+/**
+ *  Chrome Browser for Android.
+ *
+ *  Value: "CHROME_BROWSER_FOR_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowserForAndroid;
+/**
+ *  Chrome Browser for iOS.
+ *
+ *  Value: "CHROME_BROWSER_FOR_IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeBrowserForIos;
+/**
+ *  ChromeOS.
+ *
+ *  Value: "CHROME_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_ChromeOs;
+/**
+ *  Unspecified platform.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_SupportedPlatforms_PlatformUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema.validTargetResources
 
 /**
@@ -805,6 +839,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
+/**
+ *  Output only. List indicates that the policy will only apply to devices/users
+ *  on these platforms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPlatforms;
+
 /** Output only. URI to related support article for this schema. */
 @property(nonatomic, copy, nullable) NSString *supportUri;
 
@@ -1412,20 +1452,20 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  If true, this is a proto3 "optional". When a proto3 field is optional, it
  *  tracks presence regardless of field type. When proto3_optional is true, this
- *  field must be belong to a oneof to signal to old proto3 clients that
- *  presence is tracked for this field. This oneof is known as a "synthetic"
- *  oneof, and this field must be its sole member (each proto3 optional field
- *  gets its own synthetic oneof). Synthetic oneofs exist in the descriptor
- *  only, and do not generate any API. Synthetic oneofs must be ordered after
- *  all "real" oneofs. For message fields, proto3_optional doesn't create any
- *  semantic change, since non-repeated message fields always track presence.
- *  However it still indicates the semantic detail of whether the user wrote
- *  "optional" or not. This can be useful for round-tripping the .proto file.
- *  For consistency we give message fields a synthetic oneof also, even though
- *  it is not required to track presence. This is especially important because
- *  the parser can't tell if a field is a message or an enum, so it must always
- *  create a synthetic oneof. Proto2 optional fields do not set this flag,
- *  because they already indicate optional with `LABEL_OPTIONAL`.
+ *  field must belong to a oneof to signal to old proto3 clients that presence
+ *  is tracked for this field. This oneof is known as a "synthetic" oneof, and
+ *  this field must be its sole member (each proto3 optional field gets its own
+ *  synthetic oneof). Synthetic oneofs exist in the descriptor only, and do not
+ *  generate any API. Synthetic oneofs must be ordered after all "real" oneofs.
+ *  For message fields, proto3_optional doesn't create any semantic change,
+ *  since non-repeated message fields always track presence. However it still
+ *  indicates the semantic detail of whether the user wrote "optional" or not.
+ *  This can be useful for round-tripping the .proto file. For consistency we
+ *  give message fields a synthetic oneof also, even though it is not required
+ *  to track presence. This is especially important because the parser can't
+ *  tell if a field is a message or an enum, so it must always create a
+ *  synthetic oneof. Proto2 optional fields do not set this flag, because they
+ *  already indicate optional with `LABEL_OPTIONAL`.
  *
  *  Uses NSNumber of boolValue.
  */

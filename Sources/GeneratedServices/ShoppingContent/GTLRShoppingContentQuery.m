@@ -84,6 +84,97 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_AccountsBusinessmessageslinksCreate
+
+@dynamic accountId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_BusinessMessagesLink *)object
+                      accountId:(long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"accounts/{accountId}/businessmessageslinks";
+  GTLRShoppingContentQuery_AccountsBusinessmessageslinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_BusinessMessagesLink class];
+  query.loggingName = @"content.accounts.businessmessageslinks.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsBusinessmessageslinksDelete
+
+@dynamic accountId, businessMessagesLinkId;
+
++ (instancetype)queryWithAccountId:(long long)accountId
+            businessMessagesLinkId:(NSString *)businessMessagesLinkId {
+  NSArray *pathParams = @[
+    @"accountId", @"businessMessagesLinkId"
+  ];
+  NSString *pathURITemplate = @"accounts/{accountId}/businessmessageslinks/{businessMessagesLinkId}";
+  GTLRShoppingContentQuery_AccountsBusinessmessageslinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.businessMessagesLinkId = businessMessagesLinkId;
+  query.loggingName = @"content.accounts.businessmessageslinks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsBusinessmessageslinksGet
+
+@dynamic accountId, businessMessagesLinkId;
+
++ (instancetype)queryWithAccountId:(long long)accountId
+            businessMessagesLinkId:(NSString *)businessMessagesLinkId {
+  NSArray *pathParams = @[
+    @"accountId", @"businessMessagesLinkId"
+  ];
+  NSString *pathURITemplate = @"accounts/{accountId}/businessmessageslinks/{businessMessagesLinkId}";
+  GTLRShoppingContentQuery_AccountsBusinessmessageslinksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.businessMessagesLinkId = businessMessagesLinkId;
+  query.expectedObjectClass = [GTLRShoppingContent_BusinessMessagesLink class];
+  query.loggingName = @"content.accounts.businessmessageslinks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsBusinessmessageslinksList
+
+@dynamic accountId, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(long long)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"accounts/{accountId}/businessmessageslinks";
+  GTLRShoppingContentQuery_AccountsBusinessmessageslinksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListBusinessMessagesLinksResponse class];
+  query.loggingName = @"content.accounts.businessmessageslinks.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_AccountsClaimwebsite
 
 @dynamic accountId, merchantId, overwrite;
@@ -3449,29 +3540,6 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
-@implementation GTLRShoppingContentQuery_ProductstatusesRepricingreportsList
-
-@dynamic endDate, merchantId, pageSize, pageToken, productId, ruleId, startDate;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                          productId:(NSString *)productId {
-  NSArray *pathParams = @[
-    @"merchantId", @"productId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/productstatuses/{productId}/repricingreports";
-  GTLRShoppingContentQuery_ProductstatusesRepricingreportsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.productId = productId;
-  query.expectedObjectClass = [GTLRShoppingContent_ListRepricingProductReportsResponse class];
-  query.loggingName = @"content.productstatuses.repricingreports.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRShoppingContentQuery_ProductsUpdate
 
 @dynamic merchantId, productId, updateMask;
@@ -3890,151 +3958,6 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.merchantId = merchantId;
   query.expectedObjectClass = [GTLRShoppingContent_SearchResponse class];
   query.loggingName = @"content.reports.search";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesCreate
-
-@dynamic merchantId, ruleId;
-
-+ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
-                     merchantId:(long long)merchantId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules";
-  GTLRShoppingContentQuery_RepricingrulesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.merchantId = merchantId;
-  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
-  query.loggingName = @"content.repricingrules.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesDelete
-
-@dynamic merchantId, ruleId;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId {
-  NSArray *pathParams = @[
-    @"merchantId", @"ruleId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules/{ruleId}";
-  GTLRShoppingContentQuery_RepricingrulesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.ruleId = ruleId;
-  query.loggingName = @"content.repricingrules.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesGet
-
-@dynamic merchantId, ruleId;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId {
-  NSArray *pathParams = @[
-    @"merchantId", @"ruleId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules/{ruleId}";
-  GTLRShoppingContentQuery_RepricingrulesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.ruleId = ruleId;
-  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
-  query.loggingName = @"content.repricingrules.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesList
-
-@dynamic countryCode, languageCode, merchantId, pageSize, pageToken;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId {
-  NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules";
-  GTLRShoppingContentQuery_RepricingrulesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.expectedObjectClass = [GTLRShoppingContent_ListRepricingRulesResponse class];
-  query.loggingName = @"content.repricingrules.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesPatch
-
-@dynamic merchantId, ruleId;
-
-+ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
-                     merchantId:(long long)merchantId
-                         ruleId:(NSString *)ruleId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"merchantId", @"ruleId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules/{ruleId}";
-  GTLRShoppingContentQuery_RepricingrulesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.merchantId = merchantId;
-  query.ruleId = ruleId;
-  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
-  query.loggingName = @"content.repricingrules.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRShoppingContentQuery_RepricingrulesRepricingreportsList
-
-@dynamic endDate, merchantId, pageSize, pageToken, ruleId, startDate;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                             ruleId:(NSString *)ruleId {
-  NSArray *pathParams = @[
-    @"merchantId", @"ruleId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/repricingrules/{ruleId}/repricingreports";
-  GTLRShoppingContentQuery_RepricingrulesRepricingreportsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.ruleId = ruleId;
-  query.expectedObjectClass = [GTLRShoppingContent_ListRepricingRuleReportsResponse class];
-  query.loggingName = @"content.repricingrules.repricingreports.list";
   return query;
 }
 

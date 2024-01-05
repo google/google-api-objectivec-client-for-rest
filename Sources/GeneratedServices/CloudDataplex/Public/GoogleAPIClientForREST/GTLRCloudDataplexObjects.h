@@ -1165,6 +1165,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Gover
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources;
 /**
+ *  Governance rule prcoessing Event.
+ *
+ *  Value: "GOVERNANCE_RULE_PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleProcessing;
+/**
  *  Rule processing exceeds the allowed limit.
  *
  *  Value: "GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS"
@@ -3624,7 +3630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Optional. Rows with null values will automatically fail a rule, unless
  *  ignore_null is true. In that case, such null rows are trivially considered
- *  passing.This field is only valid for row-level type rules.
+ *  passing.This field is only valid for the following type of rules:
+ *  RangeExpectation RegexExpectation SetExpectation UniquenessExpectation
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5333,6 +5340,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources
  *        Number of resources matched with particular Query. (Value:
  *        "GOVERNANCE_RULE_MATCHED_RESOURCES")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleProcessing
+ *        Governance rule prcoessing Event. (Value:
+ *        "GOVERNANCE_RULE_PROCESSING")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleSearchLimitExceeds
  *        Rule processing exceeds the allowed limit. (Value:
  *        "GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS")
@@ -7765,14 +7775,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  group:{emailid}: An email address that represents a Google group. For
  *  example, admins\@example.com. domain:{domain}: The G Suite domain (primary)
  *  that represents all the users of that domain. For example, google.com or
- *  example.com. deleted:user:{emailid}?uid={uniqueid}: An email address (plus
- *  unique identifier) representing a user that has been recently deleted. For
- *  example, alice\@example.com?uid=123456789012345678901. If the user is
- *  recovered, this value reverts to user:{emailid} and the recovered user
- *  retains the role in the binding.
- *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
+ *  example.com.
+ *  principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}:
+ *  A single identity in a workforce identity pool.
+ *  principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}:
+ *  All workforce identities in a group.
+ *  principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}:
+ *  All workforce identities with a specific attribute value.
+ *  principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *: All identities in a workforce identity pool.
+ *  principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}:
+ *  A single identity in a workload identity pool.
+ *  principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}:
+ *  A workload identity pool group.
+ *  principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}:
+ *  All identities in a workload identity pool with a certain attribute.
+ *  principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *: All identities in a workload identity pool.
+ *  deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  alice\@example.com?uid=123456789012345678901. If the user is recovered, this
+ *  value reverts to user:{emailid} and the recovered user retains the role in
+ *  the binding. deleted:serviceAccount:{emailid}?uid={uniqueid}: An email
+ *  address (plus unique identifier) representing a service account that has
+ *  been recently deleted. For example,
  *  my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901. If the
  *  service account is undeleted, this value reverts to serviceAccount:{emailid}
  *  and the undeleted service account retains the role in the binding.
@@ -7781,6 +7807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  example, admins\@example.com?uid=123456789012345678901. If the group is
  *  recovered, this value reverts to group:{emailid} and the recovered group
  *  retains the role in the binding.
+ *  deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

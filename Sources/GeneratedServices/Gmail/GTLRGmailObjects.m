@@ -582,7 +582,7 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_ListLabelsResponse
-@dynamic labels, productId;
+@dynamic labels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -126,6 +126,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Appengine"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AppHub",
+            targets: ["GoogleAPIClientForREST_AppHub"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Area120Tables",
             targets: ["GoogleAPIClientForREST_Area120Tables"]
         ),
@@ -1066,6 +1070,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_VMwareEngine"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Walletobjects",
+            targets: ["GoogleAPIClientForREST_Walletobjects"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Webfonts",
             targets: ["GoogleAPIClientForREST_Webfonts"]
         ),
@@ -1290,6 +1298,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Appengine",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Appengine",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AppHub",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AppHub",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2700,6 +2714,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_VMwareEngine",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/VMwareEngine",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Walletobjects",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Walletobjects",
             publicHeadersPath: "Public"
         ),
         .target(

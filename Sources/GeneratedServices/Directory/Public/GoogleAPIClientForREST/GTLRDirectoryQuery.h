@@ -361,7 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Takes an action that affects a Chrome OS Device. This includes
+ *  Use
+ *  [BatchChangeChromeOsDeviceStatus](/admin-sdk/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
+ *  instead. Takes an action that affects a Chrome OS Device. This includes
  *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
  *  Deprovisioning a device will stop device policy syncing and remove
  *  device-level printers. After a device is deprovisioned, it must be wiped
@@ -377,6 +379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
+GTLR_DEPRECATED
 @interface GTLRDirectoryQuery_ChromeosdevicesAction : GTLRDirectoryQuery
 
 /**
@@ -399,7 +402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Takes an action that affects a Chrome OS Device. This includes
+ *  Use
+ *  [BatchChangeChromeOsDeviceStatus](/admin-sdk/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
+ *  instead. Takes an action that affects a Chrome OS Device. This includes
  *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
  *  Deprovisioning a device will stop device policy syncing and remove
  *  device-level printers. After a device is deprovisioned, it must be wiped
@@ -769,6 +774,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 + (instancetype)queryWithObject:(GTLRDirectory_ChromeOsDevice *)object
                      customerId:(NSString *)customerId
                        deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Changes the status of a batch of ChromeOS devices. For more information
+ *  about changing a ChromeOS device state [Repair, repurpose, or retire
+ *  ChromeOS devices](https://support.google.com/chrome/a/answer/3523633).
+ *
+ *  Method: admin.customer.devices.chromeos.batchChangeStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ */
+@interface GTLRDirectoryQuery_CustomerDevicesChromeosBatchChangeStatus : GTLRDirectoryQuery
+
+/** Required. Immutable ID of the Google Workspace account. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchChangeChromeOsDeviceStatusResponse.
+ *
+ *  Changes the status of a batch of ChromeOS devices. For more information
+ *  about changing a ChromeOS device state [Repair, repurpose, or retire
+ *  ChromeOS devices](https://support.google.com/chrome/a/answer/3523633).
+ *
+ *  @param object The @c GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest to
+ *    include in the query.
+ *  @param customerId Required. Immutable ID of the Google Workspace account.
+ *
+ *  @return GTLRDirectoryQuery_CustomerDevicesChromeosBatchChangeStatus
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest *)object
+                     customerId:(NSString *)customerId;
 
 @end
 

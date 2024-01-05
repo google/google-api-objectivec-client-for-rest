@@ -1021,7 +1021,15 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_GuestInstalledApplication
-@dynamic applicationName, installTime, path, vendor, version;
+@dynamic applicationName, installTime, licenses, path, vendor, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"licenses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

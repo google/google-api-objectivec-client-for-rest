@@ -4373,6 +4373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** The name of the vCenter resource pool for the admin cluster. */
 @property(nonatomic, copy, nullable) NSString *resourcePool;
 
+/** The name of the vCenter storage policy for the user cluster. */
+@property(nonatomic, copy, nullable) NSString *storagePolicyName;
+
 @end
 
 
@@ -4954,8 +4957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareStaticIpConfig *staticIpConfig;
 
 /**
- *  vcenter_network specifies vCenter network name. Inherited from the admin
- *  cluster.
+ *  Output only. vcenter_network specifies vCenter network name. Inherited from
+ *  the admin cluster.
  */
 @property(nonatomic, copy, nullable) NSString *vcenterNetwork;
 

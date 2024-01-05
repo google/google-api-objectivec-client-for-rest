@@ -3119,7 +3119,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Creates a new creative. Returns the newly created creative if successful.
+ *  Creates a new creative. Returns the newly created creative if successful. A
+ *  ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or
+ *  greater for the parent advertiser or partner is required to make this
+ *  request.
  *
  *  Method: displayvideo.advertisers.creatives.create
  *
@@ -3134,7 +3137,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_Creative.
  *
- *  Creates a new creative. Returns the newly created creative if successful.
+ *  Creates a new creative. Returns the newly created creative if successful. A
+ *  ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or
+ *  greater for the parent advertiser or partner is required to make this
+ *  request.
  *
  *  @param object The @c GTLRDisplayVideo_Creative to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the
@@ -3150,7 +3156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Deletes a creative. Returns error code `NOT_FOUND` if the creative does not
  *  exist. The creative should be archived first, i.e. set entity_status to
- *  `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
+ *  `ENTITY_STATUS_ARCHIVED`, before it can be deleted. A ["Standard" user
+ *  role](//support.google.com/displayvideo/answer/2723011) or greater for the
+ *  parent advertiser or partner is required to make this request.
  *
  *  Method: displayvideo.advertisers.creatives.delete
  *
@@ -3170,7 +3178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *
  *  Deletes a creative. Returns error code `NOT_FOUND` if the creative does not
  *  exist. The creative should be archived first, i.e. set entity_status to
- *  `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
+ *  `ENTITY_STATUS_ARCHIVED`, before it can be deleted. A ["Standard" user
+ *  role](//support.google.com/displayvideo/answer/2723011) or greater for the
+ *  parent advertiser or partner is required to make this request.
  *
  *  @param advertiserId The ID of the advertiser this creative belongs to.
  *  @param creativeId The ID of the creative to be deleted.
@@ -3313,7 +3323,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 @end
 
 /**
- *  Updates an existing creative. Returns the updated creative if successful.
+ *  Updates an existing creative. Returns the updated creative if successful. A
+ *  ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or
+ *  greater for the parent advertiser or partner is required to make this
+ *  request.
  *
  *  Method: displayvideo.advertisers.creatives.patch
  *
@@ -3338,7 +3351,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Fetches a @c GTLRDisplayVideo_Creative.
  *
- *  Updates an existing creative. Returns the updated creative if successful.
+ *  Updates an existing creative. Returns the updated creative if successful. A
+ *  ["Standard" user role](//support.google.com/displayvideo/answer/2723011) or
+ *  greater for the parent advertiser or partner is required to make this
+ *  request.
  *
  *  @param object The @c GTLRDisplayVideo_Creative to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the
@@ -5562,7 +5578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this
  *  endpoint cannot be made concurrently with the following requests updating
  *  the same line item: * lineItems.bulkUpdate * lineItems.patch *
- *  assignedTargetingOptions.create * assignedTargetingOptions.delete
+ *  assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube &
+ *  Partners line items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.bulkEditAssignedTargetingOptions
  *
@@ -5584,7 +5601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  BulkEditAssignedTargetingOptionsRequest.create_requests. Requests to this
  *  endpoint cannot be made concurrently with the following requests updating
  *  the same line item: * lineItems.bulkUpdate * lineItems.patch *
- *  assignedTargetingOptions.create * assignedTargetingOptions.delete
+ *  assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube &
+ *  Partners line items cannot be created or updated using the API.
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditAssignedTargetingOptionsRequest to include in the
@@ -5685,7 +5703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Updates multiple line items. Requests to this endpoint cannot be made
  *  concurrently with the following requests updating the same line item: *
  *  BulkEditAssignedTargetingOptions * UpdateLineItem *
- *  assignedTargetingOptions.create * assignedTargetingOptions.delete
+ *  assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube &
+ *  Partners line items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.bulkUpdate
  *
@@ -5703,7 +5722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Updates multiple line items. Requests to this endpoint cannot be made
  *  concurrently with the following requests updating the same line item: *
  *  BulkEditAssignedTargetingOptions * UpdateLineItem *
- *  assignedTargetingOptions.create * assignedTargetingOptions.delete
+ *  assignedTargetingOptions.create * assignedTargetingOptions.delete YouTube &
+ *  Partners line items cannot be created or updated using the API.
  *
  *  @param object The @c GTLRDisplayVideo_BulkUpdateLineItemsRequest to include
  *    in the query.
@@ -5719,6 +5739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Creates a new line item. Returns the newly created line item if successful.
+ *  YouTube & Partners line items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.create
  *
@@ -5734,6 +5755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_LineItem.
  *
  *  Creates a new line item. Returns the newly created line item if successful.
+ *  YouTube & Partners line items cannot be created or updated using the API.
  *
  *  @param object The @c GTLRDisplayVideo_LineItem to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the line
@@ -5749,7 +5771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 /**
  *  Deletes a line item. Returns error code `NOT_FOUND` if the line item does
  *  not exist. The line item should be archived first, i.e. set entity_status to
- *  `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+ *  `ENTITY_STATUS_ARCHIVED`, to be able to delete it. YouTube & Partners line
+ *  items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.delete
  *
@@ -5769,7 +5792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *
  *  Deletes a line item. Returns error code `NOT_FOUND` if the line item does
  *  not exist. The line item should be archived first, i.e. set entity_status to
- *  `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+ *  `ENTITY_STATUS_ARCHIVED`, to be able to delete it. YouTube & Partners line
+ *  items cannot be created or updated using the API.
  *
  *  @param advertiserId The ID of the advertiser this line item belongs to.
  *  @param lineItemId The ID of the line item to delete.
@@ -5783,7 +5807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /**
  *  Duplicates a line item. Returns the ID of the created line item if
- *  successful.
+ *  successful. YouTube & Partners line items cannot be created or updated using
+ *  the API.
  *
  *  Method: displayvideo.advertisers.lineItems.duplicate
  *
@@ -5802,7 +5827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Fetches a @c GTLRDisplayVideo_DuplicateLineItemResponse.
  *
  *  Duplicates a line item. Returns the ID of the created line item if
- *  successful.
+ *  successful. YouTube & Partners line items cannot be created or updated using
+ *  the API.
  *
  *  @param object The @c GTLRDisplayVideo_DuplicateLineItemRequest to include in
  *    the query.
@@ -5823,7 +5849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  the insertion order and an `ENTITY_STATUS_DRAFT` entity_status. Returns the
  *  newly created line item if successful. There are default values based on the
  *  three fields: * The insertion order's insertion_order_type * The insertion
- *  order's automation_type * The given line_item_type
+ *  order's automation_type * The given line_item_type YouTube & Partners line
+ *  items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.generateDefault
  *
@@ -5842,7 +5869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  the insertion order and an `ENTITY_STATUS_DRAFT` entity_status. Returns the
  *  newly created line item if successful. There are default values based on the
  *  three fields: * The insertion order's insertion_order_type * The insertion
- *  order's automation_type * The given line_item_type
+ *  order's automation_type * The given line_item_type YouTube & Partners line
+ *  items cannot be created or updated using the API.
  *
  *  @param object The @c GTLRDisplayVideo_GenerateDefaultLineItemRequest to
  *    include in the query.
@@ -5977,7 +6005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Requests to this endpoint cannot be made concurrently with the following
  *  requests updating the same line item: * BulkEditAssignedTargetingOptions *
  *  BulkUpdateLineItems * assignedTargetingOptions.create *
- *  assignedTargetingOptions.delete
+ *  assignedTargetingOptions.delete YouTube & Partners line items cannot be
+ *  created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.patch
  *
@@ -6006,7 +6035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Requests to this endpoint cannot be made concurrently with the following
  *  requests updating the same line item: * BulkEditAssignedTargetingOptions *
  *  BulkUpdateLineItems * assignedTargetingOptions.create *
- *  assignedTargetingOptions.delete
+ *  assignedTargetingOptions.delete YouTube & Partners line items cannot be
+ *  created or updated using the API.
  *
  *  @param object The @c GTLRDisplayVideo_LineItem to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the line
@@ -6027,7 +6057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  option if successful. Requests to this endpoint cannot be made concurrently
  *  with the following requests updating the same line item: *
  *  lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate *
- *  lineItems.patch * DeleteLineItemAssignedTargetingOption
+ *  lineItems.patch * DeleteLineItemAssignedTargetingOption YouTube & Partners
+ *  line items cannot be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.create
  *
@@ -6241,7 +6272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  option if successful. Requests to this endpoint cannot be made concurrently
  *  with the following requests updating the same line item: *
  *  lineItems.bulkEditAssignedTargetingOptions * lineItems.bulkUpdate *
- *  lineItems.patch * DeleteLineItemAssignedTargetingOption
+ *  lineItems.patch * DeleteLineItemAssignedTargetingOption YouTube & Partners
+ *  line items cannot be created or updated using the API.
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
  *    the query.
@@ -6450,7 +6482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  endpoint cannot be made concurrently with the following requests updating
  *  the same line item: * lineItems.bulkEditAssignedTargetingOptions *
  *  lineItems.bulkUpdate * lineItems.patch *
- *  CreateLineItemAssignedTargetingOption
+ *  CreateLineItemAssignedTargetingOption YouTube & Partners line items cannot
+ *  be created or updated using the API.
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.delete
  *
@@ -6666,7 +6699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  endpoint cannot be made concurrently with the following requests updating
  *  the same line item: * lineItems.bulkEditAssignedTargetingOptions *
  *  lineItems.bulkUpdate * lineItems.patch *
- *  CreateLineItemAssignedTargetingOption
+ *  CreateLineItemAssignedTargetingOption YouTube & Partners line items cannot
+ *  be created or updated using the API.
  *
  *  @param advertiserId Required. The ID of the advertiser the line item belongs
  *    to.

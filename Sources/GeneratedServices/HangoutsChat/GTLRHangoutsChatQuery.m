@@ -248,7 +248,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersList
 
-@dynamic filter, pageSize, pageToken, parent, showInvited;
+@dynamic filter, pageSize, pageToken, parent, showGroups, showInvited;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

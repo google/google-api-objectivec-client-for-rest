@@ -1045,7 +1045,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_ReleaseConfig
-@dynamic codeCompilationConfig, cronSchedule, gitCommitish, name,
+@dynamic codeCompilationConfig, cronSchedule, disabled, gitCommitish, name,
          recentScheduledReleaseRecords, releaseCompilationResult, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

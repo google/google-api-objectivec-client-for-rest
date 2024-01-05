@@ -32,6 +32,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsTestIamPermissions : GTLRBackupdrQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBackupdr_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRBackupdr_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: backupdr.projects.locations.get

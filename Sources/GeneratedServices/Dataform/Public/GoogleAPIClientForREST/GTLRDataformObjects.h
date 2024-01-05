@@ -1955,6 +1955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
 
 /**
+ *  Optional. Disables automatic creation of compilation results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
  *  Required. Git commit/tag/branch name at which the repository should be
  *  compiled. Must exist in the remote repository. Examples: - a commit SHA:
  *  `12ade345` - a tag: `tag1` - a branch name: `branch1`

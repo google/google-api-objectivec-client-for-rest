@@ -201,7 +201,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_CleanupPolicyCondition
 @dynamic newerThan, olderThan, packageNamePrefixes, tagPrefixes, tagState,
-         versionAge, versionNamePrefixes;
+         versionNamePrefixes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -724,6 +724,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Xgboost;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1;
 /**
+ *  V2 Speech-to-Text API. See more details at [Google Cloud Speech-to-Text V2
+ *  API](https://cloud.google.com/speech-to-text/v2/docs)
+ *
+ *  Value: "CLOUD_AI_SPEECH_TO_TEXT_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiSpeechToTextV2;
+/**
  *  V3 Cloud AI Translation API. See more details at [Cloud Translation API]
  *  (https://cloud.google.com/translate/docs/reference/rest).
  *
@@ -2376,6 +2383,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Hist
  *  Value: "TREE_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_VectorSearchStatistics.indexUsageMode
+
+/**
+ *  The entire vector search query used vector indexes.
+ *
+ *  Value: "FULLY_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_FullyUsed;
+/**
+ *  Index usage mode not specified.
+ *
+ *  Value: "INDEX_USAGE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_IndexUsageModeUnspecified;
+/**
+ *  Part of the vector search query used vector indexes. See
+ *  [`indexUnusedReasons`]
+ *  (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for why other parts
+ *  of the query did not use vector indexes.
+ *
+ *  Value: "PARTIALLY_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_PartiallyUsed;
+/**
+ *  No vector indexes were used in the vector search query. See
+ *  [`indexUnusedReasons`]
+ *  (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for detailed
+ *  reasons.
+ *
+ *  Value: "UNUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused;
 
 /**
  *  Aggregate metrics for classification/classifier models. For multi-class
@@ -8283,6 +8324,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        V1 Cloud AI Natural Language API. See more details at [REST Resource:
  *        documents](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents).
  *        (Value: "CLOUD_AI_NATURAL_LANGUAGE_V1")
+ *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiSpeechToTextV2
+ *        V2 Speech-to-Text API. See more details at [Google Cloud
+ *        Speech-to-Text V2
+ *        API](https://cloud.google.com/speech-to-text/v2/docs) (Value:
+ *        "CLOUD_AI_SPEECH_TO_TEXT_V2")
  *    @arg @c kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiTranslateV3
  *        V3 Cloud AI Translation API. See more details at [Cloud Translation
  *        API] (https://cloud.google.com/translate/docs/reference/rest). (Value:
@@ -8296,6 +8342,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        "REMOTE_SERVICE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *remoteServiceType;
+
+/**
+ *  Output only. The name of the speech recognizer to use for speech
+ *  recognition. The expected format is
+ *  `projects/{project}/locations/{location}/recognizers/{recognizer}`.
+ *  Customers can specify this field at model creation. If not specified, a
+ *  default recognizer `projects/{model project}/locations/global/recognizers/_`
+ *  will be used. See more details at
+ *  [recognizers](https://cloud.google.com/speech-to-text/v2/docs/reference/rest/v2/projects.locations.recognizers)
+ */
+@property(nonatomic, copy, nullable) NSString *speechRecognizer;
 
 @end
 
@@ -10938,6 +10995,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  (gs://bucket/path).
  */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
+
+@end
+
+
+/**
+ *  Statistics for a vector search query. Populated as part of JobStatistics2.
+ */
+@interface GTLRBigquery_VectorSearchStatistics : GTLRObject
+
+/**
+ *  When `indexUsageMode` is `UNUSED` or `PARTIALLY_USED`, this field explains
+ *  why indexes were not used in all or part of the vector search query. If
+ *  `indexUsageMode` is `FULLY_USED`, this field is not populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexUnusedReason *> *indexUnusedReasons;
+
+/**
+ *  Specifies the index usage mode for the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_FullyUsed The
+ *        entire vector search query used vector indexes. (Value: "FULLY_USED")
+ *    @arg @c kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_IndexUsageModeUnspecified
+ *        Index usage mode not specified. (Value:
+ *        "INDEX_USAGE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_PartiallyUsed
+ *        Part of the vector search query used vector indexes. See
+ *        [`indexUnusedReasons`]
+ *        (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for why other
+ *        parts of the query did not use vector indexes. (Value:
+ *        "PARTIALLY_USED")
+ *    @arg @c kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused No
+ *        vector indexes were used in the vector search query. See
+ *        [`indexUnusedReasons`]
+ *        (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for detailed
+ *        reasons. (Value: "UNUSED")
+ */
+@property(nonatomic, copy, nullable) NSString *indexUsageMode;
 
 @end
 

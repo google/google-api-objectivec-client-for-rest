@@ -1807,8 +1807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_FetchCaCertsResponse : GTLRObject
 
 /**
- *  The PEM encoded CA certificate chains of all ACTIVE CertificateAuthority
- *  resources in this CaPool.
+ *  The PEM encoded CA certificate chains of all Certificate Authorities in this
+ *  CaPool in the ENABLED, DISABLED, or STAGED states.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertChain *> *caCerts;
 

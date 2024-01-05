@@ -155,6 +155,25 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesLoadAuthInfo
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:loadAuthInfo";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesLoadAuthInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_LoadInstanceAuthInfoResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.loadAuthInfo";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesPatch
 
 @dynamic name, updateMask;

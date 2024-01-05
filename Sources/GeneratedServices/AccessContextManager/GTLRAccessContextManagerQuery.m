@@ -876,3 +876,39 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 }
 
 @end
+
+@implementation GTLRAccessContextManagerQuery_ServicesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/services/{name}";
+  GTLRAccessContextManagerQuery_ServicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_SupportedService class];
+  query.loggingName = @"accesscontextmanager.services.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_ServicesList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/services";
+  GTLRAccessContextManagerQuery_ServicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRAccessContextManager_ListSupportedServicesResponse class];
+  query.loggingName = @"accesscontextmanager.services.list";
+  return query;
+}
+
+@end

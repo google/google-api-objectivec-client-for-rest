@@ -48,6 +48,7 @@
 @class GTLRNetworkServices_HttpRouteHeaderModifier;
 @class GTLRNetworkServices_HttpRouteHeaderModifier_Add;
 @class GTLRNetworkServices_HttpRouteHeaderModifier_Set;
+@class GTLRNetworkServices_HttpRouteHttpDirectResponse;
 @class GTLRNetworkServices_HttpRouteQueryParameterMatch;
 @class GTLRNetworkServices_HttpRouteRedirect;
 @class GTLRNetworkServices_HttpRouteRequestMirrorPolicy;
@@ -169,6 +170,53 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Grpc
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_Gateway.envoyHeaders
+
+/**
+ *  Envoy will insert default internal debug headers into upstream requests:
+ *  x-envoy-attempt-count x-envoy-is-timeout-retry
+ *  x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *  x-envoy-upstream-stream-duration-ms
+ *
+ *  Value: "DEBUG_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders;
+/**
+ *  Defaults to NONE.
+ *
+ *  Value: "ENVOY_HEADERS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_EnvoyHeadersUnspecified;
+/**
+ *  Suppress envoy debug headers.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_None;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_Gateway.ipVersion
+
+/**
+ *  The type for IP version 4.
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv4;
+/**
+ *  The type for IP version 6.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6;
+/**
+ *  The type when IP version is not specified. Defaults to IPV4.
+ *
+ *  Value: "IP_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.type
 
 /**
@@ -275,6 +323,31 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  Value: "TEMPORARY_REDIRECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_Mesh.envoyHeaders
+
+/**
+ *  Envoy will insert default internal debug headers into upstream requests:
+ *  x-envoy-attempt-count x-envoy-is-timeout-retry
+ *  x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *  x-envoy-upstream-stream-duration-ms
+ *
+ *  Value: "DEBUG_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders;
+/**
+ *  Defaults to NONE.
+ *
+ *  Value: "ENVOY_HEADERS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified;
+/**
+ *  Suppress envoy debug headers.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -650,7 +723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway.
+ *  to dictate how requests should be routed by this Gateway. Next id: 29
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
@@ -681,6 +754,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Determines if envoy will insert internal debug headers into
+ *  upstream requests. Other Envoy headers may still be injected. By default,
+ *  envoy will not insert any debug headers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders Envoy will
+ *        insert default internal debug headers into upstream requests:
+ *        x-envoy-attempt-count x-envoy-is-timeout-retry
+ *        x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *        x-envoy-upstream-stream-duration-ms (Value: "DEBUG_HEADERS")
+ *    @arg @c kGTLRNetworkServices_Gateway_EnvoyHeaders_EnvoyHeadersUnspecified
+ *        Defaults to NONE. (Value: "ENVOY_HEADERS_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_Gateway_EnvoyHeaders_None Suppress envoy
+ *        debug headers. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *envoyHeaders;
+
+/**
  *  Optional. A fully-qualified GatewaySecurityPolicy URL reference. Defines how
  *  a server should apply security policy to inbound (VM to Proxy) initiated
  *  connections. For example: `projects/ * /locations/ *
@@ -688,6 +779,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  type 'SECURE_WEB_GATEWAY'.
  */
 @property(nonatomic, copy, nullable) NSString *gatewaySecurityPolicy;
+
+/**
+ *  Optional. The IP Version that will be used by this gateway. Valid options
+ *  are IPV4 or IPV6. Default is IPV4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Gateway_IpVersion_Ipv4 The type for IP
+ *        version 4. (Value: "IPV4")
+ *    @arg @c kGTLRNetworkServices_Gateway_IpVersion_Ipv6 The type for IP
+ *        version 6. (Value: "IPV6")
+ *    @arg @c kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified The
+ *        type when IP version is not specified. Defaults to IPV4. (Value:
+ *        "IP_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipVersion;
 
 /** Optional. Set of label tags associated with the Gateway resource. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Gateway_Labels *labels;
@@ -1087,6 +1193,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteFaultInjectionPolicy *faultInjectionPolicy;
 
+/**
+ *  Optional. Specifies the idle timeout for the selected route. The idle
+ *  timeout is defined as the period in which there are no bytes sent or
+ *  received on either the upstream or downstream connection. If not set, the
+ *  default idle timeout is 1 hour. If set to 0s, the timeout will be disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
+
 /** Optional. Specifies the retry policy associated with this route. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteRetryPolicy *retryPolicy;
 
@@ -1313,6 +1427,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @interface GTLRNetworkServices_HttpRouteDestination : GTLRObject
 
+/**
+ *  Optional. The specification for modifying the headers of a matching request
+ *  prior to delivery of the request to the destination. If HeaderModifiers are
+ *  set on both the Destination and the RouteAction, they will be merged.
+ *  Conflicts between the two will not be resolved on the configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *requestHeaderModifier;
+
+/**
+ *  Optional. The specification for modifying the headers of a response prior to
+ *  sending the response back to the client. If HeaderModifiers are set on both
+ *  the Destination and the RouteAction, they will be merged. Conflicts between
+ *  the two will not be resolved on the configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *responseHeaderModifier;
+
 /** The URL of a BackendService to route traffic to. */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -1522,6 +1652,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 
 /**
+ *  Static HTTP response object to be returned.
+ */
+@interface GTLRNetworkServices_HttpRouteHttpDirectResponse : GTLRObject
+
+/**
+ *  Optional. Response body as bytes. Maximum body size is 4096B.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *bytesBody;
+
+/**
+ *  Required. Status to return as part of HTTP Response. Must be a positive
+ *  integer.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
+
+/**
+ *  Optional. Response body as a string. Maximum body length is 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *stringBody;
+
+@end
+
+
+/**
  *  Specifications to match a query parameter in the request.
  */
 @interface GTLRNetworkServices_HttpRouteQueryParameterMatch : GTLRObject
@@ -1646,6 +1805,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteDestination *destination;
 
+/**
+ *  Optional. The percentage of requests to get mirrored to the desired
+ *  destination.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mirrorPercent;
+
 @end
 
 
@@ -1697,6 +1864,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteDestination *> *destinations;
 
 /**
+ *  Optional. Static HTTP Response object to be returned regardless of the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHttpDirectResponse *directResponse;
+
+/**
  *  The specification for fault injection introduced into traffic to test the
  *  resiliency of clients to backend service failure. As part of fault
  *  injection, when clients send requests to a backend service, delays can be
@@ -1706,6 +1879,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  that are configured with a fault_injection_policy
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteFaultInjectionPolicy *faultInjectionPolicy;
+
+/**
+ *  Optional. Specifies the idle timeout for the selected route. The idle
+ *  timeout is defined as the period in which there are no bytes sent or
+ *  received on either the upstream or downstream connection. If not set, the
+ *  default idle timeout is 1 hour. If set to 0s, the timeout will be disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
 
 /** If set, the request is directed as configured by this field. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteRedirect *redirect;
@@ -2228,6 +2409,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Determines if envoy will insert internal debug headers into
+ *  upstream requests. Other Envoy headers may still be injected. By default,
+ *  envoy will not insert any debug headers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders Envoy will
+ *        insert default internal debug headers into upstream requests:
+ *        x-envoy-attempt-count x-envoy-is-timeout-retry
+ *        x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *        x-envoy-upstream-stream-duration-ms (Value: "DEBUG_HEADERS")
+ *    @arg @c kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified
+ *        Defaults to NONE. (Value: "ENVOY_HEADERS_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_Mesh_EnvoyHeaders_None Suppress envoy debug
+ *        headers. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *envoyHeaders;
+
+/**
  *  Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy
  *  to listen on the specified port of localhost (127.0.0.1) address. The
  *  SIDECAR proxy will expect all traffic to be redirected to this port
@@ -2690,6 +2889,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRouteRouteDestination *> *destinations;
 
 /**
+ *  Optional. Specifies the idle timeout for the selected route. The idle
+ *  timeout is defined as the period in which there are no bytes sent or
+ *  received on either the upstream or downstream connection. If not set, the
+ *  default idle timeout is 30 seconds. If set to 0s, the timeout will be
+ *  disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
+
+/**
  *  Optional. If true, Router will use the destination IP and port of the
  *  original connection as the destination of the request. Default is false.
  *  Only one of route destinations or original destination can be set.
@@ -2878,6 +3086,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  least one destination service is required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteDestination *> *destinations;
+
+/**
+ *  Optional. Specifies the idle timeout for the selected route. The idle
+ *  timeout is defined as the period in which there are no bytes sent or
+ *  received on either the upstream or downstream connection. If not set, the
+ *  default idle timeout is 1 hour. If set to 0s, the timeout will be disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTimeout;
 
 @end
 

@@ -771,6 +771,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Immutable. Fully qualified name `project/ *
  *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -795,6 +797,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name Immutable. Fully qualified name `project/ *
  *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *    /conversations/ *`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsPatch
  */
@@ -1579,6 +1583,261 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Converses a conversation.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.converse
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Conversation to get. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *  Use
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *  to activate auto session mode, which automatically creates a new
+ *  conversation inside a ConverseConversation session.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse.
+ *
+ *  Converses a conversation.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the Conversation to get. Format:
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *    Use
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *    to activate auto session mode, which automatically creates a new
+ *    conversation inside a ConverseConversation session.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Conversation. If the Conversation to create already exists, an
+ *  ALREADY_EXISTS error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of parent data store. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *
+ *  Creates a Conversation. If the Conversation to create already exists, an
+ *  ALREADY_EXISTS error is returned.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
+ *    include in the query.
+ *  @param parent Required. Full resource name of parent data store. Format:
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Conversation. If the Conversation to delete does not exist, a
+ *  NOT_FOUND error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Conversation to delete. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a Conversation. If the Conversation to delete does not exist, a
+ *  NOT_FOUND error is returned.
+ *
+ *  @param name Required. The resource name of the Conversation to delete.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Conversation.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Conversation to get. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *
+ *  Gets a Conversation.
+ *
+ *  @param name Required. The resource name of the Conversation to get. Format:
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Conversations by their parent DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  A filter to apply on the list results. The supported features are:
+ *  user_pseudo_id, state. Example: "user_pseudo_id = some_id"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: * `update_time`
+ *  * `create_time` * `conversation_name` Example: "update_time desc"
+ *  "create_time"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of results to return. If unspecified, defaults to 50. Max
+ *  allowed value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListConversations` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The data store resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse.
+ *
+ *  Lists all Conversations by their parent DataStore.
+ *
+ *  @param parent Required. The data store resource name. Format:
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Conversation. Conversation action type cannot be changed. If the
+ *  Conversation to update does not exist, a NOT_FOUND error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.conversations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name `project/ *
+ *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  /conversations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided Conversation to update. The following
+ *  are NOT supported: * conversation.name If not set or empty, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *
+ *  Updates a Conversation. Conversation action type cannot be changed. If the
+ *  Conversation to update does not exist, a NOT_FOUND error is returned.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
+ *    include in the query.
+ *  @param name Immutable. Fully qualified name `project/ *
+ *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *    /conversations/ *`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2484,6 +2743,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Immutable. Fully qualified name `project/ *
  *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2508,6 +2769,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name Immutable. Fully qualified name `project/ *
  *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *    /conversations/ *`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsPatch
  */

@@ -80,6 +80,16 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRAccessContextManager_SupportedService.supportStage
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Alpha = @"ALPHA";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Beta = @"BETA";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Ga = @"GA";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimplemented = @"UNIMPLEMENTED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAccessContextManager_AccessLevel
@@ -645,6 +655,28 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_ListSupportedServicesResponse
+//
+
+@implementation GTLRAccessContextManager_ListSupportedServicesResponse
+@dynamic nextPageToken, supportedServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedServices" : [GTLRAccessContextManager_SupportedService class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"supportedServices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_MethodSelector
 //
 
@@ -889,6 +921,25 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_SupportedService
+//
+
+@implementation GTLRAccessContextManager_SupportedService
+@dynamic availableOnRestrictedVip, knownLimitations, name, supportedMethods,
+         supportStage, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedMethods" : [GTLRAccessContextManager_MethodSelector class]
+  };
+  return map;
 }
 
 @end

@@ -473,7 +473,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_RankPreferenceUnspecified;
 /**
  *  Ranks results by relevance. Sort order determined by normal ranking stack.
- *  See SortRefinement::RELEVANCE.
  *
  *  Value: "RELEVANCE"
  */
@@ -746,8 +745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Identifier. A reference representing this place photo which may be used to
- *  look up this place photo again (a.k.a. the API "resource" name:
- *  places/{place_id}/photos/{photo}).
+ *  look up this place photo again (also called the API "resource" name:
+ *  `places/{place_id}/photos/{photo}`).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -768,7 +767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  The resource name of a photo media in the format:
- *  `places/place_id/photos/photo_reference/media`.
+ *  `places/{place_id}/photos/{photo_reference}/media`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1561,7 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /**
  *  A reference representing this place review which may be used to look up this
  *  place review again (also called the API "resource" name:
- *  places/place_id/reviews/review).
+ *  `places/{place_id}/reviews/{review}`).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1598,27 +1597,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /**
  *  Excluded primary Place type (e.g. "restaurant" or "gas_station") from
  *  https://developers.google.com/maps/documentation/places/web-service/place-types.
- *  If there are any conflicting primary types, i.e. a type appears in both
- *  included_primary_types and excluded_primary_types, an INVALID_ARGUMENT error
- *  is returned. If a Place type is specified with multiple type restrictions,
- *  only places that satisfy all of the restrictions are returned. For example,
- *  if we have {included_types = ["restaurant"], excluded_primary_types =
- *  ["restaurant"]}, the returned places provide "restaurant" related services
- *  but do not operate primarily as "restaurants".
+ *  Up to 50 types from [Table
+ *  A](https://developers.google.com/maps/documentation/places/web-service/place-types#table-a)
+ *  may be specified. If there are any conflicting primary types, i.e. a type
+ *  appears in both included_primary_types and excluded_primary_types, an
+ *  INVALID_ARGUMENT error is returned. If a Place type is specified with
+ *  multiple type restrictions, only places that satisfy all of the restrictions
+ *  are returned. For example, if we have {included_types = ["restaurant"],
+ *  excluded_primary_types = ["restaurant"]}, the returned places provide
+ *  "restaurant" related services but do not operate primarily as "restaurants".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedPrimaryTypes;
 
 /**
  *  Excluded Place type (eg, "restaurant" or "gas_station") from
  *  https://developers.google.com/maps/documentation/places/web-service/place-types.
- *  If the client provides both included_types (e.g. restaurant) and
- *  excluded_types (e.g. cafe), then the response should include places that are
- *  restaurant but not cafe. The response includes places that match at least
- *  one of the included_types and none of the excluded_types. If there are any
- *  conflicting types, i.e. a type appears in both included_types and
- *  excluded_types, an INVALID_ARGUMENT error is returned. If a Place type is
- *  specified with multiple type restrictions, only places that satisfy all of
- *  the restrictions are returned. For example, if we have {included_types =
+ *  Up to 50 types from [Table
+ *  A](https://developers.google.com/maps/documentation/places/web-service/place-types#table-a)
+ *  may be specified. If the client provides both included_types (e.g.
+ *  restaurant) and excluded_types (e.g. cafe), then the response should include
+ *  places that are restaurant but not cafe. The response includes places that
+ *  match at least one of the included_types and none of the excluded_types. If
+ *  there are any conflicting types, i.e. a type appears in both included_types
+ *  and excluded_types, an INVALID_ARGUMENT error is returned. If a Place type
+ *  is specified with multiple type restrictions, only places that satisfy all
+ *  of the restrictions are returned. For example, if we have {included_types =
  *  ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned
  *  places provide "restaurant" related services but do not operate primarily as
  *  "restaurants".
@@ -1629,7 +1632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Included primary Place type (e.g. "restaurant" or "gas_station") from
  *  https://developers.google.com/maps/documentation/places/web-service/place-types.
  *  A place can only have a single primary type from the supported types table
- *  associated with it. If there are any conflicting primary types, i.e. a type
+ *  associated with it. Up to 50 types from [Table
+ *  A](https://developers.google.com/maps/documentation/places/web-service/place-types#table-a)
+ *  may be specified. If there are any conflicting primary types, i.e. a type
  *  appears in both included_primary_types and excluded_primary_types, an
  *  INVALID_ARGUMENT error is returned. If a Place type is specified with
  *  multiple type restrictions, only places that satisfy all of the restrictions
@@ -1642,13 +1647,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /**
  *  Included Place type (eg, "restaurant" or "gas_station") from
  *  https://developers.google.com/maps/documentation/places/web-service/place-types.
- *  If there are any conflicting types, i.e. a type appears in both
- *  included_types and excluded_types, an INVALID_ARGUMENT error is returned. If
- *  a Place type is specified with multiple type restrictions, only places that
- *  satisfy all of the restrictions are returned. For example, if we have
- *  {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]},
- *  the returned places provide "restaurant" related services but do not operate
- *  primarily as "restaurants".
+ *  Up to 50 types from [Table
+ *  A](https://developers.google.com/maps/documentation/places/web-service/place-types#table-a)
+ *  may be specified. If there are any conflicting types, i.e. a type appears in
+ *  both included_types and excluded_types, an INVALID_ARGUMENT error is
+ *  returned. If a Place type is specified with multiple type restrictions, only
+ *  places that satisfy all of the restrictions are returned. For example, if we
+ *  have {included_types = ["restaurant"], excluded_primary_types =
+ *  ["restaurant"]}, the returned places provide "restaurant" related services
+ *  but do not operate primarily as "restaurants".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedTypes;
 
@@ -1773,11 +1780,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Filter out results whose average user rating is strictly less than this
- *  limit. A valid value must be an float between 0 and 5 (inclusively) at a 0.5
- *  cadence i.e. [0, 0.5, 1.0, ... , 5.0] inclusively. This is to keep parity
- *  with LocalRefinement_UserRating. The input rating will round up to the
- *  nearest 0.5(ceiling). For instance, a rating of 0.6 will eliminate all
- *  results with a less than 1.0 rating.
+ *  limit. A valid value must be a float between 0 and 5 (inclusively) at a 0.5
+ *  cadence i.e. [0, 0.5, 1.0, ... , 5.0] inclusively. The input rating will
+ *  round up to the nearest 0.5(ceiling). For instance, a rating of 0.6 will
+ *  eliminate all results with a less than 1.0 rating.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1809,7 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        "RANK_PREFERENCE_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Relevance
  *        Ranks results by relevance. Sort order determined by normal ranking
- *        stack. See SortRefinement::RELEVANCE. (Value: "RELEVANCE")
+ *        stack. (Value: "RELEVANCE")
  */
 @property(nonatomic, copy, nullable) NSString *rankPreference;
 
@@ -1850,6 +1856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  A rectangle box defined by northeast and southwest corner.
  *  `rectangle.high()` must be the northeast point of the rectangle viewport.
  *  `rectangle.low()` must be the southwest point of the rectangle viewport.
+ *  `rectangle.low().latitude()` cannot be greater than
+ *  `rectangle.high().latitude()`. This will result in an empty latitude range.
+ *  A rectangle viewport cannot be wider than 180 degrees.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
 
@@ -1866,6 +1875,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  A rectangle box defined by northeast and southwest corner.
  *  `rectangle.high()` must be the northeast point of the rectangle viewport.
  *  `rectangle.low()` must be the southwest point of the rectangle viewport.
+ *  `rectangle.low().latitude()` cannot be greater than
+ *  `rectangle.high().latitude()`. This will result in an empty latitude range.
+ *  A rectangle viewport cannot be wider than 180 degrees.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
 

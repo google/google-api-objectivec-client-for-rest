@@ -51,7 +51,6 @@
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldIntegerOptions;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLimits;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldListOptions;
-@class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLongTextOptions;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldProperties;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldSchemaCapabilities;
 @class GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldSelectionOptions;
@@ -750,9 +749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
 /** Update field to Integer. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldIntegerOptions *integerOptions;
 
-/** Update field to Long Text. */
-@property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLongTextOptions *longTextOptions;
-
 /** Update field to Selection. */
 @property(nonatomic, strong, nullable) GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldSelectionOptions *selectionOptions;
 
@@ -1359,28 +1355,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveLabels_GoogleAppsDriveLabelsV2Updat
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxEntries;
-
-@end
-
-
-/**
- *  Options the Long Text field type.
- */
-@interface GTLRDriveLabels_GoogleAppsDriveLabelsV2FieldLongTextOptions : GTLRObject
-
-/**
- *  Output only. The maximum valid length of values for the text field.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxLength;
-
-/**
- *  Output only. The minimum valid length of values for the text field.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minLength;
 
 @end
 

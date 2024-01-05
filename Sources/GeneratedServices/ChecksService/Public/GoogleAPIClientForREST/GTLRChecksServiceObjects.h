@@ -69,6 +69,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest.appBinaryFileType
+
+/**
+ *  .aab (app bundle) file type.
+ *
+ *  Value: "ANDROID_AAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidAab;
+/**
+ *  .apk file type.
+ *
+ *  Value: "ANDROID_APK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidApk;
+/**
+ *  Not specified.
+ *
+ *  Value: "APP_BINARY_FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AppBinaryFileTypeUnspecified;
+/**
+ *  .ipa file type.
+ *
+ *  Value: "IOS_IPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_IosIpa;
+
+// ----------------------------------------------------------------------------
 // GTLRChecksService_GoogleChecksReportV1alphaAppBundle.releaseType
 
 /**
@@ -1610,6 +1638,22 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *  The request message for ReportService.AnalyzeUpload.
  */
 @interface GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest : GTLRObject
+
+/**
+ *  Optional. The type of the uploaded app binary. If not provided, the server
+ *  assumes APK file for Android and IPA file for iOS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidAab
+ *        .aab (app bundle) file type. (Value: "ANDROID_AAB")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AndroidApk
+ *        .apk file type. (Value: "ANDROID_APK")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_AppBinaryFileTypeUnspecified
+ *        Not specified. (Value: "APP_BINARY_FILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest_AppBinaryFileType_IosIpa
+ *        .ipa file type. (Value: "IOS_IPA")
+ */
+@property(nonatomic, copy, nullable) NSString *appBinaryFileType;
 
 /**
  *  Optional. Git commit hash or changelist number associated with the upload.

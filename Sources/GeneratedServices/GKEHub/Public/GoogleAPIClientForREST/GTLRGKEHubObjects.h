@@ -2240,23 +2240,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ClusterUpgradeMembershipState : GTLRObject
 
 /**
- *  Project number or id of the fleet. It is set only for Memberships that are
- *  part of fleet-based Rollout Sequencing.
- */
-@property(nonatomic, copy, nullable) NSString *fleet;
-
-/**
  *  Whether this membership is ignored by the feature. For example, manually
  *  upgraded clusters can be ignored if they are newer than the default versions
  *  of its release channel.
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeIgnoredMembership *ignored;
-
-/**
- *  Fully qualified scope names that this clusters is bound to which also have
- *  rollout sequencing enabled.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /** Actual upgrade state against desired. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ClusterUpgradeMembershipGKEUpgradeState *> *upgrades;
@@ -2419,8 +2407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Identity is enabled. The GSA should have the Monitoring Metric Writer
  *  (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount
  *  `default` in the namespace `config-management-monitoring` should be bound to
- *  the GSA. This field is required when automatic Feature management is
- *  enabled.
+ *  the GSA.
  */
 @property(nonatomic, copy, nullable) NSString *metricsGcpServiceAccountEmail;
 
@@ -5734,11 +5721,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *podAffinity;
 
 /**
- *  Pod anti-affinity enablement.
+ *  Pod anti-affinity enablement. Deprecated: use `pod_affinity` instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *podAntiAffinity;
+@property(nonatomic, strong, nullable) NSNumber *podAntiAffinity GTLR_DEPRECATED;
 
 /** Pod tolerations of node taints. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_PolicyControllerToleration *> *podTolerations;

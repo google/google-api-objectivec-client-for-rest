@@ -500,6 +500,438 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The new custom module's parent. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param parent Required. The new custom module's parent. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEventThreatDetectionCustomModules` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListEventThreatDetectionCustomModules` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListDescendantEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListDescendantEventThreatDetectionCustomModules` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the Event Threat Detection custom module.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param name Immutable. The resource name of the Event Threat Detection
+ *    custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The resource name of the effective Event Threat Detection custom
+ *  module. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.
+ *
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  @param name Required. The resource name of the effective Event Threat
+ *    Detection custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEffectiveEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListEffectiveEventThreatDetectionCustomModules` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules for. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  @param parent Required. Name of the parent to list custom modules for. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.folders.eventThreatDetectionSettings.validateCustomModule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the parent to validate the Custom Module under.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse.
+ *
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. Resource name of the parent to validate the Custom
+ *    Module under. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsValidateCustomModule
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Kicks off an LRO to bulk mute findings for a parent based on a filter. The
  *  parent can be either an organization, folder or project. The findings
  *  matched by the filter will be muted after the LRO is done.
@@ -1365,7 +1797,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to update.
+ *  The list of fields to be updated. The only fields that can be updated are
+ *  `enablement_state` and `custom_config`. If empty or set to the wildcard
+ *  value `*`, both `enablement_state` and `custom_config` are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1412,9 +1846,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The relative resource name of the organization, project, or
- *  folder. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  An example is: "organizations/{organization_id}".
+ *  folder. For more information about relative resource names, see [Relative
+ *  Resource
+ *  Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  Example: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1428,9 +1863,10 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
  *    to include in the query.
  *  @param parent Required. The relative resource name of the organization,
- *    project, or folder. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    An example is: "organizations/{organization_id}".
+ *    project, or folder. For more information about relative resource names,
+ *    see [Relative Resource
+ *    Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    Example: `organizations/{organization_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesSimulate
  */
@@ -2519,7 +2955,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates an Event Threat Detection custom module.
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
  *
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.create
  *
@@ -2530,20 +2968,26 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The new custom module's parent. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings".
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
  *
- *  Creates an Event Threat Detection custom module.
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
  *
  *  @param object The @c
  *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
  *    the query.
  *  @param parent Required. The new custom module's parent. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings".
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate
  */
@@ -2553,7 +2997,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Deletes an Event Threat Detection custom module.
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
  *
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.delete
  *
@@ -2565,16 +3011,23 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the custom module to delete. Its format is: *
  *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_Empty.
  *
- *  Deletes an Event Threat Detection custom module.
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is: *
  *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete
  */
@@ -2595,6 +3048,8 @@ GTLR_DEPRECATED
 /**
  *  Required. Name of the custom module to get. Its format is: *
  *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2605,6 +3060,9 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the custom module to get. Its format is: *
  *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet
  */
@@ -2613,7 +3071,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists Event Threat Detection custom modules.
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
  *
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.list
  *
@@ -2640,7 +3100,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings".
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2648,10 +3110,14 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse.
  *
- *  Lists Event Threat Detection custom modules.
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
  *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList
  *
@@ -2664,7 +3130,69 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Updates an Event Threat Detection custom module.
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListDescendantEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListDescendantEventThreatDetectionCustomModules` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
  *
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.patch
  *
@@ -2693,7 +3221,12 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
  *
- *  Updates an Event Threat Detection custom module.
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
  *
  *  @param object The @c
  *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
@@ -2713,6 +3246,106 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The resource name of the effective Event Threat Detection custom
+ *  module. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.
+ *
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  @param name Required. The resource name of the effective Event Threat
+ *    Detection custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  Method: securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEffectiveEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListEffectiveEventThreatDetectionCustomModules` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules for. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  @param parent Required. Name of the parent to list custom modules for. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Validates the given Event Threat Detection custom module.
  *
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.validateCustomModule
@@ -2725,7 +3358,9 @@ GTLR_DEPRECATED
 /**
  *  Required. Resource name of the parent to validate the Custom Module under.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings".
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2740,7 +3375,9 @@ GTLR_DEPRECATED
  *    to include in the query.
  *  @param parent Required. Resource name of the parent to validate the Custom
  *    Module under. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings".
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule
  */
@@ -3975,7 +4612,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to update.
+ *  The list of fields to be updated. The only fields that can be updated are
+ *  `enablement_state` and `custom_config`. If empty or set to the wildcard
+ *  value `*`, both `enablement_state` and `custom_config` are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4022,9 +4661,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The relative resource name of the organization, project, or
- *  folder. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  An example is: "organizations/{organization_id}".
+ *  folder. For more information about relative resource names, see [Relative
+ *  Resource
+ *  Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  Example: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4038,9 +4678,10 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
  *    to include in the query.
  *  @param parent Required. The relative resource name of the organization,
- *    project, or folder. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    An example is: "organizations/{organization_id}".
+ *    project, or folder. For more information about relative resource names,
+ *    see [Relative Resource
+ *    Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    Example: `organizations/{organization_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesSimulate
  */
@@ -4410,6 +5051,36 @@ GTLR_DEPRECATED
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get the valued resource by name
+ *
+ *  Method: securitycenter.organizations.simulations.valuedResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The name of this valued resource Valid format:
+ *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ValuedResource.
+ *
+ *  Get the valued resource by name
+ *
+ *  @param name Required. The name of this valued resource Valid format:
+ *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -5719,6 +6390,438 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The new custom module's parent. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Creates a resident Event Threat Detection custom module at the scope of the
+ *  given Resource Manager parent, and also creates inherited custom modules for
+ *  all descendants of the given parent. These modules are enabled by default.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param parent Required. The new custom module's parent. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to delete. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes the specified Event Threat Detection custom module and all of its
+ *  descendants in the Resource Manager hierarchy. This method is only supported
+ *  for resident custom modules.
+ *
+ *  @param name Required. Name of the custom module to delete. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Name of the custom module to get. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Gets an Event Threat Detection custom module.
+ *
+ *  @param name Required. Name of the custom module to get. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEventThreatDetectionCustomModules` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListEventThreatDetectionCustomModules` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all Event Threat Detection custom modules for the given Resource
+ *  Manager parent. This includes resident modules defined at the scope of the
+ *  parent along with modules inherited from ancestors.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.listDescendant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListDescendantEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListDescendantEventThreatDetectionCustomModules` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules under. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all resident Event Threat Detection custom modules under the given
+ *  Resource Manager parent and its descendants.
+ *
+ *  @param parent Required. Name of the parent to list custom modules under. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesListDescendant
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Immutable. The resource name of the Event Threat Detection custom module.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
+ *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. If empty all mutable fields will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.
+ *
+ *  Updates the Event Threat Detection custom module with the given name based
+ *  on the given update mask. Updating the enablement state is supported for
+ *  both resident and inherited modules (though resident modules cannot have an
+ *  enablement state of "inherited"). Updating the display name or configuration
+ *  of a module is supported for resident modules only. The type of a module
+ *  cannot be changed.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
+ *    the query.
+ *  @param name Immutable. The resource name of the Event Threat Detection
+ *    custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+ *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. The resource name of the effective Event Threat Detection custom
+ *  module. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.
+ *
+ *  Gets an effective Event Threat Detection custom module at the given level.
+ *
+ *  @param name Required. The resource name of the effective Event Threat
+ *    Detection custom module. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    *
+ *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of modules to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListEffectiveEventThreatDetectionCustomModules` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListEffectiveEventThreatDetectionCustomModules` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent to list custom modules for. Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse.
+ *
+ *  Lists all effective Event Threat Detection custom modules for the given
+ *  parent. This includes resident modules defined at the scope of the parent
+ *  along with modules inherited from its ancestors.
+ *
+ *  @param parent Required. Name of the parent to list custom modules for. Its
+ *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
+ *    * "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  Method: securitycenter.projects.eventThreatDetectionSettings.validateCustomModule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Resource name of the parent to validate the Custom Module under.
+ *  Its format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings". *
+ *  "folders/{folder}/eventThreatDetectionSettings". *
+ *  "projects/{project}/eventThreatDetectionSettings".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleResponse.
+ *
+ *  Validates the given Event Threat Detection custom module.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest
+ *    to include in the query.
+ *  @param parent Required. Resource name of the parent to validate the Custom
+ *    Module under. Its format is: *
+ *    "organizations/{organization}/eventThreatDetectionSettings". *
+ *    "folders/{folder}/eventThreatDetectionSettings". *
+ *    "projects/{project}/eventThreatDetectionSettings".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsValidateCustomModule
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_ValidateEventThreatDetectionCustomModuleRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Kicks off an LRO to bulk mute findings for a parent based on a filter. The
  *  parent can be either an organization, folder or project. The findings
  *  matched by the filter will be muted after the LRO is done.
@@ -6584,7 +7687,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to update.
+ *  The list of fields to be updated. The only fields that can be updated are
+ *  `enablement_state` and `custom_config`. If empty or set to the wildcard
+ *  value `*`, both `enablement_state` and `custom_config` are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -6631,9 +7736,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The relative resource name of the organization, project, or
- *  folder. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  An example is: "organizations/{organization_id}".
+ *  folder. For more information about relative resource names, see [Relative
+ *  Resource
+ *  Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *  Example: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6647,9 +7753,10 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest
  *    to include in the query.
  *  @param parent Required. The relative resource name of the organization,
- *    project, or folder. See:
- *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    An example is: "organizations/{organization_id}".
+ *    project, or folder. For more information about relative resource names,
+ *    see [Relative Resource
+ *    Name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
+ *    Example: `organizations/{organization_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesSimulate
  */

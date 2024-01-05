@@ -22,6 +22,98 @@
 
 @end
 
+@implementation GTLRAnalyticsDataQuery_PropertiesAudienceExportsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_AudienceExport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/audienceExports";
+  GTLRAnalyticsDataQuery_PropertiesAudienceExportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAnalyticsData_Operation class];
+  query.loggingName = @"analyticsdata.properties.audienceExports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesAudienceExportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRAnalyticsDataQuery_PropertiesAudienceExportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsData_AudienceExport class];
+  query.loggingName = @"analyticsdata.properties.audienceExports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesAudienceExportsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/audienceExports";
+  GTLRAnalyticsDataQuery_PropertiesAudienceExportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAnalyticsData_ListAudienceExportsResponse class];
+  query.loggingName = @"analyticsdata.properties.audienceExports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesAudienceExportsQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_QueryAudienceExportRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}:query";
+  GTLRAnalyticsDataQuery_PropertiesAudienceExportsQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsData_QueryAudienceExportResponse class];
+  query.loggingName = @"analyticsdata.properties.audienceExports.query";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsDataQuery_PropertiesBatchRunPivotReports
 
 @dynamic property;

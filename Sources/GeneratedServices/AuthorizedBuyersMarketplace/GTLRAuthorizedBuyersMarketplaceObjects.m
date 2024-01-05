@@ -39,6 +39,7 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_Invited = @"I
 NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativeFormat
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Audio = @"AUDIO";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_CreativeFormatUnspecified = @"CREATIVE_FORMAT_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Display = @"DISPLAY";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Video = @"VIDEO";

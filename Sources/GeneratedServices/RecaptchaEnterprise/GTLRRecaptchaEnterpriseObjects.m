@@ -639,7 +639,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership
-@dynamic hashedAccountId, name;
+@dynamic accountId, hashedAccountId, name;
 @end
 
 
@@ -726,7 +726,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
-@dynamic hashedAccountId, pageSize, pageToken;
+@dynamic accountId, hashedAccountId, pageSize, pageToken;
 @end
 
 

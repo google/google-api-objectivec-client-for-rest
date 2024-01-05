@@ -36,6 +36,11 @@ NSString * const kGTLRAndroidPublisherImageTypeTvBanner        = @"tvBanner";
 NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots   = @"tvScreenshots";
 NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreenshots";
 
+// latencyTolerance
+NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -1337,9 +1342,88 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
-@implementation GTLRAndroidPublisherQuery_InappproductsDelete
+@implementation GTLRAndroidPublisherQuery_InappproductsBatchDelete
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchDeleteRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts:batchDelete";
+  GTLRAndroidPublisherQuery_InappproductsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.loggingName = @"androidpublisher.inappproducts.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_InappproductsBatchGet
 
 @dynamic packageName, sku;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sku" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts:batchGet";
+  GTLRAndroidPublisherQuery_InappproductsBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_InappproductsBatchGetResponse class];
+  query.loggingName = @"androidpublisher.inappproducts.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_InappproductsBatchUpdate
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_InappproductsBatchUpdateRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts:batchUpdate";
+  GTLRAndroidPublisherQuery_InappproductsBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_InappproductsBatchUpdateResponse class];
+  query.loggingName = @"androidpublisher.inappproducts.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_InappproductsDelete
+
+@dynamic latencyTolerance, packageName, sku;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                                  sku:(NSString *)sku {
@@ -1430,7 +1514,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_InappproductsPatch
 
-@dynamic autoConvertMissingPrices, packageName, sku;
+@dynamic autoConvertMissingPrices, latencyTolerance, packageName, sku;
 
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
@@ -1461,7 +1545,8 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_InappproductsUpdate
 
-@dynamic allowMissing, autoConvertMissingPrices, packageName, sku;
+@dynamic allowMissing, autoConvertMissingPrices, latencyTolerance, packageName,
+         sku;
 
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
@@ -1623,6 +1708,68 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchMigratePrices
+
+@dynamic packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchMigrateBasePlanPricesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans:batchMigratePrices";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchMigratePrices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchMigrateBasePlanPricesResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.batchMigratePrices";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchUpdateStates
+
+@dynamic packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateBasePlanStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans:batchUpdateStates";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansBatchUpdateStates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateBasePlanStatesResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.batchUpdateStates";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansDeactivate
 
 @dynamic basePlanId, packageName, productId;
@@ -1743,6 +1890,105 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.offerId = offerId;
   query.expectedObjectClass = [GTLRAndroidPublisher_SubscriptionOffer class];
   query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.offers.activate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchGet
+
+@dynamic basePlanId, packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchGetSubscriptionOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"basePlanId", @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchGet";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.basePlanId = basePlanId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetSubscriptionOffersResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.offers.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdate
+
+@dynamic basePlanId, packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"basePlanId", @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchUpdate";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.basePlanId = basePlanId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateSubscriptionOffersResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdateStates
+
+@dynamic basePlanId, packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"basePlanId", @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchUpdateStates";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersBatchUpdateStates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.basePlanId = basePlanId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateSubscriptionOfferStatesResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.offers.batchUpdateStates";
   return query;
 }
 
@@ -1900,8 +2146,8 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersPatch
 
-@dynamic basePlanId, offerId, packageName, productId, regionsVersionVersion,
-         updateMask;
+@dynamic allowMissing, basePlanId, latencyTolerance, offerId, packageName,
+         productId, regionsVersionVersion, updateMask;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"regionsVersionVersion" : @"regionsVersion.version" };
@@ -1933,6 +2179,59 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.offerId = offerId;
   query.expectedObjectClass = [GTLRAndroidPublisher_SubscriptionOffer class];
   query.loggingName = @"androidpublisher.monetization.subscriptions.basePlans.offers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchGet
+
+@dynamic packageName, productIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions:batchGet";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetSubscriptionsResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchUpdate
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateSubscriptionsRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/subscriptions:batchUpdate";
+  GTLRAndroidPublisherQuery_MonetizationSubscriptionsBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateSubscriptionsResponse class];
+  query.loggingName = @"androidpublisher.monetization.subscriptions.batchUpdate";
   return query;
 }
 
@@ -2035,7 +2334,8 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsPatch
 
-@dynamic packageName, productId, regionsVersionVersion, updateMask;
+@dynamic allowMissing, latencyTolerance, packageName, productId,
+         regionsVersionVersion, updateMask;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"regionsVersionVersion" : @"regionsVersion.version" };

@@ -216,6 +216,15 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse
 //
 

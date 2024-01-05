@@ -49,6 +49,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideo
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoFormat = @"INVALID_VIDEO_FORMAT";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_JumpyGps = @"JUMPY_GPS";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution = @"LOW_RESOLUTION";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_MastDown = @"MAST_DOWN";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NoOverlapGps = @"NO_OVERLAP_GPS";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NotOutdoors = @"NOT_OUTDOORS";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ProcessingFailureReasonUnspecified = @"PROCESSING_FAILURE_REASON_UNSPECIFIED";

@@ -70,6 +70,24 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeUXReport_FractionTimeseries
+//
+
+@implementation GTLRChromeUXReport_FractionTimeseries
+@dynamic fractions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fractions" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeUXReport_HistoryKey
 //
 
@@ -158,13 +176,27 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_MetricTimeseries
-@dynamic histogramTimeseries, percentilesTimeseries;
+@dynamic fractionTimeseries, histogramTimeseries, percentilesTimeseries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"histogramTimeseries" : [GTLRChromeUXReport_TimeseriesBin class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeUXReport_MetricTimeseries_FractionTimeseries
+//
+
+@implementation GTLRChromeUXReport_MetricTimeseries_FractionTimeseries
+
++ (Class)classForAdditionalProperties {
+  return [GTLRChromeUXReport_FractionTimeseries class];
 }
 
 @end

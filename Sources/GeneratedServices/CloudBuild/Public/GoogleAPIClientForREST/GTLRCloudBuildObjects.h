@@ -529,9 +529,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -545,7 +561,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2351,6 +2370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_EnvVar *> *env;
 
+/** Optional. Pod volumes to mount into the container's filesystem. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_VolumeMount *> *volumeMounts;
+
 @end
 
 
@@ -2473,7 +2495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Optional. StepTemplate can be used as the basis for all step containers
  *  within the Task, so that the steps inherit settings on the base container.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_StepTemplate *> *stepTemplate;
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StepTemplate *stepTemplate;
 
 /** A collection of volumes that are available to mount into steps. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_VolumeSource *> *volumes;

@@ -2353,6 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** The time when the application was installed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *installTime;
 
+/** License strings associated with the installed application. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
 /** Source path. */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3933,7 +3936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Count of assets grouped by Operating System families. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *operatingSystem;
 
-/** Histogram showing a distribution of memory sizes. */
+/** Histogram showing a distribution of storage sizes. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *storageBytesHistogram;
 
 /** Total memory split into Used/Free buckets. */

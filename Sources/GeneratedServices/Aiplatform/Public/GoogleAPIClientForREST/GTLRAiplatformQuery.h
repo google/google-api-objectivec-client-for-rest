@@ -3432,6 +3432,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Perform an unary online prediction request for Vertex first-party products
+ *  and frameworks.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.directPredict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DirectPredictResponse.
+ *
+ *  Perform an unary online prediction request for Vertex first-party products
+ *  and frameworks.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1DirectPredictRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DirectPredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform an online prediction request through gRPC.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.directRawPredict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DirectRawPredictResponse.
+ *
+ *  Perform an online prediction request through gRPC.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1DirectRawPredictRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DirectRawPredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Perform an online explanation. If deployed_model_id is specified, the
  *  corresponding DeployModel must have explanation_spec populated. If
  *  deployed_model_id is not specified, all DeployedModels must have
@@ -3956,6 +4028,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the publisher model requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The name of the publisher model requested to serve
+ *    the prediction. Format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
  *  Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
  *  freeing all resources it's using.
  *
@@ -4237,8 +4344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  A page token, received from a previous FeaturestoreService.ListFeatures call
  *  or FeatureRegistryService.ListFeatures call. Provide this to retrieve the
  *  subsequent page. When paginating, all other parameters provided to
- *  FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures
- *  must match the call that provided the page token.
+ *  FeaturestoreService.ListFeatures or FeatureRegistryService.ListFeatures must
+ *  match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -4746,7 +4853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsPatch : GTLRAiplatformQuery
 
 /**
- *  Output only. Name of the FeatureGroup. Format:
+ *  Identifier. Name of the FeatureGroup. Format:
  *  `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4770,7 +4877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup to
  *    include in the query.
- *  @param name Output only. Name of the FeatureGroup. Format:
+ *  @param name Identifier. Name of the FeatureGroup. Format:
  *    `projects/{project}/locations/{location}/featureGroups/{featureGroup}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsPatch
@@ -5344,7 +5451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsPatch : GTLRAiplatformQuery
 
 /**
- *  Output only. Name of the FeatureView. Format:
+ *  Identifier. Name of the FeatureView. Format:
  *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5368,7 +5475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureView to
  *    include in the query.
- *  @param name Output only. Name of the FeatureView. Format:
+ *  @param name Identifier. Name of the FeatureView. Format:
  *    `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsPatch
@@ -5672,7 +5779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresPatch : GTLRAiplatformQuery
 
 /**
- *  Output only. Name of the FeatureOnlineStore. Format:
+ *  Identifier. Name of the FeatureOnlineStore. Format:
  *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5698,7 +5805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore to include in the
  *    query.
- *  @param name Output only. Name of the FeatureOnlineStore. Format:
+ *  @param name Identifier. Name of the FeatureOnlineStore. Format:
  *    `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresPatch
@@ -6201,8 +6308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  A page token, received from a previous FeaturestoreService.ListFeatures call
  *  or FeatureRegistryService.ListFeatures call. Provide this to retrieve the
  *  subsequent page. When paginating, all other parameters provided to
- *  FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures
- *  must match the call that provided the page token.
+ *  FeaturestoreService.ListFeatures or FeatureRegistryService.ListFeatures must
+ *  match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13083,6 +13190,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Upgrades a NotebookRuntime.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesUpgrade : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntime resource to be upgrade. Instead of
+ *  checking whether the name is in valid NotebookRuntime resource name format,
+ *  directly throw NotFound exception if there is no such NotebookRuntime in
+ *  spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Upgrades a NotebookRuntime.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the NotebookRuntime resource to be
+ *    upgrade. Instead of checking whether the name is in valid NotebookRuntime
+ *    resource name format, directly throw NotFound exception if there is no
+ *    such NotebookRuntime in spanner.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a NotebookRuntimeTemplate.
  *
  *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.create
@@ -14199,6 +14344,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamingPredictRequest *)object
                        endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the publisher model requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The name of the publisher model requested to serve
+ *    the prediction. Format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
 
 @end
 
@@ -15998,6 +16178,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Reads multiple TensorboardTimeSeries' data. The data point number limit is
+ *  1000 for scalars, 100 for tensors and blob references. If the number of data
+ *  points stored is less than the limit, all data is returned. Otherwise, the
+ *  number limit of data points is randomly selected from this time series and
+ *  returned.
+ *
+ *  Method: aiplatform.projects.locations.tensorboards.batchRead
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsBatchRead : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Tensorboard containing
+ *  TensorboardTimeSeries to read data from. Format:
+ *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}`. The
+ *  TensorboardTimeSeries referenced by time_series must be sub resources of
+ *  this Tensorboard.
+ */
+@property(nonatomic, copy, nullable) NSString *tensorboard;
+
+/**
+ *  Required. The resource names of the TensorboardTimeSeries to read data from.
+ *  Format:
+ *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeries;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1BatchReadTensorboardTimeSeriesDataResponse.
+ *
+ *  Reads multiple TensorboardTimeSeries' data. The data point number limit is
+ *  1000 for scalars, 100 for tensors and blob references. If the number of data
+ *  points stored is less than the limit, all data is returned. Otherwise, the
+ *  number limit of data points is randomly selected from this time series and
+ *  returned.
+ *
+ *  @param tensorboard Required. The resource name of the Tensorboard containing
+ *    TensorboardTimeSeries to read data from. Format:
+ *    `projects/{project}/locations/{location}/tensorboards/{tensorboard}`. The
+ *    TensorboardTimeSeries referenced by time_series must be sub resources of
+ *    this Tensorboard.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTensorboardsBatchRead
+ */
++ (instancetype)queryWithTensorboard:(NSString *)tensorboard;
+
+@end
+
+/**
  *  Creates a Tensorboard.
  *
  *  Method: aiplatform.projects.locations.tensorboards.create
@@ -16057,6 +16289,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsTensorboardsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+ *
+ *  Method: aiplatform.projects.locations.tensorboards.experiments.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsBatchCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the TensorboardExperiment to create the
+ *  TensorboardTimeSeries in. Format:
+ *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}`
+ *  The TensorboardRuns referenced by the parent fields in the
+ *  CreateTensorboardTimeSeriesRequest messages must be sub resources of this
+ *  TensorboardExperiment.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesResponse.
+ *
+ *  Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest
+ *    to include in the query.
+ *  @param parent Required. The resource name of the TensorboardExperiment to
+ *    create the TensorboardTimeSeries in. Format:
+ *    `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}`
+ *    The TensorboardRuns referenced by the parent fields in the
+ *    CreateTensorboardTimeSeriesRequest messages must be sub resources of this
+ *    TensorboardExperiment.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -16919,113 +17194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1TensorboardRun *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
- *
- *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAiplatformCloudPlatform
- */
-@interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchCreate : GTLRAiplatformQuery
-
-/**
- *  Required. The resource name of the TensorboardExperiment to create the
- *  TensorboardTimeSeries in. Format:
- *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}`
- *  The TensorboardRuns referenced by the parent fields in the
- *  CreateTensorboardTimeSeriesRequest messages must be sub resources of this
- *  TensorboardExperiment.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-@property(nonatomic, copy, nullable) NSString *runsId;
-
-/**
- *  Fetches a @c
- *  GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesResponse.
- *
- *  Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
- *
- *  @param object The @c
- *    GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest
- *    to include in the query.
- *  @param parent Required. The resource name of the TensorboardExperiment to
- *    create the TensorboardTimeSeries in. Format:
- *    `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}`
- *    The TensorboardRuns referenced by the parent fields in the
- *    CreateTensorboardTimeSeriesRequest messages must be sub resources of this
- *    TensorboardExperiment.
- *  @param runsId NSString
- *
- *  @return GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchCreate
- */
-+ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest *)object
-                         parent:(NSString *)parent
-                         runsId:(NSString *)runsId;
-
-@end
-
-/**
- *  Reads multiple TensorboardTimeSeries' data. The data point number limit is
- *  1000 for scalars, 100 for tensors and blob references. If the number of data
- *  points stored is less than the limit, all data is returned. Otherwise, the
- *  number limit of data points is randomly selected from this time series and
- *  returned.
- *
- *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchRead
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAiplatformCloudPlatform
- */
-@interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchRead : GTLRAiplatformQuery
-
-@property(nonatomic, copy, nullable) NSString *experimentsId;
-
-@property(nonatomic, copy, nullable) NSString *runsId;
-
-/**
- *  Required. The resource name of the Tensorboard containing
- *  TensorboardTimeSeries to read data from. Format:
- *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}`. The
- *  TensorboardTimeSeries referenced by time_series must be sub resources of
- *  this Tensorboard.
- */
-@property(nonatomic, copy, nullable) NSString *tensorboard;
-
-/**
- *  Required. The resource names of the TensorboardTimeSeries to read data from.
- *  Format:
- *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeries;
-
-/**
- *  Fetches a @c
- *  GTLRAiplatform_GoogleCloudAiplatformV1BatchReadTensorboardTimeSeriesDataResponse.
- *
- *  Reads multiple TensorboardTimeSeries' data. The data point number limit is
- *  1000 for scalars, 100 for tensors and blob references. If the number of data
- *  points stored is less than the limit, all data is returned. Otherwise, the
- *  number limit of data points is randomly selected from this time series and
- *  returned.
- *
- *  @param tensorboard Required. The resource name of the Tensorboard containing
- *    TensorboardTimeSeries to read data from. Format:
- *    `projects/{project}/locations/{location}/tensorboards/{tensorboard}`. The
- *    TensorboardTimeSeries referenced by time_series must be sub resources of
- *    this Tensorboard.
- *  @param experimentsId NSString
- *  @param runsId NSString
- *
- *  @return GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchRead
- */
-+ (instancetype)queryWithTensorboard:(NSString *)tensorboard
-                       experimentsId:(NSString *)experimentsId
-                              runsId:(NSString *)runsId;
 
 @end
 

@@ -23,6 +23,7 @@
 @class GTLRPlayIntegrity_AppIntegrity;
 @class GTLRPlayIntegrity_DeviceIntegrity;
 @class GTLRPlayIntegrity_EnvironmentDetails;
+@class GTLRPlayIntegrity_RecentDeviceActivity;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
@@ -259,13 +260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity;
 /**
- *  Deprecated: this enum value will be removed. App is running on a device that
- *  passes only weak integrity checks (is a physical device).
- *
- *  Value: "MEETS_WEAK_INTEGRITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsWeakIntegrity GTLR_DEPRECATED;
-/**
  *  Play does not have sufficient information to evaluate device integrity
  *
  *  Value: "UNKNOWN"
@@ -318,6 +312,46 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
  *  Value: "UNEVALUATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated;
+
+// ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
+
+/**
+ *  Device activity level has not been set.
+ *
+ *  Value: "DEVICE_ACTIVITY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_DeviceActivityLevelUnspecified;
+/**
+ *  Indicates the amount of used tokens. See the documentation for details.
+ *
+ *  Value: "LEVEL_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level1;
+/**
+ *  Indicates the amount of used tokens. See the documentation for details.
+ *
+ *  Value: "LEVEL_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level2;
+/**
+ *  Indicates the amount of used tokens. See the documentation for details.
+ *
+ *  Value: "LEVEL_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level3;
+/**
+ *  Indicates the amount of used tokens. See the documentation for details.
+ *
+ *  Value: "LEVEL_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level4;
+/**
+ *  Device activity level has not been evaluated.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Unevaluated;
 
 /**
  *  (Restricted Access) Contains a signal helping apps differentiating between
@@ -530,6 +564,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
 /** Details about the integrity of the device the app is running on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
 
+/** Details about the device activity of the device the app is running on. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_RecentDeviceActivity *recentDeviceActivity;
+
 @end
 
 
@@ -567,6 +604,40 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
  *        (Value: "UNEVALUATED")
  */
 @property(nonatomic, copy, nullable) NSString *playProtectVerdict;
+
+@end
+
+
+/**
+ *  Recent device activity can help developers identify devices that have
+ *  exhibited hyperactive attestation activity, which could be a sign of an
+ *  attack or token farming.
+ */
+@interface GTLRPlayIntegrity_RecentDeviceActivity : GTLRObject
+
+/**
+ *  Required. Indicates the activity level of the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_DeviceActivityLevelUnspecified
+ *        Device activity level has not been set. (Value:
+ *        "DEVICE_ACTIVITY_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level1
+ *        Indicates the amount of used tokens. See the documentation for
+ *        details. (Value: "LEVEL_1")
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level2
+ *        Indicates the amount of used tokens. See the documentation for
+ *        details. (Value: "LEVEL_2")
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level3
+ *        Indicates the amount of used tokens. See the documentation for
+ *        details. (Value: "LEVEL_3")
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level4
+ *        Indicates the amount of used tokens. See the documentation for
+ *        details. (Value: "LEVEL_4")
+ *    @arg @c kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Unevaluated
+ *        Device activity level has not been evaluated. (Value: "UNEVALUATED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceActivityLevel;
 
 @end
 

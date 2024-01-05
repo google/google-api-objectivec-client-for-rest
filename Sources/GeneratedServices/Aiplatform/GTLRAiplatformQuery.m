@@ -1753,6 +1753,60 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DirectPredictRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:directPredict";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DirectPredictResponse class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.directPredict";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DirectRawPredictRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:directRawPredict";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DirectRawPredictResponse class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.directRawPredict";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsExplain
 
 @dynamic endpoint;
@@ -2043,6 +2097,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.endpoint = endpoint;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1StreamingPredictResponse class];
   query.loggingName = @"aiplatform.projects.locations.endpoints.serverStreamingPredict";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:streamGenerateContent";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.streamGenerateContent";
   return query;
 }
 
@@ -6780,6 +6861,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:upgrade";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.notebookRuntimes.upgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesCreate
 
 @dynamic notebookRuntimeTemplateId, parent;
@@ -7371,6 +7479,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.endpoint = endpoint;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1StreamingPredictResponse class];
   query.loggingName = @"aiplatform.projects.locations.publishers.models.serverStreamingPredict";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:streamGenerateContent";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.models.streamGenerateContent";
   return query;
 }
 
@@ -8389,6 +8524,32 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsTensorboardsBatchRead
+
+@dynamic tensorboard, timeSeries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeries" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithTensorboard:(NSString *)tensorboard {
+  NSArray *pathParams = @[ @"tensorboard" ];
+  NSString *pathURITemplate = @"v1/{+tensorboard}:batchRead";
+  GTLRAiplatformQuery_ProjectsLocationsTensorboardsBatchRead *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tensorboard = tensorboard;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1BatchReadTensorboardTimeSeriesDataResponse class];
+  query.loggingName = @"aiplatform.projects.locations.tensorboards.batchRead";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsTensorboardsCreate
 
 @dynamic parent;
@@ -8430,6 +8591,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.tensorboards.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:batchCreate";
+  GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesResponse class];
+  query.loggingName = @"aiplatform.projects.locations.tensorboards.experiments.batchCreate";
   return query;
 }
 
@@ -8869,69 +9057,6 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1TensorboardRun class];
   query.loggingName = @"aiplatform.projects.locations.tensorboards.experiments.runs.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchCreate
-
-@dynamic parent, runsId;
-
-+ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest *)object
-                         parent:(NSString *)parent
-                         runsId:(NSString *)runsId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"parent", @"runsId"
-  ];
-  NSString *pathURITemplate = @"v1/{+parent}/runs/{runsId}/timeSeries:batchCreate";
-  GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.runsId = runsId;
-  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesResponse class];
-  query.loggingName = @"aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchCreate";
-  return query;
-}
-
-@end
-
-@implementation GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchRead
-
-@dynamic experimentsId, runsId, tensorboard, timeSeries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"timeSeries" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithTensorboard:(NSString *)tensorboard
-                       experimentsId:(NSString *)experimentsId
-                              runsId:(NSString *)runsId {
-  NSArray *pathParams = @[
-    @"experimentsId", @"runsId", @"tensorboard"
-  ];
-  NSString *pathURITemplate = @"v1/{+tensorboard}/experiments/{experimentsId}/runs/{runsId}/timeSeries:batchRead";
-  GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesBatchRead *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.tensorboard = tensorboard;
-  query.experimentsId = experimentsId;
-  query.runsId = runsId;
-  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1BatchReadTensorboardTimeSeriesDataResponse class];
-  query.loggingName = @"aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchRead";
   return query;
 }
 

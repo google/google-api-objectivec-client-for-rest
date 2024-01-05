@@ -1485,6 +1485,117 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsCreate
+
+@dynamic languageCode, parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Generator *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/generators";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Generator class];
+  query.loggingName = @"dialogflow.projects.locations.agents.generators.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsDelete
+
+@dynamic force, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.locations.agents.generators.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsGet
+
+@dynamic languageCode, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Generator class];
+  query.loggingName = @"dialogflow.projects.locations.agents.generators.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsList
+
+@dynamic languageCode, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/generators";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListGeneratorsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.generators.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsPatch
+
+@dynamic languageCode, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Generator *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Generator class];
+  query.loggingName = @"dialogflow.projects.locations.agents.generators.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsGet
 
 @dynamic name;

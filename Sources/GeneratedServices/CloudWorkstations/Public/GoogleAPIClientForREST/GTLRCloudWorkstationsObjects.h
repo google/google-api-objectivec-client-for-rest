@@ -21,6 +21,7 @@
 @class GTLRCloudWorkstations_Container;
 @class GTLRCloudWorkstations_Container_Env;
 @class GTLRCloudWorkstations_CustomerEncryptionKey;
+@class GTLRCloudWorkstations_DomainConfig;
 @class GTLRCloudWorkstations_Expr;
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceInstance;
@@ -365,6 +366,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  [`--member`](https://cloud.google.com/sdk/gcloud/reference/kms/keys/add-iam-policy-binding#--member).
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyServiceAccount;
+
+@end
+
+
+/**
+ *  Configuration options for a custom domain.
+ */
+@interface GTLRCloudWorkstations_DomainConfig : GTLRObject
+
+/** Immutable. Domain used by Workstations for HTTP ingress. */
+@property(nonatomic, copy, nullable) NSString *domain;
 
 @end
 
@@ -1429,6 +1441,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
+ *  Output only. The name of the Google Cloud KMS encryption key used to encrypt
+ *  this workstation. The KMS key can only be configured in the
+ *  WorkstationConfig. The expected format is `projects/ * /locations/ *
+ *  /keyRings/ * /cryptoKeys/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
  *  Optional.
  *  [Labels](https://cloud.google.com/workstations/docs/label-resources) that
  *  are applied to the workstation and that are also propagated to the
@@ -1563,6 +1583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /** Optional. Human-readable name for this workstation cluster. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Configuration options for a custom domain. */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_DomainConfig *domainConfig;
 
 /**
  *  Optional. Checksum computed by the server. May be sent on update and delete

@@ -32,6 +32,11 @@ NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRWorkloadManager_SapDiscoveryComponent.topologyType
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleOut = @"TOPOLOGY_SCALE_OUT";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleUp = @"TOPOLOGY_SCALE_UP";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyTypeUnspecified = @"TOPOLOGY_TYPE_UNSPECIFIED";
+
 // GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties.applicationType
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_ApplicationTypeUnspecified = @"APPLICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_Netweaver = @"NETWEAVER";
@@ -544,7 +549,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscovery
-@dynamic applicationLayer, databaseLayer, metadata, systemId, updateTime;
+@dynamic applicationLayer, databaseLayer, metadata, projectNumber, systemId,
+         updateTime;
 @end
 
 
@@ -554,10 +560,12 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponent
-@dynamic applicationProperties, databaseProperties, hostProject, resources, sid;
+@dynamic applicationProperties, databaseProperties, haHosts, hostProject,
+         resources, sid, topologyType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"haHosts" : [NSString class],
     @"resources" : [GTLRWorkloadManager_SapDiscoveryResource class]
   };
   return map;
@@ -572,7 +580,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties
-@dynamic applicationType, ascsUri, nfsUri;
+@dynamic abap, applicationType, ascsUri, kernelVersion, nfsUri;
 @end
 
 
@@ -582,7 +590,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties
-@dynamic databaseType, primaryInstanceUri, sharedNfsUri;
+@dynamic databaseType, databaseVersion, primaryInstanceUri, sharedNfsUri;
 @end
 
 
@@ -602,7 +610,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResource
-@dynamic relatedResources, resourceKind, resourceType, resourceUri, updateTime;
+@dynamic instanceProperties, relatedResources, resourceKind, resourceType,
+         resourceUri, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -616,11 +625,33 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties
+//
+
+@implementation GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties
+@dynamic clusterInstances, virtualHostname;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusterInstances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SapValidation
 //
 
 @implementation GTLRWorkloadManager_SapValidation
-@dynamic validationDetails;
+@dynamic projectId, validationDetails, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -638,7 +669,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapValidationValidationDetail
-@dynamic details, sapValidationType;
+@dynamic details, isPresent, sapValidationType;
 @end
 
 

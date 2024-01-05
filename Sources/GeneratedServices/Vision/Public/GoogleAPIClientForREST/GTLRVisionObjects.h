@@ -6978,7 +6978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Likelihood that this image contains violent content.
+ *  Likelihood that this image contains violent content. Violent content may
+ *  include death, serious harm, or injury to individuals or groups of
+ *  individuals.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Likely
@@ -8544,7 +8546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Likelihood that this image contains violent content.
+ *  Likelihood that this image contains violent content. Violent content may
+ *  include death, serious harm, or injury to individuals or groups of
+ *  individuals.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Likely
@@ -10204,7 +10208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Likelihood that this image contains violent content.
+ *  Likelihood that this image contains violent content. Violent content may
+ *  include death, serious harm, or injury to individuals or groups of
+ *  individuals.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Likely
@@ -11939,7 +11945,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Likelihood that this image contains violent content.
+ *  Likelihood that this image contains violent content. Violent content may
+ *  include death, serious harm, or injury to individuals or groups of
+ *  individuals.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Likely
@@ -13525,7 +13533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Likelihood that this image contains violent content.
+ *  Likelihood that this image contains violent content. Violent content may
+ *  include death, serious harm, or injury to individuals or groups of
+ *  individuals.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Violence_Likely It is likely.
@@ -13749,11 +13759,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_WebDetectionParams : GTLRObject
 
 /**
- *  Whether to include results derived from the geo information in the image.
+ *  This field has no effect on results.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeGeoResults;
+@property(nonatomic, strong, nullable) NSNumber *includeGeoResults GTLR_DEPRECATED;
 
 @end
 

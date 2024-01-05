@@ -1115,8 +1115,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  FetchCaCerts returns the current trust anchor for the CaPool. This will
- *  include CA certificate chains for all ACTIVE CertificateAuthority resources
- *  in the CaPool.
+ *  include CA certificate chains for all Certificate Authorities in the
+ *  ENABLED, DISABLED, or STAGED states.
  *
  *  Method: privateca.projects.locations.caPools.fetchCaCerts
  *
@@ -1135,8 +1135,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCertificateAuthorityService_FetchCaCertsResponse.
  *
  *  FetchCaCerts returns the current trust anchor for the CaPool. This will
- *  include CA certificate chains for all ACTIVE CertificateAuthority resources
- *  in the CaPool.
+ *  include CA certificate chains for all Certificate Authorities in the
+ *  ENABLED, DISABLED, or STAGED states.
  *
  *  @param object The @c GTLRCertificateAuthorityService_FetchCaCertsRequest to
  *    include in the query.

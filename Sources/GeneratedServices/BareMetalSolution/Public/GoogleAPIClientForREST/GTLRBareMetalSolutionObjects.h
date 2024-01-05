@@ -23,6 +23,7 @@
 @class GTLRBareMetalSolution_InstanceConfig;
 @class GTLRBareMetalSolution_InstanceQuota;
 @class GTLRBareMetalSolution_IntakeVlanAttachment;
+@class GTLRBareMetalSolution_LoadInstanceAuthInfoResponse_UserAccounts;
 @class GTLRBareMetalSolution_Location;
 @class GTLRBareMetalSolution_Location_Labels;
 @class GTLRBareMetalSolution_Location_Metadata;
@@ -49,6 +50,7 @@
 @class GTLRBareMetalSolution_SSHKey;
 @class GTLRBareMetalSolution_Status;
 @class GTLRBareMetalSolution_Status_Details_Item;
+@class GTLRBareMetalSolution_UserAccount;
 @class GTLRBareMetalSolution_VlanAttachment;
 @class GTLRBareMetalSolution_Volume;
 @class GTLRBareMetalSolution_Volume_Labels;
@@ -1126,6 +1128,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSNumber *interactiveSerialConsoleEnabled;
 
+/**
+ *  Optional. Name of the KMS crypto key version used to encrypt the initial
+ *  passwords. The key has to have ASYMMETRIC_DECRYPT purpose. Format is
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}/cryptoKeyVersions/{version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_Instance_Labels *labels;
 
@@ -1178,6 +1187,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  same pod.
  */
 @property(nonatomic, copy, nullable) NSString *pod;
+
+/** Optional. List of SSH Keys used during instance provisioning. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sshKeys;
 
 /**
  *  Output only. The state of the server.
@@ -1277,6 +1289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  types](https://cloud.google.com/bare-metal/docs/bms-planning#server_configurations)
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
+
+/**
+ *  Name of the KMS crypto key version used to encrypt the initial passwords.
+ *  The key has to have ASYMMETRIC_DECRYPT purpose.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
 
 /**
  *  List of logical interfaces for the instance. The number of logical
@@ -1659,6 +1677,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Response for LoadInstanceAuthInfo.
+ */
+@interface GTLRBareMetalSolution_LoadInstanceAuthInfoResponse : GTLRObject
+
+/** List of ssh keys. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_SSHKey *> *sshKeys;
+
+/** Map of username to the user account info. */
+@property(nonatomic, strong, nullable) GTLRBareMetalSolution_LoadInstanceAuthInfoResponse_UserAccounts *userAccounts;
+
+@end
+
+
+/**
+ *  Map of username to the user account info.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBareMetalSolution_UserAccount. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBareMetalSolution_LoadInstanceAuthInfoResponse_UserAccounts : GTLRObject
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRBareMetalSolution_Location : GTLRObject
@@ -1814,7 +1858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, strong, nullable) NSNumber *shareable;
 
 /**
- *  The size of this LUN, in gigabytes.
+ *  The size of this LUN, in GiB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2882,6 +2926,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** The submitted provisioning config. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_ProvisioningConfig *provisioningConfig;
+
+@end
+
+
+/**
+ *  User account provisioned for the customer.
+ */
+@interface GTLRBareMetalSolution_UserAccount : GTLRObject
+
+/** Encrypted initial password value. */
+@property(nonatomic, copy, nullable) NSString *encryptedPassword;
+
+/** KMS CryptoKey Version used to encrypt the password. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
 
 @end
 

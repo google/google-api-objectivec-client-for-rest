@@ -1879,7 +1879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Represents both a request to Restore some portion of a Backup into a target
- *  GKE cluster and a record of the restore operation itself. Next id: 19
+ *  GKE cluster and a record of the restore operation itself. Next id: 20
  */
 @interface GTLRBackupforGKE_Restore : GTLRObject
 
@@ -2021,7 +2021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Configuration of a restore. Next id: 12
+ *  Configuration of a restore. Next id: 14
  */
 @interface GTLRBackupforGKE_RestoreConfig : GTLRObject
 

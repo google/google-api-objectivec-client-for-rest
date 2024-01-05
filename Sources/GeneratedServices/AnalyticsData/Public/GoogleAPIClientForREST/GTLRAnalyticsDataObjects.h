@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRAnalyticsData_ActiveMetricRestriction;
+@class GTLRAnalyticsData_AudienceExport;
 @class GTLRAnalyticsData_BetweenFilter;
 @class GTLRAnalyticsData_CaseExpression;
 @class GTLRAnalyticsData_Cohort;
@@ -49,6 +50,8 @@
 @class GTLRAnalyticsData_MinuteRange;
 @class GTLRAnalyticsData_NumericFilter;
 @class GTLRAnalyticsData_NumericValue;
+@class GTLRAnalyticsData_Operation_Metadata;
+@class GTLRAnalyticsData_Operation_Response;
 @class GTLRAnalyticsData_OrderBy;
 @class GTLRAnalyticsData_Pivot;
 @class GTLRAnalyticsData_PivotDimensionHeader;
@@ -65,7 +68,12 @@
 @class GTLRAnalyticsData_RunReportResponse;
 @class GTLRAnalyticsData_SamplingMetadata;
 @class GTLRAnalyticsData_SchemaRestrictionResponse;
+@class GTLRAnalyticsData_Status;
+@class GTLRAnalyticsData_Status_Details_Item;
 @class GTLRAnalyticsData_StringFilter;
+@class GTLRAnalyticsData_V1betaAudienceDimension;
+@class GTLRAnalyticsData_V1betaAudienceDimensionValue;
+@class GTLRAnalyticsData_V1betaAudienceRow;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -98,6 +106,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_Re
  *  Value: "REVENUE_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RevenueData;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsData_AudienceExport.state
+
+/**
+ *  The AudienceExport is fully created and ready for querying. An
+ *  AudienceExport is updated to active asynchronously from a request; this
+ *  occurs some time (for example 15 minutes) after the initial create call.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_AudienceExport_State_Active;
+/**
+ *  The AudienceExport is currently creating and will be available in the
+ *  future. Creating occurs immediately after the CreateAudienceExport call.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_AudienceExport_State_Creating;
+/**
+ *  The AudienceExport failed to be created. It is possible that re-requesting
+ *  this audience export will succeed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_AudienceExport_State_Failed;
+/**
+ *  Unspecified state will never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_AudienceExport_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
@@ -622,6 +662,96 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /** The reason for this metric's restriction. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedMetricTypes;
+
+@end
+
+
+/**
+ *  An audience export is a list of users in an audience at the time of the
+ *  list's creation. One audience may have multiple audience exports created for
+ *  different days.
+ */
+@interface GTLRAnalyticsData_AudienceExport : GTLRObject
+
+/**
+ *  Required. The audience resource name. This resource name identifies the
+ *  audience being listed and is shared between the Analytics Data & Admin APIs.
+ *  Format: `properties/{property}/audiences/{audience}`
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
+ *  Output only. The descriptive display name for this audience. For example,
+ *  "Purchasers".
+ */
+@property(nonatomic, copy, nullable) NSString *audienceDisplayName;
+
+/**
+ *  Output only. The time when CreateAudienceExport was called and the
+ *  AudienceExport began the `CREATING` state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *beginCreatingTime;
+
+/**
+ *  Output only. The total quota tokens charged during creation of the
+ *  AudienceExport. Because this token count is based on activity from the
+ *  `CREATING` state, this tokens charged will be fixed once an AudienceExport
+ *  enters the `ACTIVE` or `FAILED` states.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creationQuotaTokensCharged;
+
+/** Required. The dimensions requested and displayed in the query response. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_V1betaAudienceDimension *> *dimensions;
+
+/**
+ *  Output only. Error message is populated when an audience export fails during
+ *  creation. A common reason for such a failure is quota exhaustion.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Output only. Identifier. The audience export resource name assigned during
+ *  creation. This resource name identifies this `AudienceExport`. Format:
+ *  `properties/{property}/audienceExports/{audience_export}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The percentage completed for this audience export ranging
+ *  between 0 to 100.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentageCompleted;
+
+/**
+ *  Output only. The total number of rows in the AudienceExport result.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/**
+ *  Output only. The current state for this AudienceExport.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsData_AudienceExport_State_Active The AudienceExport
+ *        is fully created and ready for querying. An AudienceExport is updated
+ *        to active asynchronously from a request; this occurs some time (for
+ *        example 15 minutes) after the initial create call. (Value: "ACTIVE")
+ *    @arg @c kGTLRAnalyticsData_AudienceExport_State_Creating The
+ *        AudienceExport is currently creating and will be available in the
+ *        future. Creating occurs immediately after the CreateAudienceExport
+ *        call. (Value: "CREATING")
+ *    @arg @c kGTLRAnalyticsData_AudienceExport_State_Failed The AudienceExport
+ *        failed to be created. It is possible that re-requesting this audience
+ *        export will succeed. (Value: "FAILED")
+ *    @arg @c kGTLRAnalyticsData_AudienceExport_State_StateUnspecified
+ *        Unspecified state will never be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1278,6 +1408,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  A list of all audience exports for a property.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "audienceExports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAnalyticsData_ListAudienceExportsResponse : GTLRCollectionObject
+
+/**
+ *  Each audience export for a property.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_AudienceExport *> *audienceExports;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The dimensions, metrics and comparisons currently accepted in reporting
  *  methods.
  */
@@ -1638,6 +1795,86 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRAnalyticsData_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsData_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsData_Operation_Response : GTLRObject
+@end
+
+
+/**
  *  Order bys define how rows will be sorted in the response. For example,
  *  ordering rows by descending event count is one ordering, and ordering rows
  *  by the event name string is a different ordering.
@@ -1846,6 +2083,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  hourly quotas.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerProjectPerHour;
+
+@end
+
+
+/**
+ *  A request to list users in an audience export.
+ */
+@interface GTLRAnalyticsData_QueryAudienceExportRequest : GTLRObject
+
+/**
+ *  Optional. The number of rows to return. If unspecified, 10,000 rows are
+ *  returned. The API returns a maximum of 250,000 rows per request, no matter
+ *  how many you ask for. `limit` must be positive. The API can also return
+ *  fewer rows than the requested `limit`, if there aren't as many dimension
+ *  values as the `limit`. To learn more about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Optional. The row count of the start row. The first row is counted as row 0.
+ *  When paging, the first request does not specify offset; or equivalently,
+ *  sets offset to 0; the first request returns the first `limit` of rows. The
+ *  second request sets offset to the `limit` of the first request; the second
+ *  request returns the second `limit` of rows. To learn more about this
+ *  pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offset;
+
+@end
+
+
+/**
+ *  A list of users in an audience export.
+ */
+@interface GTLRAnalyticsData_QueryAudienceExportResponse : GTLRObject
+
+/**
+ *  Configuration data about AudienceExport being queried. Returned to help
+ *  interpret the audience rows in this response. For example, the dimensions in
+ *  this AudienceExport correspond to the columns in the AudienceRows.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_AudienceExport *audienceExport;
+
+/**
+ *  Rows for each user in an audience export. The number of rows in this
+ *  response will be less than or equal to request's page size.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_V1betaAudienceRow *> *audienceRows;
+
+/**
+ *  The total number of rows in the AudienceExport result. `rowCount` is
+ *  independent of the number of rows returned in the response, the `limit`
+ *  request parameter, and the `offset` request parameter. For example if a
+ *  query returns 175 rows and includes `limit` of 50 in the API request, the
+ *  response will contain `rowCount` of 175 but only 50 rows. To learn more
+ *  about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 @end
 
@@ -2464,6 +2768,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRAnalyticsData_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRAnalyticsData_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAnalyticsData_Status_Details_Item : GTLRObject
+@end
+
+
+/**
  *  The filter for string
  */
 @interface GTLRAnalyticsData_StringFilter : GTLRObject
@@ -2500,6 +2849,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /** The string value used for the matching. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  An audience dimension is a user attribute. Specific user attributed are
+ *  requested and then later returned in the `QueryAudienceExportResponse`.
+ */
+@interface GTLRAnalyticsData_V1betaAudienceDimension : GTLRObject
+
+/**
+ *  Optional. The API name of the dimension. See the [API
+ *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-api-schema#dimensions)
+ *  for the list of dimension names.
+ */
+@property(nonatomic, copy, nullable) NSString *dimensionName;
+
+@end
+
+
+/**
+ *  The value of a dimension.
+ */
+@interface GTLRAnalyticsData_V1betaAudienceDimensionValue : GTLRObject
+
+/** Value as a string if the dimension type is a string. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Dimension value attributes for the audience user row.
+ */
+@interface GTLRAnalyticsData_V1betaAudienceRow : GTLRObject
+
+/**
+ *  Each dimension value attribute for an audience user. One dimension value
+ *  will be added for each dimension column requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_V1betaAudienceDimensionValue *> *dimensionValues;
 
 @end
 

@@ -1270,7 +1270,15 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_MethodSettings
-@dynamic longRunning, selector;
+@dynamic autoPopulatedFields, longRunning, selector;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoPopulatedFields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1571,7 +1579,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 @implementation GTLRServiceManagement_Publishing
 @dynamic apiShortName, codeownerGithubTeams, docTagPrefix, documentationUri,
          githubLabel, librarySettings, methodSettings, newIssueUri,
-         organization, protoReferenceDocumentationUri;
+         organization, protoReferenceDocumentationUri,
+         restReferenceDocumentationUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -61,6 +61,11 @@ NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataFusion_NetworkConfig.connectionType
+NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces = @"PRIVATE_SERVICE_CONNECT_INTERFACES";
+NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_VpcPeering = @"VPC_PEERING";
+
 // GTLRDataFusion_Version.type
 NSString * const kGTLRDataFusion_Version_Type_TypeGeneralAvailability = @"TYPE_GENERAL_AVAILABILITY";
 NSString * const kGTLRDataFusion_Version_Type_TypePreview      = @"TYPE_PREVIEW";
@@ -151,6 +156,26 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_DataResidencyAugmentedView
+//
+
+@implementation GTLRDataFusion_DataResidencyAugmentedView
+@dynamic crGopoGuris, crGopoPrefixes, serviceData, tpIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"crGopoGuris" : [NSString class],
+    @"crGopoPrefixes" : [NSString class],
+    @"tpIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_DnsPeering
 //
 
@@ -205,8 +230,9 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_Instance
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
-         cryptoKeyConfig, dataprocServiceAccount, descriptionProperty,
-         disabledReason, displayName, enableRbac, enableStackdriverLogging,
+         cryptoKeyConfig, dataplexDataLineageIntegrationEnabled,
+         dataprocServiceAccount, descriptionProperty, disabledReason,
+         displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
          gcsBucket, labels, name, networkConfig, options, p4ServiceAccount,
          patchRevision, privateInstance, satisfiesPzs, serviceAccount,
@@ -416,7 +442,7 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_NetworkConfig
-@dynamic ipAllocation, network;
+@dynamic connectionType, ipAllocation, network, privateServiceConnectConfig;
 @end
 
 
@@ -485,6 +511,25 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_PersistentDiskData
+//
+
+@implementation GTLRDataFusion_PersistentDiskData
+@dynamic cfsRoots, gcsBucketNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cfsRoots" : [NSString class],
+    @"gcsBucketNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_Policy
 //
 
@@ -508,10 +553,30 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_PrivateServiceConnectConfig
+//
+
+@implementation GTLRDataFusion_PrivateServiceConnectConfig
+@dynamic effectiveUnreachableCidrBlock, networkAttachment, unreachableCidrBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_RestartInstanceRequest
 //
 
 @implementation GTLRDataFusion_RestartInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_ServiceData
+//
+
+@implementation GTLRDataFusion_ServiceData
+@dynamic pd;
 @end
 
 

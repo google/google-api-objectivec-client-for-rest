@@ -404,6 +404,14 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpec *dryRunSpec;
 
 /**
+ *  Optional. An opaque tag indicating the current state of the policy, used for
+ *  concurrency control. This 'etag' is computed by the server based on the
+ *  value of other fields, and may be sent on update and delete requests to
+ *  ensure the client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint which this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
@@ -429,12 +437,12 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpec : GTLRObject
 
 /**
- *  An opaque tag indicating the current version of the policy, used for
+ *  An opaque tag indicating the current version of the policySpec, used for
  *  concurrency control. This field is ignored if used in a `CreatePolicy`
- *  request. When the policy` is returned from either a `GetPolicy` or a
+ *  request. When the policy is returned from either a `GetPolicy` or a
  *  `ListPolicies` request, this `etag` indicates the version of the current
- *  policy to use when executing a read-modify-write loop. When the policy is
- *  returned from a `GetEffectivePolicy` request, the `etag` will be unset.
+ *  policySpec to use when executing a read-modify-write loop. When the policy
+ *  is returned from a `GetEffectivePolicy` request, the `etag` will be unset.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 

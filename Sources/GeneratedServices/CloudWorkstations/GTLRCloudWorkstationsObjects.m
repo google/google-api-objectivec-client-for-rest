@@ -140,6 +140,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_DomainConfig
+//
+
+@implementation GTLRCloudWorkstations_DomainConfig
+@dynamic domain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_Expr
 //
 
@@ -666,7 +676,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_Workstation
 @dynamic annotations, createTime, deleteTime, displayName, env, ETag, host,
-         labels, name, reconciling, startTime, state, uid, updateTime;
+         kmsKey, labels, name, reconciling, startTime, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -724,7 +734,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_WorkstationCluster
 @dynamic annotations, conditions, controlPlaneIp, createTime, degraded,
-         deleteTime, displayName, ETag, labels, name, network,
+         deleteTime, displayName, domainConfig, ETag, labels, name, network,
          privateClusterConfig, reconciling, subnetwork, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

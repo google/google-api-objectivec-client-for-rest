@@ -340,11 +340,12 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AllocationPolicy
-@dynamic instances, labels, location, network, placement, serviceAccount;
+@dynamic instances, labels, location, network, placement, serviceAccount, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"instances" : [GTLRCloudBatch_InstancePolicyOrTemplate class]
+    @"instances" : [GTLRCloudBatch_InstancePolicyOrTemplate class],
+    @"tags" : [NSString class]
   };
   return map;
 }
@@ -397,15 +398,6 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBatch_CloudLoggingOption
-//
-
-@implementation GTLRCloudBatch_CloudLoggingOption
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBatch_ComputeResource
 //
 
@@ -420,8 +412,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_Container
-@dynamic blockExternalNetwork, commands, entrypoint, imageUri, options,
-         password, username, volumes;
+@dynamic blockExternalNetwork, commands, enableImageStreaming, entrypoint,
+         imageUri, options, password, username, volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -789,7 +781,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_LogsPolicy
-@dynamic cloudLoggingOption, destination, logsPath;
+@dynamic destination, logsPath;
 @end
 
 

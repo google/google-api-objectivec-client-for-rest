@@ -116,7 +116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 
 /**
  *  Required. A name of the notification to retrieve. Format:
- *  organizations/{organization}/locations/{location}/notifications/{notification}.
+ *  organizations/{organization}/locations/{location}/notifications/{notification}
+ *  or projects/{projects}/locations/{location}/notifications/{notification}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -127,7 +128,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *  Gets a notification.
  *
  *  @param name Required. A name of the notification to retrieve. Format:
- *    organizations/{organization}/locations/{location}/notifications/{notification}.
+ *    organizations/{organization}/locations/{location}/notifications/{notification}
+ *    or projects/{projects}/locations/{location}/notifications/{notification}.
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsNotificationsGet
  */
@@ -170,7 +172,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 
 /**
  *  Required. The parent, which owns this collection of notifications. Must be
- *  of the form "organizations/{organization}/locations/{location}"
+ *  of the form "organizations/{organization}/locations/{location}" or
+ *  "projects/{project}/locations/{location}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -199,7 +202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *
  *  @param parent Required. The parent, which owns this collection of
  *    notifications. Must be of the form
- *    "organizations/{organization}/locations/{location}"
+ *    "organizations/{organization}/locations/{location}" or
+ *    "projects/{project}/locations/{location}"
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsNotificationsList
  *
@@ -222,7 +226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 @interface GTLRAdvisorynotificationsQuery_OrganizationsLocationsUpdateSettings : GTLRAdvisorynotificationsQuery
 
 /**
- *  Output only. The resource name of the settings to retrieve. Format:
+ *  Identifier. The resource name of the settings to retrieve. Format:
  *  organizations/{organization}/locations/{location}/settings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -236,13 +240,133 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *  @param object The @c
  *    GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings to
  *    include in the query.
- *  @param name Output only. The resource name of the settings to retrieve.
+ *  @param name Identifier. The resource name of the settings to retrieve.
  *    Format: organizations/{organization}/locations/{location}/settings.
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsUpdateSettings
  */
 + (instancetype)queryWithObject:(GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a notification.
+ *
+ *  Method: advisorynotifications.projects.locations.notifications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdvisorynotificationsCloudPlatform
+ */
+@interface GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsGet : GTLRAdvisorynotificationsQuery
+
+/**
+ *  ISO code for requested localization language. If unset, will be interpereted
+ *  as "en". If the requested language is valid, but not supported for this
+ *  notification, English will be returned with an "Not applicable"
+ *  LocalizationState. If the ISO code is invalid (i.e. not a real language),
+ *  this RPC will throw an error.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. A name of the notification to retrieve. Format:
+ *  organizations/{organization}/locations/{location}/notifications/{notification}
+ *  or projects/{projects}/locations/{location}/notifications/{notification}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Notification.
+ *
+ *  Gets a notification.
+ *
+ *  @param name Required. A name of the notification to retrieve. Format:
+ *    organizations/{organization}/locations/{location}/notifications/{notification}
+ *    or projects/{projects}/locations/{location}/notifications/{notification}.
+ *
+ *  @return GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists notifications under a given parent.
+ *
+ *  Method: advisorynotifications.projects.locations.notifications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdvisorynotificationsCloudPlatform
+ */
+@interface GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsList : GTLRAdvisorynotificationsQuery
+
+/**
+ *  ISO code for requested localization language. If unset, will be interpereted
+ *  as "en". If the requested language is valid, but not supported for this
+ *  notification, English will be returned with an "Not applicable"
+ *  LocalizationState. If the ISO code is invalid (i.e. not a real language),
+ *  this RPC will throw an error.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The maximum number of notifications to return. The service may return fewer
+ *  than this value. If unspecified or equal to 0, at most 50 notifications will
+ *  be returned. The maximum value is 50; values above 50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token returned from a previous request. When paginating, all other
+ *  parameters provided in the request must match the call that returned the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of notifications. Must be
+ *  of the form "organizations/{organization}/locations/{location}" or
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Specifies which parts of the notification resource should be returned in the
+ *  response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdvisorynotificationsViewNotificationViewUnspecified Not
+ *        specified, equivalent to BASIC. (Value:
+ *        "NOTIFICATION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAdvisorynotificationsViewBasic Server responses only include
+ *        title, creation time and Notification ID. Note: for internal use
+ *        responses also include the last update time, the latest message text
+ *        and whether notification has attachments. (Value: "BASIC")
+ *    @arg @c kGTLRAdvisorynotificationsViewFull Include everything. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1ListNotificationsResponse.
+ *
+ *  Lists notifications under a given parent.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    notifications. Must be of the form
+ *    "organizations/{organization}/locations/{location}" or
+ *    "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

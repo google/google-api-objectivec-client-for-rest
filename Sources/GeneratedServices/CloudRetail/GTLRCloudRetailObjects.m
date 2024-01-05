@@ -542,6 +542,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaExportAnalyticsMetricsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaExportAnalyticsMetricsResponse
+@dynamic errorSamples, errorsConfig, outputResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig
 //
 

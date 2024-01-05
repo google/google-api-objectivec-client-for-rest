@@ -59,6 +59,7 @@ NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUns
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupported = @"DEPLOY_FEATURE_NOT_SUPPORTED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_MissingResourcesForCanary = @"MISSING_RESOURCES_FOR_CANARY";
@@ -186,6 +187,7 @@ NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailab
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_OperationFeatureNotSupported = @"OPERATION_FEATURE_NOT_SUPPORTED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned = @"RELEASE_ABANDONED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed = @"RELEASE_FAILED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_VerificationConfigNotFound = @"VERIFICATION_CONFIG_NOT_FOUND";
@@ -262,6 +264,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_DeploymentStrategyNotSupported = @"DEPLOYMENT_STRATEGY_NOT_SUPPORTED";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_RenderFeatureNotSupported = @"RENDER_FEATURE_NOT_SUPPORTED";
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_VerificationConfigNotFound = @"VERIFICATION_CONFIG_NOT_FOUND";
 
 // GTLRCloudDeploy_TargetRender.renderingState
@@ -708,7 +711,18 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_CloudRunConfig
-@dynamic automaticTrafficControl;
+@dynamic automaticTrafficControl, canaryRevisionTags, priorRevisionTags,
+         stableRevisionTags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"canaryRevisionTags" : [NSString class],
+    @"priorRevisionTags" : [NSString class],
+    @"stableRevisionTags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -800,6 +814,116 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
     @"phaseConfigs" : [GTLRCloudDeploy_PhaseConfig class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomMetadata
+//
+
+@implementation GTLRCloudDeploy_CustomMetadata
+@dynamic values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomMetadata_Values
+//
+
+@implementation GTLRCloudDeploy_CustomMetadata_Values
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTarget
+//
+
+@implementation GTLRCloudDeploy_CustomTarget
+@dynamic customTargetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTargetDeployMetadata
+//
+
+@implementation GTLRCloudDeploy_CustomTargetDeployMetadata
+@dynamic skipMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTargetSkaffoldActions
+//
+
+@implementation GTLRCloudDeploy_CustomTargetSkaffoldActions
+@dynamic deployAction, includeSkaffoldModules, renderAction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"includeSkaffoldModules" : [GTLRCloudDeploy_SkaffoldModules class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTargetType
+//
+
+@implementation GTLRCloudDeploy_CustomTargetType
+@dynamic annotations, createTime, customActions, customTargetTypeId,
+         descriptionProperty, ETag, labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTargetType_Annotations
+//
+
+@implementation GTLRCloudDeploy_CustomTargetType_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomTargetType_Labels
+//
+
+@implementation GTLRCloudDeploy_CustomTargetType_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -926,7 +1050,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_DeployJobRunMetadata
-@dynamic cloudRun;
+@dynamic cloudRun, custom, customTarget;
 @end
 
 
@@ -1161,6 +1285,29 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_ListCustomTargetTypesResponse
+//
+
+@implementation GTLRCloudDeploy_ListCustomTargetTypesResponse
+@dynamic customTargetTypes, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customTargetTypes" : [GTLRCloudDeploy_CustomTargetType class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customTargetTypes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_ListDeliveryPipelinesResponse
 //
 
@@ -1362,7 +1509,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Metadata
-@dynamic automation, cloudRun;
+@dynamic automation, cloudRun, custom;
 @end
 
 
@@ -1653,10 +1800,10 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_Release
 @dynamic abandoned, annotations, buildArtifacts, condition, createTime,
-         deliveryPipelineSnapshot, deployParameters, descriptionProperty, ETag,
-         labels, name, renderEndTime, renderStartTime, renderState,
-         skaffoldConfigPath, skaffoldConfigUri, skaffoldVersion,
-         targetArtifacts, targetRenders, targetSnapshots, uid;
+         customTargetTypeSnapshots, deliveryPipelineSnapshot, deployParameters,
+         descriptionProperty, ETag, labels, name, renderEndTime,
+         renderStartTime, renderState, skaffoldConfigPath, skaffoldConfigUri,
+         skaffoldVersion, targetArtifacts, targetRenders, targetSnapshots, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1669,6 +1816,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buildArtifacts" : [GTLRCloudDeploy_BuildArtifact class],
+    @"customTargetTypeSnapshots" : [GTLRCloudDeploy_CustomTargetType class],
     @"targetSnapshots" : [GTLRCloudDeploy_Target class]
   };
   return map;
@@ -1803,7 +1951,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RenderMetadata
-@dynamic cloudRun;
+@dynamic cloudRun, custom;
 @end
 
 
@@ -1833,7 +1981,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RepairRolloutOperation
-@dynamic currentRepairModeIndex, repairPhases, rollout;
+@dynamic currentRepairModeIndex, jobId, phaseId, repairPhases, rollout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2107,6 +2255,44 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_SkaffoldGCSSource
+//
+
+@implementation GTLRCloudDeploy_SkaffoldGCSSource
+@dynamic path, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_SkaffoldGitSource
+//
+
+@implementation GTLRCloudDeploy_SkaffoldGitSource
+@dynamic path, ref, repo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_SkaffoldModules
+//
+
+@implementation GTLRCloudDeploy_SkaffoldModules
+@dynamic configs, git, googleCloudStorage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_SkaffoldSupportedCondition
 //
 
@@ -2203,7 +2389,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Target
-@dynamic annotations, anthosCluster, createTime, deployParameters,
+@dynamic annotations, anthosCluster, createTime, customTarget, deployParameters,
          descriptionProperty, ETag, executionConfigs, gke, labels, multiTarget,
          name, requireApproval, run, targetId, uid, updateTime;
 

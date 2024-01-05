@@ -228,6 +228,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alp
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen2;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata.operationType
+
+/**
+ *  AbortFunctionUpgrade
+ *
+ *  Value: "ABORT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_AbortFunctionUpgrade;
+/**
+ *  CommitFunctionUpgrade
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CommitFunctionUpgrade;
+/**
+ *  CreateFunction
+ *
+ *  Value: "CREATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CreateFunction;
+/**
+ *  DeleteFunction
+ *
+ *  Value: "DELETE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_DeleteFunction;
+/**
+ *  Unspecified
+ *
+ *  Value: "OPERATIONTYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_OperationtypeUnspecified;
+/**
+ *  RedirectFunctionUpgradeTraffic
+ *
+ *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic;
+/**
+ *  RollbackFunctionUpgradeTraffic
+ *
+ *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic;
+/**
+ *  SetupFunctionUpgradeConfig
+ *
+ *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_SetupFunctionUpgradeConfig;
+/**
+ *  UpdateFunction
+ *
+ *  Value: "UPDATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_UpdateFunction;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
 
 /**
@@ -352,6 +410,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2bet
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen2;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata.operationType
+
+/**
+ *  AbortFunctionUpgrade
+ *
+ *  Value: "ABORT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_AbortFunctionUpgrade;
+/**
+ *  CommitFunctionUpgrade
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CommitFunctionUpgrade;
+/**
+ *  CreateFunction
+ *
+ *  Value: "CREATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CreateFunction;
+/**
+ *  DeleteFunction
+ *
+ *  Value: "DELETE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_DeleteFunction;
+/**
+ *  Unspecified
+ *
+ *  Value: "OPERATIONTYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_OperationtypeUnspecified;
+/**
+ *  RedirectFunctionUpgradeTraffic
+ *
+ *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic;
+/**
+ *  RollbackFunctionUpgradeTraffic
+ *
+ *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic;
+/**
+ *  SetupFunctionUpgradeConfig
+ *
+ *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_SetupFunctionUpgradeConfig;
+/**
+ *  UpdateFunction
+ *
+ *  Value: "UPDATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_UpdateFunction;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.name
 
 /**
@@ -474,6 +590,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Loc
  *  Value: "GEN_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata_Environments_Gen2;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata.operationType
+
+/**
+ *  AbortFunctionUpgrade
+ *
+ *  Value: "ABORT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_AbortFunctionUpgrade;
+/**
+ *  CommitFunctionUpgrade
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade;
+/**
+ *  CreateFunction
+ *
+ *  Value: "CREATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CreateFunction;
+/**
+ *  DeleteFunction
+ *
+ *  Value: "DELETE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction;
+/**
+ *  Unspecified
+ *
+ *  Value: "OPERATIONTYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_OperationtypeUnspecified;
+/**
+ *  RedirectFunctionUpgradeTraffic
+ *
+ *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RedirectFunctionUpgradeTraffic;
+/**
+ *  RollbackFunctionUpgradeTraffic
+ *
+ *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RollbackFunctionUpgradeTraffic;
+/**
+ *  SetupFunctionUpgradeConfig
+ *
+ *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_SetupFunctionUpgradeConfig;
+/**
+ *  UpdateFunction
+ *
+ *  Value: "UPDATE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_UpdateFunction;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.name
@@ -1098,6 +1272,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, copy, nullable) NSString *retryPolicy;
 
 /**
+ *  Optional. The hostname of the service that 1st Gen function should be
+ *  observed. If no string is provided, the default service implementing the API
+ *  will be used. For example, `storage.googleapis.com` is the default for all
+ *  event types in the `google.storage` namespace. The field is only applicable
+ *  to 1st Gen functions.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
  *  Optional. The email of the trigger's service account. The service account
  *  must have permission to invoke Cloud Run services, the permission is
  *  `run.routes.invoke`. If empty, defaults to the Compute Engine default
@@ -1387,6 +1570,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_AbortFunctionUpgrade
+ *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CommitFunctionUpgrade
+ *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CreateFunction
+ *        CreateFunction (Value: "CREATE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_DeleteFunction
+ *        DeleteFunction (Value: "DELETE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_OperationtypeUnspecified
+ *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
+ *        RedirectFunctionUpgradeTraffic (Value:
+ *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic
+ *        RollbackFunctionUpgradeTraffic (Value:
+ *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_SetupFunctionUpgradeConfig
+ *        SetupFunctionUpgradeConfig (Value: "SETUP_FUNCTION_UPGRADE_CONFIG")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_UpdateFunction
+ *        UpdateFunction (Value: "UPDATE_FUNCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource *requestResource;
 
@@ -1543,6 +1753,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_AbortFunctionUpgrade
+ *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CommitFunctionUpgrade
+ *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CreateFunction
+ *        CreateFunction (Value: "CREATE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_DeleteFunction
+ *        DeleteFunction (Value: "DELETE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_OperationtypeUnspecified
+ *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
+ *        RedirectFunctionUpgradeTraffic (Value:
+ *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic
+ *        RollbackFunctionUpgradeTraffic (Value:
+ *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_SetupFunctionUpgradeConfig
+ *        SetupFunctionUpgradeConfig (Value: "SETUP_FUNCTION_UPGRADE_CONFIG")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_UpdateFunction
+ *        UpdateFunction (Value: "UPDATE_FUNCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource *requestResource;
 
@@ -1698,6 +1935,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /** The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_AbortFunctionUpgrade
+ *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade
+ *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CreateFunction
+ *        CreateFunction (Value: "CREATE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction
+ *        DeleteFunction (Value: "DELETE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_OperationtypeUnspecified
+ *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
+ *        RedirectFunctionUpgradeTraffic (Value:
+ *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RollbackFunctionUpgradeTraffic
+ *        RollbackFunctionUpgradeTraffic (Value:
+ *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_SetupFunctionUpgradeConfig
+ *        SetupFunctionUpgradeConfig (Value: "SETUP_FUNCTION_UPGRADE_CONFIG")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_UpdateFunction
+ *        UpdateFunction (Value: "UPDATE_FUNCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
 
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource *requestResource;
@@ -2424,9 +2688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *allTrafficOnLatestRevision;
 
 /**
- *  [Preview] The number of CPUs used in a single container instance. Default
- *  value is calculated from available memory. Supports the same values as Cloud
- *  Run, see
+ *  The number of CPUs used in a single container instance. Default value is
+ *  calculated from available memory. Supports the same values as Cloud Run, see
  *  https://cloud.google.com/run/docs/reference/rest/v1/Container#resourcerequirements
  *  Example: "1" indicates 1 vCPU
  */
@@ -2479,8 +2742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
 
 /**
- *  [Preview] Sets the maximum number of concurrent requests that each instance
- *  can receive. Defaults to 1.
+ *  Sets the maximum number of concurrent requests that each instance can
+ *  receive. Defaults to 1.
  *
  *  Uses NSNumber of intValue.
  */

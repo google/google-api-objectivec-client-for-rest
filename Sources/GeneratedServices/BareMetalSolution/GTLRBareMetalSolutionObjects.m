@@ -310,9 +310,10 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_Instance
 @dynamic createTime, firmwareVersion, hyperthreadingEnabled, identifier,
-         interactiveSerialConsoleEnabled, labels, logicalInterfaces, loginInfo,
-         luns, machineType, name, networks, networkTemplate, osImage, pod,
-         state, updateTime, volumes, workloadProfile;
+         interactiveSerialConsoleEnabled, kmsKeyVersion, labels,
+         logicalInterfaces, loginInfo, luns, machineType, name, networks,
+         networkTemplate, osImage, pod, sshKeys, state, updateTime, volumes,
+         workloadProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -323,6 +324,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
     @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class],
     @"luns" : [GTLRBareMetalSolution_Lun class],
     @"networks" : [GTLRBareMetalSolution_Network class],
+    @"sshKeys" : [NSString class],
     @"volumes" : [GTLRBareMetalSolution_Volume class]
   };
   return map;
@@ -352,8 +354,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_InstanceConfig
 @dynamic accountNetworksEnabled, clientNetwork, hyperthreading, identifier,
-         instanceType, logicalInterfaces, name, networkConfig, networkTemplate,
-         osImage, privateNetwork, sshKeyNames, userNote;
+         instanceType, kmsKeyVersion, logicalInterfaces, name, networkConfig,
+         networkTemplate, osImage, privateNetwork, sshKeyNames, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -634,6 +636,38 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 + (NSString *)collectionItemsKey {
   return @"volumes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_LoadInstanceAuthInfoResponse
+//
+
+@implementation GTLRBareMetalSolution_LoadInstanceAuthInfoResponse
+@dynamic sshKeys, userAccounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sshKeys" : [GTLRBareMetalSolution_SSHKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_LoadInstanceAuthInfoResponse_UserAccounts
+//
+
+@implementation GTLRBareMetalSolution_LoadInstanceAuthInfoResponse_UserAccounts
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBareMetalSolution_UserAccount class];
 }
 
 @end
@@ -1191,6 +1225,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_SubmitProvisioningConfigResponse
 @dynamic provisioningConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_UserAccount
+//
+
+@implementation GTLRBareMetalSolution_UserAccount
+@dynamic encryptedPassword, kmsKeyVersion;
 @end
 
 

@@ -360,6 +360,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting = @"BINLOG_RETENTION_SETTING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica = @"EXISTING_DATA_IN_REPLICA";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion = @"INCOMPATIBLE_DATABASE_MINOR_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions = @"INSUFFICIENT_GCS_PERMISSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
@@ -381,6 +382,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlr
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege = @"RISKY_BACKUP_ADMIN_PRIVILEGE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions = @"SOURCE_MAX_SUBSCRIPTIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";

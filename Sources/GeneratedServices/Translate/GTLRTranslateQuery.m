@@ -62,6 +62,239 @@
 
 @end
 
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesAdaptiveMtSentencesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/adaptiveMtSentences";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesAdaptiveMtSentencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListAdaptiveMtSentencesResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.adaptiveMtSentences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Empty class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_AdaptiveMtFile class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/adaptiveMtFiles";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListAdaptiveMtFilesResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.adaptiveMtFiles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtSentencesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/adaptiveMtSentences";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtSentencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListAdaptiveMtSentencesResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.adaptiveMtSentences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_AdaptiveMtDataset *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/adaptiveMtDatasets";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_AdaptiveMtDataset class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Empty class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_AdaptiveMtDataset class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsImportAdaptiveMtFile
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_ImportAdaptiveMtFileRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:importAdaptiveMtFile";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsImportAdaptiveMtFile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ImportAdaptiveMtFileResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.importAdaptiveMtFile";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/adaptiveMtDatasets";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListAdaptiveMtDatasetsResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtDatasets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsAdaptiveMtTranslate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_AdaptiveMtTranslateRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:adaptiveMtTranslate";
+  GTLRTranslateQuery_ProjectsLocationsAdaptiveMtTranslate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_AdaptiveMtTranslateResponse class];
+  query.loggingName = @"translate.projects.locations.adaptiveMtTranslate";
+  return query;
+}
+
+@end
+
 @implementation GTLRTranslateQuery_ProjectsLocationsBatchTranslateDocument
 
 @dynamic parent;

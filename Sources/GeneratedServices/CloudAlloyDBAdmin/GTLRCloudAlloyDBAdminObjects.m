@@ -251,6 +251,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Primary = @"PRIMARY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_ReadReplica = @"READ_REPLICA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary = @"SECONDARY";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeOther = @"SUB_RESOURCE_TYPE_OTHER";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypePrimary = @"SUB_RESOURCE_TYPE_PRIMARY";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica = @"SUB_RESOURCE_TYPE_READ_REPLICA";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary = @"SUB_RESOURCE_TYPE_SECONDARY";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified = @"SUB_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings.retentionUnit
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Count = @"COUNT";
@@ -259,7 +264,12 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRet
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Time = @"TIME";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.engine
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql = @"ENGINE_MYSQL";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineNative = @"ENGINE_NATIVE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineOther = @"ENGINE_OTHER";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EnginePostgres = @"ENGINE_POSTGRES";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineSqlServer = @"ENGINE_SQL_SERVER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineUnspecified = @"ENGINE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Mysql = @"MYSQL";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Native = @"NATIVE";
@@ -271,7 +281,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Alloydb = @"ALLOYDB";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_OnPrem = @"ON_PREM";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb = @"PRODUCT_TYPE_ALLOYDB";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql = @"PRODUCT_TYPE_CLOUD_SQL";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeUnspecified = @"PRODUCT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Spanner = @"SPANNER";
 
@@ -337,7 +351,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic annotations, clusterName, clusterUid, createTime, databaseVersion,
          deleteTime, descriptionProperty, displayName, encryptionConfig,
          encryptionInfo, ETag, expiryQuantity, expiryTime, labels, name,
-         reconciling, sizeBytes, state, type, uid, updateTime;
+         reconciling, satisfiesPzs, sizeBytes, state, type, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -427,8 +441,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          continuousBackupConfig, continuousBackupInfo, createTime,
          databaseVersion, deleteTime, displayName, encryptionConfig,
          encryptionInfo, ETag, initialUser, labels, migrationSource, name,
-         network, networkConfig, primaryConfig, reconciling, secondaryConfig,
-         sslConfig, state, uid, updateTime;
+         network, networkConfig, primaryConfig, reconciling, satisfiesPzs,
+         secondaryConfig, sslConfig, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -677,7 +691,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic annotations, availabilityType, clientConnectionConfig, createTime,
          databaseFlags, deleteTime, displayName, ETag, gceZone, instanceType,
          ipAddress, labels, machineConfig, name, nodes, queryInsightsConfig,
-         readPoolConfig, reconciling, state, uid, updateTime, writableNode;
+         readPoolConfig, reconciling, satisfiesPzs, state, uid, updateTime,
+         writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

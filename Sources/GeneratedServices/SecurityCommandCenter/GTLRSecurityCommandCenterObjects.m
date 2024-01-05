@@ -96,10 +96,16 @@ NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteracti
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.enablementState
+NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Disabled = @"DISABLED";
+NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Enabled = @"ENABLED";
+NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.enablementState
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Disabled = @"DISABLED";
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Enabled = @"ENABLED";
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited = @"INHERITED";
 
 // GTLRSecurityCommandCenter_Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
@@ -313,6 +319,11 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnixSh
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ValidAccounts = @"VALID_ACCOUNTS";
 
+// GTLRSecurityCommandCenter_ProcessSignature.signatureType
+NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeFile = @"SIGNATURE_TYPE_FILE";
+NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeProcess = @"SIGNATURE_TYPE_PROCESS";
+NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeUnspecified = @"SIGNATURE_TYPE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_Role.kind
 NSString * const kGTLRSecurityCommandCenter_Role_Kind_ClusterRole = @"CLUSTER_ROLE";
 NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
@@ -368,6 +379,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 @implementation GTLRSecurityCommandCenter_AccessReview
 @dynamic group, name, ns, resource, subresource, verb, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Application
+//
+
+@implementation GTLRSecurityCommandCenter_Application
+@dynamic baseUri, fullUri;
 @end
 
 
@@ -534,6 +555,27 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_BackupDisasterRecovery
+//
+
+@implementation GTLRSecurityCommandCenter_BackupDisasterRecovery
+@dynamic appliance, applications, backupCreateTime, backupTemplate, backupType,
+         host, policies, policyOptions, profile, storagePool;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applications" : [NSString class],
+    @"policies" : [NSString class],
+    @"policyOptions" : [NSString class]
   };
   return map;
 }
@@ -816,6 +858,45 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_DiskPath
+//
+
+@implementation GTLRSecurityCommandCenter_DiskPath
+@dynamic partitionUuid, relativePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule
+//
+
+@implementation GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule
+@dynamic config, descriptionProperty, displayName, enablementState, name, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config
+//
+
+@implementation GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Empty
 //
 
@@ -839,8 +920,8 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_EventThreatDetectionCustomModule
-@dynamic config, descriptionProperty, displayName, enablementState, lastEditor,
-         name, type, updateTime;
+@dynamic ancestorModule, config, descriptionProperty, displayName,
+         enablementState, lastEditor, name, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -921,7 +1002,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_File
-@dynamic contents, hashedSize, partiallyHashed, path, sha256, size;
+@dynamic contents, diskPath, hashedSize, partiallyHashed, path, sha256, size;
 @end
 
 
@@ -931,15 +1012,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, attackExposure, canonicalName, category, cloudDlpDataProfile,
-         cloudDlpInspection, compliances, connections, contacts, containers,
-         createTime, database, descriptionProperty, eventTime, exfiltration,
-         externalSystems, externalUri, files, findingClass, iamBindings,
-         indicator, kernelRootkit, kubernetes, loadBalancers, logEntries,
-         mitreAttack, moduleName, mute, muteInitiator, muteUpdateTime, name,
-         nextSteps, orgPolicies, parent, parentDisplayName, processes,
-         resourceName, securityMarks, securityPosture, severity,
-         sourceProperties, state, vulnerability;
+@dynamic access, application, attackExposure, backupDisasterRecovery,
+         canonicalName, category, cloudDlpDataProfile, cloudDlpInspection,
+         compliances, connections, contacts, containers, createTime, database,
+         descriptionProperty, eventTime, exfiltration, externalSystems,
+         externalUri, files, findingClass, iamBindings, indicator,
+         kernelRootkit, kubernetes, loadBalancers, logEntries, mitreAttack,
+         moduleName, mute, muteInitiator, muteUpdateTime, name, nextSteps,
+         orgPolicies, parent, parentDisplayName, processes, resourceName,
+         securityMarks, securityPosture, severity, sourceProperties, state,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1642,6 +1724,28 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse
+@dynamic eventThreatDetectionCustomModules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventThreatDetectionCustomModules" : [GTLRSecurityCommandCenter_EventThreatDetectionCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"eventThreatDetectionCustomModules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListDescendantSecurityHealthAnalyticsCustomModulesResponse
 //
 
@@ -1657,6 +1761,28 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 + (NSString *)collectionItemsKey {
   return @"securityHealthAnalyticsCustomModules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse
+@dynamic effectiveEventThreatDetectionCustomModules, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveEventThreatDetectionCustomModules" : [GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"effectiveEventThreatDetectionCustomModules";
 }
 
 @end
@@ -2079,6 +2205,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Package
+//
+
+@implementation GTLRSecurityCommandCenter_Package
+@dynamic cpeUri, packageName, packageType, packageVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_PathNodeAssociatedFinding
 //
 
@@ -2166,7 +2302,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_ProcessSignature
-@dynamic memoryHashSignature, yaraRuleSignature;
+@dynamic memoryHashSignature, signatureType, yaraRuleSignature;
 @end
 
 
@@ -2232,6 +2368,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_RunAssetDiscoveryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SecurityBulletin
+//
+
+@implementation GTLRSecurityCommandCenter_SecurityBulletin
+@dynamic bulletinId, submissionTime, suggestedUpgradeVersion;
 @end
 
 
@@ -2558,7 +2704,7 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_Vulnerability
-@dynamic cve;
+@dynamic cve, fixedPackage, offendingPackage, securityBulletin;
 @end
 
 

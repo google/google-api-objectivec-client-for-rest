@@ -265,7 +265,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -289,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
- *  be configured for Google Cloud projects, folders, organizations and billing
+ *  be configured for Google Cloud projects, folders, organizations, and billing
  *  accounts. Once configured for an organization, it applies to all projects
  *  and folders in the Google Cloud organization.
  */
@@ -299,7 +299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -312,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
- *    can be configured for Google Cloud projects, folders, organizations and
+ *    can be configured for Google Cloud projects, folders, organizations, and
  *    billing accounts. Once configured for an organization, it applies to all
  *    projects and folders in the Google Cloud organization.
  *
@@ -323,13 +323,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  Method: logging.billingAccounts.getSettings
  *
@@ -346,35 +344,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *  "folders/[FOLDER_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  be get for Google Cloud projects, folders, organizations and billing
- *  accounts. Currently it can only be configured for organizations. Once
- *  configured for an organization, it applies to all projects and folders in
- *  the Google Cloud organization.
+ *  example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
  *    "projects/[PROJECT_ID]/settings"
  *    "organizations/[ORGANIZATION_ID]/settings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *    "folders/[FOLDER_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can be get for Google Cloud projects, folders, organizations and billing
- *    accounts. Currently it can only be configured for organizations. Once
- *    configured for an organization, it applies to all projects and folders in
- *    the Google Cloud organization.
+ *    example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *    Google Cloud projects, folders, organizations, and billing accounts.
  *
  *  @return GTLRLoggingQuery_BillingAccountsGetSettings
  */
@@ -1196,10 +1186,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  Method: logging.billingAccounts.locations.buckets.views.patch
  *
@@ -1232,10 +1223,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -1545,8 +1537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the saved query's resource name.If the saved_query_id is not
  *  provided, the system will generate an alphanumeric ID.The saved_query_id is
  *  limited to 100 characters and can include only the following characters:
- *  upper and lower-case alphanumeric characters, underscores, hyphens, and
- *  periods. First character has to be alphanumeric.
+ *  upper and lower-case alphanumeric characters, underscores, hyphens,
+ *  periods.First character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
@@ -1998,9 +1990,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.billingAccounts.sinks.patch
  *
@@ -2060,9 +2053,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -2081,9 +2075,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.billingAccounts.sinks.update
  *
@@ -2143,9 +2138,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -2746,7 +2742,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -2770,7 +2766,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
- *  be configured for Google Cloud projects, folders, organizations and billing
+ *  be configured for Google Cloud projects, folders, organizations, and billing
  *  accounts. Once configured for an organization, it applies to all projects
  *  and folders in the Google Cloud organization.
  */
@@ -2780,7 +2776,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -2793,7 +2789,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
- *    can be configured for Google Cloud projects, folders, organizations and
+ *    can be configured for Google Cloud projects, folders, organizations, and
  *    billing accounts. Once configured for an organization, it applies to all
  *    projects and folders in the Google Cloud organization.
  *
@@ -2804,13 +2800,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  Method: logging.folders.getSettings
  *
@@ -2827,35 +2821,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *  "folders/[FOLDER_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  be get for Google Cloud projects, folders, organizations and billing
- *  accounts. Currently it can only be configured for organizations. Once
- *  configured for an organization, it applies to all projects and folders in
- *  the Google Cloud organization.
+ *  example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
  *    "projects/[PROJECT_ID]/settings"
  *    "organizations/[ORGANIZATION_ID]/settings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *    "folders/[FOLDER_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can be get for Google Cloud projects, folders, organizations and billing
- *    accounts. Currently it can only be configured for organizations. Once
- *    configured for an organization, it applies to all projects and folders in
- *    the Google Cloud organization.
+ *    example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *    Google Cloud projects, folders, organizations, and billing accounts.
  *
  *  @return GTLRLoggingQuery_FoldersGetSettings
  */
@@ -3677,10 +3663,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  Method: logging.folders.locations.buckets.views.patch
  *
@@ -3713,10 +3700,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -4026,8 +4014,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the saved query's resource name.If the saved_query_id is not
  *  provided, the system will generate an alphanumeric ID.The saved_query_id is
  *  limited to 100 characters and can include only the following characters:
- *  upper and lower-case alphanumeric characters, underscores, hyphens, and
- *  periods. First character has to be alphanumeric.
+ *  upper and lower-case alphanumeric characters, underscores, hyphens,
+ *  periods.First character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
@@ -4479,9 +4467,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.folders.sinks.patch
  *
@@ -4541,9 +4530,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -4562,9 +4552,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.folders.sinks.update
  *
@@ -4624,9 +4615,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -4645,15 +4637,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.folders.updateSettings
@@ -4667,10 +4660,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name for the settings to update.
  *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  currently only be configured for Google Cloud organizations. Once
- *  configured, it applies to all projects and folders in the Google Cloud
- *  organization.
+ *  example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4687,24 +4677,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
  *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can currently only be configured for Google Cloud organizations. Once
- *    configured, it applies to all projects and folders in the Google Cloud
- *    organization.
+ *    example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_FoldersUpdateSettings
  */
@@ -5462,10 +5450,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  Method: logging.locations.buckets.views.patch
  *
@@ -5498,10 +5487,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -6109,7 +6099,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -6133,7 +6123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
- *  be configured for Google Cloud projects, folders, organizations and billing
+ *  be configured for Google Cloud projects, folders, organizations, and billing
  *  accounts. Once configured for an organization, it applies to all projects
  *  and folders in the Google Cloud organization.
  */
@@ -6143,7 +6133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -6156,7 +6146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
- *    can be configured for Google Cloud projects, folders, organizations and
+ *    can be configured for Google Cloud projects, folders, organizations, and
  *    billing accounts. Once configured for an organization, it applies to all
  *    projects and folders in the Google Cloud organization.
  *
@@ -6167,13 +6157,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  Method: logging.organizations.getSettings
  *
@@ -6190,35 +6178,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *  "folders/[FOLDER_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  be get for Google Cloud projects, folders, organizations and billing
- *  accounts. Currently it can only be configured for organizations. Once
- *  configured for an organization, it applies to all projects and folders in
- *  the Google Cloud organization.
+ *  example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
  *    "projects/[PROJECT_ID]/settings"
  *    "organizations/[ORGANIZATION_ID]/settings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *    "folders/[FOLDER_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can be get for Google Cloud projects, folders, organizations and billing
- *    accounts. Currently it can only be configured for organizations. Once
- *    configured for an organization, it applies to all projects and folders in
- *    the Google Cloud organization.
+ *    example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *    Google Cloud projects, folders, organizations, and billing accounts.
  *
  *  @return GTLRLoggingQuery_OrganizationsGetSettings
  */
@@ -7040,10 +7020,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  Method: logging.organizations.locations.buckets.views.patch
  *
@@ -7076,10 +7057,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -7389,8 +7371,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the saved query's resource name.If the saved_query_id is not
  *  provided, the system will generate an alphanumeric ID.The saved_query_id is
  *  limited to 100 characters and can include only the following characters:
- *  upper and lower-case alphanumeric characters, underscores, hyphens, and
- *  periods. First character has to be alphanumeric.
+ *  upper and lower-case alphanumeric characters, underscores, hyphens,
+ *  periods.First character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
@@ -7842,9 +7824,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.organizations.sinks.patch
  *
@@ -7904,9 +7887,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -7925,9 +7909,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.organizations.sinks.update
  *
@@ -7987,9 +7972,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -8011,12 +7997,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
  *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
- *  kms_key_name is invalid, or 2) the associated service account does not have
- *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  the Google Cloud organization.UpdateCmekSettings fails when any of the
+ *  following are true: The value of kms_key_name is invalid. The associated
+ *  service account doesn't have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
+ *  to the key is disabled.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
  *
  *  Method: logging.organizations.updateCmekSettings
  *
@@ -8055,12 +8042,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
  *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
- *  kms_key_name is invalid, or 2) the associated service account does not have
- *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  the Google Cloud organization.UpdateCmekSettings fails when any of the
+ *  following are true: The value of kms_key_name is invalid. The associated
+ *  service account doesn't have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
+ *  to the key is disabled.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -8081,15 +8069,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.organizations.updateSettings
@@ -8103,10 +8092,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name for the settings to update.
  *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  currently only be configured for Google Cloud organizations. Once
- *  configured, it applies to all projects and folders in the Google Cloud
- *  organization.
+ *  example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8123,24 +8109,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
  *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can currently only be configured for Google Cloud organizations. Once
- *    configured, it applies to all projects and folders in the Google Cloud
- *    organization.
+ *    example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_OrganizationsUpdateSettings
  */
@@ -8381,7 +8365,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -8405,7 +8389,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
- *  be configured for Google Cloud projects, folders, organizations and billing
+ *  be configured for Google Cloud projects, folders, organizations, and billing
  *  accounts. Once configured for an organization, it applies to all projects
  *  and folders in the Google Cloud organization.
  */
@@ -8415,7 +8399,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -8428,7 +8412,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
- *    can be configured for Google Cloud projects, folders, organizations and
+ *    can be configured for Google Cloud projects, folders, organizations, and
  *    billing accounts. Once configured for an organization, it applies to all
  *    projects and folders in the Google Cloud organization.
  *
@@ -8439,13 +8423,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  Method: logging.projects.getSettings
  *
@@ -8462,35 +8444,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *  "folders/[FOLDER_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  be get for Google Cloud projects, folders, organizations and billing
- *  accounts. Currently it can only be configured for organizations. Once
- *  configured for an organization, it applies to all projects and folders in
- *  the Google Cloud organization.
+ *  example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
  *    "projects/[PROJECT_ID]/settings"
  *    "organizations/[ORGANIZATION_ID]/settings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *    "folders/[FOLDER_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can be get for Google Cloud projects, folders, organizations and billing
- *    accounts. Currently it can only be configured for organizations. Once
- *    configured for an organization, it applies to all projects and folders in
- *    the Google Cloud organization.
+ *    example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *    Google Cloud projects, folders, organizations, and billing accounts.
  *
  *  @return GTLRLoggingQuery_ProjectsGetSettings
  */
@@ -9312,10 +9286,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  Method: logging.projects.locations.buckets.views.patch
  *
@@ -9348,10 +9323,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogView.
  *
- *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter. If an UNAVAILABLE
- *  error is returned, this indicates that system is not in a state where it can
- *  update the view. If this occurs, please try again in a few minutes.
+ *  Updates a view on a log bucket. This method replaces the value of the filter
+ *  field from the existing view with the corresponding value from the new view.
+ *  If an UNAVAILABLE error is returned, this indicates that system is not in a
+ *  state where it can update the view. If this occurs, please try again in a
+ *  few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -9661,8 +9637,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the saved query's resource name.If the saved_query_id is not
  *  provided, the system will generate an alphanumeric ID.The saved_query_id is
  *  limited to 100 characters and can include only the following characters:
- *  upper and lower-case alphanumeric characters, underscores, hyphens, and
- *  periods. First character has to be alphanumeric.
+ *  upper and lower-case alphanumeric characters, underscores, hyphens,
+ *  periods.First character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
@@ -10305,9 +10281,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.projects.sinks.patch
  *
@@ -10367,9 +10344,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -10388,9 +10366,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.projects.sinks.update
  *
@@ -10450,9 +10429,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -10675,9 +10655,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  Method: logging.sinks.update
  *
@@ -10737,9 +10718,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogSink.
  *
- *  Updates a sink. This method replaces the following fields in the existing
- *  sink with values from the new sink: destination, and filter.The updated sink
- *  might also have a new writer_identity; see the unique_writer_identity field.
+ *  Updates a sink. This method replaces the values of the destination and
+ *  filter fields of the existing sink with the corresponding values from the
+ *  new sink.The updated sink might also have a new writer_identity; see the
+ *  unique_writer_identity field.
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param sinkName Required. The full resource name of the sink to update,
@@ -10759,7 +10741,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -10783,7 +10765,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
- *  be configured for Google Cloud projects, folders, organizations and billing
+ *  be configured for Google Cloud projects, folders, organizations, and billing
  *  accounts. Once configured for an organization, it applies to all projects
  *  and folders in the Google Cloud organization.
  */
@@ -10793,7 +10775,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
- *  Router can be configured for Google Cloud projects, folders, organizations
+ *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
  *  Log Router
@@ -10806,7 +10788,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
- *    can be configured for Google Cloud projects, folders, organizations and
+ *    can be configured for Google Cloud projects, folders, organizations, and
  *    billing accounts. Once configured for an organization, it applies to all
  *    projects and folders in the Google Cloud organization.
  *
@@ -10817,13 +10799,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  Method: logging.getSettings
  *
@@ -10840,35 +10820,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *  "folders/[FOLDER_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  be get for Google Cloud projects, folders, organizations and billing
- *  accounts. Currently it can only be configured for organizations. Once
- *  configured for an organization, it applies to all projects and folders in
- *  the Google Cloud organization.
+ *  example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Gets the Log Router settings for the given resource.Note: Settings for the
- *  Log Router can be get for Google Cloud projects, folders, organizations and
- *  billing accounts. Currently it can only be configured for organizations.
- *  Once configured for an organization, it applies to all projects and folders
- *  in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Gets the settings for the given resource.Note: Settings can be retrieved for
+ *  Google Cloud projects, folders, organizations, and billing accounts.See View
+ *  default resource settings for Logging
+ *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
  *    "projects/[PROJECT_ID]/settings"
  *    "organizations/[ORGANIZATION_ID]/settings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
  *    "folders/[FOLDER_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can be get for Google Cloud projects, folders, organizations and billing
- *    accounts. Currently it can only be configured for organizations. Once
- *    configured for an organization, it applies to all projects and folders in
- *    the Google Cloud organization.
+ *    example:"organizations/12345/settings"Note: Settings can be retrieved for
+ *    Google Cloud projects, folders, organizations, and billing accounts.
  *
  *  @return GTLRLoggingQuery_V2GetSettings
  */
@@ -10880,12 +10852,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
  *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
- *  kms_key_name is invalid, or 2) the associated service account does not have
- *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  the Google Cloud organization.UpdateCmekSettings fails when any of the
+ *  following are true: The value of kms_key_name is invalid. The associated
+ *  service account doesn't have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
+ *  to the key is disabled.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
  *
  *  Method: logging.updateCmekSettings
  *
@@ -10924,12 +10897,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
  *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
- *  kms_key_name is invalid, or 2) the associated service account does not have
- *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  the Google Cloud organization.UpdateCmekSettings fails when any of the
+ *  following are true: The value of kms_key_name is invalid. The associated
+ *  service account doesn't have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
+ *  to the key is disabled.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -10950,15 +10924,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.updateSettings
@@ -10972,10 +10947,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name for the settings to update.
  *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"Note: Settings for the Log Router can
- *  currently only be configured for Google Cloud organizations. Once
- *  configured, it applies to all projects and folders in the Google Cloud
- *  organization.
+ *  example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -10992,24 +10964,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Settings.
  *
- *  Updates the Log Router settings for the given resource.Note: Settings for
- *  the Log Router can currently only be configured for Google Cloud
- *  organizations. Once configured, it applies to all projects and folders in
- *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
- *  invalid, or 2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled. 4) location_id is not supported by Logging.
- *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  Updates the settings for the given resource. This method applies to all
+ *  feature configurations for organization and folders.UpdateSettings fails
+ *  when any of the following are true: The value of storage_location either
+ *  isn't supported by Logging or violates the location OrgPolicy. The
+ *  default_sink_config field is set, but it has an unspecified filter write
+ *  mode. The value of kms_key_name is invalid. The associated service account
+ *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
+ *  assigned for the key. Access to the key is disabled.See Configure default
+ *  settings for organizations and folders
+ *  (https://cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
  *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"Note: Settings for the Log Router
- *    can currently only be configured for Google Cloud organizations. Once
- *    configured, it applies to all projects and folders in the Google Cloud
- *    organization.
+ *    example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_V2UpdateSettings
  */

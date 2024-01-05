@@ -33,10 +33,12 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource;
@@ -78,6 +80,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSnippetSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelPromptSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpecEmbeddingVector;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpec;
@@ -94,7 +98,12 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult_ModelScores;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTextInput;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTransactionInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent;
@@ -1017,6 +1026,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.BatchCreateTargetSite operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSiteMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for SiteSearchEngineService.BatchCreateTargetSites method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSitesResponse : GTLRObject
+
+/** TargetSites created. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite *> *targetSites;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the DataStoreService.CreateDataStore
  *  operation. This will be returned by the
  *  google.longrunning.Operation.metadata field.
@@ -1058,6 +1097,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Metadata for Create Schema LRO.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateSchemaMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.CreateTargetSite operation. This will be returned by
+ *  the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCreateTargetSiteMetadata : GTLRObject
 
 /** Operation create time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1195,6 +1253,100 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.DeleteTargetSite operation. This will be returned by
+ *  the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteTargetSiteMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.DisableAdvancedSiteSearch operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDisableAdvancedSiteSearchMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for SiteSearchEngineService.DisableAdvancedSiteSearch
+ *  method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDisableAdvancedSiteSearchResponse : GTLRObject
+@end
+
+
+/**
+ *  A singleton resource of DataStore. It's empty when DataStore is created,
+ *  which defaults to digital parser. The first call to
+ *  DataStoreService.UpdateDocumentProcessingConfig method will initialize the
+ *  config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig : GTLRObject
+
+/**
+ *  Output only. The full resource name of the Document Processing Config.
+ *  Format: `projects/ * /locations/ * /collections/ * /dataStores/ *
+ *  /documentProcessingConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The OCR config. Currently it only applies to PDFs. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig *ocrConfig;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.EnableAdvancedSiteSearch operation. This will be
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEnableAdvancedSiteSearchMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response message for SiteSearchEngineService.EnableAdvancedSiteSearch
+ *  method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEnableAdvancedSiteSearchResponse : GTLRObject
 @end
 
 
@@ -1566,6 +1718,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the EstimateDataSize operation. This is
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEstimateDataSizeMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
+ *  Response of the EstimateDataSize request. If the long running operation was
+ *  successful, then this message is returned by the
+ *  google.longrunning.Operations.response field if the operation was
+ *  successful.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEstimateDataSizeResponse : GTLRObject
+
+/**
+ *  Data size in terms of bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataSizeBytes;
+
+/**
+ *  Total number of documents.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentCount;
+
+@end
+
+
+/**
  *  Configurations for fields of a schema. For example, configuring a field is
  *  indexable, or searchable.
  */
@@ -1872,6 +2061,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unjoinedEventsCount;
+
+@end
+
+
+/**
+ *  The OCR options for parsing documents.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig : GTLRObject
+
+/**
+ *  Required. If OCR is enabled or not. OCR must be enabled for other OcrConfig
+ *  options to apply.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Apply additional enhanced OCR processing to a list of document elements.
+ *  Supported values: * `table`: advanced table parsing model.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements;
+
+/**
+ *  If true, will use native text instead of OCR text on pages containing native
+ *  text.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useNativeText;
 
 @end
 
@@ -2259,6 +2478,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata related to the progress of the TrainCustomModel operation. This is
+ *  returned by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Response of the TrainCustomModelRequest. This message is returned by the
+ *  google.longrunning.Operations.response field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse : GTLRObject
+
+/** Echoes the destination for the complete errors in the request if set. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig *errorConfig;
+
+/** A sample of errors encountered while processing the data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
+
+/**
+ *  The trained model status. Possible values are: * **bad-data**: The training
+ *  data quality is bad. * **no-improvement**: Tuning didn't improve
+ *  performance. Won't deploy. * **in-progress**: Model training is in progress.
+ *  * **ready**: The model is ready for serving.
+ */
+@property(nonatomic, copy, nullable) NSString *modelStatus;
+
+@end
+
+
+/**
  *  Metadata associated with a tune operation.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTuneEngineMetadata : GTLRObject
@@ -2283,6 +2543,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Metadata for UpdateSchema LRO.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUpdateSchemaMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the
+ *  SiteSearchEngineService.UpdateTargetSite operation. This will be returned by
+ *  the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUpdateTargetSiteMetadata : GTLRObject
 
 /** Operation create time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2419,6 +2698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Immutable. Fully qualified name `project/ *
  *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
+ *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2492,6 +2773,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  session.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *conversation;
+
+/**
+ *  The filter syntax consists of an expression language for constructing a
+ *  predicate from one or more fields of the documents being filtered. Filter
+ *  expression is case-sensitive. This will be used to filter search results
+ *  which may affect the summary response. If this field is unrecognizable, an
+ *  `INVALID_ARGUMENT` is returned. Filtering in Vertex AI Search is done by
+ *  mapping the LHS filter key to a key property defined in the Vertex AI Search
+ *  backend -- this mapping is defined by the customer in their schema. For
+ *  example a media customer might have a field 'name' in their schema. In this
+ *  case the filter would look like this: filter --> name:'ANY("king kong")' For
+ *  more information about filtering including syntax and filter operators, see
+ *  [Filter](https://cloud.google.com/generative-ai-app-builder/docs/filter-search-metadata)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Required. Current user input. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTextInput *query;
@@ -4191,6 +4487,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  If specified, the spec will be used to modify the prompt provided to the
+ *  LLM.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelPromptSpec *modelPromptSpec;
+
+/**
+ *  If specified, the spec will be used to modify the model specification
+ *  provided to the LLM.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelSpec *modelSpec;
+
+/**
  *  The number of top results to generate the summary from. If the number of
  *  results returned is less than `summaryResultCount`, the summary is generated
  *  from all of the results. At most five results can be used to generate a
@@ -4199,6 +4507,31 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *summaryResultCount;
+
+@end
+
+
+/**
+ *  Specification of the prompt to use with the model.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelPromptSpec : GTLRObject
+
+/**
+ *  Text at the beginning of the prompt that instructs the assistant. Examples
+ *  are available in the user guide.
+ */
+@property(nonatomic, copy, nullable) NSString *preamble;
+
+@end
+
+
+/**
+ *  Specification of the model.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelSpec : GTLRObject
+
+/** The string format of the model version. e.g. stable, preview, etc. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -4678,6 +5011,82 @@ GTLR_DEPRECATED
 /** The summary content. */
 @property(nonatomic, copy, nullable) NSString *summaryText;
 
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata *summaryWithMetadata;
+
+@end
+
+
+/**
+ *  Citation info for a segment.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation : GTLRObject
+
+/**
+ *  End of the attributed segment, exclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/** Citation sources for the attributed segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource *> *sources;
+
+/**
+ *  Index indicates the start of the segment, measured in bytes/unicode.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  Citation metadata.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationMetadata : GTLRObject
+
+/** Citations for segments. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation *> *citations;
+
+@end
+
+
+/**
+ *  Citation source.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource : GTLRObject
+
+/**
+ *  Document reference index from SummaryWithMetadata.references. It is
+ *  0-indexed and the value will be zero if the reference_index is not set
+ *  explicitly.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *referenceIndex;
+
+@end
+
+
+/**
+ *  Document reference.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference : GTLRObject
+
+/**
+ *  Required. Document.name of the document. Full resource name of the
+ *  referenced document, in the format `projects/ * /locations/ * /collections/
+ *  * /dataStores/ * /branches/ * /documents/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *document;
+
+/** Title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** GCS or HTTP uri for the document. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -4699,6 +5108,23 @@ GTLR_DEPRECATED
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *scores;
+
+@end
+
+
+/**
+ *  Summary with metadata information.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata : GTLRObject
+
+/** Citation metadata for given summary. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationMetadata *citationMetadata;
+
+/** Document References. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference *> *references;
+
+/** Summary text with no citation information. */
+@property(nonatomic, copy, nullable) NSString *summary;
 
 @end
 

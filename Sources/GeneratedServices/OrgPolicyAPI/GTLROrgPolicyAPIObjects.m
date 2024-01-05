@@ -171,7 +171,12 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy
-@dynamic alternate, dryRunSpec, name, spec;
+@dynamic alternate, dryRunSpec, ETag, name, spec;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

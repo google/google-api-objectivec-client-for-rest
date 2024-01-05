@@ -201,7 +201,8 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorReport
-@dynamic deviceModel, eventTime, issue, name, osVersion, reportText, type;
+@dynamic appVersion, deviceModel, eventTime, issue, name, osVersion, reportText,
+         type, vcsInformation;
 @end
 
 

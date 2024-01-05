@@ -1074,11 +1074,12 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_StepTemplate
-@dynamic env;
+@dynamic env, volumeMounts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"env" : [GTLRCloudBuild_EnvVar class]
+    @"env" : [GTLRCloudBuild_EnvVar class],
+    @"volumeMounts" : [GTLRCloudBuild_VolumeMount class]
   };
   return map;
 }
@@ -1153,7 +1154,6 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
     @"results" : [GTLRCloudBuild_TaskResult class],
     @"sidecars" : [GTLRCloudBuild_Sidecar class],
     @"steps" : [GTLRCloudBuild_Step class],
-    @"stepTemplate" : [GTLRCloudBuild_StepTemplate class],
     @"volumes" : [GTLRCloudBuild_VolumeSource class],
     @"workspaces" : [GTLRCloudBuild_WorkspaceDeclaration class]
   };

@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonAccidentalPurchase;
 /**
- *  User account closed.
+ *  Used for notification only, do not use in Cancel API. User account closed.
  *
  *  Value: "CANCELLATION_REASON_ACCOUNT_CLOSED"
  */
@@ -89,13 +89,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse;
 /**
- *  Cancellation by a system.
+ *  Used for notification only, do not use in Cancel API. The subscription is
+ *  cancelled by Google automatically since it is no longer valid.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_CANCEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemCancel;
 /**
- *  Cancellation due to an unrecoverable system error.
+ *  Used for notification only, do not use in Cancel API. Cancellation due to an
+ *  unrecoverable system error.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
  */
@@ -348,7 +350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonAccidentalPurchase;
 /**
- *  User account closed.
+ *  Used for notification only, do not use in Cancel API. User account closed.
  *
  *  Value: "CANCELLATION_REASON_ACCOUNT_CLOSED"
  */
@@ -378,13 +380,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse;
 /**
- *  Cancellation by a system.
+ *  Used for notification only, do not use in Cancel API. The subscription is
+ *  cancelled by Google automatically since it is no longer valid.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_CANCEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemCancel;
 /**
- *  Cancellation due to an unrecoverable system error.
+ *  Used for notification only, do not use in Cancel API. Cancellation due to an
+ *  unrecoverable system error.
  *
  *  Value: "CANCELLATION_REASON_SYSTEM_ERROR"
  */
@@ -601,7 +605,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *        Accidential purchase. (Value:
  *        "CANCELLATION_REASON_ACCIDENTAL_PURCHASE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonAccountClosed
- *        User account closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
+ *        Used for notification only, do not use in Cancel API. User account
+ *        closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonFraud
  *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonOther
@@ -611,9 +616,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemCancel
- *        Cancellation by a system. (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
+ *        Used for notification only, do not use in Cancel API. The subscription
+ *        is cancelled by Google automatically since it is no longer valid.
+ *        (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonSystemError
- *        Cancellation due to an unrecoverable system error. (Value:
+ *        Used for notification only, do not use in Cancel API. Cancellation due
+ *        to an unrecoverable system error. (Value:
  *        "CANCELLATION_REASON_SYSTEM_ERROR")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")
@@ -738,7 +746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  The idempotency key for the request. The ID generation logic is controlled
  *  by the partner. request_id should be the same as on retries of the same
  *  request. A different request_id must be used for a extension of a different
- *  cycle. A random UUID is recommended.
+ *  cycle.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1404,7 +1412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *        Accidential purchase. (Value:
  *        "CANCELLATION_REASON_ACCIDENTAL_PURCHASE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonAccountClosed
- *        User account closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
+ *        Used for notification only, do not use in Cancel API. User account
+ *        closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonFraud
  *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonOther
@@ -1414,9 +1423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonRemorse
  *        Buyer's remorse. (Value: "CANCELLATION_REASON_REMORSE")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemCancel
- *        Cancellation by a system. (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
+ *        Used for notification only, do not use in Cancel API. The subscription
+ *        is cancelled by Google automatically since it is no longer valid.
+ *        (Value: "CANCELLATION_REASON_SYSTEM_CANCEL")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonSystemError
- *        Cancellation due to an unrecoverable system error. (Value:
+ *        Used for notification only, do not use in Cancel API. Cancellation due
+ *        to an unrecoverable system error. (Value:
  *        "CANCELLATION_REASON_SYSTEM_ERROR")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")

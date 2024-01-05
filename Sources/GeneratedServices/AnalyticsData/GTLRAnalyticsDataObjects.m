@@ -24,6 +24,12 @@ NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricType
 NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RevenueData = @"REVENUE_DATA";
 
+// GTLRAnalyticsData_AudienceExport.state
+NSString * const kGTLRAnalyticsData_AudienceExport_State_Active = @"ACTIVE";
+NSString * const kGTLRAnalyticsData_AudienceExport_State_Creating = @"CREATING";
+NSString * const kGTLRAnalyticsData_AudienceExport_State_Failed = @"FAILED";
+NSString * const kGTLRAnalyticsData_AudienceExport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
 NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible = @"COMPATIBLE";
@@ -135,6 +141,26 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"restrictedMetricTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_AudienceExport
+//
+
+@implementation GTLRAnalyticsData_AudienceExport
+@dynamic audience, audienceDisplayName, beginCreatingTime,
+         creationQuotaTokensCharged, dimensions, errorMessage, name,
+         percentageCompleted, rowCount, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRAnalyticsData_V1betaAudienceDimension class]
   };
   return map;
 }
@@ -511,6 +537,28 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_ListAudienceExportsResponse
+//
+
+@implementation GTLRAnalyticsData_ListAudienceExportsResponse
+@dynamic audienceExports, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"audienceExports" : [GTLRAnalyticsData_AudienceExport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"audienceExports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_Metadata
 //
 
@@ -634,6 +682,44 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_Operation
+//
+
+@implementation GTLRAnalyticsData_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_Operation_Metadata
+//
+
+@implementation GTLRAnalyticsData_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_Operation_Response
+//
+
+@implementation GTLRAnalyticsData_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_OrderBy
 //
 
@@ -735,6 +821,34 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 @dynamic concurrentRequests, potentiallyThresholdedRequestsPerHour,
          serverErrorsPerProjectPerHour, tokensPerDay, tokensPerHour,
          tokensPerProjectPerHour;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_QueryAudienceExportRequest
+//
+
+@implementation GTLRAnalyticsData_QueryAudienceExportRequest
+@dynamic limit, offset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_QueryAudienceExportResponse
+//
+
+@implementation GTLRAnalyticsData_QueryAudienceExportResponse
+@dynamic audienceExport, audienceRows, rowCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"audienceRows" : [GTLRAnalyticsData_V1betaAudienceRow class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -975,9 +1089,79 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_Status
+//
+
+@implementation GTLRAnalyticsData_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRAnalyticsData_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_Status_Details_Item
+//
+
+@implementation GTLRAnalyticsData_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_StringFilter
 //
 
 @implementation GTLRAnalyticsData_StringFilter
 @dynamic caseSensitive, matchType, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_V1betaAudienceDimension
+//
+
+@implementation GTLRAnalyticsData_V1betaAudienceDimension
+@dynamic dimensionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_V1betaAudienceDimensionValue
+//
+
+@implementation GTLRAnalyticsData_V1betaAudienceDimensionValue
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_V1betaAudienceRow
+//
+
+@implementation GTLRAnalyticsData_V1betaAudienceRow
+@dynamic dimensionValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionValues" : [GTLRAnalyticsData_V1betaAudienceDimensionValue class]
+  };
+  return map;
+}
+
 @end

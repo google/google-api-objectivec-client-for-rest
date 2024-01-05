@@ -8,6 +8,15 @@
 
 #import <GoogleAPIClientForREST/GTLRPaymentsResellerSubscription.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopePaymentsResellerSubscriptionOpenid = @"openid";
+
+// ----------------------------------------------------------------------------
+//   GTLRPaymentsResellerSubscriptionService
+//
+
 @implementation GTLRPaymentsResellerSubscriptionService
 
 - (instancetype)init {

@@ -1415,14 +1415,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  - "focusTime"
  *  - "outOfOffice"
  *  - "workingLocation"This parameter can be repeated multiple times to return
- *  events of different types. Currently, these are the only allowed values for
- *  this field:
- *  - ["default", "focusTime", "outOfOffice"]
- *  - ["default", "focusTime", "outOfOffice", "workingLocation"]
- *  - ["workingLocation"] The default is ["default", "focusTime",
+ *  events of different types. The default is ["default", "focusTime",
  *  "outOfOffice"].
- *  Additional combinations of these four event types will be made available in
- *  later releases.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
 
@@ -1476,8 +1470,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Free text search terms to find events that match these terms in the
- *  following fields: summary, description, location, attendee's displayName,
- *  attendee's email. Optional.
+ *  following fields:
+ *  - summary
+ *  - description
+ *  - location
+ *  - attendee's displayName
+ *  - attendee's email
+ *  - workingLocationProperties.officeLocation.buildingId
+ *  - workingLocationProperties.officeLocation.deskId
+ *  - workingLocationProperties.officeLocation.label
+ *  - workingLocationProperties.customLocation.label
+ *  These search terms also match predefined keywords against all display title
+ *  translations of working location, out-of-office, and focus-time events. For
+ *  example, searching for "Office" or "Bureau" returns working location events
+ *  of type officeLocation, whereas searching for "Out of office" or "Abwesend"
+ *  returns out-of-office events. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
@@ -1589,7 +1596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @end
 
 /**
- *  Moves an event to another calendar, i.e. changes an event's organizer.
+ *  Moves an event to another calendar, i.e. changes an event's organizer. Note
+ *  that only default events can be moved; outOfOffice, focusTime and
+ *  workingLocation events cannot be moved.
  *
  *  Method: calendar.events.move
  *
@@ -1639,7 +1648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 /**
  *  Fetches a @c GTLRCalendar_Event.
  *
- *  Moves an event to another calendar, i.e. changes an event's organizer.
+ *  Moves an event to another calendar, i.e. changes an event's organizer. Note
+ *  that only default events can be moved; outOfOffice, focusTime and
+ *  workingLocation events cannot be moved.
  *
  *  @param calendarId Calendar identifier of the source calendar where the event
  *    currently is on.
@@ -1936,14 +1947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  - "focusTime"
  *  - "outOfOffice"
  *  - "workingLocation"This parameter can be repeated multiple times to return
- *  events of different types. Currently, these are the only allowed values for
- *  this field:
- *  - ["default", "focusTime", "outOfOffice"]
- *  - ["default", "focusTime", "outOfOffice", "workingLocation"]
- *  - ["workingLocation"] The default is ["default", "focusTime",
+ *  events of different types. The default is ["default", "focusTime",
  *  "outOfOffice"].
- *  Additional combinations of these four event types will be made available in
- *  later releases.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
 
@@ -1997,8 +2002,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Free text search terms to find events that match these terms in the
- *  following fields: summary, description, location, attendee's displayName,
- *  attendee's email. Optional.
+ *  following fields:
+ *  - summary
+ *  - description
+ *  - location
+ *  - attendee's displayName
+ *  - attendee's email
+ *  - workingLocationProperties.officeLocation.buildingId
+ *  - workingLocationProperties.officeLocation.deskId
+ *  - workingLocationProperties.officeLocation.label
+ *  - workingLocationProperties.customLocation.label
+ *  These search terms also match predefined keywords against all display title
+ *  translations of working location, out-of-office, and focus-time events. For
+ *  example, searching for "Office" or "Bureau" returns working location events
+ *  of type officeLocation, whereas searching for "Out of office" or "Abwesend"
+ *  returns out-of-office events. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 

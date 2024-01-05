@@ -218,6 +218,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Load auth info for a server.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.loadAuthInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesLoadAuthInfo : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the server. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_LoadInstanceAuthInfoResponse.
+ *
+ *  Load auth info for a server.
+ *
+ *  @param name Required. Name of the server.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesLoadAuthInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Update details of a single server.
  *
  *  Method: baremetalsolution.projects.locations.instances.patch

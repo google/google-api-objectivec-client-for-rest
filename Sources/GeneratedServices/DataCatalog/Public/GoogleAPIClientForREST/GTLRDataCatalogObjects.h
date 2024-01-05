@@ -2642,7 +2642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name of this policy tag in the URL format. The policy
+ *  Identifier. Resource name of this policy tag in the URL format. The policy
  *  tag manager generates unique taxonomy IDs and policy tag IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3661,7 +3661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name of this taxonomy in URL format. Note: Policy tag
+ *  Identifier. Resource name of this taxonomy in URL format. Note: Policy tag
  *  manager generates unique taxonomy IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;

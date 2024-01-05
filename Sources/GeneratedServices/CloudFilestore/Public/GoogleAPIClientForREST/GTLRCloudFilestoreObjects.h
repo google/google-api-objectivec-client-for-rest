@@ -658,6 +658,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
@@ -868,7 +875,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *capacityGb;
 
-/** The name of the file share (must be 16 characters or less). */
+/**
+ *  Required. The name of the file share. Must use 1-16 characters for the basic
+ *  service tier and 1-63 characters for all other service tiers. Must use
+ *  lowercase letters, numbers, or underscores `[a-z0-9_]`. Must start with a
+ *  letter. Immutable.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -943,7 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
- *  type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  type. For details, please refer to go/mr-user-guide. Should not be set if
  *  maintenance_settings.maintenance_policies is set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames *maintenancePolicyNames;
@@ -1061,7 +1073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
- *  type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  type. For details, please refer to go/mr-user-guide. Should not be set if
  *  maintenance_settings.maintenance_policies is set.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1195,7 +1207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
- *  For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  For details, please refer to go/mr-user-guide. Should not be set if
  *  maintenance_policy_names is set. If only the name is needed, then only
  *  populate MaintenancePolicy.name.
  */
@@ -1208,7 +1220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
- *  For details, please refer to go/cloud-saas-mw-ug. Should not be set if
+ *  For details, please refer to go/mr-user-guide. Should not be set if
  *  maintenance_policy_names is set. If only the name is needed, then only
  *  populate MaintenancePolicy.name.
  *
@@ -1425,6 +1437,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  single network is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -2092,7 +2111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 /**
  *  Required. The snapshot resource ID, in the format 'my-snapshot', where the
  *  specified ID is the {snapshot_id} of the fully qualified name like
- *  projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`
  */
 @property(nonatomic, copy, nullable) NSString *targetSnapshotId;
 

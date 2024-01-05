@@ -2782,6 +2782,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_MethodSettings : GTLRObject
 
 /**
+ *  List of top-level fields of the request message, that should be
+ *  automatically populated by the client libraries based on their
+ *  (google.api.field_info).format. Currently supported format: UUID4. Example
+ *  of a YAML configuration: publishing: method_settings: - selector:
+ *  google.example.v1.ExampleService.CreateExample auto_populated_fields: -
+ *  request_id
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoPopulatedFields;
+
+/**
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
@@ -3251,7 +3261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Required. The monitored resource type. For example, the type
  *  `"cloudsql_database"` represents databases in Google Cloud SQL. For a list
- *  of types, see [Monitoring resource
+ *  of types, see [Monitored resource
  *  types](https://cloud.google.com/monitoring/api/resources) and [Logging
  *  resource types](https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
@@ -3639,6 +3649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  https://cloud.google.com/pubsub/lite/docs/reference/rpc
  */
 @property(nonatomic, copy, nullable) NSString *protoReferenceDocumentationUri;
+
+/**
+ *  Optional link to REST reference documentation. Example:
+ *  https://cloud.google.com/pubsub/lite/docs/reference/rest
+ */
+@property(nonatomic, copy, nullable) NSString *restReferenceDocumentationUri;
 
 @end
 

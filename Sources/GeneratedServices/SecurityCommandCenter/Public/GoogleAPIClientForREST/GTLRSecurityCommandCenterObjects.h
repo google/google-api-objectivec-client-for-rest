@@ -17,6 +17,7 @@
 
 @class GTLRSecurityCommandCenter_Access;
 @class GTLRSecurityCommandCenter_AccessReview;
+@class GTLRSecurityCommandCenter_Application;
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
@@ -28,6 +29,7 @@
 @class GTLRSecurityCommandCenter_AttackStepNode_Labels;
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
+@class GTLRSecurityCommandCenter_BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
@@ -44,6 +46,9 @@
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_DiskPath;
+@class GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule;
+@class GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config;
 @class GTLRSecurityCommandCenter_Empty;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
 @class GTLRSecurityCommandCenter_EventThreatDetectionCustomModule;
@@ -100,6 +105,7 @@
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
 @class GTLRSecurityCommandCenter_OrgPolicy;
+@class GTLRSecurityCommandCenter_Package;
 @class GTLRSecurityCommandCenter_PathNodeAssociatedFinding;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
@@ -110,6 +116,7 @@
 @class GTLRSecurityCommandCenter_Resource;
 @class GTLRSecurityCommandCenter_ResourceValueConfigMetadata;
 @class GTLRSecurityCommandCenter_Role;
+@class GTLRSecurityCommandCenter_SecurityBulletin;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
@@ -542,6 +549,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInterac
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.enablementState
+
+/**
+ *  The module is disabled at the given level.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Disabled;
+/**
+ *  The module is enabled at the given level.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Enabled;
+/**
+ *  Unspecified enablement state.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EventThreatDetectionCustomModule.enablementState
 
 /**
@@ -562,6 +591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetecti
  *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified;
+/**
+ *  When the enablement state is inherited.
+ *
+ *  Value: "INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.findingClass
@@ -1717,6 +1752,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ValidAccounts;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_ProcessSignature.signatureType
+
+/**
+ *  Used for signatures concerning disks.
+ *
+ *  Value: "SIGNATURE_TYPE_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeFile;
+/**
+ *  Used for signatures concerning processes.
+ *
+ *  Value: "SIGNATURE_TYPE_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeProcess;
+/**
+ *  The default signature type.
+ *
+ *  Value: "SIGNATURE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Role.kind
 
 /**
@@ -1959,6 +2016,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The API version of the resource. "*" means all. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Represents an application associated with a finding.
+ */
+@interface GTLRSecurityCommandCenter_Application : GTLRObject
+
+/**
+ *  The base URI that identifies the network location of the application in
+ *  which the vulnerability was detected. Examples: http://11.22.33.44,
+ *  http://foo.com, http://11.22.33.44:8080
+ */
+@property(nonatomic, copy, nullable) NSString *baseUri;
+
+/**
+ *  The full URI with payload that can be used to reproduce the vulnerability.
+ *  Example:
+ *  http://11.22.33.44/reflected/parameter/attribute/singlequoted/js?p=aMmYgI6H
+ */
+@property(nonatomic, copy, nullable) NSString *fullUri;
 
 @end
 
@@ -2323,6 +2402,90 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Information related to Google Cloud Backup and DR Service findings.
+ */
+@interface GTLRSecurityCommandCenter_BackupDisasterRecovery : GTLRObject
+
+/**
+ *  The name of the Backup and DR appliance that captures, moves, and manages
+ *  the lifecycle of backup data. For example, “backup-server-57137”.
+ */
+@property(nonatomic, copy, nullable) NSString *appliance;
+
+/**
+ *  The names of Backup and DR applications. An application is a VM, database,
+ *  or file system on a managed host monitored by a backup and recovery
+ *  appliance. For example, “centos7-01-vol00”, “centos7-01-vol01”,
+ *  “centos7-01-vol02”.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applications;
+
+/** The timestamp at which the Backup and DR backup was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *backupCreateTime;
+
+/**
+ *  The name of a Backup and DR template which comprises one or more backup
+ *  policies. See the [Backup and DR
+ *  documentation](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#temp)
+ *  for more information. For example, “snap-ov”.
+ */
+@property(nonatomic, copy, nullable) NSString *backupTemplate;
+
+/**
+ *  The backup type of the Backup and DR image. For example, “Snapshot”, “Remote
+ *  Snapshot”, “OnVault”.
+ */
+@property(nonatomic, copy, nullable) NSString *backupType;
+
+/**
+ *  The name of a Backup and DR host, which is managed by the backup and
+ *  recovery appliance and known to the management console. The host can be of
+ *  type Generic (for example, Compute Engine, SQL Server, Oracle DB, SMB file
+ *  system, etc.), vCenter, or an ESX server. See the [Backup and DR
+ *  documentation on
+ *  hosts](https://cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications)
+ *  for more information. For example, “centos7-01”.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The names of Backup and DR policies that are associated with a template and
+ *  that define when to run a backup, how frequently to run a backup, and how
+ *  long to retain the backup image. For example, “onvaults”.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
+
+/**
+ *  The names of Backup and DR advanced policy options of a policy applying to
+ *  an application. See the [Backup and DR documentation on policy
+ *  options](https://cloud.google.com/backup-disaster-recovery/docs/create-plan/policy-settings).
+ *  For example, “skipofflineappsincongrp, nounmap”.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policyOptions;
+
+/**
+ *  The name of the Backup and DR resource profile that specifies the storage
+ *  media for backups of application and VM data. See the [Backup and DR
+ *  documentation on
+ *  profiles](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#profile).
+ *  For example, “GCP”.
+ */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  The name of the Backup and DR storage pool that the backup and recovery
+ *  appliance is storing data in. The storage pool could be of type Cloud,
+ *  Primary, Snapshot, or OnVault. See the [Backup and DR documentation on
+ *  storage
+ *  pools](https://cloud.google.com/backup-disaster-recovery/docs/concepts/storage-pools).
+ *  For example, “DiskPoolOne”.
+ */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+@end
+
+
+/**
  *  Request message to create multiple resource value configs
  */
 @interface GTLRSecurityCommandCenter_BatchCreateResourceValueConfigsRequest : GTLRObject
@@ -2378,9 +2541,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2394,7 +2573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2993,6 +3175,95 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Path of the file in terms of underlying disk/partition identifiers.
+ */
+@interface GTLRSecurityCommandCenter_DiskPath : GTLRObject
+
+/**
+ *  UUID of the partition (format
+ *  https://wiki.archlinux.org/title/persistent_block_device_naming#by-uuid)
+ */
+@property(nonatomic, copy, nullable) NSString *partitionUuid;
+
+/**
+ *  Relative path of the file in the partition as a JSON encoded string.
+ *  Example: /home/user1/executable_file.sh
+ */
+@property(nonatomic, copy, nullable) NSString *relativePath;
+
+@end
+
+
+/**
+ *  An EffectiveEventThreatDetectionCustomModule is the representation of an
+ *  Event Threat Detection custom module at a specified level of the resource
+ *  hierarchy: organization, folder, or project. If a custom module is inherited
+ *  from a parent organization or folder, the value of the `enablement_state`
+ *  property in EffectiveEventThreatDetectionCustomModule is set to the value
+ *  that is effective in the parent, instead of `INHERITED`. For example, if the
+ *  module is enabled in a parent organization or folder, the effective
+ *  `enablement_state` for the module in all child folders or projects is also
+ *  `enabled`. EffectiveEventThreatDetectionCustomModule is read-only.
+ */
+@interface GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule : GTLRObject
+
+/** Output only. Config for the effective module. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config *config;
+
+/**
+ *  Output only. The description for the module.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The human readable name to be displayed for the module. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The effective state of enablement for the module at the given
+ *  level of the hierarchy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Disabled
+ *        The module is disabled at the given level. (Value: "DISABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_Enabled
+ *        The module is enabled at the given level. (Value: "ENABLED")
+ *    @arg @c kGTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified
+ *        Unspecified enablement state. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/**
+ *  Output only. The resource name of the effective ETD custom module. Its
+ *  format is: *
+ *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  *
+ *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Type for the module. e.g. CONFIGURABLE_BAD_IP. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Output only. Config for the effective module.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -3020,9 +3291,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /**
  *  Represents an instance of an Event Threat Detection custom module, including
  *  its full module name, display name, enablement state, and last updated time.
- *  You can create a custom module at the organization level only.
+ *  You can create a custom module at the organization, folder, or project
+ *  level. Custom modules that you create at the organization or folder level
+ *  are inherited by child folders and projects.
  */
 @interface GTLRSecurityCommandCenter_EventThreatDetectionCustomModule : GTLRObject
+
+/**
+ *  Output only. The closest ancestor module that this module inherits the
+ *  enablement state from. The format is the same as the
+ *  EventThreatDetectionCustomModule resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *ancestorModule;
 
 /**
  *  Config for the module. For the resident module, its config value is defined
@@ -3051,6 +3331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        The module is enabled at the given level. (Value: "ENABLED")
  *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified
  *        Unspecified enablement state. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited
+ *        When the enablement state is inherited. (Value: "INHERITED")
  */
 @property(nonatomic, copy, nullable) NSString *enablementState;
 
@@ -3201,6 +3483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** Prefix of the file contents as a JSON-encoded string. */
 @property(nonatomic, copy, nullable) NSString *contents;
 
+/** Path of the file in terms of underlying disk/partition identifiers. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_DiskPath *diskPath;
+
 /**
  *  The length in bytes of the file prefix that was hashed. If hashed_size ==
  *  size, any hashes reported represent the entire file.
@@ -3251,8 +3536,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Access *access;
 
+/** Represents an application associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Application *application;
+
 /** The results of an attack path simulation relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AttackExposure *attackExposure;
+
+/** Fields related to Backup and DR findings. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_BackupDisasterRecovery *backupDisasterRecovery;
 
 /**
  *  The canonical name of the finding. It's either
@@ -5259,6 +5550,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Response for listing current and descendant resident Event Threat Detection
+ *  custom modules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "eventThreatDetectionCustomModules" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListDescendantEventThreatDetectionCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  Custom modules belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_EventThreatDetectionCustomModule *> *eventThreatDetectionCustomModules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing descendant Security Health Analytics custom
  *  modules.
  *
@@ -5282,6 +5601,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule *> *securityHealthAnalyticsCustomModules;
+
+@end
+
+
+/**
+ *  Response for listing EffectiveEventThreatDetectionCustomModules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "effectiveEventThreatDetectionCustomModules" property. If returned
+ *        as the result of a query, it should support automatic pagination (when
+ *        @c shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListEffectiveEventThreatDetectionCustomModulesResponse : GTLRCollectionObject
+
+/**
+ *  Effective custom modules belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule *> *effectiveEventThreatDetectionCustomModules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -5796,7 +6142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** Kubernetes object group, such as "policy.k8s.io/v1". */
 @property(nonatomic, copy, nullable) NSString *group;
 
-/** Kubernetes object kind, such as “Namespace”. */
+/** Kubernetes object kind, such as "Namespace". */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -5934,6 +6280,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  "organizations/{organization_id}/policies/{constraint_name}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Package is a generic definition of a package.
+ */
+@interface GTLRSecurityCommandCenter_Package : GTLRObject
+
+/** The CPE URI where the vulnerability was detected. */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** The name of the package where the vulnerability was detected. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Type of package, for example, os, maven, or go. */
+@property(nonatomic, copy, nullable) NSString *packageType;
+
+/** The version of the package. */
+@property(nonatomic, copy, nullable) NSString *packageVersion;
 
 @end
 
@@ -6163,6 +6529,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** Signature indicating that a binary family was matched. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_MemoryHashSignature *memoryHashSignature;
 
+/**
+ *  Describes the type of resource associated with the signature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeFile
+ *        Used for signatures concerning disks. (Value: "SIGNATURE_TYPE_FILE")
+ *    @arg @c kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeProcess
+ *        Used for signatures concerning processes. (Value:
+ *        "SIGNATURE_TYPE_PROCESS")
+ *    @arg @c kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeUnspecified
+ *        The default signature type. (Value: "SIGNATURE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureType;
+
 /** Signature indicating that a YARA rule was matched. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_YaraRuleSignature *yaraRuleSignature;
 
@@ -6268,6 +6648,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  Request message for running asset discovery for an organization.
  */
 @interface GTLRSecurityCommandCenter_RunAssetDiscoveryRequest : GTLRObject
+@end
+
+
+/**
+ *  SecurityBulletin are notifications of vulnerabilities of Google products.
+ */
+@interface GTLRSecurityCommandCenter_SecurityBulletin : GTLRObject
+
+/** ID of the bulletin corresponding to the vulnerability. */
+@property(nonatomic, copy, nullable) NSString *bulletinId;
+
+/** Submission time of this Security Bulletin. */
+@property(nonatomic, strong, nullable) GTLRDateTime *submissionTime;
+
+/**
+ *  This represents a version that the cluster receiving this notification
+ *  should be upgraded to, based on its current version. For example, 1.15.0
+ */
+@property(nonatomic, copy, nullable) NSString *suggestedUpgradeVersion;
+
 @end
 
 
@@ -6517,8 +6917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
- *  Manually constructed resource. If the custom module only evaluates against
- *  the resource data, the iam_policy_data field can be omitted, and vice versa.
+ *  Manually constructed resource name. If the custom module evaluates against
+ *  only the resource data, you can omit the `iam_policy_data` field. If it
+ *  evaluates only the `iam_policy_data` field, you can omit the resource data.
  */
 @interface GTLRSecurityCommandCenter_SimulatedResource : GTLRObject
 
@@ -6526,20 +6927,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Policy *iamPolicyData;
 
 /**
- *  Optional. A representation of the GCP resource. Should match the GCP
- *  resource JSON format.
+ *  Optional. A representation of the Google Cloud resource. Should match the
+ *  Google Cloud resource JSON format.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SimulatedResource_ResourceData *resourceData;
 
-/** Required. The type of the resource, e.g. `compute.googleapis.com/Disk`. */
+/**
+ *  Required. The type of the resource, for example,
+ *  `compute.googleapis.com/Disk`.
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 
 
 /**
- *  Optional. A representation of the GCP resource. Should match the GCP
- *  resource JSON format.
+ *  Optional. A representation of the Google Cloud resource. Should match the
+ *  Google Cloud resource JSON format.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -6576,7 +6980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @interface GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleRequest : GTLRObject
 
-/** Required. The user specified custom configuration to test. */
+/** Required. The custom configuration that you need to test. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomConfig *customConfig;
 
 /** Required. Resource data to simulate custom module against. */
@@ -6586,7 +6990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
- *  Response message for simulating a SecurityHealthAnalyticsCustomModule
+ *  Response message for simulating a `SecurityHealthAnalyticsCustomModule`
  *  against a given resource.
  */
 @interface GTLRSecurityCommandCenter_SimulateSecurityHealthAnalyticsCustomModuleResponse : GTLRObject
@@ -6891,6 +7295,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  (https://cve.mitre.org/about/)
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cve *cve;
+
+/** The fixed package is relevant to the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Package *fixedPackage;
+
+/** The offending package is relevant to the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Package *offendingPackage;
+
+/** The security bulletin is relevant to this finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityBulletin *securityBulletin;
 
 @end
 

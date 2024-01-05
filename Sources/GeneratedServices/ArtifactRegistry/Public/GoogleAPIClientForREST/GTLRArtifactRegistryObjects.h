@@ -723,9 +723,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *tagState;
 
-/** DEPRECATED: Use older_than. */
-@property(nonatomic, strong, nullable) GTLRDuration *versionAge GTLR_DEPRECATED;
-
 /** Match versions by version name prefix. Applied on any prefix match. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *versionNamePrefixes;
 

@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A place ID returned in a Place (with "places/" prefix), or
- *  equivalently the name in the same Place. Format: places/ *place_id*.
+ *  equivalently the name in the same Place. Format: `places/{place_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -72,8 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get place details with a place id (in a name) string.
  *
  *  @param name Required. A place ID returned in a Place (with "places/"
- *    prefix), or equivalently the name in the same Place. Format: places/
- *    *place_id*.
+ *    prefix), or equivalently the name in the same Place. Format:
+ *    `places/{place_id}`.
  *
  *  @return GTLRMapsPlacesQuery_PlacesGet
  */
@@ -122,10 +122,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of a photo media in the format:
- *  `"places/place_id/photos/photo_reference/media"`. The resource name of a
+ *  `places/{place_id}/photos/{photo_reference}/media`. The resource name of a
  *  photo as returned in a Place object's `photos.name` field comes with the
- *  format `"places/place_id/photos/photo_reference"`. You need to append
- *  `"/media"` at the end of the photo resource to get the photo media resource
+ *  format `places/{place_id}/photos/{photo_reference}`. You need to append
+ *  `/media` at the end of the photo resource to get the photo media resource
  *  name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -144,11 +144,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a photo media with a photo reference string.
  *
  *  @param name Required. The resource name of a photo media in the format:
- *    `"places/place_id/photos/photo_reference/media"`. The resource name of a
+ *    `places/{place_id}/photos/{photo_reference}/media`. The resource name of a
  *    photo as returned in a Place object's `photos.name` field comes with the
- *    format `"places/place_id/photos/photo_reference"`. You need to append
- *    `"/media"` at the end of the photo resource to get the photo media
- *    resource name.
+ *    format `places/{place_id}/photos/{photo_reference}`. You need to append
+ *    `/media` at the end of the photo resource to get the photo media resource
+ *    name.
  *
  *  @return GTLRMapsPlacesQuery_PlacesPhotosGetMedia
  */

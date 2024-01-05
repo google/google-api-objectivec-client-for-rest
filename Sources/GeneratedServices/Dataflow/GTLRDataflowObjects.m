@@ -78,6 +78,11 @@ NSString * const kGTLRDataflow_Environment_ShuffleMode_ServiceBased = @"SERVICE_
 NSString * const kGTLRDataflow_Environment_ShuffleMode_ShuffleModeUnspecified = @"SHUFFLE_MODE_UNSPECIFIED";
 NSString * const kGTLRDataflow_Environment_ShuffleMode_VmBased = @"VM_BASED";
 
+// GTLRDataflow_Environment.streamingMode
+NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeAtLeastOnce = @"STREAMING_MODE_AT_LEAST_ONCE";
+NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeExactlyOnce = @"STREAMING_MODE_EXACTLY_ONCE";
+NSString * const kGTLRDataflow_Environment_StreamingMode_StreamingModeUnspecified = @"STREAMING_MODE_UNSPECIFIED";
+
 // GTLRDataflow_ExecutionStageState.executionStageState
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -702,8 +707,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @dynamic clusterManagerApiService, dataset, debugOptions, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
          serviceAccountEmail, serviceKmsKeyName, serviceOptions, shuffleMode,
-         tempStoragePrefix, userAgent, useStreamingEngineResourceBasedBilling,
-         version, workerPools, workerRegion, workerZone;
+         streamingMode, tempStoragePrefix, userAgent,
+         useStreamingEngineResourceBasedBilling, version, workerPools,
+         workerRegion, workerZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2111,7 +2117,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_RuntimeUpdatableParams
-@dynamic maxNumWorkers, minNumWorkers;
+@dynamic maxNumWorkers, minNumWorkers, workerUtilizationHint;
 @end
 
 
@@ -2897,6 +2903,17 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_StreamingScalingReport
+//
+
+@implementation GTLRDataflow_StreamingScalingReport
+@dynamic activeBundleCount, activeThreadCount, maximumBundleCount,
+         maximumBytesCount, maximumThreadCount, outstandingBytesCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StreamingSetupTask
 //
 
@@ -3183,9 +3200,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerMessage
-@dynamic dataSamplingReport, labels, time, workerHealthReport,
-         workerLifecycleEvent, workerMessageCode, workerMetrics,
-         workerShutdownNotice, workerThreadScalingReport;
+@dynamic dataSamplingReport, labels, streamingScalingReport, time,
+         workerHealthReport, workerLifecycleEvent, workerMessageCode,
+         workerMetrics, workerShutdownNotice, workerThreadScalingReport;
 @end
 
 

@@ -1318,13 +1318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGmail_Label *> *labels;
 
-/**
- *  productId
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *productId;
-
 @end
 
 

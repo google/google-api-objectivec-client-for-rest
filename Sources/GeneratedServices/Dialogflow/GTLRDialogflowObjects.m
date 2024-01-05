@@ -1746,9 +1746,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page
-@dynamic advancedSettings, displayName, entryFulfillment, eventHandlers, form,
-         knowledgeConnectorSettings, name, transitionRouteGroups,
-         transitionRoutes;
+@dynamic advancedSettings, descriptionProperty, displayName, entryFulfillment,
+         eventHandlers, form, knowledgeConnectorSettings, name,
+         transitionRouteGroups, transitionRoutes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3361,7 +3365,41 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings
-@dynamic agent, agentIdentity, agentScope, business, businessDescription;
+@dynamic agent, agentIdentity, agentScope, business, businessDescription,
+         disableDataStoreFallback;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3Generator
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Generator
+@dynamic displayName, name, placeholders, promptText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeholders" : [GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -3884,6 +3922,28 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ListGeneratorsResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ListGeneratorsResponse
+@dynamic generators, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generators" : [GTLRDialogflow_GoogleCloudDialogflowCxV3Generator class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"generators";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3ListIntentsResponse
 //
 
@@ -4190,9 +4250,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Page
-@dynamic advancedSettings, displayName, entryFulfillment, eventHandlers, form,
-         knowledgeConnectorSettings, name, transitionRouteGroups,
-         transitionRoutes;
+@dynamic advancedSettings, descriptionProperty, displayName, entryFulfillment,
+         eventHandlers, form, knowledgeConnectorSettings, name,
+         transitionRouteGroups, transitionRoutes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4241,6 +4305,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo
 @dynamic displayName, justCollected, required, state, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Phrase
+@dynamic text;
 @end
 
 
@@ -5712,16 +5786,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec
-@dynamic kmsKey, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType
 //
 
@@ -5874,26 +5938,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata
-@dynamic request;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest
-@dynamic encryptionSpec;
 @end
 
 
@@ -7068,16 +7112,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec
-@dynamic kmsKey, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowV2EntityType
 //
 
@@ -7258,26 +7292,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata
-@dynamic request;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest
-@dynamic encryptionSpec;
 @end
 
 

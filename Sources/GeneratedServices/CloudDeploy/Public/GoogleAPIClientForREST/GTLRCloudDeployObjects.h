@@ -39,6 +39,14 @@
 @class GTLRCloudDeploy_CreateChildRolloutJob;
 @class GTLRCloudDeploy_CreateChildRolloutJobRun;
 @class GTLRCloudDeploy_CustomCanaryDeployment;
+@class GTLRCloudDeploy_CustomMetadata;
+@class GTLRCloudDeploy_CustomMetadata_Values;
+@class GTLRCloudDeploy_CustomTarget;
+@class GTLRCloudDeploy_CustomTargetDeployMetadata;
+@class GTLRCloudDeploy_CustomTargetSkaffoldActions;
+@class GTLRCloudDeploy_CustomTargetType;
+@class GTLRCloudDeploy_CustomTargetType_Annotations;
+@class GTLRCloudDeploy_CustomTargetType_Labels;
 @class GTLRCloudDeploy_Date;
 @class GTLRCloudDeploy_DefaultPool;
 @class GTLRCloudDeploy_DeliveryPipeline;
@@ -107,6 +115,9 @@
 @class GTLRCloudDeploy_RuntimeConfig;
 @class GTLRCloudDeploy_SerialPipeline;
 @class GTLRCloudDeploy_ServiceNetworking;
+@class GTLRCloudDeploy_SkaffoldGCSSource;
+@class GTLRCloudDeploy_SkaffoldGitSource;
+@class GTLRCloudDeploy_SkaffoldModules;
 @class GTLRCloudDeploy_SkaffoldSupportedCondition;
 @class GTLRCloudDeploy_SkaffoldVersion;
 @class GTLRCloudDeploy_Stage;
@@ -386,6 +397,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_Cl
  *  Value: "DEADLINE_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded;
+/**
+ *  The deploy operation had a feature configured that is not supported.
+ *
+ *  Value: "DEPLOY_FEATURE_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupported;
 /**
  *  The deploy operation did not complete successfully; check Cloud Build logs.
  *
@@ -1033,6 +1050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified;
 /**
+ *  A Rollout operation had a feature configured that is not supported.
+ *
+ *  Value: "OPERATION_FEATURE_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_OperationFeatureNotSupported;
+/**
  *  Release is abandoned.
  *
  *  Value: "RELEASE_ABANDONED"
@@ -1045,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed;
 /**
- *  No skaffold verify configuration was found.
+ *  No Skaffold verify configuration was found.
  *
  *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
  */
@@ -1318,13 +1341,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_Type
 // GTLRCloudDeploy_SkaffoldSupportedCondition.skaffoldSupportState
 
 /**
- *  This skaffold version is in maintenance mode.
+ *  This Skaffold version is in maintenance mode.
  *
  *  Value: "SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateMaintenanceMode;
 /**
- *  This skaffold version is currently supported.
+ *  This Skaffold version is currently supported.
  *
  *  Value: "SKAFFOLD_SUPPORT_STATE_SUPPORTED"
  */
@@ -1336,7 +1359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnspecified;
 /**
- *  This skaffold version is no longer supported.
+ *  This Skaffold version is no longer supported.
  *
  *  Value: "SKAFFOLD_SUPPORT_STATE_UNSUPPORTED"
  */
@@ -1414,7 +1437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_Cl
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable;
 /**
  *  The render operation did not complete successfully because the custom action
- *  required for predeploy or postdeploy was not found in the skaffold
+ *  required for predeploy or postdeploy was not found in the Skaffold
  *  configuration. See failure_message for additional details.
  *
  *  Value: "CUSTOM_ACTION_NOT_FOUND"
@@ -1440,8 +1463,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified;
 /**
+ *  The render operation had a feature configured that is not supported.
+ *
+ *  Value: "RENDER_FEATURE_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_RenderFeatureNotSupported;
+/**
  *  The render operation did not complete successfully because the verification
- *  stanza required for verify was not found on the skaffold configuration.
+ *  stanza required for verify was not found on the Skaffold configuration.
  *
  *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
  */
@@ -1562,7 +1591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_AdvanceRolloutOperation : GTLRObject
 
-/** Output only. The phase to which the rollout will be advanced to. */
+/** Output only. The phase the rollout will be advanced to. */
 @property(nonatomic, copy, nullable) NSString *destinationPhase;
 
 /**
@@ -1735,7 +1764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /**
  *  An `Automation` resource in the Cloud Deploy API. An `Automation` enables
  *  the automation of manually driven actions for a Delivery Pipeline, which
- *  includes Release promotion amongst Targets, Rollout repair and Rollout
+ *  includes Release promotion among Targets, Rollout repair and Rollout
  *  deployment strategy advancement. The intention of Automation is to reduce
  *  manual intervention in the continuous delivery process.
  */
@@ -1992,7 +2021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  An `AutomationRun` resource in the Cloud Deploy API. An `AutomationRun`
- *  represents an automation execution instance of an automation rule.
+ *  represents an execution instance of an automation rule.
  */
 @interface GTLRCloudDeploy_AutomationRun : GTLRObject
 
@@ -2020,8 +2049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Time the `AutomationRun` will expire. An `AutomationRun` will
- *  expire after 14 days from its creation date.
+ *  Output only. Time the `AutomationRun` expires. An `AutomationRun` expires
+ *  after 14 days from its creation date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -2069,7 +2098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Explains the current state of the `AutomationRun`. Present only
- *  an explanation is needed.
+ *  when an explanation is needed.
  */
 @property(nonatomic, copy, nullable) NSString *stateDescription;
 
@@ -2352,6 +2381,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSNumber *automaticTrafficControl;
 
+/**
+ *  Optional. A list of tags that are added to the canary revision while the
+ *  canary deployment is in progress.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *canaryRevisionTags;
+
+/**
+ *  Optional. A list of tags that are added to the prior revision while the
+ *  canary deployment is in progress.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *priorRevisionTags;
+
+/**
+ *  Optional. A list of tags that are added to the final stable revision after
+ *  the canary deployment is completed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stableRevisionTags;
+
 @end
 
 
@@ -2472,6 +2519,187 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_PhaseConfig *> *phaseConfigs;
 
+@end
+
+
+/**
+ *  CustomMetadata contains information from a user defined operation.
+ */
+@interface GTLRCloudDeploy_CustomMetadata : GTLRObject
+
+/** Output only. Key-value pairs provided by the user defined operation. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata_Values *values;
+
+@end
+
+
+/**
+ *  Output only. Key-value pairs provided by the user defined operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_CustomMetadata_Values : GTLRObject
+@end
+
+
+/**
+ *  Information specifying a Custom Target.
+ */
+@interface GTLRCloudDeploy_CustomTarget : GTLRObject
+
+/**
+ *  Required. The name of the CustomTargetType. Format must be
+ *  `projects/{project}/locations/{location}/customTargetTypes/{custom_target_type}`.
+ */
+@property(nonatomic, copy, nullable) NSString *customTargetType;
+
+@end
+
+
+/**
+ *  CustomTargetDeployMetadata contains information from a Custom Target deploy
+ *  operation.
+ */
+@interface GTLRCloudDeploy_CustomTargetDeployMetadata : GTLRObject
+
+/**
+ *  Output only. Skip message provided in the results of a custom deploy
+ *  operation.
+ */
+@property(nonatomic, copy, nullable) NSString *skipMessage;
+
+@end
+
+
+/**
+ *  CustomTargetSkaffoldActions represents the `CustomTargetType` configuration
+ *  using Skaffold custom actions.
+ */
+@interface GTLRCloudDeploy_CustomTargetSkaffoldActions : GTLRObject
+
+/** Required. The Skaffold custom action responsible for deploy operations. */
+@property(nonatomic, copy, nullable) NSString *deployAction;
+
+/**
+ *  Optional. List of Skaffold modules Cloud Deploy will include in the Skaffold
+ *  Config as required before performing diagnose.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_SkaffoldModules *> *includeSkaffoldModules;
+
+/**
+ *  Optional. The Skaffold custom action responsible for render operations. If
+ *  not provided then Cloud Deploy will perform the render operations via
+ *  `skaffold render`.
+ */
+@property(nonatomic, copy, nullable) NSString *renderAction;
+
+@end
+
+
+/**
+ *  A `CustomTargetType` resource in the Cloud Deploy API. A `CustomTargetType`
+ *  defines a type of custom target that can be referenced in a `Target` in
+ *  order to facilitate deploying to a runtime that does not have a 1P
+ *  integration with Cloud Deploy.
+ */
+@interface GTLRCloudDeploy_CustomTargetType : GTLRObject
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetType_Annotations *annotations;
+
+/** Output only. Time at which the `CustomTargetType` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Configures render and deploy for the `CustomTargetType` using Skaffold
+ *  custom actions.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetSkaffoldActions *customActions;
+
+/** Output only. Resource id of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetTypeId;
+
+/**
+ *  Optional. Description of the `CustomTargetType`. Max length is 255
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Labels are attributes that can be set and used by both the user
+ *  and by Cloud Deploy. Labels must meet the following constraints: * Keys and
+ *  values can contain only lowercase letters, numeric characters, underscores,
+ *  and dashes. * All characters must use UTF-8 encoding, and international
+ *  characters are allowed. * Keys must start with a lowercase letter or
+ *  international character. * Each resource is limited to a maximum of 64
+ *  labels. Both keys and values are additionally constrained to be <= 128
+ *  bytes.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetType_Labels *labels;
+
+/**
+ *  Optional. Name of the `CustomTargetType`. Format is
+ *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Unique identifier of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. Most recent time at which the `CustomTargetType` was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_CustomTargetType_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Labels are attributes that can be set and used by both the user
+ *  and by Cloud Deploy. Labels must meet the following constraints: * Keys and
+ *  values can contain only lowercase letters, numeric characters, underscores,
+ *  and dashes. * All characters must use UTF-8 encoding, and international
+ *  characters are allowed. * Keys must start with a lowercase letter or
+ *  international character. * Each resource is limited to a maximum of 64
+ *  labels. Both keys and values are additionally constrained to be <= 128
+ *  bytes.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_CustomTargetType_Labels : GTLRObject
 @end
 
 
@@ -2740,6 +2968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded The
  *        deploy job run did not complete within the alloted time. (Value:
  *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupported
+ *        The deploy operation had a feature configured that is not supported.
+ *        (Value: "DEPLOY_FEATURE_NOT_SUPPORTED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed The
  *        deploy operation did not complete successfully; check Cloud Build
  *        logs. (Value: "EXECUTION_FAILED")
@@ -2775,6 +3006,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  `DeployJobRun`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
+
+/** Output only. Custom metadata provided by user defined deploy operation. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
+
+/** Output only. Custom Target metadata associated with a `DeployJobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetDeployMetadata *customTarget;
 
 @end
 
@@ -3279,12 +3516,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_ListAutomationsResponse : GTLRCollectionObject
 
 /**
- *  The `Automations` objects.
+ *  The `Automation` objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Automation *> *automations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response object from `ListCustomTargetTypes.`
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customTargetTypes" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudDeploy_ListCustomTargetTypesResponse : GTLRCollectionObject
+
+/**
+ *  The `CustomTargetType` objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_CustomTargetType *> *customTargetTypes;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -3573,6 +3840,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  `Rollout`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
+
+/**
+ *  Output only. Custom metadata provided by user defined `Rollout` operations.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
 @end
 
@@ -4235,6 +4507,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. Snapshot of the custom target types referenced by the targets
+ *  taken at release creation time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_CustomTargetType *> *customTargetTypeSnapshots;
+
+/**
  *  Output only. Snapshot of the parent pipeline taken at release creation time.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline *deliveryPipelineSnapshot;
@@ -4408,7 +4686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Details around the Releases's overall status. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ReleaseReadyCondition *releaseReadyCondition;
 
-/** Details around the support state of the release's skaffold version. */
+/** Details around the support state of the release's Skaffold version. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldSupportedCondition *skaffoldSupportedCondition;
 
 @end
@@ -4525,6 +4803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Output only. Metadata associated with rendering for Cloud Run. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunRenderMetadata *cloudRun;
 
+/** Output only. Custom metadata provided by user defined render operation. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
+
 @end
 
 
@@ -4568,6 +4849,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentRepairModeIndex;
+
+/** Output only. The job ID for the Job to repair. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  Output only. The phase ID of the phase that includes the job being repaired.
+ */
+@property(nonatomic, copy, nullable) NSString *phaseId;
 
 /**
  *  Output only. Records of the repair attempts. Each repair phase may have
@@ -4635,8 +4924,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_Retry : GTLRObject
 
 /**
- *  Required. Total number of retries. Retry will skipped if set to 0; The
- *  minimum value is 1, and the maximum value is 10.
+ *  Required. Total number of retries. Retry is skipped if set to 0; The minimum
+ *  value is 1, and the maximum value is 10.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4754,12 +5043,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *backoffMode;
 
 /** Output only. The job ID for the Job to retry. */
-@property(nonatomic, copy, nullable) NSString *jobId;
+@property(nonatomic, copy, nullable) NSString *jobId GTLR_DEPRECATED;
 
 /**
  *  Output only. The phase ID of the phase that includes the job being retried.
  */
-@property(nonatomic, copy, nullable) NSString *phaseId;
+@property(nonatomic, copy, nullable) NSString *phaseId GTLR_DEPRECATED;
 
 /**
  *  Output only. The number of attempts that have been made.
@@ -4959,12 +5248,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified
  *        No reason for failure is specified. (Value:
  *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_OperationFeatureNotSupported
+ *        A Rollout operation had a feature configured that is not supported.
+ *        (Value: "OPERATION_FEATURE_NOT_SUPPORTED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned
  *        Release is abandoned. (Value: "RELEASE_ABANDONED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed Release
  *        is in a failed state. (Value: "RELEASE_FAILED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_VerificationConfigNotFound
- *        No skaffold verify configuration was found. (Value:
+ *        No Skaffold verify configuration was found. (Value:
  *        "VERIFICATION_CONFIG_NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *deployFailureCause;
@@ -5323,45 +5615,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Cloud Storage bucket containing Skaffold Config modules.
+ */
+@interface GTLRCloudDeploy_SkaffoldGCSSource : GTLRObject
+
+/** Optional. Relative path from the source to the Skaffold file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. Cloud Storage source paths to copy recursively. For example,
+ *  providing "gs://my-bucket/dir/configs/ *" will result in Skaffold copying
+ *  all files within the "dir/configs" directory in the bucket "my-bucket".
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  Git repository containing Skaffold Config modules.
+ */
+@interface GTLRCloudDeploy_SkaffoldGitSource : GTLRObject
+
+/** Optional. Relative path from the repository root to the Skaffold file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Optional. Git ref the package should be cloned from. */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/** Required. Git repository the package should be cloned from. */
+@property(nonatomic, copy, nullable) NSString *repo;
+
+@end
+
+
+/**
+ *  Skaffold Config modules and their remote source.
+ */
+@interface GTLRCloudDeploy_SkaffoldModules : GTLRObject
+
+/** Optional. The Skaffold Config modules to use from the specified source. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *configs;
+
+/** Remote git repository containing the Skaffold Config modules. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGitSource *git;
+
+/** Cloud Storage bucket containing the Skaffold Config modules. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCSSource *googleCloudStorage;
+
+@end
+
+
+/**
  *  SkaffoldSupportedCondition contains information about when support for the
- *  release's version of skaffold ends.
+ *  release's version of Skaffold ends.
  */
 @interface GTLRCloudDeploy_SkaffoldSupportedCondition : GTLRObject
 
 /**
- *  The time at which this release's version of skaffold will enter maintenance
+ *  The time at which this release's version of Skaffold will enter maintenance
  *  mode.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *maintenanceModeTime;
 
 /**
- *  The skaffold support state for this release's version of skaffold.
+ *  The Skaffold support state for this release's version of Skaffold.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateMaintenanceMode
- *        This skaffold version is in maintenance mode. (Value:
+ *        This Skaffold version is in maintenance mode. (Value:
  *        "SKAFFOLD_SUPPORT_STATE_MAINTENANCE_MODE")
  *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateSupported
- *        This skaffold version is currently supported. (Value:
+ *        This Skaffold version is currently supported. (Value:
  *        "SKAFFOLD_SUPPORT_STATE_SUPPORTED")
  *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnspecified
  *        Default value. This value is unused. (Value:
  *        "SKAFFOLD_SUPPORT_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported
- *        This skaffold version is no longer supported. (Value:
+ *        This Skaffold version is no longer supported. (Value:
  *        "SKAFFOLD_SUPPORT_STATE_UNSUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *skaffoldSupportState;
 
 /**
- *  True if the version of skaffold used by this release is supported.
+ *  True if the version of Skaffold used by this release is supported.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *status;
 
 /**
- *  The time at which this release's version of skaffold will no longer be
+ *  The time at which this release's version of Skaffold will no longer be
  *  supported.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportExpirationTime;
@@ -5374,13 +5718,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_SkaffoldVersion : GTLRObject
 
-/** The time at which this version of skaffold will enter maintenance mode. */
+/** The time at which this version of Skaffold will enter maintenance mode. */
 @property(nonatomic, strong, nullable) GTLRDateTime *maintenanceModeTime;
 
 /** Date when this version is expected to no longer be supported. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Date *supportEndDate;
 
-/** The time at which this version of skaffold will no longer be supported. */
+/** The time at which this version of Skaffold will no longer be supported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportExpirationTime;
 
 /** Release version number. For example, "1.20.3". */
@@ -5529,6 +5873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Output only. Time at which the `Target` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Information specifying a Custom Target. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTarget *customTarget;
 
 /** Optional. The deploy parameters to use for this target. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Target_DeployParameters *deployParameters;
@@ -5787,7 +6134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound
  *        The render operation did not complete successfully because the custom
  *        action required for predeploy or postdeploy was not found in the
- *        skaffold configuration. See failure_message for additional details.
+ *        Skaffold configuration. See failure_message for additional details.
  *        (Value: "CUSTOM_ACTION_NOT_FOUND")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_DeploymentStrategyNotSupported
  *        Release failed during rendering because the release configuration is
@@ -5799,9 +6146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified
  *        No reason for failure is specified. (Value:
  *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_RenderFeatureNotSupported
+ *        The render operation had a feature configured that is not supported.
+ *        (Value: "RENDER_FEATURE_NOT_SUPPORTED")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_VerificationConfigNotFound
  *        The render operation did not complete successfully because the
- *        verification stanza required for verify was not found on the skaffold
+ *        verification stanza required for verify was not found on the Skaffold
  *        configuration. (Value: "VERIFICATION_CONFIG_NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
@@ -5841,8 +6191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  TargetsPresentCondition contains information on any Targets defined in the
- *  Delivery Pipeline that do not actually exist.
+ *  `TargetsPresentCondition` contains information on any Targets referenced in
+ *  the Delivery Pipeline that do not actually exist.
  */
 @interface GTLRCloudDeploy_TargetsPresentCondition : GTLRObject
 

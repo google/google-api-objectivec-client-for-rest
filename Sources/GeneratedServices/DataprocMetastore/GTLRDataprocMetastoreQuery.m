@@ -354,6 +354,33 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterTableProperties
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterTablePropertiesRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:alterTableProperties";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterTableProperties *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.alterTableProperties";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate
 
 @dynamic backupId, parent, requestId;

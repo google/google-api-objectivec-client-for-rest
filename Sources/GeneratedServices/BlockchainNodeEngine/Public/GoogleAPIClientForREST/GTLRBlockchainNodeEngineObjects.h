@@ -27,6 +27,7 @@
 @class GTLRBlockchainNodeEngine_Operation_Response;
 @class GTLRBlockchainNodeEngine_Status;
 @class GTLRBlockchainNodeEngine_Status_Details_Item;
+@class GTLRBlockchainNodeEngine_ValidatorConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -416,15 +417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 @property(nonatomic, strong, nullable) NSNumber *apiEnableDebug;
 
 /**
- *  An Ethereum address which the beacon client will send fee rewards to if no
- *  recipient is configured in the validator client. See
+ *  Deprecated: Use the same field in the ValidatorConfig message as
+ *  replacement. An Ethereum address which the beacon client will send fee
+ *  rewards to if no recipient is configured in the validator client. See
  *  https://lighthouse-book.sigmaprime.io/suggested-fee-recipient.html or
  *  https://docs.prylabs.network/docs/execution-node/fee-recipient for examples
  *  of how this is used. Note that while this is often described as "suggested",
  *  as we run the execution node we can trust the execution node, and therefore
  *  this is considered enforced.
  */
-@property(nonatomic, copy, nullable) NSString *beaconFeeRecipient;
+@property(nonatomic, copy, nullable) NSString *beaconFeeRecipient GTLR_DEPRECATED;
 
 /**
  *  Immutable. The consensus client.
@@ -507,6 +509,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        "NODE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *nodeType;
+
+/**
+ *  Configuration for validator-related parameters on the beacon client, and for
+ *  any GCP-managed validator client.
+ */
+@property(nonatomic, strong, nullable) GTLRBlockchainNodeEngine_ValidatorConfig *validatorConfig;
 
 @end
 
@@ -873,6 +881,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBlockchainNodeEngine_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Configuration for validator-related parameters on the beacon client, and for
+ *  any GCP-managed validator client.
+ */
+@interface GTLRBlockchainNodeEngine_ValidatorConfig : GTLRObject
+
+/**
+ *  URLs for MEV-relay services to use for block building. When set, a
+ *  GCP-managed MEV-boost service is configured on the beacon client.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mevRelayUrls;
+
 @end
 
 NS_ASSUME_NONNULL_END

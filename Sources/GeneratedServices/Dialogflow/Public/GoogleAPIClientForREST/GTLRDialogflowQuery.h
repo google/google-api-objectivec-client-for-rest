@@ -2949,6 +2949,216 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Creates a generator in the specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.generators.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsCreate : GTLRDialogflowQuery
+
+/**
+ *  The language to create generators for the following fields: *
+ *  `Generator.prompt_text.text` If not specified, the agent's default language
+ *  is used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The agent to create a generator for. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Generator.
+ *
+ *  Creates a generator in the specified agent.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Generator to
+ *    include in the query.
+ *  @param parent Required. The agent to create a generator for. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Generator *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified generators.
+ *
+ *  Method: dialogflow.projects.locations.agents.generators.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsDelete : GTLRDialogflowQuery
+
+/**
+ *  This field has no effect for generators not being used. For generators that
+ *  are used by pages/flows/transition route groups: * If `force` is set to
+ *  false, an error will be returned with message indicating the referenced
+ *  resources. * If `force` is set to true, Dialogflow will remove the
+ *  generator, as well as any references to the generator (i.e. Generator) in
+ *  fulfillments.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the generator to delete. Format:
+ *  `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified generators.
+ *
+ *  @param name Required. The name of the generator to delete. Format:
+ *    `projects//locations//agents//generators/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified generator.
+ *
+ *  Method: dialogflow.projects.locations.agents.generators.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsGet : GTLRDialogflowQuery
+
+/** The language to list generators for. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The name of the generator. Format:
+ *  `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Generator.
+ *
+ *  Retrieves the specified generator.
+ *
+ *  @param name Required. The name of the generator. Format:
+ *    `projects//locations//agents//generators/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all generators in the specified agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.generators.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsList : GTLRDialogflowQuery
+
+/** The language to list generators for. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent to list all generators for. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListGeneratorsResponse.
+ *
+ *  Returns the list of all generators in the specified agent.
+ *
+ *  @param parent Required. The agent to list all generators for. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update the specified generator.
+ *
+ *  Method: dialogflow.projects.locations.agents.generators.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsPatch : GTLRDialogflowQuery
+
+/** The language to list generators for. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The unique identifier of the generator. Must be set for the
+ *  Generators.UpdateGenerator method. Generators.CreateGenerate populates the
+ *  name automatically. Format: `projects//locations//agents//generators/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The mask to control which fields get updated. If the mask is not present,
+ *  all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Generator.
+ *
+ *  Update the specified generator.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Generator to
+ *    include in the query.
+ *  @param name The unique identifier of the generator. Must be set for the
+ *    Generators.UpdateGenerator method. Generators.CreateGenerate populates the
+ *    name automatically. Format: `projects//locations//agents//generators/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsGeneratorsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Generator *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the specified agent.
  *
  *  Method: dialogflow.projects.locations.agents.get

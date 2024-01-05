@@ -1101,7 +1101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
- *  Lists CloneJobs of a given migrating VM.
+ *  Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are
+ *  listed.
  *
  *  Method: vmmigration.projects.locations.sources.migratingVms.cloneJobs.list
  *
@@ -1138,7 +1139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 /**
  *  Fetches a @c GTLRVMMigrationService_ListCloneJobsResponse.
  *
- *  Lists CloneJobs of a given migrating VM.
+ *  Lists the CloneJobs of a migrating VM. Only 25 most recent CloneJobs are
+ *  listed.
  *
  *  @param parent Required. The parent, which owns this collection of source
  *    VMs.
@@ -1303,7 +1305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
- *  Lists CutoverJobs of a given migrating VM.
+ *  Lists the CutoverJobs of a migrating VM. Only 25 most recent CutoverJobs are
+ *  listed.
  *
  *  Method: vmmigration.projects.locations.sources.migratingVms.cutoverJobs.list
  *
@@ -1340,7 +1343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 /**
  *  Fetches a @c GTLRVMMigrationService_ListCutoverJobsResponse.
  *
- *  Lists CutoverJobs of a given migrating VM.
+ *  Lists the CutoverJobs of a migrating VM. Only 25 most recent CutoverJobs are
+ *  listed.
  *
  *  @param parent Required. The parent, which owns this collection of migrating
  *    VMs.

@@ -29,6 +29,9 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRCloudchannelQuery
 
 @dynamic fields;
@@ -1490,3 +1493,5 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 }
 
 @end
+
+#pragma clang diagnostic pop

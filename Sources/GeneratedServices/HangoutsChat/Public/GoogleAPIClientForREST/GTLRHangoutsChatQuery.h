@@ -46,7 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionMessageRep
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread;
 /**
  *  Creates the message as a reply to the thread specified by thread ID or
- *  `thread_key`. If it fails, a `NOT_FOUND` error is returned instead.
+ *  `thread_key`. If a new `thread_key` is used, a new thread is created. If the
+ *  message creation fails, a `NOT_FOUND` error is returned instead.
  *
  *  Value: "REPLY_MESSAGE_OR_FAIL"
  */
@@ -257,12 +258,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  With [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users),
  *  returns the direct message space between the specified user and the
- *  authenticated user. With [service account
+ *  authenticated user. With [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts),
  *  returns the direct message space between the specified user and the calling
  *  Chat app. Requires [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users) or
- *  [service account
+ *  [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.findDirectMessage
@@ -298,12 +299,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  With [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users),
  *  returns the direct message space between the specified user and the
- *  authenticated user. With [service account
+ *  authenticated user. With [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts),
  *  returns the direct message space between the specified user and the calling
  *  Chat app. Requires [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users) or
- *  [service account
+ *  [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @return GTLRHangoutsChatQuery_SpacesFindDirectMessage
@@ -316,8 +317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a space. For an example, see [Get a
  *  space](https://developers.google.com/chat/api/guides/v1/spaces/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -343,8 +344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a space. For an example, see [Get a
  *  space](https://developers.google.com/chat/api/guides/v1/spaces/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -363,8 +364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  until the first message is sent. For an example, see [List
  *  spaces](https://developers.google.com/chat/api/guides/v1/spaces/list).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -381,21 +382,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
 
 /**
- *  Optional. A query filter. Requires [user
- *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  You can filter spaces by the space type
+ *  Optional. A query filter. You can filter spaces by the space type
  *  ([`space_type`](https://developers.google.com/chat/api/reference/rest/v1/spaces#spacetype)).
  *  To filter by space type, you must specify valid enum value, such as `SPACE`
  *  or `GROUP_CHAT` (the `space_type` can't be `SPACE_TYPE_UNSPECIFIED`). To
  *  query for multiple space types, use the `OR` operator. For example, the
  *  following queries are valid: ``` space_type = "SPACE" spaceType =
  *  "GROUP_CHAT" OR spaceType = "DIRECT_MESSAGE" ``` Invalid queries are
- *  rejected by the server with an `INVALID_ARGUMENT` error. With [service
- *  account
- *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts),
- *  this field is ignored and the query always returns all spaces. But the Chat
- *  API still validates the query syntax with service accounts, so invalid
- *  queries are still rejected.
+ *  rejected by the server with an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -423,8 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  until the first message is sent. For an example, see [List
  *  spaces](https://developers.google.com/chat/api/guides/v1/spaces/list).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -566,8 +560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a membership. For an example, see [Get a
  *  membership](https://developers.google.com/chat/api/guides/v1/members/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -599,8 +593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a membership. For an example, see [Get a
  *  membership](https://developers.google.com/chat/api/guides/v1/members/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -630,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/chat/api/guides/auth/users)
  *  lists memberships in spaces that the authenticated user has access to.
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -688,6 +682,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. When `true`, also returns memberships associated with a Google
+ *  Group, in addition to other types of memberships. If a filter is set, Google
+ *  Group memberships that don't match the filter criteria aren't returned.
+ */
+@property(nonatomic, assign) BOOL showGroups;
+
+/**
  *  Optional. When `true`, also returns memberships associated with invited
  *  members, in addition to other types of memberships. If a filter is set,
  *  invited memberships that don't match the filter criteria aren't returned.
@@ -708,8 +709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/chat/api/guides/auth/users)
  *  lists memberships in spaces that the authenticated user has access to.
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -733,7 +734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  API](https://developers.google.com/chat/api/reference/rest/v1/media/download).
  *  For an example, see [Get a message
  *  attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get).
- *  Requires [service account
+ *  Requires [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.attachments.get
@@ -757,7 +758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  API](https://developers.google.com/chat/api/reference/rest/v1/media/download).
  *  For an example, see [Get a message
  *  attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get).
- *  Requires [service account
+ *  Requires [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the attachment, in the form `spaces/
@@ -820,8 +821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
  *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
  *        message as a reply to the thread specified by thread ID or
- *        `thread_key`. If it fails, a `NOT_FOUND` error is returned instead.
- *        (Value: "REPLY_MESSAGE_OR_FAIL")
+ *        `thread_key`. If a new `thread_key` is used, a new thread is created.
+ *        If the message creation fails, a `NOT_FOUND` error is returned
+ *        instead. (Value: "REPLY_MESSAGE_OR_FAIL")
  */
 @property(nonatomic, copy, nullable) NSString *messageReplyOption;
 
@@ -874,13 +876,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a message. For an example, see [Delete a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/delete).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only delete messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only delete messages created by
+ *  the calling Chat app.
  *
  *  Method: chat.spaces.messages.delete
  *
@@ -896,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `false`, if a message has threaded replies, deletion fails. Only applies
  *  when [authenticating as a
  *  user](https://developers.google.com/chat/api/guides/auth/users). Has no
- *  effect when [authenticating with a service account]
+ *  effect when [authenticating as a Chat app]
  *  (https://developers.google.com/chat/api/guides/auth/service-accounts).
  */
 @property(nonatomic, assign) BOOL force;
@@ -914,13 +916,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a message. For an example, see [Delete a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/delete).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only delete messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only delete messages created by
+ *  the calling Chat app.
  *
  *  @param name Required. Resource name of the message that you want to delete,
  *    in the form `spaces/ * /messages/ *` Example:
@@ -936,8 +938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a message. For an example, see [Read a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -969,8 +971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a message. For an example, see [Read a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/get).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
@@ -1093,13 +1095,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  see [Update a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/update).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only update messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only update messages created by
+ *  the calling Chat app.
  *
  *  Method: chat.spaces.messages.patch
  *
@@ -1127,9 +1129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Required. The field paths to update. Separate multiple values with commas.
  *  Currently supported field paths: - `text` - `attachment` - `cards` (Requires
- *  [service account authentication](/chat/api/guides/auth/service-accounts).) -
- *  `cards_v2` (Requires [service account
- *  authentication](/chat/api/guides/auth/service-accounts).)
+ *  [app authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
+ *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1144,13 +1145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  see [Update a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/update).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only update messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only update messages created by
+ *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
@@ -1335,13 +1336,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  see [Update a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/update).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only update messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only update messages created by
+ *  the calling Chat app.
  *
  *  Method: chat.spaces.messages.update
  *
@@ -1369,9 +1370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Required. The field paths to update. Separate multiple values with commas.
  *  Currently supported field paths: - `text` - `attachment` - `cards` (Requires
- *  [service account authentication](/chat/api/guides/auth/service-accounts).) -
- *  `cards_v2` (Requires [service account
- *  authentication](/chat/api/guides/auth/service-accounts).)
+ *  [app authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
+ *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1386,13 +1386,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  see [Update a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/update).
  *  Requires
- *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
- *  supports [service account
+ *  [authentication](https://developers.google.com/chat/api/guides/auth).
+ *  Supports [app
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts)
  *  and [user
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
- *  Requests authenticated with service accounts can only update messages
- *  created by the calling Chat app.
+ *  When using app authentication, requests can only update messages created by
+ *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:

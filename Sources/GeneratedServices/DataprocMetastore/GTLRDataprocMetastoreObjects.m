@@ -165,6 +165,30 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_AlterTablePropertiesRequest
+//
+
+@implementation GTLRDataprocMetastore_AlterTablePropertiesRequest
+@dynamic properties, tableName, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AlterTablePropertiesRequest_Properties
+//
+
+@implementation GTLRDataprocMetastore_AlterTablePropertiesRequest_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_AuditConfig
 //
 
@@ -889,7 +913,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_Restore
-@dynamic backup, backupLocation, details, endTime, startTime, state, type;
+@dynamic backup, details, endTime, startTime, state, type;
 @end
 
 

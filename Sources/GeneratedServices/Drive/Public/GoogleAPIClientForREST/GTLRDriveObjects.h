@@ -602,6 +602,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *restrictionTime;
 
 /**
+ *  Output only. Whether the content restriction was applied by the system, for
+ *  example due to an esignature. Users cannot modify or remove system
+ *  restricted content restrictions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *systemRestricted;
+
+/**
  *  Output only. The type of the content restriction. Currently the only
  *  possible value is `globalContentRestriction`.
  */
@@ -675,7 +684,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A set of restrictions that apply to this shared drive or items inside this
- *  shared drive.
+ *  shared drive. Note that restrictions can't be set when creating a shared
+ *  drive. To add a restriction, first create a shared drive and then use
+ *  `drives.update` to add restrictions.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_Drive_Restrictions *restrictions;
 
@@ -910,7 +921,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A set of restrictions that apply to this shared drive or items inside this
- *  shared drive.
+ *  shared drive. Note that restrictions can't be set when creating a shared
+ *  drive. To add a restriction, first create a shared drive and then use
+ *  `drives.update` to add restrictions.
  */
 @interface GTLRDrive_Drive_Restrictions : GTLRObject
 

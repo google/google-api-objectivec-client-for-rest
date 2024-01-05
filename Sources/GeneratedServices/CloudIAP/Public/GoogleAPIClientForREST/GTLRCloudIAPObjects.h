@@ -307,9 +307,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -323,7 +339,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -858,9 +877,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  where the API call changes the state of the resource. Custom org policy
  *  backend uses these attributes to enforce custom org policies. When a proto
  *  is wrapped, it is generally the One Platform API proto. When a JSON string
- *  is wrapped, use `google.protobuf.StringValue` for the inner value. It is
- *  sufficient to pass just the max set of attributes that are allowed for use
- *  in custom constraints; other attributes can be omitted. See
+ *  is wrapped, use `google.protobuf.StringValue` for the inner value. For
+ *  create operations, GCP service is expected to pass resource from customer
+ *  request as is. For update/patch operations, GCP service is expected to
+ *  compute the next state with the patch provided by the user. See
  *  go/custom-constraints-org-policy-integration-guide for additional details.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_ExpectedNextState *expectedNextState;
@@ -925,9 +945,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  where the API call changes the state of the resource. Custom org policy
  *  backend uses these attributes to enforce custom org policies. When a proto
  *  is wrapped, it is generally the One Platform API proto. When a JSON string
- *  is wrapped, use `google.protobuf.StringValue` for the inner value. It is
- *  sufficient to pass just the max set of attributes that are allowed for use
- *  in custom constraints; other attributes can be omitted. See
+ *  is wrapped, use `google.protobuf.StringValue` for the inner value. For
+ *  create operations, GCP service is expected to pass resource from customer
+ *  request as is. For update/patch operations, GCP service is expected to
+ *  compute the next state with the patch provided by the user. See
  *  go/custom-constraints-org-policy-integration-guide for additional details.
  *
  *  @note This class is documented as having more properties of any valid JSON

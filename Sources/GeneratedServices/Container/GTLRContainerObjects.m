@@ -282,6 +282,7 @@ NSString * const kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified = @"M
 // GTLRContainer_SecurityPostureConfig.vulnerabilityMode
 NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic = @"VULNERABILITY_BASIC";
 NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled = @"VULNERABILITY_DISABLED";
+NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityEnterprise = @"VULNERABILITY_ENTERPRISE";
 NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityModeUnspecified = @"VULNERABILITY_MODE_UNSPECIFIED";
 
 // GTLRContainer_SetMasterAuthRequest.action
@@ -419,7 +420,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdvancedDatapathObservabilityConfig
-@dynamic enableMetrics, relayMode;
+@dynamic enableMetrics, enableRelay, relayMode;
 @end
 
 

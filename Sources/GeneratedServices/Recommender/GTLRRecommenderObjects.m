@@ -69,7 +69,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1CostProjection
-@dynamic cost, duration;
+@dynamic cost, costInLocalCurrency, duration;
 @end
 
 
