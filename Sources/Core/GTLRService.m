@@ -165,6 +165,51 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                     userInfo:(NSDictionary *)userInfo;
 @end
 
+// Process-global serial dispatch queue used to format default User-Agent strings.
+static dispatch_queue_t DefaultUserAgentQueue(void) {
+  static dispatch_queue_t defaultUserAgentQueue;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    defaultUserAgentQueue =
+        dispatch_queue_create("com.google.GTLRServiceDefaultUserAgentQueue", DISPATCH_QUEUE_SERIAL);
+  });
+  return defaultUserAgentQueue;
+}
+
+// Returns the default User-Agent string to use for a given `serviceClass`.
+//
+// Must be invoked on `DefaultUserAgentQueue()`. This can block the caller.
+static NSString *DefaultUserAgentForServiceClass(Class serviceClass) {
+  dispatch_assert_queue_debug(DefaultUserAgentQueue());
+
+  // Cache of {bundle_path: user_agent, ...} pairs for the User-Agent string to use
+  // for requests that don't otherwise have a User-Agent specified.
+  //
+  // Protected by `DefaultUserAgentQueue()`.
+  static NSMutableDictionary<NSString *, NSString *> *gDefaultUserAgentMap;
+
+
+  // The check for the specific bundle is basically a no-op as it was the hard-coded value from the
+  // framework when the project included an Xcode project. It is kept just in case someone happened
+  // to use the same bundle id so the behavior remains consistent.
+  NSBundle *owningBundle = [NSBundle bundleForClass:serviceClass];
+  if (owningBundle == nil || [owningBundle.bundleIdentifier isEqual:@"com.google.GTLR"]) {
+    owningBundle = [NSBundle mainBundle];
+  }
+  NSString *bundlePath = owningBundle.bundlePath;
+
+  if (!gDefaultUserAgentMap) {
+    gDefaultUserAgentMap = [[NSMutableDictionary alloc] init];
+  }
+  NSString *defaultUserAgent = gDefaultUserAgentMap[bundlePath];
+  if (!defaultUserAgent) {
+    // Note that `GTMFetcherApplicationIdentifier()` blocks the calling thread.
+    defaultUserAgent = GTMFetcherApplicationIdentifier(owningBundle);
+    gDefaultUserAgentMap[bundlePath] = [defaultUserAgent copy];
+  }
+  return defaultUserAgent;
+}
+
 @interface GTLRObject (StandardProperties)
 // Common properties on GTLRObject that are invoked below.
 @property(nonatomic, copy) NSString *nextPageToken;
@@ -264,8 +309,20 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     delegateQueue.name = @"com.google.GTLRServiceFetcherDelegate";
     _fetcherService.sessionDelegateQueue = delegateQueue;
 
-    NSDictionary<NSString *, Class> *kindMap = [[self class] kindStringToClassMap];
+    Class serviceClass = self.class;
+    NSDictionary<NSString *, Class> *kindMap = [serviceClass kindStringToClassMap];
     _objectClassResolver = [GTLRObjectClassResolver resolverWithKindMap:kindMap];
+
+    // Prefetch the default User-Agent string for this class.
+    __weak __typeof(self) weakSelf = self;
+    dispatch_async(DefaultUserAgentQueue(), ^{
+      __strong __typeof(self) strongSelf = weakSelf;
+      if (!strongSelf) {
+        return;
+      }
+      // Warm the cache if the bundle for this class hasn't yet had a default User-Agent formatted.
+      (void)DefaultUserAgentForServiceClass(serviceClass);
+    });
   }
   return self;
 }
@@ -275,19 +332,15 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     return _overrideUserAgent;
   }
 
-  NSString *userAgent = self.userAgent;
+  __block NSString *userAgent = self.userAgent;
   if (userAgent.length == 0) {
     // The service instance is missing an explicit user-agent; use the bundle ID
-    // or process name. The check for the specific bundle is basically a noop as
-    // it was the hardcoded value from the framework when the project included
-    // and Xcode project. It is kept just incase someone happened to use the
-    // same bundle id so the behavior remains consistent.
-    NSBundle *owningBundle = [NSBundle bundleForClass:[self class]];
-    if (owningBundle == nil
-        || [owningBundle.bundleIdentifier isEqual:@"com.google.GTLR"]) {
-      owningBundle = [NSBundle mainBundle];
-    }
-    userAgent = GTMFetcherApplicationIdentifier(owningBundle);
+    // or process name.
+    //
+    // This blocks until the prefetch in the initializer completes.
+    dispatch_sync(DefaultUserAgentQueue(), ^{
+      userAgent = DefaultUserAgentForServiceClass(self.class);
+    });
   }
 
   NSString *requestUserAgent = userAgent;
