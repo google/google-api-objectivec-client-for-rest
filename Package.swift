@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
@@ -1117,8 +1117,13 @@ let package = Package(
     targets: [
         .target(
             name: "GoogleAPIClientForRESTCore",
-            dependencies: ["GTMSessionFetcherFull"],
+            dependencies: [
+              .product(name: "GTMSessionFetcherFull", package: "gtm-session-fetcher")
+            ],
             path: "Sources/Core",
+            resources: [
+              .process("Resources/PrivacyInfo.xcprivacy")
+            ],
             publicHeadersPath: "Public"
         ),
         .testTarget(
