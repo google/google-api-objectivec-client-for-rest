@@ -112,7 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ConfigureContactSettingsReq
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_ContactPrivacyUnspecified;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -370,8 +370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_Ds
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
- *  This option was never used. Use RENEWAL_DISABLED instead.
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
+ *  This option was never used. Use `RENEWAL_DISABLED` instead.
  *
  *  Value: "MANUAL_RENEWAL"
  */
@@ -400,8 +400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_Preferre
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
- *  This option was never used. Use RENEWAL_DISABLED instead.
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
+ *  This option was never used. Use `RENEWAL_DISABLED` instead.
  *
  *  Value: "MANUAL_RENEWAL"
  */
@@ -544,7 +544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_DomainNo
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -589,8 +589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_Contact
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified;
 /**
- *  Billing account is not in good standing. The domain will not automatically
- *  renew at its expiration time unless you resolve problems with your billing
+ *  The billing account is not in good standing. The domain is not automatically
+ *  renewed at its expiration time unless you resolve problems with your billing
  *  account.
  *
  *  Value: "PROBLEM_WITH_BILLING"
@@ -642,8 +642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailur
 
 /**
  *  The domain is registered and operational. The domain renews automatically as
- *  long as it remains in this state and the RenewalMethod is set to
- *  AUTOMATIC_RENEWAL.
+ *  long as it remains in this state and the `RenewalMethod` is set to
+ *  `AUTOMATIC_RENEWAL`.
  *
  *  Value: "ACTIVE"
  */
@@ -721,7 +721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Transfer
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -854,7 +854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferDomainRequest_Conta
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_ContactPrivacyUnspecified;
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  None of the data from `ContactSettings` is publicly available. Instead,
  *  proxy contact data is published for your domain. Email sent to the proxy
  *  email address is forwarded to the registrant's email address. Cloud Domains
@@ -1019,9 +1019,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1035,7 +1051,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1179,7 +1198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        "CONTACT_PRIVACY_UNSPECIFIED")
  *    @arg @c kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData
  *        Deprecated: For more information, see [Cloud Domains feature
- *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *        None of the data from `ContactSettings` is publicly available.
  *        Instead, proxy contact data is published for your domain. Email sent
  *        to the proxy email address is forwarded to the registrant's email
@@ -1252,7 +1271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  The free DNS zone provided by [Google Domains](https://domains.google/).
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_GoogleDomainsDns *googleDomainsDns GTLR_DEPRECATED;
@@ -1386,7 +1405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Request for the `ExportRegistration` method.
  */
 GTLR_DEPRECATED
@@ -1475,7 +1494,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Configuration for using the free DNS zone provided by Google Domains as a
  *  `Registration`'s `dns_provider`. You cannot configure the DNS zone itself
  *  using the API. To configure the DNS zone, go to [Google
@@ -1522,7 +1541,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Request for the `ImportDomain` method.
  */
 GTLR_DEPRECATED
@@ -1696,15 +1715,16 @@ GTLR_DEPRECATED
 /**
  *  Optional. The desired renewal method for this `Registration`. The actual
  *  `renewal_method` is automatically updated to reflect this choice. If unset
- *  or equal to `RENEWAL_METHOD_UNSPECIFIED`, it will be treated as if it were
- *  set to `AUTOMATIC_RENEWAL`. Can't be set to `RENEWAL_DISABLED` during
- *  resource creation and can only be updated when the `Registration` resource
- *  has state `ACTIVE` or `SUSPENDED`. When `preferred_renewal_method` is set to
- *  `AUTOMATIC_RENEWAL` the actual `renewal_method` can be set to
- *  `RENEWAL_DISABLED` in case of e.g. problems with the Billing Account or
- *  reported domain abuse. In such cases check the `issues` field on the
- *  `Registration`. After the problem is resolved the `renewal_method` will be
- *  automatically updated to `preferred_renewal_method` in a few hours.
+ *  or equal to `RENEWAL_METHOD_UNSPECIFIED`, the actual `renewalMethod` is
+ *  treated as if it were set to `AUTOMATIC_RENEWAL`. You cannot use
+ *  `RENEWAL_DISABLED` during resource creation, and you can update the renewal
+ *  status only when the `Registration` resource has state `ACTIVE` or
+ *  `SUSPENDED`. When `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL`,
+ *  the actual `renewal_method` can be set to `RENEWAL_DISABLED` in case of
+ *  problems with the billing account or reported domain abuse. In such cases,
+ *  check the `issues` field on the `Registration`. After the problem is
+ *  resolved, the `renewal_method` is automatically updated to
+ *  `preferred_renewal_method` in a few hours.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal
@@ -1712,8 +1732,8 @@ GTLR_DEPRECATED
  *        "AUTOMATIC_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_ManualRenewal
  *        Deprecated: For more information, see [Cloud Domains feature
- *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
- *        This option was never used. Use RENEWAL_DISABLED instead. (Value:
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
+ *        This option was never used. Use `RENEWAL_DISABLED` instead. (Value:
  *        "MANUAL_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_RenewalDisabled
  *        The domain won't be renewed and will expire at its expiration time.
@@ -1725,12 +1745,12 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The actual renewal method for this `Registration`. When
- *  `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL` the actual
- *  `renewal_method` can be equal to `RENEWAL_DISABLED` in case of e.g. problems
- *  with the Billing Account or reported domain abuse. In such cases check the
- *  `issues` field on the `Registration`. After the problem is resolved the
- *  `renewal_method` will be automatically updated to `preferred_renewal_method`
- *  in a few hours.
+ *  `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL`, the actual
+ *  `renewal_method` can be equal to `RENEWAL_DISABLED`—for example, when there
+ *  are problems with the billing account or reported domain abuse. In such
+ *  cases, check the `issues` field on the `Registration`. After the problem is
+ *  resolved, the `renewal_method` is automatically updated to
+ *  `preferred_renewal_method` in a few hours.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal
@@ -1738,8 +1758,8 @@ GTLR_DEPRECATED
  *        "AUTOMATIC_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal
  *        Deprecated: For more information, see [Cloud Domains feature
- *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
- *        This option was never used. Use RENEWAL_DISABLED instead. (Value:
+ *        deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
+ *        This option was never used. Use `RENEWAL_DISABLED` instead. (Value:
  *        "MANUAL_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_RenewalDisabled
  *        The domain won't be renewed and will expire at its expiration time.
@@ -2305,8 +2325,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_Registration_State_Active The domain is
  *        registered and operational. The domain renews automatically as long as
- *        it remains in this state and the RenewalMethod is set to
- *        AUTOMATIC_RENEWAL. (Value: "ACTIVE")
+ *        it remains in this state and the `RenewalMethod` is set to
+ *        `AUTOMATIC_RENEWAL`. (Value: "ACTIVE")
  *    @arg @c kGTLRCloudDomains_Registration_State_Expired The domain is
  *        expired. (Value: "EXPIRED")
  *    @arg @c kGTLRCloudDomains_Registration_State_Exported The domain is no
@@ -2347,7 +2367,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  The reason the domain transfer failed. Only set for domains in
  *  TRANSFER_FAILED state.
  *
@@ -2415,7 +2435,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Response for the `RetrieveImportableDomains` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2456,7 +2476,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Response for the `RetrieveTransferParameters` method.
  */
 GTLR_DEPRECATED
@@ -2578,7 +2598,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Request for the `TransferDomain` method.
  */
 GTLR_DEPRECATED
@@ -2624,7 +2644,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated: For more information, see [Cloud Domains feature
- *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations)
+ *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Parameters required to transfer a domain from another registrar.
  */
 GTLR_DEPRECATED

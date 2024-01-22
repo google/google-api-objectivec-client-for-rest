@@ -53,6 +53,7 @@
 @class GTLRDatastream_OracleProfile_ConnectionAttributes;
 @class GTLRDatastream_OracleRdbms;
 @class GTLRDatastream_OracleSchema;
+@class GTLRDatastream_OracleScnPosition;
 @class GTLRDatastream_OracleSourceConfig;
 @class GTLRDatastream_OracleSslConfig;
 @class GTLRDatastream_OracleTable;
@@ -1655,6 +1656,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Oracle SCN position
+ */
+@interface GTLRDatastream_OracleScnPosition : GTLRObject
+
+/**
+ *  Required. SCN number from where Logs will be read
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scn;
+
+@end
+
+
+/**
  *  Oracle data source configuration
  */
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
@@ -2118,6 +2134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** MySQL specific log position to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlLogPosition *mysqlLogPosition;
+
+/** Oracle specific log position to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleScnPosition *oracleScnPosition;
 
 @end
 

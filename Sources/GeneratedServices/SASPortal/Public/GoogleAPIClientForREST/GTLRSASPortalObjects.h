@@ -30,6 +30,7 @@
 @class GTLRSASPortal_NrqzValidation;
 @class GTLRSASPortal_Operation_Metadata;
 @class GTLRSASPortal_Operation_Response;
+@class GTLRSASPortal_Organization;
 @class GTLRSASPortal_Policy;
 @class GTLRSASPortal_Status;
 @class GTLRSASPortal_Status_Details_Item;
@@ -415,7 +416,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 /** Device display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The FCC identifier of the device. */
+/**
+ *  The FCC identifier of the device. Refer to https://www.fcc.gov/oet/ea/fccid
+ *  for FccID format.
+ */
 @property(nonatomic, copy, nullable) NSString *fccId;
 
 /**
@@ -991,12 +995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  */
 @interface GTLRSASPortal_ListLegacyOrganizationsResponse : GTLRObject
 
-/**
- *  Optional. IDs of legacy SAS organizations.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *organizationIds;
+/** Optional. Legacy SAS organizations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Organization *> *organizations;
 
 @end
 
@@ -1265,6 +1265,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSASPortal_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Organization details.
+ */
+@interface GTLRSASPortal_Organization : GTLRObject
+
+/** Name of organization */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Id of organization
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
 @end
 
 

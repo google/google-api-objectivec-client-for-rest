@@ -311,6 +311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 @interface GTLRTexttospeech_GoogleCloudTexttospeechV1SynthesizeLongAudioMetadata : GTLRObject
 
+/** Deprecated. Do not use. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime GTLR_DEPRECATED;
+
 /**
  *  The progress of the most recent processing update in percentage, ie. 70.0%.
  *
@@ -509,6 +512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  Metadata for response returned by the `SynthesizeLongAudio` method.
  */
 @interface GTLRTexttospeech_SynthesizeLongAudioMetadata : GTLRObject
+
+/** Deprecated. Do not use. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime GTLR_DEPRECATED;
 
 /**
  *  The progress of the most recent processing update in percentage, ie. 70.0%.

@@ -1005,7 +1005,22 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest
-@dynamic documentOutputConfig, inputDocuments, processOptions, skipHumanReview;
+@dynamic documentOutputConfig, inputDocuments, labels, processOptions,
+         skipHumanReview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -4145,8 +4160,22 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest
-@dynamic fieldMask, gcsDocument, inlineDocument, processOptions, rawDocument,
-         skipHumanReview;
+@dynamic fieldMask, gcsDocument, inlineDocument, labels, processOptions,
+         rawDocument, skipHumanReview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

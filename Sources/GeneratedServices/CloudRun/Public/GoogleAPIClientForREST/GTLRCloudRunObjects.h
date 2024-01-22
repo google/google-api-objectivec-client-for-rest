@@ -2977,9 +2977,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Service : GTLRObject
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
  *  resources. All system annotations in v1 now have a corresponding field in v2
@@ -3073,10 +3073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *ingress;
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -3255,9 +3255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
  *  resources. All system annotations in v1 now have a corresponding field in v2
@@ -3274,10 +3274,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -3971,9 +3971,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -3987,7 +4003,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 

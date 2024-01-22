@@ -19,8 +19,10 @@
 @class GTLRDataflow_ApproximateSplitRequest;
 @class GTLRDataflow_AutoscalingEvent;
 @class GTLRDataflow_AutoscalingSettings;
+@class GTLRDataflow_Base2Exponent;
 @class GTLRDataflow_BigQueryIODetails;
 @class GTLRDataflow_BigTableIODetails;
+@class GTLRDataflow_BucketOptions;
 @class GTLRDataflow_ComponentSource;
 @class GTLRDataflow_ComponentTransform;
 @class GTLRDataflow_ComputationTopology;
@@ -58,6 +60,7 @@
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
 @class GTLRDataflow_Histogram;
+@class GTLRDataflow_HistogramValue;
 @class GTLRDataflow_HotKeyDebuggingInfo;
 @class GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys;
 @class GTLRDataflow_HotKeyDetection;
@@ -87,15 +90,19 @@
 @class GTLRDataflow_LaunchTemplateParameters_TransformNameMapping;
 @class GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest;
 @class GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse;
+@class GTLRDataflow_Linear;
 @class GTLRDataflow_MapTask;
 @class GTLRDataflow_MemInfo;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
 @class GTLRDataflow_MetricStructuredName_Context;
 @class GTLRDataflow_MetricUpdate;
+@class GTLRDataflow_MetricValue;
+@class GTLRDataflow_MetricValue_MetricLabels;
 @class GTLRDataflow_MountedDataDisk;
 @class GTLRDataflow_MultiOutputInfo;
 @class GTLRDataflow_NameAndKind;
+@class GTLRDataflow_OutlierStats;
 @class GTLRDataflow_Package;
 @class GTLRDataflow_ParallelInstruction;
 @class GTLRDataflow_Parameter;
@@ -107,6 +114,8 @@
 @class GTLRDataflow_PartialGroupByKeyInstruction;
 @class GTLRDataflow_PartialGroupByKeyInstruction_InputElementCodec;
 @class GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn;
+@class GTLRDataflow_PerStepNamespaceMetrics;
+@class GTLRDataflow_PerWorkerMetrics;
 @class GTLRDataflow_PipelineDescription;
 @class GTLRDataflow_Point;
 @class GTLRDataflow_Position;
@@ -806,6 +815,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.streamingMode
+
+/**
+ *  Message deduplication is not performed. Messages might be processed multiple
+ *  times, and the results are applied multiple times. Note: Setting this value
+ *  also enables Streaming Engine and Streaming Engine resource-based billing.
+ *
+ *  Value: "STREAMING_MODE_AT_LEAST_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce;
+/**
+ *  In this mode, message deduplication is performed against persistent state to
+ *  make sure each message is processed and committed to storage exactly once.
+ *
+ *  Value: "STREAMING_MODE_EXACTLY_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce;
+/**
+ *  Run in the default mode.
+ *
+ *  Value: "STREAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_GetTemplateResponse.templateType
 
 /**
@@ -1336,6 +1370,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfigurat
  *  Value: "WORKER_IP_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_RuntimeEnvironment.streamingMode
+
+/**
+ *  Message deduplication is not performed. Messages might be processed multiple
+ *  times, and the results are applied multiple times. Note: Setting this value
+ *  also enables Streaming Engine and Streaming Engine resource-based billing.
+ *
+ *  Value: "STREAMING_MODE_AT_LEAST_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce;
+/**
+ *  In this mode, message deduplication is performed against persistent state to
+ *  make sure each message is processed and committed to storage exactly once.
+ *
+ *  Value: "STREAMING_MODE_EXACTLY_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce;
+/**
+ *  Run in the default mode.
+ *
+ *  Value: "STREAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SdkBug.severity
@@ -2075,6 +2134,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Exponential buckets where the growth factor between buckets is
+ *  `2**(2**-scale)`. e.g. for `scale=1` growth factor is
+ *  `2**(2**(-1))=sqrt(2)`. `n` buckets will have the following boundaries. -
+ *  0th: [0, gf) - i in [1, n-1]: [gf^(i), gf^(i+1))
+ */
+@interface GTLRDataflow_Base2Exponent : GTLRObject
+
+/**
+ *  Must be greater than 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfBuckets;
+
+/**
+ *  Must be between -3 and 3. This forces the growth factor of the bucket
+ *  boundaries to be between `2^(1/8)` and `256`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
  *  Metadata for a BigQuery connector used by the job.
  */
 @interface GTLRDataflow_BigQueryIODetails : GTLRObject
@@ -2107,6 +2192,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** TableId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  `BucketOptions` describes the bucket boundaries used in the histogram.
+ */
+@interface GTLRDataflow_BucketOptions : GTLRObject
+
+/** Bucket boundaries grow exponentially. */
+@property(nonatomic, strong, nullable) GTLRDataflow_Base2Exponent *exponential;
+
+/** Bucket boundaries grow linearly. */
+@property(nonatomic, strong, nullable) GTLRDataflow_Linear *linear;
 
 @end
 
@@ -3450,6 +3549,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *stagingLocation;
 
 /**
+ *  Optional. Specifies the Streaming Engine message processing guarantees.
+ *  Reduces cost and latency but might result in duplicate messages committed to
+ *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
+ *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
+ *  case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce
+ *        Message deduplication is not performed. Messages might be processed
+ *        multiple times, and the results are applied multiple times. Note:
+ *        Setting this value also enables Streaming Engine and Streaming Engine
+ *        resource-based billing. (Value: "STREAMING_MODE_AT_LEAST_ONCE")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce
+ *        In this mode, message deduplication is performed against persistent
+ *        state to make sure each message is processed and committed to storage
+ *        exactly once. (Value: "STREAMING_MODE_EXACTLY_ONCE")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeUnspecified
+ *        Run in the default mode. (Value: "STREAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingMode;
+
+/**
  *  Subnetwork to which VMs will be assigned, if desired. You can specify a
  *  subnetwork using either a complete URL or an abbreviated path. Expected to
  *  be of the form
@@ -3641,6 +3762,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *firstBucketOffset;
+
+@end
+
+
+/**
+ *  Summary statistics for a population of values. HistogramValue contains a
+ *  sequence of buckets and gives a count of values that fall into each bucket.
+ *  Bucket boundares are defined by a formula and bucket widths are either fixed
+ *  or exponentially increasing.
+ */
+@interface GTLRDataflow_HistogramValue : GTLRObject
+
+/**
+ *  Optional. The number of values in each bucket of the histogram, as described
+ *  in `bucket_options`. `bucket_counts` should contain N values, where N is the
+ *  number of buckets specified in `bucket_options`. If `bucket_counts` has
+ *  fewer than N values, the remaining values are assumed to be 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketCounts;
+
+/** Describes the bucket boundaries used in the histogram. */
+@property(nonatomic, strong, nullable) GTLRDataflow_BucketOptions *bucketOptions;
+
+/**
+ *  Number of values recorded in this histogram.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Statistics on the values recorded in the histogram that fall out of the
+ *  bucket boundaries.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_OutlierStats *outlierStats;
 
 @end
 
@@ -4725,6 +4883,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Linear buckets with the following boundaries for indices in 0 to n-1. - i in
+ *  [0, n-1]: [start + (i)*width, start + (i+1)*width)
+ */
+@interface GTLRDataflow_Linear : GTLRObject
+
+/**
+ *  Must be greater than 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfBuckets;
+
+/**
+ *  Lower bound of the first bucket.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+/**
+ *  Distance between bucket boundaries. Must be greater than 0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
  *  Response to a request to list job messages.
  */
 @interface GTLRDataflow_ListJobMessagesResponse : GTLRObject
@@ -5011,6 +5199,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  The value of a metric along with its name and labels.
+ */
+@interface GTLRDataflow_MetricValue : GTLRObject
+
+/** Base name for this metric. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Optional. Set of metric labels for this metric. */
+@property(nonatomic, strong, nullable) GTLRDataflow_MetricValue_MetricLabels *metricLabels;
+
+/** Histogram value of this metric. */
+@property(nonatomic, strong, nullable) GTLRDataflow_HistogramValue *valueHistogram;
+
+/**
+ *  Integer value of this metric.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueInt64;
+
+@end
+
+
+/**
+ *  Optional. Set of metric labels for this metric.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_MetricValue_MetricLabels : GTLRObject
+@end
+
+
+/**
  *  Describes mounted data disk.
  */
 @interface GTLRDataflow_MountedDataDisk : GTLRObject
@@ -5073,6 +5297,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Name of the counter. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Statistics for the underflow and overflow bucket.
+ */
+@interface GTLRDataflow_OutlierStats : GTLRObject
+
+/**
+ *  Number of values that are larger than the upper bound of the largest bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overflowCount;
+
+/**
+ *  Mean of values in the overflow bucket.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overflowMean;
+
+/**
+ *  Number of values that are smaller than the lower bound of the smallest
+ *  bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *underflowCount;
+
+/**
+ *  Mean of values in the undeflow bucket.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *underflowMean;
 
 @end
 
@@ -5398,6 +5659,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_PartialGroupByKeyInstruction_ValueCombiningFn : GTLRObject
+@end
+
+
+/**
+ *  Metrics for a particular unfused step and namespace. A metric is uniquely
+ *  identified by the `metrics_namespace`, `original_step`, `metric name` and
+ *  `metric_labels`.
+ */
+@interface GTLRDataflow_PerStepNamespaceMetrics : GTLRObject
+
+/** The namespace of these metrics on the worker. */
+@property(nonatomic, copy, nullable) NSString *metricsNamespace;
+
+/**
+ *  Optional. Metrics that are recorded for this namespace and unfused step.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MetricValue *> *metricValues;
+
+/**
+ *  The original system name of the unfused step that these metrics are reported
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *originalStep;
+
+@end
+
+
+/**
+ *  Per worker metrics.
+ */
+@interface GTLRDataflow_PerWorkerMetrics : GTLRObject
+
+/** Optional. Metrics for a particular unfused step and namespace. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PerStepNamespaceMetrics *> *perStepNamespaceMetrics;
+
 @end
 
 
@@ -5842,6 +6138,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Optional. The email address of the service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Optional. Specifies the Streaming Engine message processing guarantees.
+ *  Reduces cost and latency but might result in duplicate messages committed to
+ *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
+ *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
+ *  case.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce
+ *        Message deduplication is not performed. Messages might be processed
+ *        multiple times, and the results are applied multiple times. Note:
+ *        Setting this value also enables Streaming Engine and Streaming Engine
+ *        resource-based billing. (Value: "STREAMING_MODE_AT_LEAST_ONCE")
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce
+ *        In this mode, message deduplication is performed against persistent
+ *        state to make sure each message is processed and committed to storage
+ *        exactly once. (Value: "STREAMING_MODE_EXACTLY_ONCE")
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeUnspecified
+ *        Run in the default mode. (Value: "STREAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingMode;
 
 /**
  *  Optional. Subnetwork to which VMs will be assigned, if desired. You can
@@ -7266,11 +7584,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_StreamingScalingReport : GTLRObject
 
 /**
- *  Current acive bundle count.
+ *  activeBundleCount
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *activeBundleCount;
+@property(nonatomic, strong, nullable) NSNumber *activeBundleCount GTLR_DEPRECATED;
 
 /**
  *  Current acive thread count.
@@ -7280,18 +7598,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSNumber *activeThreadCount;
 
 /**
- *  Maximum bundle count limit.
+ *  Maximum bundle count.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumBundleCount;
 
 /**
- *  Maximum bytes count limit.
+ *  Maximum bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumBytes;
+
+/**
+ *  maximumBytesCount
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maximumBytesCount;
+@property(nonatomic, strong, nullable) NSNumber *maximumBytesCount GTLR_DEPRECATED;
 
 /**
  *  Maximum thread count limit.
@@ -7301,11 +7626,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSNumber *maximumThreadCount;
 
 /**
- *  Current outstanding bytes count.
+ *  Current outstanding bundle count.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *outstandingBytesCount;
+@property(nonatomic, strong, nullable) NSNumber *outstandingBundleCount;
+
+/**
+ *  Current outstanding bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outstandingBytes;
+
+/**
+ *  outstandingBytesCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outstandingBytesCount GTLR_DEPRECATED;
 
 @end
 
@@ -7853,6 +8192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  LABEL_UNSPECIFIED should not be used here.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerMessage_Labels *labels;
+
+/** System defined metrics for this worker. */
+@property(nonatomic, strong, nullable) GTLRDataflow_PerWorkerMetrics *perWorkerMetrics;
 
 /** Contains per-user worker telemetry used in streaming autoscaling. */
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingScalingReport *streamingScalingReport;

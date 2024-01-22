@@ -92,7 +92,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_GoogleCloudTexttospeechV1SynthesizeLongAudioMetadata
-@dynamic progressPercentage, startTime;
+@dynamic lastUpdateTime, progressPercentage, startTime;
 @end
 
 
@@ -222,7 +222,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_SynthesizeLongAudioMetadata
-@dynamic progressPercentage, startTime;
+@dynamic lastUpdateTime, progressPercentage, startTime;
 @end
 
 

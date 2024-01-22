@@ -436,8 +436,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
          duration, expireTime, labels, languageCode, latestAnalysis,
-         latestSummary, medium, name, obfuscatedUserId, runtimeAnnotations,
-         startTime, transcript, ttl, turnCount, updateTime;
+         latestSummary, medium, name, obfuscatedUserId, qualityMetadata,
+         runtimeAnnotations, startTime, transcript, ttl, turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -515,6 +515,34 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant
 @dynamic dialogflowParticipant, dialogflowParticipantName,
          obfuscatedExternalUserId, role, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadata
+@dynamic agentInfo, customerSatisfactionRating, menuPath, waitDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentInfo" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo
+@dynamic agentId, displayName, dispositionCode, team;
 @end
 
 
@@ -1573,8 +1601,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
          duration, expireTime, labels, languageCode, latestAnalysis,
-         latestSummary, medium, name, obfuscatedUserId, runtimeAnnotations,
-         startTime, transcript, ttl, turnCount, updateTime;
+         latestSummary, medium, name, obfuscatedUserId, qualityMetadata,
+         runtimeAnnotations, startTime, transcript, ttl, turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1652,6 +1680,34 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant
 @dynamic dialogflowParticipant, dialogflowParticipantName,
          obfuscatedExternalUserId, role, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadata
+@dynamic agentInfo, customerSatisfactionRating, menuPath, waitDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentInfo" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo
+@dynamic agentId, displayName, dispositionCode, team;
 @end
 
 

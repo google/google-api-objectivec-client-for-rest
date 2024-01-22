@@ -602,6 +602,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Capabilities_Capab
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Capabilities_StretchedClusters;
 
 // ----------------------------------------------------------------------------
+// GTLRVMwareEngine_NodeType.kind
+
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Kind_KindUnspecified;
+/**
+ *  Standard HCI node.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Kind_Standard;
+/**
+ *  Storage only Node.
+ *
+ *  Value: "STORAGE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NodeType_Kind_StorageOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRVMwareEngine_Nsx.state
 
 /**
@@ -1074,9 +1096,25 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1090,7 +1128,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1207,8 +1248,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 /**
  *  Required. Output only. The name of the resource which stores the
  *  users/service accounts having the permission to bind to the corresponding
- *  intranet VPC of the consumer project. DnsBindPermission is a global
- *  resource. Resource names are schemeless URIs that follow the conventions in
+ *  intranet VPC of the consumer project. DnsBindPermission is a global resource
+ *  and location can only be global. Resource names are schemeless URIs that
+ *  follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/dnsBindPermission`
  */
@@ -2649,7 +2691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) NSNumber *importCustomRoutesWithPublicIp;
 
 /**
- *  Output only. The resource name of the network peering. Resource names are
+ *  Output only. The resource name of the network peering. NetworkPeering is a
+ *  global resource and location can only be global. Resource names are
  *  scheme-less URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/networkPeerings/my-peering`
@@ -2942,6 +2985,25 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  ve1-standard-72
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Families of the node type. For node types to be in the same
+ *  cluster they must share at least one element in the `families`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *families;
+
+/**
+ *  Output only. The type of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_NodeType_Kind_KindUnspecified The default value.
+ *        This value should never be used. (Value: "KIND_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_NodeType_Kind_Standard Standard HCI node.
+ *        (Value: "STANDARD")
+ *    @arg @c kGTLRVMwareEngine_NodeType_Kind_StorageOnly Storage only Node.
+ *        (Value: "STORAGE_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Output only. The amount of physical memory available, defined in GB.

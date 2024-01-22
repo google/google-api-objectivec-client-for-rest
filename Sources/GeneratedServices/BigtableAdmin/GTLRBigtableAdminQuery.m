@@ -32,44 +32,6 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
-@implementation GTLRBigtableAdminQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}:cancel";
-  GTLRBigtableAdminQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
-  query.loggingName = @"bigtableadmin.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigtableAdminQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRBigtableAdminQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
-  query.loggingName = @"bigtableadmin.operations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRBigtableAdminQuery_OperationsGet
 
 @dynamic name;
@@ -1163,25 +1125,6 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRBigtableAdmin_Instance class];
   query.loggingName = @"bigtableadmin.projects.instances.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigtableAdminQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRBigtableAdminQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigtableAdmin_Location class];
-  query.loggingName = @"bigtableadmin.projects.locations.get";
   return query;
 }
 

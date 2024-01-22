@@ -37,11 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAccessApproval_AccessReason.type
 
 /**
- *  Similar to 'GOOGLE_INITIATED_SERVICE' or 'GOOGLE_INITIATED_REVIEW', but
- *  meant to reflect when the cloud operator is not Google (namely, a TPC
- *  operator), and accessed customer data in order to diagnose or resolve a
- *  suspected issue in services or a known outage, or for security, fraud,
- *  abuse, or compliance review purposes.
+ *  Similar to 'GOOGLE_INITIATED_SERVICE' or 'GOOGLE_INITIATED_REVIEW', but with
+ *  universe agnostic naming. The principal accessed customer data in order to
+ *  diagnose or resolve a suspected issue in services or a known outage, or for
+ *  security, fraud, abuse, or compliance review purposes.
  *
  *  Value: "CLOUD_INITIATED_ACCESS"
  */
@@ -371,12 +370,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *
  *  Likely values:
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_CloudInitiatedAccess Similar
- *        to 'GOOGLE_INITIATED_SERVICE' or 'GOOGLE_INITIATED_REVIEW', but meant
- *        to reflect when the cloud operator is not Google (namely, a TPC
- *        operator), and accessed customer data in order to diagnose or resolve
- *        a suspected issue in services or a known outage, or for security,
- *        fraud, abuse, or compliance review purposes. (Value:
- *        "CLOUD_INITIATED_ACCESS")
+ *        to 'GOOGLE_INITIATED_SERVICE' or 'GOOGLE_INITIATED_REVIEW', but with
+ *        universe agnostic naming. The principal accessed customer data in
+ *        order to diagnose or resolve a suspected issue in services or a known
+ *        outage, or for security, fraud, abuse, or compliance review purposes.
+ *        (Value: "CLOUD_INITIATED_ACCESS")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport
  *        Customer made a request or raised an issue that required the principal
  *        to access customer data. `detail` is of the form ("#####" is the issue

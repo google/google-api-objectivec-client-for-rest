@@ -63,6 +63,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2DataProfileLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition;
 @class GTLRDLP_GooglePrivacyDlpV2DataRiskLevel;
+@class GTLRDLP_GooglePrivacyDlpV2DataSourceType;
 @class GTLRDLP_GooglePrivacyDlpV2DatastoreKey;
 @class GTLRDLP_GooglePrivacyDlpV2DatastoreOptions;
 @class GTLRDLP_GooglePrivacyDlpV2DateShiftConfig;
@@ -4302,6 +4303,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Unused. (Value: "RISK_SCORE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *score;
+
+@end
+
+
+/**
+ *  Message used to identify the type of resource being profiled.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataSourceType : GTLRObject
+
+/**
+ *  Output only. An identifying string to the type of resource being profiled.
+ *  Current values: google/bigquery/table, google/project
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
 
 @end
 
@@ -8709,6 +8724,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** The Google Cloud project ID that owns the BigQuery dataset. */
 @property(nonatomic, copy, nullable) NSString *datasetProjectId;
+
+/** The resource type that was profiled. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataSourceType *dataSourceType;
 
 /**
  *  How the table is encrypted.

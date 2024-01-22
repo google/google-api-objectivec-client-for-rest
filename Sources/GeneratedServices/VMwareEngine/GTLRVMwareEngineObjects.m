@@ -125,6 +125,11 @@ NSString * const kGTLRVMwareEngine_Node_State_Upgrading        = @"UPGRADING";
 NSString * const kGTLRVMwareEngine_NodeType_Capabilities_CapabilityUnspecified = @"CAPABILITY_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_NodeType_Capabilities_StretchedClusters = @"STRETCHED_CLUSTERS";
 
+// GTLRVMwareEngine_NodeType.kind
+NSString * const kGTLRVMwareEngine_NodeType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_NodeType_Kind_Standard      = @"STANDARD";
+NSString * const kGTLRVMwareEngine_NodeType_Kind_StorageOnly   = @"STORAGE_ONLY";
+
 // GTLRVMwareEngine_Nsx.state
 NSString * const kGTLRVMwareEngine_Nsx_State_Active           = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Nsx_State_Creating         = @"CREATING";
@@ -1090,14 +1095,22 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 @implementation GTLRVMwareEngine_NodeType
 @dynamic availableCustomCoreCounts, capabilities, diskSizeGb, displayName,
-         memoryGb, name, nodeTypeId, totalCoreCount, virtualCpuCount;
+         families, kind, memoryGb, name, nodeTypeId, totalCoreCount,
+         virtualCpuCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"availableCustomCoreCounts" : [NSNumber class],
-    @"capabilities" : [NSString class]
+    @"capabilities" : [NSString class],
+    @"families" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

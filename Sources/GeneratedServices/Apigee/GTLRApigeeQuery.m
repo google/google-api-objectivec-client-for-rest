@@ -745,6 +745,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1KeyValueEntry class];
+  query.loggingName = @"apigee.organizations.apis.keyvaluemaps.entries.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsApisList
 
 @dynamic includeMetaData, includeRevisions, parent;
@@ -3750,6 +3777,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1KeyValueEntry class];
+  query.loggingName = @"apigee.organizations.environments.keyvaluemaps.entries.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsModifyEnvironment
 
 @dynamic name, updateMask;
@@ -5901,6 +5955,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.parent = parent;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse class];
   query.loggingName = @"apigee.organizations.keyvaluemaps.entries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1KeyValueEntry class];
+  query.loggingName = @"apigee.organizations.keyvaluemaps.entries.update";
   return query;
 }
 

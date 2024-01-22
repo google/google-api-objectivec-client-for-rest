@@ -16,6 +16,7 @@
 // GTLRLogging_BucketMetadata.state
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_BucketMetadata_State_OperationStatePending = @"OPERATION_STATE_PENDING";
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
 NSString * const kGTLRLogging_BucketMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
@@ -25,6 +26,7 @@ NSString * const kGTLRLogging_BucketMetadata_State_OperationStateWaitingForPermi
 // GTLRLogging_CopyLogEntriesMetadata.state
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStatePending = @"OPERATION_STATE_PENDING";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
@@ -57,6 +59,7 @@ NSString * const kGTLRLogging_Link_LifecycleState_Updating     = @"UPDATING";
 // GTLRLogging_LinkMetadata.state
 NSString * const kGTLRLogging_LinkMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
 NSString * const kGTLRLogging_LinkMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_LinkMetadata_State_OperationStatePending = @"OPERATION_STATE_PENDING";
 NSString * const kGTLRLogging_LinkMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
 NSString * const kGTLRLogging_LinkMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
 NSString * const kGTLRLogging_LinkMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
@@ -217,8 +220,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_CopyLogEntriesMetadata
-@dynamic cancellationRequested, endTime, progress, request, startTime, state,
-         writerIdentity;
+@dynamic cancellationRequested, destination, endTime, progress, request, source,
+         startTime, state, verb, writerIdentity;
 @end
 
 

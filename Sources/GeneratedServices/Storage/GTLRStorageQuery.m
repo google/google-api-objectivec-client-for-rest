@@ -52,7 +52,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheDisable
+@implementation GTLRStorageQuery_AnywhereCachesDisable
 
 @dynamic anywhereCacheId, bucket;
 
@@ -62,7 +62,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     @"anywhereCacheId", @"bucket"
   ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/disable";
-  GTLRStorageQuery_AnywhereCacheDisable *query =
+  GTLRStorageQuery_AnywhereCachesDisable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -75,7 +75,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheGet
+@implementation GTLRStorageQuery_AnywhereCachesGet
 
 @dynamic anywhereCacheId, bucket;
 
@@ -85,7 +85,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     @"anywhereCacheId", @"bucket"
   ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}";
-  GTLRStorageQuery_AnywhereCacheGet *query =
+  GTLRStorageQuery_AnywhereCachesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
@@ -98,7 +98,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheInsert
+@implementation GTLRStorageQuery_AnywhereCachesInsert
 
 @dynamic bucket;
 
@@ -112,7 +112,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   }
   NSArray *pathParams = @[ @"bucket" ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches";
-  GTLRStorageQuery_AnywhereCacheInsert *query =
+  GTLRStorageQuery_AnywhereCachesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -125,14 +125,14 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheList
+@implementation GTLRStorageQuery_AnywhereCachesList
 
 @dynamic bucket, pageSize, pageToken;
 
 + (instancetype)queryWithBucket:(NSString *)bucket {
   NSArray *pathParams = @[ @"bucket" ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches";
-  GTLRStorageQuery_AnywhereCacheList *query =
+  GTLRStorageQuery_AnywhereCachesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
@@ -144,7 +144,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCachePause
+@implementation GTLRStorageQuery_AnywhereCachesPause
 
 @dynamic anywhereCacheId, bucket;
 
@@ -154,7 +154,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     @"anywhereCacheId", @"bucket"
   ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/pause";
-  GTLRStorageQuery_AnywhereCachePause *query =
+  GTLRStorageQuery_AnywhereCachesPause *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -167,7 +167,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheResume
+@implementation GTLRStorageQuery_AnywhereCachesResume
 
 @dynamic anywhereCacheId, bucket;
 
@@ -177,7 +177,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     @"anywhereCacheId", @"bucket"
   ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}/resume";
-  GTLRStorageQuery_AnywhereCacheResume *query =
+  GTLRStorageQuery_AnywhereCachesResume *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -190,7 +190,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_AnywhereCacheUpdate
+@implementation GTLRStorageQuery_AnywhereCachesUpdate
 
 @dynamic anywhereCacheId, bucket;
 
@@ -207,7 +207,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     @"anywhereCacheId", @"bucket"
   ];
   NSString *pathURITemplate = @"b/{bucket}/anywhereCaches/{anywhereCacheId}";
-  GTLRStorageQuery_AnywhereCacheUpdate *query =
+  GTLRStorageQuery_AnywhereCachesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
@@ -777,6 +777,123 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.entity = entity;
   query.expectedObjectClass = [GTLRStorage_ObjectAccessControl class];
   query.loggingName = @"storage.defaultObjectAccessControls.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_FoldersDelete
+
+@dynamic bucket, folder, ifMetagenerationMatch, ifMetagenerationNotMatch;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder {
+  NSArray *pathParams = @[
+    @"bucket", @"folder"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/folders/{folder}";
+  GTLRStorageQuery_FoldersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.folder = folder;
+  query.loggingName = @"storage.folders.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_FoldersGet
+
+@dynamic bucket, folder, ifMetagenerationMatch, ifMetagenerationNotMatch;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder {
+  NSArray *pathParams = @[
+    @"bucket", @"folder"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/folders/{folder}";
+  GTLRStorageQuery_FoldersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.folder = folder;
+  query.expectedObjectClass = [GTLRStorage_Folder class];
+  query.loggingName = @"storage.folders.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_FoldersInsert
+
+@dynamic bucket, recursive;
+
++ (instancetype)queryWithObject:(GTLRStorage_Folder *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/folders";
+  GTLRStorageQuery_FoldersInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Folder class];
+  query.loggingName = @"storage.folders.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_FoldersList
+
+@dynamic bucket, delimiter, endOffset, pageSize, pageToken, prefix, startOffset;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/folders";
+  GTLRStorageQuery_FoldersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_Folders class];
+  query.loggingName = @"storage.folders.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_FoldersRename
+
+@dynamic bucket, destinationFolder, ifSourceMetagenerationMatch,
+         ifSourceMetagenerationNotMatch, sourceFolder;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceFolder:(NSString *)sourceFolder
+              destinationFolder:(NSString *)destinationFolder {
+  NSArray *pathParams = @[
+    @"bucket", @"destinationFolder", @"sourceFolder"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/folders/{sourceFolder}/renameTo/folders/{destinationFolder}";
+  GTLRStorageQuery_FoldersRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.sourceFolder = sourceFolder;
+  query.destinationFolder = destinationFolder;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.folders.rename";
   return query;
 }
 

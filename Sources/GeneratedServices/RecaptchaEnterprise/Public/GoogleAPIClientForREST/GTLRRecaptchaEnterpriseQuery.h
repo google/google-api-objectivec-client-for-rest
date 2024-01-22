@@ -297,6 +297,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Reorders all firewall policies.
+ *
+ *  Method: recaptchaenterprise.projects.firewallpolicies.reorder
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesReorder : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the project to list the policies for, in the format
+ *  `projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesResponse.
+ *
+ *  Reorders all firewall policies.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest
+ *    to include in the query.
+ *  @param parent Required. The name of the project to list the policies for, in
+ *    the format `projects/{project}`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesReorder
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new reCAPTCHA Enterprise key.
  *
  *  Method: recaptchaenterprise.projects.keys.create

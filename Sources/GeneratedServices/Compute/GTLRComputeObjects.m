@@ -1372,6 +1372,7 @@ NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort =
 // GTLRCompute_GuestOsFeature.type
 NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified = @"FEATURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Gvnic        = @"GVNIC";
+NSString * const kGTLRCompute_GuestOsFeature_Type_Idpf         = @"IDPF";
 NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet = @"MULTI_IP_SUBNET";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot   = @"SECURE_BOOT";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable   = @"SEV_CAPABLE";
@@ -4012,6 +4013,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus     = @"COMMITTED_N2_
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus    = @"COMMITTED_N2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA10080gbGpus = @"COMMITTED_NVIDIA_A100_80GB_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA100Gpus = @"COMMITTED_NVIDIA_A100_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaH100Gpus = @"COMMITTED_NVIDIA_H100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus = @"COMMITTED_NVIDIA_K80_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaL4Gpus = @"COMMITTED_NVIDIA_L4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus = @"COMMITTED_NVIDIA_P100_GPUS";
@@ -4087,6 +4089,7 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus     = @"PREEMPTIBLE_C
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb = @"PREEMPTIBLE_LOCAL_SSD_GB";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA10080gbGpus = @"PREEMPTIBLE_NVIDIA_A100_80GB_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA100Gpus = @"PREEMPTIBLE_NVIDIA_A100_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaH100Gpus = @"PREEMPTIBLE_NVIDIA_H100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus = @"PREEMPTIBLE_NVIDIA_K80_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaL4Gpus = @"PREEMPTIBLE_NVIDIA_L4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus = @"PREEMPTIBLE_NVIDIA_P100_GPUS";
@@ -8463,7 +8466,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Commitment
 @dynamic autoRenew, category, creationTimestamp, descriptionProperty,
-         endTimestamp, identifier, kind, licenseResource,
+         endTimestamp, existingReservations, identifier, kind, licenseResource,
          mergeSourceCommitments, name, plan, region, reservations, resources,
          selfLink, splitSourceCommitment, startTimestamp, status, statusMessage,
          type;
@@ -8478,6 +8481,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"existingReservations" : [NSString class],
     @"mergeSourceCommitments" : [NSString class],
     @"reservations" : [GTLRCompute_Reservation class],
     @"resources" : [GTLRCompute_ResourceCommitment class]
@@ -8772,8 +8776,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          lastAttachTimestamp, lastDetachTimestamp, licenseCodes, licenses,
          locationHint, name, options, params, physicalBlockSizeBytes,
          provisionedIops, provisionedThroughput, region, replicaZones,
-         resourcePolicies, resourceStatus, satisfiesPzs, selfLink, sizeGb,
-         sourceConsistencyGroupPolicy, sourceConsistencyGroupPolicyId,
+         resourcePolicies, resourceStatus, satisfiesPzi, satisfiesPzs, selfLink,
+         sizeGb, sourceConsistencyGroupPolicy, sourceConsistencyGroupPolicyId,
          sourceDisk, sourceDiskId, sourceImage, sourceImageEncryptionKey,
          sourceImageId, sourceSnapshot, sourceSnapshotEncryptionKey,
          sourceSnapshotId, sourceStorageObject, status, type, users,
@@ -11107,8 +11111,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          descriptionProperty, diskSizeGb, enableConfidentialCompute, family,
          guestOsFeatures, identifier, imageEncryptionKey, kind,
          labelFingerprint, labels, licenseCodes, licenses, name, rawDisk,
-         satisfiesPzs, selfLink, shieldedInstanceInitialState, sourceDisk,
-         sourceDiskEncryptionKey, sourceDiskId, sourceImage,
+         satisfiesPzi, satisfiesPzs, selfLink, shieldedInstanceInitialState,
+         sourceDisk, sourceDiskEncryptionKey, sourceDiskId, sourceImage,
          sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
          sourceSnapshotEncryptionKey, sourceSnapshotId, sourceType, status,
          storageLocations;
@@ -13950,9 +13954,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_MachineImage
 @dynamic creationTimestamp, descriptionProperty, guestFlush, identifier,
          instanceProperties, kind, machineImageEncryptionKey, name,
-         satisfiesPzs, savedDisks, selfLink, sourceDiskEncryptionKeys,
-         sourceInstance, sourceInstanceProperties, status, storageLocations,
-         totalStorageBytes;
+         satisfiesPzi, satisfiesPzs, savedDisks, selfLink,
+         sourceDiskEncryptionKeys, sourceInstance, sourceInstanceProperties,
+         status, storageLocations, totalStorageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -20539,11 +20543,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          creationTimestamp, descriptionProperty, diskSizeGb, downloadBytes,
          enableConfidentialCompute, guestOsFeatures, identifier, kind,
          labelFingerprint, labels, licenseCodes, licenses, locationHint, name,
-         satisfiesPzs, selfLink, snapshotEncryptionKey, snapshotType,
-         sourceDisk, sourceDiskEncryptionKey, sourceDiskForRecoveryCheckpoint,
-         sourceDiskId, sourceSnapshotSchedulePolicy,
-         sourceSnapshotSchedulePolicyId, status, storageBytes,
-         storageBytesStatus, storageLocations;
+         satisfiesPzi, satisfiesPzs, selfLink, snapshotEncryptionKey,
+         snapshotType, sourceDisk, sourceDiskEncryptionKey,
+         sourceDiskForRecoveryCheckpoint, sourceDiskId,
+         sourceSnapshotSchedulePolicy, sourceSnapshotSchedulePolicyId, status,
+         storageBytes, storageBytesStatus, storageLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21360,8 +21364,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          externalIpv6Prefix, fingerprint, gatewayAddress, identifier,
          internalIpv6Prefix, ipCidrRange, ipv6AccessType, ipv6CidrRange, kind,
          logConfig, name, network, privateIpGoogleAccess,
-         privateIpv6GoogleAccess, purpose, region, role, secondaryIpRanges,
-         selfLink, stackType, state;
+         privateIpv6GoogleAccess, purpose, region, reservedInternalRange, role,
+         secondaryIpRanges, selfLink, stackType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21521,7 +21525,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SubnetworkSecondaryRange
-@dynamic ipCidrRange, rangeName;
+@dynamic ipCidrRange, rangeName, reservedInternalRange;
 @end
 
 

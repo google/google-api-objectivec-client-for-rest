@@ -17,6 +17,60 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:grant";
+  GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.dnsBindPermission.grant";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.dnsBindPermission.revoke";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -36,204 +90,20 @@
 
 @end
 
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:grant";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
-  query.loggingName = @"vmwareengine.projects.locations.global.dnsBindPermission.grant";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:revoke";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
-  query.loggingName = @"vmwareengine.projects.locations.global.dnsBindPermission.revoke";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsGetDnsBindPermission
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission *query =
+  GTLRVMwareEngineQuery_ProjectsLocationsGetDnsBindPermission *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_DnsBindPermission class];
-  query.loggingName = @"vmwareengine.projects.locations.global.getDnsBindPermission";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate
-
-@dynamic networkPeeringId, parent, requestId;
-
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete
-
-@dynamic name, requestId;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMwareEngine_NetworkPeering class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRVMwareEngine_ListNetworkPeeringsResponse class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch
-
-@dynamic name, requestId, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/peeringRoutes";
-  GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRVMwareEngine_ListPeeringRoutesResponse class];
-  query.loggingName = @"vmwareengine.projects.locations.global.networkPeerings.peeringRoutes.list";
+  query.loggingName = @"vmwareengine.projects.locations.getDnsBindPermission";
   return query;
 }
 
@@ -253,6 +123,136 @@
   query.name = name;
   query.expectedObjectClass = [GTLRVMwareEngine_ListLocationsResponse class];
   query.loggingName = @"vmwareengine.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsCreate
+
+@dynamic networkPeeringId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_NetworkPeering class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkPeerings";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListNetworkPeeringsResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPeeringRoutesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/peeringRoutes";
+  GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPeeringRoutesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListPeeringRoutesResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.networkPeerings.peeringRoutes.list";
   return query;
 }
 

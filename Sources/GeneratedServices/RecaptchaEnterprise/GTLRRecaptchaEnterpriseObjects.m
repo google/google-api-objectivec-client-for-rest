@@ -645,6 +645,33 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesResponse
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse
 //
 

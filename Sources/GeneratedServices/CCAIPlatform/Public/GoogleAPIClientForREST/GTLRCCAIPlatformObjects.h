@@ -216,7 +216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  Message describing ContactCenter object Next ID: 16
+ *  Message describing ContactCenter object Next ID: 18
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -261,6 +261,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 /** name of resource */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. A list of UJET components that should be privately accessed.
+ *  This field is set by reading settings from the data plane. For more
+ *  information about the format of the component please refer to
+ *  go/ccaip-vpc-sc-org-policy. This field is must be fully populated only for
+ *  Create/Update resource operations. The main use case for this field is
+ *  OrgPolicy checks via CPE.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *privateComponents;
 
 /** Optional. Params that sets up Google as IdP. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_SAMLParams *samlParams;

@@ -5419,6 +5419,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *modelVariant;
 
 /**
+ *  If `true`, the request will opt out for STT conformer model migration. This
+ *  field will be deprecated once force migration takes place in June 2024.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *optOutConformerModelMigration;
+
+/**
  *  Optional. A list of strings containing words and phrases that the speech
  *  recognizer should recognize with higher likelihood. See [the Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
@@ -6516,10 +6524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput : GTLRObject
 
-/**
- *  Required. The UTF-8 encoded natural language text to be processed. Text
- *  length must not exceed 256 characters.
- */
+/** Required. The UTF-8 encoded natural language text to be processed. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
@@ -7196,7 +7201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. Data Stores where the boosting configuration is applied. The full
  *  names of the referenced data stores. Formats:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- *  `projects/{project}/locations/{location}/dataStores/{data_store}
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStores;
 
@@ -8606,7 +8611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Optional. Data Stores where the boosting configuration is applied. The full
  *  names of the referenced data stores. Formats:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- *  `projects/{project}/locations/{location}/dataStores/{data_store}
+ *  `projects/{project}/locations/{location}/dataStores/{data_store}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dataStores;
 
@@ -9612,6 +9617,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        for details about enhanced models. (Value: "USE_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *modelVariant;
+
+/**
+ *  If `true`, the request will opt out for STT conformer model migration. This
+ *  field will be deprecated once force migration takes place in June 2024.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *optOutConformerModelMigration;
 
 /**
  *  Optional. A list of strings containing words and phrases that the speech
@@ -12572,10 +12585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TextInput : GTLRObject
 
-/**
- *  Required. The UTF-8 encoded natural language text to be processed. Text
- *  length must not exceed 256 characters.
- */
+/** Required. The UTF-8 encoded natural language text to be processed. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end

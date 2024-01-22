@@ -513,6 +513,25 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_CompleteImportSpaceRequest
+//
+
+@implementation GTLRHangoutsChat_CompleteImportSpaceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CompleteImportSpaceResponse
+//
+
+@implementation GTLRHangoutsChat_CompleteImportSpaceResponse
+@dynamic space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_CustomEmoji
 //
 
@@ -1228,7 +1247,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Membership
-@dynamic createTime, groupMember, member, name, role, state;
+@dynamic createTime, deleteTime, groupMember, member, name, role, state;
 @end
 
 
@@ -1380,9 +1399,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic adminInstalled, displayName, externalUserAllowed, name,
-         singleUserBotDm, spaceDetails, spaceHistoryState, spaceThreadingState,
-         spaceType, threaded, type;
+@dynamic adminInstalled, createTime, displayName, externalUserAllowed,
+         importMode, name, singleUserBotDm, spaceDetails, spaceHistoryState,
+         spaceThreadingState, spaceType, threaded, type;
 @end
 
 

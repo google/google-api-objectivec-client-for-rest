@@ -465,6 +465,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Resize a notebook instance disk to a higher capacity.
+ *
+ *  Method: notebooks.projects.locations.instances.resizeDisk
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesResizeDisk : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *notebookInstance;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Resize a notebook instance disk to a higher capacity.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_ResizeDiskRequest to include in
+ *    the query.
+ *  @param notebookInstance Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesResizeDisk
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResizeDiskRequest *)object
+               notebookInstance:(NSString *)notebookInstance;
+
+@end
+
+/**
  *  Rollbacks a notebook instance to the previous version.
  *
  *  Method: notebooks.projects.locations.instances.rollback

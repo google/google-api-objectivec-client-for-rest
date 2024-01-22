@@ -184,6 +184,35 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferen
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_ComputeEnginePreferences.persistentDiskType
+
+/**
+ *  Balanced Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced;
+/**
+ *  SSD Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd;
+/**
+ *  Standard HDD Persistent Disk.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard;
+/**
+ *  Unspecified (default value). Selecting this value allows the system to use
+ *  any disk type according to reported usage. This a good value to start with.
+ *
+ *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
 
 /**
@@ -1670,6 +1699,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** Preferences concerning the machine types to consider on Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachinePreferences *machinePreferences;
+
+/**
+ *  Persistent disk type to use. If unspecified (default), all types are
+ *  considered, based on available usage data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced
+ *        Balanced Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_BALANCED")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd
+ *        SSD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_SSD")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard
+ *        Standard HDD Persistent Disk. (Value: "PERSISTENT_DISK_TYPE_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified
+ *        Unspecified (default value). Selecting this value allows the system to
+ *        use any disk type according to reported usage. This a good value to
+ *        start with. (Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *persistentDiskType;
 
 @end
 

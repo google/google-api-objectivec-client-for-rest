@@ -729,6 +729,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  Optional. Specifies networking queue count for TPU VM instance's network
+ *  interface.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queueCount;
+
+/**
  *  The name of the subnetwork for the TPU node. It must be a preexisting Google
  *  Compute Engine subnetwork. If none is provided, "default" will be used.
  */

@@ -1230,7 +1230,8 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem
-@dynamic assignees, externalSystemUpdateTime, externalUid, name, status;
+@dynamic assignees, casePriority, caseSla, caseUri, externalSystemUpdateTime,
+         externalUid, name, status, ticketInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2267,6 +2268,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_PolicyDriftDetails
+//
+
+@implementation GTLRSecurityCommandCenter_PolicyDriftDetails
+@dynamic detectedValue, expectedValue, field;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Position
 //
 
@@ -2432,8 +2443,16 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_SecurityPosture
-@dynamic changedPolicy, name, postureDeployment, postureDeploymentResource,
-         revisionId;
+@dynamic changedPolicy, name, policy, policyDriftDetails, policySet,
+         postureDeployment, postureDeploymentResource, revisionId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyDriftDetails" : [GTLRSecurityCommandCenter_PolicyDriftDetails class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2652,6 +2671,25 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_TicketInfo
+//
+
+@implementation GTLRSecurityCommandCenter_TicketInfo
+@dynamic assignee, descriptionProperty, identifier, status, updateTime, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
   };
   return map;
 }

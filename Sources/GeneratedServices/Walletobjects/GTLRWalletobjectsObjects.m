@@ -1628,7 +1628,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_Issuer
-@dynamic contactInfo, homepageUrl, issuerId, name, smartTapMerchantData;
+@dynamic callbackOptions, contactInfo, homepageUrl, issuerId, name,
+         smartTapMerchantData;
 @end
 
 

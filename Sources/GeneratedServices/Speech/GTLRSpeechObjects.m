@@ -511,7 +511,8 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognizeResponse
-@dynamic requestId, results, speechAdaptationInfo, totalBilledTime;
+@dynamic requestId, results, speechAdaptationInfo, totalBilledTime,
+         usingLegacyModels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

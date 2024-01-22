@@ -34,6 +34,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData_TextSections;
@@ -112,6 +114,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData_TextSections;
@@ -1632,6 +1636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /** Obfuscated user ID which the customer sent to us. */
 @property(nonatomic, copy, nullable) NSString *obfuscatedUserId;
 
+/** Conversation metadata related to quality management. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadata *qualityMetadata;
+
 /**
  *  Output only. The annotations that were generated during the customer and
  *  agent interaction.
@@ -1788,6 +1795,53 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** A user-specified ID representing the participant. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Conversation metadata related to quality management.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadata : GTLRObject
+
+/** Information about agents involved in the call. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo *> *agentInfo;
+
+/**
+ *  An arbitrary integer value indicating the customer's satisfaction rating.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customerSatisfactionRating;
+
+/** An arbitrary string value specifying the menu path the customer took. */
+@property(nonatomic, copy, nullable) NSString *menuPath;
+
+/** The amount of time the customer waited to connect with an agent. */
+@property(nonatomic, strong, nullable) GTLRDuration *waitDuration;
+
+@end
+
+
+/**
+ *  Information about an agent involved in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo : GTLRObject
+
+/** A user-specified string representing the agent. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** The agent's name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  A user-provided string indicating the outcome of the agent's segment of the
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *dispositionCode;
+
+/** A user-specified string representing the agent's team. */
+@property(nonatomic, copy, nullable) NSString *team;
 
 @end
 
@@ -2560,9 +2614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig : GTLRObject
 
 /**
- *  Optional. For audio conversations, this field indicates which of the
- *  channels, 1 or 2, contains the agent. Note that this must be set for audio
- *  conversations to be properly displayed and analyzed.
+ *  Optional. Indicates which of the channels, 1 or 2, contains the agent. Note
+ *  that this must be set for conversations to be properly displayed and
+ *  analyzed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2575,9 +2629,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *agentId;
 
 /**
- *  Optional. For audio conversations, this field indicates which of the
- *  channels, 1 or 2, contains the customer. Note that this must be set for
- *  audio conversations to be properly displayed and analyzed.
+ *  Optional. Indicates which of the channels, 1 or 2, contains the agent. Note
+ *  that this must be set for conversations to be properly displayed and
+ *  analyzed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4019,6 +4073,9 @@ GTLR_DEPRECATED
 /** Obfuscated user ID which the customer sent to us. */
 @property(nonatomic, copy, nullable) NSString *obfuscatedUserId;
 
+/** Conversation metadata related to quality management. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadata *qualityMetadata;
+
 /**
  *  Output only. The annotations that were generated during the customer and
  *  agent interaction.
@@ -4175,6 +4232,53 @@ GTLR_DEPRECATED
 
 /** A user-specified ID representing the participant. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Conversation metadata related to quality management.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadata : GTLRObject
+
+/** Information about agents involved in the call. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo *> *agentInfo;
+
+/**
+ *  An arbitrary integer value indicating the customer's satisfaction rating.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customerSatisfactionRating;
+
+/** An arbitrary string value specifying the menu path the customer took. */
+@property(nonatomic, copy, nullable) NSString *menuPath;
+
+/** The amount of time the customer waited to connect with an agent. */
+@property(nonatomic, strong, nullable) GTLRDuration *waitDuration;
+
+@end
+
+
+/**
+ *  Information about an agent involved in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo : GTLRObject
+
+/** A user-specified string representing the agent. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** The agent's name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  A user-provided string indicating the outcome of the agent's segment of the
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *dispositionCode;
+
+/** A user-specified string representing the agent's team. */
+@property(nonatomic, copy, nullable) NSString *team;
 
 @end
 
@@ -4962,9 +5066,9 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig : GTLRObject
 
 /**
- *  Optional. For audio conversations, this field indicates which of the
- *  channels, 1 or 2, contains the agent. Note that this must be set for audio
- *  conversations to be properly displayed and analyzed.
+ *  Optional. Indicates which of the channels, 1 or 2, contains the agent. Note
+ *  that this must be set for conversations to be properly displayed and
+ *  analyzed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4977,9 +5081,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *agentId;
 
 /**
- *  Optional. For audio conversations, this field indicates which of the
- *  channels, 1 or 2, contains the customer. Note that this must be set for
- *  audio conversations to be properly displayed and analyzed.
+ *  Optional. Indicates which of the channels, 1 or 2, contains the agent. Note
+ *  that this must be set for conversations to be properly displayed and
+ *  analyzed.
  *
  *  Uses NSNumber of intValue.
  */

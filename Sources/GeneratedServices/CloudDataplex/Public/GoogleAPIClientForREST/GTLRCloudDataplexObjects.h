@@ -1165,7 +1165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Gover
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleMatchedResources;
 /**
- *  Governance rule prcoessing Event.
+ *  Governance rule processing Event.
  *
  *  Value: "GOVERNANCE_RULE_PROCESSING"
  */
@@ -5341,7 +5341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        Number of resources matched with particular Query. (Value:
  *        "GOVERNANCE_RULE_MATCHED_RESOURCES")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleProcessing
- *        Governance rule prcoessing Event. (Value:
+ *        Governance rule processing Event. (Value:
  *        "GOVERNANCE_RULE_PROCESSING")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventType_GovernanceRuleSearchLimitExceeds
  *        Rule processing exceeds the allowed limit. (Value:

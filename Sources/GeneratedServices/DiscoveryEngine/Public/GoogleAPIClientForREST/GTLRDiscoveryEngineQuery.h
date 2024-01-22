@@ -512,15 +512,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Selects data model of query suggestions for serving. Currently supported
- *  values: * `document` - Using suggestions generated from user-imported
- *  documents. * `search-history` - Using suggestions generated from the past
- *  history of SearchService.Search API calls. Do not use it when there is no
- *  traffic for Search API. * `user-event` - Using suggestions generated from
- *  user-imported search events. * `document-completable` - Using suggestions
- *  taken directly from user-imported document fields marked as completable.
- *  Default values: * `document` is the default model for regular dataStores. *
- *  `search-history` is the default model for site search dataStores.
+ *  Specifies the autocomplete data model. This overrides any model specified in
+ *  the Configuration > Autocomplete section of the Cloud console. Currently
+ *  supported values: * `document` - Using suggestions generated from
+ *  user-imported documents. * `search-history` - Using suggestions generated
+ *  from the past history of SearchService.Search API calls. Do not use it when
+ *  there is no traffic for Search API. * `user-event` - Using suggestions
+ *  generated from user-imported search events. * `document-completable` - Using
+ *  suggestions taken directly from user-imported document fields marked as
+ *  completable. Default values: * `document` is the default model for regular
+ *  dataStores. * `search-history` is the default model for site search
+ *  dataStores.
  */
 @property(nonatomic, copy, nullable) NSString *queryModel;
 
@@ -778,7 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates which fields in the provided Conversation to update. The following
- *  are NOT supported: * conversation.name If not set or empty, all supported
+ *  are NOT supported: * Conversation.name If not set or empty, all supported
  *  fields are updated.
  *
  *  String format is a comma-separated list of fields.
@@ -804,6 +806,232 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a DataStore. DataStore is for storing Documents. To serve these
+ *  documents for Search, or Recommendation use case, an Engine needs to be
+ *  created separately.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  A boolean flag indicating whether user want to directly create an advanced
+ *  data store for site search. If the data store is not configured as site
+ *  search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will
+ *  be ignored.
+ */
+@property(nonatomic, assign) BOOL createAdvancedSiteSearch;
+
+/**
+ *  Required. The ID to use for the DataStore, which will become the final
+ *  component of the DataStore's resource name. This field must conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
+ *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *dataStoreId;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a DataStore. DataStore is for storing Documents. To serve these
+ *  documents for Search, or Recommendation use case, an Engine needs to be
+ *  created separately.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
+ *    in the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of DataStore, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  If the caller does not have permission to delete the DataStore, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  DataStore to delete does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataStore.
+ *
+ *  @param name Required. Full resource name of DataStore, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    If the caller does not have permission to delete the DataStore, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    DataStore to delete does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of DataStore, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  If the caller does not have permission to access the DataStore, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested DataStore does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *
+ *  Gets a DataStore.
+ *
+ *  @param name Required. Full resource name of DataStore, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    If the caller does not have permission to access the DataStore, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested DataStore does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the SiteSearchEngine.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.getSiteSearchEngine
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGetSiteSearchEngine : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  If the caller does not have permission to access the [SiteSearchEngine],
+ *  regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine.
+ *
+ *  Gets the SiteSearchEngine.
+ *
+ *  @param name Required. Resource name of SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    If the caller does not have permission to access the [SiteSearchEngine],
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGetSiteSearchEngine
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the DataStores associated with the project.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Filter by solution type. For example: filter =
+ *  'solution_type:SOLUTION_TYPE_SEARCH'
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Maximum number of DataStores to return. If unspecified, defaults to 10. The
+ *  maximum allowed value is 50. Values above 50 will be coerced to 50. If this
+ *  field is negative, an INVALID_ARGUMENT is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token ListDataStoresResponse.next_page_token, received from a
+ *  previous DataStoreService.ListDataStores call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  DataStoreService.ListDataStores must match the call that provided the page
+ *  token. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}`. If
+ *  the caller does not have permission to list DataStores under this location,
+ *  regardless of whether or not this data store exists, a PERMISSION_DENIED
+ *  error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse.
+ *
+ *  Lists all the DataStores associated with the project.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}`. If
+ *    the caller does not have permission to list DataStores under this
+ *    location, regardless of whether or not this data store exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -946,6 +1174,53 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a DataStore
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the data store. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided DataStore to update. If an
+ *  unsupported or unknown field is provided, an INVALID_ARGUMENT error is
+ *  returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *
+ *  Updates a DataStore
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
+ *    in the query.
+ *  @param name Immutable. The full resource name of the data store. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1238,7 +1513,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  default serving config. For example, for Engine `projects/ *
  *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
  *  * /locations/global/collections/ *
- *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *  /engines/my-engine/servingConfigs/my-engine` for your
+ *  RecommendationService.Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -1259,7 +1535,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    the default serving config. For example, for Engine `projects/ *
  *    /locations/global/collections/ * /engines/my-engine`, you can use
  *    `projects/ * /locations/global/collections/ *
- *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *    /engines/my-engine/servingConfigs/my-engine` for your
+ *    RecommendationService.Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
  */
@@ -1309,6 +1586,170 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Verify target sites' ownership and validity. This API sends all the target
+ *  sites under site search engine for verification.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.batchVerifyTargetSites
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineBatchVerifyTargetSites : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource shared by all TargetSites being verified.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Verify target sites' ownership and validity. This API sends all the target
+ *  sites under site search engine for verification.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource shared by all TargetSites being
+ *    verified.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineBatchVerifyTargetSites
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Downgrade from advanced site search to basic site search.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.disableAdvancedSiteSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineDisableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Downgrade from advanced site search to basic site search.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
+ *    to include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineDisableAdvancedSiteSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Upgrade from basic site search to advanced site search.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.enableAdvancedSiteSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineEnableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Upgrade from basic site search to advanced site search.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
+ *    to include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineEnableAdvancedSiteSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Returns list of target sites with its domain verification status. This
+ *  method can only be called under data store with BASIC_SITE_SEARCH state at
+ *  the moment.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.fetchDomainVerificationStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineFetchDomainVerificationStatus : GTLRDiscoveryEngineQuery
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000. If this field is negative,
+ *  an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `FetchDomainVerificationStatus` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `FetchDomainVerificationStatus` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The site search engine resource under which we fetch all the
+ *  domain verification status.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchDomainVerificationStatusResponse.
+ *
+ *  Returns list of target sites with its domain verification status. This
+ *  method can only be called under data store with BASIC_SITE_SEARCH state at
+ *  the moment.
+ *
+ *  @param siteSearchEngine Required. The site search engine resource under
+ *    which we fetch all the domain verification status.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineFetchDomainVerificationStatus
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithSiteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
 
@@ -1384,6 +1825,245 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Request on-demand recrawl for a list of URIs.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.recrawlUris
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineRecrawlUris : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Request on-demand recrawl for a list of URIs.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest to
+ *    include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as `projects/ * /locations/ * /collections/ *
+ *    /dataStores/ * /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineRecrawlUris
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Creates TargetSite in a batch.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesBatchCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource shared by all TargetSites being created.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  The parent field in the CreateBookRequest messages must either be empty or
+ *  match this field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates TargetSite in a batch.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource shared by all TargetSites being
+ *    created.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    The parent field in the CreateBookRequest messages must either be empty or
+ *    match this field.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a TargetSite.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
+ *    in the query.
+ *  @param parent Required. Parent resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *  If the caller does not have permission to access the TargetSite, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested TargetSite does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a TargetSite.
+ *
+ *  @param name Required. Full resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *    If the caller does not have permission to access the TargetSite,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned. If the requested TargetSite does not exist, a NOT_FOUND error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *  If the caller does not have permission to access the TargetSite, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested TargetSite does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.
+ *
+ *  Gets a TargetSite.
+ *
+ *  @param name Required. Full resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *    If the caller does not have permission to access the TargetSite,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned. If the requested TargetSite does not exist, a NOT_FOUND error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a list of TargetSites.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000. If this field is negative,
+ *  an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListTargetSites` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListTargetSites` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent site search engine resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  If the caller does not have permission to list TargetSites under this site
+ *  search engine, regardless of whether or not this branch exists, a
+ *  PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse.
+ *
+ *  Gets a list of TargetSites.
+ *
+ *  @param parent Required. The parent site search engine resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    If the caller does not have permission to list TargetSites under this site
+ *    search engine, regardless of whether or not this branch exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -1451,6 +2131,115 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Output only. The fully qualified resource name of the target site.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
+ *  The `target_site_id` is system-generated.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Updates a TargetSite.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
+ *    in the query.
+ *  @param name Output only. The fully qualified resource name of the target
+ *    site.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
+ *    The `target_site_id` is system-generated.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Imports all SuggestionDenyListEntry for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import denylist
+ *  entries. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Imports all SuggestionDenyListEntry for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import denylist entries. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import denylist
+ *  entries. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import denylist entries. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1812,7 +2601,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates which fields in the provided Conversation to update. The following
- *  are NOT supported: * conversation.name If not set or empty, all supported
+ *  are NOT supported: * Conversation.name If not set or empty, all supported
  *  fields are updated.
  *
  *  String format is a comma-separated list of fields.
@@ -1838,6 +2627,161 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Engine.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The ID to use for the Engine, which will become the final
+ *  component of the Engine's resource name. This field must conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
+ *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *engineId;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a Engine.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine to include in
+ *    the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Engine.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Engine, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
+ *  If the caller does not have permission to delete the Engine, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  Engine to delete does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a Engine.
+ *
+ *  @param name Required. Full resource name of Engine, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
+ *    If the caller does not have permission to delete the Engine, regardless of
+ *    whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    Engine to delete does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Engine.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of Engine, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.
+ *
+ *  Gets a Engine.
+ *
+ *  @param name Required. Full resource name of Engine, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the Engines associated with the project.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Filter by solution type. For example:
+ *  solution_type=SOLUTION_TYPE_SEARCH
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Not supported. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Not supported. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListEnginesResponse.
+ *
+ *  Lists all the Engines associated with the project.
+ *
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1913,6 +2857,55 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates an Engine
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The fully qualified resource name of the engine. This field must
+ *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/engines/{engine}`
+ *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
+ *  Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided Engine to update. If an unsupported
+ *  or unknown field is provided, an INVALID_ARGUMENT error is returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.
+ *
+ *  Updates an Engine
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine to include in
+ *    the query.
+ *  @param name Immutable. The fully qualified resource name of the engine. This
+ *    field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/engines/{engine}`
+ *    engine should be 1-63 characters, and valid characters are /a-z0-9* /.
+ *    Otherwise, an INVALID_ARGUMENT error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.recommend
@@ -1931,7 +2924,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  default serving config. For example, for Engine `projects/ *
  *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
  *  * /locations/global/collections/ *
- *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *  /engines/my-engine/servingConfigs/my-engine` for your
+ *  RecommendationService.Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -1952,7 +2946,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    the default serving config. For example, for Engine `projects/ *
  *    /locations/global/collections/ * /engines/my-engine`, you can use
  *    `projects/ * /locations/global/collections/ *
- *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *    /engines/my-engine/servingConfigs/my-engine` for your
+ *    RecommendationService.Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend
  */
@@ -2484,15 +3479,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Selects data model of query suggestions for serving. Currently supported
- *  values: * `document` - Using suggestions generated from user-imported
- *  documents. * `search-history` - Using suggestions generated from the past
- *  history of SearchService.Search API calls. Do not use it when there is no
- *  traffic for Search API. * `user-event` - Using suggestions generated from
- *  user-imported search events. * `document-completable` - Using suggestions
- *  taken directly from user-imported document fields marked as completable.
- *  Default values: * `document` is the default model for regular dataStores. *
- *  `search-history` is the default model for site search dataStores.
+ *  Specifies the autocomplete data model. This overrides any model specified in
+ *  the Configuration > Autocomplete section of the Cloud console. Currently
+ *  supported values: * `document` - Using suggestions generated from
+ *  user-imported documents. * `search-history` - Using suggestions generated
+ *  from the past history of SearchService.Search API calls. Do not use it when
+ *  there is no traffic for Search API. * `user-event` - Using suggestions
+ *  generated from user-imported search events. * `document-completable` - Using
+ *  suggestions taken directly from user-imported document fields marked as
+ *  completable. Default values: * `document` is the default model for regular
+ *  dataStores. * `search-history` is the default model for site search
+ *  dataStores.
  */
 @property(nonatomic, copy, nullable) NSString *queryModel;
 
@@ -2750,7 +3747,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates which fields in the provided Conversation to update. The following
- *  are NOT supported: * conversation.name If not set or empty, all supported
+ *  are NOT supported: * Conversation.name If not set or empty, all supported
  *  fields are updated.
  *
  *  String format is a comma-separated list of fields.
@@ -2776,6 +3773,232 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a DataStore. DataStore is for storing Documents. To serve these
+ *  documents for Search, or Recommendation use case, an Engine needs to be
+ *  created separately.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  A boolean flag indicating whether user want to directly create an advanced
+ *  data store for site search. If the data store is not configured as site
+ *  search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will
+ *  be ignored.
+ */
+@property(nonatomic, assign) BOOL createAdvancedSiteSearch;
+
+/**
+ *  Required. The ID to use for the DataStore, which will become the final
+ *  component of the DataStore's resource name. This field must conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit
+ *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *dataStoreId;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a DataStore. DataStore is for storing Documents. To serve these
+ *  documents for Search, or Recommendation use case, an Engine needs to be
+ *  created separately.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
+ *    in the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of DataStore, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  If the caller does not have permission to delete the DataStore, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  DataStore to delete does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataStore.
+ *
+ *  @param name Required. Full resource name of DataStore, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    If the caller does not have permission to delete the DataStore, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    DataStore to delete does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of DataStore, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  If the caller does not have permission to access the DataStore, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested DataStore does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *
+ *  Gets a DataStore.
+ *
+ *  @param name Required. Full resource name of DataStore, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    If the caller does not have permission to access the DataStore, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested DataStore does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the SiteSearchEngine.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.getSiteSearchEngine
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGetSiteSearchEngine : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  If the caller does not have permission to access the [SiteSearchEngine],
+ *  regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine.
+ *
+ *  Gets the SiteSearchEngine.
+ *
+ *  @param name Required. Resource name of SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    If the caller does not have permission to access the [SiteSearchEngine],
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGetSiteSearchEngine
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the DataStores associated with the project.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Filter by solution type. For example: filter =
+ *  'solution_type:SOLUTION_TYPE_SEARCH'
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Maximum number of DataStores to return. If unspecified, defaults to 10. The
+ *  maximum allowed value is 50. Values above 50 will be coerced to 50. If this
+ *  field is negative, an INVALID_ARGUMENT is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token ListDataStoresResponse.next_page_token, received from a
+ *  previous DataStoreService.ListDataStores call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  DataStoreService.ListDataStores must match the call that provided the page
+ *  token. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}`. If
+ *  the caller does not have permission to list DataStores under this location,
+ *  regardless of whether or not this data store exists, a PERMISSION_DENIED
+ *  error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse.
+ *
+ *  Lists all the DataStores associated with the project.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}`. If
+ *    the caller does not have permission to list DataStores under this
+ *    location, regardless of whether or not this data store exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2918,6 +4141,53 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a DataStore
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the data store. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided DataStore to update. If an
+ *  unsupported or unknown field is provided, an INVALID_ARGUMENT error is
+ *  returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *
+ *  Updates a DataStore
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
+ *    in the query.
+ *  @param name Immutable. The full resource name of the data store. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3139,7 +4409,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  default serving config. For example, for Engine `projects/ *
  *  /locations/global/collections/ * /engines/my-engine`, you can use `projects/
  *  * /locations/global/collections/ *
- *  /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *  /engines/my-engine/servingConfigs/my-engine` for your
+ *  RecommendationService.Recommend requests.
  */
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
@@ -3160,7 +4431,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    the default serving config. For example, for Engine `projects/ *
  *    /locations/global/collections/ * /engines/my-engine`, you can use
  *    `projects/ * /locations/global/collections/ *
- *    /engines/my-engine/servingConfigs/my-engine` for your Recommend requests.
+ *    /engines/my-engine/servingConfigs/my-engine` for your
+ *    RecommendationService.Recommend requests.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
  */
@@ -3210,6 +4482,424 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Downgrade from advanced site search to basic site search.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.disableAdvancedSiteSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineDisableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Downgrade from advanced site search to basic site search.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
+ *    to include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineDisableAdvancedSiteSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Upgrade from basic site search to advanced site search.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.enableAdvancedSiteSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineEnableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as
+ *  `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Upgrade from basic site search to advanced site search.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
+ *    to include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as
+ *    `projects/{project}/locations/{location}/dataStores/{data_store_id}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineEnableAdvancedSiteSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Request on-demand recrawl for a list of URIs.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.recrawlUris
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineRecrawlUris : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of the SiteSearchEngine, such as `projects/ *
+ *  /locations/ * /collections/ * /dataStores/ * /siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSearchEngine;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Request on-demand recrawl for a list of URIs.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest to
+ *    include in the query.
+ *  @param siteSearchEngine Required. Full resource name of the
+ *    SiteSearchEngine, such as `projects/ * /locations/ * /collections/ *
+ *    /dataStores/ * /siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineRecrawlUris
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest *)object
+               siteSearchEngine:(NSString *)siteSearchEngine;
+
+@end
+
+/**
+ *  Creates TargetSite in a batch.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesBatchCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource shared by all TargetSites being created.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  The parent field in the CreateBookRequest messages must either be empty or
+ *  match this field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates TargetSite in a batch.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource shared by all TargetSites being
+ *    created.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    The parent field in the CreateBookRequest messages must either be empty or
+ *    match this field.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a TargetSite.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
+ *    in the query.
+ *  @param parent Required. Parent resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *  If the caller does not have permission to access the TargetSite, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested TargetSite does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a TargetSite.
+ *
+ *  @param name Required. Full resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *    If the caller does not have permission to access the TargetSite,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned. If the requested TargetSite does not exist, a NOT_FOUND error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of TargetSite, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *  If the caller does not have permission to access the TargetSite, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  requested TargetSite does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.
+ *
+ *  Gets a TargetSite.
+ *
+ *  @param name Required. Full resource name of TargetSite, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`.
+ *    If the caller does not have permission to access the TargetSite,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned. If the requested TargetSite does not exist, a NOT_FOUND error is
+ *    returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a list of TargetSites.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000. If this field is negative,
+ *  an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListTargetSites` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListTargetSites` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent site search engine resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *  If the caller does not have permission to list TargetSites under this site
+ *  search engine, regardless of whether or not this branch exists, a
+ *  PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse.
+ *
+ *  Gets a list of TargetSites.
+ *
+ *  @param parent Required. The parent site search engine resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
+ *    If the caller does not have permission to list TargetSites under this site
+ *    search engine, regardless of whether or not this branch exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a TargetSite.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.siteSearchEngine.targetSites.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Output only. The fully qualified resource name of the target site.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
+ *  The `target_site_id` is system-generated.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Updates a TargetSite.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
+ *    in the query.
+ *  @param name Output only. The fully qualified resource name of the target
+ *    site.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
+ *    The `target_site_id` is system-generated.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Imports all SuggestionDenyListEntry for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import denylist
+ *  entries. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Imports all SuggestionDenyListEntry for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import denylist entries. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import denylist
+ *  entries. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import denylist entries. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

@@ -1432,6 +1432,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.entries.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param name Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists the names of all API proxies in an organization. The names returned
  *  correspond to the names defined in the configuration files for each API
  *  proxy.
@@ -2711,10 +2753,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Delete an Apigee organization. For organizations with BillingType
- *  EVALUATION, an immediate deletion is performed. For paid organizations, a
- *  soft-deletion is performed. The organization can be restored within the
- *  soft-deletion period which can be controlled using the retention field in
- *  the request.
+ *  EVALUATION, an immediate deletion is performed. For paid organizations
+ *  (Subscription or Pay-as-you-go), a soft-deletion is performed. The
+ *  organization can be restored within the soft-deletion period, which is
+ *  specified using the `retention` field in the request or by filing a support
+ *  ticket with Apigee. During the data retention period specified in the
+ *  request, the Apigee organization cannot be recreated in the same Google
+ *  Cloud project. **IMPORTANT: The default data retention setting for this
+ *  operation is 7 days. To permanently delete the organization in 24 hours, set
+ *  the retention parameter to `MINIMUM`.**
  *
  *  Method: apigee.organizations.delete
  *
@@ -2735,7 +2782,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Organization data will be retained after the initial delete operation
  *  completes. During this period, the Organization may be restored to its last
  *  known state. After this period, the Organization will no longer be able to
- *  be restored.
+ *  be restored. **Note: During the data retention period specified using this
+ *  field, the Apigee organization cannot be recreated in the same GCP
+ *  project.**
  *
  *  Likely values:
  *    @arg @c kGTLRApigeeRetentionDeletionRetentionUnspecified Default data
@@ -2750,10 +2799,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
  *  Delete an Apigee organization. For organizations with BillingType
- *  EVALUATION, an immediate deletion is performed. For paid organizations, a
- *  soft-deletion is performed. The organization can be restored within the
- *  soft-deletion period which can be controlled using the retention field in
- *  the request.
+ *  EVALUATION, an immediate deletion is performed. For paid organizations
+ *  (Subscription or Pay-as-you-go), a soft-deletion is performed. The
+ *  organization can be restored within the soft-deletion period, which is
+ *  specified using the `retention` field in the request or by filing a support
+ *  ticket with Apigee. During the data retention period specified in the
+ *  request, the Apigee organization cannot be recreated in the same Google
+ *  Cloud project. **IMPORTANT: The default data retention setting for this
+ *  operation is 7 days. To permanently delete the organization in 24 hours, set
+ *  the retention parameter to `MINIMUM`.**
  *
  *  @param name Required. Name of the organization. Use the following structure
  *    in your request: `organizations/{org}`
@@ -3291,7 +3345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Parent of the developer app key. Use the following structure in your
- *  request: `organizations/{org}/developers/{developer_email}/apps`
+ *  request: 'organizations/{org}/developers/{developerEmail}/apps/{appName}'
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3315,7 +3369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
  *  @param parent Parent of the developer app key. Use the following structure
- *    in your request: `organizations/{org}/developers/{developer_email}/apps`
+ *    in your request:
+ *    'organizations/{org}/developers/{developerEmail}/apps/{appName}'
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreate
  */
@@ -3348,7 +3403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Parent of the developer app key. Use the following structure in your
- *  request: `organizations/{org}/developers/{developer_email}/apps`
+ *  request: 'organizations/{org}/developers/{developerEmail}/apps/{appName}'
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3372,7 +3427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
  *  @param parent Parent of the developer app key. Use the following structure
- *    in your request: `organizations/{org}/developers/{developer_email}/apps`
+ *    in your request:
+ *    'organizations/{org}/developers/{developerEmail}/apps/{appName}'
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreateCreate
  */
@@ -4779,8 +4835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsCreate : GTLRApigeeQuery
 
 /**
- *  ID of the environment group. Overrides any ID in the environment_group
- *  resource.
+ *  Optional. ID of the environment group. Overrides any ID in the
+ *  environment_group resource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4982,7 +5038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of fields to be updated.
+ *  Optional. List of fields to be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -7085,6 +7141,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.entries.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param name Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -11150,6 +11248,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.entries.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Update key value entry scoped to an organization, environment, or API proxy
+ *  for an existing key.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param name Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name;
 
 @end
 

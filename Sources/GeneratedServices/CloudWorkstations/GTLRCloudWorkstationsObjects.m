@@ -786,9 +786,10 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_WorkstationConfig
 @dynamic annotations, conditions, container, createTime, degraded, deleteTime,
-         displayName, encryptionKey, ETag, host, idleTimeout, labels, name,
-         persistentDirectories, readinessChecks, reconciling, replicaZones,
-         runningTimeout, uid, updateTime;
+         disableTcpConnections, displayName, enableAuditAgent, encryptionKey,
+         ETag, host, idleTimeout, labels, name, persistentDirectories,
+         readinessChecks, reconciling, replicaZones, runningTimeout, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

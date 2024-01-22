@@ -1614,8 +1614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 
 /**
  *  Demotes the destination database to become a read replica of the source.
- *  This is applicable for the following migrations: 1. MySQL to Cloud SQL (for
- *  MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB.
+ *  This is applicable for the following migrations: 1. MySQL to Cloud SQL for
+ *  MySQL 2. PostgreSQL to Cloud SQL for PostgreSQL 3. PostgreSQL to AlloyDB for
+ *  PostgreSQL.
  *
  *  Method: datamigration.projects.locations.migrationJobs.demoteDestination
  *
@@ -1631,8 +1632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.
  *
  *  Demotes the destination database to become a read replica of the source.
- *  This is applicable for the following migrations: 1. MySQL to Cloud SQL (for
- *  MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB.
+ *  This is applicable for the following migrations: 1. MySQL to Cloud SQL for
+ *  MySQL 2. PostgreSQL to Cloud SQL for PostgreSQL 3. PostgreSQL to AlloyDB for
+ *  PostgreSQL.
  *
  *  @param object The @c GTLRDatabaseMigrationService_DemoteDestinationRequest
  *    to include in the query.

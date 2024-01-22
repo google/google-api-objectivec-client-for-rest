@@ -587,6 +587,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ResizeDiskRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_ResizeDiskRequest
+@dynamic bootDisk, dataDisk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_RollbackInstanceRequest
 //
 

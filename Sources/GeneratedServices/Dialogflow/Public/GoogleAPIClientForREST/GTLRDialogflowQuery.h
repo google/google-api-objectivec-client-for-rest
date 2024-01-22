@@ -1603,6 +1603,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result through server-side streaming. Server-side streaming allows
+ *  Dialogflow to send [partial
+ *  responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response)
+ *  earlier in a single request.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.sessions.serverStreamingDetectIntent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsServerStreamingDetectIntent : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the session this query is sent to. Format:
+ *  `projects//locations//agents//sessions/` or
+ *  `projects//locations//agents//environments//sessions/`. If `Environment ID`
+ *  is not specified, we assume default 'draft' environment. It's up to the API
+ *  caller to choose an appropriate `Session ID`. It can be a random number or
+ *  some type of session identifiers (preferably hashed). The length of the
+ *  `Session ID` must not exceed 36 characters. For more information, see the
+ *  [sessions
+ *  guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note:
+ *  Always use agent versions for production traffic. See [Versions and
+ *  environments](https://cloud.google.com/dialogflow/cx/docs/concept/version).
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.
+ *
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result through server-side streaming. Server-side streaming allows
+ *  Dialogflow to send [partial
+ *  responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response)
+ *  earlier in a single request.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest to include in
+ *    the query.
+ *  @param session Required. The name of the session this query is sent to.
+ *    Format: `projects//locations//agents//sessions/` or
+ *    `projects//locations//agents//environments//sessions/`. If `Environment
+ *    ID` is not specified, we assume default 'draft' environment. It's up to
+ *    the API caller to choose an appropriate `Session ID`. It can be a random
+ *    number or some type of session identifiers (preferably hashed). The length
+ *    of the `Session ID` must not exceed 36 characters. For more information,
+ *    see the [sessions
+ *    guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note:
+ *    Always use agent versions for production traffic. See [Versions and
+ *    environments](https://cloud.google.com/dialogflow/cx/docs/concept/version).
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsServerStreamingDetectIntent
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
  *  Exports the specified agent to a binary file. This method is a [long-running
  *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
  *  The returned `Operation` type has the following method-specific fields: -
@@ -4100,6 +4161,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsMatchIntent
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result through server-side streaming. Server-side streaming allows
+ *  Dialogflow to send [partial
+ *  responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response)
+ *  earlier in a single request.
+ *
+ *  Method: dialogflow.projects.locations.agents.sessions.serverStreamingDetectIntent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsServerStreamingDetectIntent : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the session this query is sent to. Format:
+ *  `projects//locations//agents//sessions/` or
+ *  `projects//locations//agents//environments//sessions/`. If `Environment ID`
+ *  is not specified, we assume default 'draft' environment. It's up to the API
+ *  caller to choose an appropriate `Session ID`. It can be a random number or
+ *  some type of session identifiers (preferably hashed). The length of the
+ *  `Session ID` must not exceed 36 characters. For more information, see the
+ *  [sessions
+ *  guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note:
+ *  Always use agent versions for production traffic. See [Versions and
+ *  environments](https://cloud.google.com/dialogflow/cx/docs/concept/version).
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.
+ *
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result through server-side streaming. Server-side streaming allows
+ *  Dialogflow to send [partial
+ *  responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response)
+ *  earlier in a single request.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest to include in
+ *    the query.
+ *  @param session Required. The name of the session this query is sent to.
+ *    Format: `projects//locations//agents//sessions/` or
+ *    `projects//locations//agents//environments//sessions/`. If `Environment
+ *    ID` is not specified, we assume default 'draft' environment. It's up to
+ *    the API caller to choose an appropriate `Session ID`. It can be a random
+ *    number or some type of session identifiers (preferably hashed). The length
+ *    of the `Session ID` must not exceed 36 characters. For more information,
+ *    see the [sessions
+ *    guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note:
+ *    Always use agent versions for production traffic. See [Versions and
+ *    environments](https://cloud.google.com/dialogflow/cx/docs/concept/version).
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsServerStreamingDetectIntent
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest *)object
                         session:(NSString *)session;
 
 @end

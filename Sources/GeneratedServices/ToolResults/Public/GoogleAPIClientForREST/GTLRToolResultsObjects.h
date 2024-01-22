@@ -2469,7 +2469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  Graphics statistics for the entire run. Statistics are reset at the
  *  beginning of the run and collected at the end of the run.
  */
-@property(nonatomic, strong, nullable) GTLRToolResults_GraphicsStats *graphicsStats;
+@property(nonatomic, strong, nullable) GTLRToolResults_GraphicsStats *graphicsStats GTLR_DEPRECATED;
 
 /** A tool results history ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *historyId;

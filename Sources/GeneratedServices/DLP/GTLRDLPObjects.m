@@ -1159,6 +1159,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2DataSourceType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DataSourceType
+@dynamic dataSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2DatastoreKey
 //
 
@@ -3402,11 +3412,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2TableDataProfile
 @dynamic configSnapshot, createTime, dataRiskLevel, datasetId, datasetLocation,
-         datasetProjectId, encryptionStatus, expirationTime, failedColumnCount,
-         fullResource, lastModifiedTime, name, otherInfoTypes,
-         predictedInfoTypes, profileLastGenerated, profileStatus,
-         projectDataProfile, resourceLabels, resourceVisibility, rowCount,
-         scannedColumnCount, sensitivityScore, state, tableId, tableSizeBytes;
+         datasetProjectId, dataSourceType, encryptionStatus, expirationTime,
+         failedColumnCount, fullResource, lastModifiedTime, name,
+         otherInfoTypes, predictedInfoTypes, profileLastGenerated,
+         profileStatus, projectDataProfile, resourceLabels, resourceVisibility,
+         rowCount, scannedColumnCount, sensitivityScore, state, tableId,
+         tableSizeBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

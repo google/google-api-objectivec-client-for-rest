@@ -1759,7 +1759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_BackendBucketsSetEdgeSecurityPolicy : GTLRComputeQuery
 
 /**
- *  Name of the BackendService resource to which the security policy should be
+ *  Name of the BackendBucket resource to which the security policy should be
  *  set. The name should conform to RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
@@ -1788,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
  *    query.
  *  @param project Project ID for this request.
- *  @param backendBucket Name of the BackendService resource to which the
+ *  @param backendBucket Name of the BackendBucket resource to which the
  *    security policy should be set. The name should conform to RFC1035.
  *
  *  @return GTLRComputeQuery_BackendBucketsSetEdgeSecurityPolicy
@@ -13238,6 +13238,60 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Perform a manual maintenance on the instance.
+ *
+ *  Method: compute.instances.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesPerformMaintenance : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Perform a manual maintenance on the instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesPerformMaintenance
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Removes resource policies from an instance.
  *
  *  Method: compute.instances.removeResourcePolicies
@@ -14310,6 +14364,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Determines whether the customers receive notifications before migration.
+ *  Only applicable to SF vms.
+ */
+@property(nonatomic, assign) BOOL withExtendedNotifications;
 
 /**
  *  The name of the zone for this request.

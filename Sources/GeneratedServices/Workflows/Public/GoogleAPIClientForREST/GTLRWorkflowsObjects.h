@@ -577,8 +577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 /**
  *  Optional. User-defined environment variables associated with this workflow
  *  revision. This map has a maximum length of 20. Each string can take up to
- *  40KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or
- *  “WORKFLOWS".
+ *  4KiB. Keys cannot be empty strings and cannot start with "GOOGLE" or
+ *  "WORKFLOWS".
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_UserEnvVars *userEnvVars;
 
@@ -604,8 +604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 /**
  *  Optional. User-defined environment variables associated with this workflow
  *  revision. This map has a maximum length of 20. Each string can take up to
- *  40KiB. Keys cannot be empty strings and cannot start with “GOOGLE” or
- *  “WORKFLOWS".
+ *  4KiB. Keys cannot be empty strings and cannot start with "GOOGLE" or
+ *  "WORKFLOWS".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

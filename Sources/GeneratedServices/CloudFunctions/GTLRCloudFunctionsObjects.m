@@ -42,6 +42,11 @@ NSString * const kGTLRCloudFunctions_Function_State_Failed     = @"FAILED";
 NSString * const kGTLRCloudFunctions_Function_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_Function_State_Unknown    = @"UNKNOWN";
 
+// GTLRCloudFunctions_GenerateUploadUrlRequest.environment
+NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen1 = @"GEN_1";
+NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen2 = @"GEN_2";
+
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata.environments
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen1 = @"GEN_1";
@@ -227,6 +232,15 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_AutomaticUpdatePolicy
+//
+
+@implementation GTLRCloudFunctions_AutomaticUpdatePolicy
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_Binding
 //
 
@@ -249,9 +263,9 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_BuildConfig
-@dynamic build, dockerRegistry, dockerRepository, entryPoint,
-         environmentVariables, runtime, source, sourceProvenance, sourceToken,
-         workerPool;
+@dynamic automaticUpdatePolicy, build, dockerRegistry, dockerRepository,
+         entryPoint, environmentVariables, onDeployUpdatePolicy, runtime,
+         serviceAccount, source, sourceProvenance, sourceToken, workerPool;
 @end
 
 
@@ -391,7 +405,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_GenerateUploadUrlRequest
-@dynamic kmsKeyName;
+@dynamic environment, kmsKeyName;
 @end
 
 
@@ -762,6 +776,16 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_OnDeployUpdatePolicy
+//
+
+@implementation GTLRCloudFunctions_OnDeployUpdatePolicy
+@dynamic runtimeVersion;
 @end
 
 

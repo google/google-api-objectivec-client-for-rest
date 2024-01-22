@@ -109,6 +109,7 @@
 @class GTLRSecurityCommandCenter_PathNodeAssociatedFinding;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_PolicyDriftDetails;
 @class GTLRSecurityCommandCenter_Position;
 @class GTLRSecurityCommandCenter_Process;
 @class GTLRSecurityCommandCenter_ProcessSignature;
@@ -130,6 +131,7 @@
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
 @class GTLRSecurityCommandCenter_Subject;
+@class GTLRSecurityCommandCenter_TicketInfo;
 @class GTLRSecurityCommandCenter_ValuedResource;
 @class GTLRSecurityCommandCenter_Vulnerability;
 @class GTLRSecurityCommandCenter_YaraRuleSignature;
@@ -2157,7 +2159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /**
  *  The resource name of the attack path simulation result that contains the
  *  details regarding this attack exposure score. Example:
- *  organizations/123/attackExposureResults/456
+ *  organizations/123/simulations/456/attackExposureResults/789
  */
 @property(nonatomic, copy, nullable) NSString *attackExposureResult;
 
@@ -4244,6 +4246,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assignees;
 
 /**
+ *  The priority of the finding's corresponding case in the external system.
+ */
+@property(nonatomic, copy, nullable) NSString *casePriority;
+
+/** The SLA of the finding's corresponding case in the external system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *caseSla;
+
+/** The link to the finding's corresponding case in the external system. */
+@property(nonatomic, copy, nullable) NSString *caseUri;
+
+/**
  *  The time when the case was last updated, as reported by the external system.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *externalSystemUpdateTime;
@@ -4267,6 +4280,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  the external system.
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Information about the ticket, if any, that is being used to track the
+ *  resolution of the issue that is identified by this finding.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_TicketInfo *ticketInfo;
 
 @end
 
@@ -6438,6 +6457,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  The policy field that violates the deployed posture and its expected and and
+ *  detected values.
+ */
+@interface GTLRSecurityCommandCenter_PolicyDriftDetails : GTLRObject
+
+/**
+ *  The detected value that violates the deployed posture, for example, `false`
+ *  or `allowed_values={"projects/22831892”}`.
+ */
+@property(nonatomic, copy, nullable) NSString *detectedValue;
+
+/**
+ *  The value of this field that was configured in a posture, for example,
+ *  `true` or `allowed_values={"projects/29831892”}`.
+ */
+@property(nonatomic, copy, nullable) NSString *expectedValue;
+
+/**
+ *  The name of the updated field, for example
+ *  constraint.implementation.policy_rules[0].enforce
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
  *  A position in the uploaded text version of a module.
  */
 @interface GTLRSecurityCommandCenter_Position : GTLRObject
@@ -6792,26 +6838,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @interface GTLRSecurityCommandCenter_SecurityPosture : GTLRObject
 
 /**
- *  The name of the policy that has been updated, for example,
+ *  The name of the updated policy, for example,
  *  `projects/{project_id}/policies/{constraint_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *changedPolicy;
 
-/**
- *  Name of the posture, for example,
- *  `organizations/{org_id}/locations/{location}/postures/{posture_name}`.
- */
+/** Name of the posture, for example, `CIS-Posture`. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The ID of the updated policy, for example, `compute-policy-1`. */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The details about a change in an updated policy that violates the deployed
+ *  posture.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_PolicyDriftDetails *> *policyDriftDetails;
+
+/** The name of the updated policyset, for example, `cis-policyset`. */
+@property(nonatomic, copy, nullable) NSString *policySet;
 
 /**
  *  The name of the posture deployment, for example,
- *  `projects/{project_id}/posturedeployments/{posture_deployment_id}`.
+ *  `organizations/{org_id}/posturedeployments/{posture_deployment_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *postureDeployment;
 
 /**
  *  The project, folder, or organization on which the posture is deployed, for
- *  example, `projects/{project_id}`.
+ *  example, `projects/{project_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *postureDeploymentResource;
 
@@ -7189,6 +7244,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Information about the ticket, if any, that is being used to track the
+ *  resolution of the issue that is identified by this finding.
+ */
+@interface GTLRSecurityCommandCenter_TicketInfo : GTLRObject
+
+/** The assignee of the ticket in the ticket system. */
+@property(nonatomic, copy, nullable) NSString *assignee;
+
+/**
+ *  The description of the ticket in the ticket system.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The identifier of the ticket in the ticket system.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The latest status of the ticket, as reported by the ticket system. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  The time when the ticket was last updated, as reported by the ticket system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The link to the ticket in the ticket system. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

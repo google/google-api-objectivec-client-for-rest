@@ -1614,7 +1614,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig
 @dynamic audioEncoding, bargeInConfig, enableWordInfo, model, modelVariant,
-         phraseHints, sampleRateHertz, singleUtterance;
+         optOutConformerModelMigration, phraseHints, sampleRateHertz,
+         singleUtterance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3590,7 +3591,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig
 @dynamic audioEncoding, bargeInConfig, enableWordInfo, model, modelVariant,
-         phraseHints, sampleRateHertz, singleUtterance;
+         optOutConformerModelMigration, phraseHints, sampleRateHertz,
+         singleUtterance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

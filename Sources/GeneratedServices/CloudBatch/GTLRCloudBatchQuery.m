@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch jobs on Google Cloud Platform.
+//   An API to manage the running of batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 

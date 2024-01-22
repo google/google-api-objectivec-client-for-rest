@@ -2061,6 +2061,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote;
 /**
+ *  Unable to verify definers on the source for MySQL.
+ *
+ *  Value: "UNABLE_TO_VERIFY_DEFINERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnableToVerifyDefiners;
+/**
  *  The primary instance has unsupported binary log format.
  *
  *  Value: "UNSUPPORTED_BINLOG_FORMAT"
@@ -2247,19 +2253,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyD
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_BuiltIn;
 /**
- *  Cloud IAM Group non-login user.
+ *  Cloud IAM group non-login user.
  *
  *  Value: "CLOUD_IAM_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroup;
 /**
- *  Cloud IAM Group login service account.
+ *  Cloud IAM group login service account.
  *
  *  Value: "CLOUD_IAM_GROUP_SERVICE_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount;
 /**
- *  Cloud IAM Group login user.
+ *  Cloud IAM group login user.
  *
  *  Value: "CLOUD_IAM_GROUP_USER"
  */
@@ -4413,8 +4419,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
 /**
- *  SQL Server uses the `require_ssl` flag. You can set the value for this flag
- *  to 'true' or 'false'.
+ *  Specify how SSL/TLS is enforced in database connections. MySQL and
+ *  PostgreSQL use the `ssl_mode` flag. If you must use the `require_ssl` flag
+ *  for backward compatibility, then only the following value pairs are valid: *
+ *  `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false` *
+ *  `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false` *
+ *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` The
+ *  value of `ssl_mode` gets priority over the value of `require_ssl`. For
+ *  example, for the pair `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`, the
+ *  `ssl_mode=ENCRYPTED_ONLY` means only accept SSL connections, while the
+ *  `require_ssl=false` means accept both non-SSL and SSL connections. MySQL and
+ *  PostgreSQL databases respect `ssl_mode` in this case and accept only SSL
+ *  connections. SQL Server uses the `require_ssl` flag. You can set the value
+ *  for this flag to `true` or `false`.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
@@ -5605,6 +5622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        This code instructs customers to turn on point-in-time recovery
  *        manually for the instance after promoting the Cloud SQL for PostgreSQL
  *        instance. (Value: "TURN_ON_PITR_AFTER_PROMOTE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnableToVerifyDefiners
+ *        Unable to verify definers on the source for MySQL. (Value:
+ *        "UNABLE_TO_VERIFY_DEFINERS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat
  *        The primary instance has unsupported binary log format. (Value:
  *        "UNSUPPORTED_BINLOG_FORMAT")
@@ -6213,12 +6233,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_User_Type_BuiltIn The database's built-in user type.
  *        (Value: "BUILT_IN")
- *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroup Cloud IAM Group non-login
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroup Cloud IAM group non-login
  *        user. (Value: "CLOUD_IAM_GROUP")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount Cloud IAM
- *        Group login service account. (Value:
+ *        group login service account. (Value:
  *        "CLOUD_IAM_GROUP_SERVICE_ACCOUNT")
- *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupUser Cloud IAM Group login
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupUser Cloud IAM group login
  *        user. (Value: "CLOUD_IAM_GROUP_USER")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamServiceAccount Cloud IAM service
  *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")

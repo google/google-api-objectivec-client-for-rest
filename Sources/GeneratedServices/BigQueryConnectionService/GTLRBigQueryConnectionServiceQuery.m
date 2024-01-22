@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Connection API (bigqueryconnection/v1beta1)
+//   BigQuery Connection API (bigqueryconnection/v1)
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
@@ -29,7 +29,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connections";
+  NSString *pathURITemplate = @"v1/{+parent}/connections";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -49,7 +49,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -68,7 +68,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -94,7 +94,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -110,11 +110,11 @@
 
 @implementation GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList
 
-@dynamic maxResults, pageToken, parent;
+@dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connections";
+  NSString *pathURITemplate = @"v1/{+parent}/connections";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -140,7 +140,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -167,7 +167,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -194,7 +194,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -203,33 +203,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigQueryConnectionService_TestIamPermissionsResponse class];
   query.loggingName = @"bigqueryconnection.projects.locations.connections.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRBigQueryConnectionService_ConnectionCredential *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryConnectionService_Empty class];
-  query.loggingName = @"bigqueryconnection.projects.locations.connections.updateCredential";
   return query;
 }
 

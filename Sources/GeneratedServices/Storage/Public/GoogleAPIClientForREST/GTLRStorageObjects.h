@@ -21,6 +21,7 @@
 @class GTLRStorage_Bucket_Cors_Item;
 @class GTLRStorage_Bucket_CustomPlacementConfig;
 @class GTLRStorage_Bucket_Encryption;
+@class GTLRStorage_Bucket_HierarchicalNamespace;
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
 @class GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess;
@@ -42,6 +43,9 @@
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
 @class GTLRStorage_Expr;
+@class GTLRStorage_Folder;
+@class GTLRStorage_Folder_Metadata;
+@class GTLRStorage_Folder_PendingRenameInfo;
 @class GTLRStorage_GoogleLongrunningOperation;
 @class GTLRStorage_GoogleLongrunningOperation_Metadata;
 @class GTLRStorage_GoogleLongrunningOperation_Response;
@@ -118,6 +122,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The modification time of the cache instance metadata in RFC 3339 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The zone in which the cache instance is running. For example, us-central1-a.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -203,6 +214,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** HTTP 1.1 Entity tag for the bucket. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The bucket's hierarchical namespace configuration. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_HierarchicalNamespace *hierarchicalNamespace;
 
 /** The bucket's IAM configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration *iamConfiguration;
@@ -435,6 +449,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  bucket, if no encryption method is specified.
  */
 @property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
+
+@end
+
+
+/**
+ *  The bucket's hierarchical namespace configuration.
+ */
+@interface GTLRStorage_Bucket_HierarchicalNamespace : GTLRObject
+
+/**
+ *  When set to true, hierarchical namespace is enabled for this bucket.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1172,6 +1201,113 @@ NS_ASSUME_NONNULL_BEGIN
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A folder. Only available in buckets with hierarchical namespace enabled.
+ */
+@interface GTLRStorage_Folder : GTLRObject
+
+/** The name of the bucket containing this folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The ID of the folder, including the bucket name, folder name.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The kind of item this is. For folders, this is always storage#folder. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** User-provided metadata, in key/value pairs. */
+@property(nonatomic, strong, nullable) GTLRStorage_Folder_Metadata *metadata;
+
+/**
+ *  The version of the metadata for this folder. Used for preconditions and for
+ *  detecting changes in metadata.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metageneration;
+
+/** The name of the folder. Required if not specified by URL parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Only present if the folder is part of an ongoing rename folder operation.
+ *  Contains information which can be used to query the operation status.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Folder_PendingRenameInfo *pendingRenameInfo;
+
+/** The link to this folder. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** The creation time of the folder in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timeCreated;
+
+/** The modification time of the folder metadata in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+
+@end
+
+
+/**
+ *  User-provided metadata, in key/value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRStorage_Folder_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Only present if the folder is part of an ongoing rename folder operation.
+ *  Contains information which can be used to query the operation status.
+ */
+@interface GTLRStorage_Folder_PendingRenameInfo : GTLRObject
+
+/** The ID of the rename folder operation. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  A list of folders.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRStorage_Folders : GTLRCollectionObject
+
+/**
+ *  The list of items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_Folder *> *items;
+
+/**
+ *  The kind of item this is. For lists of folders, this is always
+ *  storage#folders.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

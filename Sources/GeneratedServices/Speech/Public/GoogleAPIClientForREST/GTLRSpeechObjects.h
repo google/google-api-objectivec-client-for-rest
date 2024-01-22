@@ -1608,6 +1608,14 @@ GTLR_DEPRECATED
 /** When available, billed audio seconds for the corresponding request. */
 @property(nonatomic, strong, nullable) GTLRDuration *totalBilledTime;
 
+/**
+ *  Whether request used legacy asr models (was not automatically migrated to
+ *  use conformer models).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usingLegacyModels;
+
 @end
 
 

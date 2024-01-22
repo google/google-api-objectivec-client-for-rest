@@ -21,11 +21,16 @@
 @class GTLRAndroidPublisher_AcquisitionTargetingRule;
 @class GTLRAndroidPublisher_ActivateBasePlanRequest;
 @class GTLRAndroidPublisher_ActivateSubscriptionOfferRequest;
+@class GTLRAndroidPublisher_AllUsers;
+@class GTLRAndroidPublisher_AndroidSdks;
 @class GTLRAndroidPublisher_Apk;
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_ApkDescription;
 @class GTLRAndroidPublisher_ApkSet;
 @class GTLRAndroidPublisher_ApkTargeting;
+@class GTLRAndroidPublisher_AppRecoveryAction;
+@class GTLRAndroidPublisher_AppVersionList;
+@class GTLRAndroidPublisher_AppVersionRange;
 @class GTLRAndroidPublisher_AssetModuleMetadata;
 @class GTLRAndroidPublisher_AssetSliceSet;
 @class GTLRAndroidPublisher_AutoRenewingBasePlanType;
@@ -65,6 +70,7 @@
 @class GTLRAndroidPublisher_FullRefund;
 @class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
 @class GTLRAndroidPublisher_GeneratedAssetPackSlice;
+@class GTLRAndroidPublisher_GeneratedRecoveryApk;
 @class GTLRAndroidPublisher_GeneratedSplitApk;
 @class GTLRAndroidPublisher_GeneratedStandaloneApk;
 @class GTLRAndroidPublisher_GeneratedUniversalApk;
@@ -109,10 +115,16 @@
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig;
 @class GTLRAndroidPublisher_RegionalTaxRateInfo;
+@class GTLRAndroidPublisher_Regions;
 @class GTLRAndroidPublisher_RegionsVersion;
+@class GTLRAndroidPublisher_RemoteInAppUpdate;
+@class GTLRAndroidPublisher_RemoteInAppUpdateData;
+@class GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle;
 @class GTLRAndroidPublisher_ReplacementCancellation;
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
+@class GTLRAndroidPublisher_RevocationContext;
+@class GTLRAndroidPublisher_RevocationContextProratedRefund;
 @class GTLRAndroidPublisher_ScreenDensity;
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
 @class GTLRAndroidPublisher_SdkVersion;
@@ -136,8 +148,10 @@
 @class GTLRAndroidPublisher_SystemApkOptions;
 @class GTLRAndroidPublisher_SystemFeature;
 @class GTLRAndroidPublisher_SystemInitiatedCancellation;
+@class GTLRAndroidPublisher_Targeting;
 @class GTLRAndroidPublisher_TargetingInfo;
 @class GTLRAndroidPublisher_TargetingRuleScope;
+@class GTLRAndroidPublisher_TargetingUpdate;
 @class GTLRAndroidPublisher_TestPurchase;
 @class GTLRAndroidPublisher_TextureCompressionFormat;
 @class GTLRAndroidPublisher_TextureCompressionFormatTargeting;
@@ -268,6 +282,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOff
  *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_AppRecoveryAction.status
+
+/**
+ *  The app recovery action has not been canceled since it has been created.
+ *
+ *  Value: "RECOVERY_STATUS_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusActive;
+/**
+ *  The recovery action has been canceled. The action cannot be resumed.
+ *
+ *  Value: "RECOVERY_STATUS_CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusCanceled;
+/**
+ *  The recovery action is in the draft state and has not yet been deployed to
+ *  users.
+ *
+ *  Value: "RECOVERY_STATUS_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft;
+/**
+ *  RecoveryStatus is unspecified.
+ *
+ *  Value: "RECOVERY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_AssetModuleMetadata.deliveryType
@@ -534,6 +577,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_Tra
  *  Value: "TRANSACTION_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_GeneratedRecoveryApk.recoveryStatus
+
+/**
+ *  The app recovery action has not been canceled since it has been created.
+ *
+ *  Value: "RECOVERY_STATUS_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusActive;
+/**
+ *  The recovery action has been canceled. The action cannot be resumed.
+ *
+ *  Value: "RECOVERY_STATUS_CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusCanceled;
+/**
+ *  The recovery action is in the draft state and has not yet been deployed to
+ *  users.
+ *
+ *  Value: "RECOVERY_STATUS_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft;
+/**
+ *  RecoveryStatus is unspecified.
+ *
+ *  Value: "RECOVERY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_Grant.appLevelPermissions
@@ -1667,6 +1739,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request message for AddTargeting.
+ */
+@interface GTLRAndroidPublisher_AddTargetingRequest : GTLRObject
+
+/** Specifies targeting updates such as regions, android sdk versions etc. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TargetingUpdate *targetingUpdate;
+
+@end
+
+
+/**
+ *  Response message for AddTargeting.
+ */
+@interface GTLRAndroidPublisher_AddTargetingResponse : GTLRObject
+@end
+
+
+/**
+ *  Object representation to describe all set of users.
+ */
+@interface GTLRAndroidPublisher_AllUsers : GTLRObject
+
+/**
+ *  Required. Set to true if all set of users are needed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAllUsersRequested;
+
+@end
+
+
+/**
+ *  Android api level targeting data for app recovery action targeting.
+ */
+@interface GTLRAndroidPublisher_AndroidSdks : GTLRObject
+
+/**
+ *  Android api levels of devices targeted by recovery action. See
+ *  https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels
+ *  for different api levels in android.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *sdkLevels;
+
+@end
+
+
+/**
  *  Information about an APK. The resource for ApksService.
  */
 @interface GTLRAndroidPublisher_Apk : GTLRObject
@@ -1846,6 +1968,115 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Information about an app recovery action.
+ */
+@interface GTLRAndroidPublisher_AppRecoveryAction : GTLRObject
+
+/**
+ *  ID corresponding to the app recovery action.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appRecoveryId;
+
+/**
+ *  Timestamp of when the app recovery action is canceled by the developer. Only
+ *  set if the recovery action has been canceled.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/**
+ *  Timestamp of when the app recovery action is created by the developer. It is
+ *  always set after creation of the recovery action.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Timestamp of when the app recovery action is deployed to the users. Only set
+ *  if the recovery action has been deployed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
+
+/**
+ *  Timestamp of when the developer last updated recovery action. In case the
+ *  action is cancelled, it corresponds to cancellation time. It is always set
+ *  after creation of the recovery action.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  Data about the remote in-app update action such as such as recovered user
+ *  base, recoverable user base etc. Set only if the recovery action type is
+ *  Remote In-App Update.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RemoteInAppUpdateData *remoteInAppUpdateData;
+
+/**
+ *  The status of the recovery action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusActive
+ *        The app recovery action has not been canceled since it has been
+ *        created. (Value: "RECOVERY_STATUS_ACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusCanceled
+ *        The recovery action has been canceled. The action cannot be resumed.
+ *        (Value: "RECOVERY_STATUS_CANCELED")
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft
+ *        The recovery action is in the draft state and has not yet been
+ *        deployed to users. (Value: "RECOVERY_STATUS_DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified
+ *        RecoveryStatus is unspecified. (Value: "RECOVERY_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Specifies targeting criteria for the recovery action such as regions,
+ *  android sdk versions, app versions etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Targeting *targeting;
+
+@end
+
+
+/**
+ *  Data format for a list of app versions. Only one app version is supported
+ *  for now.
+ */
+@interface GTLRAndroidPublisher_AppVersionList : GTLRObject
+
+/**
+ *  List of app version codes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
+
+@end
+
+
+/**
+ *  Data format for a continuous range of app versions.
+ */
+@interface GTLRAndroidPublisher_AppVersionRange : GTLRObject
+
+/**
+ *  Highest app version in the range, inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCodeEnd;
+
+/**
+ *  Lowest app version in the range, inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCodeStart;
 
 @end
 
@@ -2271,6 +2502,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request message for CancelAppRecovery.
+ */
+@interface GTLRAndroidPublisher_CancelAppRecoveryRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for CancelAppRecovery.
+ */
+@interface GTLRAndroidPublisher_CancelAppRecoveryResponse : GTLRObject
+@end
+
+
+/**
  *  Information specific to a subscription in canceled state.
  */
 @interface GTLRAndroidPublisher_CanceledStateContext : GTLRObject
@@ -2442,6 +2687,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Request message for CreateDraftAppRecovery.
+ */
+@interface GTLRAndroidPublisher_CreateDraftAppRecoveryRequest : GTLRObject
+
+/**
+ *  Action type is remote in-app update. As a consequence of this action, a
+ *  downloadable recovery module is also created for testing purposes.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RemoteInAppUpdate *remoteInAppUpdate;
+
+/**
+ *  Specifies targeting criteria for the recovery action such as regions,
+ *  android sdk versions, app versions etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Targeting *targeting;
+
+@end
+
+
+/**
  *  Request message for DeactivateBasePlan.
  */
 @interface GTLRAndroidPublisher_DeactivateBasePlanRequest : GTLRObject
@@ -2561,6 +2826,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /** The uploaded Deobfuscation File configuration. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeobfuscationFile *deobfuscationFile;
 
+@end
+
+
+/**
+ *  Request message for DeployAppRecovery.
+ */
+@interface GTLRAndroidPublisher_DeployAppRecoveryRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for DeployAppRecovery.
+ */
+@interface GTLRAndroidPublisher_DeployAppRecoveryResponse : GTLRObject
 @end
 
 
@@ -3188,6 +3467,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedAssetPackSlice *> *generatedAssetPackSlices;
 
 /**
+ *  Generated recovery apks for recovery actions signed with a key corresponding
+ *  to certificate_sha256_hash. This includes all generated recovery APKs, also
+ *  those in draft or cancelled state. This field is not set if no recovery
+ *  actions were created for this signing key.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedRecoveryApk *> *generatedRecoveryModules;
+
+/**
  *  List of generated split APKs, signed with a key corresponding to
  *  certificate_sha256_hash.
  */
@@ -3235,6 +3522,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Download metadata for an app recovery module.
+ */
+@interface GTLRAndroidPublisher_GeneratedRecoveryApk : GTLRObject
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Should be
+ *  supplied to `generatedapks.download` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
+
+/** Name of the module which recovery apk belongs to. */
+@property(nonatomic, copy, nullable) NSString *moduleName;
+
+/**
+ *  ID of the recovery action.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recoveryId;
+
+/**
+ *  The status of the recovery action corresponding to the recovery apk.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusActive
+ *        The app recovery action has not been canceled since it has been
+ *        created. (Value: "RECOVERY_STATUS_ACTIVE")
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusCanceled
+ *        The recovery action has been canceled. The action cannot be resumed.
+ *        (Value: "RECOVERY_STATUS_CANCELED")
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft
+ *        The recovery action is in the draft state and has not yet been
+ *        deployed to users. (Value: "RECOVERY_STATUS_DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified
+ *        RecoveryStatus is unspecified. (Value: "RECOVERY_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *recoveryStatus;
 
 @end
 
@@ -3788,6 +4117,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** ISO-639: 2 or 3 letter language code. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *value;
+
+@end
+
+
+/**
+ *  Response message for ListAppRecoveries. -- api-linter:
+ *  core::0158::response-next-page-token-field=disabled
+ */
+@interface GTLRAndroidPublisher_ListAppRecoveriesResponse : GTLRObject
+
+/** List of recovery actions associated with the requested package name. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_AppRecoveryAction *> *recoveryActions;
 
 @end
 
@@ -4858,6 +5199,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Region targeting data for app recovery action targeting.
+ */
+@interface GTLRAndroidPublisher_Regions : GTLRObject
+
+/**
+ *  Regions targeted by the recovery action. Region codes are ISO 3166 Alpha-2
+ *  country codes. For example, US stands for United States of America. See
+ *  https://www.iso.org/iso-3166-country-codes.html for the complete list of
+ *  country codes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regionCode;
+
+@end
+
+
+/**
  *  The version of the available regions being used for the specified resource.
  */
 @interface GTLRAndroidPublisher_RegionsVersion : GTLRObject
@@ -4874,6 +5231,63 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  version is 2022/02.
  */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Object representation for Remote in-app update action type.
+ */
+@interface GTLRAndroidPublisher_RemoteInAppUpdate : GTLRObject
+
+/**
+ *  Required. Set to true if Remote In-App Update action type is needed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRemoteInAppUpdateRequested;
+
+@end
+
+
+/**
+ *  Data related to Remote In-App Update action such as recovered user count,
+ *  affected user count etc.
+ */
+@interface GTLRAndroidPublisher_RemoteInAppUpdateData : GTLRObject
+
+/** Data related to the recovery action at bundle level. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle *> *remoteAppUpdateDataPerBundle;
+
+@end
+
+
+/**
+ *  Data related to the recovery action at bundle level.
+ */
+@interface GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle : GTLRObject
+
+/**
+ *  Total number of devices which have been rescued.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recoveredDeviceCount;
+
+/**
+ *  Total number of devices affected by this recovery action associated with
+ *  bundle of the app.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDeviceCount;
+
+/**
+ *  Version Code corresponding to the target bundle.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 @end
 
@@ -4955,6 +5369,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /** The result of replying/updating a reply to review. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ReviewReplyResult *result;
 
+@end
+
+
+/**
+ *  Revocation context of the purchases.subscriptionsv2.revoke API.
+ */
+@interface GTLRAndroidPublisher_RevocationContext : GTLRObject
+
+/**
+ *  Optional. Used when users should be refunded a prorated amount they paid for
+ *  their subscription based on the amount of time remaining in a subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextProratedRefund *proratedRefund;
+
+@end
+
+
+/**
+ *  Used to determine if the refund type in the RevocationContext is a prorated
+ *  refund.
+ */
+@interface GTLRAndroidPublisher_RevocationContextProratedRefund : GTLRObject
+@end
+
+
+/**
+ *  Request for the purchases.subscriptionsv2.revoke API.
+ */
+@interface GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest : GTLRObject
+
+/** Required. Additional details around the subscription revocation. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContext *revocationContext;
+
+@end
+
+
+/**
+ *  Response for the purchases.subscriptionsv2.revoke API.
+ */
+@interface GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse : GTLRObject
 @end
 
 
@@ -6006,6 +6460,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Targeting details for a recovery action such as regions, android sdk levels,
+ *  app versions etc.
+ */
+@interface GTLRAndroidPublisher_Targeting : GTLRObject
+
+/** All users are targeted. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AllUsers *allUsers;
+
+/** Targeting is based on android api levels of devices. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AndroidSdks *androidSdks;
+
+/** Targeting is based on the user account region. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Regions *regions;
+
+/** Target version codes as a list. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AppVersionList *versionList;
+
+/** Target version codes as a range. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AppVersionRange *versionRange;
+
+@end
+
+
+/**
  *  Targeting information about the generated apks.
  */
 @interface GTLRAndroidPublisher_TargetingInfo : GTLRObject
@@ -6034,6 +6512,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  app.
  */
 @property(nonatomic, copy, nullable) NSString *specificSubscriptionInApp;
+
+@end
+
+
+/**
+ *  Update type for targeting. Note it is always a subset Targeting.
+ */
+@interface GTLRAndroidPublisher_TargetingUpdate : GTLRObject
+
+/** All users are targeted. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AllUsers *allUsers;
+
+/** Additional android sdk levels are targeted by the recovery action. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AndroidSdks *androidSdks;
+
+/** Additional regions are targeted by the recovery action. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Regions *regions;
 
 @end
 

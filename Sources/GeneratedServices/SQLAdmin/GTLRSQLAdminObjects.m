@@ -387,6 +387,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncS
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote = @"TURN_ON_PITR_AFTER_PROMOTE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnableToVerifyDefiners = @"UNABLE_TO_VERIFY_DEFINERS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat = @"UNSUPPORTED_BINLOG_FORMAT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings = @"UNSUPPORTED_DATABASE_SETTINGS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";

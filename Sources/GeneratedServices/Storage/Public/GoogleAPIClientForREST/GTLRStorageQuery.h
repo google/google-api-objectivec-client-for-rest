@@ -174,12 +174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheDisable : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesDisable : GTLRStorageQuery
 
 /** The ID of requested Anywhere Cache instance. */
 @property(nonatomic, copy, nullable) NSString *anywhereCacheId;
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -187,10 +187,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Disables an Anywhere Cache instance.
  *
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
  *
- *  @return GTLRStorageQuery_AnywhereCacheDisable
+ *  @return GTLRStorageQuery_AnywhereCachesDisable
  */
 + (instancetype)queryWithBucket:(NSString *)bucket
                 anywhereCacheId:(NSString *)anywhereCacheId;
@@ -209,12 +209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadOnly
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheGet : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesGet : GTLRStorageQuery
 
 /** The ID of requested Anywhere Cache instance. */
 @property(nonatomic, copy, nullable) NSString *anywhereCacheId;
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -222,10 +222,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Returns the metadata of an Anywhere Cache instance.
  *
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
  *
- *  @return GTLRStorageQuery_AnywhereCacheGet
+ *  @return GTLRStorageQuery_AnywhereCachesGet
  */
 + (instancetype)queryWithBucket:(NSString *)bucket
                 anywhereCacheId:(NSString *)anywhereCacheId;
@@ -242,9 +242,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheInsert : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesInsert : GTLRStorageQuery
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -253,9 +253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Creates an Anywhere Cache instance.
  *
  *  @param object The @c GTLRStorage_AnywhereCache to include in the query.
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *
- *  @return GTLRStorageQuery_AnywhereCacheInsert
+ *  @return GTLRStorageQuery_AnywhereCachesInsert
  */
 + (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
                          bucket:(NSString *)bucket;
@@ -275,13 +275,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadOnly
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheList : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesList : GTLRStorageQuery
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Maximum number of items return in a single page of responses. Maximum 1000.
+ *  Maximum number of items to return in a single page of responses. Maximum
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -297,9 +298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Returns a list of Anywhere Cache instances of the bucket matching the
  *  criteria.
  *
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *
- *  @return GTLRStorageQuery_AnywhereCacheList
+ *  @return GTLRStorageQuery_AnywhereCachesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -319,12 +320,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCachePause : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesPause : GTLRStorageQuery
 
 /** The ID of requested Anywhere Cache instance. */
 @property(nonatomic, copy, nullable) NSString *anywhereCacheId;
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -332,10 +333,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Pauses an Anywhere Cache instance.
  *
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
  *
- *  @return GTLRStorageQuery_AnywhereCachePause
+ *  @return GTLRStorageQuery_AnywhereCachesPause
  */
 + (instancetype)queryWithBucket:(NSString *)bucket
                 anywhereCacheId:(NSString *)anywhereCacheId;
@@ -352,12 +353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheResume : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesResume : GTLRStorageQuery
 
 /** The ID of requested Anywhere Cache instance. */
 @property(nonatomic, copy, nullable) NSString *anywhereCacheId;
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -365,10 +366,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Resumes a paused or disabled Anywhere Cache instance.
  *
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
  *
- *  @return GTLRStorageQuery_AnywhereCacheResume
+ *  @return GTLRStorageQuery_AnywhereCachesResume
  */
 + (instancetype)queryWithBucket:(NSString *)bucket
                 anywhereCacheId:(NSString *)anywhereCacheId;
@@ -385,12 +386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
-@interface GTLRStorageQuery_AnywhereCacheUpdate : GTLRStorageQuery
+@interface GTLRStorageQuery_AnywhereCachesUpdate : GTLRStorageQuery
 
 /** The ID of requested Anywhere Cache instance. */
 @property(nonatomic, copy, nullable) NSString *anywhereCacheId;
 
-/** Name of the partent bucket */
+/** Name of the parent bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -399,10 +400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
  *
  *  @param object The @c GTLRStorage_AnywhereCache to include in the query.
- *  @param bucket Name of the partent bucket
+ *  @param bucket Name of the parent bucket.
  *  @param anywhereCacheId The ID of requested Anywhere Cache instance.
  *
- *  @return GTLRStorageQuery_AnywhereCacheUpdate
+ *  @return GTLRStorageQuery_AnywhereCachesUpdate
  */
 + (instancetype)queryWithObject:(GTLRStorage_AnywhereCache *)object
                          bucket:(NSString *)bucket
@@ -1577,6 +1578,264 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Permanently deletes a folder. Only applicable to buckets with hierarchical
+ *  namespace enabled.
+ *
+ *  Method: storage.folders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersDelete : GTLRStorageQuery
+
+/** Name of the bucket in which the folder resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Name of a folder. */
+@property(nonatomic, copy, nullable) NSString *folder;
+
+/**
+ *  If set, only deletes the folder if its metageneration matches this value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  If set, only deletes the folder if its metageneration does not match this
+ *  value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Permanently deletes a folder. Only applicable to buckets with hierarchical
+ *  namespace enabled.
+ *
+ *  @param bucket Name of the bucket in which the folder resides.
+ *  @param folder Name of a folder.
+ *
+ *  @return GTLRStorageQuery_FoldersDelete
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder;
+
+@end
+
+/**
+ *  Returns metadata for the specified folder. Only applicable to buckets with
+ *  hierarchical namespace enabled.
+ *
+ *  Method: storage.folders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersGet : GTLRStorageQuery
+
+/** Name of the bucket in which the folder resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Name of a folder. */
+@property(nonatomic, copy, nullable) NSString *folder;
+
+/**
+ *  Makes the return of the folder metadata conditional on whether the folder's
+ *  current metageneration matches the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the return of the folder metadata conditional on whether the folder's
+ *  current metageneration does not match the given value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Fetches a @c GTLRStorage_Folder.
+ *
+ *  Returns metadata for the specified folder. Only applicable to buckets with
+ *  hierarchical namespace enabled.
+ *
+ *  @param bucket Name of the bucket in which the folder resides.
+ *  @param folder Name of a folder.
+ *
+ *  @return GTLRStorageQuery_FoldersGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder;
+
+@end
+
+/**
+ *  Creates a new folder. Only applicable to buckets with hierarchical namespace
+ *  enabled.
+ *
+ *  Method: storage.folders.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersInsert : GTLRStorageQuery
+
+/** Name of the bucket in which the folder resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  If true, any parent folder which doesn’t exist will be created
+ *  automatically.
+ */
+@property(nonatomic, assign) BOOL recursive;
+
+/**
+ *  Fetches a @c GTLRStorage_Folder.
+ *
+ *  Creates a new folder. Only applicable to buckets with hierarchical namespace
+ *  enabled.
+ *
+ *  @param object The @c GTLRStorage_Folder to include in the query.
+ *  @param bucket Name of the bucket in which the folder resides.
+ *
+ *  @return GTLRStorageQuery_FoldersInsert
+ */
++ (instancetype)queryWithObject:(GTLRStorage_Folder *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Retrieves a list of folders matching the criteria. Only applicable to
+ *  buckets with hierarchical namespace enabled.
+ *
+ *  Method: storage.folders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersList : GTLRStorageQuery
+
+/** Name of the bucket in which to look for folders. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Returns results in a directory-like mode. The only supported value is '/'.
+ *  If set, items will only contain folders that either exactly match the
+ *  prefix, or are one level below the prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+/**
+ *  Filter results to folders whose names are lexicographically before
+ *  endOffset. If startOffset is also set, the folders listed will have names
+ *  between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *endOffset;
+
+/** Maximum number of items to return in a single page of responses. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Filter results to folders whose paths begin with this prefix. If set, the
+ *  value must either be an empty string or end with a '/'.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Filter results to folders whose names are lexicographically equal to or
+ *  after startOffset. If endOffset is also set, the folders listed will have
+ *  names between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *startOffset;
+
+/**
+ *  Fetches a @c GTLRStorage_Folders.
+ *
+ *  Retrieves a list of folders matching the criteria. Only applicable to
+ *  buckets with hierarchical namespace enabled.
+ *
+ *  @param bucket Name of the bucket in which to look for folders.
+ *
+ *  @return GTLRStorageQuery_FoldersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Renames a source folder to a destination folder. Only applicable to buckets
+ *  with hierarchical namespace enabled.
+ *
+ *  Method: storage.folders.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersRename : GTLRStorageQuery
+
+/** Name of the bucket in which the folders are in. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Name of the destination folder. */
+@property(nonatomic, copy, nullable) NSString *destinationFolder;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration matches the given value.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration does not match the given value.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
+
+/** Name of the source folder. */
+@property(nonatomic, copy, nullable) NSString *sourceFolder;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Renames a source folder to a destination folder. Only applicable to buckets
+ *  with hierarchical namespace enabled.
+ *
+ *  @param bucket Name of the bucket in which the folders are in.
+ *  @param sourceFolder Name of the source folder.
+ *  @param destinationFolder Name of the destination folder.
+ *
+ *  @return GTLRStorageQuery_FoldersRename
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceFolder:(NSString *)sourceFolder
+              destinationFolder:(NSString *)destinationFolder;
+
+@end
+
+/**
  *  Permanently deletes a managed folder.
  *
  *  Method: storage.managedFolders.delete
@@ -1764,7 +2023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /** Name of the bucket containing the managed folder. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
-/** Maximum number of items return in a single page of responses. */
+/** Maximum number of items to return in a single page of responses. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**

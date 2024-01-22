@@ -826,7 +826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Username of the account that is being verified. Deprecated. Customers should
- *  now provide the hashed account ID field in Event.
+ *  now provide the `account_id` field in `event.user_info`.
  */
 @property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
@@ -1821,6 +1821,27 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  The reorder firewall policies request message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest : GTLRObject
+
+/**
+ *  Required. A list containing all policy names, in the new order. Each name is
+ *  in the format `projects/{project}/firewallpolicies/{firewallpolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  The reorder firewall policies response message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesResponse : GTLRObject
 @end
 
 

@@ -288,6 +288,33 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesResizeDisk
+
+@dynamic notebookInstance;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResizeDiskRequest *)object
+               notebookInstance:(NSString *)notebookInstance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"notebookInstance" ];
+  NSString *pathURITemplate = @"v2/{+notebookInstance}:resizeDisk";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesResizeDisk *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.notebookInstance = notebookInstance;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.resizeDisk";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback
 
 @dynamic name;

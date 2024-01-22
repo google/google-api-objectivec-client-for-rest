@@ -1686,6 +1686,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request for resizing the notebook instance disks
+ */
+@interface GTLRAIPlatformNotebooks_ResizeDiskRequest : GTLRObject
+
+/** Required. The boot disk to be resized. Only disk_size_gb will be used. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_BootDisk *bootDisk;
+
+/** Required. The data disk to be resized. Only disk_size_gb will be used. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DataDisk *dataDisk;
+
+@end
+
+
+/**
  *  Request for rollbacking a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_RollbackInstanceRequest : GTLRObject

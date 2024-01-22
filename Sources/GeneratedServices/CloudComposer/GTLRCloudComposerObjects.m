@@ -59,6 +59,11 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified = @
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCESSFUL";
 
+// GTLRCloudComposer_TaskLogsRetentionConfig.storageMode
+NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingAndCloudStorage = @"CLOUD_LOGGING_AND_CLOUD_STORAGE";
+NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
+NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogsStorageModeUnspecified = @"TASK_LOGS_STORAGE_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudComposer_AllowedIpRange
@@ -111,6 +116,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_CloudDataLineageIntegration
+//
+
+@implementation GTLRCloudComposer_CloudDataLineageIntegration
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_DatabaseConfig
 //
 
@@ -139,6 +154,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_DatabaseFailoverResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_DataRetentionConfig
+//
+
+@implementation GTLRCloudComposer_DataRetentionConfig
+@dynamic taskLogsRetentionConfig;
 @end
 
 
@@ -203,9 +228,9 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_EnvironmentConfig
 @dynamic airflowByoidUri, airflowUri, dagGcsPrefix, databaseConfig,
-         encryptionConfig, environmentSize, gkeCluster, maintenanceWindow,
-         masterAuthorizedNetworksConfig, nodeConfig, nodeCount,
-         privateEnvironmentConfig, recoveryConfig, resilienceMode,
+         dataRetentionConfig, encryptionConfig, environmentSize, gkeCluster,
+         maintenanceWindow, masterAuthorizedNetworksConfig, nodeConfig,
+         nodeCount, privateEnvironmentConfig, recoveryConfig, resilienceMode,
          softwareConfig, webServerConfig, webServerNetworkAccessControl,
          workloadsConfig;
 @end
@@ -599,8 +624,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_SoftwareConfig
-@dynamic airflowConfigOverrides, envVariables, imageVersion, pypiPackages,
-         pythonVersion, schedulerCount;
+@dynamic airflowConfigOverrides, cloudDataLineageIntegration, envVariables,
+         imageVersion, pypiPackages, pythonVersion, schedulerCount;
 @end
 
 
@@ -713,6 +738,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_StorageConfig
 @dynamic bucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_TaskLogsRetentionConfig
+//
+
+@implementation GTLRCloudComposer_TaskLogsRetentionConfig
+@dynamic storageMode;
 @end
 
 

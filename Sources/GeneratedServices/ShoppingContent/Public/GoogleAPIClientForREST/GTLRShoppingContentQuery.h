@@ -6377,7 +6377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Retrieves merchant performance mertrics matching the search query and
+ *  Retrieves merchant performance metrics matching the search query and
  *  optionally segmented by selected dimensions.
  *
  *  Method: content.reports.search
@@ -6396,7 +6396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_SearchResponse.
  *
- *  Retrieves merchant performance mertrics matching the search query and
+ *  Retrieves merchant performance metrics matching the search query and
  *  optionally segmented by selected dimensions.
  *
  *  @param object The @c GTLRShoppingContent_SearchRequest to include in the

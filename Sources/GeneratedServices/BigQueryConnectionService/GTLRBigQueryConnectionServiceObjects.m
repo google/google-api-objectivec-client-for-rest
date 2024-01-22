@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Connection API (bigqueryconnection/v1beta1)
+//   BigQuery Connection API (bigqueryconnection/v1)
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
@@ -62,6 +62,37 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryConnectionService_AwsAccessRole
+//
+
+@implementation GTLRBigQueryConnectionService_AwsAccessRole
+@dynamic iamRoleId, identity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_AwsProperties
+//
+
+@implementation GTLRBigQueryConnectionService_AwsProperties
+@dynamic accessRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_AzureProperties
+//
+
+@implementation GTLRBigQueryConnectionService_AzureProperties
+@dynamic application, clientId, customerTenantId, federatedApplicationClientId,
+         identity, objectId, redirectUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryConnectionService_Binding
 //
 
@@ -75,6 +106,27 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_CloudResourceProperties
+//
+
+@implementation GTLRBigQueryConnectionService_CloudResourceProperties
+@dynamic serviceAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_CloudSpannerProperties
+//
+
+@implementation GTLRBigQueryConnectionService_CloudSpannerProperties
+@dynamic database, databaseRole, maxParallelism, useDataBoost, useParallelism,
+         useServerlessAnalytics;
 @end
 
 
@@ -104,23 +156,14 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 //
 
 @implementation GTLRBigQueryConnectionService_Connection
-@dynamic cloudSql, creationTime, descriptionProperty, friendlyName,
-         hasCredential, lastModifiedTime, name;
+@dynamic aws, azure, cloudResource, cloudSpanner, cloudSql, creationTime,
+         descriptionProperty, friendlyName, hasCredential, kmsKeyName,
+         lastModifiedTime, name, salesforceDataCloud, spark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigQueryConnectionService_ConnectionCredential
-//
-
-@implementation GTLRBigQueryConnectionService_ConnectionCredential
-@dynamic cloudSql;
 @end
 
 
@@ -192,6 +235,16 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryConnectionService_MetastoreServiceConfig
+//
+
+@implementation GTLRBigQueryConnectionService_MetastoreServiceConfig
+@dynamic metastoreService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryConnectionService_Policy
 //
 
@@ -215,11 +268,41 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryConnectionService_SalesforceDataCloudProperties
+//
+
+@implementation GTLRBigQueryConnectionService_SalesforceDataCloudProperties
+@dynamic identity, instanceUri, tenantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryConnectionService_SetIamPolicyRequest
 //
 
 @implementation GTLRBigQueryConnectionService_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_SparkHistoryServerConfig
+//
+
+@implementation GTLRBigQueryConnectionService_SparkHistoryServerConfig
+@dynamic dataprocCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_SparkProperties
+//
+
+@implementation GTLRBigQueryConnectionService_SparkProperties
+@dynamic metastoreServiceConfig, serviceAccountId, sparkHistoryServerConfig;
 @end
 
 

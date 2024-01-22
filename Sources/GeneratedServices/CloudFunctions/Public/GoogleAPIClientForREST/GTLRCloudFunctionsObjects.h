@@ -16,6 +16,7 @@
 
 @class GTLRCloudFunctions_AuditConfig;
 @class GTLRCloudFunctions_AuditLogConfig;
+@class GTLRCloudFunctions_AutomaticUpdatePolicy;
 @class GTLRCloudFunctions_Binding;
 @class GTLRCloudFunctions_BuildConfig;
 @class GTLRCloudFunctions_BuildConfig_EnvironmentVariables;
@@ -37,6 +38,7 @@
 @class GTLRCloudFunctions_Location;
 @class GTLRCloudFunctions_Location_Labels;
 @class GTLRCloudFunctions_Location_Metadata;
+@class GTLRCloudFunctions_OnDeployUpdatePolicy;
 @class GTLRCloudFunctions_Operation;
 @class GTLRCloudFunctions_Operation_Metadata;
 @class GTLRCloudFunctions_Operation_Response;
@@ -204,6 +206,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_StateUnspe
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GenerateUploadUrlRequest.environment
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_EnvironmentUnspecified;
+/**
+ *  Gen 1
+ *
+ *  Value: "GEN_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen1;
+/**
+ *  Gen 2
+ *
+ *  Value: "GEN_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata.environments
@@ -991,6 +1015,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 
 /**
+ *  Security patches are applied automatically to the runtime without requiring
+ *  the function to be redeployed.
+ */
+@interface GTLRCloudFunctions_AutomaticUpdatePolicy : GTLRObject
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudFunctions_Binding : GTLRObject
@@ -1024,9 +1056,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1040,7 +1088,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1058,6 +1109,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  given source.
  */
 @interface GTLRCloudFunctions_BuildConfig : GTLRObject
+
+/** See the comment next to this message for more details. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_AutomaticUpdatePolicy *automaticUpdatePolicy;
 
 /**
  *  Output only. The Cloud Build name of the latest successful deployment of the
@@ -1089,11 +1143,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, copy, nullable) NSString *dockerRegistry;
 
 /**
- *  User managed repository created in Artifact Registry optionally with a
- *  customer managed encryption key. This is the repository to which the
- *  function docker image will be pushed after it is built by Cloud Build. If
- *  unspecified, GCF will create and use a repository named 'gcf-artifacts' for
- *  every deployed region. It must match the pattern
+ *  Repository in Artifact Registry to which the function docker image will be
+ *  pushed after it is built by Cloud Build. If specified by user, it is created
+ *  and managed by user with a customer managed encryption key. Otherwise, GCF
+ *  will create and use a repository named 'gcf-artifacts' for every deployed
+ *  region. It must match the pattern
  *  `projects/{project}/locations/{location}/repositories/{repository}`.
  *  Cross-project repositories are not supported. Cross-location repositories
  *  are not supported. Repository format must be 'DOCKER'.
@@ -1112,6 +1166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** User-provided build-time environment variables for the function */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig_EnvironmentVariables *environmentVariables;
 
+/** See the comment next to this message for more details. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_OnDeployUpdatePolicy *onDeployUpdatePolicy;
+
 /**
  *  The runtime in which to run the function. Required when deploying a new
  *  function, optional when updating an existing function. For a complete list
@@ -1119,6 +1176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  reference](https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--runtime).
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
+
+/** [Preview] Service account to be used for building the container */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** The location of the function source code. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_Source *source;
@@ -1491,6 +1551,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  Request of `GenerateSourceUploadUrl` method.
  */
 @interface GTLRCloudFunctions_GenerateUploadUrlRequest : GTLRObject
+
+/**
+ *  The function environment the generated upload url will be used for. The
+ *  upload url for 2nd Gen functions can also be used for 1st gen functions, but
+ *  not vice versa. If not specified, 2nd generation-style upload URLs are
+ *  generated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_EnvironmentUnspecified
+ *        Unspecified (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen1 Gen
+ *        1 (Value: "GEN_1")
+ *    @arg @c kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen2 Gen
+ *        2 (Value: "GEN_2")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
 
 /**
  *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
@@ -2234,6 +2310,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFunctions_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Security patches are only applied when a function is redeployed.
+ */
+@interface GTLRCloudFunctions_OnDeployUpdatePolicy : GTLRObject
+
+/**
+ *  Output only. contains the runtime version which was used during latest
+ *  function deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
 @end
 
 
