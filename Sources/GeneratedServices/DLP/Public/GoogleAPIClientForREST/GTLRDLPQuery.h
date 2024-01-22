@@ -4255,7 +4255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsFinish : GTLRDLPQuery
 
-/** Required. The name of the DlpJob resource to be cancelled. */
+/** Required. The name of the DlpJob resource to be finished. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4266,7 +4266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest to
  *    include in the query.
- *  @param name Required. The name of the DlpJob resource to be cancelled.
+ *  @param name Required. The name of the DlpJob resource to be finished.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsFinish
  */

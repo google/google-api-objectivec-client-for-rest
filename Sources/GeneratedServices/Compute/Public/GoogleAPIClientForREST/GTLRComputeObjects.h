@@ -8292,6 +8292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecificatio
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified;
 /** Value: "GVNIC" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Gvnic;
+/** Value: "IDPF" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Idpf;
 /** Value: "MULTI_IP_SUBNET" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet;
 /** Value: "SECURE_BOOT" */
@@ -23083,6 +23085,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA10080gbGpus;
 /** Value: "COMMITTED_NVIDIA_A100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA100Gpus;
+/** Value: "COMMITTED_NVIDIA_H100_GPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaH100Gpus;
 /** Value: "COMMITTED_NVIDIA_K80_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus;
 /** Value: "COMMITTED_NVIDIA_L4_GPUS" */
@@ -23237,6 +23241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsd
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA10080gbGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_A100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaA100Gpus;
+/** Value: "PREEMPTIBLE_NVIDIA_H100_GPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaH100Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_K80_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_L4_GPUS" */
@@ -30706,7 +30712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAcce
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_GlobalManagedProxy;
 /**
- *  Subnet reserved for Internal HTTP(S) Load Balancing.
+ *  Subnet reserved for Internal HTTP(S) Load Balancing. This is a legacy
+ *  purpose, please use REGIONAL_MANAGED_PROXY instead.
  *
  *  Value: "INTERNAL_HTTPS_LOAD_BALANCER"
  */
@@ -35741,7 +35748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_GlobalManagedProxy;
 /**
- *  Subnet reserved for Internal HTTP(S) Load Balancing.
+ *  Subnet reserved for Internal HTTP(S) Load Balancing. This is a legacy
+ *  purpose, please use REGIONAL_MANAGED_PROXY instead.
  *
  *  Value: "INTERNAL_HTTPS_LOAD_BALANCER"
  */
@@ -43992,9 +44000,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -44008,7 +44032,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -44381,6 +44408,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *endTimestamp;
 
 /**
+ *  Specifies the already existing reservations to attach to the Commitment.
+ *  This field is optional, and it can be a full or partial URL. For example,
+ *  the following are valid URLs to an reservation: -
+ *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
+ *  /reservations/reservation -
+ *  projects/project/zones/zone/reservations/reservation
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *existingReservations;
+
+/**
  *  [Output Only] The unique identifier for the resource. This identifier is
  *  defined by the server.
  *
@@ -44429,7 +44466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] URL of the region where this commitment may be used. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** List of create-on-create reseravtions for this commitment. */
+/** List of create-on-create reservations for this commitment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Reservation *> *reservations;
 
 /**
@@ -45587,6 +45624,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Status information for the disk resource. */
 @property(nonatomic, strong, nullable) GTLRCompute_DiskResourceStatus *resourceStatus;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -49123,12 +49167,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_ForwardingRule : GTLRObject
 
 /**
- *  This field is used along with the backend_service field for internal load
- *  balancing or with the target field for internal TargetInstance. If set to
- *  true, clients can access the internal passthrough Network Load Balancers,
- *  the regional internal Application Load Balancer, and the regional internal
- *  proxy Network Load Balancer from all regions. If false, only allows access
- *  from the local region the load balancer is located at. Note that for
+ *  If set to true, clients can access the internal passthrough Network Load
+ *  Balancers, the regional internal Application Load Balancer, and the regional
+ *  internal proxy Network Load Balancer from all regions. If false, only allows
+ *  access from the local region the load balancer is located at. Note that for
  *  INTERNAL_MANAGED forwarding rules, this field cannot be changed after the
  *  forwarding rule is created.
  *
@@ -50415,13 +50457,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  separate values. Set to one or more of the following values: -
  *  VIRTIO_SCSI_MULTIQUEUE - WINDOWS - MULTI_IP_SUBNET - UEFI_COMPATIBLE - GVNIC
  *  - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE - SEV_LIVE_MIGRATABLE -
- *  SEV_SNP_CAPABLE For more information, see Enabling guest operating system
- *  features.
+ *  SEV_SNP_CAPABLE - TDX_CAPABLE - IDPF For more information, see Enabling
+ *  guest operating system features.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
  *        "FEATURE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_Gvnic Value "GVNIC"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_Idpf Value "IDPF"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet Value
  *        "MULTI_IP_SUBNET"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SecureBoot Value "SECURE_BOOT"
@@ -53277,6 +53320,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** The parameters of the raw disk image. */
 @property(nonatomic, strong, nullable) GTLRCompute_Image_RawDisk *rawDisk;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -62135,6 +62185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
  *  [Output Only] Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
@@ -64830,10 +64887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *fqdn;
 
 /**
- *  The name for a specific VM instance that the IP address belongs to. This is
- *  required for network endpoints of type GCE_VM_IP_PORT. The instance must be
- *  in the same zone of network endpoint group. The name must be 1-63 characters
- *  long, and comply with RFC1035.
+ *  The name or a URL of a specific VM instance that the IP address belongs to.
+ *  This is required for network endpoints of type GCE_VM_IP_PORT. The instance
+ *  must be in the same zone of network endpoint group (for zonal NEGs) or in
+ *  the zone within the region of the NEG (for regional NEGs). The name must be
+ *  1-63 characters long, and comply with RFC1035 or be a valid URL pointing to
+ *  an existing instance.
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -69183,7 +69242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  or zonal. - For global operations, use the `globalOperations` resource. -
  *  For regional operations, use the `regionOperations` resource. - For zonal
  *  operations, use the `zoneOperations` resource. For more information, read
- *  Global, Regional, and Zonal Resources.
+ *  Global, Regional, and Zonal Resources. Note that completed Operation
+ *  resources have a limited retention period.
  */
 @interface GTLRCompute_Operation : GTLRObject
 
@@ -70558,10 +70618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_PacketMirroringFilter : GTLRObject
 
 /**
- *  IP CIDR ranges that apply as filter on the source (ingress) or destination
- *  (egress) IP in the IP header. Only IPv4 is supported. If no ranges are
- *  specified, all traffic that matches the specified IPProtocols is mirrored.
- *  If neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
+ *  One or more IPv4 or IPv6 CIDR ranges that apply as filter on the source
+ *  (ingress) or destination (egress) IP in the IP header. If no ranges are
+ *  specified, all IPv4 traffic that matches the specified IPProtocols is
+ *  mirrored. If neither cidrRanges nor IPProtocols is specified, all IPv4
+ *  traffic is mirrored. To mirror all IPv4 and IPv6 traffic, use
+ *  "0.0.0.0/0,::/0". Note: Support for IPv6 traffic is in preview.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cidrRanges;
 
@@ -70582,7 +70644,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Protocols that apply as filter on mirrored traffic. If no protocols are
  *  specified, all traffic that matches the specified CIDR ranges is mirrored.
- *  If neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
+ *  If neither cidrRanges nor IPProtocols is specified, all IPv4 traffic is
+ *  mirrored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *IPProtocols;
 
@@ -72874,6 +72937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_NVIDIA_A100_80GB_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaA100Gpus Value
  *        "COMMITTED_NVIDIA_A100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaH100Gpus Value
+ *        "COMMITTED_NVIDIA_H100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus Value
  *        "COMMITTED_NVIDIA_K80_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaL4Gpus Value
@@ -72993,6 +73058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PREEMPTIBLE_NVIDIA_A100_80GB_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaA100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_A100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaH100Gpus Value
+ *        "PREEMPTIBLE_NVIDIA_H100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus Value
  *        "PREEMPTIBLE_NVIDIA_K80_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaL4Gpus Value
@@ -80525,7 +80592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  reCAPTCHA configuration options to be applied for the rule. If the rule does
- *  not evaluate reCAPTCHA tokens, this field will have no effect.
+ *  not evaluate reCAPTCHA tokens, this field has no effect.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions *recaptchaOptions;
 
@@ -82256,6 +82323,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -84750,25 +84824,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The purpose of the resource. This field can be either PRIVATE,
- *  REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
- *  INTERNAL_HTTPS_LOAD_BALANCER. PRIVATE is the default purpose for
- *  user-created subnets or subnets that are automatically created in auto mode
- *  networks. A subnet with purpose set to REGIONAL_MANAGED_PROXY is a
- *  user-created subnetwork that is reserved for regional Envoy-based load
- *  balancers. A subnet with purpose set to PRIVATE_SERVICE_CONNECT is used to
- *  publish services using Private Service Connect. A subnet with purpose set to
- *  INTERNAL_HTTPS_LOAD_BALANCER is a proxy-only subnet that can be used only by
- *  regional internal HTTP(S) load balancers. Note that REGIONAL_MANAGED_PROXY
- *  is the preferred setting for all regional Envoy load balancers. If
- *  unspecified, the subnet purpose defaults to PRIVATE. The enableFlowLogs
- *  field isn't supported if the subnet purpose field is set to
- *  REGIONAL_MANAGED_PROXY.
+ *  GLOBAL_MANAGED_PROXY, REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
+ *  PRIVATE is the default purpose for user-created subnets or subnets that are
+ *  automatically created in auto mode networks. Subnets with purpose set to
+ *  GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY are user-created subnetworks
+ *  that are reserved for Envoy-based load balancers. A subnet with purpose set
+ *  to PRIVATE_SERVICE_CONNECT is used to publish services using Private Service
+ *  Connect. If unspecified, the subnet purpose defaults to PRIVATE. The
+ *  enableFlowLogs field isn't supported if the subnet purpose field is set to
+ *  GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_GlobalManagedProxy Subnet reserved
  *        for Global Envoy-based Load Balancing. (Value: "GLOBAL_MANAGED_PROXY")
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer Subnet
- *        reserved for Internal HTTP(S) Load Balancing. (Value:
+ *        reserved for Internal HTTP(S) Load Balancing. This is a legacy
+ *        purpose, please use REGIONAL_MANAGED_PROXY instead. (Value:
  *        "INTERNAL_HTTPS_LOAD_BALANCER")
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_Private Regular user created or
  *        automatically created subnet. (Value: "PRIVATE")
@@ -84791,13 +84862,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
+/** The URL of the reserved internal range. */
+@property(nonatomic, copy, nullable) NSString *reservedInternalRange;
+
 /**
- *  The role of subnetwork. Currently, this field is only used when purpose =
- *  REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE
- *  subnetwork is one that is currently being used for Envoy-based load
- *  balancers in a region. A BACKUP subnetwork is one that is ready to be
- *  promoted to ACTIVE or is currently draining. This field can be updated with
- *  a patch request.
+ *  The role of subnetwork. Currently, this field is only used when purpose is
+ *  set to GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY. The value can be set
+ *  to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being
+ *  used for Envoy-based load balancers in a region. A BACKUP subnetwork is one
+ *  that is ready to be promoted to ACTIVE or is currently draining. This field
+ *  can be updated with a patch request.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Role_Active The ACTIVE subnet that is
@@ -85327,6 +85401,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  and comply with RFC1035. The name must be unique within the subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *rangeName;
+
+/** The URL of the reserved internal range. */
+@property(nonatomic, copy, nullable) NSString *reservedInternalRange;
 
 @end
 
@@ -91273,26 +91350,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The purpose of the resource. This field can be either PRIVATE,
- *  REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
- *  INTERNAL_HTTPS_LOAD_BALANCER. PRIVATE is the default purpose for
- *  user-created subnets or subnets that are automatically created in auto mode
- *  networks. A subnet with purpose set to REGIONAL_MANAGED_PROXY is a
- *  user-created subnetwork that is reserved for regional Envoy-based load
- *  balancers. A subnet with purpose set to PRIVATE_SERVICE_CONNECT is used to
- *  publish services using Private Service Connect. A subnet with purpose set to
- *  INTERNAL_HTTPS_LOAD_BALANCER is a proxy-only subnet that can be used only by
- *  regional internal HTTP(S) load balancers. Note that REGIONAL_MANAGED_PROXY
- *  is the preferred setting for all regional Envoy load balancers. If
- *  unspecified, the subnet purpose defaults to PRIVATE. The enableFlowLogs
- *  field isn't supported if the subnet purpose field is set to
- *  REGIONAL_MANAGED_PROXY.
+ *  GLOBAL_MANAGED_PROXY, REGIONAL_MANAGED_PROXY, PRIVATE_SERVICE_CONNECT, or
+ *  PRIVATE is the default purpose for user-created subnets or subnets that are
+ *  automatically created in auto mode networks. Subnets with purpose set to
+ *  GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY are user-created subnetworks
+ *  that are reserved for Envoy-based load balancers. A subnet with purpose set
+ *  to PRIVATE_SERVICE_CONNECT is used to publish services using Private Service
+ *  Connect. If unspecified, the subnet purpose defaults to PRIVATE. The
+ *  enableFlowLogs field isn't supported if the subnet purpose field is set to
+ *  GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_GlobalManagedProxy Subnet
  *        reserved for Global Envoy-based Load Balancing. (Value:
  *        "GLOBAL_MANAGED_PROXY")
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer
- *        Subnet reserved for Internal HTTP(S) Load Balancing. (Value:
+ *        Subnet reserved for Internal HTTP(S) Load Balancing. This is a legacy
+ *        purpose, please use REGIONAL_MANAGED_PROXY instead. (Value:
  *        "INTERNAL_HTTPS_LOAD_BALANCER")
  *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_Private Regular user created
  *        or automatically created subnet. (Value: "PRIVATE")
@@ -91310,12 +91384,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *purpose;
 
 /**
- *  The role of subnetwork. Currently, this field is only used when purpose =
- *  REGIONAL_MANAGED_PROXY. The value can be set to ACTIVE or BACKUP. An ACTIVE
- *  subnetwork is one that is currently being used for Envoy-based load
- *  balancers in a region. A BACKUP subnetwork is one that is ready to be
- *  promoted to ACTIVE or is currently draining. This field can be updated with
- *  a patch request.
+ *  The role of subnetwork. Currently, this field is only used when purpose is
+ *  set to GLOBAL_MANAGED_PROXY or REGIONAL_MANAGED_PROXY. The value can be set
+ *  to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being
+ *  used for Envoy-based load balancers in a region. A BACKUP subnetwork is one
+ *  that is ready to be promoted to ACTIVE or is currently draining. This field
+ *  can be updated with a patch request.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_UsableSubnetwork_Role_Active The ACTIVE subnet that

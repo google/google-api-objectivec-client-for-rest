@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Connection API (bigqueryconnection/v1beta1)
+//   BigQuery Connection API (bigqueryconnection/v1)
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
@@ -16,13 +16,22 @@
 
 @class GTLRBigQueryConnectionService_AuditConfig;
 @class GTLRBigQueryConnectionService_AuditLogConfig;
+@class GTLRBigQueryConnectionService_AwsAccessRole;
+@class GTLRBigQueryConnectionService_AwsProperties;
+@class GTLRBigQueryConnectionService_AzureProperties;
 @class GTLRBigQueryConnectionService_Binding;
+@class GTLRBigQueryConnectionService_CloudResourceProperties;
+@class GTLRBigQueryConnectionService_CloudSpannerProperties;
 @class GTLRBigQueryConnectionService_CloudSqlCredential;
 @class GTLRBigQueryConnectionService_CloudSqlProperties;
 @class GTLRBigQueryConnectionService_Connection;
 @class GTLRBigQueryConnectionService_Expr;
 @class GTLRBigQueryConnectionService_GetPolicyOptions;
+@class GTLRBigQueryConnectionService_MetastoreServiceConfig;
 @class GTLRBigQueryConnectionService_Policy;
+@class GTLRBigQueryConnectionService_SalesforceDataCloudProperties;
+@class GTLRBigQueryConnectionService_SparkHistoryServerConfig;
+@class GTLRBigQueryConnectionService_SparkProperties;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -151,6 +160,80 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 
 /**
+ *  Authentication method for Amazon Web Services (AWS) that uses Google owned
+ *  Google service account to assume into customer's AWS IAM Role.
+ */
+@interface GTLRBigQueryConnectionService_AwsAccessRole : GTLRObject
+
+/**
+ *  The user’s AWS IAM Role that trusts the Google-owned AWS IAM user
+ *  Connection.
+ */
+@property(nonatomic, copy, nullable) NSString *iamRoleId;
+
+/**
+ *  A unique Google-owned and Google-generated identity for the Connection. This
+ *  identity will be used to access the user's AWS IAM Role.
+ */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+@end
+
+
+/**
+ *  Connection properties specific to Amazon Web Services (AWS).
+ */
+@interface GTLRBigQueryConnectionService_AwsProperties : GTLRObject
+
+/**
+ *  Authentication using Google owned service account to assume into customer's
+ *  AWS IAM Role.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_AwsAccessRole *accessRole;
+
+@end
+
+
+/**
+ *  Container for connection properties specific to Azure.
+ */
+@interface GTLRBigQueryConnectionService_AzureProperties : GTLRObject
+
+/** Output only. The name of the Azure Active Directory Application. */
+@property(nonatomic, copy, nullable) NSString *application;
+
+/** Output only. The client id of the Azure Active Directory Application. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The id of customer's directory that host the data. */
+@property(nonatomic, copy, nullable) NSString *customerTenantId;
+
+/**
+ *  The client ID of the user's Azure Active Directory Application used for a
+ *  federated connection.
+ */
+@property(nonatomic, copy, nullable) NSString *federatedApplicationClientId;
+
+/**
+ *  Output only. A unique Google-owned and Google-generated identity for the
+ *  Connection. This identity will be used to access the user's Azure Active
+ *  Directory Application.
+ */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+/** Output only. The object id of the Azure Active Directory Application. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The URL user will be redirected to after granting consent during connection
+ *  setup.
+ */
+@property(nonatomic, copy, nullable) NSString *redirectUri;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRBigQueryConnectionService_Binding : GTLRObject
@@ -184,9 +267,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -200,7 +299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -209,6 +311,84 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Container for connection properties for delegation of access to GCP
+ *  resources.
+ */
+@interface GTLRBigQueryConnectionService_CloudResourceProperties : GTLRObject
+
+/**
+ *  Output only. The account ID of the service created for the purpose of this
+ *  connection. The service account does not have any permissions associated
+ *  with it when it is created. After creation, customers delegate permissions
+ *  to the service account. When the connection is used in the context of an
+ *  operation in BigQuery, the service account will be used to connect to the
+ *  desired resources in GCP. The account ID is in the form of:
+ *  \@gcp-sa-bigquery-cloudresource.iam.gserviceaccount.com
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+@end
+
+
+/**
+ *  Connection properties specific to Cloud Spanner.
+ */
+@interface GTLRBigQueryConnectionService_CloudSpannerProperties : GTLRObject
+
+/** Cloud Spanner database in the form `project/instance/database' */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. Cloud Spanner database role for fine-grained access control. The
+ *  Cloud Spanner admin should have provisioned the database role with
+ *  appropriate permissions, such as `SELECT` and `INSERT`. Other users should
+ *  only use roles provided by their Cloud Spanner admins. For more details, see
+ *  [About fine-grained access control]
+ *  (https://cloud.google.com/spanner/docs/fgac-about). REQUIRES: The database
+ *  role name must start with a letter, and can only contain letters, numbers,
+ *  and underscores.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseRole;
+
+/**
+ *  Allows setting max parallelism per query when executing on Spanner
+ *  independent compute resources. If unspecified, default values of parallelism
+ *  are chosen that are dependent on the Cloud Spanner instance configuration.
+ *  REQUIRES: `use_parallelism` must be set. REQUIRES: `use_data_boost` must be
+ *  set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParallelism;
+
+/**
+ *  If set, the request will be executed via Spanner independent compute
+ *  resources. REQUIRES: `use_parallelism` must be set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDataBoost;
+
+/**
+ *  If parallelism should be used when reading from Cloud Spanner
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useParallelism;
+
+/**
+ *  Deprecated: prefer use_data_boost instead. If the serverless analytics
+ *  service should be used to read data from Cloud Spanner. Note:
+ *  `use_parallelism` must be set when using serverless analytics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useServerlessAnalytics GTLR_DEPRECATED;
 
 @end
 
@@ -271,6 +451,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  */
 @interface GTLRBigQueryConnectionService_Connection : GTLRObject
 
+/** Amazon Web Services (AWS) properties. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_AwsProperties *aws;
+
+/** Azure properties. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_AzureProperties *azure;
+
+/** Cloud Resource properties. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CloudResourceProperties *cloudResource;
+
+/** Cloud Spanner properties. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CloudSpannerProperties *cloudSpanner;
+
 /** Cloud SQL properties. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CloudSqlProperties *cloudSql;
 
@@ -299,6 +491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 @property(nonatomic, strong, nullable) NSNumber *hasCredential;
 
 /**
+ *  Optional. The Cloud KMS key that is used for encryption. Example:
+ *  `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
  *  Output only. The last update timestamp of the connection.
  *
  *  Uses NSNumber of longLongValue.
@@ -306,21 +504,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  The resource name of the connection in the form of:
+ *  Output only. The resource name of the connection in the form of:
  *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-@end
-
-
 /**
- *  Credential to use with a connection.
+ *  Optional. Salesforce DataCloud properties. This field is intended for use
+ *  only by Salesforce partner projects. This field contains properties for your
+ *  Salesforce DataCloud connection.
  */
-@interface GTLRBigQueryConnectionService_ConnectionCredential : GTLRObject
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_SalesforceDataCloudProperties *salesforceDataCloud;
 
-/** Credential for Cloud SQL database. */
-@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CloudSqlCredential *cloudSql;
+/** Spark properties. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_SparkProperties *spark;
 
 @end
 
@@ -447,6 +644,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 
 /**
+ *  Configuration of the Dataproc Metastore Service.
+ */
+@interface GTLRBigQueryConnectionService_MetastoreServiceConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of an existing Dataproc Metastore service. Example:
+ *  * `projects/[project_id]/locations/[region]/services/[service_id]`
+ */
+@property(nonatomic, copy, nullable) NSString *metastoreService;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -538,6 +749,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 
 /**
+ *  Connection properties specific to Salesforce DataCloud. This is intended for
+ *  use only by Salesforce partner projects.
+ */
+@interface GTLRBigQueryConnectionService_SalesforceDataCloudProperties : GTLRObject
+
+/**
+ *  Output only. A unique Google-owned and Google-generated service account
+ *  identity for the connection.
+ */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+/** The URL to the user's Salesforce DataCloud instance. */
+@property(nonatomic, copy, nullable) NSString *instanceUri;
+
+/** The ID of the user's Salesforce tenant. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRBigQueryConnectionService_SetIamPolicyRequest : GTLRObject
@@ -557,6 +789,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Configuration of the Spark History Server.
+ */
+@interface GTLRBigQueryConnectionService_SparkHistoryServerConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of an existing Dataproc Cluster to act as a Spark
+ *  History Server for the connection. Example: *
+ *  `projects/[project_id]/regions/[region]/clusters/[cluster_name]`
+ */
+@property(nonatomic, copy, nullable) NSString *dataprocCluster;
+
+@end
+
+
+/**
+ *  Container for connection properties to execute stored procedures for Apache
+ *  Spark.
+ */
+@interface GTLRBigQueryConnectionService_SparkProperties : GTLRObject
+
+/** Optional. Dataproc Metastore Service configuration for the connection. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_MetastoreServiceConfig *metastoreServiceConfig;
+
+/**
+ *  Output only. The account ID of the service created for the purpose of this
+ *  connection. The service account does not have any permissions associated
+ *  with it when it is created. After creation, customers delegate permissions
+ *  to the service account. When the connection is used in the context of a
+ *  stored procedure for Apache Spark in BigQuery, the service account is used
+ *  to connect to the desired resources in Google Cloud. The account ID is in
+ *  the form of: bqcx--\@gcp-sa-bigquery-consp.iam.gserviceaccount.com
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+/** Optional. Spark History Server configuration for the connection. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_SparkHistoryServerConfig *sparkHistoryServerConfig;
 
 @end
 

@@ -19,6 +19,12 @@ NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_Li
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeDefault = @"LICENSE_TYPE_DEFAULT";
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeUnspecified = @"LICENSE_TYPE_UNSPECIFIED";
 
+// GTLRMigrationCenterAPI_ComputeEnginePreferences.persistentDiskType
+NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
+NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
+NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
+NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_PersistentDiskType_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
 // GTLRMigrationCenterAPI_ComputeStorageDescriptor.type
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced = @"PERSISTENT_DISK_TYPE_BALANCED";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
@@ -645,7 +651,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ComputeEnginePreferences
-@dynamic licenseType, machinePreferences;
+@dynamic licenseType, machinePreferences, persistentDiskType;
 @end
 
 

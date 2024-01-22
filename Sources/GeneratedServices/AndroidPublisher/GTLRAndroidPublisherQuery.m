@@ -120,6 +120,145 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_ApprecoveryAddTargeting
+
+@dynamic appRecoveryId, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_AddTargetingRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appRecoveryId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:addTargeting";
+  GTLRAndroidPublisherQuery_ApprecoveryAddTargeting *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.appRecoveryId = appRecoveryId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_AddTargetingResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.addTargeting";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
+  GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListAppRecoveriesResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.appRecoveries";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryCancel
+
+@dynamic appRecoveryId, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appRecoveryId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:cancel";
+  GTLRAndroidPublisherQuery_ApprecoveryCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.appRecoveryId = appRecoveryId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_CancelAppRecoveryResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryCreate
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CreateDraftAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
+  GTLRAndroidPublisherQuery_ApprecoveryCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_AppRecoveryAction class];
+  query.loggingName = @"androidpublisher.apprecovery.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryDeploy
+
+@dynamic appRecoveryId, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeployAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appRecoveryId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:deploy";
+  GTLRAndroidPublisherQuery_ApprecoveryDeploy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.appRecoveryId = appRecoveryId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_DeployAppRecoveryResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.deploy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
 
 @dynamic editId, packageName;
@@ -2651,6 +2790,37 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.token = token;
   query.expectedObjectClass = [GTLRAndroidPublisher_SubscriptionPurchaseV2 class];
   query.loggingName = @"androidpublisher.purchases.subscriptionsv2.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Revoke
+
+@dynamic packageName, token;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptionsv2/tokens/{token}:revoke";
+  GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Revoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.token = token;
+  query.expectedObjectClass = [GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse class];
+  query.loggingName = @"androidpublisher.purchases.subscriptionsv2.revoke";
   return query;
 }
 

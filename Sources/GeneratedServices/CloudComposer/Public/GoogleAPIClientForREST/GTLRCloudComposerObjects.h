@@ -17,7 +17,9 @@
 @class GTLRCloudComposer_AllowedIpRange;
 @class GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies;
 @class GTLRCloudComposer_CidrBlock;
+@class GTLRCloudComposer_CloudDataLineageIntegration;
 @class GTLRCloudComposer_DatabaseConfig;
+@class GTLRCloudComposer_DataRetentionConfig;
 @class GTLRCloudComposer_Date;
 @class GTLRCloudComposer_EncryptionConfig;
 @class GTLRCloudComposer_Environment;
@@ -46,6 +48,7 @@
 @class GTLRCloudComposer_Status;
 @class GTLRCloudComposer_Status_Details_Item;
 @class GTLRCloudComposer_StorageConfig;
+@class GTLRCloudComposer_TaskLogsRetentionConfig;
 @class GTLRCloudComposer_TriggererResource;
 @class GTLRCloudComposer_WebServerConfig;
 @class GTLRCloudComposer_WebServerNetworkAccessControl;
@@ -284,6 +287,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /** Value: "SUCCESSFUL" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_TaskLogsRetentionConfig.storageMode
+
+/**
+ *  Store task logs in Cloud Logging and in the environment's Cloud Storage
+ *  bucket.
+ *
+ *  Value: "CLOUD_LOGGING_AND_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingAndCloudStorage;
+/**
+ *  Store task logs in Cloud Logging only.
+ *
+ *  Value: "CLOUD_LOGGING_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingOnly;
+/**
+ *  This configuration is not specified by the user.
+ *
+ *  Value: "TASK_LOGS_STORAGE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogsStorageModeUnspecified;
+
 /**
  *  Allowed IP range with user-provided description.
  */
@@ -378,6 +404,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  Configuration for Cloud Data Lineage integration.
+ */
+@interface GTLRCloudComposer_CloudDataLineageIntegration : GTLRObject
+
+/**
+ *  Optional. Whether or not Cloud Data Lineage integration is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  The configuration of Cloud SQL instance that is used by the Apache Airflow
  *  software.
  */
@@ -418,6 +459,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Response for DatabaseFailoverRequest.
  */
 @interface GTLRCloudComposer_DatabaseFailoverResponse : GTLRObject
+@end
+
+
+/**
+ *  The configuration setting for Airflow database data retention mechanism.
+ */
+@interface GTLRCloudComposer_DataRetentionConfig : GTLRObject
+
+/** Optional. The configuration settings for task logs retention */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_TaskLogsRetentionConfig *taskLogsRetentionConfig;
+
 @end
 
 
@@ -611,6 +663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  by Apache Airflow software.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_DatabaseConfig *databaseConfig;
+
+/**
+ *  Optional. The configuration setting for Airflow database data retention
+ *  mechanism.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_DataRetentionConfig *dataRetentionConfig;
 
 /**
  *  Optional. The encryption options for the Cloud Composer environment and its
@@ -1712,6 +1770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides *airflowConfigOverrides;
 
+/** Optional. The configuration for Cloud Data Lineage integration. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_CloudDataLineageIntegration *cloudDataLineageIntegration;
+
 /**
  *  Optional. Additional environment variables to provide to the Apache Airflow
  *  scheduler, worker, and webserver processes. Environment variable names must
@@ -1934,6 +1995,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  `gs://` prefix.
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+@end
+
+
+/**
+ *  The configuration setting for Task Logs.
+ */
+@interface GTLRCloudComposer_TaskLogsRetentionConfig : GTLRObject
+
+/**
+ *  Optional. The mode of storage for Airflow workers task logs. For details,
+ *  see go/composer-store-task-logs-in-cloud-logging-only-design-doc
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingAndCloudStorage
+ *        Store task logs in Cloud Logging and in the environment's Cloud
+ *        Storage bucket. (Value: "CLOUD_LOGGING_AND_CLOUD_STORAGE")
+ *    @arg @c kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingOnly
+ *        Store task logs in Cloud Logging only. (Value: "CLOUD_LOGGING_ONLY")
+ *    @arg @c kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogsStorageModeUnspecified
+ *        This configuration is not specified by the user. (Value:
+ *        "TASK_LOGS_STORAGE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageMode;
 
 @end
 

@@ -4900,11 +4900,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Url of the forward proxy to be applied to the runtime instances in
+ *  Optional. URI of the forward proxy to be applied to the runtime instances in
  *  this environment. Must be in the format of {scheme}://{hostname}:{port}.
- *  Note that scheme must be one of "http" or "https", and port must be
+ *  Note that the scheme must be one of "http" or "https", and the port must be
  *  supplied. To remove a forward proxy setting, update the field to an empty
- *  value.
+ *  value. Note: At this time, PUT operations to add forwardProxyUri to an
+ *  existing environment fail if the environment has nodeConfig set up. To
+ *  successfully add the forwardProxyUri setting in this case, include the
+ *  NodeConfig details with the request.
  */
 @property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
@@ -9126,14 +9129,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  following: api_keys: ["key1", "key2"] and developers: ["dev1", "dev2"] then
  *  this is interpreted as: enforce the action if the incoming request has
  *  ((api_key = "key1" OR api_key="key") AND (developer="dev1" OR
- *  developer="dev2"))
+ *  developer="dev2")).
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig : GTLRObject
 
 /**
  *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
  *  Static Content Scraper, OAuth Abuser, Robot Abuser, TorListRule, Advanced
- *  Anomaly Detection and Advanced API Scraper.
+ *  Anomaly Detection, Advanced API Scraper, Search Engine Crawlers, Public
+ *  Cloud, Public Cloud AWS, Public Cloud Azure, and Public Cloud GCP.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *botReasons;
 

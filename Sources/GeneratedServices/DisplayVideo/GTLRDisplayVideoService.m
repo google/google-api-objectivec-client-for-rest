@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Display & Video 360 API (displayvideo/v3)
+//   Display & Video 360 API (displayvideo/v4)
 // Description:
 //   Display & Video 360 API allows users to automate complex Display & Video
 //   360 workflows, such as creating insertion orders and setting targeting
@@ -16,8 +16,6 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo        = @"https://www.googleapis.com/auth/display-video";
-NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning = @"https://www.googleapis.com/auth/display-video-mediaplanning";
-NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoUserManagement = @"https://www.googleapis.com/auth/display-video-user-management";
 NSString * const kGTLRAuthScopeDisplayVideoDoubleclickbidmanager = @"https://www.googleapis.com/auth/doubleclickbidmanager";
 
 // ----------------------------------------------------------------------------

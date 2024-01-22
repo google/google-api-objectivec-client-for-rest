@@ -404,7 +404,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
-/** The type of delivery mechanism used for this channel. */
+/**
+ *  The type of delivery mechanism used for this channel. Valid values are
+ *  "web_hook" or "webhook".
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end

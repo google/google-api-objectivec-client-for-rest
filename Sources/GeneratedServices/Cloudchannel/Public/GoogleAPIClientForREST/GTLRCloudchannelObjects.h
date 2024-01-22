@@ -2829,7 +2829,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest : GTLRObject
 
-/** Required. Domain to fetch for Cloud Identity account customer. */
+/**
+ *  Required. Domain to fetch for Cloud Identity account customers, including
+ *  domained and domainless.
+ */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 @end

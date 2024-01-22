@@ -17,6 +17,11 @@ NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAppHub_AuditConfig
@@ -244,6 +249,16 @@ NSString * const kGTLRAppHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_T
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ReconciliationOperationMetadata
+//
+
+@implementation GTLRAppHub_ReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
 @end
 
 

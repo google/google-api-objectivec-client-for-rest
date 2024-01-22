@@ -346,6 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The account resource for which to return change history resources.
+ *  Format: accounts/{account} Example: "accounts/100"
  */
 @property(nonatomic, copy, nullable) NSString *account;
 
@@ -360,7 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest to include
  *    in the query.
  *  @param account Required. The account resource for which to return change
- *    history resources.
+ *    history resources. Format: accounts/{account} Example: "accounts/100"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
  */

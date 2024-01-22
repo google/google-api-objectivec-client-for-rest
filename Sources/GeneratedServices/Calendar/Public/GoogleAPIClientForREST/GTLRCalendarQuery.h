@@ -27,6 +27,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// eventTypes
+
+/**
+ *  Regular events.
+ *
+ *  Value: "default"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarEventTypesDefault;
+/**
+ *  Focus time events.
+ *
+ *  Value: "focusTime"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarEventTypesFocusTime;
+/**
+ *  Out of office events.
+ *
+ *  Value: "outOfOffice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarEventTypesOutOfOffice;
+/**
+ *  Working location events.
+ *
+ *  Value: "workingLocation"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarEventTypesWorkingLocation;
+
+// ----------------------------------------------------------------------------
 // minAccessRole
 
 /**
@@ -1395,11 +1423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  */
 @interface GTLRCalendarQuery_EventsList : GTLRCalendarQuery
 
-/**
- *  Deprecated and ignored. A value will always be returned in the email field
- *  for the organizer, creator and attendees, even if no real email address is
- *  available (i.e. a generated, non-working value will be provided).
- */
+/** Deprecated and ignored. */
 @property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
@@ -1410,13 +1434,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
- *  Event types to return. Optional. Possible values are:
- *  - "default"
- *  - "focusTime"
- *  - "outOfOffice"
- *  - "workingLocation"This parameter can be repeated multiple times to return
- *  events of different types. The default is ["default", "focusTime",
- *  "outOfOffice"].
+ *  Event types to return. Optional. This parameter can be repeated multiple
+ *  times to return events of different types. The default is ["default",
+ *  "focusTime", "outOfOffice"].
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")
+ *    @arg @c kGTLRCalendarEventTypesFocusTime Focus time events. (Value:
+ *        "focusTime")
+ *    @arg @c kGTLRCalendarEventTypesOutOfOffice Out of office events. (Value:
+ *        "outOfOffice")
+ *    @arg @c kGTLRCalendarEventTypesWorkingLocation Working location events.
+ *        (Value: "workingLocation")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
 
@@ -1476,6 +1505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  - location
  *  - attendee's displayName
  *  - attendee's email
+ *  - organizer's displayName
+ *  - organizer's email
  *  - workingLocationProperties.officeLocation.buildingId
  *  - workingLocationProperties.officeLocation.deskId
  *  - workingLocationProperties.officeLocation.label
@@ -1927,11 +1958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  */
 @interface GTLRCalendarQuery_EventsWatch : GTLRCalendarQuery
 
-/**
- *  Deprecated and ignored. A value will always be returned in the email field
- *  for the organizer, creator and attendees, even if no real email address is
- *  available (i.e. a generated, non-working value will be provided).
- */
+/** Deprecated and ignored. */
 @property(nonatomic, assign) BOOL alwaysIncludeEmail;
 
 /**
@@ -1942,13 +1969,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
- *  Event types to return. Optional. Possible values are:
- *  - "default"
- *  - "focusTime"
- *  - "outOfOffice"
- *  - "workingLocation"This parameter can be repeated multiple times to return
- *  events of different types. The default is ["default", "focusTime",
- *  "outOfOffice"].
+ *  Event types to return. Optional. This parameter can be repeated multiple
+ *  times to return events of different types. The default is ["default",
+ *  "focusTime", "outOfOffice"].
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")
+ *    @arg @c kGTLRCalendarEventTypesFocusTime Focus time events. (Value:
+ *        "focusTime")
+ *    @arg @c kGTLRCalendarEventTypesOutOfOffice Out of office events. (Value:
+ *        "outOfOffice")
+ *    @arg @c kGTLRCalendarEventTypesWorkingLocation Working location events.
+ *        (Value: "workingLocation")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
 
@@ -2008,6 +2040,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  - location
  *  - attendee's displayName
  *  - attendee's email
+ *  - organizer's displayName
+ *  - organizer's email
  *  - workingLocationProperties.officeLocation.buildingId
  *  - workingLocationProperties.officeLocation.deskId
  *  - workingLocationProperties.officeLocation.label

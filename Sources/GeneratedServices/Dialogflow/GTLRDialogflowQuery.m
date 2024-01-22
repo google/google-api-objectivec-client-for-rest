@@ -833,6 +833,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsServerStreamingDetectIntent
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v3/{+session}:serverStreamingDetectIntent";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsServerStreamingDetectIntent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.sessions.serverStreamingDetectIntent";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsExport
 
 @dynamic name;
@@ -2078,6 +2105,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.session = session;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentResponse class];
   query.loggingName = @"dialogflow.projects.locations.agents.sessions.matchIntent";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsServerStreamingDetectIntent
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v3/{+session}:serverStreamingDetectIntent";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsServerStreamingDetectIntent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.sessions.serverStreamingDetectIntent";
   return query;
 }
 

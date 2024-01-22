@@ -80,6 +80,20 @@ NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_In
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled = @"NOT_INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Pending = @"PENDING";
 
+// GTLRGKEHub_ConfigManagementConfigSyncState.reposyncCrd
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_CrdStateUnspecified = @"CRD_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Terminating = @"TERMINATING";
+
+// GTLRGKEHub_ConfigManagementConfigSyncState.rootsyncCrd
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_CrdStateUnspecified = @"CRD_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installing = @"INSTALLING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_NotInstalled = @"NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating = @"TERMINATING";
+
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Error = @"ERROR";
@@ -635,7 +649,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_CommonFeatureSpec
-@dynamic appdevexperience, clusterupgrade, fleetobservability,
+@dynamic appdevexperience, clusterupgrade, dataplanev2, fleetobservability,
          multiclusteringress;
 @end
 
@@ -698,7 +712,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSyncState
-@dynamic deploymentState, errors, syncState, version;
+@dynamic deploymentState, errors, reposyncCrd, rootsyncCrd, syncState, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -980,6 +994,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ConnectAgentResource
 @dynamic manifest, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_DataplaneV2FeatureSpec
+//
+
+@implementation GTLRGKEHub_DataplaneV2FeatureSpec
+@dynamic enableEncryption;
 @end
 
 

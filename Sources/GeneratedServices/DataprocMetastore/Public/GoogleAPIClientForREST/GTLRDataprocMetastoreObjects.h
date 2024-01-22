@@ -2288,9 +2288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @interface GTLRDataprocMetastore_RestoreServiceRequest : GTLRObject
 
 /**
- *  Required. The relative resource name of the metastore service backup to
+ *  Optional. The relative resource name of the metastore service backup to
  *  restore from, in the following
  *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}.
+ *  Mutually exclusive with backup_location, and exactly one of the two must be
+ *  set.
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 

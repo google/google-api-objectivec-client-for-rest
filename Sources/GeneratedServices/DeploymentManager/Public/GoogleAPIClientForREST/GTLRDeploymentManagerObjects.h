@@ -1437,7 +1437,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *  or zonal. - For global operations, use the `globalOperations` resource. -
  *  For regional operations, use the `regionOperations` resource. - For zonal
  *  operations, use the `zoneOperations` resource. For more information, read
- *  Global, Regional, and Zonal Resources.
+ *  Global, Regional, and Zonal Resources. Note that completed Operation
+ *  resources have a limited retention period.
  */
 @interface GTLRDeploymentManager_Operation : GTLRObject
 

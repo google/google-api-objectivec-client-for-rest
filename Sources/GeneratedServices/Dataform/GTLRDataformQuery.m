@@ -1252,7 +1252,7 @@
 
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesReadFile
 
-@dynamic path, workspace;
+@dynamic path, revision, workspace;
 
 + (instancetype)queryWithWorkspace:(NSString *)workspace {
   NSArray *pathParams = @[ @"workspace" ];

@@ -1126,6 +1126,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaExportAnalyticsMetricsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaExportAnalyticsMetricsResponse
+@dynamic errorSamples, errorsConfig, outputResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig
 //
 
@@ -1563,7 +1581,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig
-@dynamic facetIntervals, ignoredFacetValues, mergedFacetValues;
+@dynamic facetIntervals, ignoredFacetValues, mergedFacetValues, rerankConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1606,6 +1624,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig
+@dynamic facetValues, rerankFacet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facetValues" : [NSString class]
   };
   return map;
 }

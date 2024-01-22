@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Connection API (bigqueryconnection/v1beta1)
+//   BigQuery Connection API (bigqueryconnection/v1)
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:

@@ -58,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  `organizations/{organization_id}`, for example, `organizations/12345678` -
  *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
@@ -448,7 +447,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  `organizations/{organization_id}`, for example, `organizations/12345678` -
  *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
@@ -473,7 +471,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
  *  @param parent Optional. The parent to create a billing account from. Format:
- *    - `organizations/{organization_id}`, for example, `organizations/12345678`
  *    - `billingAccounts/{billing_account_id}`, for example,
  *    `billingAccounts/012345-567890-ABCDEF`
  *
@@ -615,7 +612,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The parent to create a billing account from. Format: -
- *  `organizations/{organization_id}`, for example, `organizations/12345678` -
  *  `billingAccounts/{billing_account_id}`, for example,
  *  `billingAccounts/012345-567890-ABCDEF`
  */
@@ -640,7 +636,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
  *  @param parent Optional. The parent to create a billing account from. Format:
- *    - `organizations/{organization_id}`, for example, `organizations/12345678`
  *    - `billingAccounts/{billing_account_id}`, for example,
  *    `billingAccounts/012345-567890-ABCDEF`
  *

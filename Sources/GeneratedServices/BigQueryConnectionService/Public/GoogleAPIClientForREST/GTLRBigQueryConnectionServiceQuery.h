@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Connection API (bigqueryconnection/v1beta1)
+//   BigQuery Connection API (bigqueryconnection/v1)
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
@@ -184,8 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList : GTLRBigQueryConnectionServiceQuery
 
-/** Required. Maximum number of results per page. */
-@property(nonatomic, assign) NSUInteger maxResults;
+/** Required. Page size. */
+@property(nonatomic, assign) NSInteger pageSize;
 
 /** Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -340,40 +340,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBigQueryConnectionService_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the credential for the specified connection.
- *
- *  Method: bigqueryconnection.projects.locations.connections.updateCredential
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryConnectionServiceBigquery
- *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
- */
-@interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential : GTLRBigQueryConnectionServiceQuery
-
-/**
- *  Required. Name of the connection, for example:
- *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}/credential`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRBigQueryConnectionService_Empty.
- *
- *  Sets the credential for the specified connection.
- *
- *  @param object The @c GTLRBigQueryConnectionService_ConnectionCredential to
- *    include in the query.
- *  @param name Required. Name of the connection, for example:
- *    `projects/{project_id}/locations/{location_id}/connections/{connection_id}/credential`
- *
- *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential
- */
-+ (instancetype)queryWithObject:(GTLRBigQueryConnectionService_ConnectionCredential *)object
-                           name:(NSString *)name;
 
 @end
 

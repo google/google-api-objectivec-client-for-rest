@@ -98,6 +98,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_BucketMetadata_State_OperationSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_BucketMetadata_State_OperationStateFailed;
 /**
+ *  The operation is waiting for quota.
+ *
+ *  Value: "OPERATION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_BucketMetadata_State_OperationStatePending;
+/**
  *  The operation is running.
  *
  *  Value: "OPERATION_STATE_RUNNING"
@@ -143,6 +149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_Ope
  *  Value: "OPERATION_STATE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed;
+/**
+ *  The operation is waiting for quota.
+ *
+ *  Value: "OPERATION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStatePending;
 /**
  *  The operation is running.
  *
@@ -300,6 +312,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_LinkMetadata_State_OperationStat
  *  Value: "OPERATION_STATE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_LinkMetadata_State_OperationStateFailed;
+/**
+ *  The operation is waiting for quota.
+ *
+ *  Value: "OPERATION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LinkMetadata_State_OperationStatePending;
 /**
  *  The operation is running.
  *
@@ -915,7 +933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  State of an operation.
+ *  Output only. State of an operation.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_BucketMetadata_State_OperationStateCancelled The
@@ -923,6 +941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        "OPERATION_STATE_CANCELLED")
  *    @arg @c kGTLRLogging_BucketMetadata_State_OperationStateFailed The
  *        operation failed. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRLogging_BucketMetadata_State_OperationStatePending The
+ *        operation is waiting for quota. (Value: "OPERATION_STATE_PENDING")
  *    @arg @c kGTLRLogging_BucketMetadata_State_OperationStateRunning The
  *        operation is running. (Value: "OPERATION_STATE_RUNNING")
  *    @arg @c kGTLRLogging_BucketMetadata_State_OperationStateScheduled The
@@ -992,7 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_CmekSettings : GTLRObject
 
 /**
- *  The resource name for the configured Cloud KMS key.KMS key name format:
+ *  Optional. The resource name for the configured Cloud KMS key.KMS key name
+ *  format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
  *  For
  *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
@@ -1012,8 +1033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  The CryptoKeyVersion resource name for the configured Cloud KMS key.KMS key
- *  name format:
+ *  Output only. The CryptoKeyVersion resource name for the configured Cloud KMS
+ *  key.KMS key name format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]/cryptoKeyVersions/[VERSION]"
  *  For
  *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key/cryptoKeyVersions/1"This
@@ -1053,6 +1074,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, strong, nullable) NSNumber *cancellationRequested;
 
+/**
+ *  Destination to which to copy log entries.For example, a Cloud Storage
+ *  bucket:"storage.googleapis.com/my-cloud-storage-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
 /** The end time of an operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1066,11 +1093,17 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /** CopyLogEntries RPC request. */
 @property(nonatomic, strong, nullable) GTLRLogging_CopyLogEntriesRequest *request;
 
+/**
+ *  Source from which to copy log entries.For example, a log
+ *  bucket:"projects/my-project/locations/global/buckets/my-source-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
 /** The create time of an operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  State of an operation.
+ *  Output only. State of an operation.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled
@@ -1078,6 +1111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        "OPERATION_STATE_CANCELLED")
  *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed The
  *        operation failed. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStatePending
+ *        The operation is waiting for quota. (Value: "OPERATION_STATE_PENDING")
  *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning
  *        The operation is running. (Value: "OPERATION_STATE_RUNNING")
  *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled
@@ -1092,6 +1127,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        "OPERATION_STATE_WAITING_FOR_PERMISSIONS")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Name of the verb executed by the operation.For example,"copy" */
+@property(nonatomic, copy, nullable) NSString *verb;
 
 /**
  *  The IAM identity of a service account that must be granted access to the
@@ -1543,10 +1581,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_Link : GTLRObject
 
 /**
- *  The information of a BigQuery Dataset. When a link is created, a BigQuery
- *  dataset is created along with it, in the same project as the LogBucket it's
- *  linked to. This dataset will also have BigQuery Views corresponding to the
- *  LogViews in the bucket.
+ *  Optional. The information of a BigQuery Dataset. When a link is created, a
+ *  BigQuery dataset is created along with it, in the same project as the
+ *  LogBucket it's linked to. This dataset will also have BigQuery Views
+ *  corresponding to the LogViews in the bucket.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_BigQueryDataset *bigqueryDataset;
 
@@ -1554,7 +1592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Describes this link.The maximum length of the description is 8000
+ *  Optional. Describes this link.The maximum length of the description is 8000
  *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1586,9 +1624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
- *  The resource name of the link. The name can have up to 100 characters. A
- *  valid link id (at the end of the link name) must only have alphanumeric
- *  characters and underscores within it.
+ *  Output only. The resource name of the link. The name can have up to 100
+ *  characters. A valid link id (at the end of the link name) must only have
+ *  alphanumeric characters and underscores within it.
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
@@ -1619,7 +1657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  State of an operation.
+ *  Output only. State of an operation.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_LinkMetadata_State_OperationStateCancelled The
@@ -1627,6 +1665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        "OPERATION_STATE_CANCELLED")
  *    @arg @c kGTLRLogging_LinkMetadata_State_OperationStateFailed The operation
  *        failed. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRLogging_LinkMetadata_State_OperationStatePending The
+ *        operation is waiting for quota. (Value: "OPERATION_STATE_PENDING")
  *    @arg @c kGTLRLogging_LinkMetadata_State_OperationStateRunning The
  *        operation is running. (Value: "OPERATION_STATE_RUNNING")
  *    @arg @c kGTLRLogging_LinkMetadata_State_OperationStateScheduled The
@@ -2178,16 +2218,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_LogBucket : GTLRObject
 
 /**
- *  Whether log analytics is enabled for this bucket.Once enabled, log analytics
- *  features cannot be disabled.
+ *  Optional. Whether log analytics is enabled for this bucket.Once enabled, log
+ *  analytics features cannot be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *analyticsEnabled;
 
 /**
- *  The CMEK settings of the log bucket. If present, new log entries written to
- *  this log bucket are encrypted using the CMEK key provided in this
+ *  Optional. The CMEK settings of the log bucket. If present, new log entries
+ *  written to this log bucket are encrypted using the CMEK key provided in this
  *  configuration. If a log bucket has CMEK settings, the CMEK settings cannot
  *  be disabled later by updating the log bucket. Changing the KMS key is
  *  allowed.
@@ -2201,13 +2241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Describes this bucket.
+ *  Optional. Describes this bucket.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** A list of indexed fields and related configuration data. */
+/** Optional. A list of indexed fields and related configuration data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_IndexConfig *> *indexConfigs;
 
 /**
@@ -2235,8 +2275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
- *  Whether the bucket is locked.The retention period on a locked bucket cannot
- *  be changed. Locked buckets may only be deleted if they are empty.
+ *  Optional. Whether the bucket is locked.The retention period on a locked
+ *  bucket cannot be changed. Locked buckets may only be deleted if they are
+ *  empty.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2253,8 +2294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Log entry field paths that are denied access in this bucket.The following
- *  fields and their children are eligible: textPayload, jsonPayload,
+ *  Optional. Log entry field paths that are denied access in this bucket.The
+ *  following fields and their children are eligible: textPayload, jsonPayload,
  *  protoPayload, httpRequest, labels, sourceLocation.Restricting a repeated
  *  field will restrict all values. Adding a parent will block all child fields.
  *  (e.g. foo.bar will block foo.bar.baz)
@@ -2262,10 +2303,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedFields;
 
 /**
- *  Logs will be retained by default for this amount of time, after which they
- *  will automatically be deleted. The minimum retention period is 1 day. If
- *  this value is set to zero at bucket creation time, the default time of 30
- *  days will be used.
+ *  Optional. Logs will be retained by default for this amount of time, after
+ *  which they will automatically be deleted. The minimum retention period is 1
+ *  day. If this value is set to zero at bucket creation time, the default time
+ *  of 30 days will be used.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2673,10 +2714,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. A client-assigned identifier, such as "load-balancer-exclusion".
- *  Identifiers are limited to 100 characters and can include only letters,
- *  digits, underscores, hyphens, and periods. First character has to be
- *  alphanumeric.
+ *  Output only. A client-assigned identifier, such as
+ *  "load-balancer-exclusion". Identifiers are limited to 100 characters and can
+ *  include only letters, digits, underscores, hyphens, and periods. First
+ *  character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2975,11 +3016,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *includeChildren;
 
 /**
- *  Required. The client-assigned sink identifier, unique within the project.For
- *  example: "my-syslog-errors-to-pubsub".Sink identifiers are limited to 100
- *  characters and can include only the following characters: upper and
- *  lower-case alphanumeric characters, underscores, hyphens, periods.First
- *  character has to be alphanumeric.
+ *  Output only. The client-assigned sink identifier, unique within the
+ *  project.For example: "my-syslog-errors-to-pubsub".Sink identifiers are
+ *  limited to 100 characters and can include only the following characters:
+ *  upper and lower-case alphanumeric characters, underscores, hyphens,
+ *  periods.First character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3063,26 +3104,26 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Describes this view.
+ *  Optional. Describes this view.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Filter that restricts which log entries in a bucket are visible in this
- *  view.Filters must be logical conjunctions that use the AND operator, and
- *  they can use any of the following qualifiers: SOURCE(), which specifies a
- *  project, folder, organization, or billing account of origin. resource.type,
- *  which specifies the resource type. LOG_ID(), which identifies the log.They
- *  can also use the negations of these qualifiers with the NOT operator.For
- *  example:SOURCE("projects/myproject") AND resource.type = "gce_instance" AND
- *  NOT LOG_ID("stdout")
+ *  Optional. Filter that restricts which log entries in a bucket are visible in
+ *  this view.Filters must be logical conjunctions that use the AND operator,
+ *  and they can use any of the following qualifiers: SOURCE(), which specifies
+ *  a project, folder, organization, or billing account of origin.
+ *  resource.type, which specifies the resource type. LOG_ID(), which identifies
+ *  the log.They can also use the negations of these qualifiers with the NOT
+ *  operator.For example:SOURCE("projects/myproject") AND resource.type =
+ *  "gce_instance" AND NOT LOG_ID("stdout")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The resource name of the view.For
+ *  Output only. The resource name of the view.For
  *  example:projects/my-project/locations/global/buckets/my-bucket/views/my-view
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3502,7 +3543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Required. The monitored resource type. For example, the type
  *  "cloudsql_database" represents databases in Google Cloud SQL. For a list of
- *  types, see Monitoring resource types
+ *  types, see Monitored resource types
  *  (https://cloud.google.com/monitoring/api/resources) and Logging resource
  *  types (https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
@@ -3670,7 +3711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_Query : GTLRObject
 
 /**
- *  An advanced query using the Logging Query Language
+ *  Required. An advanced query using the Logging Query Language
  *  (https://cloud.google.com/logging/docs/view/logging-query-language). The
  *  maximum length of the filter is 20000 characters.
  */
@@ -3683,7 +3724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, strong, nullable) NSNumber *summaryFieldEnd;
 
-/** The set of summary fields to display for this saved query. */
+/** Optional. The set of summary fields to display for this saved query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_SummaryField *> *summaryFields;
 
 /**
@@ -3702,7 +3743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @interface GTLRLogging_RecentQuery : GTLRObject
 
-/** The timestamp when this query was last run. */
+/** Output only. The timestamp when this query was last run. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRunTime;
 
 /** Logging query that can be executed in Logs Explorer or via Logging API. */
@@ -3904,13 +3945,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  A human readable description of the saved query.
+ *  Optional. A human readable description of the saved query.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The user specified title for the SavedQuery. */
+/** Optional. The user specified title for the SavedQuery. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Logging query that can be executed in Logs Explorer or via Logging API. */
@@ -4109,8 +4150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_SummaryField : GTLRObject
 
 /**
- *  The field from the LogEntry to include in the summary line, for example
- *  resource.type or jsonPayload.name.
+ *  Optional. The field from the LogEntry to include in the summary line, for
+ *  example resource.type or jsonPayload.name.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 

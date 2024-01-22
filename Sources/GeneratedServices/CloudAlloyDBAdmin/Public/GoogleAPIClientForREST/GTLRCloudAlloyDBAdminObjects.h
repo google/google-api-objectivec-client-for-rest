@@ -68,11 +68,12 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
-@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CustomMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings;
@@ -924,8 +925,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLoggingQueryStatistics;
 /**
- *  LINT.IfChange(scc_signals) Represents if log_checkpoints database flag for a
- *  Cloud SQL for PostgreSQL instance is not set to on.
+ *  Represents if log_checkpoints database flag for a Cloud SQL for PostgreSQL
+ *  instance is not set to on.
  *
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
@@ -992,7 +993,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
  *  Represents if public IP is enabled.
- *  LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
  *
  *  Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED"
  */
@@ -1361,7 +1361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct.engine
 
 /**
- *  Cloud Spanner with Postgres dialect.
+ *  Cloud Spanner with Google SQL dialect.
+ *
+ *  Value: "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithGooglesqlDialect;
+/**
+ *  Cloud Spanner with PostgreSQL dialect.
  *
  *  Value: "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT"
  */
@@ -1421,12 +1427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "POSTGRES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Postgres GTLR_DEPRECATED;
-/**
- *  Cloud Spanner with Postgres dialect.
- *
- *  Value: "SPANGRES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Spangres GTLR_DEPRECATED;
 /**
  *  SQLServer binary running as engine in database instance.
  *
@@ -1492,12 +1492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeUnspecified;
-/**
- *  Spanner product area in GCP
- *
- *  Value: "SPANNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Spanner GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.supportedDbVersions
@@ -3741,6 +3735,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Any custom metadata associated with the resource. i.e. A spanner instance
+ *  can have multiple databases with its own unique metadata. Information for
+ *  these individual databases can be captured in custom metadata data
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseMetadata *> *databaseMetadata;
+
+@end
+
+
+/**
+ *  Metadata for individual databases created in an instance. i.e. spanner
+ *  instance can have multiple databases with unique configuration settings.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseMetadata : GTLRObject
+
+/** Backup configuration for this database */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration *backupConfiguration;
+
+/** Information about the last backup attempt for this database */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
+
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
+
+/**
+ *  Required. Database name. Resource name to follow CAIS resource_name format
+ *  as noted here go/condor-common-datamodel
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
  *  database resource level events into Condor platform.
  */
@@ -3979,8 +4009,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        for PostgreSQL instance is not set to off. (Value:
  *        "SIGNAL_TYPE_LOGGING_QUERY_STATISTICS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting
- *        LINT.IfChange(scc_signals) Represents if log_checkpoints database flag
- *        for a Cloud SQL for PostgreSQL instance is not set to on. (Value:
+ *        Represents if log_checkpoints database flag for a Cloud SQL for
+ *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging
  *        Represents if the log_min_messages database flag for a Cloud SQL for
@@ -4015,9 +4045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        that enables automatic failover. (Value:
  *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled
- *        Represents if public IP is enabled.
- *        LINT.ThenChange(//depot/google3/storage/databasecenter/ingestion/borgjob/message_adapter/health_signal_feed/health_signal_mapping.h)
- *        (Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
+ *        Represents if public IP is enabled. (Value:
+ *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQueryDurationsNotLogged
  *        Represents if the log_duration database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -4209,8 +4238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
-/** Any custom metadata associated with the resource (a JSON field) */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CustomMetadata *customMetadata;
+/** Any custom metadata associated with the resource */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData *customMetadata;
 
 /**
  *  The state that the instance is expected to be in. For example, an instance
@@ -4318,18 +4347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Any custom metadata associated with the resource (a JSON field)
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CustomMetadata : GTLRObject
-@end
-
-
-/**
  *  User-provided labels, represented as a dictionary where each label is a
  *  single key value pair.
  *
@@ -4400,8 +4417,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  The specific engine that the underlying database is running.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithGooglesqlDialect
+ *        Cloud Spanner with Google SQL dialect. (Value:
+ *        "ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineCloudSpannerWithPostgresDialect
- *        Cloud Spanner with Postgres dialect. (Value:
+ *        Cloud Spanner with PostgreSQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql
  *        MySQL binary running as an engine in the database instance. (Value:
@@ -4430,8 +4450,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Postgres
  *        Postgres binary running as engine in database instance. (Value:
  *        "POSTGRES")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_Spangres
- *        Cloud Spanner with Postgres dialect. (Value: "SPANGRES")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_SqlServer
  *        SQLServer binary running as engine in database instance. (Value:
  *        "SQL_SERVER")
@@ -4463,8 +4481,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeUnspecified
  *        UNSPECIFIED means product type is not known or available. (Value:
  *        "PRODUCT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_Spanner
- *        Spanner product area in GCP (Value: "SPANNER")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

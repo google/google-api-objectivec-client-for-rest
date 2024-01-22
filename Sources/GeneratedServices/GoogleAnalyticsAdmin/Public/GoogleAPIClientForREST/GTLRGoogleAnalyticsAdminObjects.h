@@ -1568,7 +1568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 /**
  *  When a conversion event for this event_name has no set currency, this
  *  currency will be applied as the default. Must be in ISO 4217 currency code
- *  format. See https://en.wikipedia.org/wiki/ISO_4217 for more.
+ *  format. See https://en.wikipedia.org/wiki/ISO_4217 for more information.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
@@ -2782,7 +2782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  Optional. Resource name for a child property. If set, only return changes
- *  made to this property or its child resources.
+ *  made to this property or its child resources. Format:
+ *  properties/{propertyId} Example: "properties/100"
  */
 @property(nonatomic, copy, nullable) NSString *property;
 

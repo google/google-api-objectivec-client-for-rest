@@ -3057,14 +3057,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Type of the link between the two accounts. Acceptable values are: -
- *  "`channelPartner`" - "`eCommercePlatform`" - "`paymentServiceProvider`"
+ *  "`channelPartner`" - "`eCommercePlatform`" - "`paymentServiceProvider`" -
+ *  "`localProductManager`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
 /**
  *  Provided services. Acceptable values are: - "`shoppingAdsProductManagement`"
  *  - "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`"
- *  - "`paymentProcessing`"
+ *  - "`paymentProcessing`" - "`localProductManagement`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -11619,7 +11620,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Center account is connected correctly and stores are available on Google
  *  Business Profile, but POS store location address does not match with Google
  *  Business Profile stores' addresses. Update POS store address or Google
- *  Business Profile store address to match correctly.
+ *  Business Profile store address to match correctly. -
+ *  "`store-match-unverified`": The provided POS store couldn't be matched to
+ *  any of the connected Google Business Profile stores, as the matched Google
+ *  Business Profile store is unverified. Go through the Google Business Profile
+ *  verification process to match correctly. - "`store-match-unavailable`": The
+ *  provided POS store couldn't be matched to any of the connected Google
+ *  Business Profile stores, as the matched Google Business Profile store is in
+ *  an invalid state. Fix any issues on your Google Business Profile store to
+ *  match correctly.
  */
 @property(nonatomic, copy, nullable) NSString *matchingStatusHint;
 
@@ -13678,8 +13687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *getThisQuantityDiscounted;
 
 /**
- *  Required. Output only. The REST promotion ID to uniquely identify the
- *  promotion. Content API methods that operate on promotions take this as their
+ *  Output only. The REST promotion ID to uniquely identify the promotion.
+ *  Content API methods that operate on promotions take this as their
  *  `promotionId` parameter. The REST ID for a promotion is of the form
  *  channel:contentLanguage:targetCountry:promotionId The `channel` field has a
  *  value of `"online"`, `"in_store"`, or `"online_in_store"`.

@@ -146,6 +146,16 @@ NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_InProgre
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_RenderStateUnspecified = @"RENDER_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_Succeeded = @"SUCCEEDED";
 
+// GTLRCloudDeploy_ReleaseRenderEvent.type
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceDeleted = @"TYPE_RESOURCE_DELETED";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRestrictionViolated = @"TYPE_RESTRICTION_VIOLATED";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudDeploy_Retry.backoffMode
 NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffModeExponential = @"BACKOFF_MODE_EXPONENTIAL";
 NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffModeLinear = @"BACKOFF_MODE_LINEAR";
@@ -1003,7 +1013,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_DeliveryPipelineNotificationEvent
-@dynamic deliveryPipeline, message, type;
+@dynamic deliveryPipeline, message, pipelineUid, type;
 @end
 
 
@@ -1151,7 +1161,8 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_GatewayServiceMesh
-@dynamic deployment, httpRoute, routeUpdateWaitTime, service;
+@dynamic deployment, httpRoute, routeUpdateWaitTime, service,
+         stableCutbackDuration;
 @end
 
 
@@ -1223,7 +1234,13 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_JobRunNotificationEvent
-@dynamic jobRun, message, pipelineUid, releaseUid, rolloutUid, targetId, type;
+@dynamic jobRun, message, pipelineUid, releaseProperty, releaseUid, rollout,
+         rolloutUid, targetId, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
 @end
 
 
@@ -1911,7 +1928,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ReleaseNotificationEvent
-@dynamic message, releaseProperty, type;
+@dynamic message, pipelineUid, releaseProperty, releaseUid, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"releaseProperty" : @"release" };
@@ -1936,7 +1953,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ReleaseRenderEvent
-@dynamic message, releaseProperty, releaseRenderState;
+@dynamic message, pipelineUid, releaseProperty, releaseRenderState, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"releaseProperty" : @"release" };
@@ -2190,7 +2207,13 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RolloutNotificationEvent
-@dynamic message, pipelineUid, releaseUid, rollout, targetId, type;
+@dynamic message, pipelineUid, releaseProperty, releaseUid, rollout, rolloutUid,
+         targetId, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
 @end
 
 
@@ -2200,8 +2223,13 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RolloutUpdateEvent
-@dynamic message, pipelineUid, releaseUid, rollout, rolloutUpdateType, targetId,
-         type;
+@dynamic message, pipelineUid, releaseProperty, releaseUid, rollout,
+         rolloutUpdateType, targetId, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
 @end
 
 

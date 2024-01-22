@@ -56,6 +56,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2ColorInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes;
@@ -2857,6 +2858,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Response of the ExportAnalyticsMetricsRequest. If the long running operation
+ *  was successful, then this message is returned by the
+ *  google.longrunning.Operations.response field if the operation was
+ *  successful.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaExportAnalyticsMetricsResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleRpcStatus *> *errorSamples;
+
+/** This field is never set. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig *errorsConfig;
+
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult *outputResult;
+
+@end
+
+
+/**
  *  Configuration of destination for Export related errors.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig : GTLRObject
@@ -3883,6 +3904,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue *> *mergedFacetValues;
 
+/**
+ *  Set this field only if you want to rerank based on facet values engaged by
+ *  the user for the current key. This option is only possible for custom
+ *  facetable textual keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig *rerankConfig;
+
 @end
 
 
@@ -3939,6 +3967,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  can have up to 128 characters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Options to rerank based on facet values engaged by the user for the current
+ *  key. That key needs to be a custom textual key and facetable. To use this
+ *  control, you also need to pass all the facet keys engaged by the user in the
+ *  request using the field [SearchRequest.FacetSpec]. In particular, if you
+ *  don't pass the facet keys engaged that you want to rerank on, this control
+ *  won't be effective. Moreover, to obtain better results, the facet values
+ *  that you want to rerank on should be close to English (ideally made of
+ *  words, underscores, and spaces).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig : GTLRObject
+
+/**
+ *  If empty, rerank on all facet values for the current key. Otherwise, will
+ *  rerank on the facet values from this list only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *facetValues;
+
+/**
+ *  If set to true, then we also rerank the dynamic facets based on the facet
+ *  values engaged by the user for the current attribute key during serving.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rerankFacet;
 
 @end
 

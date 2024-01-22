@@ -124,6 +124,7 @@
 @class GTLRBigquery_QueryParameterType;
 @class GTLRBigquery_QueryParameterType_StructTypes_Item;
 @class GTLRBigquery_QueryParameterValue;
+@class GTLRBigquery_QueryParameterValue_RangeValue;
 @class GTLRBigquery_QueryParameterValue_StructValues;
 @class GTLRBigquery_QueryRequest_Labels;
 @class GTLRBigquery_QueryTimelineSample;
@@ -3285,9 +3286,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -3301,7 +3318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -7681,6 +7701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** [Optional] The type of the array's elements, if this is an array. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *arrayType;
 
+/** [Optional] The element type of the range, if this is a range. */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *rangeElementType;
+
 /**
  *  [Optional] The types of the fields of this struct, in order, if this is a
  *  struct.
@@ -7722,6 +7745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** [Optional] The array values, if this is an array type. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameterValue *> *arrayValues;
 
+/** [Optional] The range value, if this is a range type. */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue_RangeValue *rangeValue;
+
 /**
  *  [Optional] The struct field values, in order of the struct type's
  *  declaration.
@@ -7730,6 +7756,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** [Optional] The value of this value, if a simple scalar type. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  [Optional] The range value, if this is a range type.
+ */
+@interface GTLRBigquery_QueryParameterValue_RangeValue : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *end;
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *start;
 
 @end
 
@@ -8151,6 +8188,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Represents the value of a range.
+ */
+@interface GTLRBigquery_RangeValue : GTLRObject
+
+/**
+ *  Optional. The end value of the range. A missing value represents an
+ *  unbounded end.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *end;
+
+/**
+ *  Optional. The start value of the range. A missing value represents an
+ *  unbounded start.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *start;
+
+@end
+
+
+/**
  *  Evaluation metrics used by weighted-ALS models specified by
  *  feedback_type=implicit.
  */
@@ -8531,11 +8588,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkOptions *sparkOptions;
 
 /**
- *  Optional. Can be set for procedures only. If true (default), the definition
- *  body will be validated in the creation and the updates of the procedure. For
- *  procedures with an argument of ANY TYPE, the definition body validtion is
- *  not supported at creation/update time, and thus this field must be set to
- *  false explicitly.
+ *  Optional. Use this option to catch many common errors. Error checking is not
+ *  exhaustive, and successfully creating a procedure doesn't guarantee that the
+ *  procedure will successfully execute at runtime. If `strictMode` is set to
+ *  `TRUE`, the procedure body is further checked for errors such as
+ *  non-existent tables or columns. The `CREATE PROCEDURE` statement fails if
+ *  the body fails any of these checks. If `strictMode` is set to `FALSE`, the
+ *  procedure body is checked only for syntax. For procedures that invoke
+ *  themselves recursively, specify `strictMode=FALSE` to avoid non-existent
+ *  procedure errors during validation. Default value is `TRUE`.
  *
  *  Uses NSNumber of boolValue.
  */

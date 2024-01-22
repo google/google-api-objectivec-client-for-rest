@@ -34,6 +34,20 @@ NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_Vali
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_OrgUnit = @"ORG_UNIT";
 NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_TargetResourceUnspecified = @"TARGET_RESOURCE_UNSPECIFIED";
 
+// GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints.supportedContentTypes
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeCsv = @"CONTENT_TYPE_CSV";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeGzip = @"CONTENT_TYPE_GZIP";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeHtml = @"CONTENT_TYPE_HTML";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageGif = @"CONTENT_TYPE_IMAGE_GIF";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageJpeg = @"CONTENT_TYPE_IMAGE_JPEG";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImagePng = @"CONTENT_TYPE_IMAGE_PNG";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageWebp = @"CONTENT_TYPE_IMAGE_WEBP";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeJson = @"CONTENT_TYPE_JSON";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypePlainText = @"CONTENT_TYPE_PLAIN_TEXT";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeYaml = @"CONTENT_TYPE_YAML";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeZip = @"CONTENT_TYPE_ZIP";
+
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelOptional = @"LABEL_OPTIONAL";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelRepeated = @"LABEL_REPEATED";
@@ -239,7 +253,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1FieldConstraints
-@dynamic numericRangeConstraint;
+@dynamic numericRangeConstraint, uploadedFileConstraints;
 @end
 
 
@@ -699,6 +713,24 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"groupIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints
+@dynamic sizeLimitBytes, supportedContentTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedContentTypes" : [NSString class]
   };
   return map;
 }

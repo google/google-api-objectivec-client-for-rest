@@ -2088,6 +2088,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
+/**
+ *  Optional. The Git revision of the file to return. If left empty, the current
+ *  contents of `path` will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
 /** Required. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *workspace;
 

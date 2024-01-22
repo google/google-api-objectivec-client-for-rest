@@ -36,6 +36,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus;
+@class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity;
@@ -213,6 +214,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions;
@@ -2738,6 +2740,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** The input documents for the BatchProcessDocuments method. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *inputDocuments;
 
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels *labels;
+
 /** Inference-time options for the process API */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions *processOptions;
 
@@ -2748,6 +2759,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels : GTLRObject
 @end
 
 
@@ -5989,8 +6016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset : GTLRObject
 
 /**
- *  Optional. Derepcated. Warehouse-based dataset configuration is not supported
- *  today.
+ *  Optional. Deprecated. Warehouse-based dataset configuration is not
+ *  supported.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig *documentWarehouseConfig GTLR_DEPRECATED;
 
@@ -8889,8 +8916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector *individualPageSelector;
 
 /**
- *  Only applicable to `OCR_PROCESSOR`. Returns error if set on other processor
- *  types.
+ *  Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`. Returns
+ *  error if set on other processor types.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfig *ocrConfig;
 
@@ -9210,6 +9237,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** An inline document proto. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;
 
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels *labels;
+
 /** Inference-time options for the process API */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions *processOptions;
 
@@ -9223,6 +9259,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
 
+@end
+
+
+/**
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels : GTLRObject
 @end
 
 

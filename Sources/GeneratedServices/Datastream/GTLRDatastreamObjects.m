@@ -796,6 +796,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OracleScnPosition
+//
+
+@implementation GTLRDatastream_OracleScnPosition
+@dynamic scn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_OracleSourceConfig
 //
 
@@ -1046,7 +1056,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SpecificStartPosition
-@dynamic mysqlLogPosition;
+@dynamic mysqlLogPosition, oracleScnPosition;
 @end
 
 

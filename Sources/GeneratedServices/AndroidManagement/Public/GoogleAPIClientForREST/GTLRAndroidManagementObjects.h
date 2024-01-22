@@ -1419,6 +1419,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Cellu
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.minimumWifiSecurityLevel
+
+/**
+ *  An enterprise EAP network is the minimum required security level. The device
+ *  will not be able to connect to Wi-Fi network below this security level. This
+ *  is stricter than PERSONAL_NETWORK_SECURITY. A nonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 13.
+ *
+ *  Value: "ENTERPRISE_NETWORK_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity;
+/**
+ *  Defaults to OPEN_NETWORK_SECURITY, which means the device will be able to
+ *  connect to all types of Wi-Fi networks.
+ *
+ *  Value: "MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_MinimumWifiSecurityLevelUnspecified;
+/**
+ *  The device will be able to connect to all types of Wi-Fi networks.
+ *
+ *  Value: "OPEN_NETWORK_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_OpenNetworkSecurity;
+/**
+ *  A personal network such as WEP, WPA2-PSK is the minimum required security.
+ *  The device will not be able to connect to open wifi networks. This is
+ *  stricter than OPEN_NETWORK_SECURITY. A nonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 13.
+ *
+ *  Value: "PERSONAL_NETWORK_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_PersonalNetworkSecurity;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
 
 /**
@@ -5667,6 +5702,33 @@ GTLR_DEPRECATED
  *        "CELLULAR_TWO_G_USER_CHOICE")
  */
 @property(nonatomic, copy, nullable) NSString *cellularTwoGState;
+
+/**
+ *  The minimum required security level of Wi-Fi networks that the device can
+ *  connect to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity
+ *        An enterprise EAP network is the minimum required security level. The
+ *        device will not be able to connect to Wi-Fi network below this
+ *        security level. This is stricter than PERSONAL_NETWORK_SECURITY. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "ENTERPRISE_NETWORK_SECURITY")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_MinimumWifiSecurityLevelUnspecified
+ *        Defaults to OPEN_NETWORK_SECURITY, which means the device will be able
+ *        to connect to all types of Wi-Fi networks. (Value:
+ *        "MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_OpenNetworkSecurity
+ *        The device will be able to connect to all types of Wi-Fi networks.
+ *        (Value: "OPEN_NETWORK_SECURITY")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_PersonalNetworkSecurity
+ *        A personal network such as WEP, WPA2-PSK is the minimum required
+ *        security. The device will not be able to connect to open wifi
+ *        networks. This is stricter than OPEN_NETWORK_SECURITY. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "PERSONAL_NETWORK_SECURITY")
+ */
+@property(nonatomic, copy, nullable) NSString *minimumWifiSecurityLevel;
 
 /**
  *  Controls the state of the ultra wideband setting and whether the user can

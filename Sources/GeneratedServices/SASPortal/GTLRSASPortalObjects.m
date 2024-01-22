@@ -404,11 +404,11 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 //
 
 @implementation GTLRSASPortal_ListLegacyOrganizationsResponse
-@dynamic organizationIds;
+@dynamic organizations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"organizationIds" : [NSNumber class]
+    @"organizations" : [GTLRSASPortal_Organization class]
   };
   return map;
 }
@@ -567,6 +567,21 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_Organization
+//
+
+@implementation GTLRSASPortal_Organization
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

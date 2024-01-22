@@ -40,6 +40,7 @@
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyValue;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyValue_Value;
 @class GTLRChromePolicy_GoogleChromePolicyVersionsV1ResolvedPolicy;
+@class GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints;
 @class GTLRChromePolicy_GoogleTypeDate;
 @class GTLRChromePolicy_Proto2DescriptorProto;
 @class GTLRChromePolicy_Proto2EnumDescriptorProto;
@@ -156,6 +157,82 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV
  *  Value: "TARGET_RESOURCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema_ValidTargetResources_TargetResourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints.supportedContentTypes
+
+/**
+ *  CSV.
+ *
+ *  Value: "CONTENT_TYPE_CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeCsv;
+/**
+ *  GZIP.
+ *
+ *  Value: "CONTENT_TYPE_GZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeGzip;
+/**
+ *  HTML.
+ *
+ *  Value: "CONTENT_TYPE_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeHtml;
+/**
+ *  GIF.
+ *
+ *  Value: "CONTENT_TYPE_IMAGE_GIF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageGif;
+/**
+ *  JPEG.
+ *
+ *  Value: "CONTENT_TYPE_IMAGE_JPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageJpeg;
+/**
+ *  PNG.
+ *
+ *  Value: "CONTENT_TYPE_IMAGE_PNG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImagePng;
+/**
+ *  WEBP.
+ *
+ *  Value: "CONTENT_TYPE_IMAGE_WEBP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeImageWebp;
+/**
+ *  JSON.
+ *
+ *  Value: "CONTENT_TYPE_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeJson;
+/**
+ *  Plain text.
+ *
+ *  Value: "CONTENT_TYPE_PLAIN_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypePlainText;
+/**
+ *  Unspecified content type.
+ *
+ *  Value: "CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeUnspecified;
+/**
+ *  YAML.
+ *
+ *  Value: "CONTENT_TYPE_YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeYaml;
+/**
+ *  ZIP.
+ *
+ *  Value: "CONTENT_TYPE_ZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeZip;
 
 // ----------------------------------------------------------------------------
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
@@ -479,6 +556,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /** The allowed range for numeric fields. */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1NumericRangeConstraint *numericRangeConstraint;
+
+/**
+ *  Constraints on the uploaded file of a file policy. If present, this policy
+ *  requires a URL that can be fetched by uploading a file with the constraints
+ *  specified in this proto.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints *uploadedFileConstraints;
 
 @end
 
@@ -1274,6 +1358,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  priority ordering. The target resource must point to an app.
  */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
+ *  Constraints on the uploaded file of a file policy.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints : GTLRObject
+
+/**
+ *  The size limit of uploaded files for a setting, in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeLimitBytes;
+
+/** File types that can be uploaded for a setting. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedContentTypes;
 
 @end
 

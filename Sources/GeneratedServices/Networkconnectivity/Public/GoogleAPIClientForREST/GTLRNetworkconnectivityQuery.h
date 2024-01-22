@@ -719,7 +719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Lists route tables in a given project.
+ *  Lists route tables in a given hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.list
  *
@@ -746,7 +746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListRouteTablesResponse.
  *
- *  Lists route tables in a given project.
+ *  Lists route tables in a given hub.
  *
  *  @param parent Required. The parent resource's name.
  *
@@ -787,7 +787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Lists routes in a given project.
+ *  Lists routes in a given route table.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.routeTables.routes.list
  *
@@ -814,7 +814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListRoutesResponse.
  *
- *  Lists routes in a given project.
+ *  Lists routes in a given route table.
  *
  *  @param parent Required. The parent resource's name.
  *

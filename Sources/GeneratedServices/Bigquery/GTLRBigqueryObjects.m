@@ -2343,7 +2343,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_QueryParameterType
-@dynamic arrayType, structTypes, type;
+@dynamic arrayType, rangeElementType, structTypes, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2376,7 +2376,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_QueryParameterValue
-@dynamic arrayValues, structValues, value;
+@dynamic arrayValues, rangeValue, structValues, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2385,6 +2385,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryParameterValue_RangeValue
+//
+
+@implementation GTLRBigquery_QueryParameterValue_RangeValue
+@dynamic end, start;
 @end
 
 
@@ -2487,6 +2497,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_RangePartitioning_Range
 @dynamic end, interval, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_RangeValue
+//
+
+@implementation GTLRBigquery_RangeValue
+@dynamic end, start;
 @end
 
 

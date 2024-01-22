@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get place details with a place id (in a name) string.
+ *  Get the details of a place based on its resource name, which is a string in
+ *  the `places/{place_id}` format.
  *
  *  Method: places.places.get
  *
@@ -51,8 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Required. A place ID returned in a Place (with "places/" prefix), or
- *  equivalently the name in the same Place. Format: `places/{place_id}`.
+ *  Required. The resource name of a place, in the `places/{place_id}` format.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -69,11 +69,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMapsPlaces_GoogleMapsPlacesV1Place.
  *
- *  Get place details with a place id (in a name) string.
+ *  Get the details of a place based on its resource name, which is a string in
+ *  the `places/{place_id}` format.
  *
- *  @param name Required. A place ID returned in a Place (with "places/"
- *    prefix), or equivalently the name in the same Place. Format:
- *    `places/{place_id}`.
+ *  @param name Required. The resource name of a place, in the
+ *    `places/{place_id}` format.
  *
  *  @return GTLRMapsPlacesQuery_PlacesGet
  */

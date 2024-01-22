@@ -844,6 +844,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRe
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_ReleaseRenderEvent.type
+
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Retry.backoffMode
 
 /**
@@ -2210,9 +2262,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2226,7 +2294,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2383,19 +2454,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. A list of tags that are added to the canary revision while the
- *  canary deployment is in progress.
+ *  canary phase is in progress.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *canaryRevisionTags;
 
 /**
  *  Optional. A list of tags that are added to the prior revision while the
- *  canary deployment is in progress.
+ *  canary phase is in progress.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *priorRevisionTags;
 
 /**
- *  Optional. A list of tags that are added to the final stable revision after
- *  the canary deployment is completed.
+ *  Optional. A list of tags that are added to the final stable revision when
+ *  the stable phase is applied.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stableRevisionTags;
 
@@ -2523,18 +2594,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  CustomMetadata contains information from a user defined operation.
+ *  CustomMetadata contains information from a user-defined operation.
  */
 @interface GTLRCloudDeploy_CustomMetadata : GTLRObject
 
-/** Output only. Key-value pairs provided by the user defined operation. */
+/** Output only. Key-value pairs provided by the user-defined operation. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata_Values *values;
 
 @end
 
 
 /**
- *  Output only. Key-value pairs provided by the user defined operation.
+ *  Output only. Key-value pairs provided by the user-defined operation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2602,8 +2673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /**
  *  A `CustomTargetType` resource in the Cloud Deploy API. A `CustomTargetType`
  *  defines a type of custom target that can be referenced in a `Target` in
- *  order to facilitate deploying to a runtime that does not have a 1P
- *  integration with Cloud Deploy.
+ *  order to facilitate deploying to other systems besides the supported
+ *  runtimes.
  */
 @interface GTLRCloudDeploy_CustomTargetType : GTLRObject
 
@@ -2881,6 +2952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Debug message for when a notification fails to send. */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
 /**
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
@@ -3007,7 +3081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
 
-/** Output only. Custom metadata provided by user defined deploy operation. */
+/** Output only. Custom metadata provided by user-defined deploy operation. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
 /** Output only. Custom Target metadata associated with a `DeployJobRun`. */
@@ -3210,6 +3284,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. Name of the Kubernetes Service. */
 @property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Optional. The amount of time to migrate traffic back from the canary Service
+ *  to the original Service during the stable phase deployment. If specified,
+ *  must be between 15s and 3600s. If unspecified, there is no cutback time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *stableCutbackDuration;
 
 @end
 
@@ -3424,8 +3505,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Unique identifier of the `DeliveryPipeline`. */
 @property(nonatomic, copy, nullable) NSString *pipelineUid;
 
+/**
+ *  The name of the `Release`.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
 /** Unique identifier of the `Release`. */
 @property(nonatomic, copy, nullable) NSString *releaseUid;
+
+/** The name of the `Rollout`. */
+@property(nonatomic, copy, nullable) NSString *rollout;
 
 /** Unique identifier of the `Rollout`. */
 @property(nonatomic, copy, nullable) NSString *rolloutUid;
@@ -3842,7 +3933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
 
 /**
- *  Output only. Custom metadata provided by user defined `Rollout` operations.
+ *  Output only. Custom metadata provided by user-defined `Rollout` operations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
@@ -4702,12 +4793,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Debug message for when a notification fails to send. */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
 /**
  *  The name of the `Release`.
  *
  *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
  */
 @property(nonatomic, copy, nullable) NSString *releaseProperty;
+
+/** Unique identifier of the `Release`. */
+@property(nonatomic, copy, nullable) NSString *releaseUid;
 
 /**
  *  Type of this notification, e.g. for a Pub/Sub failure.
@@ -4768,8 +4865,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
 /**
- *  The name of the release.
+ *  The name of the release. release_uid is not in this log message because we
+ *  write some of these log messages at release creation time, before we've
+ *  generated the uid.
  *
  *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
  */
@@ -4792,6 +4894,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *releaseRenderState;
 
+/**
+ *  Type of this notification, e.g. for a release render state change event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted A
+ *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRolloutUpdate Rollout
+ *        updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeUnspecified Type is
+ *        unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -4803,7 +4930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Output only. Metadata associated with rendering for Cloud Run. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunRenderMetadata *cloudRun;
 
-/** Output only. Custom metadata provided by user defined render operation. */
+/** Output only. Custom metadata provided by user-defined render operation. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
 @end
@@ -5411,11 +5538,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Unique identifier of the `DeliveryPipeline`. */
 @property(nonatomic, copy, nullable) NSString *pipelineUid;
 
+/**
+ *  The name of the `Release`.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
 /** Unique identifier of the `Release`. */
 @property(nonatomic, copy, nullable) NSString *releaseUid;
 
 /** The name of the `Rollout`. */
 @property(nonatomic, copy, nullable) NSString *rollout;
+
+/** Unique identifier of the `Rollout`. */
+@property(nonatomic, copy, nullable) NSString *rolloutUid;
 
 /** ID of the `Target` that the rollout is deployed to. */
 @property(nonatomic, copy, nullable) NSString *targetId;
@@ -5460,10 +5597,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Unique identifier of the pipeline. */
 @property(nonatomic, copy, nullable) NSString *pipelineUid;
 
+/**
+ *  The name of the `Release`.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
 /** Unique identifier of the release. */
 @property(nonatomic, copy, nullable) NSString *releaseUid;
 
-/** The name of the rollout. */
+/**
+ *  The name of the rollout. rollout_uid is not in this log message because we
+ *  write some of these log messages at rollout creation time, before we've
+ *  generated the uid.
+ */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
 /**
@@ -6037,10 +6185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Contains criteria for selecting Targets. Attributes provided must match the
- *  target resource in order for policy restrictions to apply. E.g. if id "prod"
- *  and labels "foo: bar" are given the target resource must match both that id
- *  and have that label in order to be selected.
+ *  Contains criteria for selecting Targets.
  */
 @interface GTLRCloudDeploy_TargetAttribute : GTLRObject
 

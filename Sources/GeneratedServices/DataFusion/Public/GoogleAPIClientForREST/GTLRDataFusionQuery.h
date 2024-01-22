@@ -75,7 +75,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesCreate : GTLRDataFusionQuery
 
-/** Required. The name of the instance to create. */
+/**
+ *  Required. The name of the instance to create. Instance name can only contain
+ *  lowercase alphanumeric characters and hyphens. It must start with a letter
+ *  and must not end with a hyphen. It can have a maximum of 30 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**

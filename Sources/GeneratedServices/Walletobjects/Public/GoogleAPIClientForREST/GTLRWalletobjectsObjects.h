@@ -5746,6 +5746,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @interface GTLRWalletobjects_Issuer : GTLRObject
 
+/** Allows the issuer to provide their callback settings. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_CallbackOptions *callbackOptions;
+
 /** Issuer contact information. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_IssuerContactInfo *contactInfo;
 
@@ -5965,7 +5968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /**
  *  Specifies from a predefined set of options or from a reference to the field
- *  what will be displayed in the first row.
+ *  what will be displayed in the first row. To set this override, set the
+ *  FirstRowOption.fieldOption to the FieldSelector of your choice.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_FirstRowOption *firstRowOption;
 
@@ -5973,15 +5977,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  A reference to the field to be displayed in the second row. This option is
  *  only displayed if there are not multiple user objects in a group. If there
  *  is a group, the second row will always display a field shared by all
- *  objects.
+ *  objects. To set this override, please set secondRowOption to the
+ *  FieldSelector of you choice.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_FieldSelector *secondRowOption;
 
 /**
- *  A reference to the field to be displayed in the third row. This option is
- *  only displayed if there are not multiple user objects in a group. If there
- *  is a group, the third row will always display the number of objects in the
- *  group. Eg: "3 passes"
+ *  An unused/deprecated field. Setting it will have no effect on what the user
+ *  sees.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_FieldSelector *thirdRowOption GTLR_DEPRECATED;
 

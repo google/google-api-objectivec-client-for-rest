@@ -94,6 +94,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_BigQueryDestination
+//
+
+@implementation GTLRWorkloadManager_BigQueryDestination
+@dynamic createNewResultsTable, destinationDataset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_CancelOperationRequest
 //
 
@@ -116,9 +126,9 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_Evaluation
-@dynamic createTime, customRulesBucket, descriptionProperty, labels, name,
-         resourceFilter, resourceStatus, ruleNames, ruleVersions, schedule,
-         updateTime;
+@dynamic bigQueryDestination, createTime, customRulesBucket,
+         descriptionProperty, labels, name, resourceFilter, resourceStatus,
+         ruleNames, ruleVersions, schedule, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

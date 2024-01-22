@@ -282,6 +282,197 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
+ *  Incrementally update targeting for a recovery action. Note that only the
+ *  criteria selected during the creation of recovery action can be expanded.
+ *
+ *  Method: androidpublisher.apprecovery.addTargeting
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryAddTargeting : GTLRAndroidPublisherQuery
+
+/** Required. ID corresponding to the app recovery action. */
+@property(nonatomic, assign) long long appRecoveryId;
+
+/**
+ *  Required. Package name of the app for which recovery action is to be
+ *  updated.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_AddTargetingResponse.
+ *
+ *  Incrementally update targeting for a recovery action. Note that only the
+ *  criteria selected during the creation of recovery action can be expanded.
+ *
+ *  @param object The @c GTLRAndroidPublisher_AddTargetingRequest to include in
+ *    the query.
+ *  @param packageName Required. Package name of the app for which recovery
+ *    action is to be updated.
+ *  @param appRecoveryId Required. ID corresponding to the app recovery action.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryAddTargeting
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_AddTargetingRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId;
+
+@end
+
+/**
+ *  List all app recovery action resources associated with a particular package
+ *  name and app version.
+ *
+ *  Method: androidpublisher.apprecovery.appRecoveries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Package name of the app for which list of recovery actions is
+ *  requested.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. Version code targeted by the list of recovery actions. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListAppRecoveriesResponse.
+ *
+ *  List all app recovery action resources associated with a particular package
+ *  name and app version.
+ *
+ *  @param packageName Required. Package name of the app for which list of
+ *    recovery actions is requested.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Cancel an already executing app recovery action. Note that this action
+ *  changes status of the recovery action to CANCELED.
+ *
+ *  Method: androidpublisher.apprecovery.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryCancel : GTLRAndroidPublisherQuery
+
+/** Required. ID corresponding to the app recovery action. */
+@property(nonatomic, assign) long long appRecoveryId;
+
+/**
+ *  Required. Package name of the app for which recovery action cancellation is
+ *  requested.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_CancelAppRecoveryResponse.
+ *
+ *  Cancel an already executing app recovery action. Note that this action
+ *  changes status of the recovery action to CANCELED.
+ *
+ *  @param object The @c GTLRAndroidPublisher_CancelAppRecoveryRequest to
+ *    include in the query.
+ *  @param packageName Required. Package name of the app for which recovery
+ *    action cancellation is requested.
+ *  @param appRecoveryId Required. ID corresponding to the app recovery action.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryCancel
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId;
+
+@end
+
+/**
+ *  Create an app recovery action with recovery status as DRAFT. Note that this
+ *  action does not execute the recovery action.
+ *
+ *  Method: androidpublisher.apprecovery.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Package name of the app on which recovery action is performed.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_AppRecoveryAction.
+ *
+ *  Create an app recovery action with recovery status as DRAFT. Note that this
+ *  action does not execute the recovery action.
+ *
+ *  @param object The @c GTLRAndroidPublisher_CreateDraftAppRecoveryRequest to
+ *    include in the query.
+ *  @param packageName Required. Package name of the app on which recovery
+ *    action is performed.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CreateDraftAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Deploy an already created app recovery action with recovery status DRAFT.
+ *  Note that this action activates the recovery action for all targeted users
+ *  and changes its status to ACTIVE.
+ *
+ *  Method: androidpublisher.apprecovery.deploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryDeploy : GTLRAndroidPublisherQuery
+
+/** Required. ID corresponding to the app recovery action to deploy. */
+@property(nonatomic, assign) long long appRecoveryId;
+
+/**
+ *  Required. Package name of the app for which recovery action is deployed.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_DeployAppRecoveryResponse.
+ *
+ *  Deploy an already created app recovery action with recovery status DRAFT.
+ *  Note that this action activates the recovery action for all targeted users
+ *  and changes its status to ACTIVE.
+ *
+ *  @param object The @c GTLRAndroidPublisher_DeployAppRecoveryRequest to
+ *    include in the query.
+ *  @param packageName Required. Package name of the app for which recovery
+ *    action is deployed.
+ *  @param appRecoveryId Required. ID corresponding to the app recovery action
+ *    to deploy.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryDeploy
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeployAppRecoveryRequest *)object
+                    packageName:(NSString *)packageName
+                  appRecoveryId:(long long)appRecoveryId;
+
+@end
+
+/**
  *  Creates a new APK without uploading the APK itself to Google Play, instead
  *  hosting the APK at a specified URL. This function is only available to
  *  organizations using Managed Play whose application is configured to restrict
@@ -4675,6 +4866,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                                token:(NSString *)token;
+
+@end
+
+/**
+ *  Revoke a subscription purchase for the user.
+ *
+ *  Method: androidpublisher.purchases.subscriptionsv2.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Revoke : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The package of the application for which this subscription was
+ *  purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The token provided to the user's device when the subscription was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse.
+ *
+ *  Revoke a subscription purchase for the user.
+ *
+ *  @param object The @c GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest
+ *    to include in the query.
+ *  @param packageName Required. The package of the application for which this
+ *    subscription was purchased (for example, 'com.some.thing').
+ *  @param token Required. The token provided to the user's device when the
+ *    subscription was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Revoke
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token;
 
 @end
 

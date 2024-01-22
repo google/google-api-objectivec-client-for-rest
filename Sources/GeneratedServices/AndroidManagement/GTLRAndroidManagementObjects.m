@@ -249,6 +249,12 @@ NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_Cellu
 NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGStateUnspecified = @"CELLULAR_TWO_G_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice = @"CELLULAR_TWO_G_USER_CHOICE";
 
+// GTLRAndroidManagement_DeviceRadioState.minimumWifiSecurityLevel
+NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity = @"ENTERPRISE_NETWORK_SECURITY";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_MinimumWifiSecurityLevelUnspecified = @"MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_OpenNetworkSecurity = @"OPEN_NETWORK_SECURITY";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_PersonalNetworkSecurity = @"PERSONAL_NETWORK_SECURITY";
+
 // GTLRAndroidManagement_DeviceRadioState.ultraWidebandState
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled = @"ULTRA_WIDEBAND_DISABLED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified = @"ULTRA_WIDEBAND_STATE_UNSPECIFIED";
@@ -1221,7 +1227,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_DeviceRadioState
-@dynamic airplaneModeState, cellularTwoGState, ultraWidebandState, wifiState;
+@dynamic airplaneModeState, cellularTwoGState, minimumWifiSecurityLevel,
+         ultraWidebandState, wifiState;
 @end
 
 

@@ -35,6 +35,98 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Grants the bind permission to the customer provided principal(user / service
+ *  account) to bind their DNS zone with the intranet VPC associated with the
+ *  project. DnsBindPermission is a global resource and location can only be
+ *  global.
+ *
+ *  Method: vmwareengine.projects.locations.dnsBindPermission.grant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the resource which stores the users/service accounts
+ *  having the permission to bind to the corresponding intranet VPC of the
+ *  consumer project. DnsBindPermission is a global resource. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Grants the bind permission to the customer provided principal(user / service
+ *  account) to bind their DNS zone with the intranet VPC associated with the
+ *  project. DnsBindPermission is a global resource and location can only be
+ *  global.
+ *
+ *  @param object The @c GTLRVMwareEngine_GrantDnsBindPermissionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource which stores the
+ *    users/service accounts having the permission to bind to the corresponding
+ *    intranet VPC of the consumer project. DnsBindPermission is a global
+ *    resource. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/dnsBindPermission`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Revokes the bind permission from the customer provided principal(user /
+ *  service account) on the intranet VPC associated with the consumer project.
+ *  DnsBindPermission is a global resource and location can only be global.
+ *
+ *  Method: vmwareengine.projects.locations.dnsBindPermission.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionRevoke : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the resource which stores the users/service accounts
+ *  having the permission to bind to the corresponding intranet VPC of the
+ *  consumer project. DnsBindPermission is a global resource. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/global/dnsBindPermission`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Revokes the bind permission from the customer provided principal(user /
+ *  service account) on the intranet VPC associated with the consumer project.
+ *  DnsBindPermission is a global resource and location can only be global.
+ *
+ *  @param object The @c GTLRVMwareEngine_RevokeDnsBindPermissionRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource which stores the
+ *    users/service accounts having the permission to bind to the corresponding
+ *    intranet VPC of the consumer project. DnsBindPermission is a global
+ *    resource. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/global/dnsBindPermission`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionRevoke
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: vmwareengine.projects.locations.get
@@ -61,103 +153,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Grants the bind permission to the customer provided principal(user / service
- *  account) to bind their DNS zone with the intranet VPC associated with the
- *  project.
- *
- *  Method: vmwareengine.projects.locations.global.dnsBindPermission.grant
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
- */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant : GTLRVMwareEngineQuery
-
-/**
- *  Required. The name of the resource which stores the users/service accounts
- *  having the permission to bind to the corresponding intranet VPC of the
- *  consumer project. DnsBindPermission is a global resource. Resource names are
- *  schemeless URIs that follow the conventions in
- *  https://cloud.google.com/apis/design/resource_names. For example:
- *  `projects/my-project/locations/global/dnsBindPermission`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRVMwareEngine_Operation.
- *
- *  Grants the bind permission to the customer provided principal(user / service
- *  account) to bind their DNS zone with the intranet VPC associated with the
- *  project.
- *
- *  @param object The @c GTLRVMwareEngine_GrantDnsBindPermissionRequest to
- *    include in the query.
- *  @param name Required. The name of the resource which stores the
- *    users/service accounts having the permission to bind to the corresponding
- *    intranet VPC of the consumer project. DnsBindPermission is a global
- *    resource. Resource names are schemeless URIs that follow the conventions
- *    in https://cloud.google.com/apis/design/resource_names. For example:
- *    `projects/my-project/locations/global/dnsBindPermission`
- *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionGrant
- */
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_GrantDnsBindPermissionRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Revokes the bind permission from the customer provided principal(user /
- *  service account) on the intranet VPC associated with the consumer project.
- *
- *  Method: vmwareengine.projects.locations.global.dnsBindPermission.revoke
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
- */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke : GTLRVMwareEngineQuery
-
-/**
- *  Required. The name of the resource which stores the users/service accounts
- *  having the permission to bind to the corresponding intranet VPC of the
- *  consumer project. DnsBindPermission is a global resource. Resource names are
- *  schemeless URIs that follow the conventions in
- *  https://cloud.google.com/apis/design/resource_names. For example:
- *  `projects/my-project/locations/global/dnsBindPermission`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRVMwareEngine_Operation.
- *
- *  Revokes the bind permission from the customer provided principal(user /
- *  service account) on the intranet VPC associated with the consumer project.
- *
- *  @param object The @c GTLRVMwareEngine_RevokeDnsBindPermissionRequest to
- *    include in the query.
- *  @param name Required. The name of the resource which stores the
- *    users/service accounts having the permission to bind to the corresponding
- *    intranet VPC of the consumer project. DnsBindPermission is a global
- *    resource. Resource names are schemeless URIs that follow the conventions
- *    in https://cloud.google.com/apis/design/resource_names. For example:
- *    `projects/my-project/locations/global/dnsBindPermission`
- *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalDnsBindPermissionRevoke
- */
-+ (instancetype)queryWithObject:(GTLRVMwareEngine_RevokeDnsBindPermissionRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Gets all the principals having bind permission on the intranet VPC
  *  associated with the consumer project granted by the Grant API.
+ *  DnsBindPermission is a global resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.getDnsBindPermission
+ *  Method: vmwareengine.projects.locations.getDnsBindPermission
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsGetDnsBindPermission : GTLRVMwareEngineQuery
 
 /**
  *  Required. The name of the resource which stores the users/service accounts
@@ -174,6 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets all the principals having bind permission on the intranet VPC
  *  associated with the consumer project granted by the Grant API.
+ *  DnsBindPermission is a global resource and location can only be global.
  *
  *  @param name Required. The name of the resource which stores the
  *    users/service accounts having the permission to bind to the corresponding
@@ -182,7 +188,56 @@ NS_ASSUME_NONNULL_BEGIN
  *    in https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/dnsBindPermission`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalGetDnsBindPermission
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsGetDnsBindPermission
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: vmwareengine.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -190,14 +245,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new network peering between the peer network and VMware Engine
- *  network provided in a `NetworkPeering` resource.
+ *  network provided in a `NetworkPeering` resource. NetworkPeering is a global
+ *  resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.create
+ *  Method: vmwareengine.projects.locations.networkPeerings.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsCreate : GTLRVMwareEngineQuery
 
 /**
  *  Required. The user-provided identifier of the new `NetworkPeering`. This
@@ -238,7 +294,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Creates a new network peering between the peer network and VMware Engine
- *  network provided in a `NetworkPeering` resource.
+ *  network provided in a `NetworkPeering` resource. NetworkPeering is a global
+ *  resource and location can only be global.
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
  *    query.
@@ -249,7 +306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsCreate
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsCreate
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
                          parent:(NSString *)parent;
@@ -259,14 +316,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes a `NetworkPeering` resource. When a network peering is deleted for a
  *  VMware Engine network, the peer network becomes inaccessible to that VMware
- *  Engine network.
+ *  Engine network. NetworkPeering is a global resource and location can only be
+ *  global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.delete
+ *  Method: vmwareengine.projects.locations.networkPeerings.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsDelete : GTLRVMwareEngineQuery
 
 /**
  *  Required. The resource name of the network peering to be deleted. Resource
@@ -296,14 +354,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a `NetworkPeering` resource. When a network peering is deleted for a
  *  VMware Engine network, the peer network becomes inaccessible to that VMware
- *  Engine network.
+ *  Engine network. NetworkPeering is a global resource and location can only be
+ *  global.
  *
  *  @param name Required. The resource name of the network peering to be
  *    deleted. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/networkPeerings/my-peering`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsDelete
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -312,14 +371,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves a `NetworkPeering` resource by its resource name. The resource
  *  contains details of the network peering, such as peered networks, import and
- *  export custom route configurations, and peering state.
+ *  export custom route configurations, and peering state. NetworkPeering is a
+ *  global resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.get
+ *  Method: vmwareengine.projects.locations.networkPeerings.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsGet : GTLRVMwareEngineQuery
 
 /**
  *  Required. The resource name of the network peering to retrieve. Resource
@@ -334,28 +394,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves a `NetworkPeering` resource by its resource name. The resource
  *  contains details of the network peering, such as peered networks, import and
- *  export custom route configurations, and peering state.
+ *  export custom route configurations, and peering state. NetworkPeering is a
+ *  global resource and location can only be global.
  *
  *  @param name Required. The resource name of the network peering to retrieve.
  *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/networkPeerings/my-peering`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsGet
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Lists `NetworkPeering` resources in a given project.
+ *  Lists `NetworkPeering` resources in a given project. NetworkPeering is a
+ *  global resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.list
+ *  Method: vmwareengine.projects.locations.networkPeerings.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsList : GTLRVMwareEngineQuery
 
 /**
  *  A filter expression that matches resources returned in the response. The
@@ -406,14 +468,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVMwareEngine_ListNetworkPeeringsResponse.
  *
- *  Lists `NetworkPeering` resources in a given project.
+ *  Lists `NetworkPeering` resources in a given project. NetworkPeering is a
+ *  global resource and location can only be global.
  *
  *  @param parent Required. The resource name of the location (global) to query
  *    for network peerings. Resource names are schemeless URIs that follow the
  *    conventions in https://cloud.google.com/apis/design/resource_names. For
  *    example: `projects/my-project/locations/global`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsList
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -425,17 +488,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Modifies a `NetworkPeering` resource. Only the `description` field can be
- *  updated. Only fields specified in `updateMask` are applied.
+ *  updated. Only fields specified in `updateMask` are applied. NetworkPeering
+ *  is a global resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.patch
+ *  Method: vmwareengine.projects.locations.networkPeerings.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of the network peering. Resource names are
+ *  Output only. The resource name of the network peering. NetworkPeering is a
+ *  global resource and location can only be global. Resource names are
  *  scheme-less URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/networkPeerings/my-peering`
@@ -472,16 +537,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Modifies a `NetworkPeering` resource. Only the `description` field can be
- *  updated. Only fields specified in `updateMask` are applied.
+ *  updated. Only fields specified in `updateMask` are applied. NetworkPeering
+ *  is a global resource and location can only be global.
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
  *    query.
- *  @param name Output only. The resource name of the network peering. Resource
- *    names are scheme-less URIs that follow the conventions in
+ *  @param name Output only. The resource name of the network peering.
+ *    NetworkPeering is a global resource and location can only be global.
+ *    Resource names are scheme-less URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/networkPeerings/my-peering`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPatch
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
                            name:(NSString *)name;
@@ -490,13 +557,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the network peering routes exchanged over a peering connection.
+ *  NetworkPeering is a global resource and location can only be global.
  *
- *  Method: vmwareengine.projects.locations.global.networkPeerings.peeringRoutes.list
+ *  Method: vmwareengine.projects.locations.networkPeerings.peeringRoutes.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList : GTLRVMwareEngineQuery
+@interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPeeringRoutesList : GTLRVMwareEngineQuery
 
 /**
  *  A filter expression that matches resources returned in the response.
@@ -534,68 +602,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_ListPeeringRoutesResponse.
  *
  *  Lists the network peering routes exchanged over a peering connection.
+ *  NetworkPeering is a global resource and location can only be global.
  *
  *  @param parent Required. The resource name of the network peering to retrieve
  *    peering routes from. Resource names are schemeless URIs that follow the
  *    conventions in https://cloud.google.com/apis/design/resource_names. For
  *    example: `projects/my-project/locations/global/networkPeerings/my-peering`
  *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsGlobalNetworkPeeringsPeeringRoutesList
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPeeringRoutesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
- *
- *  Method: vmwareengine.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
- */
-@interface GTLRVMwareEngineQuery_ProjectsLocationsList : GTLRVMwareEngineQuery
-
-/**
- *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like `"displayName=tokyo"`, and is documented in
- *  more detail in [AIP-160](https://google.aip.dev/160).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The maximum number of results to return. If not set, the service selects a
- *  default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token received from the `next_page_token` field in the response. Send
- *  that page token to receive the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRVMwareEngine_ListLocationsResponse.
- *
- *  Lists information about the supported locations for this service.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRVMwareEngineQuery_ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -34,11 +34,14 @@
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse_Response;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceGenerateMultiModalResponse;
+@class GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePart;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartBlob;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartFileData;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback;
+@class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult;
+@class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceUsageMetadata;
 @class GTLRAiplatform_GoogleApiHttpBody;
@@ -343,6 +346,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenNotebooks;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences_References;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionViewRestApi;
@@ -539,6 +544,59 @@
 @class GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry;
 @class GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel;
 @class GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics;
+@class GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution;
+@class GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult;
+@class GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult;
+@class GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult;
+@class GTLRAiplatform_LearningGenaiRecitationDocAttribution;
+@class GTLRAiplatform_LearningGenaiRecitationRecitationResult;
+@class GTLRAiplatform_LearningGenaiRecitationSegmentResult;
+@class GTLRAiplatform_LearningGenaiRootCalculationType;
+@class GTLRAiplatform_LearningGenaiRootClassifierOutput;
+@class GTLRAiplatform_LearningGenaiRootClassifierOutputSummary;
+@class GTLRAiplatform_LearningGenaiRootClassifierState;
+@class GTLRAiplatform_LearningGenaiRootDataProviderOutput;
+@class GTLRAiplatform_LearningGenaiRootFilterMetadata;
+@class GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo;
+@class GTLRAiplatform_LearningGenaiRootHarm;
+@class GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType;
+@class GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType;
+@class GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories;
+@class GTLRAiplatform_LearningGenaiRootHarmSpiiFilter;
+@class GTLRAiplatform_LearningGenaiRootInternalMetadata;
+@class GTLRAiplatform_LearningGenaiRootMetricOutput;
+@class GTLRAiplatform_LearningGenaiRootRAIOutput;
+@class GTLRAiplatform_LearningGenaiRootRegexTakedownResult;
+@class GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecision;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadata;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataScoreBased;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata;
+@class GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata;
+@class GTLRAiplatform_LearningGenaiRootRuleOutput;
+@class GTLRAiplatform_LearningGenaiRootScore;
+@class GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule;
+@class GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase;
+@class GTLRAiplatform_LearningGenaiRootScoredToken;
+@class GTLRAiplatform_LearningGenaiRootSimilarityTakedownPhrase;
+@class GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult;
+@class GTLRAiplatform_LearningGenaiRootTakedownResult;
+@class GTLRAiplatform_LearningGenaiRootThresholdType;
+@class GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStep;
+@class GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate;
+@class GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates;
+@class GTLRAiplatform_LearningGenaiRootToxicityResult;
+@class GTLRAiplatform_LearningGenaiRootToxicitySignal;
+@class GTLRAiplatform_LearningServingLlmLanguageFilterResult;
+@class GTLRAiplatform_LearningServingLlmMessageMetadata;
+@class GTLRAiplatform_NlpSaftLangIdLocalesResult;
+@class GTLRAiplatform_NlpSaftLangIdLocalesResultLocale;
+@class GTLRAiplatform_NlpSaftLangIdResult;
+@class GTLRAiplatform_NlpSaftLanguageSpan;
+@class GTLRAiplatform_NlpSaftLanguageSpanSequence;
+@class GTLRAiplatform_Proto2BridgeMessageSet;
+@class GTLRAiplatform_UtilStatusProto;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -719,6 +777,124 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromp
  *  Value: "SAFETY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Safety;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal.confidence
+
+/** Value: "CONFIDENCE_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceHigh;
+/** Value: "CONFIDENCE_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceLow;
+/** Value: "CONFIDENCE_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceMedium;
+/** Value: "CONFIDENCE_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceNone;
+/** Value: "CONFIDENCE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal.raiCategory
+
+/**
+ *  GRAIL categories that can't be exposed to end users.
+ *
+ *  Value: "CSAI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csai;
+/**
+ *  CSAM V2
+ *
+ *  Value: "CSAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csam;
+/**
+ *  New SafetyCat v3 categories
+ *
+ *  Value: "DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContent;
+/** Value: "DANGEROUS_CONTENT_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContentSeverity;
+/** Value: "DEATH_HARM_TRAGEDY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DeathHarmTragedy;
+/** Value: "DEROGATORY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Derogatory;
+/** Value: "DEROGATORY_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DerogatorySeverity;
+/** Value: "DRUGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Drugs;
+/** Value: "FINANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Finance;
+/** Value: "FIREARMS_WEAPONS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_FirearmsWeapons;
+/** Value: "FRINGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Fringe;
+/** Value: "HARASSMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Harassment;
+/** Value: "HATE_SPEECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_HateSpeech;
+/** Value: "HEALTH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Health;
+/** Value: "IDENTITY_ATTACK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IdentityAttack;
+/** Value: "ILLICIT_DRUGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IllicitDrugs;
+/** Value: "INSULT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Insult;
+/** Value: "INSULT_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_InsultSeverity;
+/** Value: "LEGAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Legal;
+/** Value: "OBSCENE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Obscene;
+/** Value: "POLITICS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Politics;
+/** Value: "PROFANITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Profanity;
+/** Value: "PUBLIC_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_PublicSafety;
+/** Value: "RAI_CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_RaiCategoryUnspecified;
+/** Value: "RELIGIOUS_BELIEF" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ReligiousBelief;
+/** Value: "SEVERE_TOXICITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SevereToxicity;
+/** Value: "SEXUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Sexual;
+/** Value: "SEXUALLY_EXPLICIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexuallyExplicit;
+/** Value: "SEXUAL_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexualSeverity;
+/**
+ *  SPII
+ *
+ *  Value: "SPII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Spii;
+/**
+ *  Unused categories.
+ *
+ *  Value: "THREAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Threat;
+/**
+ *  SafetyCat categories.
+ *
+ *  Value: "TOXIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxic;
+/**
+ *  Old category names.
+ *
+ *  Value: "TOXICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxicity;
+/** Value: "VIOLENCE_ABUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ViolenceAbuse;
+/** Value: "VIOLENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Violent;
+/** Value: "WAR_CONFLICT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_WarConflict;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating.category
@@ -4260,6 +4436,4311 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Succeeded;
 
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution.category
+
+/**
+ *  The doc has a url and the news classifier has classified this doc as news.
+ *
+ *  Value: "CATEGORY_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNews;
+/**
+ *  The doc has a url and the news classifier classified this doc as non-news.
+ *
+ *  Value: "CATEGORY_NON_NEWS_WEBDOC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNonNewsWebdoc;
+/**
+ *  The doc has a url but the url was missing from the news classifier URL
+ *  table.
+ *
+ *  Value: "CATEGORY_UNKNOWN_MISSING_SIGNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnknownMissingSignal;
+/** Value: "CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution.dataset
+
+/**
+ *  Academic dataset of math text.
+ *  http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *
+ *  Value: "AMPS_KHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsKhan;
+/** Value: "AMPS_MATHEMATICA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsMathematica;
+/** Value: "AQUA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Aqua;
+/** Value: "ASSISTANT_PERSONALITY_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AssistantPersonalitySafety;
+/**
+ *  Bard ARCADE finetune dataset.
+ *
+ *  Value: "BARD_ARCADE_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardArcadeGithub;
+/** Value: "BARD_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardGolden;
+/** Value: "BARD_PERSONALITY_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardPersonalityGolden;
+/**
+ *  'Full view' books dataset maintained by Oceanographers team, meaning 'ok to
+ *  view the book in full in all localities'. Largely the same as 'public
+ *  domain', but with potentially subtle distinction.
+ *
+ *  Value: "BOOKS_FULL_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksFullView;
+/**
+ *  Filtered private books used by ULM:
+ *  http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *  which corresponds with
+ *  /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *
+ *  Value: "BOOKS_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksPrivate;
+/** Value: "C4_JOINED_DOCJOINS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_C4JoinedDocjoins;
+/** Value: "CANARIES_SHUFFLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CanariesShuffled;
+/** Value: "CLEAN_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CleanArxiv;
+/** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix;
+/** Value: "CLOUD_SECURITY_FINETUNING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityFinetuning;
+/**
+ *  Cloud Security fine-tune datasets.
+ *
+ *  Value: "CLOUD_SECURITY_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityPretraining;
+/** Value: "CMS_GITHUB_MULTIFILE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubMultifileV4;
+/**
+ *  Github
+ *
+ *  Value: "CMS_GITHUB_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubV4;
+/** Value: "CMS_STACKEXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackexchange;
+/** Value: "CMS_STACKOVERFLOW_MULTILINGUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackoverflowMultilingual;
+/**
+ *  Datasets used by Gemini Public data
+ *
+ *  Value: "CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsWikipediaLangFiltered;
+/** Value: "CODE_QA_FT_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtFormat;
+/** Value: "CODE_QA_FT_KNOWLEDGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtKnowledge;
+/** Value: "CODE_QA_GITHUB_FILTERED_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaGithubFilteredCode;
+/** Value: "CODE_QA_SE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSe;
+/** Value: "CODE_QA_SO" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSo;
+/** Value: "CODEY_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyCode;
+/**
+ *  Datasets used by Codepoet
+ *
+ *  Value: "CODEY_NOTEBOOK_LM_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyNotebookLmPretraining;
+/** Value: "COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CombinedReddit;
+/** Value: "COMMON_SENSE_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CommonSenseReasoning;
+/** Value: "COQ_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqStep;
+/** Value: "COQ_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqTheories;
+/** Value: "DATASET_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DatasetUnspecified;
+/** Value: "DOCUMENT_CHUNKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DocumentChunks;
+/** Value: "DUET_CLOUD_BLOG_POSTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudBlogPosts;
+/** Value: "DUET_CLOUD_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocs;
+/** Value: "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten;
+/** Value: "DUET_CLOUD_IX_PROMPTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudIxPrompts;
+/** Value: "DUET_CLOUD_PODCAST_EPISODES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudPodcastEpisodes;
+/**
+ *  Duet AI finetune datasets, order by precedence.
+ *
+ *  Value: "DUET_CLOUD_SECURITY_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSecurityDocs;
+/** Value: "DUET_CLOUD_SKILLS_BOOST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSkillsBoost;
+/** Value: "DUET_DEVSITE_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetDevsiteDocs;
+/** Value: "DUET_GITHUB_CODE_SNIPPETS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubCodeSnippets;
+/** Value: "DUET_GITHUB_FILES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubFiles;
+/** Value: "DUET_GOBYEXAMPLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGobyexample;
+/** Value: "DUET_GOLANG_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGolangDocs;
+/** Value: "DUET_GOOGLESQL_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGooglesqlGeneration;
+/** Value: "DUET_RAD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetRad;
+/** Value: "DUET_YOUTUBE_VIDEOS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetYoutubeVideos;
+/** Value: "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc;
+/** Value: "GEMINI_IT_ACI_BENCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAciBench;
+/** Value: "GEMINI_IT_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAquamuse;
+/**
+ *  Gemini IT Cloud Build datasets.
+ *
+ *  Value: "GEMINI_IT_CLOUD_CODE_IF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudCodeIf;
+/** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudEurLexJson;
+/** Value: "GEMINI_IT_CLOUD_OASST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudOasst;
+/** Value: "GEMINI_IT_CLOUD_SELF_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudSelfInstruct;
+/** Value: "GEMINI_IT_CLOUD_UCS_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudUcsAquamuse;
+/** Value: "GEMINI_IT_CODE_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCodeInstruct;
+/** Value: "GEMINI_IT_DSCOUT_FACTUALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItDscoutFactuality;
+/** Value: "GEMINI_IT_EITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItEitlGen;
+/** Value: "GEMINI_IT_HEDGING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHedging;
+/** Value: "GEMINI_IT_HITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHitlGen;
+/** Value: "GEMINI_IT_M3W" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItM3w;
+/** Value: "GEMINI_IT_MECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMech;
+/** Value: "GEMINI_IT_MED_PALM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMedPalm;
+/** Value: "GEMINI_IT_NIMBUS_DECIBEL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusDecibel;
+/** Value: "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt;
+/** Value: "GEMINI_IT_QA_WITH_URL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItQaWithUrl;
+/** Value: "GEMINI_IT_SHOTGUN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShotgun;
+/**
+ *  Gemini IT 1.2.7 datasets
+ *
+ *  Value: "GEMINI_IT_SHUTTERSTOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShutterstock;
+/** Value: "GEMINI_IT_SPIDER_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItSpiderFiltered;
+/** Value: "GEMINI_IT_TABLE_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTableGen;
+/** Value: "GEMINI_IT_TAB_SUM_BQ" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTabSumBq;
+/** Value: "GEMINI_IT_TASK_ORIENTED_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTaskOrientedDialog;
+/** Value: "GEMINI_MULTIMODAL_FT_INK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtInk;
+/** Value: "GEMINI_MULTIMODAL_FT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtNone;
+/** Value: "GEMINI_MULTIMODAL_FT_OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtOther;
+/** Value: "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtShutterstock;
+/**
+ *  Gemini multimodal instruction tune(IT) and fine tune(FT) datasets datasets.
+ *
+ *  Value: "GEMINI_MULTIMODAL_FT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtUrl;
+/** Value: "GEMINI_MULTIMODAL_FT_YT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtYt;
+/** Value: "GEMINI_MULTIMODAL_IT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalIt;
+/**
+ *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
+/**
+ *  Github
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7;
+/** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont;
+/** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2;
+/**
+ *  Gemini V1, order by precedence. Wikipedia
+ *
+ *  Value: "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered;
+/** Value: "GEMINI_V1_COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CombinedReddit;
+/** Value: "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523;
+/** Value: "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar;
+/** Value: "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2;
+/** Value: "GEMINI_V1_GITHUB_HTML_CSS_XML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4;
+/** Value: "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable;
+/** Value: "GEMINI_V1_GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubLongTailV4;
+/** Value: "GEMINI_V1_GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubOtherV4;
+/** Value: "GEMINI_V1_GITHUB_TECHDOCS_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubTechdocsV2;
+/**
+ *  Non-public books
+ *
+ *  Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn;
+/** Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen;
+/**
+ *  Citable misc
+ *
+ *  Value: "GEMINI_V1_PODCASTS_ROBOTSTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1PodcastsRobotstxt;
+/** Value: "GEMINI_V1_PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Pubmed;
+/** Value: "GEMINI_V1_QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Quora;
+/** Value: "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc;
+/** Value: "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc;
+/** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix;
+/**
+ *  ArXiv
+ *
+ *  Value: "GEMINI_V1_ULM_ARXIV_SSTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1UlmArxivSstable;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text;
+/**
+ *  Other
+ *
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_WEB_MATH_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WebMathV2;
+/** Value: "GEMINI_V1_WIKIPEDIA_DIFFS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WikipediaDiffs;
+/** Value: "GEMINI_V2_ARXIV_2023_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Arxiv2023Compliant;
+/** Value: "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered;
+/** Value: "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant;
+/** Value: "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2;
+/** Value: "GEMINI_V2_CHESS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChessCompliant;
+/** Value: "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix;
+/**
+ *  Value: "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths;
+/** Value: "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant;
+/** Value: "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant;
+/**
+ *  Gemini V2 datasets
+ *
+ *  Value: "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii;
+/** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodewebV1Compliant;
+/** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant;
+/**
+ *  Value: "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant;
+/** Value: "GEMINI_V2_FORMAL_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FormalCompliant;
+/** Value: "GEMINI_V2_FORUMS_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ForumsV2Compliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant;
+/** Value: "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant;
+/** Value: "GEMINI_V2_GITHUB_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubDiffsCompliant;
+/** Value: "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant;
+/** Value: "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant;
+/** Value: "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant;
+/** Value: "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant;
+/** Value: "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
+/** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2LeetcodeGccPii;
+/** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5;
+/** Value: "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5;
+/** Value: "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_PODCASTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PodcastsCompliant;
+/** Value: "GEMINI_V2_PUBMED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PubmedCompliant;
+/** Value: "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2;
+/** Value: "GEMINI_V2_QUORA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QuoraCompliant;
+/** Value: "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex;
+/** Value: "GEMINI_V2_SCIENCEWEB_V0_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencewebV0GccPii;
+/** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant;
+/**
+ *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_WEB_MATH_V3_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebMathV3Compliant;
+/** Value: "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant;
+/** Value: "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant;
+/** Value: "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant;
+/**
+ *  Gemit Bridge ULM FT dataset
+ *
+ *  Value: "GEMIT_BRIDGE_SUFFIX_FT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GemitBridgeSuffixFt;
+/**
+ *  Genesis fine-tune datasets.
+ *
+ *  Value: "GENESIS_NEWS_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GenesisNewsInsights;
+/** Value: "GITHUB_DIFFS_WITH_COMMIT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubDiffsWithCommitMessage;
+/** Value: "GITHUB_HTML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubHtmlV4;
+/** Value: "GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubLongTailV4;
+/** Value: "GITHUB_MIRROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirror;
+/** Value: "GITHUB_MIRROR_V1_0_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV101;
+/** Value: "GITHUB_MIRROR_V2_1_0" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV210;
+/** Value: "GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubOtherV4;
+/**
+ *  Google news dataset referenced in:
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *
+ *  Value: "GNEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Gnews;
+/** Value: "GOODALL_MTV5_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Books;
+/** Value: "GOODALL_MTV5_C4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5C4;
+/**
+ *  Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *
+ *  Value: "GOODALL_MTV5_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Github;
+/** Value: "GOODALL_MTV5_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Wikipedia;
+/** Value: "GOODALL_MW_STACK_EXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwStackExchange;
+/** Value: "GOODALL_MW_TOP_0_10B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop010b;
+/** Value: "GOODALL_MW_TOP_100B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop100b;
+/** Value: "GOODALL_MW_TOP_10B_20B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop10b20b;
+/** Value: "HOL4_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Hol4Theories;
+/** Value: "HOL_LIGHT_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_HolLightTheories;
+/** Value: "HOLSTEPS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Holsteps;
+/** Value: "ISABELLE_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleStep;
+/** Value: "ISABELLE_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleTheories;
+/** Value: "LABS_AQA_DELEWARE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDeleware;
+/**
+ *  LABS AQA fine-tune datasets.
+ *
+ *  Value: "LABS_AQA_DSCOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDscout;
+/** Value: "LABS_AQA_TAILWIND" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaTailwind;
+/** Value: "LAMDA_FACTUALITY_E2E_QUERY_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration;
+/** Value: "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration;
+/** Value: "LAMDA_FACTUALITY_TRIGGER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityTrigger;
+/** Value: "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast;
+/** Value: "LAMDA_SSI_DISCRIMINATIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSsiDiscriminative;
+/** Value: "LEAN_MATHLIB_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanMathlibTheories;
+/** Value: "LEAN_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanStep;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_BARD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredBard;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_200" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong200;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_500" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong500;
+/** Value: "MATH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Math;
+/** Value: "MATH_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MathReasoning;
+/**
+ *  Meena full conversations.
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *
+ *  Value: "MEENA_FC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaFc;
+/** Value: "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown;
+/** Value: "MEENA_RESEARCH_PHASE_GOOGLERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGooglers;
+/** Value: "MEENA_RESPONSE_SAFETY_HUMAN_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyHumanGen;
+/** Value: "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast;
+/** Value: "MIZAR_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MizarTheories;
+/**
+ *  Mobile assistant finetune datasets.
+ *
+ *  Value: "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k;
+/** Value: "MOBILE_ASSISTANT_PALM24B_FILTERED_400K" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k;
+/**
+ *  Others
+ *
+ *  Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly;
+/** Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly;
+/** Value: "PODCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Podcast;
+/** Value: "PODCAST_FINETUNE_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastFinetuneDialog;
+/** Value: "PODCASTS_ROBOTSTXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastsRobotstxt;
+/** Value: "PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Pubmed;
+/** Value: "QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Quora;
+/** Value: "SCIENCE_PDF_70M_DOCS_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SciencePdf70mDocsFiltered;
+/** Value: "SIMPLIFIED_HTML_V1_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SimplifiedHtmlV1Gcc;
+/** Value: "TECHDOCS_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_TechdocsDataSource;
+/**
+ *  Arxiv
+ *
+ *  Value: "ULM_ARXIV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmArxiv;
+/**
+ *  The docjoins data for ULM
+ *  /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *
+ *  Value: "ULM_DOCJOINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoins;
+/** Value: "ULM_DOCJOINS_DEDUPED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsDeduped;
+/** Value: "ULM_DOCJOINS_WITH_URLS_EN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsEn;
+/** Value: "ULM_DOCJOINS_WITH_URLS_I18N" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n;
+/**
+ *  Datasets used by Vertex
+ *
+ *  Value: "VERTEX_SAFE_FLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_VertexSafeFlan;
+/** Value: "WEB_ASR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebAsr;
+/**
+ *  Webdocs that have been filtered from the docjoins by the Tarzan team for use
+ *  in the Tarzan training set.
+ *
+ *  Value: "WEBDOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Webdocs;
+/** Value: "WEBDOCS_FINETUNE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebdocsFinetune;
+/**
+ *  Wikipedia article Tensorflow datasets used by Tarzan and maintained by TFDS
+ *  team.
+ *
+ *  Value: "WIKIPEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Wikipedia;
+/** Value: "WORLD_QUERY_GENERATOR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WorldQueryGenerator;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult.recitationAction
+
+/** Value: "ACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ActionUnspecified;
+/**
+ *  indicate that a Segment should be blocked from being used
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Block;
+/**
+ *  indicate that attribution must be shown for a Segment
+ *
+ *  Value: "CITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Cite;
+/**
+ *  The recitation was found in prompt and is exempted from overall results
+ *
+ *  Value: "EXEMPT_FOUND_IN_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ExemptFoundInPrompt;
+/**
+ *  for tagging high-frequency code snippets
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.attributionDataset
+
+/**
+ *  Academic dataset of math text.
+ *  http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *
+ *  Value: "AMPS_KHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsKhan;
+/** Value: "AMPS_MATHEMATICA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsMathematica;
+/** Value: "AQUA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Aqua;
+/** Value: "ASSISTANT_PERSONALITY_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AssistantPersonalitySafety;
+/**
+ *  Bard ARCADE finetune dataset.
+ *
+ *  Value: "BARD_ARCADE_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardArcadeGithub;
+/** Value: "BARD_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardGolden;
+/** Value: "BARD_PERSONALITY_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardPersonalityGolden;
+/**
+ *  'Full view' books dataset maintained by Oceanographers team, meaning 'ok to
+ *  view the book in full in all localities'. Largely the same as 'public
+ *  domain', but with potentially subtle distinction.
+ *
+ *  Value: "BOOKS_FULL_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksFullView;
+/**
+ *  Filtered private books used by ULM:
+ *  http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *  which corresponds with
+ *  /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *
+ *  Value: "BOOKS_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksPrivate;
+/** Value: "C4_JOINED_DOCJOINS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_C4JoinedDocjoins;
+/** Value: "CANARIES_SHUFFLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CanariesShuffled;
+/** Value: "CLEAN_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CleanArxiv;
+/** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix;
+/** Value: "CLOUD_SECURITY_FINETUNING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityFinetuning;
+/**
+ *  Cloud Security fine-tune datasets.
+ *
+ *  Value: "CLOUD_SECURITY_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityPretraining;
+/** Value: "CMS_GITHUB_MULTIFILE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubMultifileV4;
+/**
+ *  Github
+ *
+ *  Value: "CMS_GITHUB_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubV4;
+/** Value: "CMS_STACKEXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackexchange;
+/** Value: "CMS_STACKOVERFLOW_MULTILINGUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackoverflowMultilingual;
+/**
+ *  Datasets used by Gemini Public data
+ *
+ *  Value: "CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsWikipediaLangFiltered;
+/** Value: "CODE_QA_FT_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtFormat;
+/** Value: "CODE_QA_FT_KNOWLEDGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtKnowledge;
+/** Value: "CODE_QA_GITHUB_FILTERED_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaGithubFilteredCode;
+/** Value: "CODE_QA_SE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSe;
+/** Value: "CODE_QA_SO" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSo;
+/** Value: "CODEY_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyCode;
+/**
+ *  Datasets used by Codepoet
+ *
+ *  Value: "CODEY_NOTEBOOK_LM_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyNotebookLmPretraining;
+/** Value: "COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CombinedReddit;
+/** Value: "COMMON_SENSE_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CommonSenseReasoning;
+/** Value: "COQ_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqStep;
+/** Value: "COQ_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqTheories;
+/** Value: "DATASET_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DatasetUnspecified;
+/** Value: "DOCUMENT_CHUNKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DocumentChunks;
+/** Value: "DUET_CLOUD_BLOG_POSTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudBlogPosts;
+/** Value: "DUET_CLOUD_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocs;
+/** Value: "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten;
+/** Value: "DUET_CLOUD_IX_PROMPTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudIxPrompts;
+/** Value: "DUET_CLOUD_PODCAST_EPISODES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes;
+/**
+ *  Duet AI finetune datasets, order by precedence.
+ *
+ *  Value: "DUET_CLOUD_SECURITY_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSecurityDocs;
+/** Value: "DUET_CLOUD_SKILLS_BOOST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSkillsBoost;
+/** Value: "DUET_DEVSITE_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetDevsiteDocs;
+/** Value: "DUET_GITHUB_CODE_SNIPPETS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubCodeSnippets;
+/** Value: "DUET_GITHUB_FILES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubFiles;
+/** Value: "DUET_GOBYEXAMPLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGobyexample;
+/** Value: "DUET_GOLANG_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGolangDocs;
+/** Value: "DUET_GOOGLESQL_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGooglesqlGeneration;
+/** Value: "DUET_RAD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetRad;
+/** Value: "DUET_YOUTUBE_VIDEOS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetYoutubeVideos;
+/** Value: "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc;
+/** Value: "GEMINI_IT_ACI_BENCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAciBench;
+/** Value: "GEMINI_IT_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAquamuse;
+/**
+ *  Gemini IT Cloud Build datasets.
+ *
+ *  Value: "GEMINI_IT_CLOUD_CODE_IF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudCodeIf;
+/** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudEurLexJson;
+/** Value: "GEMINI_IT_CLOUD_OASST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudOasst;
+/** Value: "GEMINI_IT_CLOUD_SELF_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct;
+/** Value: "GEMINI_IT_CLOUD_UCS_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse;
+/** Value: "GEMINI_IT_CODE_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCodeInstruct;
+/** Value: "GEMINI_IT_DSCOUT_FACTUALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItDscoutFactuality;
+/** Value: "GEMINI_IT_EITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItEitlGen;
+/** Value: "GEMINI_IT_HEDGING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHedging;
+/** Value: "GEMINI_IT_HITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHitlGen;
+/** Value: "GEMINI_IT_M3W" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItM3w;
+/** Value: "GEMINI_IT_MECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMech;
+/** Value: "GEMINI_IT_MED_PALM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMedPalm;
+/** Value: "GEMINI_IT_NIMBUS_DECIBEL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusDecibel;
+/** Value: "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt;
+/** Value: "GEMINI_IT_QA_WITH_URL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItQaWithUrl;
+/** Value: "GEMINI_IT_SHOTGUN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShotgun;
+/**
+ *  Gemini IT 1.2.7 datasets
+ *
+ *  Value: "GEMINI_IT_SHUTTERSTOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShutterstock;
+/** Value: "GEMINI_IT_SPIDER_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItSpiderFiltered;
+/** Value: "GEMINI_IT_TABLE_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTableGen;
+/** Value: "GEMINI_IT_TAB_SUM_BQ" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTabSumBq;
+/** Value: "GEMINI_IT_TASK_ORIENTED_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog;
+/** Value: "GEMINI_MULTIMODAL_FT_INK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtInk;
+/** Value: "GEMINI_MULTIMODAL_FT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtNone;
+/** Value: "GEMINI_MULTIMODAL_FT_OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtOther;
+/** Value: "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock;
+/**
+ *  Gemini multimodal instruction tune(IT) and fine tune(FT) datasets datasets.
+ *
+ *  Value: "GEMINI_MULTIMODAL_FT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtUrl;
+/** Value: "GEMINI_MULTIMODAL_FT_YT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtYt;
+/** Value: "GEMINI_MULTIMODAL_IT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalIt;
+/**
+ *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
+/**
+ *  Github
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7;
+/** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont;
+/** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2;
+/**
+ *  Gemini V1, order by precedence. Wikipedia
+ *
+ *  Value: "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered;
+/** Value: "GEMINI_V1_COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CombinedReddit;
+/** Value: "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523;
+/** Value: "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar;
+/** Value: "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2;
+/** Value: "GEMINI_V1_GITHUB_HTML_CSS_XML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4;
+/** Value: "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable;
+/** Value: "GEMINI_V1_GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4;
+/** Value: "GEMINI_V1_GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubOtherV4;
+/** Value: "GEMINI_V1_GITHUB_TECHDOCS_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2;
+/**
+ *  Non-public books
+ *
+ *  Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn;
+/** Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen;
+/**
+ *  Citable misc
+ *
+ *  Value: "GEMINI_V1_PODCASTS_ROBOTSTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt;
+/** Value: "GEMINI_V1_PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Pubmed;
+/** Value: "GEMINI_V1_QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Quora;
+/** Value: "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc;
+/** Value: "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc;
+/** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix;
+/**
+ *  ArXiv
+ *
+ *  Value: "GEMINI_V1_ULM_ARXIV_SSTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text;
+/**
+ *  Other
+ *
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_WEB_MATH_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WebMathV2;
+/** Value: "GEMINI_V1_WIKIPEDIA_DIFFS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs;
+/** Value: "GEMINI_V2_ARXIV_2023_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant;
+/** Value: "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered;
+/** Value: "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant;
+/** Value: "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2;
+/** Value: "GEMINI_V2_CHESS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChessCompliant;
+/** Value: "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix;
+/**
+ *  Value: "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths;
+/** Value: "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant;
+/** Value: "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant;
+/**
+ *  Gemini V2 datasets
+ *
+ *  Value: "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii;
+/** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant;
+/** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant;
+/**
+ *  Value: "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant;
+/** Value: "GEMINI_V2_FORMAL_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FormalCompliant;
+/** Value: "GEMINI_V2_FORUMS_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant;
+/** Value: "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant;
+/** Value: "GEMINI_V2_GITHUB_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant;
+/** Value: "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant;
+/** Value: "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant;
+/** Value: "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant;
+/** Value: "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant;
+/** Value: "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
+/** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii;
+/** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5;
+/** Value: "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5;
+/** Value: "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_PODCASTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant;
+/** Value: "GEMINI_V2_PUBMED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PubmedCompliant;
+/** Value: "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2;
+/** Value: "GEMINI_V2_QUORA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QuoraCompliant;
+/** Value: "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex;
+/** Value: "GEMINI_V2_SCIENCEWEB_V0_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii;
+/** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant;
+/**
+ *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_WEB_MATH_V3_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant;
+/** Value: "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant;
+/** Value: "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant;
+/** Value: "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant;
+/**
+ *  Gemit Bridge ULM FT dataset
+ *
+ *  Value: "GEMIT_BRIDGE_SUFFIX_FT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GemitBridgeSuffixFt;
+/**
+ *  Genesis fine-tune datasets.
+ *
+ *  Value: "GENESIS_NEWS_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GenesisNewsInsights;
+/** Value: "GITHUB_DIFFS_WITH_COMMIT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage;
+/** Value: "GITHUB_HTML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubHtmlV4;
+/** Value: "GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubLongTailV4;
+/** Value: "GITHUB_MIRROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirror;
+/** Value: "GITHUB_MIRROR_V1_0_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV101;
+/** Value: "GITHUB_MIRROR_V2_1_0" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV210;
+/** Value: "GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubOtherV4;
+/**
+ *  Google news dataset referenced in:
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *
+ *  Value: "GNEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Gnews;
+/** Value: "GOODALL_MTV5_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Books;
+/** Value: "GOODALL_MTV5_C4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5C4;
+/**
+ *  Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *
+ *  Value: "GOODALL_MTV5_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Github;
+/** Value: "GOODALL_MTV5_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Wikipedia;
+/** Value: "GOODALL_MW_STACK_EXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwStackExchange;
+/** Value: "GOODALL_MW_TOP_0_10B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop010b;
+/** Value: "GOODALL_MW_TOP_100B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop100b;
+/** Value: "GOODALL_MW_TOP_10B_20B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop10b20b;
+/** Value: "HOL4_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Hol4Theories;
+/** Value: "HOL_LIGHT_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_HolLightTheories;
+/** Value: "HOLSTEPS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Holsteps;
+/** Value: "ISABELLE_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleStep;
+/** Value: "ISABELLE_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleTheories;
+/** Value: "LABS_AQA_DELEWARE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDeleware;
+/**
+ *  LABS AQA fine-tune datasets.
+ *
+ *  Value: "LABS_AQA_DSCOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDscout;
+/** Value: "LABS_AQA_TAILWIND" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaTailwind;
+/** Value: "LAMDA_FACTUALITY_E2E_QUERY_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration;
+/** Value: "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration;
+/** Value: "LAMDA_FACTUALITY_TRIGGER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityTrigger;
+/** Value: "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast;
+/** Value: "LAMDA_SSI_DISCRIMINATIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSsiDiscriminative;
+/** Value: "LEAN_MATHLIB_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanMathlibTheories;
+/** Value: "LEAN_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanStep;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_BARD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredBard;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_200" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_500" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500;
+/** Value: "MATH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Math;
+/** Value: "MATH_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MathReasoning;
+/**
+ *  Meena full conversations.
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *
+ *  Value: "MEENA_FC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaFc;
+/** Value: "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown;
+/** Value: "MEENA_RESEARCH_PHASE_GOOGLERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers;
+/** Value: "MEENA_RESPONSE_SAFETY_HUMAN_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen;
+/** Value: "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast;
+/** Value: "MIZAR_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MizarTheories;
+/**
+ *  Mobile assistant finetune datasets.
+ *
+ *  Value: "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k;
+/** Value: "MOBILE_ASSISTANT_PALM24B_FILTERED_400K" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k;
+/**
+ *  Others
+ *
+ *  Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly;
+/** Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly;
+/** Value: "PODCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Podcast;
+/** Value: "PODCAST_FINETUNE_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastFinetuneDialog;
+/** Value: "PODCASTS_ROBOTSTXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastsRobotstxt;
+/** Value: "PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Pubmed;
+/** Value: "QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Quora;
+/** Value: "SCIENCE_PDF_70M_DOCS_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered;
+/** Value: "SIMPLIFIED_HTML_V1_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc;
+/** Value: "TECHDOCS_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_TechdocsDataSource;
+/**
+ *  Arxiv
+ *
+ *  Value: "ULM_ARXIV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmArxiv;
+/**
+ *  The docjoins data for ULM
+ *  /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *
+ *  Value: "ULM_DOCJOINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoins;
+/** Value: "ULM_DOCJOINS_DEDUPED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsDeduped;
+/** Value: "ULM_DOCJOINS_WITH_URLS_EN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn;
+/** Value: "ULM_DOCJOINS_WITH_URLS_I18N" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n;
+/**
+ *  Datasets used by Vertex
+ *
+ *  Value: "VERTEX_SAFE_FLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_VertexSafeFlan;
+/** Value: "WEB_ASR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebAsr;
+/**
+ *  Webdocs that have been filtered from the docjoins by the Tarzan team for use
+ *  in the Tarzan training set.
+ *
+ *  Value: "WEBDOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Webdocs;
+/** Value: "WEBDOCS_FINETUNE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebdocsFinetune;
+/**
+ *  Wikipedia article Tensorflow datasets used by Tarzan and maintained by TFDS
+ *  team.
+ *
+ *  Value: "WIKIPEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Wikipedia;
+/** Value: "WORLD_QUERY_GENERATOR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WorldQueryGenerator;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.segmentRecitationAction
+
+/** Value: "ACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ActionUnspecified;
+/**
+ *  indicate that a Segment should be blocked from being used
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Block;
+/**
+ *  indicate that attribution must be shown for a Segment
+ *
+ *  Value: "CITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Cite;
+/**
+ *  The recitation was found in prompt and is exempted from overall results
+ *
+ *  Value: "EXEMPT_FOUND_IN_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt;
+/**
+ *  for tagging high-frequency code snippets
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult.recitationAction
+
+/** Value: "ACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ActionUnspecified;
+/**
+ *  indicate that a Segment should be blocked from being used
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Block;
+/**
+ *  indicate that attribution must be shown for a Segment
+ *
+ *  Value: "CITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Cite;
+/**
+ *  The recitation was found in prompt and is exempted from overall results
+ *
+ *  Value: "EXEMPT_FOUND_IN_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ExemptFoundInPrompt;
+/**
+ *  for tagging high-frequency code snippets
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRecitationDocAttribution.dataset
+
+/**
+ *  Academic dataset of math text.
+ *  http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *
+ *  Value: "AMPS_KHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsKhan;
+/** Value: "AMPS_MATHEMATICA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsMathematica;
+/** Value: "AQUA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Aqua;
+/** Value: "ASSISTANT_PERSONALITY_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AssistantPersonalitySafety;
+/**
+ *  Bard ARCADE finetune dataset
+ *
+ *  Value: "BARD_ARCADE_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardArcadeGithub;
+/** Value: "BARD_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardGolden;
+/** Value: "BARD_PERSONALITY_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardPersonalityGolden;
+/**
+ *  'Full view' books dataset maintained by Oceanographers team, meaning 'ok to
+ *  view the book in full in all localities'. Largely the same as 'public
+ *  domain', but with potentially subtle distinction.
+ *
+ *  Value: "BOOKS_FULL_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksFullView;
+/**
+ *  Filtered private books used by ULM:
+ *  http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *  which corresponds with
+ *  /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *
+ *  Value: "BOOKS_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksPrivate;
+/** Value: "C4_JOINED_DOCJOINS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_C4JoinedDocjoins;
+/** Value: "CANARIES_SHUFFLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CanariesShuffled;
+/** Value: "CLEAN_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CleanArxiv;
+/** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix;
+/** Value: "CLOUD_SECURITY_FINETUNING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityFinetuning;
+/**
+ *  Cloud Security fine tuned datasets.
+ *
+ *  Value: "CLOUD_SECURITY_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityPretraining;
+/** Value: "CMS_GITHUB_MULTIFILE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubMultifileV4;
+/**
+ *  Github
+ *
+ *  Value: "CMS_GITHUB_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubV4;
+/** Value: "CMS_STACKEXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackexchange;
+/** Value: "CMS_STACKOVERFLOW_MULTILINGUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackoverflowMultilingual;
+/**
+ *  Datasets used by Gemini Public data
+ *
+ *  Value: "CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsWikipediaLangFiltered;
+/** Value: "CODE_QA_FT_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtFormat;
+/** Value: "CODE_QA_FT_KNOWLEDGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtKnowledge;
+/** Value: "CODE_QA_GITHUB_FILTERED_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaGithubFilteredCode;
+/** Value: "CODE_QA_SE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSe;
+/** Value: "CODE_QA_SO" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSo;
+/** Value: "CODEY_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyCode;
+/**
+ *  Datasets used by Codepoet
+ *
+ *  Value: "CODEY_NOTEBOOK_LM_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyNotebookLmPretraining;
+/** Value: "COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CombinedReddit;
+/** Value: "COMMON_SENSE_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CommonSenseReasoning;
+/** Value: "COQ_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqStep;
+/** Value: "COQ_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqTheories;
+/** Value: "DATASET_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DatasetUnspecified;
+/** Value: "DOCUMENT_CHUNKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DocumentChunks;
+/** Value: "DUET_CLOUD_BLOG_POSTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudBlogPosts;
+/** Value: "DUET_CLOUD_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocs;
+/** Value: "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten;
+/** Value: "DUET_CLOUD_IX_PROMPTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudIxPrompts;
+/** Value: "DUET_CLOUD_PODCAST_EPISODES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudPodcastEpisodes;
+/**
+ *  Duet AI finetune datasets, order by precedence.
+ *
+ *  Value: "DUET_CLOUD_SECURITY_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSecurityDocs;
+/** Value: "DUET_CLOUD_SKILLS_BOOST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSkillsBoost;
+/** Value: "DUET_DEVSITE_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetDevsiteDocs;
+/** Value: "DUET_GITHUB_CODE_SNIPPETS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubCodeSnippets;
+/** Value: "DUET_GITHUB_FILES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubFiles;
+/** Value: "DUET_GOBYEXAMPLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGobyexample;
+/** Value: "DUET_GOLANG_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGolangDocs;
+/** Value: "DUET_GOOGLESQL_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGooglesqlGeneration;
+/** Value: "DUET_RAD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetRad;
+/** Value: "DUET_YOUTUBE_VIDEOS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetYoutubeVideos;
+/** Value: "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc;
+/** Value: "GEMINI_IT_ACI_BENCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAciBench;
+/** Value: "GEMINI_IT_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAquamuse;
+/**
+ *  Gemini IT Cloud Build datasets.
+ *
+ *  Value: "GEMINI_IT_CLOUD_CODE_IF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudCodeIf;
+/** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudEurLexJson;
+/** Value: "GEMINI_IT_CLOUD_OASST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudOasst;
+/** Value: "GEMINI_IT_CLOUD_SELF_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudSelfInstruct;
+/** Value: "GEMINI_IT_CLOUD_UCS_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudUcsAquamuse;
+/** Value: "GEMINI_IT_CODE_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCodeInstruct;
+/** Value: "GEMINI_IT_DSCOUT_FACTUALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItDscoutFactuality;
+/** Value: "GEMINI_IT_EITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItEitlGen;
+/** Value: "GEMINI_IT_HEDGING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHedging;
+/** Value: "GEMINI_IT_HITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHitlGen;
+/** Value: "GEMINI_IT_M3W" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItM3w;
+/** Value: "GEMINI_IT_MECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMech;
+/** Value: "GEMINI_IT_MED_PALM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMedPalm;
+/** Value: "GEMINI_IT_NIMBUS_DECIBEL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusDecibel;
+/** Value: "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt;
+/** Value: "GEMINI_IT_QA_WITH_URL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItQaWithUrl;
+/** Value: "GEMINI_IT_SHOTGUN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShotgun;
+/**
+ *  Gemini IT 1.2.7 datasets
+ *
+ *  Value: "GEMINI_IT_SHUTTERSTOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShutterstock;
+/** Value: "GEMINI_IT_SPIDER_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItSpiderFiltered;
+/** Value: "GEMINI_IT_TABLE_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTableGen;
+/** Value: "GEMINI_IT_TAB_SUM_BQ" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTabSumBq;
+/** Value: "GEMINI_IT_TASK_ORIENTED_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTaskOrientedDialog;
+/** Value: "GEMINI_MULTIMODAL_FT_INK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtInk;
+/** Value: "GEMINI_MULTIMODAL_FT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtNone;
+/** Value: "GEMINI_MULTIMODAL_FT_OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtOther;
+/** Value: "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtShutterstock;
+/**
+ *  Gemini multimodal instruction tune(IT) and fine tune(FT) datasets datasets.
+ *
+ *  Value: "GEMINI_MULTIMODAL_FT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtUrl;
+/** Value: "GEMINI_MULTIMODAL_FT_YT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtYt;
+/** Value: "GEMINI_MULTIMODAL_IT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalIt;
+/**
+ *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
+/**
+ *  Github
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7;
+/** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont;
+/** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2;
+/**
+ *  Gemini V1, order by precedence. Wikipedia
+ *
+ *  Value: "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered;
+/** Value: "GEMINI_V1_COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CombinedReddit;
+/** Value: "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523;
+/** Value: "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar;
+/** Value: "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2;
+/** Value: "GEMINI_V1_GITHUB_HTML_CSS_XML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4;
+/** Value: "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable;
+/** Value: "GEMINI_V1_GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubLongTailV4;
+/** Value: "GEMINI_V1_GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubOtherV4;
+/** Value: "GEMINI_V1_GITHUB_TECHDOCS_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubTechdocsV2;
+/**
+ *  Non-public books
+ *
+ *  Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn;
+/** Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen;
+/**
+ *  Citable misc
+ *
+ *  Value: "GEMINI_V1_PODCASTS_ROBOTSTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1PodcastsRobotstxt;
+/** Value: "GEMINI_V1_PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Pubmed;
+/** Value: "GEMINI_V1_QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Quora;
+/** Value: "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc;
+/** Value: "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc;
+/** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix;
+/**
+ *  ArXiv
+ *
+ *  Value: "GEMINI_V1_ULM_ARXIV_SSTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1UlmArxivSstable;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text;
+/**
+ *  Other
+ *
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_WEB_MATH_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WebMathV2;
+/** Value: "GEMINI_V1_WIKIPEDIA_DIFFS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WikipediaDiffs;
+/** Value: "GEMINI_V2_ARXIV_2023_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Arxiv2023Compliant;
+/** Value: "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered;
+/** Value: "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant;
+/** Value: "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2;
+/** Value: "GEMINI_V2_CHESS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChessCompliant;
+/** Value: "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix;
+/**
+ *  Value: "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths;
+/** Value: "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant;
+/** Value: "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant;
+/**
+ *  Gemini V2 datasets
+ *
+ *  Value: "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii;
+/** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodewebV1Compliant;
+/** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant;
+/**
+ *  Value: "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant;
+/** Value: "GEMINI_V2_FORMAL_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FormalCompliant;
+/** Value: "GEMINI_V2_FORUMS_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ForumsV2Compliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant;
+/** Value: "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant;
+/** Value: "GEMINI_V2_GITHUB_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubDiffsCompliant;
+/** Value: "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant;
+/** Value: "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant;
+/** Value: "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant;
+/** Value: "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant;
+/** Value: "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
+/** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2LeetcodeGccPii;
+/** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5;
+/** Value: "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5;
+/** Value: "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_PODCASTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PodcastsCompliant;
+/** Value: "GEMINI_V2_PUBMED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PubmedCompliant;
+/** Value: "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2;
+/** Value: "GEMINI_V2_QUORA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QuoraCompliant;
+/** Value: "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex;
+/** Value: "GEMINI_V2_SCIENCEWEB_V0_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencewebV0GccPii;
+/** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant;
+/**
+ *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_WEB_MATH_V3_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebMathV3Compliant;
+/** Value: "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant;
+/** Value: "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant;
+/** Value: "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant;
+/**
+ *  Gemit Bridge ULM FT dataset
+ *
+ *  Value: "GEMIT_BRIDGE_SUFFIX_FT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GemitBridgeSuffixFt;
+/**
+ *  Genesis fine tuned datasets.
+ *
+ *  Value: "GENESIS_NEWS_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GenesisNewsInsights;
+/** Value: "GITHUB_DIFFS_WITH_COMMIT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubDiffsWithCommitMessage;
+/** Value: "GITHUB_HTML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubHtmlV4;
+/** Value: "GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubLongTailV4;
+/** Value: "GITHUB_MIRROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirror;
+/** Value: "GITHUB_MIRROR_V1_0_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV101;
+/** Value: "GITHUB_MIRROR_V2_1_0" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV210;
+/** Value: "GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubOtherV4;
+/**
+ *  Google news dataset referenced in:
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *
+ *  Value: "GNEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Gnews;
+/** Value: "GOODALL_MTV5_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Books;
+/** Value: "GOODALL_MTV5_C4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5C4;
+/**
+ *  Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *
+ *  Value: "GOODALL_MTV5_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Github;
+/** Value: "GOODALL_MTV5_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Wikipedia;
+/** Value: "GOODALL_MW_STACK_EXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwStackExchange;
+/** Value: "GOODALL_MW_TOP_0_10B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop010b;
+/** Value: "GOODALL_MW_TOP_100B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop100b;
+/** Value: "GOODALL_MW_TOP_10B_20B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop10b20b;
+/** Value: "HOL4_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Hol4Theories;
+/** Value: "HOL_LIGHT_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_HolLightTheories;
+/** Value: "HOLSTEPS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Holsteps;
+/** Value: "ISABELLE_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleStep;
+/** Value: "ISABELLE_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleTheories;
+/** Value: "LABS_AQA_DELEWARE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDeleware;
+/**
+ *  LABS AQA fine-tune datasets.
+ *
+ *  Value: "LABS_AQA_DSCOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDscout;
+/** Value: "LABS_AQA_TAILWIND" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaTailwind;
+/** Value: "LAMDA_FACTUALITY_E2E_QUERY_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration;
+/** Value: "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration;
+/** Value: "LAMDA_FACTUALITY_TRIGGER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityTrigger;
+/** Value: "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast;
+/** Value: "LAMDA_SSI_DISCRIMINATIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSsiDiscriminative;
+/** Value: "LEAN_MATHLIB_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanMathlibTheories;
+/** Value: "LEAN_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanStep;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_BARD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredBard;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_200" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong200;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_500" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong500;
+/** Value: "MATH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Math;
+/** Value: "MATH_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MathReasoning;
+/**
+ *  Meena full conversations.
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *
+ *  Value: "MEENA_FC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaFc;
+/** Value: "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown;
+/** Value: "MEENA_RESEARCH_PHASE_GOOGLERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGooglers;
+/** Value: "MEENA_RESPONSE_SAFETY_HUMAN_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyHumanGen;
+/** Value: "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast;
+/** Value: "MIZAR_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MizarTheories;
+/**
+ *  Mobile assistant finetune datasets.
+ *
+ *  Value: "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k;
+/** Value: "MOBILE_ASSISTANT_PALM24B_FILTERED_400K" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k;
+/**
+ *  Others
+ *
+ *  Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly;
+/** Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly;
+/** Value: "PODCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Podcast;
+/** Value: "PODCAST_FINETUNE_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastFinetuneDialog;
+/** Value: "PODCASTS_ROBOTSTXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastsRobotstxt;
+/** Value: "PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Pubmed;
+/** Value: "QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Quora;
+/** Value: "SCIENCE_PDF_70M_DOCS_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SciencePdf70mDocsFiltered;
+/** Value: "SIMPLIFIED_HTML_V1_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SimplifiedHtmlV1Gcc;
+/** Value: "TECHDOCS_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_TechdocsDataSource;
+/**
+ *  Arxiv
+ *
+ *  Value: "ULM_ARXIV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmArxiv;
+/**
+ *  The docjoins data for ULM
+ *  /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *
+ *  Value: "ULM_DOCJOINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoins;
+/** Value: "ULM_DOCJOINS_DEDUPED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsDeduped;
+/** Value: "ULM_DOCJOINS_WITH_URLS_EN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsEn;
+/** Value: "ULM_DOCJOINS_WITH_URLS_I18N" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n;
+/**
+ *  Datasets used by Vertex
+ *
+ *  Value: "VERTEX_SAFE_FLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_VertexSafeFlan;
+/** Value: "WEB_ASR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebAsr;
+/**
+ *  Webdocs that have been filtered from the docjoins by the Tarzan team for use
+ *  in the Tarzan training set.
+ *
+ *  Value: "WEBDOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Webdocs;
+/** Value: "WEBDOCS_FINETUNE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebdocsFinetune;
+/**
+ *  Wikipedia article Tensorflow datasets used by Tarzan and maintained by TFDS
+ *  team.
+ *
+ *  Value: "WIKIPEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Wikipedia;
+/** Value: "WORLD_QUERY_GENERATOR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WorldQueryGenerator;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRecitationRecitationResult.recitationAction
+
+/** Value: "ACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ActionUnspecified;
+/**
+ *  indicate that a Segment should be blocked from being used
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Block;
+/**
+ *  indicate that attribution must be shown for a Segment
+ *
+ *  Value: "CITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Cite;
+/**
+ *  The recitation was found in prompt and is exempted from overall results
+ *
+ *  Value: "EXEMPT_FOUND_IN_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ExemptFoundInPrompt;
+/**
+ *  for tagging high-frequency code snippets
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRecitationSegmentResult.attributionDataset
+
+/**
+ *  Academic dataset of math text.
+ *  http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *
+ *  Value: "AMPS_KHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsKhan;
+/** Value: "AMPS_MATHEMATICA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsMathematica;
+/** Value: "AQUA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Aqua;
+/** Value: "ASSISTANT_PERSONALITY_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AssistantPersonalitySafety;
+/**
+ *  Bard ARCADE finetune dataset
+ *
+ *  Value: "BARD_ARCADE_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardArcadeGithub;
+/** Value: "BARD_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardGolden;
+/** Value: "BARD_PERSONALITY_GOLDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardPersonalityGolden;
+/**
+ *  'Full view' books dataset maintained by Oceanographers team, meaning 'ok to
+ *  view the book in full in all localities'. Largely the same as 'public
+ *  domain', but with potentially subtle distinction.
+ *
+ *  Value: "BOOKS_FULL_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksFullView;
+/**
+ *  Filtered private books used by ULM:
+ *  http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *  which corresponds with
+ *  /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *
+ *  Value: "BOOKS_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksPrivate;
+/** Value: "C4_JOINED_DOCJOINS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_C4JoinedDocjoins;
+/** Value: "CANARIES_SHUFFLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CanariesShuffled;
+/** Value: "CLEAN_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CleanArxiv;
+/** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix;
+/** Value: "CLOUD_SECURITY_FINETUNING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityFinetuning;
+/**
+ *  Cloud Security fine tuned datasets.
+ *
+ *  Value: "CLOUD_SECURITY_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityPretraining;
+/** Value: "CMS_GITHUB_MULTIFILE_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubMultifileV4;
+/**
+ *  Github
+ *
+ *  Value: "CMS_GITHUB_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubV4;
+/** Value: "CMS_STACKEXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackexchange;
+/** Value: "CMS_STACKOVERFLOW_MULTILINGUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackoverflowMultilingual;
+/**
+ *  Datasets used by Gemini Public data
+ *
+ *  Value: "CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsWikipediaLangFiltered;
+/** Value: "CODE_QA_FT_FORMAT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtFormat;
+/** Value: "CODE_QA_FT_KNOWLEDGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtKnowledge;
+/** Value: "CODE_QA_GITHUB_FILTERED_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaGithubFilteredCode;
+/** Value: "CODE_QA_SE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSe;
+/** Value: "CODE_QA_SO" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSo;
+/** Value: "CODEY_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyCode;
+/**
+ *  Datasets used by Codepoet
+ *
+ *  Value: "CODEY_NOTEBOOK_LM_PRETRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyNotebookLmPretraining;
+/** Value: "COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CombinedReddit;
+/** Value: "COMMON_SENSE_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CommonSenseReasoning;
+/** Value: "COQ_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqStep;
+/** Value: "COQ_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqTheories;
+/** Value: "DATASET_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DatasetUnspecified;
+/** Value: "DOCUMENT_CHUNKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DocumentChunks;
+/** Value: "DUET_CLOUD_BLOG_POSTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudBlogPosts;
+/** Value: "DUET_CLOUD_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocs;
+/** Value: "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated;
+/** Value: "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten;
+/** Value: "DUET_CLOUD_IX_PROMPTS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudIxPrompts;
+/** Value: "DUET_CLOUD_PODCAST_EPISODES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes;
+/**
+ *  Duet AI finetune datasets, order by precedence.
+ *
+ *  Value: "DUET_CLOUD_SECURITY_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSecurityDocs;
+/** Value: "DUET_CLOUD_SKILLS_BOOST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSkillsBoost;
+/** Value: "DUET_DEVSITE_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetDevsiteDocs;
+/** Value: "DUET_GITHUB_CODE_SNIPPETS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubCodeSnippets;
+/** Value: "DUET_GITHUB_FILES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubFiles;
+/** Value: "DUET_GOBYEXAMPLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGobyexample;
+/** Value: "DUET_GOLANG_DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGolangDocs;
+/** Value: "DUET_GOOGLESQL_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGooglesqlGeneration;
+/** Value: "DUET_RAD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetRad;
+/** Value: "DUET_YOUTUBE_VIDEOS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetYoutubeVideos;
+/** Value: "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc;
+/** Value: "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc;
+/** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc;
+/** Value: "GEMINI_IT_ACI_BENCH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAciBench;
+/** Value: "GEMINI_IT_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAquamuse;
+/**
+ *  Gemini IT Cloud Build datasets.
+ *
+ *  Value: "GEMINI_IT_CLOUD_CODE_IF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudCodeIf;
+/** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudEurLexJson;
+/** Value: "GEMINI_IT_CLOUD_OASST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudOasst;
+/** Value: "GEMINI_IT_CLOUD_SELF_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct;
+/** Value: "GEMINI_IT_CLOUD_UCS_AQUAMUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse;
+/** Value: "GEMINI_IT_CODE_INSTRUCT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCodeInstruct;
+/** Value: "GEMINI_IT_DSCOUT_FACTUALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItDscoutFactuality;
+/** Value: "GEMINI_IT_EITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItEitlGen;
+/** Value: "GEMINI_IT_HEDGING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHedging;
+/** Value: "GEMINI_IT_HITL_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHitlGen;
+/** Value: "GEMINI_IT_M3W" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItM3w;
+/** Value: "GEMINI_IT_MECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMech;
+/** Value: "GEMINI_IT_MED_PALM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMedPalm;
+/** Value: "GEMINI_IT_NIMBUS_DECIBEL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusDecibel;
+/** Value: "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt;
+/** Value: "GEMINI_IT_QA_WITH_URL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItQaWithUrl;
+/** Value: "GEMINI_IT_SHOTGUN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShotgun;
+/**
+ *  Gemini IT 1.2.7 datasets
+ *
+ *  Value: "GEMINI_IT_SHUTTERSTOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShutterstock;
+/** Value: "GEMINI_IT_SPIDER_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItSpiderFiltered;
+/** Value: "GEMINI_IT_TABLE_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTableGen;
+/** Value: "GEMINI_IT_TAB_SUM_BQ" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTabSumBq;
+/** Value: "GEMINI_IT_TASK_ORIENTED_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog;
+/** Value: "GEMINI_MULTIMODAL_FT_INK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtInk;
+/** Value: "GEMINI_MULTIMODAL_FT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtNone;
+/** Value: "GEMINI_MULTIMODAL_FT_OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtOther;
+/** Value: "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock;
+/**
+ *  Gemini multimodal instruction tune(IT) and fine tune(FT) datasets datasets.
+ *
+ *  Value: "GEMINI_MULTIMODAL_FT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtUrl;
+/** Value: "GEMINI_MULTIMODAL_FT_YT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtYt;
+/** Value: "GEMINI_MULTIMODAL_IT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalIt;
+/**
+ *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
+/**
+ *  Github
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7;
+/** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont;
+/** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2;
+/**
+ *  Gemini V1, order by precedence. Wikipedia
+ *
+ *  Value: "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered;
+/** Value: "GEMINI_V1_COMBINED_REDDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CombinedReddit;
+/** Value: "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523;
+/**
+ *  Public webdocs
+ *
+ *  Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523;
+/** Value: "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523;
+/** Value: "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar;
+/** Value: "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2;
+/** Value: "GEMINI_V1_GITHUB_HTML_CSS_XML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4;
+/** Value: "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable;
+/** Value: "GEMINI_V1_GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4;
+/** Value: "GEMINI_V1_GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubOtherV4;
+/** Value: "GEMINI_V1_GITHUB_TECHDOCS_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2;
+/**
+ *  Non-public books
+ *
+ *  Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn;
+/** Value: "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen;
+/**
+ *  Citable misc
+ *
+ *  Value: "GEMINI_V1_PODCASTS_ROBOTSTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt;
+/** Value: "GEMINI_V1_PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Pubmed;
+/** Value: "GEMINI_V1_QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Quora;
+/** Value: "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc;
+/** Value: "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc;
+/** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix;
+/**
+ *  ArXiv
+ *
+ *  Value: "GEMINI_V1_ULM_ARXIV_SSTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text;
+/**
+ *  Other
+ *
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix;
+/**
+ *  Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text;
+/** Value: "GEMINI_V1_WEB_MATH_V2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WebMathV2;
+/** Value: "GEMINI_V1_WIKIPEDIA_DIFFS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs;
+/** Value: "GEMINI_V2_ARXIV_2023_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant;
+/** Value: "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered;
+/**
+ *  Value: "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered;
+/** Value: "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant;
+/** Value: "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2;
+/** Value: "GEMINI_V2_CHESS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChessCompliant;
+/** Value: "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix;
+/**
+ *  Value: "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths;
+/** Value: "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant;
+/** Value: "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant;
+/**
+ *  Gemini V2 datasets
+ *
+ *  Value: "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii;
+/** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant;
+/** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered;
+/** Value: "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered;
+/** Value: "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant;
+/**
+ *  Value: "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant;
+/** Value: "GEMINI_V2_FORMAL_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FormalCompliant;
+/** Value: "GEMINI_V2_FORUMS_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant;
+/**
+ *  Value: "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant;
+/** Value: "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant;
+/** Value: "GEMINI_V2_GITHUB_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant;
+/** Value: "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant;
+/** Value: "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant;
+/** Value: "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant;
+/** Value: "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant;
+/** Value: "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant;
+/** Value: "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
+/** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii;
+/** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2;
+/** Value: "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2;
+/**
+ *  Value: "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5;
+/** Value: "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5;
+/** Value: "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5;
+/** Value: "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2;
+/** Value: "GEMINI_V2_PODCASTS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant;
+/** Value: "GEMINI_V2_PUBMED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PubmedCompliant;
+/** Value: "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2;
+/** Value: "GEMINI_V2_QUORA_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QuoraCompliant;
+/** Value: "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex;
+/** Value: "GEMINI_V2_SCIENCEWEB_V0_GCC_PII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii;
+/** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant;
+/**
+ *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant;
+/**
+ *  Value: "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant;
+/** Value: "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant;
+/** Value: "GEMINI_V2_WEB_MATH_V3_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant;
+/** Value: "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant;
+/** Value: "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant;
+/** Value: "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant;
+/**
+ *  Gemit Bridge ULM FT dataset
+ *
+ *  Value: "GEMIT_BRIDGE_SUFFIX_FT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GemitBridgeSuffixFt;
+/**
+ *  Genesis fine tuned datasets.
+ *
+ *  Value: "GENESIS_NEWS_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GenesisNewsInsights;
+/** Value: "GITHUB_DIFFS_WITH_COMMIT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage;
+/** Value: "GITHUB_HTML_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubHtmlV4;
+/** Value: "GITHUB_LONG_TAIL_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubLongTailV4;
+/** Value: "GITHUB_MIRROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirror;
+/** Value: "GITHUB_MIRROR_V1_0_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV101;
+/** Value: "GITHUB_MIRROR_V2_1_0" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV210;
+/** Value: "GITHUB_OTHER_V4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubOtherV4;
+/**
+ *  Google news dataset referenced in:
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *
+ *  Value: "GNEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Gnews;
+/** Value: "GOODALL_MTV5_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Books;
+/** Value: "GOODALL_MTV5_C4" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5C4;
+/**
+ *  Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *
+ *  Value: "GOODALL_MTV5_GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Github;
+/** Value: "GOODALL_MTV5_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Wikipedia;
+/** Value: "GOODALL_MW_STACK_EXCHANGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwStackExchange;
+/** Value: "GOODALL_MW_TOP_0_10B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop010b;
+/** Value: "GOODALL_MW_TOP_100B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop100b;
+/** Value: "GOODALL_MW_TOP_10B_20B" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop10b20b;
+/** Value: "HOL4_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Hol4Theories;
+/** Value: "HOL_LIGHT_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_HolLightTheories;
+/** Value: "HOLSTEPS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Holsteps;
+/** Value: "ISABELLE_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleStep;
+/** Value: "ISABELLE_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleTheories;
+/** Value: "LABS_AQA_DELEWARE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDeleware;
+/**
+ *  LABS AQA fine-tune datasets.
+ *
+ *  Value: "LABS_AQA_DSCOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDscout;
+/** Value: "LABS_AQA_TAILWIND" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaTailwind;
+/** Value: "LAMDA_FACTUALITY_E2E_QUERY_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration;
+/** Value: "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration;
+/** Value: "LAMDA_FACTUALITY_TRIGGER" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityTrigger;
+/** Value: "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast;
+/** Value: "LAMDA_SSI_DISCRIMINATIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSsiDiscriminative;
+/** Value: "LEAN_MATHLIB_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanMathlibTheories;
+/** Value: "LEAN_STEP" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanStep;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_BARD" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredBard;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_200" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200;
+/** Value: "MASSIVE_FORUM_THREAD_SCORED_LONG_500" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500;
+/** Value: "MATH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Math;
+/** Value: "MATH_REASONING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MathReasoning;
+/**
+ *  Meena full conversations.
+ *  http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *
+ *  Value: "MEENA_FC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaFc;
+/** Value: "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown;
+/** Value: "MEENA_RESEARCH_PHASE_GOOGLERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers;
+/** Value: "MEENA_RESPONSE_SAFETY_HUMAN_GEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen;
+/** Value: "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2;
+/** Value: "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast;
+/** Value: "MIZAR_THEORIES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MizarTheories;
+/**
+ *  Mobile assistant finetune datasets.
+ *
+ *  Value: "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k;
+/** Value: "MOBILE_ASSISTANT_PALM24B_FILTERED_400K" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k;
+/**
+ *  Others
+ *
+ *  Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly;
+/** Value: "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly;
+/** Value: "PODCAST" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Podcast;
+/** Value: "PODCAST_FINETUNE_DIALOG" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastFinetuneDialog;
+/** Value: "PODCASTS_ROBOTSTXT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastsRobotstxt;
+/** Value: "PUBMED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Pubmed;
+/** Value: "QUORA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Quora;
+/** Value: "SCIENCE_PDF_70M_DOCS_FILTERED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered;
+/** Value: "SIMPLIFIED_HTML_V1_GCC" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc;
+/** Value: "TECHDOCS_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_TechdocsDataSource;
+/**
+ *  Arxiv
+ *
+ *  Value: "ULM_ARXIV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmArxiv;
+/**
+ *  The docjoins data for ULM
+ *  /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *
+ *  Value: "ULM_DOCJOINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoins;
+/** Value: "ULM_DOCJOINS_DEDUPED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsDeduped;
+/** Value: "ULM_DOCJOINS_WITH_URLS_EN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn;
+/** Value: "ULM_DOCJOINS_WITH_URLS_I18N" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n;
+/**
+ *  Datasets used by Vertex
+ *
+ *  Value: "VERTEX_SAFE_FLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_VertexSafeFlan;
+/** Value: "WEB_ASR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebAsr;
+/**
+ *  Webdocs that have been filtered from the docjoins by the Tarzan team for use
+ *  in the Tarzan training set.
+ *
+ *  Value: "WEBDOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Webdocs;
+/** Value: "WEBDOCS_FINETUNE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebdocsFinetune;
+/**
+ *  Wikipedia article Tensorflow datasets used by Tarzan and maintained by TFDS
+ *  team.
+ *
+ *  Value: "WIKIPEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Wikipedia;
+/** Value: "WORLD_QUERY_GENERATOR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WorldQueryGenerator;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRecitationSegmentResult.segmentRecitationAction
+
+/** Value: "ACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ActionUnspecified;
+/**
+ *  indicate that a Segment should be blocked from being used
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Block;
+/**
+ *  indicate that attribution must be shown for a Segment
+ *
+ *  Value: "CITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Cite;
+/**
+ *  The recitation was found in prompt and is exempted from overall results
+ *
+ *  Value: "EXEMPT_FOUND_IN_PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt;
+/**
+ *  for tagging high-frequency code snippets
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootCalculationType.scoreType
+
+/**
+ *  Generation scorer.
+ *
+ *  Value: "TYPE_GENERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeGeneration;
+/**
+ *  Policy scorer.
+ *
+ *  Value: "TYPE_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypePolicy;
+/**
+ *  Safety scorer.
+ *
+ *  Value: "TYPE_SAFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeSafe;
+/**
+ *  Unknown scorer type.
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootFilterMetadata.confidence
+
+/** Value: "FILTER_CONFIDENCE_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceHigh;
+/** Value: "FILTER_CONFIDENCE_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceLow;
+/** Value: "FILTER_CONFIDENCE_MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceMedium;
+/** Value: "FILTER_CONFIDENCE_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceUnknown;
+/** Value: "FILTER_CONFIDENCE_VERY_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryHigh;
+/** Value: "FILTER_CONFIDENCE_VERY_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryLow;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootFilterMetadata.reason
+
+/**
+ *  Atlas specific topic filter
+ *
+ *  Value: "FILTER_REASON_ATLAS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlas;
+/**
+ *  Atlas specific topic filter aws/azure related questions.
+ *
+ *  Value: "FILTER_REASON_ATLAS_AWS_AZURE_RELATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasAwsAzureRelated;
+/**
+ *  Atlas specific topic filter for billing questions.
+ *
+ *  Value: "FILTER_REASON_ATLAS_BILLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasBilling;
+/**
+ *  Atlas specific topic filter for non english questions.
+ *
+ *  Value: "FILTER_REASON_ATLAS_NON_ENGLISH_QUESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNonEnglishQuestion;
+/**
+ *  Atlas specific topic filter for non GCP questions.
+ *
+ *  Value: "FILTER_REASON_ATLAS_NOT_RELATED_TO_GCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNotRelatedToGcp;
+/**
+ *  Atlas specific topic filter for pricing questions.
+ *
+ *  Value: "FILTER_REASON_ATLAS_PRICING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasPricing;
+/**
+ *  Classifier Module
+ *
+ *  Value: "FILTER_REASON_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonClassifier;
+/**
+ *  Codey Filter.
+ *
+ *  Value: "FILTER_REASON_CODEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonCodey;
+/**
+ *  Emails Filter.
+ *
+ *  Value: "FILTER_REASON_EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmail;
+/**
+ *  Empty response message.
+ *
+ *  Value: "FILTER_REASON_EMPTY_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmptyResponse;
+/**
+ *  Language filtering
+ *
+ *  Value: "FILTER_REASON_LANGUAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonLanguage;
+/**
+ *  Input not filtered.
+ *
+ *  Value: "FILTER_REASON_NOT_FILTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonNotFiltered;
+/**
+ *  Pairwise classifier.
+ *
+ *  Value: "FILTER_REASON_PAIRWISE_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonPairwiseClassifier;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_CONTEXTUAL_DANGEROUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiContextualDangerous;
+/**
+ *  RAI Filter.
+ *
+ *  Value: "FILTER_REASON_RAI_CSAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiCsam;
+/**
+ *  RAI Filter.
+ *
+ *  Value: "FILTER_REASON_RAI_FRINGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiFringe;
+/**
+ *  Grail Image
+ *
+ *  Value: "FILTER_REASON_RAI_GRAIL_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailImage;
+/**
+ *  Grail Text
+ *
+ *  Value: "FILTER_REASON_RAI_GRAIL_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailText;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_IMAGE_CSAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageCsam;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_IMAGE_PEDO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePedo;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_IMAGE_PORN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePorn;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_IMAGE_VIOLENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageViolence;
+/**
+ *  RAI Filter.
+ *
+ *  Value: "FILTER_REASON_RAI_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiPqc;
+/**
+ *  SafetyCat.
+ *
+ *  Value: "FILTER_REASON_RAI_SAFETYCAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSafetycat;
+/**
+ *  RAI Filter.
+ *
+ *  Value: "FILTER_REASON_RAI_SPII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSpii;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_VIDEO_FRAME_CSAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameCsam;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_VIDEO_FRAME_PEDO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePedo;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_VIDEO_FRAME_PORN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePorn;
+/**
+ *  RAI Filter
+ *
+ *  Value: "FILTER_REASON_RAI_VIDEO_FRAME_VIOLENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameViolence;
+/**
+ *  Recited content.
+ *
+ *  Value: "FILTER_REASON_RECITATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRecitation;
+/**
+ *  Request Response takedown.
+ *
+ *  Value: "FILTER_REASON_REQUEST_RESPONSE_TAKEDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRequestResponseTakedown;
+/**
+ *  SafetyCat filter.
+ *
+ *  Value: "FILTER_REASON_SAFETY_CAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSafetyCat;
+/**
+ *  Sensitive content.
+ *
+ *  Value: "FILTER_REASON_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSensitive;
+/**
+ *  Similarity takedown.
+ *
+ *  Value: "FILTER_REASON_SIMILARITY_TAKEDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSimilarityTakedown;
+/**
+ *  Takedown policy
+ *
+ *  Value: "FILTER_REASON_TAKEDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonTakedown;
+/**
+ *  Toxic content.
+ *
+ *  Value: "FILTER_REASON_TOXICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonToxicity;
+/**
+ *  Unknown filter reason.
+ *
+ *  Value: "FILTER_REASON_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnknown;
+/**
+ *  Unsafe responses from scorers.
+ *
+ *  Value: "FILTER_REASON_UNSAFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnsafe;
+/**
+ *  URLs Filter.
+ *
+ *  Value: "FILTER_REASON_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUrl;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType.imageHarmType
+
+/** Value: "IMAGE_HARM_TYPE_CSAI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeCsai;
+/** Value: "IMAGE_HARM_TYPE_DANGEROUS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeDangerous;
+/** Value: "IMAGE_HARM_TYPE_GENERATIVE_MINOR_PRESENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeGenerativeMinorPresence;
+/** Value: "IMAGE_HARM_TYPE_GENERATIVE_REALISTIC_VISIBLE_FACE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeGenerativeRealisticVisibleFace;
+/** Value: "IMAGE_HARM_TYPE_MEDICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMedical;
+/** Value: "IMAGE_HARM_TYPE_MINOR_PRESENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMinorPresence;
+/** Value: "IMAGE_HARM_TYPE_MINORS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMinors;
+/** Value: "IMAGE_HARM_TYPE_OBSCENE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeObscene;
+/** Value: "IMAGE_HARM_TYPE_PEDO" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypePedo;
+/** Value: "IMAGE_HARM_TYPE_PORN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypePorn;
+/** Value: "IMAGE_HARM_TYPE_RACY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeRacy;
+/** Value: "IMAGE_HARM_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeUnspecified;
+/** Value: "IMAGE_HARM_TYPE_VIOLENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeViolence;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType.harmType
+
+/** Value: "HARM_TYPE_CSAI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeCsai;
+/** Value: "HARM_TYPE_FRINGE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeFringe;
+/** Value: "HARM_TYPE_HARASSMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeHarassment;
+/** Value: "HARM_TYPE_HATE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeHate;
+/** Value: "HARM_TYPE_MEDICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeMedical;
+/** Value: "HARM_TYPE_MEMORIZATION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeMemorization;
+/**
+ *  New definition of dangerous.
+ *
+ *  Value: "HARM_TYPE_NEW_DANGEROUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeNewDangerous;
+/** Value: "HARM_TYPE_POLITICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypePolitical;
+/** Value: "HARM_TYPE_SEXUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeSexual;
+/** Value: "HARM_TYPE_SPII" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeSpii;
+/** Value: "HARM_TYPE_TOXICITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeToxicity;
+/** Value: "HARM_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeUnspecified;
+/** Value: "HARM_TYPE_VIOLENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeViolence;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories.categories
+
+/**
+ *  Following categories are only supported in SAFETY_CAT_TEXT_V3_PAX model
+ *
+ *  Value: "DANGEROUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Dangerous;
+/** Value: "DANGEROUS_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_DangerousSeverity;
+/** Value: "DEATH_HARM_TRAGEDY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_DeathHarmTragedy;
+/** Value: "DRUGS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Drugs;
+/** Value: "FINANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Finance;
+/** Value: "FIREARMS_WEAPONS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_FirearmsWeapons;
+/** Value: "HARASSMENT_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_HarassmentSeverity;
+/** Value: "HATE_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_HateSeverity;
+/** Value: "HEALTH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Health;
+/** Value: "IDENTITY_HATE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_IdentityHate;
+/** Value: "INSULT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Insult;
+/** Value: "LEGAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Legal;
+/** Value: "OBSCENE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Obscene;
+/** Value: "POLITICS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Politics;
+/** Value: "PUBLIC_SAFETY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_PublicSafety;
+/** Value: "RELIGION_BELIEF" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_ReligionBelief;
+/** Value: "SAFETYCAT_CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_SafetycatCategoryUnspecified;
+/** Value: "SEXUAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Sexual;
+/** Value: "SEXUAL_SEVERITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_SexualSeverity;
+/**
+ *  SafetyCat categories.
+ *
+ *  Value: "TOXICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Toxicity;
+/** Value: "VIOLENCE_ABUSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_ViolenceAbuse;
+/** Value: "WAR_CONFLICT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_WarConflict;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootRuleOutput.decision
+
+/**
+ *  This is a generic "match" message, indicating that a rule was triggered.
+ *  Usually you would use this for a categorization classifier.
+ *
+ *  Value: "MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_Match;
+/**
+ *  This rule was not matched. When used in a ClassifierOutput, this means that
+ *  no rules were matched.
+ *
+ *  Value: "NO_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_NoMatch;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootThresholdType.scoreType
+
+/**
+ *  Generation scorer.
+ *
+ *  Value: "TYPE_GENERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeGeneration;
+/**
+ *  Policy scorer.
+ *
+ *  Value: "TYPE_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypePolicy;
+/**
+ *  Safety scorer.
+ *
+ *  Value: "TYPE_SAFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeSafe;
+/**
+ *  Unknown scorer type.
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootToxicitySignal.label
+
+/**
+ *  Input is related to accidents or disasters.
+ *
+ *  Value: "ACCIDENTS_DISASTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_AccidentsDisasters;
+/**
+ *  Input contains adult content.
+ *
+ *  Value: "ADULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Adult;
+/**
+ *  Input is related to computer security.
+ *
+ *  Value: "COMPUTER_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ComputerSecurity;
+/**
+ *  Input contains controversial social issues.
+ *
+ *  Value: "CONTROVERSIAL_SOCIAL_ISSUES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ControversialSocialIssues;
+/**
+ *  Input is related to death tragedy.
+ *
+ *  Value: "DEATH_TRAGEDY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_DeathTragedy;
+/**
+ *  Input is related to drugs.
+ *
+ *  Value: "DRUGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Drugs;
+/**
+ *  Input is related to financial hardship.
+ *
+ *  Value: "FINANCIAL_HARDSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FinancialHardship;
+/**
+ *  Input is related to firearms or weapons.
+ *
+ *  Value: "FIREARMS_WEAPONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FirearmsWeapons;
+/**
+ *  Input contains health related information.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Health;
+/**
+ *  Input is related to identity or ethnicity.
+ *
+ *  Value: "IDENTITY_ETHNICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_IdentityEthnicity;
+/**
+ *  Input may be an insult.
+ *
+ *  Value: "INSULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Insult;
+/**
+ *  Default label.
+ *
+ *  Value: "LABEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_LabelUnspecified;
+/**
+ *  Input is related to legal content.
+ *
+ *  Value: "LEGAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Legal;
+/**
+ *  Input contains mental health related information.
+ *
+ *  Value: "MENTAL_HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_MentalHealth;
+/**
+ *  Input is not sensitive.
+ *
+ *  Value: "NOT_SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_NotSensitive;
+/**
+ *  Input is related to politics.
+ *
+ *  Value: "POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Politics;
+/**
+ *  Input is related to religions or beliefs.
+ *
+ *  Value: "RELIGION_BELIEFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ReligionBeliefs;
+/**
+ *  Input is related to safety.
+ *
+ *  Value: "SAFETY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Safety;
+/**
+ *  Input is related to self-harm.
+ *
+ *  Value: "SELF_HARM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SelfHarm;
+/**
+ *  Input is sensitive.
+ *
+ *  Value: "SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Sensitive;
+/**
+ *  Input is related to special needs.
+ *
+ *  Value: "SPECIAL_NEEDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SpecialNeeds;
+/**
+ *  Input is related to terrorism.
+ *
+ *  Value: "TERRORISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Terrorism;
+/**
+ *  Input is toxic.
+ *
+ *  Value: "TOXIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Toxic;
+/**
+ *  Input is related to troubled relationships.
+ *
+ *  Value: "TROUBLED_RELATIONSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_TroubledRelationship;
+/**
+ *  Input contains content about violence or abuse.
+ *
+ *  Value: "VIOLENCE_ABUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ViolenceAbuse;
+/**
+ *  Input is vulgar.
+ *
+ *  Value: "VULGAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Vulgar;
+/**
+ *  Input is related to war and conflict.
+ *
+ *  Value: "WAR_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_WarConflict;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningServingLlmMessageMetadata.finishReason
+
+/**
+ *  Finished due to triggering some post-processing filter.
+ *
+ *  Value: "FILTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Filter;
+/**
+ *  Model has emitted the maximum number of tokens as specified by
+ *  max_decoding_steps.
+ *
+ *  Value: "MAX_TOKENS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_MaxTokens;
+/**
+ *  Return all the tokens back. This typically implies no filtering or stop
+ *  sequence was triggered.
+ *
+ *  Value: "RETURN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Return;
+/**
+ *  Finished due to provided stop sequence.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Stop;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_NlpSaftLangIdResult.modelVersion
+
+/** Value: "INDEXING_20181017" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20181017;
+/** Value: "INDEXING_20191206" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20191206;
+/** Value: "INDEXING_20200313" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20200313;
+/** Value: "INDEXING_20210618" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20210618;
+/** Value: "STANDARD_20220516" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Standard20220516;
+/** Value: "VERSION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspecified;
+
 /**
  *  Video embedding response.
  */
@@ -4810,6 +9291,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate *> *candidates;
 
 /**
+ *  Debug information containing message metadata. Clients should not consume
+ *  this field, and this is only populated for Flow Runner path.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata *debugMetadata;
+
+/**
  *  Content filter results for a prompt sent in the request. Note: Sent only in
  *  the first stream chunk. Only happens when no candidates were generated due
  *  to content violations.
@@ -4821,6 +9308,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /** Usage metadata about the response(s). */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceUsageMetadata *usageMetadata;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata : GTLRObject
+
+/** Filter metadata of the input messages. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmMessageMetadata *inputFilterInfo;
+
+/**
+ *  This score is generated by the router model to decide which model to use
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRoutingDecision *modelRoutingDecision;
+
+/** Filter metadata of the output messages. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningServingLlmMessageMetadata *> *outputFilterInfo;
 
 @end
 
@@ -4927,6 +9433,190 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
 
 /** Safety ratings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating *> *safetyRatings;
+
+@end
+
+
+/**
+ *  The RAI results for a given text.
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult : GTLRObject
+
+/** Recitation result from Aida recitation checker. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult *aidaRecitationResult;
+
+/**
+ *  Use `triggered_blocklist`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blocked GTLR_DEPRECATED;
+
+/**
+ *  The error codes indicate which RAI filters block the response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *errorCodes;
+
+/**
+ *  Whether the text should be filtered and not shown to the end user. This is
+ *  determined based on a combination of `triggered_recitation`,
+ *  `triggered_blocklist`, `language_filter_result`, and
+ *  `triggered_safety_filter`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filtered;
+
+/** Language filter result from SAFT LangId. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmLanguageFilterResult *languageFilterResult;
+
+/** The RAI signals for the text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal *> *raiSignals;
+
+/**
+ *  Whether the text triggered the blocklist.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *triggeredBlocklist;
+
+/**
+ *  Whether the text should be blocked by the recitation result from Aida
+ *  recitation checker. It is determined from aida_recitation_result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *triggeredRecitation;
+
+/**
+ *  Whether the text triggered the safety filter. Currently, this is due to CSAI
+ *  triggering or one of four categories (derogatory, sexual, toxic, violent)
+ *  having a score over the filter threshold.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *triggeredSafetyFilter;
+
+@end
+
+
+/**
+ *  An RAI signal for a single category.
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal : GTLRObject
+
+/**
+ *  The confidence level for the RAI category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceHigh
+ *        Value "CONFIDENCE_HIGH"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceLow
+ *        Value "CONFIDENCE_LOW"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceMedium
+ *        Value "CONFIDENCE_MEDIUM"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceNone
+ *        Value "CONFIDENCE_NONE"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceUnspecified
+ *        Value "CONFIDENCE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *confidence;
+
+/**
+ *  Whether the category is flagged as being present. Currently, this is set to
+ *  true if score >= 0.5.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flagged;
+
+/**
+ *  The RAI category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csai
+ *        GRAIL categories that can't be exposed to end users. (Value: "CSAI")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csam
+ *        CSAM V2 (Value: "CSAM")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContent
+ *        New SafetyCat v3 categories (Value: "DANGEROUS_CONTENT")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContentSeverity
+ *        Value "DANGEROUS_CONTENT_SEVERITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DeathHarmTragedy
+ *        Value "DEATH_HARM_TRAGEDY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Derogatory
+ *        Value "DEROGATORY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DerogatorySeverity
+ *        Value "DEROGATORY_SEVERITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Drugs
+ *        Value "DRUGS"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Finance
+ *        Value "FINANCE"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_FirearmsWeapons
+ *        Value "FIREARMS_WEAPONS"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Fringe
+ *        Value "FRINGE"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Harassment
+ *        Value "HARASSMENT"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_HateSpeech
+ *        Value "HATE_SPEECH"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Health
+ *        Value "HEALTH"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IdentityAttack
+ *        Value "IDENTITY_ATTACK"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IllicitDrugs
+ *        Value "ILLICIT_DRUGS"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Insult
+ *        Value "INSULT"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_InsultSeverity
+ *        Value "INSULT_SEVERITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Legal
+ *        Value "LEGAL"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Obscene
+ *        Value "OBSCENE"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Politics
+ *        Value "POLITICS"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Profanity
+ *        Value "PROFANITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_PublicSafety
+ *        Value "PUBLIC_SAFETY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_RaiCategoryUnspecified
+ *        Value "RAI_CATEGORY_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ReligiousBelief
+ *        Value "RELIGIOUS_BELIEF"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SevereToxicity
+ *        Value "SEVERE_TOXICITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Sexual
+ *        Value "SEXUAL"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexuallyExplicit
+ *        Value "SEXUALLY_EXPLICIT"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexualSeverity
+ *        Value "SEXUAL_SEVERITY"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Spii
+ *        SPII (Value: "SPII")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Threat
+ *        Unused categories. (Value: "THREAT")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxic
+ *        SafetyCat categories. (Value: "TOXIC")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxicity
+ *        Old category names. (Value: "TOXICITY")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ViolenceAbuse
+ *        Value "VIOLENCE_ABUSE"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Violent
+ *        Value "VIOLENT"
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_WarConflict
+ *        Value "WAR_CONFLICT"
+ */
+@property(nonatomic, copy, nullable) NSString *raiCategory;
+
+/**
+ *  The score for the category, in the range [0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -12326,12 +17016,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *contents;
 
-/**
- *  Required. The name of the Endpoint requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
- */
-@property(nonatomic, copy, nullable) NSString *endpoint GTLR_DEPRECATED;
-
 /** Optional. Generation config. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
 
@@ -19071,6 +23755,9 @@ GTLR_DEPRECATED
 /** Optional. Open fine-tuning pipeline of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openFineTuningPipeline;
 
+/** Optional. Open fine-tuning pipelines of the PublisherModel. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines *openFineTuningPipelines;
+
 /** Optional. Open in Generation AI Studio. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openGenerationAiStudio;
 
@@ -19079,6 +23766,9 @@ GTLR_DEPRECATED
 
 /** Optional. Open notebook of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openNotebook;
+
+/** Optional. Open notebooks of the PublisherModel. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenNotebooks *openNotebooks;
 
 /** Optional. Open prompt-tuning pipeline of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openPromptTuningPipeline;
@@ -19150,6 +23840,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Open fine tuning pipelines.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines : GTLRObject
+
+/** Required. Regional resource references to fine tuning pipelines. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *> *fineTuningPipelines;
+
+@end
+
+
+/**
+ *  Open notebooks.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenNotebooks : GTLRObject
+
+/** Required. Regional resource references to notebooks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *> *notebooks;
+
+@end
+
+
+/**
  *  The regional resource name or the URI. Key is region, e.g., us-central1,
  *  europe-west2, global, etc..
  */
@@ -19158,7 +23870,16 @@ GTLR_DEPRECATED
 /** Required. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences_References *references;
 
-/** Required. The title of the regional resource reference. */
+/** Optional. Description of the resource. */
+@property(nonatomic, copy, nullable) NSString *resourceDescription;
+
+/** Optional. Title of the resource. */
+@property(nonatomic, copy, nullable) NSString *resourceTitle;
+
+/** Optional. Use case (CUJ) of the resource. */
+@property(nonatomic, copy, nullable) NSString *resourceUseCase;
+
+/** Required. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
@@ -19218,7 +23939,7 @@ GTLR_DEPRECATED
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, copy, nullable) NSString *descriptionProperty GTLR_DEPRECATED;
 
 /** The resource name of the Google Cloud resource. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -19227,7 +23948,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** Use case (CUJ) of the resource. */
-@property(nonatomic, copy, nullable) NSString *useCase;
+@property(nonatomic, copy, nullable) NSString *useCase GTLR_DEPRECATED;
 
 @end
 
@@ -21956,7 +26677,7 @@ GTLR_DEPRECATED
 
 /**
  *  The grounding text passed inline with the Predict API. It can support up to
- *  1 million token context.
+ *  1 million bytes.
  */
 @property(nonatomic, copy, nullable) NSString *inlineContext;
 
@@ -29086,6 +33807,4580 @@ GTLR_DEPRECATED
  *  One entry per metric name. The values must be aggregated per metric name.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry *> *metricEntries;
+
+@end
+
+
+/**
+ *  The proto defines the attribution information for a document using whatever
+ *  fields are most applicable for that document's datasource. For example, a
+ *  Wikipedia article's attribution is in the form of its article title, a
+ *  website is in the form of a URL, and a Github repo is in the form of a repo
+ *  name. Next id:28
+ */
+@interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *amarnaId;
+@property(nonatomic, copy, nullable) NSString *arxivId;
+@property(nonatomic, copy, nullable) NSString *author;
+@property(nonatomic, copy, nullable) NSString *bibkey;
+@property(nonatomic, copy, nullable) NSString *bookTitle;
+
+/**
+ *  The Oceanographers full-view books dataset uses a 'volume id' as the unique
+ *  ID of a book. There is a deterministic function from a volume id to a URL
+ *  under the books.google.com domain. Marked as 'optional' since a volume ID of
+ *  zero is potentially possible and we want to distinguish that from the volume
+ *  ID not being set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bookVolumeId;
+
+/**
+ *  category
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNews
+ *        The doc has a url and the news classifier has classified this doc as
+ *        news. (Value: "CATEGORY_NEWS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNonNewsWebdoc
+ *        The doc has a url and the news classifier classified this doc as
+ *        non-news. (Value: "CATEGORY_NON_NEWS_WEBDOC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnknownMissingSignal
+ *        The doc has a url but the url was missing from the news classifier URL
+ *        table. (Value: "CATEGORY_UNKNOWN_MISSING_SIGNAL")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnspecified
+ *        Value "CATEGORY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/**
+ *  The dataset this document comes from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsKhan
+ *        Academic dataset of math text.
+ *        http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *        (Value: "AMPS_KHAN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsMathematica
+ *        Value "AMPS_MATHEMATICA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Aqua
+ *        Value "AQUA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AssistantPersonalitySafety
+ *        Value "ASSISTANT_PERSONALITY_SAFETY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardArcadeGithub
+ *        Bard ARCADE finetune dataset. (Value: "BARD_ARCADE_GITHUB")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardGolden
+ *        Value "BARD_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardPersonalityGolden
+ *        Value "BARD_PERSONALITY_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksFullView
+ *        'Full view' books dataset maintained by Oceanographers team, meaning
+ *        'ok to view the book in full in all localities'. Largely the same as
+ *        'public domain', but with potentially subtle distinction. (Value:
+ *        "BOOKS_FULL_VIEW")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksPrivate
+ *        Filtered private books used by ULM:
+ *        http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *        which corresponds with
+ *        /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *        (Value: "BOOKS_PRIVATE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_C4JoinedDocjoins
+ *        Value "C4_JOINED_DOCJOINS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CanariesShuffled
+ *        Value "CANARIES_SHUFFLED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CleanArxiv
+ *        Value "CLEAN_ARXIV"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix
+ *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityFinetuning
+ *        Value "CLOUD_SECURITY_FINETUNING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityPretraining
+ *        Cloud Security fine-tune datasets. (Value:
+ *        "CLOUD_SECURITY_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubMultifileV4
+ *        Value "CMS_GITHUB_MULTIFILE_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubV4
+ *        Github (Value: "CMS_GITHUB_V4")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackexchange
+ *        Value "CMS_STACKEXCHANGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackoverflowMultilingual
+ *        Value "CMS_STACKOVERFLOW_MULTILINGUAL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsWikipediaLangFiltered
+ *        Datasets used by Gemini Public data (Value:
+ *        "CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtFormat
+ *        Value "CODE_QA_FT_FORMAT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtKnowledge
+ *        Value "CODE_QA_FT_KNOWLEDGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaGithubFilteredCode
+ *        Value "CODE_QA_GITHUB_FILTERED_CODE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSe
+ *        Value "CODE_QA_SE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSo
+ *        Value "CODE_QA_SO"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyCode
+ *        Value "CODEY_CODE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyNotebookLmPretraining
+ *        Datasets used by Codepoet (Value: "CODEY_NOTEBOOK_LM_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CombinedReddit
+ *        Value "COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CommonSenseReasoning
+ *        Value "COMMON_SENSE_REASONING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqStep
+ *        Value "COQ_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqTheories
+ *        Value "COQ_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DatasetUnspecified
+ *        Value "DATASET_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DocumentChunks
+ *        Value "DOCUMENT_CHUNKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudBlogPosts
+ *        Value "DUET_CLOUD_BLOG_POSTS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocs
+ *        Value "DUET_CLOUD_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables
+ *        Value "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudIxPrompts
+ *        Value "DUET_CLOUD_IX_PROMPTS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudPodcastEpisodes
+ *        Value "DUET_CLOUD_PODCAST_EPISODES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSecurityDocs
+ *        Duet AI finetune datasets, order by precedence. (Value:
+ *        "DUET_CLOUD_SECURITY_DOCS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSkillsBoost
+ *        Value "DUET_CLOUD_SKILLS_BOOST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetDevsiteDocs
+ *        Value "DUET_DEVSITE_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubCodeSnippets
+ *        Value "DUET_GITHUB_CODE_SNIPPETS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubFiles
+ *        Value "DUET_GITHUB_FILES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGobyexample
+ *        Value "DUET_GOBYEXAMPLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGolangDocs
+ *        Value "DUET_GOLANG_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGooglesqlGeneration
+ *        Value "DUET_GOOGLESQL_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetRad
+ *        Value "DUET_RAD"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetYoutubeVideos
+ *        Value "DUET_YOUTUBE_VIDEOS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc
+ *        Public webdocs (Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc
+ *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAciBench
+ *        Value "GEMINI_IT_ACI_BENCH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAquamuse
+ *        Value "GEMINI_IT_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudCodeIf
+ *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudEurLexJson
+ *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudOasst
+ *        Value "GEMINI_IT_CLOUD_OASST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudSelfInstruct
+ *        Value "GEMINI_IT_CLOUD_SELF_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudUcsAquamuse
+ *        Value "GEMINI_IT_CLOUD_UCS_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCodeInstruct
+ *        Value "GEMINI_IT_CODE_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItDscoutFactuality
+ *        Value "GEMINI_IT_DSCOUT_FACTUALITY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItEitlGen
+ *        Value "GEMINI_IT_EITL_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHedging
+ *        Value "GEMINI_IT_HEDGING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHitlGen
+ *        Value "GEMINI_IT_HITL_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItM3w
+ *        Value "GEMINI_IT_M3W"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMech
+ *        Value "GEMINI_IT_MECH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMedPalm
+ *        Value "GEMINI_IT_MED_PALM"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusDecibel
+ *        Value "GEMINI_IT_NIMBUS_DECIBEL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt
+ *        Value "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItQaWithUrl
+ *        Value "GEMINI_IT_QA_WITH_URL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShotgun
+ *        Value "GEMINI_IT_SHOTGUN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShutterstock
+ *        Gemini IT 1.2.7 datasets (Value: "GEMINI_IT_SHUTTERSTOCK")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItSpiderFiltered
+ *        Value "GEMINI_IT_SPIDER_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTableGen
+ *        Value "GEMINI_IT_TABLE_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTabSumBq
+ *        Value "GEMINI_IT_TAB_SUM_BQ"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTaskOrientedDialog
+ *        Value "GEMINI_IT_TASK_ORIENTED_DIALOG"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtInk
+ *        Value "GEMINI_MULTIMODAL_FT_INK"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtNone
+ *        Value "GEMINI_MULTIMODAL_FT_NONE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtOther
+ *        Value "GEMINI_MULTIMODAL_FT_OTHER"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtShutterstock
+ *        Value "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtUrl
+ *        Gemini multimodal instruction tune(IT) and fine tune(FT) datasets
+ *        datasets. (Value: "GEMINI_MULTIMODAL_FT_URL")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtYt
+ *        Value "GEMINI_MULTIMODAL_FT_YT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalIt
+ *        Value "GEMINI_MULTIMODAL_IT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate
+ *        Value
+ *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7
+ *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont
+ *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2
+ *        Value "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered
+ *        Gemini V1, order by precedence. Wikipedia (Value:
+ *        "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CombinedReddit
+ *        Value "GEMINI_V1_COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags
+ *        Value "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523
+ *        Public webdocs (Value:
+ *        "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar
+ *        Value "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2
+ *        Value "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4
+ *        Value "GEMINI_V1_GITHUB_HTML_CSS_XML_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable
+ *        Value "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubLongTailV4
+ *        Value "GEMINI_V1_GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubOtherV4
+ *        Value "GEMINI_V1_GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubTechdocsV2
+ *        Value "GEMINI_V1_GITHUB_TECHDOCS_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn
+ *        Non-public books (Value:
+ *        "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen
+ *        Value "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1PodcastsRobotstxt
+ *        Citable misc (Value: "GEMINI_V1_PODCASTS_ROBOTSTXT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Pubmed
+ *        Value "GEMINI_V1_PUBMED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Quora
+ *        Value "GEMINI_V1_QUORA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc
+ *        Value "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc
+ *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1StemBooks650kText
+ *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix
+ *        Value "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1UlmArxivSstable
+ *        ArXiv (Value: "GEMINI_V1_ULM_ARXIV_SSTABLE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered
+ *        Other (Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WebMathV2
+ *        Value "GEMINI_V1_WEB_MATH_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WikipediaDiffs
+ *        Value "GEMINI_V1_WIKIPEDIA_DIFFS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Arxiv2023Compliant
+ *        Value "GEMINI_V2_ARXIV_2023_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2
+ *        Value "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant
+ *        Value "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2
+ *        Value "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChessCompliant
+ *        Value "GEMINI_V2_CHESS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix
+ *        Value "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths
+ *        Value
+ *        "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant
+ *        Value "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant
+ *        Value "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii
+ *        Gemini V2 datasets (Value:
+ *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeContestsCompliant
+ *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodewebV1Compliant
+ *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant
+ *        Value "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant
+ *        Value
+ *        "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FormalCompliant
+ *        Value "GEMINI_V2_FORMAL_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ForumsV2Compliant
+ *        Value "GEMINI_V2_FORUMS_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant
+ *        Value "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubDiffsCompliant
+ *        Value "GEMINI_V2_GITHUB_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant
+ *        Value "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant
+ *        Value "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant
+ *        Value "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant
+ *        Value "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant
+ *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2
+ *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2LeetcodeGccPii
+ *        Value "GEMINI_V2_LEETCODE_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2
+ *        Value "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2
+ *        Value "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2
+ *        Value "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5
+ *        Value "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PodcastsCompliant
+ *        Value "GEMINI_V2_PODCASTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PubmedCompliant
+ *        Value "GEMINI_V2_PUBMED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2
+ *        Value "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QuoraCompliant
+ *        Value "GEMINI_V2_QUORA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex
+ *        Value "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencewebV0GccPii
+ *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
+ *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant
+ *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebMathV3Compliant
+ *        Value "GEMINI_V2_WEB_MATH_V3_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant
+ *        Value "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant
+ *        Value "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant
+ *        Value "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GemitBridgeSuffixFt
+ *        Gemit Bridge ULM FT dataset (Value: "GEMIT_BRIDGE_SUFFIX_FT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GenesisNewsInsights
+ *        Genesis fine-tune datasets. (Value: "GENESIS_NEWS_INSIGHTS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubDiffsWithCommitMessage
+ *        Value "GITHUB_DIFFS_WITH_COMMIT_MESSAGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubHtmlV4
+ *        Value "GITHUB_HTML_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubLongTailV4
+ *        Value "GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirror
+ *        Value "GITHUB_MIRROR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV101
+ *        Value "GITHUB_MIRROR_V1_0_1"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV210
+ *        Value "GITHUB_MIRROR_V2_1_0"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubOtherV4
+ *        Value "GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Gnews
+ *        Google news dataset referenced in:
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *        (Value: "GNEWS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Books
+ *        Value "GOODALL_MTV5_BOOKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5C4
+ *        Value "GOODALL_MTV5_C4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Github
+ *        Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *        (Value: "GOODALL_MTV5_GITHUB")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Wikipedia
+ *        Value "GOODALL_MTV5_WIKIPEDIA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwStackExchange
+ *        Value "GOODALL_MW_STACK_EXCHANGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop010b
+ *        Value "GOODALL_MW_TOP_0_10B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop100b
+ *        Value "GOODALL_MW_TOP_100B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop10b20b
+ *        Value "GOODALL_MW_TOP_10B_20B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Hol4Theories
+ *        Value "HOL4_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_HolLightTheories
+ *        Value "HOL_LIGHT_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Holsteps
+ *        Value "HOLSTEPS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleStep
+ *        Value "ISABELLE_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleTheories
+ *        Value "ISABELLE_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDeleware
+ *        Value "LABS_AQA_DELEWARE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDscout
+ *        LABS AQA fine-tune datasets. (Value: "LABS_AQA_DSCOUT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaTailwind
+ *        Value "LABS_AQA_TAILWIND"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_QUERY_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityTrigger
+ *        Value "LAMDA_FACTUALITY_TRIGGER"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast
+ *        Value "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSsiDiscriminative
+ *        Value "LAMDA_SSI_DISCRIMINATIVE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanMathlibTheories
+ *        Value "LEAN_MATHLIB_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanStep
+ *        Value "LEAN_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredBard
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_BARD"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong200
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_200"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong500
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_500"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Math
+ *        Value "MATH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MathReasoning
+ *        Value "MATH_REASONING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaFc
+ *        Meena full conversations.
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *        (Value: "MEENA_FC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown
+ *        Value "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGooglers
+ *        Value "MEENA_RESEARCH_PHASE_GOOGLERS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyHumanGen
+ *        Value "MEENA_RESPONSE_SAFETY_HUMAN_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2
+ *        Value "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MizarTheories
+ *        Value "MIZAR_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k
+ *        Mobile assistant finetune datasets. (Value:
+ *        "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k
+ *        Value "MOBILE_ASSISTANT_PALM24B_FILTERED_400K"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly
+ *        Others (Value:
+ *        "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly
+ *        Value "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Podcast
+ *        Value "PODCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastFinetuneDialog
+ *        Value "PODCAST_FINETUNE_DIALOG"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastsRobotstxt
+ *        Value "PODCASTS_ROBOTSTXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Pubmed
+ *        Value "PUBMED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Quora
+ *        Value "QUORA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SciencePdf70mDocsFiltered
+ *        Value "SCIENCE_PDF_70M_DOCS_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SimplifiedHtmlV1Gcc
+ *        Value "SIMPLIFIED_HTML_V1_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_TechdocsDataSource
+ *        Value "TECHDOCS_DATA_SOURCE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmArxiv
+ *        Arxiv (Value: "ULM_ARXIV")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoins
+ *        The docjoins data for ULM
+ *        /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *        (Value: "ULM_DOCJOINS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsDeduped
+ *        Value "ULM_DOCJOINS_DEDUPED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsEn
+ *        Value "ULM_DOCJOINS_WITH_URLS_EN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n
+ *        Value "ULM_DOCJOINS_WITH_URLS_I18N"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_VertexSafeFlan
+ *        Datasets used by Vertex (Value: "VERTEX_SAFE_FLAN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebAsr
+ *        Value "WEB_ASR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Webdocs
+ *        Webdocs that have been filtered from the docjoins by the Tarzan team
+ *        for use in the Tarzan training set. (Value: "WEBDOCS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebdocsFinetune
+ *        Value "WEBDOCS_FINETUNE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Wikipedia
+ *        Wikipedia article Tensorflow datasets used by Tarzan and maintained by
+ *        TFDS team. (Value: "WIKIPEDIA")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WorldQueryGenerator
+ *        Value "WORLD_QUERY_GENERATOR"
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+@property(nonatomic, copy, nullable) NSString *filepath;
+@property(nonatomic, copy, nullable) NSString *geminiId;
+@property(nonatomic, copy, nullable) NSString *gnewsArticleTitle;
+@property(nonatomic, copy, nullable) NSString *goodallExampleId;
+
+/**
+ *  Whether the document is opted out.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isOptOut;
+
+/**
+ *  isPrompt
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrompt;
+
+@property(nonatomic, copy, nullable) NSString *lamdaExampleId;
+@property(nonatomic, copy, nullable) NSString *license;
+@property(nonatomic, copy, nullable) NSString *meenaConversationId;
+
+/**
+ *  Natural (not programming) language of the document. Language code as defined
+ *  by http://www.unicode.org/reports/tr35/#Identifiers and
+ *  https://tools.ietf.org/html/bcp47. Currently applicable to full-view books.
+ *  Use docinfo-util.h to set & read language fields. See go/iii.
+ */
+@property(nonatomic, copy, nullable) NSString *naturalLanguageCode;
+
+/**
+ *  True if this doc has no attribution information available. We use an
+ *  explicit field for this instead of just implicitly leaving all the
+ *  DocAttribution fields blank to distinguish a case where a bug/oversight has
+ *  left the attribution information empty vs when we really have no attribution
+ *  information available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noAttribution;
+
+@property(nonatomic, copy, nullable) NSString *podcastUtteranceId;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleTypeDate *publicationDate;
+
+/**
+ *  This field is for opt-out experiment only, MUST never be used during actual
+ *  production/serving.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *qualityScoreExperimentOnly;
+
+/** Github repository */
+@property(nonatomic, copy, nullable) NSString *repo;
+
+/** URL of a webdoc */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+/**
+ *  Wikipedia article title. The Wikipedia TFDS dataset includes article titles
+ *  but not URLs. While a URL is to the best of our knowledge a deterministic
+ *  function of the title, we store the original title to reflect the
+ *  information in the original dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *wikipediaArticleTitle;
+
+@end
+
+
+/**
+ *  The recitation result for one input
+ */
+@interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult *> *dynamicSegmentResults;
+
+/**
+ *  The recitation action for one given input. When its segments contain
+ *  different actions, the overall action will be returned in the precedence of
+ *  BLOCK > CITE > NO_ACTION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ActionUnspecified
+ *        Value "ACTION_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Block
+ *        indicate that a Segment should be blocked from being used (Value:
+ *        "BLOCK")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Cite
+ *        indicate that attribution must be shown for a Segment (Value: "CITE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ExemptFoundInPrompt
+ *        The recitation was found in prompt and is exempted from overall
+ *        results (Value: "EXEMPT_FOUND_IN_PROMPT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_NoAction
+ *        for tagging high-frequency code snippets (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *recitationAction;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult *> *trainingSegmentResults;
+
+@end
+
+
+/**
+ *  The recitation result for each segment in a given input.
+ */
+@interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult : GTLRObject
+
+/**
+ *  The dataset the segment came from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsKhan
+ *        Academic dataset of math text.
+ *        http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *        (Value: "AMPS_KHAN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsMathematica
+ *        Value "AMPS_MATHEMATICA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Aqua
+ *        Value "AQUA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AssistantPersonalitySafety
+ *        Value "ASSISTANT_PERSONALITY_SAFETY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardArcadeGithub
+ *        Bard ARCADE finetune dataset. (Value: "BARD_ARCADE_GITHUB")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardGolden
+ *        Value "BARD_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardPersonalityGolden
+ *        Value "BARD_PERSONALITY_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksFullView
+ *        'Full view' books dataset maintained by Oceanographers team, meaning
+ *        'ok to view the book in full in all localities'. Largely the same as
+ *        'public domain', but with potentially subtle distinction. (Value:
+ *        "BOOKS_FULL_VIEW")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksPrivate
+ *        Filtered private books used by ULM:
+ *        http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *        which corresponds with
+ *        /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *        (Value: "BOOKS_PRIVATE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_C4JoinedDocjoins
+ *        Value "C4_JOINED_DOCJOINS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CanariesShuffled
+ *        Value "CANARIES_SHUFFLED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CleanArxiv
+ *        Value "CLEAN_ARXIV"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix
+ *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityFinetuning
+ *        Value "CLOUD_SECURITY_FINETUNING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityPretraining
+ *        Cloud Security fine-tune datasets. (Value:
+ *        "CLOUD_SECURITY_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubMultifileV4
+ *        Value "CMS_GITHUB_MULTIFILE_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubV4
+ *        Github (Value: "CMS_GITHUB_V4")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackexchange
+ *        Value "CMS_STACKEXCHANGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackoverflowMultilingual
+ *        Value "CMS_STACKOVERFLOW_MULTILINGUAL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsWikipediaLangFiltered
+ *        Datasets used by Gemini Public data (Value:
+ *        "CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtFormat
+ *        Value "CODE_QA_FT_FORMAT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtKnowledge
+ *        Value "CODE_QA_FT_KNOWLEDGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaGithubFilteredCode
+ *        Value "CODE_QA_GITHUB_FILTERED_CODE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSe
+ *        Value "CODE_QA_SE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSo
+ *        Value "CODE_QA_SO"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyCode
+ *        Value "CODEY_CODE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyNotebookLmPretraining
+ *        Datasets used by Codepoet (Value: "CODEY_NOTEBOOK_LM_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CombinedReddit
+ *        Value "COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CommonSenseReasoning
+ *        Value "COMMON_SENSE_REASONING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqStep
+ *        Value "COQ_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqTheories
+ *        Value "COQ_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DatasetUnspecified
+ *        Value "DATASET_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DocumentChunks
+ *        Value "DOCUMENT_CHUNKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudBlogPosts
+ *        Value "DUET_CLOUD_BLOG_POSTS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocs
+ *        Value "DUET_CLOUD_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables
+ *        Value "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudIxPrompts
+ *        Value "DUET_CLOUD_IX_PROMPTS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes
+ *        Value "DUET_CLOUD_PODCAST_EPISODES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSecurityDocs
+ *        Duet AI finetune datasets, order by precedence. (Value:
+ *        "DUET_CLOUD_SECURITY_DOCS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSkillsBoost
+ *        Value "DUET_CLOUD_SKILLS_BOOST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetDevsiteDocs
+ *        Value "DUET_DEVSITE_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubCodeSnippets
+ *        Value "DUET_GITHUB_CODE_SNIPPETS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubFiles
+ *        Value "DUET_GITHUB_FILES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGobyexample
+ *        Value "DUET_GOBYEXAMPLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGolangDocs
+ *        Value "DUET_GOLANG_DOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGooglesqlGeneration
+ *        Value "DUET_GOOGLESQL_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetRad
+ *        Value "DUET_RAD"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetYoutubeVideos
+ *        Value "DUET_YOUTUBE_VIDEOS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc
+ *        Public webdocs (Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc
+ *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAciBench
+ *        Value "GEMINI_IT_ACI_BENCH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAquamuse
+ *        Value "GEMINI_IT_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudCodeIf
+ *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudEurLexJson
+ *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudOasst
+ *        Value "GEMINI_IT_CLOUD_OASST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct
+ *        Value "GEMINI_IT_CLOUD_SELF_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse
+ *        Value "GEMINI_IT_CLOUD_UCS_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCodeInstruct
+ *        Value "GEMINI_IT_CODE_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItDscoutFactuality
+ *        Value "GEMINI_IT_DSCOUT_FACTUALITY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItEitlGen
+ *        Value "GEMINI_IT_EITL_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHedging
+ *        Value "GEMINI_IT_HEDGING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHitlGen
+ *        Value "GEMINI_IT_HITL_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItM3w
+ *        Value "GEMINI_IT_M3W"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMech
+ *        Value "GEMINI_IT_MECH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMedPalm
+ *        Value "GEMINI_IT_MED_PALM"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusDecibel
+ *        Value "GEMINI_IT_NIMBUS_DECIBEL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt
+ *        Value "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItQaWithUrl
+ *        Value "GEMINI_IT_QA_WITH_URL"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShotgun
+ *        Value "GEMINI_IT_SHOTGUN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShutterstock
+ *        Gemini IT 1.2.7 datasets (Value: "GEMINI_IT_SHUTTERSTOCK")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItSpiderFiltered
+ *        Value "GEMINI_IT_SPIDER_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTableGen
+ *        Value "GEMINI_IT_TABLE_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTabSumBq
+ *        Value "GEMINI_IT_TAB_SUM_BQ"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog
+ *        Value "GEMINI_IT_TASK_ORIENTED_DIALOG"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtInk
+ *        Value "GEMINI_MULTIMODAL_FT_INK"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtNone
+ *        Value "GEMINI_MULTIMODAL_FT_NONE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtOther
+ *        Value "GEMINI_MULTIMODAL_FT_OTHER"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock
+ *        Value "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtUrl
+ *        Gemini multimodal instruction tune(IT) and fine tune(FT) datasets
+ *        datasets. (Value: "GEMINI_MULTIMODAL_FT_URL")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtYt
+ *        Value "GEMINI_MULTIMODAL_FT_YT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalIt
+ *        Value "GEMINI_MULTIMODAL_IT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate
+ *        Value
+ *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7
+ *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont
+ *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2
+ *        Value "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered
+ *        Gemini V1, order by precedence. Wikipedia (Value:
+ *        "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CombinedReddit
+ *        Value "GEMINI_V1_COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags
+ *        Value "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523
+ *        Public webdocs (Value:
+ *        "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar
+ *        Value "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2
+ *        Value "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4
+ *        Value "GEMINI_V1_GITHUB_HTML_CSS_XML_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable
+ *        Value "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4
+ *        Value "GEMINI_V1_GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubOtherV4
+ *        Value "GEMINI_V1_GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2
+ *        Value "GEMINI_V1_GITHUB_TECHDOCS_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn
+ *        Non-public books (Value:
+ *        "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen
+ *        Value "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt
+ *        Citable misc (Value: "GEMINI_V1_PODCASTS_ROBOTSTXT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Pubmed
+ *        Value "GEMINI_V1_PUBMED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Quora
+ *        Value "GEMINI_V1_QUORA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc
+ *        Value "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc
+ *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1StemBooks650kText
+ *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix
+ *        Value "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable
+ *        ArXiv (Value: "GEMINI_V1_ULM_ARXIV_SSTABLE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered
+ *        Other (Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WebMathV2
+ *        Value "GEMINI_V1_WEB_MATH_V2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs
+ *        Value "GEMINI_V1_WIKIPEDIA_DIFFS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant
+ *        Value "GEMINI_V2_ARXIV_2023_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2
+ *        Value "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant
+ *        Value "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2
+ *        Value "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChessCompliant
+ *        Value "GEMINI_V2_CHESS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix
+ *        Value "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths
+ *        Value
+ *        "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant
+ *        Value "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant
+ *        Value "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii
+ *        Gemini V2 datasets (Value:
+ *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant
+ *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant
+ *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant
+ *        Value "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant
+ *        Value
+ *        "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FormalCompliant
+ *        Value "GEMINI_V2_FORMAL_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant
+ *        Value "GEMINI_V2_FORUMS_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant
+ *        Value "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant
+ *        Value "GEMINI_V2_GITHUB_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant
+ *        Value "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant
+ *        Value "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant
+ *        Value "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant
+ *        Value "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant
+ *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2
+ *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii
+ *        Value "GEMINI_V2_LEETCODE_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2
+ *        Value "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2
+ *        Value "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2
+ *        Value "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5
+ *        Value "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant
+ *        Value "GEMINI_V2_PODCASTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PubmedCompliant
+ *        Value "GEMINI_V2_PUBMED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2
+ *        Value "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QuoraCompliant
+ *        Value "GEMINI_V2_QUORA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex
+ *        Value "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii
+ *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
+ *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant
+ *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant
+ *        Value "GEMINI_V2_WEB_MATH_V3_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant
+ *        Value "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant
+ *        Value "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant
+ *        Value "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GemitBridgeSuffixFt
+ *        Gemit Bridge ULM FT dataset (Value: "GEMIT_BRIDGE_SUFFIX_FT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GenesisNewsInsights
+ *        Genesis fine-tune datasets. (Value: "GENESIS_NEWS_INSIGHTS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage
+ *        Value "GITHUB_DIFFS_WITH_COMMIT_MESSAGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubHtmlV4
+ *        Value "GITHUB_HTML_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubLongTailV4
+ *        Value "GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirror
+ *        Value "GITHUB_MIRROR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV101
+ *        Value "GITHUB_MIRROR_V1_0_1"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV210
+ *        Value "GITHUB_MIRROR_V2_1_0"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubOtherV4
+ *        Value "GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Gnews
+ *        Google news dataset referenced in:
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *        (Value: "GNEWS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Books
+ *        Value "GOODALL_MTV5_BOOKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5C4
+ *        Value "GOODALL_MTV5_C4"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Github
+ *        Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *        (Value: "GOODALL_MTV5_GITHUB")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Wikipedia
+ *        Value "GOODALL_MTV5_WIKIPEDIA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwStackExchange
+ *        Value "GOODALL_MW_STACK_EXCHANGE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop010b
+ *        Value "GOODALL_MW_TOP_0_10B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop100b
+ *        Value "GOODALL_MW_TOP_100B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop10b20b
+ *        Value "GOODALL_MW_TOP_10B_20B"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Hol4Theories
+ *        Value "HOL4_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_HolLightTheories
+ *        Value "HOL_LIGHT_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Holsteps
+ *        Value "HOLSTEPS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleStep
+ *        Value "ISABELLE_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleTheories
+ *        Value "ISABELLE_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDeleware
+ *        Value "LABS_AQA_DELEWARE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDscout
+ *        LABS AQA fine-tune datasets. (Value: "LABS_AQA_DSCOUT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaTailwind
+ *        Value "LABS_AQA_TAILWIND"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_QUERY_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityTrigger
+ *        Value "LAMDA_FACTUALITY_TRIGGER"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast
+ *        Value "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSsiDiscriminative
+ *        Value "LAMDA_SSI_DISCRIMINATIVE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanMathlibTheories
+ *        Value "LEAN_MATHLIB_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanStep
+ *        Value "LEAN_STEP"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredBard
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_BARD"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_200"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_500"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Math
+ *        Value "MATH"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MathReasoning
+ *        Value "MATH_REASONING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaFc
+ *        Meena full conversations.
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *        (Value: "MEENA_FC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown
+ *        Value "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers
+ *        Value "MEENA_RESEARCH_PHASE_GOOGLERS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen
+ *        Value "MEENA_RESPONSE_SAFETY_HUMAN_GEN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2
+ *        Value "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MizarTheories
+ *        Value "MIZAR_THEORIES"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k
+ *        Mobile assistant finetune datasets. (Value:
+ *        "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k
+ *        Value "MOBILE_ASSISTANT_PALM24B_FILTERED_400K"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly
+ *        Others (Value:
+ *        "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly
+ *        Value "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Podcast
+ *        Value "PODCAST"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastFinetuneDialog
+ *        Value "PODCAST_FINETUNE_DIALOG"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastsRobotstxt
+ *        Value "PODCASTS_ROBOTSTXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Pubmed
+ *        Value "PUBMED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Quora
+ *        Value "QUORA"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered
+ *        Value "SCIENCE_PDF_70M_DOCS_FILTERED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc
+ *        Value "SIMPLIFIED_HTML_V1_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_TechdocsDataSource
+ *        Value "TECHDOCS_DATA_SOURCE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmArxiv
+ *        Arxiv (Value: "ULM_ARXIV")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoins
+ *        The docjoins data for ULM
+ *        /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *        (Value: "ULM_DOCJOINS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsDeduped
+ *        Value "ULM_DOCJOINS_DEDUPED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn
+ *        Value "ULM_DOCJOINS_WITH_URLS_EN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n
+ *        Value "ULM_DOCJOINS_WITH_URLS_I18N"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_VertexSafeFlan
+ *        Datasets used by Vertex (Value: "VERTEX_SAFE_FLAN")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebAsr
+ *        Value "WEB_ASR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Webdocs
+ *        Webdocs that have been filtered from the docjoins by the Tarzan team
+ *        for use in the Tarzan training set. (Value: "WEBDOCS")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebdocsFinetune
+ *        Value "WEBDOCS_FINETUNE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Wikipedia
+ *        Wikipedia article Tensorflow datasets used by Tarzan and maintained by
+ *        TFDS team. (Value: "WIKIPEDIA")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WorldQueryGenerator
+ *        Value "WORLD_QUERY_GENERATOR"
+ */
+@property(nonatomic, copy, nullable) NSString *attributionDataset;
+
+/**
+ *  human-friendly string that contains information from doc_attribution which
+ *  could be shown by clients
+ */
+@property(nonatomic, copy, nullable) NSString *displayAttributionMessage;
+
+/** populated when recitation_action == CITE */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution *docAttribution;
+
+/**
+ *  number of documents that contained this segment
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *docOccurrences;
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  The raw text in the given input that is corresponding to the segment. It
+ *  will be available only when 'return_segment_raw_text' is enabled in the
+ *  request options.
+ */
+@property(nonatomic, copy, nullable) NSString *rawText;
+
+/**
+ *  segmentRecitationAction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ActionUnspecified
+ *        Value "ACTION_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Block
+ *        indicate that a Segment should be blocked from being used (Value:
+ *        "BLOCK")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Cite
+ *        indicate that attribution must be shown for a Segment (Value: "CITE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt
+ *        The recitation was found in prompt and is exempted from overall
+ *        results (Value: "EXEMPT_FOUND_IN_PROMPT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_NoAction
+ *        for tagging high-frequency code snippets (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *segmentRecitationAction;
+
+/**
+ *  The segment boundary start (inclusive) and end index (exclusive) in the
+ *  given text. In the streaming RPC, the indexes always start from the
+ *  beginning of the first text in the entire stream. The indexes are measured
+ *  in UTF-16 code units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  The recitation result for one stream input
+ */
+@interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult : GTLRObject
+
+/** The recitation result against the given dynamic data source. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult *> *dynamicSegmentResults;
+
+/**
+ *  Last index of input text fully checked for recitation in the entire
+ *  streaming context. Would return `-1` if no Input was checked for recitation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullyCheckedTextIndex;
+
+/**
+ *  The recitation action for one given input. When its segments contain
+ *  different actions, the overall action will be returned in the precedence of
+ *  BLOCK > CITE > NO_ACTION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ActionUnspecified
+ *        Value "ACTION_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Block
+ *        indicate that a Segment should be blocked from being used (Value:
+ *        "BLOCK")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Cite
+ *        indicate that attribution must be shown for a Segment (Value: "CITE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ExemptFoundInPrompt
+ *        The recitation was found in prompt and is exempted from overall
+ *        results (Value: "EXEMPT_FOUND_IN_PROMPT")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_NoAction
+ *        for tagging high-frequency code snippets (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *recitationAction;
+
+/** The recitation result against model training data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult *> *trainingSegmentResults;
+
+@end
+
+
+/**
+ *  The proto defines the attribution information for a document using whatever
+ *  fields are most applicable for that document's datasource. For example, a
+ *  Wikipedia article's attribution is in the form of its article title, a
+ *  website is in the form of a URL, and a Github repo is in the form of a repo
+ *  name. Next id: 28
+ */
+@interface GTLRAiplatform_LearningGenaiRecitationDocAttribution : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *amarnaId;
+@property(nonatomic, copy, nullable) NSString *arxivId;
+@property(nonatomic, copy, nullable) NSString *author;
+@property(nonatomic, copy, nullable) NSString *bibkey;
+@property(nonatomic, copy, nullable) NSString *bookTitle;
+
+/**
+ *  The Oceanographers full-view books dataset uses a 'volume id' as the unique
+ *  ID of a book. There is a deterministic function from a volume id to a URL
+ *  under the books.google.com domain. Marked as 'optional' since a volume ID of
+ *  zero is potentially possible and we want to distinguish that from the volume
+ *  ID not being set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bookVolumeId;
+
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/**
+ *  The dataset this document comes from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsKhan
+ *        Academic dataset of math text.
+ *        http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *        (Value: "AMPS_KHAN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsMathematica
+ *        Value "AMPS_MATHEMATICA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Aqua
+ *        Value "AQUA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AssistantPersonalitySafety
+ *        Value "ASSISTANT_PERSONALITY_SAFETY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardArcadeGithub
+ *        Bard ARCADE finetune dataset (Value: "BARD_ARCADE_GITHUB")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardGolden
+ *        Value "BARD_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardPersonalityGolden
+ *        Value "BARD_PERSONALITY_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksFullView
+ *        'Full view' books dataset maintained by Oceanographers team, meaning
+ *        'ok to view the book in full in all localities'. Largely the same as
+ *        'public domain', but with potentially subtle distinction. (Value:
+ *        "BOOKS_FULL_VIEW")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksPrivate
+ *        Filtered private books used by ULM:
+ *        http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *        which corresponds with
+ *        /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *        (Value: "BOOKS_PRIVATE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_C4JoinedDocjoins
+ *        Value "C4_JOINED_DOCJOINS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CanariesShuffled
+ *        Value "CANARIES_SHUFFLED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CleanArxiv
+ *        Value "CLEAN_ARXIV"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix
+ *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityFinetuning
+ *        Value "CLOUD_SECURITY_FINETUNING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityPretraining
+ *        Cloud Security fine tuned datasets. (Value:
+ *        "CLOUD_SECURITY_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubMultifileV4
+ *        Value "CMS_GITHUB_MULTIFILE_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubV4
+ *        Github (Value: "CMS_GITHUB_V4")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackexchange
+ *        Value "CMS_STACKEXCHANGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackoverflowMultilingual
+ *        Value "CMS_STACKOVERFLOW_MULTILINGUAL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsWikipediaLangFiltered
+ *        Datasets used by Gemini Public data (Value:
+ *        "CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtFormat
+ *        Value "CODE_QA_FT_FORMAT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtKnowledge
+ *        Value "CODE_QA_FT_KNOWLEDGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaGithubFilteredCode
+ *        Value "CODE_QA_GITHUB_FILTERED_CODE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSe
+ *        Value "CODE_QA_SE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSo
+ *        Value "CODE_QA_SO"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyCode
+ *        Value "CODEY_CODE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyNotebookLmPretraining
+ *        Datasets used by Codepoet (Value: "CODEY_NOTEBOOK_LM_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CombinedReddit
+ *        Value "COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CommonSenseReasoning
+ *        Value "COMMON_SENSE_REASONING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqStep
+ *        Value "COQ_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqTheories
+ *        Value "COQ_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DatasetUnspecified
+ *        Value "DATASET_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DocumentChunks
+ *        Value "DOCUMENT_CHUNKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudBlogPosts
+ *        Value "DUET_CLOUD_BLOG_POSTS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocs
+ *        Value "DUET_CLOUD_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables
+ *        Value "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudIxPrompts
+ *        Value "DUET_CLOUD_IX_PROMPTS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudPodcastEpisodes
+ *        Value "DUET_CLOUD_PODCAST_EPISODES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSecurityDocs
+ *        Duet AI finetune datasets, order by precedence. (Value:
+ *        "DUET_CLOUD_SECURITY_DOCS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSkillsBoost
+ *        Value "DUET_CLOUD_SKILLS_BOOST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetDevsiteDocs
+ *        Value "DUET_DEVSITE_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubCodeSnippets
+ *        Value "DUET_GITHUB_CODE_SNIPPETS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubFiles
+ *        Value "DUET_GITHUB_FILES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGobyexample
+ *        Value "DUET_GOBYEXAMPLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGolangDocs
+ *        Value "DUET_GOLANG_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGooglesqlGeneration
+ *        Value "DUET_GOOGLESQL_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetRad
+ *        Value "DUET_RAD"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetYoutubeVideos
+ *        Value "DUET_YOUTUBE_VIDEOS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc
+ *        Public webdocs (Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc
+ *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAciBench
+ *        Value "GEMINI_IT_ACI_BENCH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAquamuse
+ *        Value "GEMINI_IT_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudCodeIf
+ *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudEurLexJson
+ *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudOasst
+ *        Value "GEMINI_IT_CLOUD_OASST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudSelfInstruct
+ *        Value "GEMINI_IT_CLOUD_SELF_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudUcsAquamuse
+ *        Value "GEMINI_IT_CLOUD_UCS_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCodeInstruct
+ *        Value "GEMINI_IT_CODE_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItDscoutFactuality
+ *        Value "GEMINI_IT_DSCOUT_FACTUALITY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItEitlGen
+ *        Value "GEMINI_IT_EITL_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHedging
+ *        Value "GEMINI_IT_HEDGING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHitlGen
+ *        Value "GEMINI_IT_HITL_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItM3w
+ *        Value "GEMINI_IT_M3W"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMech
+ *        Value "GEMINI_IT_MECH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMedPalm
+ *        Value "GEMINI_IT_MED_PALM"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusDecibel
+ *        Value "GEMINI_IT_NIMBUS_DECIBEL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt
+ *        Value "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItQaWithUrl
+ *        Value "GEMINI_IT_QA_WITH_URL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShotgun
+ *        Value "GEMINI_IT_SHOTGUN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShutterstock
+ *        Gemini IT 1.2.7 datasets (Value: "GEMINI_IT_SHUTTERSTOCK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItSpiderFiltered
+ *        Value "GEMINI_IT_SPIDER_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTableGen
+ *        Value "GEMINI_IT_TABLE_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTabSumBq
+ *        Value "GEMINI_IT_TAB_SUM_BQ"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTaskOrientedDialog
+ *        Value "GEMINI_IT_TASK_ORIENTED_DIALOG"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtInk
+ *        Value "GEMINI_MULTIMODAL_FT_INK"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtNone
+ *        Value "GEMINI_MULTIMODAL_FT_NONE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtOther
+ *        Value "GEMINI_MULTIMODAL_FT_OTHER"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtShutterstock
+ *        Value "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtUrl
+ *        Gemini multimodal instruction tune(IT) and fine tune(FT) datasets
+ *        datasets. (Value: "GEMINI_MULTIMODAL_FT_URL")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtYt
+ *        Value "GEMINI_MULTIMODAL_FT_YT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalIt
+ *        Value "GEMINI_MULTIMODAL_IT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate
+ *        Value
+ *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7
+ *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont
+ *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2
+ *        Value "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered
+ *        Gemini V1, order by precedence. Wikipedia (Value:
+ *        "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CombinedReddit
+ *        Value "GEMINI_V1_COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags
+ *        Value "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523
+ *        Public webdocs (Value:
+ *        "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar
+ *        Value "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2
+ *        Value "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4
+ *        Value "GEMINI_V1_GITHUB_HTML_CSS_XML_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable
+ *        Value "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubLongTailV4
+ *        Value "GEMINI_V1_GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubOtherV4
+ *        Value "GEMINI_V1_GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubTechdocsV2
+ *        Value "GEMINI_V1_GITHUB_TECHDOCS_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn
+ *        Non-public books (Value:
+ *        "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen
+ *        Value "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1PodcastsRobotstxt
+ *        Citable misc (Value: "GEMINI_V1_PODCASTS_ROBOTSTXT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Pubmed
+ *        Value "GEMINI_V1_PUBMED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Quora
+ *        Value "GEMINI_V1_QUORA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc
+ *        Value "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc
+ *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1StemBooks650kText
+ *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix
+ *        Value "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1UlmArxivSstable
+ *        ArXiv (Value: "GEMINI_V1_ULM_ARXIV_SSTABLE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered
+ *        Other (Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WebMathV2
+ *        Value "GEMINI_V1_WEB_MATH_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WikipediaDiffs
+ *        Value "GEMINI_V1_WIKIPEDIA_DIFFS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Arxiv2023Compliant
+ *        Value "GEMINI_V2_ARXIV_2023_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2
+ *        Value "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant
+ *        Value "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2
+ *        Value "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChessCompliant
+ *        Value "GEMINI_V2_CHESS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix
+ *        Value "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths
+ *        Value
+ *        "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant
+ *        Value "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant
+ *        Value "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii
+ *        Gemini V2 datasets (Value:
+ *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeContestsCompliant
+ *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodewebV1Compliant
+ *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant
+ *        Value "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant
+ *        Value
+ *        "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FormalCompliant
+ *        Value "GEMINI_V2_FORMAL_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ForumsV2Compliant
+ *        Value "GEMINI_V2_FORUMS_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant
+ *        Value "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubDiffsCompliant
+ *        Value "GEMINI_V2_GITHUB_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant
+ *        Value "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant
+ *        Value "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant
+ *        Value "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant
+ *        Value "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant
+ *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2
+ *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2LeetcodeGccPii
+ *        Value "GEMINI_V2_LEETCODE_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2
+ *        Value "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2
+ *        Value "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2
+ *        Value "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5
+ *        Value "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PodcastsCompliant
+ *        Value "GEMINI_V2_PODCASTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PubmedCompliant
+ *        Value "GEMINI_V2_PUBMED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2
+ *        Value "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QuoraCompliant
+ *        Value "GEMINI_V2_QUORA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex
+ *        Value "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencewebV0GccPii
+ *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
+ *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant
+ *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebMathV3Compliant
+ *        Value "GEMINI_V2_WEB_MATH_V3_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant
+ *        Value "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant
+ *        Value "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant
+ *        Value "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GemitBridgeSuffixFt
+ *        Gemit Bridge ULM FT dataset (Value: "GEMIT_BRIDGE_SUFFIX_FT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GenesisNewsInsights
+ *        Genesis fine tuned datasets. (Value: "GENESIS_NEWS_INSIGHTS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubDiffsWithCommitMessage
+ *        Value "GITHUB_DIFFS_WITH_COMMIT_MESSAGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubHtmlV4
+ *        Value "GITHUB_HTML_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubLongTailV4
+ *        Value "GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirror
+ *        Value "GITHUB_MIRROR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV101
+ *        Value "GITHUB_MIRROR_V1_0_1"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV210
+ *        Value "GITHUB_MIRROR_V2_1_0"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubOtherV4
+ *        Value "GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Gnews
+ *        Google news dataset referenced in:
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *        (Value: "GNEWS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Books
+ *        Value "GOODALL_MTV5_BOOKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5C4
+ *        Value "GOODALL_MTV5_C4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Github
+ *        Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *        (Value: "GOODALL_MTV5_GITHUB")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Wikipedia
+ *        Value "GOODALL_MTV5_WIKIPEDIA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwStackExchange
+ *        Value "GOODALL_MW_STACK_EXCHANGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop010b
+ *        Value "GOODALL_MW_TOP_0_10B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop100b
+ *        Value "GOODALL_MW_TOP_100B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop10b20b
+ *        Value "GOODALL_MW_TOP_10B_20B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Hol4Theories
+ *        Value "HOL4_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_HolLightTheories
+ *        Value "HOL_LIGHT_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Holsteps
+ *        Value "HOLSTEPS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleStep
+ *        Value "ISABELLE_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleTheories
+ *        Value "ISABELLE_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDeleware
+ *        Value "LABS_AQA_DELEWARE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDscout
+ *        LABS AQA fine-tune datasets. (Value: "LABS_AQA_DSCOUT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaTailwind
+ *        Value "LABS_AQA_TAILWIND"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_QUERY_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityTrigger
+ *        Value "LAMDA_FACTUALITY_TRIGGER"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast
+ *        Value "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSsiDiscriminative
+ *        Value "LAMDA_SSI_DISCRIMINATIVE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanMathlibTheories
+ *        Value "LEAN_MATHLIB_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanStep
+ *        Value "LEAN_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredBard
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_BARD"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong200
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_200"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong500
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_500"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Math
+ *        Value "MATH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MathReasoning
+ *        Value "MATH_REASONING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaFc
+ *        Meena full conversations.
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *        (Value: "MEENA_FC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown
+ *        Value "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGooglers
+ *        Value "MEENA_RESEARCH_PHASE_GOOGLERS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyHumanGen
+ *        Value "MEENA_RESPONSE_SAFETY_HUMAN_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2
+ *        Value "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MizarTheories
+ *        Value "MIZAR_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k
+ *        Mobile assistant finetune datasets. (Value:
+ *        "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k
+ *        Value "MOBILE_ASSISTANT_PALM24B_FILTERED_400K"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly
+ *        Others (Value:
+ *        "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly
+ *        Value "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Podcast
+ *        Value "PODCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastFinetuneDialog
+ *        Value "PODCAST_FINETUNE_DIALOG"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastsRobotstxt
+ *        Value "PODCASTS_ROBOTSTXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Pubmed
+ *        Value "PUBMED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Quora
+ *        Value "QUORA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SciencePdf70mDocsFiltered
+ *        Value "SCIENCE_PDF_70M_DOCS_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SimplifiedHtmlV1Gcc
+ *        Value "SIMPLIFIED_HTML_V1_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_TechdocsDataSource
+ *        Value "TECHDOCS_DATA_SOURCE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmArxiv
+ *        Arxiv (Value: "ULM_ARXIV")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoins
+ *        The docjoins data for ULM
+ *        /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *        (Value: "ULM_DOCJOINS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsDeduped
+ *        Value "ULM_DOCJOINS_DEDUPED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsEn
+ *        Value "ULM_DOCJOINS_WITH_URLS_EN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n
+ *        Value "ULM_DOCJOINS_WITH_URLS_I18N"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_VertexSafeFlan
+ *        Datasets used by Vertex (Value: "VERTEX_SAFE_FLAN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebAsr
+ *        Value "WEB_ASR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Webdocs
+ *        Webdocs that have been filtered from the docjoins by the Tarzan team
+ *        for use in the Tarzan training set. (Value: "WEBDOCS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebdocsFinetune
+ *        Value "WEBDOCS_FINETUNE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Wikipedia
+ *        Wikipedia article Tensorflow datasets used by Tarzan and maintained by
+ *        TFDS team. (Value: "WIKIPEDIA")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WorldQueryGenerator
+ *        Value "WORLD_QUERY_GENERATOR"
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+@property(nonatomic, copy, nullable) NSString *filepath;
+@property(nonatomic, copy, nullable) NSString *geminiId;
+@property(nonatomic, copy, nullable) NSString *gnewsArticleTitle;
+@property(nonatomic, copy, nullable) NSString *goodallExampleId;
+
+/**
+ *  Whether the document is opted out.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isOptOut;
+
+/**
+ *  When true, this attribution came from the user's prompt.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrompt;
+
+@property(nonatomic, copy, nullable) NSString *lamdaExampleId;
+@property(nonatomic, copy, nullable) NSString *license;
+@property(nonatomic, copy, nullable) NSString *meenaConversationId;
+
+/**
+ *  Natural (not programming) language of the document. Language code as defined
+ *  by http://www.unicode.org/reports/tr35/#Identifiers and
+ *  https://tools.ietf.org/html/bcp47. Currently applicable to full-view books.
+ *  Use docinfo-util.h to set & read language fields. See go/iii.
+ */
+@property(nonatomic, copy, nullable) NSString *naturalLanguageCode;
+
+/**
+ *  True if this doc has no attribution information available. We use an
+ *  explicit field for this instead of just implicitly leaving all the
+ *  DocAttribution fields blank to distinguish a case where a bug/oversight has
+ *  left the attribution information empty vs when we really have no attribution
+ *  information available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noAttribution;
+
+@property(nonatomic, copy, nullable) NSString *podcastUtteranceId;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleTypeDate *publicationDate;
+
+/**
+ *  This field is for opt-out experiment only, MUST never be used during actual
+ *  production/serving.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *qualityScoreExperimentOnly;
+
+/** Github repository */
+@property(nonatomic, copy, nullable) NSString *repo;
+
+/** URL of a webdoc */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+/**
+ *  Wikipedia article title. The Wikipedia TFDS dataset includes article titles
+ *  but not URLs. While a URL is to the best of our knowledge a deterministic
+ *  function of the title, we store the original title to reflect the
+ *  information in the original dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *wikipediaArticleTitle;
+
+@end
+
+
+/**
+ *  The recitation result for one input
+ */
+@interface GTLRAiplatform_LearningGenaiRecitationRecitationResult : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRecitationSegmentResult *> *dynamicSegmentResults;
+
+/**
+ *  The recitation action for one given input. When its segments contain
+ *  different actions, the overall action will be returned in the precedence of
+ *  BLOCK > CITE > NO_ACTION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ActionUnspecified
+ *        Value "ACTION_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Block
+ *        indicate that a Segment should be blocked from being used (Value:
+ *        "BLOCK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Cite
+ *        indicate that attribution must be shown for a Segment (Value: "CITE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ExemptFoundInPrompt
+ *        The recitation was found in prompt and is exempted from overall
+ *        results (Value: "EXEMPT_FOUND_IN_PROMPT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_NoAction
+ *        for tagging high-frequency code snippets (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *recitationAction;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRecitationSegmentResult *> *trainingSegmentResults;
+
+@end
+
+
+/**
+ *  The recitation result for each segment in a given input.
+ */
+@interface GTLRAiplatform_LearningGenaiRecitationSegmentResult : GTLRObject
+
+/**
+ *  The dataset the segment came from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsKhan
+ *        Academic dataset of math text.
+ *        http://google3/learning/brain/research/conversation/meena/seqio/mixtures/experimental/bard.py;rcl=500222380
+ *        (Value: "AMPS_KHAN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsMathematica
+ *        Value "AMPS_MATHEMATICA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Aqua
+ *        Value "AQUA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AssistantPersonalitySafety
+ *        Value "ASSISTANT_PERSONALITY_SAFETY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardArcadeGithub
+ *        Bard ARCADE finetune dataset (Value: "BARD_ARCADE_GITHUB")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardGolden
+ *        Value "BARD_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardPersonalityGolden
+ *        Value "BARD_PERSONALITY_GOLDEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksFullView
+ *        'Full view' books dataset maintained by Oceanographers team, meaning
+ *        'ok to view the book in full in all localities'. Largely the same as
+ *        'public domain', but with potentially subtle distinction. (Value:
+ *        "BOOKS_FULL_VIEW")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksPrivate
+ *        Filtered private books used by ULM:
+ *        http://google3/learning/multipod/pax/lm/params/ulm/tasks.py;l=123;rcl=494241309.
+ *        which corresponds with
+ *        /cns/mf-d/home/multipod-language-data/private_books/books_filtered_en_resharded\@50000
+ *        (Value: "BOOKS_PRIVATE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_C4JoinedDocjoins
+ *        Value "C4_JOINED_DOCJOINS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CanariesShuffled
+ *        Value "CANARIES_SHUFFLED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CleanArxiv
+ *        Value "CLEAN_ARXIV"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix
+ *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityFinetuning
+ *        Value "CLOUD_SECURITY_FINETUNING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityPretraining
+ *        Cloud Security fine tuned datasets. (Value:
+ *        "CLOUD_SECURITY_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubMultifileV4
+ *        Value "CMS_GITHUB_MULTIFILE_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubV4
+ *        Github (Value: "CMS_GITHUB_V4")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackexchange
+ *        Value "CMS_STACKEXCHANGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackoverflowMultilingual
+ *        Value "CMS_STACKOVERFLOW_MULTILINGUAL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsWikipediaLangFiltered
+ *        Datasets used by Gemini Public data (Value:
+ *        "CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtFormat
+ *        Value "CODE_QA_FT_FORMAT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtKnowledge
+ *        Value "CODE_QA_FT_KNOWLEDGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaGithubFilteredCode
+ *        Value "CODE_QA_GITHUB_FILTERED_CODE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSe
+ *        Value "CODE_QA_SE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSo
+ *        Value "CODE_QA_SO"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyCode
+ *        Value "CODEY_CODE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyNotebookLmPretraining
+ *        Datasets used by Codepoet (Value: "CODEY_NOTEBOOK_LM_PRETRAINING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CombinedReddit
+ *        Value "COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CommonSenseReasoning
+ *        Value "COMMON_SENSE_REASONING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqStep
+ *        Value "COQ_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqTheories
+ *        Value "COQ_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DatasetUnspecified
+ *        Value "DATASET_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DocumentChunks
+ *        Value "DOCUMENT_CHUNKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudBlogPosts
+ *        Value "DUET_CLOUD_BLOG_POSTS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocs
+ *        Value "DUET_CLOUD_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables
+ *        Value "DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten
+ *        Value "DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudIxPrompts
+ *        Value "DUET_CLOUD_IX_PROMPTS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes
+ *        Value "DUET_CLOUD_PODCAST_EPISODES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSecurityDocs
+ *        Duet AI finetune datasets, order by precedence. (Value:
+ *        "DUET_CLOUD_SECURITY_DOCS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSkillsBoost
+ *        Value "DUET_CLOUD_SKILLS_BOOST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetDevsiteDocs
+ *        Value "DUET_DEVSITE_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubCodeSnippets
+ *        Value "DUET_GITHUB_CODE_SNIPPETS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubFiles
+ *        Value "DUET_GITHUB_FILES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGobyexample
+ *        Value "DUET_GOBYEXAMPLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGolangDocs
+ *        Value "DUET_GOLANG_DOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGooglesqlGeneration
+ *        Value "DUET_GOOGLESQL_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetRad
+ *        Value "DUET_RAD"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetYoutubeVideos
+ *        Value "DUET_YOUTUBE_VIDEOS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc
+ *        Public webdocs (Value: "GEMINI_DOCJOINS_EN_TOP10B_GCC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc
+ *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc
+ *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAciBench
+ *        Value "GEMINI_IT_ACI_BENCH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAquamuse
+ *        Value "GEMINI_IT_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudCodeIf
+ *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudEurLexJson
+ *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudOasst
+ *        Value "GEMINI_IT_CLOUD_OASST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct
+ *        Value "GEMINI_IT_CLOUD_SELF_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse
+ *        Value "GEMINI_IT_CLOUD_UCS_AQUAMUSE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCodeInstruct
+ *        Value "GEMINI_IT_CODE_INSTRUCT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItDscoutFactuality
+ *        Value "GEMINI_IT_DSCOUT_FACTUALITY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItEitlGen
+ *        Value "GEMINI_IT_EITL_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHedging
+ *        Value "GEMINI_IT_HEDGING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHitlGen
+ *        Value "GEMINI_IT_HITL_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItM3w
+ *        Value "GEMINI_IT_M3W"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMech
+ *        Value "GEMINI_IT_MECH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMedPalm
+ *        Value "GEMINI_IT_MED_PALM"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusDecibel
+ *        Value "GEMINI_IT_NIMBUS_DECIBEL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt
+ *        Value "GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItQaWithUrl
+ *        Value "GEMINI_IT_QA_WITH_URL"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShotgun
+ *        Value "GEMINI_IT_SHOTGUN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShutterstock
+ *        Gemini IT 1.2.7 datasets (Value: "GEMINI_IT_SHUTTERSTOCK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItSpiderFiltered
+ *        Value "GEMINI_IT_SPIDER_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTableGen
+ *        Value "GEMINI_IT_TABLE_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTabSumBq
+ *        Value "GEMINI_IT_TAB_SUM_BQ"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog
+ *        Value "GEMINI_IT_TASK_ORIENTED_DIALOG"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtInk
+ *        Value "GEMINI_MULTIMODAL_FT_INK"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtNone
+ *        Value "GEMINI_MULTIMODAL_FT_NONE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtOther
+ *        Value "GEMINI_MULTIMODAL_FT_OTHER"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock
+ *        Value "GEMINI_MULTIMODAL_FT_SHUTTERSTOCK"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtUrl
+ *        Gemini multimodal instruction tune(IT) and fine tune(FT) datasets
+ *        datasets. (Value: "GEMINI_MULTIMODAL_FT_URL")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtYt
+ *        Value "GEMINI_MULTIMODAL_FT_YT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalIt
+ *        Value "GEMINI_MULTIMODAL_IT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate
+ *        Value
+ *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7
+ *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont
+ *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2
+ *        Value "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered
+ *        Gemini V1, order by precedence. Wikipedia (Value:
+ *        "GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CombinedReddit
+ *        Value "GEMINI_V1_COMBINED_REDDIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags
+ *        Value "GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523
+ *        Public webdocs (Value:
+ *        "GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523
+ *        Value "GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523
+ *        Value "GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar
+ *        Value "GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2
+ *        Value "GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4
+ *        Value "GEMINI_V1_GITHUB_HTML_CSS_XML_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable
+ *        Value "GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4
+ *        Value "GEMINI_V1_GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubOtherV4
+ *        Value "GEMINI_V1_GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2
+ *        Value "GEMINI_V1_GITHUB_TECHDOCS_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn
+ *        Non-public books (Value:
+ *        "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen
+ *        Value "GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt
+ *        Citable misc (Value: "GEMINI_V1_PODCASTS_ROBOTSTXT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Pubmed
+ *        Value "GEMINI_V1_PUBMED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Quora
+ *        Value "GEMINI_V1_QUORA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc
+ *        Value "GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc
+ *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1StemBooks650kText
+ *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix
+ *        Value "GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable
+ *        ArXiv (Value: "GEMINI_V1_ULM_ARXIV_SSTABLE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered
+ *        Other (Value: "GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix
+ *        Value "GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text
+ *        Value
+ *        "GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WebMathV2
+ *        Value "GEMINI_V1_WEB_MATH_V2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs
+ *        Value "GEMINI_V1_WIKIPEDIA_DIFFS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant
+ *        Value "GEMINI_V2_ARXIV_2023_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2
+ *        Value "GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered
+ *        Value
+ *        "GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant
+ *        Value "GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2
+ *        Value "GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChessCompliant
+ *        Value "GEMINI_V2_CHESS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix
+ *        Value "GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths
+ *        Value
+ *        "GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant
+ *        Value "GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant
+ *        Value "GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii
+ *        Gemini V2 datasets (Value:
+ *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant
+ *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant
+ *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered
+ *        Value "GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant
+ *        Value "GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant
+ *        Value
+ *        "GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FormalCompliant
+ *        Value "GEMINI_V2_FORMAL_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant
+ *        Value "GEMINI_V2_FORUMS_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant
+ *        Value
+ *        "GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant
+ *        Value "GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant
+ *        Value "GEMINI_V2_GITHUB_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant
+ *        Value "GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant
+ *        Value "GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant
+ *        Value "GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant
+ *        Value "GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant
+ *        Value "GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant
+ *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2
+ *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii
+ *        Value "GEMINI_V2_LEETCODE_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2
+ *        Value "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2
+ *        Value "GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2
+ *        Value "GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5
+ *        Value "GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5
+ *        Value "GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2
+ *        Value "GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant
+ *        Value "GEMINI_V2_PODCASTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PubmedCompliant
+ *        Value "GEMINI_V2_PUBMED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2
+ *        Value "GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QuoraCompliant
+ *        Value "GEMINI_V2_QUORA_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex
+ *        Value "GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii
+ *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
+ *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant
+ *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
+ *        Value
+ *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant
+ *        Value
+ *        "GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant
+ *        Value "GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant
+ *        Value "GEMINI_V2_WEB_MATH_V3_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant
+ *        Value "GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant
+ *        Value "GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant
+ *        Value "GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GemitBridgeSuffixFt
+ *        Gemit Bridge ULM FT dataset (Value: "GEMIT_BRIDGE_SUFFIX_FT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GenesisNewsInsights
+ *        Genesis fine tuned datasets. (Value: "GENESIS_NEWS_INSIGHTS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage
+ *        Value "GITHUB_DIFFS_WITH_COMMIT_MESSAGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubHtmlV4
+ *        Value "GITHUB_HTML_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubLongTailV4
+ *        Value "GITHUB_LONG_TAIL_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirror
+ *        Value "GITHUB_MIRROR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV101
+ *        Value "GITHUB_MIRROR_V1_0_1"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV210
+ *        Value "GITHUB_MIRROR_V2_1_0"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubOtherV4
+ *        Value "GITHUB_OTHER_V4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Gnews
+ *        Google news dataset referenced in:
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_tasks.py;l=922;rcl=496534668
+ *        (Value: "GNEWS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Books
+ *        Value "GOODALL_MTV5_BOOKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5C4
+ *        Value "GOODALL_MTV5_C4"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Github
+ *        Datasets managed by the Goodall team: deepmind-goodall\@google.com
+ *        (Value: "GOODALL_MTV5_GITHUB")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Wikipedia
+ *        Value "GOODALL_MTV5_WIKIPEDIA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwStackExchange
+ *        Value "GOODALL_MW_STACK_EXCHANGE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop010b
+ *        Value "GOODALL_MW_TOP_0_10B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop100b
+ *        Value "GOODALL_MW_TOP_100B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop10b20b
+ *        Value "GOODALL_MW_TOP_10B_20B"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Hol4Theories
+ *        Value "HOL4_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_HolLightTheories
+ *        Value "HOL_LIGHT_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Holsteps
+ *        Value "HOLSTEPS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleStep
+ *        Value "ISABELLE_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleTheories
+ *        Value "ISABELLE_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDeleware
+ *        Value "LABS_AQA_DELEWARE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDscout
+ *        LABS AQA fine-tune datasets. (Value: "LABS_AQA_DSCOUT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaTailwind
+ *        Value "LABS_AQA_TAILWIND"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_QUERY_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration
+ *        Value "LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityTrigger
+ *        Value "LAMDA_FACTUALITY_TRIGGER"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast
+ *        Value "LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSsiDiscriminative
+ *        Value "LAMDA_SSI_DISCRIMINATIVE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanMathlibTheories
+ *        Value "LEAN_MATHLIB_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanStep
+ *        Value "LEAN_STEP"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredBard
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_BARD"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_200"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500
+ *        Value "MASSIVE_FORUM_THREAD_SCORED_LONG_500"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Math
+ *        Value "MATH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MathReasoning
+ *        Value "MATH_REASONING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaFc
+ *        Meena full conversations.
+ *        http://google3/learning/brain/research/conversation/meena/t5/pretrain_mixtures.py;l=675;rcl=496583228
+ *        (Value: "MEENA_FC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown
+ *        Value "MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers
+ *        Value "MEENA_RESEARCH_PHASE_GOOGLERS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen
+ *        Value "MEENA_RESPONSE_SAFETY_HUMAN_GEN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2
+ *        Value "MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast
+ *        Value "MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MizarTheories
+ *        Value "MIZAR_THEORIES"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k
+ *        Mobile assistant finetune datasets. (Value:
+ *        "MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k
+ *        Value "MOBILE_ASSISTANT_PALM24B_FILTERED_400K"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly
+ *        Others (Value:
+ *        "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly
+ *        Value "NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Podcast
+ *        Value "PODCAST"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastFinetuneDialog
+ *        Value "PODCAST_FINETUNE_DIALOG"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastsRobotstxt
+ *        Value "PODCASTS_ROBOTSTXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Pubmed
+ *        Value "PUBMED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Quora
+ *        Value "QUORA"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered
+ *        Value "SCIENCE_PDF_70M_DOCS_FILTERED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc
+ *        Value "SIMPLIFIED_HTML_V1_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_TechdocsDataSource
+ *        Value "TECHDOCS_DATA_SOURCE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmArxiv
+ *        Arxiv (Value: "ULM_ARXIV")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoins
+ *        The docjoins data for ULM
+ *        /cns/yo-d/home/multipod-language-data/docjoins/rs=6.3/20220728/100B_docstructure_split/examples_en.tfrecord_lattice_05_score_01_HFV13\@3929
+ *        (Value: "ULM_DOCJOINS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsDeduped
+ *        Value "ULM_DOCJOINS_DEDUPED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn
+ *        Value "ULM_DOCJOINS_WITH_URLS_EN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n
+ *        Value "ULM_DOCJOINS_WITH_URLS_I18N"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_VertexSafeFlan
+ *        Datasets used by Vertex (Value: "VERTEX_SAFE_FLAN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebAsr
+ *        Value "WEB_ASR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Webdocs
+ *        Webdocs that have been filtered from the docjoins by the Tarzan team
+ *        for use in the Tarzan training set. (Value: "WEBDOCS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebdocsFinetune
+ *        Value "WEBDOCS_FINETUNE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Wikipedia
+ *        Wikipedia article Tensorflow datasets used by Tarzan and maintained by
+ *        TFDS team. (Value: "WIKIPEDIA")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WorldQueryGenerator
+ *        Value "WORLD_QUERY_GENERATOR"
+ */
+@property(nonatomic, copy, nullable) NSString *attributionDataset;
+
+/**
+ *  human-friendly string that contains information from doc_attribution which
+ *  could be shown by clients
+ */
+@property(nonatomic, copy, nullable) NSString *displayAttributionMessage;
+
+/** populated when recitation_action == CITE */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRecitationDocAttribution *docAttribution;
+
+/**
+ *  number of documents that contained this segment
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *docOccurrences;
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  The raw text in the given input that is corresponding to the segment. It
+ *  will be available only when 'return_segment_raw_text' is enabled in the
+ *  request options.
+ */
+@property(nonatomic, copy, nullable) NSString *rawText;
+
+/**
+ *  segmentRecitationAction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ActionUnspecified
+ *        Value "ACTION_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Block
+ *        indicate that a Segment should be blocked from being used (Value:
+ *        "BLOCK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Cite
+ *        indicate that attribution must be shown for a Segment (Value: "CITE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt
+ *        The recitation was found in prompt and is exempted from overall
+ *        results (Value: "EXEMPT_FOUND_IN_PROMPT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_NoAction
+ *        for tagging high-frequency code snippets (Value: "NO_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *segmentRecitationAction;
+
+/**
+ *  The segment boundary start (inclusive) and end index (exclusive) in the
+ *  given text. In the streaming RPC, the indexes always start from the
+ *  beginning of the first text in the entire stream. The indexes are measured
+ *  in UTF-16 code units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  The type used for final weights calculation.
+ */
+@interface GTLRAiplatform_LearningGenaiRootCalculationType : GTLRObject
+
+/**
+ *  scoreType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeGeneration
+ *        Generation scorer. (Value: "TYPE_GENERATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypePolicy
+ *        Policy scorer. (Value: "TYPE_POLICY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeSafe
+ *        Safety scorer. (Value: "TYPE_SAFE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeUnknown
+ *        Unknown scorer type. (Value: "TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *scoreType;
+
+/**
+ *  weights
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weights;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootClassifierOutput
+ */
+@interface GTLRAiplatform_LearningGenaiRootClassifierOutput : GTLRObject
+
+/** If set, this is the output of the first matching rule. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRuleOutput *ruleOutput GTLR_DEPRECATED;
+
+/** outputs of all matching rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootRuleOutput *> *ruleOutputs;
+
+/** The results of data_providers and metrics. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootClassifierState *state;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootClassifierOutputSummary
+ */
+@interface GTLRAiplatform_LearningGenaiRootClassifierOutputSummary : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootMetricOutput *> *metrics;
+
+/** Output of the first matching rule. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRuleOutput *ruleOutput GTLR_DEPRECATED;
+
+/** outputs of all matching rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootRuleOutput *> *ruleOutputs;
+
+@end
+
+
+/**
+ *  DataProviderOutput and MetricOutput can be saved between calls to the
+ *  Classifier framework. For instance, you can run the query classifier, get
+ *  outputs from those metrics, then use them in a result classifier as well.
+ *  Example rule based on this idea: and_rules { rule { metric_name:
+ *  'query_safesearch_v2' ... } rule { metric_name: 'response_safesearch_v2' ...
+ *  } }
+ */
+@interface GTLRAiplatform_LearningGenaiRootClassifierState : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootDataProviderOutput *> *dataProviderOutput;
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootMetricOutput *> *metricOutput;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootDataProviderOutput
+ */
+@interface GTLRAiplatform_LearningGenaiRootDataProviderOutput : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** If set, this DataProvider failed and this is the error message. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_UtilStatusProto *status;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootFilterMetadata
+ */
+@interface GTLRAiplatform_LearningGenaiRootFilterMetadata : GTLRObject
+
+/**
+ *  Filter confidence.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceHigh
+ *        Value "FILTER_CONFIDENCE_HIGH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceLow
+ *        Value "FILTER_CONFIDENCE_LOW"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceMedium
+ *        Value "FILTER_CONFIDENCE_MEDIUM"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceUnknown
+ *        Value "FILTER_CONFIDENCE_UNKNOWN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryHigh
+ *        Value "FILTER_CONFIDENCE_VERY_HIGH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryLow
+ *        Value "FILTER_CONFIDENCE_VERY_LOW"
+ */
+@property(nonatomic, copy, nullable) NSString *confidence;
+
+/** Debug info for the message. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo *debugInfo;
+
+/** A fallback message chosen by the applied filter. */
+@property(nonatomic, copy, nullable) NSString *fallback;
+
+/** Additional info for the filter. */
+@property(nonatomic, copy, nullable) NSString *info;
+
+/** Name of the filter that triggered. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Filter reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlas
+ *        Atlas specific topic filter (Value: "FILTER_REASON_ATLAS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasAwsAzureRelated
+ *        Atlas specific topic filter aws/azure related questions. (Value:
+ *        "FILTER_REASON_ATLAS_AWS_AZURE_RELATED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasBilling
+ *        Atlas specific topic filter for billing questions. (Value:
+ *        "FILTER_REASON_ATLAS_BILLING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNonEnglishQuestion
+ *        Atlas specific topic filter for non english questions. (Value:
+ *        "FILTER_REASON_ATLAS_NON_ENGLISH_QUESTION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNotRelatedToGcp
+ *        Atlas specific topic filter for non GCP questions. (Value:
+ *        "FILTER_REASON_ATLAS_NOT_RELATED_TO_GCP")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasPricing
+ *        Atlas specific topic filter for pricing questions. (Value:
+ *        "FILTER_REASON_ATLAS_PRICING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonClassifier
+ *        Classifier Module (Value: "FILTER_REASON_CLASSIFIER")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonCodey
+ *        Codey Filter. (Value: "FILTER_REASON_CODEY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmail
+ *        Emails Filter. (Value: "FILTER_REASON_EMAIL")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmptyResponse
+ *        Empty response message. (Value: "FILTER_REASON_EMPTY_RESPONSE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonLanguage
+ *        Language filtering (Value: "FILTER_REASON_LANGUAGE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonNotFiltered
+ *        Input not filtered. (Value: "FILTER_REASON_NOT_FILTERED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonPairwiseClassifier
+ *        Pairwise classifier. (Value: "FILTER_REASON_PAIRWISE_CLASSIFIER")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiContextualDangerous
+ *        RAI Filter (Value: "FILTER_REASON_RAI_CONTEXTUAL_DANGEROUS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiCsam
+ *        RAI Filter. (Value: "FILTER_REASON_RAI_CSAM")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiFringe
+ *        RAI Filter. (Value: "FILTER_REASON_RAI_FRINGE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailImage
+ *        Grail Image (Value: "FILTER_REASON_RAI_GRAIL_IMAGE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailText
+ *        Grail Text (Value: "FILTER_REASON_RAI_GRAIL_TEXT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageCsam
+ *        RAI Filter (Value: "FILTER_REASON_RAI_IMAGE_CSAM")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePedo
+ *        RAI Filter (Value: "FILTER_REASON_RAI_IMAGE_PEDO")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePorn
+ *        RAI Filter (Value: "FILTER_REASON_RAI_IMAGE_PORN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageViolence
+ *        RAI Filter (Value: "FILTER_REASON_RAI_IMAGE_VIOLENCE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiPqc
+ *        RAI Filter. (Value: "FILTER_REASON_RAI_PQC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSafetycat
+ *        SafetyCat. (Value: "FILTER_REASON_RAI_SAFETYCAT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSpii
+ *        RAI Filter. (Value: "FILTER_REASON_RAI_SPII")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameCsam
+ *        RAI Filter (Value: "FILTER_REASON_RAI_VIDEO_FRAME_CSAM")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePedo
+ *        RAI Filter (Value: "FILTER_REASON_RAI_VIDEO_FRAME_PEDO")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePorn
+ *        RAI Filter (Value: "FILTER_REASON_RAI_VIDEO_FRAME_PORN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameViolence
+ *        RAI Filter (Value: "FILTER_REASON_RAI_VIDEO_FRAME_VIOLENCE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRecitation
+ *        Recited content. (Value: "FILTER_REASON_RECITATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRequestResponseTakedown
+ *        Request Response takedown. (Value:
+ *        "FILTER_REASON_REQUEST_RESPONSE_TAKEDOWN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSafetyCat
+ *        SafetyCat filter. (Value: "FILTER_REASON_SAFETY_CAT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSensitive
+ *        Sensitive content. (Value: "FILTER_REASON_SENSITIVE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSimilarityTakedown
+ *        Similarity takedown. (Value: "FILTER_REASON_SIMILARITY_TAKEDOWN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonTakedown
+ *        Takedown policy (Value: "FILTER_REASON_TAKEDOWN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonToxicity
+ *        Toxic content. (Value: "FILTER_REASON_TOXICITY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnknown
+ *        Unknown filter reason. (Value: "FILTER_REASON_UNKNOWN")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnsafe
+ *        Unsafe responses from scorers. (Value: "FILTER_REASON_UNSAFE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUrl
+ *        URLs Filter. (Value: "FILTER_REASON_URL")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** The input query or generated response that is getting filtered. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo
+ */
+@interface GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootClassifierOutput *classifierOutput;
+@property(nonatomic, copy, nullable) NSString *defaultMetadata;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmLanguageFilterResult *languageFilterResult;
+
+/** Safety filter output information for LLM Root RAI harm check. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRAIOutput *raiOutput;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult *raiResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal *raiSignal GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult *streamRecitationResult GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootTakedownResult *takedownResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootToxicityResult *toxicityResult;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootHarm
+ */
+@interface GTLRAiplatform_LearningGenaiRootHarm : GTLRObject
+
+/**
+ *  Please do not use, this is still under development.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextualDangerous;
+
+/**
+ *  csam
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *csam;
+
+/**
+ *  fringe
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fringe;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType *grailImageHarmType;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType *grailTextHarmType;
+
+/**
+ *  imageCsam
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageCsam;
+
+/**
+ *  imagePedo
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imagePedo;
+
+/**
+ *  Image signals
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imagePorn;
+
+/**
+ *  imageViolence
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageViolence;
+
+/**
+ *  pqc
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pqc;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories *safetycat;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmSpiiFilter *spii;
+
+/**
+ *  threshold
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+/**
+ *  videoFrameCsam
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *videoFrameCsam;
+
+/**
+ *  videoFramePedo
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *videoFramePedo;
+
+/**
+ *  Video frame signals
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *videoFramePorn;
+
+/**
+ *  videoFrameViolence
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *videoFrameViolence;
+
+@end
+
+
+/**
+ *  Harm type for images
+ */
+@interface GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *imageHarmType;
+
+@end
+
+
+/**
+ *  Harm type for text
+ */
+@interface GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *harmType;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories
+ */
+@interface GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootHarmSpiiFilter
+ */
+@interface GTLRAiplatform_LearningGenaiRootHarmSpiiFilter : GTLRObject
+
+/**
+ *  usBankRoutingMicr
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usBankRoutingMicr;
+
+/**
+ *  usEmployerIdentificationNumber
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usEmployerIdentificationNumber;
+
+/**
+ *  usSocialSecurityNumber
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usSocialSecurityNumber;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootInternalMetadata
+ */
+@interface GTLRAiplatform_LearningGenaiRootInternalMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootScoredToken *> *scoredTokens;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootMetricOutput
+ */
+@interface GTLRAiplatform_LearningGenaiRootMetricOutput : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *debug;
+
+/** Name of the metric. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  numericValue
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_UtilStatusProto *status;
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
+ *  This is per harm.
+ */
+@interface GTLRAiplatform_LearningGenaiRootRAIOutput : GTLRObject
+
+/**
+ *  allowed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarm *harm;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  score
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRegexTakedownResult
+ */
+@interface GTLRAiplatform_LearningGenaiRootRegexTakedownResult : GTLRObject
+
+/**
+ *  False when query or response should be taken down due to match with a
+ *  blocked regex, true otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/**
+ *  Regex used to decide that query or response should be taken down. Empty when
+ *  query or response is kept.
+ */
+@property(nonatomic, copy, nullable) NSString *takedownRegex;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult
+ */
+@interface GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult : GTLRObject
+
+/**
+ *  False when response has to be taken down per above config.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/** Regex used to match the request. */
+@property(nonatomic, copy, nullable) NSString *requestTakedownRegex;
+
+/**
+ *  Regex used to decide that response should be taken down. Empty when response
+ *  is kept.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTakedownRegex;
+
+@end
+
+
+/**
+ *  Holds the final routing decision, by storing the model_config_id. And
+ *  individual scores each model got.
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecision : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadata *metadata;
+
+/** The selected model to route traffic to. */
+@property(nonatomic, copy, nullable) NSString *modelConfigId;
+
+@end
+
+
+/**
+ *  Debug metadata about the routing decision.
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataScoreBased *scoreBasedRoutingMetadata;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased *tokenLengthBasedRoutingMetadata;
+
+@end
+
+
+/**
+ *  If we are routing using scored based configuration, then the metadata about
+ *  that is available in this proto.
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataScoreBased : GTLRObject
+
+/** The rule that was matched. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule *matchedRule;
+
+/** The score that was generated by the router i.e. the model. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootScore *score;
+
+/**
+ *  No rules were matched & therefore used the default fallback.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedDefaultFallback;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata *> *modelInputTokenMetadata;
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata *> *modelMaxTokenMetadata;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata : GTLRObject
+
+/**
+ *  The length computed by backends using the formatter & tokenizer specific to
+ *  the model
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computedInputTokenLength;
+
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata
+ */
+@interface GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata : GTLRObject
+
+/**
+ *  maxNumInputTokens
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumInputTokens;
+
+/**
+ *  maxNumOutputTokens
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumOutputTokens;
+
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootRuleOutput
+ */
+@interface GTLRAiplatform_LearningGenaiRootRuleOutput : GTLRObject
+
+/**
+ *  decision
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_Match This is
+ *        a generic "match" message, indicating that a rule was triggered.
+ *        Usually you would use this for a categorization classifier. (Value:
+ *        "MATCH")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_NoMatch This
+ *        rule was not matched. When used in a ClassifierOutput, this means that
+ *        no rules were matched. (Value: "NO_MATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *decision;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootScore
+ */
+@interface GTLRAiplatform_LearningGenaiRootScore : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootCalculationType *calculationType;
+
+/**
+ *  The internal_metadata is intended to be used by internal processors and will
+ *  be cleared before returns.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootInternalMetadata *internalMetadata;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootThresholdType *thresholdType;
+
+/** Top candidate tokens and log probabilities at each decoding step. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStep *tokensAndLogprobPerDecodingStep;
+
+/**
+ *  value
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule
+ */
+@interface GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule : GTLRObject
+
+/** NOTE: Hardest examples have smaller values in their routing scores. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootScore *equalOrGreaterThan;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootScore *lessThan;
+
+/**
+ *  This model_config_id points to ModelConfig::id which allows us to find the
+ *  ModelConfig to route to. This is part of the banks specified in the
+ *  ModelBankConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *modelConfigId;
+
+@end
+
+
+/**
+ *  Proto containing the results from the Universal Sentence Encoder / Other
+ *  models
+ */
+@interface GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootSimilarityTakedownPhrase *phrase;
+
+/**
+ *  similarityScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityScore;
+
+@end
+
+
+/**
+ *  A token with its own score.
+ */
+@interface GTLRAiplatform_LearningGenaiRootScoredToken : GTLRObject
+
+/**
+ *  Each end_token_score is a logprob for how well the completion would end at a
+ *  particular token. See
+ *  http://google3/labs/language/aida/config/proto/model_config.proto;l=376;rcl=573039459
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTokenScore;
+
+/**
+ *  Each score is the logprob for the token in model response.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Each SimilarityTakedownPhrase treats a logical group of blocked and allowed
+ *  phrases together along with a corresponding punt If the closest matching
+ *  response is of the allowed type, we allow the response If the closest
+ *  matching response is of the blocked type, we block the response. eg: Blocked
+ *  phrase - "All lives matter"
+ */
+@interface GTLRAiplatform_LearningGenaiRootSimilarityTakedownPhrase : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *blockedPhrase;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult
+ */
+@interface GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult : GTLRObject
+
+/**
+ *  False when query or response should be taken down by any of the takedown
+ *  rules, true otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/** List of similar phrases with score. Set only if allowed=false. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase *> *scoredPhrases;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootTakedownResult
+ */
+@interface GTLRAiplatform_LearningGenaiRootTakedownResult : GTLRObject
+
+/**
+ *  False when query or response should be taken down by any of the takedown
+ *  rules, true otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRegexTakedownResult *regexTakedownResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult *requestResponseTakedownResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult *similarityTakedownResult;
+
+@end
+
+
+/**
+ *  The type of score that bundled with a threshold, and will not be attending
+ *  the final score calculation. How each score type uses the threshold can be
+ *  implementation details.
+ */
+@interface GTLRAiplatform_LearningGenaiRootThresholdType : GTLRObject
+
+/**
+ *  scoreType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeGeneration
+ *        Generation scorer. (Value: "TYPE_GENERATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypePolicy
+ *        Policy scorer. (Value: "TYPE_POLICY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeSafe
+ *        Safety scorer. (Value: "TYPE_SAFE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeUnknown
+ *        Unknown scorer type. (Value: "TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *scoreType;
+
+/**
+ *  threshold
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+@end
+
+
+/**
+ *  Results of RandomSamplingParams::top_k_logprob_per_decoding_step.
+ */
+@interface GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStep : GTLRObject
+
+/**
+ *  Length = total number of decoding steps. The chosen candidates may or may
+ *  not be in top_candidates.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate *> *chosenCandidates;
+
+/** Length = total number of decoding steps. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates *> *topCandidates;
+
+@end
+
+
+/**
+ *  A candidate at a decoding step.
+ */
+@interface GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate : GTLRObject
+
+/**
+ *  The candidate's log probability.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logProbability;
+
+/** The candidate’s token value. */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Candidates with top log probabilities at each decoding step.
+ */
+@interface GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates : GTLRObject
+
+/** Sorted by log probability in descending order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate *> *candidates;
+
+@end
+
+
+/**
+ *  A model can generate multiple signals and this captures all the generated
+ *  signals for a single message.
+ */
+@interface GTLRAiplatform_LearningGenaiRootToxicityResult : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootToxicitySignal *> *signals;
+
+@end
+
+
+/**
+ *  Proto to capture a signal generated by the toxicity model.
+ */
+@interface GTLRAiplatform_LearningGenaiRootToxicitySignal : GTLRObject
+
+/**
+ *  allowed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/**
+ *  label
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_AccidentsDisasters
+ *        Input is related to accidents or disasters. (Value:
+ *        "ACCIDENTS_DISASTERS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Adult Input
+ *        contains adult content. (Value: "ADULT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ComputerSecurity
+ *        Input is related to computer security. (Value: "COMPUTER_SECURITY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ControversialSocialIssues
+ *        Input contains controversial social issues. (Value:
+ *        "CONTROVERSIAL_SOCIAL_ISSUES")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_DeathTragedy
+ *        Input is related to death tragedy. (Value: "DEATH_TRAGEDY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Drugs Input
+ *        is related to drugs. (Value: "DRUGS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FinancialHardship
+ *        Input is related to financial hardship. (Value: "FINANCIAL_HARDSHIP")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FirearmsWeapons
+ *        Input is related to firearms or weapons. (Value: "FIREARMS_WEAPONS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Health Input
+ *        contains health related information. (Value: "HEALTH")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_IdentityEthnicity
+ *        Input is related to identity or ethnicity. (Value:
+ *        "IDENTITY_ETHNICITY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Insult Input
+ *        may be an insult. (Value: "INSULT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_LabelUnspecified
+ *        Default label. (Value: "LABEL_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Legal Input
+ *        is related to legal content. (Value: "LEGAL")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_MentalHealth
+ *        Input contains mental health related information. (Value:
+ *        "MENTAL_HEALTH")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_NotSensitive
+ *        Input is not sensitive. (Value: "NOT_SENSITIVE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Politics
+ *        Input is related to politics. (Value: "POLITICS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ReligionBeliefs
+ *        Input is related to religions or beliefs. (Value: "RELIGION_BELIEFS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Safety Input
+ *        is related to safety. (Value: "SAFETY")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SelfHarm
+ *        Input is related to self-harm. (Value: "SELF_HARM")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Sensitive
+ *        Input is sensitive. (Value: "SENSITIVE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SpecialNeeds
+ *        Input is related to special needs. (Value: "SPECIAL_NEEDS")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Terrorism
+ *        Input is related to terrorism. (Value: "TERRORISM")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Toxic Input
+ *        is toxic. (Value: "TOXIC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_TroubledRelationship
+ *        Input is related to troubled relationships. (Value:
+ *        "TROUBLED_RELATIONSHIP")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ViolenceAbuse
+ *        Input contains content about violence or abuse. (Value:
+ *        "VIOLENCE_ABUSE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Vulgar Input
+ *        is vulgar. (Value: "VULGAR")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_WarConflict
+ *        Input is related to war and conflict. (Value: "WAR_CONFLICT")
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  score
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningServingLlmLanguageFilterResult
+ */
+@interface GTLRAiplatform_LearningServingLlmLanguageFilterResult : GTLRObject
+
+/**
+ *  False when query or response should be filtered out due to unsupported
+ *  language.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/** Language of the query or response. */
+@property(nonatomic, copy, nullable) NSString *detectedLanguage;
+
+/**
+ *  Probability of the language predicted as returned by LangID.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedLanguageProbability;
+
+@end
+
+
+/**
+ *  LINT.IfChange This metadata contains additional information required for
+ *  debugging.
+ */
+@interface GTLRAiplatform_LearningServingLlmMessageMetadata : GTLRObject
+
+/**
+ *  Summary of classifier output. We attach this to all messages regardless of
+ *  whether classification rules triggered or not.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootClassifierOutputSummary *classifierSummary;
+
+/**
+ *  currentStreamTextLength
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentStreamTextLength;
+
+/**
+ *  Whether the corresponding message has been deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/** Metadata for filters that triggered. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootFilterMetadata *> *filterMeta;
+
+/**
+ *  This score is finally used for ranking the message. This will be same as the
+ *  score present in `Message.score` field.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootScore *finalMessageScore;
+
+/**
+ *  NOT YET IMPLEMENTED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Filter
+ *        Finished due to triggering some post-processing filter. (Value:
+ *        "FILTER")
+ *    @arg @c kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_MaxTokens
+ *        Model has emitted the maximum number of tokens as specified by
+ *        max_decoding_steps. (Value: "MAX_TOKENS")
+ *    @arg @c kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Return
+ *        Return all the tokens back. This typically implies no filtering or
+ *        stop sequence was triggered. (Value: "RETURN")
+ *    @arg @c kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Stop
+ *        Finished due to provided stop sequence. (Value: "STOP")
+ *    @arg @c kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *finishReason;
+
+/**
+ *  Applies to Response message only. Indicates whether the message is a
+ *  fallback and the response would have otherwise been empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFallback;
+
+/**
+ *  Result from nlp_saft DetectLanguage method. Currently the predicted language
+ *  code and language probability is used.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_NlpSaftLangIdResult *langidResult;
+
+/** Detected language. */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/** The LM prefix used to generate this response. */
+@property(nonatomic, copy, nullable) NSString *lmPrefix;
+
+/**
+ *  The original text generated by LLM. This is the raw output for debugging
+ *  purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *originalText;
+
+/**
+ *  NOT YET IMPLEMENTED. Applies to streaming only. Number of tokens decoded /
+ *  emitted by the model as part of this stream. This may be different from
+ *  token_count, which contains number of tokens returned in this response after
+ *  any response rewriting / truncation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *perStreamDecodedTokenCount;
+
+/**
+ *  Results of running RAI on the query or this response candidate. One output
+ *  per rai_config. It will be populated regardless of whether the threshold is
+ *  exceeded or not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootRAIOutput *> *raiOutputs;
+
+/**
+ *  Recitation Results. It will be populated as long as Recitation processing is
+ *  enabled, regardless of recitation outcome.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRecitationRecitationResult *recitationResult;
+
+/**
+ *  NOT YET IMPLEMENTED. Number of tokens returned as part of this candidate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnTokenCount;
+
+/** All the different scores for a message are logged here. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootScore *> *scores;
+
+/**
+ *  Whether the response is terminated during streaming return. Only used for
+ *  streaming requests.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streamTerminated;
+
+/**
+ *  NOT YET IMPLEMENTED. Aggregated number of total tokens decoded so far. For
+ *  streaming, this is sum of all the tokens decoded so far i.e. aggregated
+ *  count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDecodedTokenCount;
+
+/**
+ *  Translated user-prompt used for RAI post processing. This is for internal
+ *  processing only. We will translate in pre-processor and pass the translated
+ *  text to the post processor using this field. It will be empty if non of the
+ *  signals requested need translation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *translatedUserPrompts;
+
+/** The metadata from Vertex SafetyCat processors */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult *vertexRaiResult;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_NlpSaftLangIdLocalesResult
+ */
+@interface GTLRAiplatform_NlpSaftLangIdLocalesResult : GTLRObject
+
+/**
+ *  List of locales in which the text would be considered acceptable. Sorted in
+ *  descending order according to each locale's respective likelihood. For
+ *  example, if a Portuguese text is acceptable in both Brazil and Portugal, but
+ *  is more strongly associated with Brazil, then the predictions would be
+ *  ["pt-BR", "pt-PT"], in that order. May be empty, indicating that the model
+ *  did not predict any acceptable locales.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_NlpSaftLangIdLocalesResultLocale *> *predictions;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_NlpSaftLangIdLocalesResultLocale
+ */
+@interface GTLRAiplatform_NlpSaftLangIdLocalesResultLocale : GTLRObject
+
+/**
+ *  A BCP 47 language code that includes region information. For example,
+ *  "pt-BR" or "pt-PT". This field will always be populated.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_NlpSaftLangIdResult
+ */
+@interface GTLRAiplatform_NlpSaftLangIdResult : GTLRObject
+
+/**
+ *  The version of the model used to create these annotations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20181017
+ *        Value "INDEXING_20181017"
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20191206
+ *        Value "INDEXING_20191206"
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20200313
+ *        Value "INDEXING_20200313"
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20210618
+ *        Value "INDEXING_20210618"
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Standard20220516
+ *        Value "STANDARD_20220516"
+ *    @arg @c kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspecified
+ *        Value "VERSION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *modelVersion;
+
+/**
+ *  This field stores the n-best list of possible BCP 47 language code strings
+ *  for a given input sorted in descending order according to each code's
+ *  respective probability.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_NlpSaftLanguageSpan *> *predictions;
+
+/**
+ *  This field stores language predictions of subspans of the input, when
+ *  available. Each LanguageSpanSequence is a sequence of LanguageSpans. A
+ *  particular sequence of LanguageSpans has an associated probability, and need
+ *  not necessarily cover the entire input. If no language could be predicted
+ *  for any span, then this field may be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_NlpSaftLanguageSpanSequence *> *spanPredictions;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_NlpSaftLanguageSpan
+ */
+@interface GTLRAiplatform_NlpSaftLanguageSpan : GTLRObject
+
+/**
+ *  end
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/** A BCP 47 language code for this span. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional field containing any information that was predicted about the
+ *  specific locale(s) of the span.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_NlpSaftLangIdLocalesResult *locales;
+
+/**
+ *  A probability associated with this prediction.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probability;
+
+/**
+ *  Start and end byte offsets, inclusive, within the given input string. A
+ *  value of -1 implies that this field is not set. Both fields must either be
+ *  set with a nonnegative value or both are unset. If both are unset then this
+ *  LanguageSpan applies to the entire input.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_NlpSaftLanguageSpanSequence
+ */
+@interface GTLRAiplatform_NlpSaftLanguageSpanSequence : GTLRObject
+
+/**
+ *  A sequence of LanguageSpan objects, each assigning a language to a subspan
+ *  of the input.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_NlpSaftLanguageSpan *> *languageSpans;
+
+/**
+ *  The probability of this sequence of LanguageSpans.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probability;
+
+@end
+
+
+/**
+ *  This is proto2's version of MessageSet.
+ */
+@interface GTLRAiplatform_Proto2BridgeMessageSet : GTLRObject
+@end
+
+
+/**
+ *  Wire-format for a Status object
+ */
+@interface GTLRAiplatform_UtilStatusProto : GTLRObject
+
+/**
+ *  The canonical error code (see codes.proto) that most closely corresponds to
+ *  this status. This may be missing, and in the common case of the generic
+ *  space, it definitely will be.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canonicalCode;
+
+/**
+ *  Numeric code drawn from the space specified below. Often, this is the
+ *  canonical error space, and code is drawn from google3/util/task/codes.proto
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/** Detail message */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** message_set associates an arbitrary proto message with the status. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_Proto2BridgeMessageSet *messageSet;
+
+/**
+ *  The following are usually only present when code != 0 Space to which this
+ *  status belongs
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 

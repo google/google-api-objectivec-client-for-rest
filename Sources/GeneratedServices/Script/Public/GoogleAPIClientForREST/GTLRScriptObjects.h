@@ -431,15 +431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRScript_File *> *files;
 
-/**
- *  Set to true if called from revert flume to allow deletion of system
- *  generated manifest file while validating content request. This value is
- *  false by default.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *revertFlumeInvoked;
-
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
 

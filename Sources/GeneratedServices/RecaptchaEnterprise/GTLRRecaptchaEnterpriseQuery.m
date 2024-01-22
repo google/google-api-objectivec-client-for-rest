@@ -182,6 +182,33 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesReorder
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/firewallpolicies:reorder";
+  GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesReorder *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.firewallpolicies.reorder";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate
 
 @dynamic parent;

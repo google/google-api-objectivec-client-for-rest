@@ -34,6 +34,12 @@ NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyT
 NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_AppRecoveryAction.status
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
+
 // GTLRAndroidPublisher_AssetModuleMetadata.deliveryType
 NSString * const kGTLRAndroidPublisher_AssetModuleMetadata_DeliveryType_FastFollow = @"FAST_FOLLOW";
 NSString * const kGTLRAndroidPublisher_AssetModuleMetadata_DeliveryType_InstallTime = @"INSTALL_TIME";
@@ -88,6 +94,12 @@ NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Sub
 NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionCanceled = @"TRANSACTION_CANCELED";
 NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionReported = @"TRANSACTION_REPORTED";
 NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_TransactionStateUnspecified = @"TRANSACTION_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_GeneratedRecoveryApk.recoveryStatus
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
 
 // GTLRAndroidPublisher_Grant.appLevelPermissions
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
@@ -354,6 +366,53 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_AddTargetingRequest
+//
+
+@implementation GTLRAndroidPublisher_AddTargetingRequest
+@dynamic targetingUpdate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AddTargetingResponse
+//
+
+@implementation GTLRAndroidPublisher_AddTargetingResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AllUsers
+//
+
+@implementation GTLRAndroidPublisher_AllUsers
+@dynamic isAllUsersRequested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AndroidSdks
+//
+
+@implementation GTLRAndroidPublisher_AndroidSdks
+@dynamic sdkLevels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sdkLevels" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Apk
 //
 
@@ -479,6 +538,45 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppRecoveryAction
+//
+
+@implementation GTLRAndroidPublisher_AppRecoveryAction
+@dynamic appRecoveryId, cancelTime, createTime, deployTime, lastUpdateTime,
+         remoteInAppUpdateData, status, targeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppVersionList
+//
+
+@implementation GTLRAndroidPublisher_AppVersionList
+@dynamic versionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versionCodes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppVersionRange
+//
+
+@implementation GTLRAndroidPublisher_AppVersionRange
+@dynamic versionCodeEnd, versionCodeStart;
 @end
 
 
@@ -830,6 +928,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CancelAppRecoveryRequest
+//
+
+@implementation GTLRAndroidPublisher_CancelAppRecoveryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancelAppRecoveryResponse
+//
+
+@implementation GTLRAndroidPublisher_CancelAppRecoveryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CanceledStateContext
 //
 
@@ -933,6 +1049,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CreateDraftAppRecoveryRequest
+//
+
+@implementation GTLRAndroidPublisher_CreateDraftAppRecoveryRequest
+@dynamic remoteInAppUpdate, targeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeactivateBasePlanRequest
 //
 
@@ -978,6 +1104,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeobfuscationFilesUploadResponse
 @dynamic deobfuscationFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeployAppRecoveryRequest
+//
+
+@implementation GTLRAndroidPublisher_DeployAppRecoveryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeployAppRecoveryResponse
+//
+
+@implementation GTLRAndroidPublisher_DeployAppRecoveryResponse
 @end
 
 
@@ -1296,12 +1440,14 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_GeneratedApksPerSigningKey
-@dynamic certificateSha256Hash, generatedAssetPackSlices, generatedSplitApks,
-         generatedStandaloneApks, generatedUniversalApk, targetingInfo;
+@dynamic certificateSha256Hash, generatedAssetPackSlices,
+         generatedRecoveryModules, generatedSplitApks, generatedStandaloneApks,
+         generatedUniversalApk, targetingInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"generatedAssetPackSlices" : [GTLRAndroidPublisher_GeneratedAssetPackSlice class],
+    @"generatedRecoveryModules" : [GTLRAndroidPublisher_GeneratedRecoveryApk class],
     @"generatedSplitApks" : [GTLRAndroidPublisher_GeneratedSplitApk class],
     @"generatedStandaloneApks" : [GTLRAndroidPublisher_GeneratedStandaloneApk class]
   };
@@ -1318,6 +1464,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_GeneratedAssetPackSlice
 @dynamic downloadId, moduleName, sliceId, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedRecoveryApk
+//
+
+@implementation GTLRAndroidPublisher_GeneratedRecoveryApk
+@dynamic downloadId, moduleName, recoveryId, recoveryStatus;
 @end
 
 
@@ -1653,6 +1809,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   NSDictionary<NSString *, Class> *map = @{
     @"alternatives" : [NSString class],
     @"value" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ListAppRecoveriesResponse
+//
+
+@implementation GTLRAndroidPublisher_ListAppRecoveriesResponse
+@dynamic recoveryActions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recoveryActions" : [GTLRAndroidPublisher_AppRecoveryAction class]
   };
   return map;
 }
@@ -2169,11 +2343,67 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Regions
+//
+
+@implementation GTLRAndroidPublisher_Regions
+@dynamic regionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCode" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_RegionsVersion
 //
 
 @implementation GTLRAndroidPublisher_RegionsVersion
 @dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RemoteInAppUpdate
+//
+
+@implementation GTLRAndroidPublisher_RemoteInAppUpdate
+@dynamic isRemoteInAppUpdateRequested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RemoteInAppUpdateData
+//
+
+@implementation GTLRAndroidPublisher_RemoteInAppUpdateData
+@dynamic remoteAppUpdateDataPerBundle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"remoteAppUpdateDataPerBundle" : [GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle
+//
+
+@implementation GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle
+@dynamic recoveredDeviceCount, totalDeviceCount, versionCode;
 @end
 
 
@@ -2249,6 +2479,44 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ReviewsReplyResponse
 @dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContext
+//
+
+@implementation GTLRAndroidPublisher_RevocationContext
+@dynamic proratedRefund;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContextProratedRefund
+//
+
+@implementation GTLRAndroidPublisher_RevocationContextProratedRefund
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest
+//
+
+@implementation GTLRAndroidPublisher_RevokeSubscriptionPurchaseRequest
+@dynamic revocationContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse
+//
+
+@implementation GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse
 @end
 
 
@@ -2664,6 +2932,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Targeting
+//
+
+@implementation GTLRAndroidPublisher_Targeting
+@dynamic allUsers, androidSdks, regions, versionList, versionRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_TargetingInfo
 //
 
@@ -2688,6 +2966,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_TargetingRuleScope
 @dynamic specificSubscriptionInApp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingUpdate
+//
+
+@implementation GTLRAndroidPublisher_TargetingUpdate
+@dynamic allUsers, androidSdks, regions;
 @end
 
 

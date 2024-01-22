@@ -17,10 +17,14 @@
 
 @implementation GTLRStorage_AnywhereCache
 @dynamic admissionPolicy, anywhereCacheId, bucket, createTime, identifier, kind,
-         pendingUpdate, selfLink, state, ttl, updateTime;
+         pendingUpdate, selfLink, state, ttl, updateTime, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
 }
 
 @end
@@ -52,11 +56,11 @@
 @implementation GTLRStorage_Bucket
 @dynamic acl, autoclass, billing, cors, customPlacementConfig,
          defaultEventBasedHold, defaultObjectAcl, encryption, ETag,
-         iamConfiguration, identifier, kind, labels, lifecycle, location,
-         locationType, logging, metageneration, name, objectRetention, owner,
-         projectNumber, retentionPolicy, rpo, satisfiesPZS, selfLink,
-         softDeletePolicy, storageClass, timeCreated, updated, versioning,
-         website;
+         hierarchicalNamespace, iamConfiguration, identifier, kind, labels,
+         lifecycle, location, locationType, logging, metageneration, name,
+         objectRetention, owner, projectNumber, retentionPolicy, rpo,
+         satisfiesPZS, selfLink, softDeletePolicy, storageClass, timeCreated,
+         updated, versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -144,6 +148,16 @@
 
 @implementation GTLRStorage_Bucket_Encryption
 @dynamic defaultKmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_HierarchicalNamespace
+//
+
+@implementation GTLRStorage_Bucket_HierarchicalNamespace
+@dynamic enabled;
 @end
 
 
@@ -485,6 +499,64 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Folder
+//
+
+@implementation GTLRStorage_Folder
+@dynamic bucket, identifier, kind, metadata, metageneration, name,
+         pendingRenameInfo, selfLink, timeCreated, updated;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Folder_Metadata
+//
+
+@implementation GTLRStorage_Folder_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Folder_PendingRenameInfo
+//
+
+@implementation GTLRStorage_Folder_PendingRenameInfo
+@dynamic operationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Folders
+//
+
+@implementation GTLRStorage_Folders
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_Folder class]
+  };
+  return map;
 }
 
 @end

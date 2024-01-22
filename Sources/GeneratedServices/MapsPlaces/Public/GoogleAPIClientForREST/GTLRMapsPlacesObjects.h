@@ -961,8 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *menuForChildren;
 
 /**
- *  An ID representing this place which may be used to look up this place again
- *  (a.k.a. the API "resource" name: places/place_id).
+ *  This Place's resource name, in `places/{place_id}` format. Can be used to
+ *  look up the Place.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

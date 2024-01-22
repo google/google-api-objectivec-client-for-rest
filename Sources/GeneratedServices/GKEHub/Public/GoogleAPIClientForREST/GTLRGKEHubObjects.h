@@ -63,6 +63,7 @@
 @class GTLRGKEHub_ConfigManagementSyncError;
 @class GTLRGKEHub_ConfigManagementSyncState;
 @class GTLRGKEHub_ConnectAgentResource;
+@class GTLRGKEHub_DataplaneV2FeatureSpec;
 @class GTLRGKEHub_DefaultClusterConfig;
 @class GTLRGKEHub_EdgeCluster;
 @class GTLRGKEHub_Expr;
@@ -512,6 +513,74 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploym
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncState.reposyncCrd
+
+/**
+ *  CRD's state cannot be determined
+ *
+ *  Value: "CRD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_CrdStateUnspecified;
+/**
+ *  CRD is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installed;
+/**
+ *  CRD is installing
+ *
+ *  Value: "INSTALLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installing;
+/**
+ *  CRD is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_NotInstalled;
+/**
+ *  CRD is terminating (i.e., it has been deleted and is cleaning up)
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Terminating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncState.rootsyncCrd
+
+/**
+ *  CRD's state cannot be determined
+ *
+ *  Value: "CRD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_CrdStateUnspecified;
+/**
+ *  CRD is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installed;
+/**
+ *  CRD is installing
+ *
+ *  Value: "INSTALLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installing;
+/**
+ *  CRD is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_NotInstalled;
+/**
+ *  CRD is terminating (i.e., it has been deleted and is cleaning up)
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
@@ -1998,9 +2067,25 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2014,7 +2099,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -2324,6 +2412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** ClusterUpgrade (fleet-based) feature spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ClusterUpgradeFleetSpec *clusterupgrade;
 
+/** DataplaneV2 feature spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_DataplaneV2FeatureSpec *dataplanev2;
+
 /** FleetObservability feature spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFeatureSpec *fleetobservability;
 
@@ -2597,6 +2688,42 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Errors pertaining to the installation of Config Sync. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementConfigSyncError *> *errors;
+
+/**
+ *  The state of the Reposync CRD
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_CrdStateUnspecified
+ *        CRD's state cannot be determined (Value: "CRD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installed
+ *        CRD is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Installing
+ *        CRD is installing (Value: "INSTALLING")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_NotInstalled
+ *        CRD is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_ReposyncCrd_Terminating
+ *        CRD is terminating (i.e., it has been deleted and is cleaning up)
+ *        (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *reposyncCrd;
+
+/**
+ *  The state of the RootSync CRD
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_CrdStateUnspecified
+ *        CRD's state cannot be determined (Value: "CRD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installed
+ *        CRD is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Installing
+ *        CRD is installing (Value: "INSTALLING")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_NotInstalled
+ *        CRD is not installed (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating
+ *        CRD is terminating (i.e., it has been deleted and is cleaning up)
+ *        (Value: "TERMINATING")
+ */
+@property(nonatomic, copy, nullable) NSString *rootsyncCrd;
 
 /** The state of ConfigSync's process to sync configs to a cluster */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSyncState *syncState;
@@ -3260,6 +3387,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Kubernetes type of the resource. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_TypeMeta *type;
+
+@end
+
+
+/**
+ *  **Dataplane V2**: Spec
+ */
+@interface GTLRGKEHub_DataplaneV2FeatureSpec : GTLRObject
+
+/**
+ *  Enable dataplane-v2 based encryption for multiple clusters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableEncryption;
 
 @end
 

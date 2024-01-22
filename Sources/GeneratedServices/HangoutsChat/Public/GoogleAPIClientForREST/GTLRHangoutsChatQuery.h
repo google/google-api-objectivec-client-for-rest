@@ -164,6 +164,48 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
+ *  Completes the [import
+ *  process](https://developers.google.com/chat/api/guides/import-data) for the
+ *  specified space and makes it visible to users. Requires app authentication
+ *  and domain-wide delegation. For more information, see [Authorize Google Chat
+ *  apps to import
+ *  data](https://developers.google.com/chat/api/guides/authorize-import).
+ *
+ *  Method: chat.spaces.completeImport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
+ */
+@interface GTLRHangoutsChatQuery_SpacesCompleteImport : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Resource name of the import mode space. Format: `spaces/{space}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_CompleteImportSpaceResponse.
+ *
+ *  Completes the [import
+ *  process](https://developers.google.com/chat/api/guides/import-data) for the
+ *  specified space and makes it visible to users. Requires app authentication
+ *  and domain-wide delegation. For more information, see [Authorize Google Chat
+ *  apps to import
+ *  data](https://developers.google.com/chat/api/guides/authorize-import).
+ *
+ *  @param object The @c GTLRHangoutsChat_CompleteImportSpaceRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the import mode space. Format:
+ *    `spaces/{space}`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesCompleteImport
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_CompleteImportSpaceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a named space. Spaces grouped by topics aren't supported. For an
  *  example, see [Create a
  *  space](https://developers.google.com/chat/api/guides/v1/spaces/create). If
@@ -791,17 +833,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
 
 /**
- *  Optional. A custom name for a Chat message assigned at creation. Must start
- *  with `client-` and contain only lowercase letters, numbers, and hyphens up
- *  to 63 characters in length. Specify this field to get, update, or delete the
- *  message with the specified value. Assigning a custom name lets a a Chat app
- *  recall the message without saving the message `name` from the [response
- *  body](/chat/api/reference/rest/v1/spaces.messages/get#response-body)
- *  returned when creating the message. Assigning a custom name doesn't replace
- *  the generated `name` field, the message's resource name. Instead, it sets
- *  the custom name as the `clientAssignedMessageId` field, which you can
- *  reference while processing later operations, like updating or deleting the
- *  message. For example usage, see [Name a created
+ *  Optional. A custom ID for a message. Lets Chat apps get, update, or delete a
+ *  message without needing to store the system-assigned ID in the message's
+ *  resource name (represented in the message `name` field). The value for this
+ *  field must meet the following requirements: * Begins with `client-`. For
+ *  example, `client-custom-name` is a valid custom ID, but `custom-name` is
+ *  not. * Contains up to 63 characters and only lowercase letters, numbers, and
+ *  hyphens. * Is unique within a space. A Chat app can't use the same custom ID
+ *  for different messages. For details, see [Name a
  *  message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
@@ -904,9 +943,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. Resource name of the message that you want to delete, in the form
- *  `spaces/ * /messages/ *` Example:
- *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  Required. Resource name of the message. Format:
+ *  `spaces/{space}/messages/{message}` If you've set a custom ID for your
+ *  message, you can use the value from the `clientAssignedMessageId` field for
+ *  `{message}`. For details, see [Name a message]
+ *  (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -924,9 +965,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  When using app authentication, requests can only delete messages created by
  *  the calling Chat app.
  *
- *  @param name Required. Resource name of the message that you want to delete,
- *    in the form `spaces/ * /messages/ *` Example:
- *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  @param name Required. Resource name of the message. Format:
+ *    `spaces/{space}/messages/{message}` If you've set a custom ID for your
+ *    message, you can use the value from the `clientAssignedMessageId` field
+ *    for `{message}`. For details, see [Name a message]
+ *    (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesDelete
  */
@@ -955,12 +998,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
 
 /**
- *  Required. Resource name of the message to retrieve. Format:
- *  `spaces/{space}/messages/{message}` If the message begins with `client-`,
- *  then it has a custom name assigned by a Chat app that created it with the
- *  Chat REST API. That Chat app (but not others) can pass the custom name to
- *  get, update, or delete the message. To learn more, see [create and name a
- *  message]
+ *  Required. Resource name of the message. Format:
+ *  `spaces/{space}/messages/{message}` If you've set a custom ID for your
+ *  message, you can use the value from the `clientAssignedMessageId` field for
+ *  `{message}`. For details, see [Name a message]
  *  (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -978,12 +1019,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/chat/api/guides/auth/users).
  *  Note: Might return a message from a blocked member or space.
  *
- *  @param name Required. Resource name of the message to retrieve. Format:
- *    `spaces/{space}/messages/{message}` If the message begins with `client-`,
- *    then it has a custom name assigned by a Chat app that created it with the
- *    Chat REST API. That Chat app (but not others) can pass the custom name to
- *    get, update, or delete the message. To learn more, see [create and name a
- *    message]
+ *  @param name Required. Resource name of the message. Format:
+ *    `spaces/{space}/messages/{message}` If you've set a custom ID for your
+ *    message, you can use the value from the `clientAssignedMessageId` field
+ *    for `{message}`. For details, see [Name a message]
  *    (https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
@@ -1121,16 +1160,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Resource name in the form `spaces/ * /messages/ *`. Example:
- *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  Resource name of the message. Format: `spaces/{space}/messages/{message}`
+ *  Where `{space}` is the ID of the space where the message is posted and
+ *  `{message}` is a system-assigned ID for the message. For example,
+ *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
+ *  ID when you create a message, you can use this ID to specify the message in
+ *  a request by replacing `{message}` with the value from the
+ *  `clientAssignedMessageId` field. For example,
+ *  `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
+ *  message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The field paths to update. Separate multiple values with commas.
- *  Currently supported field paths: - `text` - `attachment` - `cards` (Requires
- *  [app authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
- *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).)
+ *  Required. The field paths to update. Separate multiple values with commas or
+ *  use `*` to update all field paths. Currently supported field paths: - `text`
+ *  - `attachment` - `cards` (Requires [app
+ *  authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
+ *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).) -
+ *  Developer Preview: `accessory_widgets` (Requires [app
+ *  authentication](/chat/api/guides/auth/service-accounts).)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1154,8 +1203,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
- *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  @param name Resource name of the message. Format:
+ *    `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
+ *    where the message is posted and `{message}` is a system-assigned ID for
+ *    the message. For example,
+ *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
+ *    ID when you create a message, you can use this ID to specify the message
+ *    in a request by replacing `{message}` with the value from the
+ *    `clientAssignedMessageId` field. For example,
+ *    `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
+ *    message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesPatch
  */
@@ -1362,16 +1419,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Resource name in the form `spaces/ * /messages/ *`. Example:
- *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  Resource name of the message. Format: `spaces/{space}/messages/{message}`
+ *  Where `{space}` is the ID of the space where the message is posted and
+ *  `{message}` is a system-assigned ID for the message. For example,
+ *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
+ *  ID when you create a message, you can use this ID to specify the message in
+ *  a request by replacing `{message}` with the value from the
+ *  `clientAssignedMessageId` field. For example,
+ *  `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
+ *  message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The field paths to update. Separate multiple values with commas.
- *  Currently supported field paths: - `text` - `attachment` - `cards` (Requires
- *  [app authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
- *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).)
+ *  Required. The field paths to update. Separate multiple values with commas or
+ *  use `*` to update all field paths. Currently supported field paths: - `text`
+ *  - `attachment` - `cards` (Requires [app
+ *  authentication](/chat/api/guides/auth/service-accounts).) - `cards_v2`
+ *  (Requires [app authentication](/chat/api/guides/auth/service-accounts).) -
+ *  Developer Preview: `accessory_widgets` (Requires [app
+ *  authentication](/chat/api/guides/auth/service-accounts).)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1395,8 +1462,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
- *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
+ *  @param name Resource name of the message. Format:
+ *    `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
+ *    where the message is posted and `{message}` is a system-assigned ID for
+ *    the message. For example,
+ *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
+ *    ID when you create a message, you can use this ID to specify the message
+ *    in a request by replacing `{message}` with the value from the
+ *    `clientAssignedMessageId` field. For example,
+ *    `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
+ *    message](https://developers.google.com/chat/api/guides/v1/messages/create#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */
@@ -1446,7 +1521,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  space](https://support.google.com/chat/answer/7664687) if [the organization
  *  allows users to change their history
  *  setting](https://support.google.com/a/answer/7664184). Warning: mutually
- *  exclusive with all other field paths.)
+ *  exclusive with all other field paths.) - Developer Preview:
+ *  `access_settings.audience` (Supports changing the [access
+ *  setting](https://support.google.com/chat/answer/11971020) of a space. If no
+ *  audience is specified in the access setting, the space's access setting is
+ *  updated to restricted. Warning: mutually exclusive with all other field
+ *  paths.)
  *
  *  String format is a comma-separated list of fields.
  */

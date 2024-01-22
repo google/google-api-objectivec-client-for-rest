@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// eventTypes
+NSString * const kGTLRCalendarEventTypesDefault         = @"default";
+NSString * const kGTLRCalendarEventTypesFocusTime       = @"focusTime";
+NSString * const kGTLRCalendarEventTypesOutOfOffice     = @"outOfOffice";
+NSString * const kGTLRCalendarEventTypesWorkingLocation = @"workingLocation";
+
 // minAccessRole
 NSString * const kGTLRCalendarMinAccessRoleFreeBusyReader = @"freeBusyReader";
 NSString * const kGTLRCalendarMinAccessRoleOwner          = @"owner";

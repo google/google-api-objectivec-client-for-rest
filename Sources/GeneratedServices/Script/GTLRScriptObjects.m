@@ -94,7 +94,7 @@ NSString * const kGTLRScript_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRScript_Content
-@dynamic files, revertFlumeInvoked, scriptId;
+@dynamic files, scriptId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

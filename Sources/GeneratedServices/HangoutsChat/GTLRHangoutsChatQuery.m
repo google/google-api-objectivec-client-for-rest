@@ -85,6 +85,33 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesCompleteImport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_CompleteImportSpaceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:completeImport";
+  GTLRHangoutsChatQuery_SpacesCompleteImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_CompleteImportSpaceResponse class];
+  query.loggingName = @"chat.spaces.completeImport";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesCreate
 
 @dynamic requestId;

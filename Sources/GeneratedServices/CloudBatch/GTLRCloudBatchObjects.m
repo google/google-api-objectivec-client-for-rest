@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch jobs on Google Cloud Platform.
+//   An API to manage the running of batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -398,6 +398,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_CloudLoggingOption
+//
+
+@implementation GTLRCloudBatch_CloudLoggingOption
+@dynamic useGenericTaskMonitoredResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_ComputeResource
 //
 
@@ -781,7 +791,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_LogsPolicy
-@dynamic destination, logsPath;
+@dynamic cloudLoggingOption, destination, logsPath;
 @end
 
 
@@ -1047,8 +1057,9 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_TaskGroup
-@dynamic name, parallelism, permissiveSsh, requireHostsFile, schedulingPolicy,
-         taskCount, taskCountPerNode, taskEnvironments, taskSpec;
+@dynamic name, parallelism, permissiveSsh, requireHostsFile, runAsNonRoot,
+         schedulingPolicy, taskCount, taskCountPerNode, taskEnvironments,
+         taskSpec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

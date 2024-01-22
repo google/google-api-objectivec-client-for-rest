@@ -376,7 +376,7 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 //
 
 @implementation GTLRTPU_NetworkConfig
-@dynamic canIpForward, enableExternalIps, network, subnetwork;
+@dynamic canIpForward, enableExternalIps, network, queueCount, subnetwork;
 @end
 
 

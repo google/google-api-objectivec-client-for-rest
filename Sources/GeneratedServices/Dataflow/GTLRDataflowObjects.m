@@ -124,6 +124,11 @@ NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_Wo
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
 
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.streamingMode
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce = @"STREAMING_MODE_AT_LEAST_ONCE";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce = @"STREAMING_MODE_EXACTLY_ONCE";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeUnspecified = @"STREAMING_MODE_UNSPECIFIED";
+
 // GTLRDataflow_GetTemplateResponse.templateType
 NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex = @"FLEX";
 NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy = @"LEGACY";
@@ -210,6 +215,11 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_WorkerZone = @"WORKER
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
+
+// GTLRDataflow_RuntimeEnvironment.streamingMode
+NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce = @"STREAMING_MODE_AT_LEAST_ONCE";
+NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeExactlyOnce = @"STREAMING_MODE_EXACTLY_ONCE";
+NSString * const kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeUnspecified = @"STREAMING_MODE_UNSPECIFIED";
 
 // GTLRDataflow_SdkBug.severity
 NSString * const kGTLRDataflow_SdkBug_Severity_Notice          = @"NOTICE";
@@ -379,6 +389,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Base2Exponent
+//
+
+@implementation GTLRDataflow_Base2Exponent
+@dynamic numberOfBuckets, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_BigQueryIODetails
 //
 
@@ -394,6 +414,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_BigTableIODetails
 @dynamic instanceId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_BucketOptions
+//
+
+@implementation GTLRDataflow_BucketOptions
+@dynamic exponential, linear;
 @end
 
 
@@ -871,8 +901,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
          enableStreamingEngine, flexrsGoal, ipConfiguration, kmsKeyName,
          launcherMachineType, machineType, maxWorkers, network, numWorkers,
          saveHeapDumpsToGcsPath, sdkContainerImage, serviceAccountEmail,
-         stagingLocation, subnetwork, tempLocation, workerRegion, workerZone,
-         zoneProperty;
+         stagingLocation, streamingMode, subnetwork, tempLocation, workerRegion,
+         workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -967,6 +997,24 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_Histogram
 @dynamic bucketCounts, firstBucketOffset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bucketCounts" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_HistogramValue
+//
+
+@implementation GTLRDataflow_HistogramValue
+@dynamic bucketCounts, bucketOptions, count, outlierStats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1496,6 +1544,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Linear
+//
+
+@implementation GTLRDataflow_Linear
+@dynamic numberOfBuckets, start, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_ListJobMessagesResponse
 //
 
@@ -1632,6 +1690,30 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_MetricValue
+//
+
+@implementation GTLRDataflow_MetricValue
+@dynamic metric, metricLabels, valueHistogram, valueInt64;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_MetricValue_MetricLabels
+//
+
+@implementation GTLRDataflow_MetricValue_MetricLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_MountedDataDisk
 //
 
@@ -1664,6 +1746,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_OutlierStats
+//
+
+@implementation GTLRDataflow_OutlierStats
+@dynamic overflowCount, overflowMean, underflowCount, underflowMean;
 @end
 
 
@@ -1832,6 +1924,42 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_PerStepNamespaceMetrics
+//
+
+@implementation GTLRDataflow_PerStepNamespaceMetrics
+@dynamic metricsNamespace, metricValues, originalStep;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metricValues" : [GTLRDataflow_MetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_PerWorkerMetrics
+//
+
+@implementation GTLRDataflow_PerWorkerMetrics
+@dynamic perStepNamespaceMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"perStepNamespaceMetrics" : [GTLRDataflow_PerStepNamespaceMetrics class]
+  };
+  return map;
 }
 
 @end
@@ -2063,7 +2191,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
          diskSizeGb, enableStreamingEngine, ipConfiguration, kmsKeyName,
          machineType, maxWorkers, network, numWorkers, serviceAccountEmail,
-         subnetwork, tempLocation, workerRegion, workerZone, zoneProperty;
+         streamingMode, subnetwork, tempLocation, workerRegion, workerZone,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2907,8 +3036,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_StreamingScalingReport
-@dynamic activeBundleCount, activeThreadCount, maximumBundleCount,
-         maximumBytesCount, maximumThreadCount, outstandingBytesCount;
+@dynamic activeBundleCount, activeThreadCount, maximumBundleCount, maximumBytes,
+         maximumBytesCount, maximumThreadCount, outstandingBundleCount,
+         outstandingBytes, outstandingBytesCount;
 @end
 
 
@@ -3200,8 +3330,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerMessage
-@dynamic dataSamplingReport, labels, streamingScalingReport, time,
-         workerHealthReport, workerLifecycleEvent, workerMessageCode,
+@dynamic dataSamplingReport, labels, perWorkerMetrics, streamingScalingReport,
+         time, workerHealthReport, workerLifecycleEvent, workerMessageCode,
          workerMetrics, workerShutdownNotice, workerThreadScalingReport;
 @end
 
