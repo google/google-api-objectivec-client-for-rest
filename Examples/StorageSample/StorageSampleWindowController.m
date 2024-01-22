@@ -193,39 +193,39 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
       // Having the service execute this query would download the data to a GTLRDataObject.
       // But for downloads that might be large, we'll use a fetcher, since that offers
       // better control and monitoring of downloading.
-      NSURLRequest *request = [storageService requestForQuery:query];
+      [storageService
+          requestForQuery:query
+               completion:^(NSURLRequest *request) {
+                 // The Storage service's fetcherService will create a fetcher with an appropriate
+                 // authorizer.
+                 GTMSessionFetcher *fetcher =
+                     [storageService.fetcherService fetcherWithRequest:request];
 
-      // The Storage service's fetcherService will create a fetcher with an appropriate
-      // authorizer.
-      GTMSessionFetcher *fetcher = [storageService.fetcherService fetcherWithRequest:request];
+                 // The fetcher can save data directly to a file.
+                 fetcher.destinationFileURL = destinationURL;
 
-      // The fetcher can save data directly to a file.
-      fetcher.destinationFileURL = destinationURL;
+                 // Fetcher logging can include comments.
+                 [fetcher setCommentWithFormat:@"Downloading \"%@/%@\"", storageObject.bucket,
+                                               storageObject.name];
 
-      // Fetcher logging can include comments.
-      [fetcher setCommentWithFormat:@"Downloading \"%@/%@\"",
-       storageObject.bucket, storageObject.name];
+                 fetcher.downloadProgressBlock = ^(int64_t bytesWritten, int64_t totalBytesWritten,
+                                                   int64_t totalBytesExpectedToWrite) {
+                   // The fetcher will call the download progress block periodically.
+                 };
 
-      fetcher.downloadProgressBlock = ^(int64_t bytesWritten,
-                                        int64_t totalBytesWritten,
-                                        int64_t totalBytesExpectedToWrite) {
-        // The fetcher will call the download progress block periodically.
-      };
-
-      [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
-        // Callback
-        if (error == nil) {
-          // Successfully saved the file.
-          //
-          // Since a downloadPath property was specified, the data argument is
-          // nil, and the file data has been written to disk.
-          [self displayAlert:@"Downloaded"
-                      format:@"%@", destinationURL.path];
-        } else {
-          [self displayAlert:@"Error Downloading File"
-                      format:@"%@", error];
-        }
-      }];
+                 [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
+                   // Callback
+                   if (error == nil) {
+                     // Successfully saved the file.
+                     //
+                     // Since a downloadPath property was specified, the data argument is
+                     // nil, and the file data has been written to disk.
+                     [self displayAlert:@"Downloaded" format:@"%@", destinationURL.path];
+                   } else {
+                     [self displayAlert:@"Error Downloading File" format:@"%@", error];
+                   }
+                 }];
+               }];
     }  // result == NSFileHandlingPanelOKButton
   }];  // beginSheetModalForWindow:
 }

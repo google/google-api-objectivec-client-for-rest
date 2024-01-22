@@ -723,33 +723,43 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRTestingSvcQuery_FilesList *templateQuery = [GTLRTestingSvcQuery_FilesList query];
   templateQuery.fields = @"kind,files(id,kind,name)";
 
-  // Set a specific request URL by getting the actual query URL.
-  NSURLRequest *request = [service requestForQuery:templateQuery];
-  NSURL *requestURL = request.URL;
-
+  XCTestExpectation *requestFinished = [self expectationWithDescription:@"requestFinished"];
   XCTestExpectation *queryFinished = [self expectationWithDescription:@"queryFinished"];
 
-  GTLRServiceTicket *queryTicket =
-      [service fetchObjectWithURL:requestURL
-                      objectClass:[GTLRTestingSvc_FileList class]
-              executionParameters:nil
-          completionHandler:^(GTLRServiceTicket *callbackTicket,
-                              GTLRTestingSvc_FileList *object,
-                              NSError *callbackError) {
-    // Verify the top-level object and one of its items.
-    XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
-    XCTAssertNil(callbackError);
+  __block GTLRServiceTicket *queryTicket;
+  // Set a specific request URL by getting the actual query URL.
+  [service
+      requestForQuery:templateQuery
+           completion:^(NSURLRequest *request) {
+             NSURL *requestURL = request.URL;
 
-    XCTAssertEqualObjects(object.kind, @"drive#fileList");
-    XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
+             queryTicket = [service
+                  fetchObjectWithURL:requestURL
+                         objectClass:[GTLRTestingSvc_FileList class]
+                 executionParameters:nil
+                   completionHandler:^(GTLRServiceTicket *callbackTicket,
+                                       GTLRTestingSvc_FileList *object, NSError *callbackError) {
+                     // Verify the top-level object and one of its items.
+                     XCTAssertEqualObjects([object class], [GTLRTestingSvc_FileList class]);
+                     XCTAssertNil(callbackError);
 
-    XCTAssert([NSThread isMainThread]);
+                     XCTAssertEqualObjects(object.kind, @"drive#fileList");
+                     XCTAssertEqual(object.files.count, 2U, @"%@", object.files);
 
-    [queryFinished fulfill];
-  }];
+                     XCTAssert([NSThread isMainThread]);
 
+                     [queryFinished fulfill];
+                   }];
+
+             [requestFinished fulfill];
+           }];
+
+  [self waitForExpectations:@[ requestFinished ] timeout:1];
+
+  // This only works because this code runs on the main thread, but the completionHandler: passed to
+  // -fetchObjectWithURL: can't be invoked until -service:waitForTicket: pumps the main thread
+  // runloop to invoke the completion handler.
   XCTAssertFalse(queryTicket.hasCalledCallback);
-
   XCTAssert([self service:service waitForTicket:queryTicket]);
   XCTAssert(queryTicket.hasCalledCallback);
 
@@ -3358,31 +3368,46 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   NSDictionary *baseHTTPHeaders = @{ @"User-Agent" : userAgent };
   NSMutableDictionary *expectedHTTPHeaders = [baseHTTPHeaders mutableCopy];
 
+  XCTestExpectation *requestFinished = [self expectationWithDescription:@"requestFinished"];
   NSString *expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble";
-  NSMutableURLRequest *result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [requestFinished fulfill];
+                }];
+  [self waitForExpectations:@[ requestFinished ] timeout:1];
 
   // Extra query arg and HTTP header.
   query.additionalURLQueryParameters = (id)@{ @"queryArg" : @YES };
   query.additionalHTTPHeaders = @{ @"X-Query" : @"All Good!" };
   expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble&queryArg=true";
   [expectedHTTPHeaders setObject:@"All Good!" forKey:@"X-Query"];
-  result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request2Finished = [self expectationWithDescription:@"request2Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request2Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request2Finished ] timeout:1];
 
   // With a service arg and HTTP header.
   service.additionalURLQueryParameters = (id)@{ @"serviceArg" : @42 };
   service.additionalHTTPHeaders = @{ @"X-Service" : @"Grumble" };
   expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble&queryArg=true&serviceArg=42";
   [expectedHTTPHeaders setObject:@"Grumble" forKey:@"X-Service"];
-  result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request3Finished = [self expectationWithDescription:@"request3Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request3Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request3Finished ] timeout:1];
 
   // Overlap between the query and service for an arg and HTTP header (query
   // wins).
@@ -3397,10 +3422,15 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
     @"X-2" : @"Query",
     @"X-3" : @"Service",
   }];
-  result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request4Finished = [self expectationWithDescription:@"request4Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"GET");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request4Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request4Finished ] timeout:1];
 
   // Different HTTPMethod.
   query = [[GTLRQuery alloc] initWithPathURITemplate:@"blah"
@@ -3410,26 +3440,41 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.additionalURLQueryParameters = nil;
   service.additionalHTTPHeaders = nil;
   expectedHTTPHeaders = [baseHTTPHeaders mutableCopy];
-  result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request5Finished = [self expectationWithDescription:@"request5Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request5Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request5Finished ] timeout:1];
 
   // Add an APIKey.
   service.APIKey = @"Abracadabra!";
-  result = [service requestForQuery:query];
   expectedURLString = @"https://www.test.com/api/blah?key=Abracadabra%21";
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request6Finished = [self expectationWithDescription:@"request6Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request6Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request6Finished ] timeout:1];
 
   // Add an APIKey Restriction
   service.APIKeyRestrictionBundleID = @"foo.bar.baz";
   expectedHTTPHeaders[kXIosBundleIdHeader] = @"foo.bar.baz";
-  result = [service requestForQuery:query];
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
-  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
-  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+  XCTestExpectation *request7Finished = [self expectationWithDescription:@"request7Finished"];
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  XCTAssertEqualObjects(result.HTTPMethod, @"POST");
+                  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
+                  [request7Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request7Finished ] timeout:1];
 }
 
 - (void)testRequestForQuery_MediaDownload {
@@ -3440,15 +3485,35 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   GTLRService *service = [self driveServiceForTest];
 
   // Without download service.
-  NSURLRequest *result = [service requestForQuery:query];
+  XCTestExpectation *requestFinished = [self expectationWithDescription:@"requestFinished"];
   NSString *expectedURLString = @"https://www.googleapis.com/drive/v3/files/abcde?alt=media";
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  [requestFinished fulfill];
+                }];
+  [self waitForExpectations:@[ requestFinished ] timeout:1];
 
   // With download service.
   query.useMediaDownloadService = YES;
-  result = [service requestForQuery:query];
+  XCTestExpectation *request2Finished = [self expectationWithDescription:@"request2Finished"];
   expectedURLString = @"https://www.googleapis.com/download/drive/v3/files/abcde?alt=media";
-  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+  [service requestForQuery:query
+                completion:^(NSURLRequest *result) {
+                  XCTAssertEqualObjects(result.URL.absoluteString, expectedURLString);
+                  [request2Finished fulfill];
+                }];
+  [self waitForExpectations:@[ request2Finished ] timeout:1];
+}
+
+- (void)testRequestForQuery_synchronousAPI {
+  GTLRService *service = [self driveServiceForTest];
+  GTLRTestingSvcQuery_FilesGet *query =
+      [GTLRTestingSvcQuery_FilesGet queryForMediaWithFileId:@"abcde"];
+  NSURLRequest *result = [service requestForQuery:query];
+  NSDictionary<NSString *, NSString *> *expectedHeaders =
+      @{@"User-Agent" : service.requestUserAgent};
+  XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHeaders);
 }
 
 #pragma mark - Internal Utility Method Tests

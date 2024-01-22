@@ -552,8 +552,15 @@ GTLRQuery *query = [GTLRDriveQuery_FilesGet queryForMediaWithFileId:fileID];
 
 #### Downloading with a GTMSessionFetcher
 
-A GTMSessionFetcher can download any NSURLRequest. The service method
-`requestForQuery:` will convert a library query into an NSURLRequest.
+A GTMSessionFetcher can download any NSURLRequest. The service methods
+`requestForQuery:completion:` / `requestForQuery:` will convert a library query
+into an NSURLRequest.
+
+NOTE: Because formatting the `User-Agent` header (required to create the
+`GTMSessionFetcher`) can block the calling thread, always use
+`requestForQuery:completion:` when calling from the UI thread / main queue.  If
+the code is creating the `GTMSessionFetcher` from a background queue that is OK
+to block, then using `requestForQuery:` can be more appropriate.
 
 Download of any individual user’s data from Google services requires
 that the request be authorized. A fetcher created from the `GTLRService`
@@ -563,14 +570,16 @@ Here is an example of an authorized file download using a fetcher:
 
 ```Objective-C
 GTLRQuery *query = [GTLRDriveQuery_FilesGet queryForMediaWithFileId:fileID];
-NSURLRequest *downloadRequest = [service requestForQuery:query];
-GTMSessionFetcher *fetcher =
-  [service.fetcherService fetcherWithRequest:downloadRequest];
+[service requestForQuery:query
+              completion:^(NSURLRequest *downloadRequest) {
+  GTMSessionFetcher *fetcher =
+    [service.fetcherService fetcherWithRequest:downloadRequest];
 
-[fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *fetchError) {
-  if (fetchError == nil) {
-    // Download succeeded.
-  }
+  [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *fetchError) {
+    if (fetchError == nil) {
+      // Download succeeded.
+    }
+  }];
 }];
 ```
 
@@ -762,8 +771,8 @@ To have callbacks performed on a different queue than the main queue, specify a 
 
 ### Converting a Query to an NSURLRequest
 
-A service object can convert a GTLRQuery to a plain NSMutableURLRequest with
-the service method `requestForQuery:`. That may be useful for downloading
+A service object can convert a GTLRQuery to a plain NSMutableURLRequest with the
+service method `requestForQuery:completion:`. That may be useful for downloading
 media files, or for performing an API request without using the service’s
 `executeQuery:` method.
 
