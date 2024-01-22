@@ -770,7 +770,8 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 /**
  *  The request being fetched for the query.
  */
-@property(nonatomic, readonly, nullable) NSURLRequest *fetchRequest;
+@property(nonatomic, readonly, nullable) NSURLRequest *fetchRequest __attribute__((deprecated(
+    "To be removed. Blocks the calling thread to eagerly calculate the User-Agent string.")));
 
 /**
  *  The fetcher being used for the query request.
