@@ -245,10 +245,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
             uploadProgressBlock = _uploadProgressBlock,
             userAgentAddition = _userAgentAddition;
 
-+ (Class)ticketClass {
-  return [GTLRServiceTicket class];
-}
-
 - (instancetype)init {
   self = [super init];
   if (self) {
@@ -502,8 +498,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   // We need to create a ticket unless one was created earlier (like during authentication.)
   if (!ticket) {
-    ticket = [[[[self class] ticketClass] alloc] initWithService:self
-                                             executionParameters:executionParams];
+    ticket = [[GTLRServiceTicket alloc] initWithService:self
+                                    executionParameters:executionParams];
     [ticket notifyStarting:YES];
   }
 
