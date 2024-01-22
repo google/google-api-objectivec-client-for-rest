@@ -769,11 +769,17 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
 
 /**
  *  The request being fetched for the query.
+ *
+ *  This is not set until the `completionHandler` or delegate `didFinishSelector`
+ *  passed to the service's `-executeQuery:...` method is invoked.
  */
 @property(nonatomic, readonly, nullable) NSURLRequest *fetchRequest;
 
 /**
  *  The fetcher being used for the query request.
+ *
+ *  This is not set until the `completionHandler` or delegate `didFinishSelector`
+ *  passed to the service's `-executeQuery:...` method is invoked.
  */
 @property(atomic, readonly, nullable) GTMSessionFetcher *objectFetcher;
 
