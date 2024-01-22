@@ -277,19 +277,21 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   // Here's how to download with a GTMSessionFetcher. The fetcher will use the authorizer that's
   // attached to the GTLR service's fetcherService.
   //
-  //  NSURLRequest *downloadRequest = [service requestForQuery:query];
-  //  GTMSessionFetcher *fetcher = [service.fetcherService fetcherWithRequest:downloadRequest];
+  // [service requestForQuery:query
+  //               completion:^(NSURLRequest *downloadRequest) {
+  //    GTMSessionFetcher *fetcher = [service.fetcherService fetcherWithRequest:downloadRequest];
   //
-  //  [fetcher setCommentWithFormat:@"Downloading %@", file.name];
-  //  fetcher.destinationFileURL = destinationURL;
+  //    [fetcher setCommentWithFormat:@"Downloading %@", file.name];
+  //    fetcher.destinationFileURL = destinationURL;
   //
-  //  [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
-  //    if (error == nil) {
-  //      NSLog(@"Download succeeded.");
+  //    [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
+  //      if (error == nil) {
+  //        NSLog(@"Download succeeded.");
   //
-  //      // With a destinationFileURL property set, the fetcher's callback
-  //      // data parameter here will be nil.
-  //    }
+  //        // With a destinationFileURL property set, the fetcher's callback
+  //        // data parameter here will be nil.
+  //      }
+  //    }];
   //  }];
 
   [service executeQuery:query
