@@ -34,6 +34,9 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sp|
     sp.source_files = 'Sources/Core/**/*.{h,m}'
     sp.public_header_files = 'Sources/Core/Public/GoogleAPIClientForREST/*.h'
+    sp.resource_bundle = {
+      "GoogleAPIClientForREST_Privacy" => "Sources/Core/Resources/PrivacyInfo.xcprivacy"
+    }
   end
 
   s.test_spec 'Tests' do |sp|
