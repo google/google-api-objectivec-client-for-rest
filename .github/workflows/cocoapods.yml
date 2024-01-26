@@ -31,7 +31,7 @@ jobs:
         pod_configuration: ["Debug", "Release"]
         extra_flags: ["", "--use-static-frameworks"]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     # Need cocoapods 1.12+ for watchOS to work again.
     - name: Update Cocoapods
       run: gem update cocoapods
@@ -64,7 +64,7 @@ jobs:
       matrix:
         pod_configuration: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: "macOS"
       run:  |
         pod lib lint --verbose \
