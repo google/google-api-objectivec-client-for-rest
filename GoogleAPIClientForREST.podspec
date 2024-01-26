@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GoogleAPIClientForREST'
-  s.version      = '3.5.0'
+  s.version      = '3.5.1'
   s.author       = 'Google Inc.'
   s.homepage     = 'https://github.com/google/google-api-objectivec-client-for-rest'
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
@@ -14,6 +14,10 @@ Pod::Spec.new do |s|
 
       This version can be used with iOS ≥ 10.0, OS X ≥ 10.12, tvOS ≥ 10.0, watchOS ≥ 6.0.
                    DESC
+
+  # Ensure developers won't hit CocoaPods/CocoaPods#11402 with the resource
+  # bundle for the privacy manifest.
+  s.cocoapods_version = '>= 1.12.0'
 
   ios_deployment_target = '10.0'
   osx_deployment_target = '10.12'
