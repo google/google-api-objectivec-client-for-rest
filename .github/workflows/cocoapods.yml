@@ -32,9 +32,6 @@ jobs:
         extra_flags: ["", "--use-static-frameworks"]
     steps:
     - uses: actions/checkout@v4
-    # Need cocoapods 1.12+ for watchOS to work again.
-    - name: Update Cocoapods
-      run: gem update cocoapods
     - name: "iOS, macOS, and tvOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
