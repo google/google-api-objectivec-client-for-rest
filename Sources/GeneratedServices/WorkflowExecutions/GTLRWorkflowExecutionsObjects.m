@@ -121,8 +121,10 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 //
 
 @implementation GTLRWorkflowExecutions_Execution
-@dynamic argument, callLogLevel, duration, endTime, error, labels, name, result,
-         startTime, state, stateError, status, workflowRevisionId;
+@dynamic argument, callLogLevel, createTime,
+         disableConcurrencyQuotaOverflowBuffering, duration, endTime, error,
+         labels, name, result, startTime, state, stateError, status,
+         workflowRevisionId;
 @end
 
 

@@ -55,6 +55,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2ColorInfo;
@@ -3894,6 +3895,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigIgnoredFacetValues *> *ignoredFacetValues;
 
 /**
+ *  Use this field only if you want to merge a facet key into another facet key.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet *mergedFacet;
+
+/**
  *  Each instance replaces a list of facet values by a merged facet value. If a
  *  facet value is not in any list, then it will stay the same. To avoid
  *  conflicts, only paths of length 1 are accepted. In other words, if
@@ -3943,6 +3949,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  characters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  The current facet key (i.e. attribute config) maps into the
+ *  merged_facet_key. A facet key can have at most one child. The current facet
+ *  key and the merged facet key need both to be textual custom attributes or
+ *  both numerical custom attributes (same type).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet : GTLRObject
+
+/**
+ *  The merged facet key should be a valid facet key that is different than the
+ *  facet key of the current catalog attribute. We refer this is merged facet
+ *  key as the child of the current catalog attribute. This merged facet key
+ *  can't be a parent of another facet key (i.e. no directed path of length 2).
+ *  This merged facet key needs to be either a textual custom attribute or a
+ *  numerical custom attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *mergedFacetKey;
+
+/**
+ *  Each instance is a list of facet values that map into the same (possibly
+ *  different) merged facet value. For the current attribute config, each facet
+ *  value should map to at most one merged facet value.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue *> *mergedFacetValues GTLR_DEPRECATED;
 
 @end
 
@@ -4734,7 +4768,8 @@ GTLR_DEPRECATED
 
 /**
  *  Indicates which fields in the provided imported `products` to update. If not
- *  set, all fields are updated.
+ *  set, all fields are updated. If provided, only the existing product fields
+ *  are updated. Missing products will not be created.
  *
  *  String format is a comma-separated list of fields.
  */

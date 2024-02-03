@@ -2253,7 +2253,7 @@
 
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -2348,7 +2348,7 @@
 
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

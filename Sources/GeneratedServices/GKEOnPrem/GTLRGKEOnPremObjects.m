@@ -1982,12 +1982,13 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_VmwareCluster
 @dynamic adminClusterMembership, adminClusterName, annotations,
-         antiAffinityGroups, authorization, autoRepairConfig, controlPlaneNode,
-         createTime, dataplaneV2, deleteTime, descriptionProperty,
-         disableBundledIngress, enableControlPlaneV2, endpoint, ETag, fleet,
-         loadBalancer, localName, name, networkConfig, onPremVersion,
-         reconciling, state, status, storage, uid, updateTime, upgradePolicy,
-         validationCheck, vcenter, vmTrackingEnabled;
+         antiAffinityGroups, authorization, autoRepairConfig,
+         binaryAuthorization, controlPlaneNode, createTime, dataplaneV2,
+         deleteTime, descriptionProperty, disableBundledIngress,
+         enableControlPlaneV2, endpoint, ETag, fleet, loadBalancer, localName,
+         name, networkConfig, onPremVersion, reconciling, state, status,
+         storage, uid, updateTime, upgradePolicy, validationCheck, vcenter,
+         vmTrackingEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2060,7 +2061,8 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareDataplaneV2Config
-@dynamic advancedNetworking, dataplaneV2Enabled, windowsDataplaneV2Enabled;
+@dynamic advancedNetworking, dataplaneV2Enabled, forwardMode,
+         windowsDataplaneV2Enabled;
 @end
 
 

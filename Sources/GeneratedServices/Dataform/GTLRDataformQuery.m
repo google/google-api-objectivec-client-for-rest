@@ -207,7 +207,7 @@
 
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

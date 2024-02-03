@@ -116,6 +116,66 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_App
+//
+
+@implementation GTLRDrive_App
+@dynamic authorized, createInFolderTemplate, createUrl, hasDriveWideScope,
+         icons, identifier, installed, kind, longDescription, name, objectType,
+         openUrlTemplate, primaryFileExtensions, primaryMimeTypes, productId,
+         productUrl, secondaryFileExtensions, secondaryMimeTypes,
+         shortDescription, supportsCreate, supportsImport, supportsMultiOpen,
+         supportsOfflineCreate, useByDefault;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"icons" : [GTLRDrive_AppIcons class],
+    @"primaryFileExtensions" : [NSString class],
+    @"primaryMimeTypes" : [NSString class],
+    @"secondaryFileExtensions" : [NSString class],
+    @"secondaryMimeTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AppIcons
+//
+
+@implementation GTLRDrive_AppIcons
+@dynamic category, iconUrl, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AppList
+//
+
+@implementation GTLRDrive_AppList
+@dynamic defaultAppIds, items, kind, selfLink;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"defaultAppIds" : [NSString class],
+    @"items" : [GTLRDrive_App class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Change
 //
 

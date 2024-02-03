@@ -125,6 +125,13 @@ NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V1  = @"V1";
 NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2  = @"V2";
 NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V3  = @"V3";
 
+// GTLRCloudHealthcare_RollbackFhirResourcesRequest.changeType
+NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_All = @"ALL";
+NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Create = @"CREATE";
+NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Delete = @"DELETE";
+NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update = @"UPDATE";
+
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 = @"ANALYTICS_V2";
@@ -2067,6 +2074,53 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_RevokeConsentRequest
 @dynamic consentArtifact;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackFhirResourceFilteringFields
+//
+
+@implementation GTLRCloudHealthcare_RollbackFhirResourceFilteringFields
+@dynamic metadataFilter, operationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackFhirResourcesRequest
+//
+
+@implementation GTLRCloudHealthcare_RollbackFhirResourcesRequest
+@dynamic changeType, excludeRollbacks, filteringFields, force, inputGcsObject,
+         resultGcsBucket, rollbackTime, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"type" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackFhirResourcesResponse
+//
+
+@implementation GTLRCloudHealthcare_RollbackFhirResourcesResponse
+@dynamic fhirStore;
 @end
 
 

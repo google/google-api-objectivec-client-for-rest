@@ -20,6 +20,8 @@
 @class GTLRDrive_About_MaxImportSizes;
 @class GTLRDrive_About_StorageQuota;
 @class GTLRDrive_About_TeamDriveThemes_Item;
+@class GTLRDrive_App;
+@class GTLRDrive_AppIcons;
 @class GTLRDrive_Change;
 @class GTLRDrive_Channel_Params;
 @class GTLRDrive_Comment;
@@ -249,6 +251,202 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The `apps` resource provides a list of apps that a user has installed, with
+ *  information about each app's supported MIME types, file extensions, and
+ *  other details. Some resource methods (such as `apps.get`) require an
+ *  `appId`. Use the `apps.list` method to retrieve the ID for an installed
+ *  application.
+ */
+@interface GTLRDrive_App : GTLRObject
+
+/**
+ *  Whether the app is authorized to access data on the user's Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *authorized;
+
+/**
+ *  The template URL to create a file with this app in a given folder. The
+ *  template contains the {folderId} to be replaced by the folder ID house the
+ *  new file.
+ */
+@property(nonatomic, copy, nullable) NSString *createInFolderTemplate;
+
+/** The URL to create a file with this app. */
+@property(nonatomic, copy, nullable) NSString *createUrl;
+
+/**
+ *  Whether the app has Drive-wide scope. An app with Drive-wide scope can
+ *  access all files in the user's Drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasDriveWideScope;
+
+/** The various icons for the app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AppIcons *> *icons;
+
+/**
+ *  The ID of the app.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Whether the app is installed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installed;
+
+/**
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string "drive#app".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A long description of the app. */
+@property(nonatomic, copy, nullable) NSString *longDescription;
+
+/** The name of the app. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of object this app creates such as a Chart. If empty, the app name
+ *  should be used instead.
+ */
+@property(nonatomic, copy, nullable) NSString *objectType;
+
+/**
+ *  The template URL for opening files with this app. The template contains
+ *  {ids} or {exportIds} to be replaced by the actual file IDs. For more
+ *  information, see Open Files for the full documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *openUrlTemplate;
+
+/** The list of primary file extensions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *primaryFileExtensions;
+
+/** The list of primary MIME types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *primaryMimeTypes;
+
+/** The ID of the product listing for this app. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** A link to the product listing for this app. */
+@property(nonatomic, copy, nullable) NSString *productUrl;
+
+/** The list of secondary file extensions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryFileExtensions;
+
+/** The list of secondary MIME types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryMimeTypes;
+
+/** A short description of the app. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/**
+ *  Whether this app supports creating objects.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsCreate;
+
+/**
+ *  Whether this app supports importing from Google Docs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsImport;
+
+/**
+ *  Whether this app supports opening more than one file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsMultiOpen;
+
+/**
+ *  Whether this app supports creating files when offline.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsOfflineCreate;
+
+/**
+ *  Whether the app is selected as the default handler for the types it
+ *  supports.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useByDefault;
+
+@end
+
+
+/**
+ *  GTLRDrive_AppIcons
+ */
+@interface GTLRDrive_AppIcons : GTLRObject
+
+/**
+ *  Category of the icon. Allowed values are: * `application` - The icon for the
+ *  application. * `document` - The icon for a file associated with the app. *
+ *  `documentShared` - The icon for a shared file associated with the app.
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** URL for the icon. */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
+
+/**
+ *  Size of the icon. Represented as the maximum of the width and height.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
+ *  A list of third-party applications which the user has installed or given
+ *  access to Google Drive.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDrive_AppList : GTLRCollectionObject
+
+/**
+ *  The list of app IDs that the user has specified to use by default. The list
+ *  is in reverse-priority order (lowest to highest).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultAppIds;
+
+/**
+ *  The list of apps.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_App *> *items;
+
+/**
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string "drive#appList".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A link back to this list. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 

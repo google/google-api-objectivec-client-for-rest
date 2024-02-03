@@ -1352,6 +1352,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
+ *  Alerts from Device Management Rules configured by Admin.
+ */
+@interface GTLRAlertCenter_DeviceManagementRule : GTLRObject
+
+/** Required. The device ID. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The model of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceModel;
+
+/** The type of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/** The email of the user this alert was created for. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Required for iOS, empty for others. */
+@property(nonatomic, copy, nullable) NSString *iosVendorId;
+
+/** The device resource ID. */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/** The serial number of the device. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
  *  Alerts that get triggered on violations of Data Loss Prevention (DLP) rules.
  */
 @interface GTLRAlertCenter_DlpRuleViolation : GTLRObject

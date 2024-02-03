@@ -1805,8 +1805,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_ParameterMetadata
 @dynamic customMetadata, defaultValue, enumOptions, groupName, helpText,
-         isOptional, label, name, paramType, parentName, parentTriggerValues,
-         regexes;
+         hiddenUi, isOptional, label, name, paramType, parentName,
+         parentTriggerValues, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3158,7 +3158,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_TemplateMetadata
-@dynamic descriptionProperty, name, parameters;
+@dynamic descriptionProperty, name, parameters, streaming, supportsAtLeastOnce,
+         supportsExactlyOnce;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

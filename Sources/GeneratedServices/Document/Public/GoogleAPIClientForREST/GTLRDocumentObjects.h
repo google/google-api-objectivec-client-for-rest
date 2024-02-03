@@ -1608,6 +1608,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.modelType
+
+/**
+ *  The processor version has custom model type.
+ *
+ *  Value: "MODEL_TYPE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeCustom;
+/**
+ *  The processor version has generative model type.
+ *
+ *  Value: "MODEL_TYPE_GENERATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeGenerative;
+/**
+ *  The processor version has unspecified model type.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
 
 /**
@@ -2742,8 +2764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. The labels with user-defined metadata for the request. Label keys
- *  and values can be no longer than 63 characters (Unicode codepoints), can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  and values can be no longer than 63 characters (Unicode codepoints) and can
+ *  only contain lowercase letters, numeric characters, underscores, and dashes.
  *  International characters are allowed. Label values are optional. Label keys
  *  must start with a letter.
  */
@@ -2764,8 +2786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. The labels with user-defined metadata for the request. Label keys
- *  and values can be no longer than 63 characters (Unicode codepoints), can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  and values can be no longer than 63 characters (Unicode codepoints) and can
+ *  only contain lowercase letters, numeric characters, underscores, and dashes.
  *  International characters are allowed. Label values are optional. Label keys
  *  must start with a letter.
  *
@@ -9152,6 +9174,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference *latestEvaluation;
 
 /**
+ *  Output only. The model type of this processor version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeCustom
+ *        The processor version has custom model type. (Value:
+ *        "MODEL_TYPE_CUSTOM")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeGenerative
+ *        The processor version has generative model type. (Value:
+ *        "MODEL_TYPE_GENERATIVE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeUnspecified
+ *        The processor version has unspecified model type. (Value:
+ *        "MODEL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *modelType;
+
+/**
  *  The resource name of the processor version. Format:
  *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
  */
@@ -9239,8 +9277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. The labels with user-defined metadata for the request. Label keys
- *  and values can be no longer than 63 characters (Unicode codepoints), can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  and values can be no longer than 63 characters (Unicode codepoints) and can
+ *  only contain lowercase letters, numeric characters, underscores, and dashes.
  *  International characters are allowed. Label values are optional. Label keys
  *  must start with a letter.
  */
@@ -9264,8 +9302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. The labels with user-defined metadata for the request. Label keys
- *  and values can be no longer than 63 characters (Unicode codepoints), can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  and values can be no longer than 63 characters (Unicode codepoints) and can
+ *  only contain lowercase letters, numeric characters, underscores, and dashes.
  *  International characters are allowed. Label values are optional. Label keys
  *  must start with a letter.
  *

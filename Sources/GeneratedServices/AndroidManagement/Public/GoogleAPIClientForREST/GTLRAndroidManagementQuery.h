@@ -794,6 +794,122 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
+ *  Creates a migration token, to migrate an existing device from being managed
+ *  by the EMM's Device Policy Controller (DPC) to being managed by the Android
+ *  Management API.
+ *
+ *  Method: androidmanagement.enterprises.migrationTokens.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesMigrationTokensCreate : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The enterprise in which this migration token will be created.
+ *  Format: enterprises/{enterprise}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_MigrationToken.
+ *
+ *  Creates a migration token, to migrate an existing device from being managed
+ *  by the EMM's Device Policy Controller (DPC) to being managed by the Android
+ *  Management API.
+ *
+ *  @param object The @c GTLRAndroidManagement_MigrationToken to include in the
+ *    query.
+ *  @param parent Required. The enterprise in which this migration token will be
+ *    created. Format: enterprises/{enterprise}
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesMigrationTokensCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_MigrationToken *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a migration token.
+ *
+ *  Method: androidmanagement.enterprises.migrationTokens.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesMigrationTokensGet : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the migration token to retrieve. Format:
+ *  enterprises/{enterprise}/migrationTokens/{migration_token}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_MigrationToken.
+ *
+ *  Gets a migration token.
+ *
+ *  @param name Required. The name of the migration token to retrieve. Format:
+ *    enterprises/{enterprise}/migrationTokens/{migration_token}
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesMigrationTokensGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists migration tokens.
+ *
+ *  Method: androidmanagement.enterprises.migrationTokens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesMigrationTokensList : GTLRAndroidManagementQuery
+
+/**
+ *  The maximum number of migration tokens to return. Fewer migration tokens may
+ *  be returned. If unspecified, at most 100 migration tokens will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous ListMigrationTokens call. Provide
+ *  this to retrieve the subsequent page.When paginating, all other parameters
+ *  provided to ListMigrationTokens must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The enterprise which the migration tokens belong to. Format:
+ *  enterprises/{enterprise}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ListMigrationTokensResponse.
+ *
+ *  Lists migration tokens.
+ *
+ *  @param parent Required. The enterprise which the migration tokens belong to.
+ *    Format: enterprises/{enterprise}
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesMigrationTokensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates an enterprise. See also: SigninDetail
  *
  *  Method: androidmanagement.enterprises.patch

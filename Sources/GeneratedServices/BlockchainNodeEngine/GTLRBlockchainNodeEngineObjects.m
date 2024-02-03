@@ -60,7 +60,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 
 @implementation GTLRBlockchainNodeEngine_BlockchainNode
 @dynamic blockchainType, connectionInfo, createTime, ethereumDetails, labels,
-         name, state, updateTime;
+         name, privateServiceConnectEnabled, state, updateTime;
 @end
 
 
@@ -340,7 +340,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 //
 
 @implementation GTLRBlockchainNodeEngine_ValidatorConfig
-@dynamic mevRelayUrls;
+@dynamic managedValidatorClient, mevRelayUrls;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

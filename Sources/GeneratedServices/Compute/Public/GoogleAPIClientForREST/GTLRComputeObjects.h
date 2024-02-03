@@ -4757,6 +4757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimize
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized;
 /** Value: "MEMORY_OPTIMIZED_M3" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3;
+/** Value: "STORAGE_OPTIMIZED_Z3" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_StorageOptimizedZ3;
 /** Value: "TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified;
 
@@ -23103,6 +23105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedT2aCpus;
 /** Value: "COMMITTED_T2D_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedT2dCpus;
+/** Value: "COMMITTED_Z3_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedZ3Cpus;
 /**
  *  Guest CPUs
  *
@@ -44041,7 +44045,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -44540,6 +44548,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "MEMORY_OPTIMIZED"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM3 Value
  *        "MEMORY_OPTIMIZED_M3"
+ *    @arg @c kGTLRCompute_Commitment_Type_StorageOptimizedZ3 Value
+ *        "STORAGE_OPTIMIZED_Z3"
  *    @arg @c kGTLRCompute_Commitment_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */
@@ -48959,6 +48969,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *ruleTupleCount;
 
 /**
+ *  A fully-qualified URL of a SecurityProfile resource instance. Example:
+ *  https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
+ *  Must be specified if action = 'apply_security_profile_group' and cannot be
+ *  specified for other actions.
+ */
+@property(nonatomic, copy, nullable) NSString *securityProfileGroup;
+
+/**
  *  A list of network resource URLs to which this rule applies. This field
  *  allows you to control which network's VMs get this rule. If this field is
  *  left blank, all VMs within the organization will receive the rule.
@@ -48982,6 +49000,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  with this rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetServiceAccounts;
+
+/**
+ *  Boolean flag indicating if the traffic should be TLS decrypted. Can be set
+ *  only if action = 'apply_security_profile_group' and cannot be set for other
+ *  actions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tlsInspect;
 
 @end
 
@@ -64887,10 +64914,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *fqdn;
 
 /**
- *  The name or a URL of a specific VM instance that the IP address belongs to.
- *  This is required for network endpoints of type GCE_VM_IP_PORT. The instance
- *  must be in the same zone of network endpoint group (for zonal NEGs) or in
- *  the zone within the region of the NEG (for regional NEGs). The name must be
+ *  The name or a URL of VM instance of this network endpoint. This field is
+ *  required for network endpoints of type GCE_VM_IP and GCE_VM_IP_PORT. The
+ *  instance must be in the same zone of network endpoint group (for zonal NEGs)
+ *  or in the zone within the region of the NEG (for regional NEGs). If the
+ *  ipAddress is specified, it must belongs to the VM instance. The name must be
  *  1-63 characters long, and comply with RFC1035 or be a valid URL pointing to
  *  an existing instance.
  */
@@ -64901,13 +64929,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  VM in Compute Engine (either the primary IP or as part of an aliased IP
  *  range). If the IP address is not specified, then the primary IP address for
  *  the VM instance in the network that the network endpoint group belongs to
- *  will be used.
+ *  will be used. This field is redundant and need not be set for network
+ *  endpoints of type GCE_VM_IP. If set, it must be set to the primary internal
+ *  IP address of the attached VM instance that matches the subnetwork of the
+ *  NEG. The primary internal IP address from any NIC of a multi-NIC VM instance
+ *  can be added to a NEG as long as it matches the NEG subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
  *  Optional port number of network endpoint. If not specified, the defaultPort
- *  for the network endpoint group will be used.
+ *  for the network endpoint group will be used. This field can not be set for
+ *  network endpoints of type GCE_VM_IP.
  *
  *  Uses NSNumber of intValue.
  */
@@ -72955,6 +72988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_T2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedT2dCpus Value
  *        "COMMITTED_T2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedZ3Cpus Value
+ *        "COMMITTED_Z3_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_Cpus Guest CPUs (Value: "CPUS")
  *    @arg @c kGTLRCompute_Quota_Metric_CpusAllRegions Value "CPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"

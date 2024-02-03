@@ -1161,6 +1161,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** the severity of the rule */
 @property(nonatomic, copy, nullable) NSString *severity;
 
+/** List of user-defined tags */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
 /** the docuement url for the rule */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1556,6 +1559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** resource name */
 @property(nonatomic, copy, nullable) NSString *resource;
+
+/** resource type */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

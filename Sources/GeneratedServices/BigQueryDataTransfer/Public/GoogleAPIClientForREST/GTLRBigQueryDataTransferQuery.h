@@ -1126,6 +1126,43 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Unenroll data sources in a user project. This allows users to remove
+ *  transfer configurations for these data sources. They will no longer appear
+ *  in the ListDataSources RPC and will also no longer appear in the [BigQuery
+ *  UI](https://console.cloud.google.com/bigquery).
+ *
+ *  Method: bigquerydatatransfer.projects.locations.unenrollDataSources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources : GTLRBigQueryDataTransferQuery
+
+/** The name of the project resource in the form: `projects/{project_id}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_Empty.
+ *
+ *  Unenroll data sources in a user project. This allows users to remove
+ *  transfer configurations for these data sources. They will no longer appear
+ *  in the ListDataSources RPC and will also no longer appear in the [BigQuery
+ *  UI](https://console.cloud.google.com/bigquery).
+ *
+ *  @param object The @c GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest to
+ *    include in the query.
+ *  @param name The name of the project resource in the form:
+ *    `projects/{project_id}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new data transfer configuration.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.create

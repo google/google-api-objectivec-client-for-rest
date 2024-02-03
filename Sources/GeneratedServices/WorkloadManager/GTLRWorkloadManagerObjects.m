@@ -534,10 +534,17 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_Rule
 @dynamic descriptionProperty, displayName, errorMessage, name, primaryCategory,
-         remediation, revisionId, secondaryCategory, severity, uri;
+         remediation, revisionId, secondaryCategory, severity, tags, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -703,7 +710,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_ScannedResource
-@dynamic resource;
+@dynamic resource, type;
 @end
 
 

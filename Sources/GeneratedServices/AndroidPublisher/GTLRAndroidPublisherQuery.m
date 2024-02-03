@@ -51,6 +51,33 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_ApplicationsDataSafety
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SafetyLabelsUpdateRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/dataSafety";
+  GTLRAndroidPublisherQuery_ApplicationsDataSafety *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_SafetyLabelsUpdateResponse class];
+  query.loggingName = @"androidpublisher.applications.dataSafety";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsCreate
 
 @dynamic allowUnknownDevices, packageName;

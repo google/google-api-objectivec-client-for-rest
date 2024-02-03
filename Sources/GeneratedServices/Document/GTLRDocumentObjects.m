@@ -278,6 +278,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.modelType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeCustom = @"MODEL_TYPE_CUSTOM";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeGenerative = @"MODEL_TYPE_GENERATIVE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating = @"CREATING";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting = @"DELETING";
@@ -4129,8 +4134,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
 @dynamic createTime, deprecationInfo, displayName, documentSchema,
-         googleManaged, kmsKeyName, kmsKeyVersionName, latestEvaluation, name,
-         state;
+         googleManaged, kmsKeyName, kmsKeyVersionName, latestEvaluation,
+         modelType, name, state;
 @end
 
 

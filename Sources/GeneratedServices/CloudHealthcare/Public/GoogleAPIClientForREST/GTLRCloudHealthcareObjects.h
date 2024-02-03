@@ -101,6 +101,7 @@
 @class GTLRCloudHealthcare_Resources;
 @class GTLRCloudHealthcare_Result;
 @class GTLRCloudHealthcare_Result_ConsentDetails;
+@class GTLRCloudHealthcare_RollbackFhirResourceFilteringFields;
 @class GTLRCloudHealthcare_SchemaConfig;
 @class GTLRCloudHealthcare_SchemaGroup;
 @class GTLRCloudHealthcare_SchemaPackage;
@@ -694,6 +695,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2;
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V3;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_RollbackFhirResourcesRequest.changeType
+
+/**
+ *  All transactions
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_All;
+/**
+ *  When unspecified, revert all transactions
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_ChangeTypeUnspecified;
+/**
+ *  Revert only CREATE transactions
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Create;
+/**
+ *  Revert only Delete transactions
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Delete;
+/**
+ *  Revert only Update transactions
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 
 /**
@@ -1020,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name of the Attribute definition, of the form
+ *  Identifier. Resource name of the Attribute definition, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/attributeDefinitions/{attribute_definition_id}`.
  *  Cannot be changed after creation.
  */
@@ -1420,7 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ConsentArtifact_Metadata *metadata;
 
 /**
- *  Resource name of the Consent artifact, of the form
+ *  Identifier. Resource name of the Consent artifact, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consentArtifacts/{consent_artifact_id}`.
  *  Cannot be changed after creation.
  */
@@ -1723,10 +1758,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the dataset resource to create and write the redacted data to. *
- *  The destination dataset must not exist. * The destination dataset must be in
- *  the same location as the source dataset. De-identifying data across multiple
- *  locations is not supported.
+ *  Required. The name of the dataset resource to create and write the redacted
+ *  data to. * The destination dataset must not exist. * The destination dataset
+ *  must be in the same location as the source dataset. De-identifying data
+ *  across multiple locations is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
@@ -1755,8 +1790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the DICOM store to create and write the redacted data to. For
- *  example,
+ *  Required. The name of the DICOM store to create and write the redacted data
+ *  to. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *  * The destination dataset must exist. * The source dataset and destination
  *  dataset must both reside in the same location. De-identifying data across
@@ -1794,8 +1829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the FHIR store to create and write the redacted data to. For
- *  example,
+ *  Required. The name of the FHIR store to create and write the redacted data
+ *  to. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *  * The destination dataset must exist. * The source dataset and destination
  *  dataset must both reside in the same location. De-identifying data across
@@ -1929,7 +1964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomStore_Labels *labels;
 
 /**
- *  Resource name of the DICOM store, of the form
+ *  Identifier. Resource name of the DICOM store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2680,7 +2715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_FhirStore_Labels *labels;
 
 /**
- *  Output only. Resource name of the FHIR store, of the form
+ *  Output only. Identifier. Resource name of the FHIR store, of the form
  *  `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2722,10 +2757,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ValidationConfig *validationConfig;
 
 /**
- *  Immutable. The FHIR specification version that this FHIR store supports
- *  natively. This field is immutable after store creation. Requests are
- *  rejected if they contain FHIR resources of a different version. Version is
- *  required for every FHIR store.
+ *  Required. Immutable. The FHIR specification version that this FHIR store
+ *  supports natively. This field is immutable after store creation. Requests
+ *  are rejected if they contain FHIR resources of a different version. Version
+ *  is required for every FHIR store.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Dstu2 Draft Standard for
@@ -4865,6 +4900,105 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  GTLRCloudHealthcare_RollbackFhirResourceFilteringFields
+ */
+@interface GTLRCloudHealthcare_RollbackFhirResourceFilteringFields : GTLRObject
+
+/**
+ *  Optional. A filter expression that matches data in the `Resource.meta`
+ *  element. Supports all filters in [AIP-160](https://google.aip.dev/160)
+ *  except the "has" (`:`) operator. Supports the following custom functions: *
+ *  `tag("") = ""` for tag filtering. * `extension_value_ts("") = ` for
+ *  filtering extensions with a timestamp, where `` is a Unix timestamp.
+ *  Supports the `>`, `<`, `<=`, `>=`, and `!=` comparison operators.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataFilter;
+
+/**
+ *  Optional. A list of operation IDs to roll back.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *operationIds;
+
+@end
+
+
+/**
+ *  GTLRCloudHealthcare_RollbackFhirResourcesRequest
+ */
+@interface GTLRCloudHealthcare_RollbackFhirResourcesRequest : GTLRObject
+
+/**
+ *  Optional. CREATE/UPDATE/DELETE/ALL for reverting all txns of a certain type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_All
+ *        All transactions (Value: "ALL")
+ *    @arg @c kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_ChangeTypeUnspecified
+ *        When unspecified, revert all transactions (Value:
+ *        "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Create
+ *        Revert only CREATE transactions (Value: "CREATE")
+ *    @arg @c kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Delete
+ *        Revert only Delete transactions (Value: "DELETE")
+ *    @arg @c kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update
+ *        Revert only Update transactions (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
+
+/**
+ *  Optional. Specifies whether to exclude earlier rollbacks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeRollbacks;
+
+/** Optional. Parameters for filtering resources */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_RollbackFhirResourceFilteringFields *filteringFields;
+
+/**
+ *  Optional. When enabled, changes will be reverted without explicit
+ *  confirmation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Optional. GCS object containing list of {resourceType}/{resourceId} lines,
+ *  identifying resources to be reverted
+ */
+@property(nonatomic, copy, nullable) NSString *inputGcsObject;
+
+/** Required. Bucket to deposit result */
+@property(nonatomic, copy, nullable) NSString *resultGcsBucket;
+
+/** Required. Time point to rollback to. */
+@property(nonatomic, strong, nullable) GTLRDateTime *rollbackTime;
+
+/** Optional. If specified, revert only resources of these types */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *type;
+
+@end
+
+
+/**
+ *  Final response of rollback FIHR resources request.
+ */
+@interface GTLRCloudHealthcare_RollbackFhirResourcesResponse : GTLRObject
+
+/**
+ *  The name of the FHIR store to rollback, in the format of
+ *  "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *  /fhirStores/{fhir_store_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *fhirStore;
+
+@end
+
+
+/**
  *  Configuration for the FHIR BigQuery schema. Determines how the server
  *  generates the schema.
  */
@@ -5070,8 +5204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_SearchResourcesRequest : GTLRObject
 
 /**
- *  The FHIR resource type to search, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to search, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).

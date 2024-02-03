@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// datasetView
+NSString * const kGTLRBigqueryDatasetViewAcl                   = @"ACL";
+NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified = @"DATASET_VIEW_UNSPECIFIED";
+NSString * const kGTLRBigqueryDatasetViewFull                  = @"FULL";
+NSString * const kGTLRBigqueryDatasetViewMetadata              = @"METADATA";
+
 // projection
 NSString * const kGTLRBigqueryProjectionFull    = @"full";
 NSString * const kGTLRBigqueryProjectionMinimal = @"minimal";
@@ -47,7 +53,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}";
   GTLRBigqueryQuery_DatasetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -69,7 +75,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}";
   GTLRBigqueryQuery_DatasetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -96,7 +102,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets";
   GTLRBigqueryQuery_DatasetsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -116,7 +122,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets";
   GTLRBigqueryQuery_DatasetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -145,7 +151,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}";
   GTLRBigqueryQuery_DatasetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -155,6 +161,37 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   query.datasetId = datasetId;
   query.expectedObjectClass = [GTLRBigquery_Dataset class];
   query.loggingName = @"bigquery.datasets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_DatasetsUndelete
+
+@dynamic datasetId, projectId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_UndeleteDatasetRequest *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}:undelete";
+  GTLRBigqueryQuery_DatasetsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.expectedObjectClass = [GTLRBigquery_Dataset class];
+  query.loggingName = @"bigquery.datasets.undelete";
   return query;
 }
 
@@ -176,7 +213,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}";
   GTLRBigqueryQuery_DatasetsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -200,7 +237,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"jobId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/jobs/{jobId}/cancel";
+  NSString *pathURITemplate = @"projects/{+projectId}/jobs/{+jobId}/cancel";
   GTLRBigqueryQuery_JobsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -245,7 +282,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"jobId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/jobs/{jobId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/jobs/{+jobId}";
   GTLRBigqueryQuery_JobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -261,15 +298,19 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_JobsGetQueryResults
 
-@dynamic jobId, location, maxResults, pageToken, projectId, startIndex,
-         timeoutMs;
+@dynamic formatOptionsUseInt64Timestamp, jobId, location, maxResults, pageToken,
+         projectId, startIndex, timeoutMs;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+}
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                              jobId:(NSString *)jobId {
   NSArray *pathParams = @[
     @"jobId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/queries/{jobId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/queries/{+jobId}";
   GTLRBigqueryQuery_JobsGetQueryResults *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -297,7 +338,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/jobs";
+  NSString *pathURITemplate = @"projects/{+projectId}/jobs";
   GTLRBigqueryQuery_JobsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -326,7 +367,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/jobs";
+  NSString *pathURITemplate = @"projects/{+projectId}/jobs";
   GTLRBigqueryQuery_JobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -352,7 +393,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/queries";
+  NSString *pathURITemplate = @"projects/{+projectId}/queries";
   GTLRBigqueryQuery_JobsQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -477,7 +518,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
-  NSString *pathURITemplate = @"projects/{projectId}/serviceAccount";
+  NSString *pathURITemplate = @"projects/{+projectId}/serviceAccount";
   GTLRBigqueryQuery_ProjectsGetServiceAccount *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -739,7 +780,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}/insertAll";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/insertAll";
   GTLRBigqueryQuery_TabledataInsertAll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -757,8 +798,12 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_TabledataList
 
-@dynamic datasetId, maxResults, pageToken, projectId, selectedFields,
-         startIndex, tableId;
+@dynamic datasetId, formatOptionsUseInt64Timestamp, maxResults, pageToken,
+         projectId, selectedFields, startIndex, tableId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+}
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId
@@ -766,7 +811,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}/data";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/data";
   GTLRBigqueryQuery_TabledataList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -791,7 +836,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}";
   GTLRBigqueryQuery_TablesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -815,7 +860,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}";
   GTLRBigqueryQuery_TablesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -873,7 +918,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables";
   GTLRBigqueryQuery_TablesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -897,7 +942,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables";
   GTLRBigqueryQuery_TablesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -932,7 +977,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}";
   GTLRBigqueryQuery_TablesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1023,7 +1068,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   NSArray *pathParams = @[
     @"datasetId", @"projectId", @"tableId"
   ];
-  NSString *pathURITemplate = @"projects/{projectId}/datasets/{datasetId}/tables/{tableId}";
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}";
   GTLRBigqueryQuery_TablesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

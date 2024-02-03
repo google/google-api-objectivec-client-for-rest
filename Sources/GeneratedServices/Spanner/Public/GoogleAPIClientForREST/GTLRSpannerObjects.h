@@ -812,6 +812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Enum;
 /**
  *  Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or `"-Infinity"`.
  *
+ *  Value: "FLOAT32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float32;
+/**
+ *  Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or `"-Infinity"`.
+ *
  *  Value: "FLOAT64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
@@ -1323,7 +1329,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1369,6 +1379,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  The request for Commit.
  */
 @interface GTLRSpanner_CommitRequest : GTLRObject
+
+/**
+ *  Optional. The amount of latency this request is willing to incur in order to
+ *  improve throughput. If this field is not set, Spanner assumes requests are
+ *  relatively latency sensitive and automatically determines an appropriate
+ *  delay time. You can specify a batching delay value between 0 and 500 ms.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxCommitDelay;
 
 /**
  *  The mutations to be executed when this transaction commits. All mutations
@@ -2950,6 +2968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The storage limit in bytes per processing unit.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageLimitPerProcessingUnit;
 
 @end
 
@@ -4644,7 +4669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultLeaderLocation;
 
-/** The location of the serving resources, e.g. "us-central1". */
+/** The location of the serving resources, e.g., "us-central1". */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
@@ -5667,6 +5692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        format. (Value: "DATE")
  *    @arg @c kGTLRSpanner_Type_Code_Enum Encoded as `string`, in decimal
  *        format. (Value: "ENUM")
+ *    @arg @c kGTLRSpanner_Type_Code_Float32 Encoded as `number`, or the strings
+ *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT32")
  *    @arg @c kGTLRSpanner_Type_Code_Float64 Encoded as `number`, or the strings
  *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal

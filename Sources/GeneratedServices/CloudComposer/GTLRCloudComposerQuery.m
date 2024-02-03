@@ -308,6 +308,25 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workloads";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_ListWorkloadsResponse class];
+  query.loggingName = @"composer.projects.locations.environments.workloads.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList
 
 @dynamic includePastReleases, pageSize, pageToken, parent;

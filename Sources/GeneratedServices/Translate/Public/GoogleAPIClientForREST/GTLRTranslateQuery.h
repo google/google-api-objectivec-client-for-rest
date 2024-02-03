@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the file to delete, in form of
- *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an AdaptiveMtFile along with its sentences.
  *
  *  @param name Required. The resource name of the file to delete, in form of
- *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *
  *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesDelete
  */
@@ -233,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the file, in form of
- *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets and AdaptiveMtFile
  *
  *  @param name Required. The resource name of the file, in form of
- *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/files/{file}`
+ *    `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *
  *  @return GTLRTranslateQuery_ProjectsLocationsAdaptiveMtDatasetsAdaptiveMtFilesGet
  */

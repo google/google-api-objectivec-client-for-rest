@@ -449,6 +449,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Stopping 
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Succeeded = @"SUCCEEDED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace = @"DUPLICATE_NAMESPACE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch = @"EMBEDDING_SIZE_MISMATCH";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmptyLine = @"EMPTY_LINE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
@@ -456,7 +457,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOpe
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidCsvSyntax = @"INVALID_CSV_SYNTAX";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingId = @"INVALID_EMBEDDING_ID";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidJsonSyntax = @"INVALID_JSON_SYNTAX";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidNumericValue = @"INVALID_NUMERIC_VALUE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_MultipleValues = @"MULTIPLE_VALUES";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing = @"NAMESPACE_MISSING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_OpInDatapoint = @"OP_IN_DATAPOINT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ParsingError = @"PARSING_ERROR";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1NotebookReservationAffinity.consumeReservationType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookReservationAffinity_ConsumeReservationType_ReservationAffinityTypeUnspecified = @"RESERVATION_AFFINITY_TYPE_UNSPECIFIED";
@@ -2436,8 +2441,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate
-@dynamic citationMetadata, content, finishMessage, finishReason, index,
-         safetyRatings;
+@dynamic citationMetadata, content, finishMessage, finishReason,
+         groundingMetadata, index, safetyRatings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2497,6 +2502,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_CloudAiNlLlmProtoServiceFact
+//
+
+@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFact
+@dynamic query, summary, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall
 //
 
@@ -2549,12 +2564,13 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiNlLlmProtoServiceGenerateMultiModalResponse
-@dynamic candidates, debugMetadata, promptFeedback, reportingMetrics,
+@dynamic candidates, debugMetadata, facts, promptFeedback, reportingMetrics,
          usageMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"candidates" : [GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate class]
+    @"candidates" : [GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate class],
+    @"facts" : [GTLRAiplatform_CloudAiNlLlmProtoServiceFact class]
   };
   return map;
 }
@@ -2617,7 +2633,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata
-@dynamic endOffset, startOffset;
+@dynamic endOffset, modelLevelMetaData, startOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata
+//
+
+@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata
+@dynamic fps, numFrames;
 @end
 
 
@@ -3996,7 +4022,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CreatePipelineJobRequest
-@dynamic parent, pipelineJob, pipelineJobId;
+@dynamic parent, pipelineJob, pipelineJobId, preflightValidations;
 @end
 
 
@@ -6595,7 +6621,15 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1IndexPrivateEndpoints
-@dynamic matchGrpcAddress, serviceAttachment;
+@dynamic matchGrpcAddress, pscAutomatedEndpoints, serviceAttachment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pscAutomatedEndpoints" : [GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -8970,8 +9004,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig
-@dynamic failurePolicy, gcsOutputDirectory, inputArtifacts, parameters,
-         parameterValues;
+@dynamic defaultRuntime, failurePolicy, gcsOutputDirectory, inputArtifacts,
+         parameters, parameterValues;
 @end
 
 
@@ -9019,11 +9053,31 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime
+@dynamic persistentResourceRuntimeDetail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact
 @dynamic artifactId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail
+@dynamic persistentResourceName;
 @end
 
 
@@ -9299,6 +9353,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints
+@dynamic matchAddress, network, projectId;
 @end
 
 
@@ -12377,6 +12441,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest
+@dynamic httpBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1StringArray
 //
 
@@ -13910,12 +13984,13 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution
-@dynamic amarnaId, arxivId, author, bibkey, bookTitle, bookVolumeId, category,
-         conversationId, dataset, filepath, geminiId, gnewsArticleTitle,
-         goodallExampleId, isOptOut, isPrompt, lamdaExampleId, license,
-         meenaConversationId, naturalLanguageCode, noAttribution,
-         podcastUtteranceId, publicationDate, qualityScoreExperimentOnly, repo,
-         url, volumeId, wikipediaArticleTitle;
+@dynamic amarnaId, arxivId, author, bibkey, biorxivId, bookTitle, bookVolumeId,
+         category, conversationId, dataset, filepath, geminiId,
+         gnewsArticleTitle, goodallExampleId, isOptOut, isPrompt,
+         lamdaExampleId, license, meenaConversationId, naturalLanguageCode,
+         noAttribution, podcastUtteranceId, publicationDate,
+         qualityScoreExperimentOnly, repo, url, volumeId, wikipediaArticleTitle,
+         youtubeVideoId;
 @end
 
 
@@ -13975,12 +14050,12 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_LearningGenaiRecitationDocAttribution
-@dynamic amarnaId, arxivId, author, bibkey, bookTitle, bookVolumeId,
+@dynamic amarnaId, arxivId, author, bibkey, biorxivId, bookTitle, bookVolumeId,
          conversationId, dataset, filepath, geminiId, gnewsArticleTitle,
          goodallExampleId, isOptOut, isPrompt, lamdaExampleId, license,
          meenaConversationId, naturalLanguageCode, noAttribution,
          podcastUtteranceId, publicationDate, qualityScoreExperimentOnly, repo,
-         url, volumeId, wikipediaArticleTitle;
+         url, volumeId, wikipediaArticleTitle, youtubeVideoId;
 @end
 
 
@@ -14114,6 +14189,35 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_LearningGenaiRootGroundingMetadata
+//
+
+@implementation GTLRAiplatform_LearningGenaiRootGroundingMetadata
+@dynamic citations, groundingCancelled, searchQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation class],
+    @"searchQueries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation
+//
+
+@implementation GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation
+@dynamic endIndex, factIndex, score, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_LearningGenaiRootHarm
 //
 
@@ -14205,6 +14309,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_LearningGenaiRootLanguageFilterResult
+//
+
+@implementation GTLRAiplatform_LearningGenaiRootLanguageFilterResult
+@dynamic allowed, detectedLanguage, detectedLanguageProbability;
 @end
 
 
@@ -14494,25 +14608,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_LearningServingLlmLanguageFilterResult
-//
-
-@implementation GTLRAiplatform_LearningServingLlmLanguageFilterResult
-@dynamic allowed, detectedLanguage, detectedLanguageProbability;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAiplatform_LearningServingLlmMessageMetadata
 //
 
 @implementation GTLRAiplatform_LearningServingLlmMessageMetadata
 @dynamic classifierSummary, currentStreamTextLength, deleted, filterMeta,
-         finalMessageScore, finishReason, isFallback, langidResult, language,
-         lmPrefix, originalText, perStreamDecodedTokenCount, raiOutputs,
-         recitationResult, returnTokenCount, scores, streamTerminated,
-         totalDecodedTokenCount, translatedUserPrompts, vertexRaiResult;
+         finalMessageScore, finishReason, groundingMetadata, isFallback,
+         langidResult, language, lmPrefix, originalText,
+         perStreamDecodedTokenCount, raiOutputs, recitationResult,
+         returnTokenCount, scores, streamTerminated, totalDecodedTokenCount,
+         translatedUserPrompts, vertexRaiResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -104,8 +104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactionsRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly;
 /**
- *  Authorization scope: Create conversations and spaces and view or update
- *  metadata (including history settings) in Google Chat
+ *  Authorization scope: Create conversations and spaces and see or edit
+ *  metadata (including history settings and access settings) in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.spaces"
  */

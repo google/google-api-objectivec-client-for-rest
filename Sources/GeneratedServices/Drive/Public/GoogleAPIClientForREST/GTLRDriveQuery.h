@@ -84,6 +84,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Gets a specific app.
+ *
+ *  Method: drive.apps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveAppdata
+ *    @c kGTLRAuthScopeDriveAppsReadonly
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_AppsGet : GTLRDriveQuery
+
+/** The ID of the app. */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Fetches a @c GTLRDrive_App.
+ *
+ *  Gets a specific app.
+ *
+ *  @param appId The ID of the app.
+ *
+ *  @return GTLRDriveQuery_AppsGet
+ */
++ (instancetype)queryWithAppId:(NSString *)appId;
+
+@end
+
+/**
+ *  Lists a user's installed apps.
+ *
+ *  Method: drive.apps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDriveAppsReadonly
+ */
+@interface GTLRDriveQuery_AppsList : GTLRDriveQuery
+
+/**
+ *  A comma-separated list of file extensions to limit returned results. All
+ *  results within the given app query scope which can open any of the given
+ *  file extensions are included in the response. If `appFilterMimeTypes` are
+ *  provided as well, the result is a union of the two resulting app lists.
+ */
+@property(nonatomic, copy, nullable) NSString *appFilterExtensions;
+
+/**
+ *  A comma-separated list of file extensions to limit returned results. All
+ *  results within the given app query scope which can open any of the given
+ *  MIME types will be included in the response. If `appFilterExtensions` are
+ *  provided as well, the result is a union of the two resulting app lists.
+ */
+@property(nonatomic, copy, nullable) NSString *appFilterMimeTypes;
+
+/**
+ *  A language or locale code, as defined by BCP 47, with some extensions from
+ *  Unicode's LDML format (http://www.unicode.org/reports/tr35/).
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Fetches a @c GTLRDrive_AppList.
+ *
+ *  Lists a user's installed apps.
+ *
+ *  @return GTLRDriveQuery_AppsList
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Gets the starting pageToken for listing future changes.
  *
  *  Method: drive.changes.getStartPageToken

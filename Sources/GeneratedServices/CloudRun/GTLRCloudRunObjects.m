@@ -887,10 +887,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Service
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
-         createTime, creator, customAudiences, deleteTime, descriptionProperty,
-         ETag, expireTime, generation, ingress, labels, lastModifier,
-         latestCreatedRevision, latestReadyRevision, launchStage, name,
-         observedGeneration, reconciling, satisfiesPzs, scaling,
+         createTime, creator, customAudiences, defaultUriDisabled, deleteTime,
+         descriptionProperty, ETag, expireTime, generation, ingress, labels,
+         lastModifier, latestCreatedRevision, latestReadyRevision, launchStage,
+         name, observedGeneration, reconciling, satisfiesPzs, scaling,
          templateProperty, terminalCondition, traffic, trafficStatuses, uid,
          updateTime, uri;
 

@@ -4079,7 +4079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @interface GTLRWalletobjects_FlightCarrier : GTLRObject
 
 /**
- *  A logo for the airline alliance, displayed above the QR code that the
+ *  A logo for the airline alliance, displayed below the QR code that the
  *  passenger scans to board.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *airlineAllianceLogo;

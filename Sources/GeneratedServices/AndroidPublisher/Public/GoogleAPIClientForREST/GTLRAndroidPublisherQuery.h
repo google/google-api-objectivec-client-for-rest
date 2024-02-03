@@ -171,6 +171,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
+ *  Writes the Safety Labels declaration of an app.
+ *
+ *  Method: androidpublisher.applications.dataSafety
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApplicationsDataSafety : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SafetyLabelsUpdateResponse.
+ *
+ *  Writes the Safety Labels declaration of an app.
+ *
+ *  @param object The @c GTLRAndroidPublisher_SafetyLabelsUpdateRequest to
+ *    include in the query.
+ *  @param packageName Required. Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApplicationsDataSafety
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SafetyLabelsUpdateRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
  *  Creates a new device tier config for an app.
  *
  *  Method: androidpublisher.applications.deviceTierConfigs.create

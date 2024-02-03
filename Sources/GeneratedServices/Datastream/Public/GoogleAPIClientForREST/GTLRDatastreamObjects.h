@@ -1700,9 +1700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
 
-/**
- *  Stream large object values. NOTE: This feature is currently experimental.
- */
+/** Stream large object values. */
 @property(nonatomic, strong, nullable) GTLRDatastream_StreamLargeObjects *streamLargeObjects;
 
 @end
@@ -2135,7 +2133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** MySQL specific log position to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlLogPosition *mysqlLogPosition;
 
-/** Oracle specific log position to start replicating from. */
+/** Oracle SCN to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleScnPosition *oracleScnPosition;
 
 @end

@@ -1322,6 +1322,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /** Return the channels within the specified guide category ID. */
 @property(nonatomic, copy, nullable) NSString *categoryId;
 
+/** Return the channel associated with a YouTube handle. */
+@property(nonatomic, copy, nullable) NSString *forHandle;
+
 /** Return the channel associated with a YouTube username. */
 @property(nonatomic, copy, nullable) NSString *forUsername;
 

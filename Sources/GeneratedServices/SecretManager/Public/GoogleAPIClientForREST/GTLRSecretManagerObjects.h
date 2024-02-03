@@ -117,7 +117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /**
  *  The resource name of the SecretVersion in the format `projects/ * /secrets/
- *  * /versions/ *`.
+ *  * /versions/ *` or `projects/ * /locations/ * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -312,7 +312,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -858,7 +862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Immutable. The replication policy of the secret data attached to
+ *  Optional. Immutable. The replication policy of the secret data attached to
  *  the Secret. The replication policy cannot be changed after the Secret has
  *  been created.
  */
@@ -886,8 +890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  characters. An alias string must start with a letter and cannot be the
  *  string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
  *  secret. Version-Alias pairs will be viewable via GetSecret and modifiable
- *  via UpdateSecret. At launch Access by Allias will only be supported on
- *  GetSecretVersion and AccessSecretVersion.
+ *  via UpdateSecret. Access by alias is only be supported on GetSecretVersion
+ *  and AccessSecretVersion.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Secret_VersionAliases *versionAliases;
 
@@ -938,8 +942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  characters. An alias string must start with a letter and cannot be the
  *  string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
  *  secret. Version-Alias pairs will be viewable via GetSecret and modifiable
- *  via UpdateSecret. At launch Access by Allias will only be supported on
- *  GetSecretVersion and AccessSecretVersion.
+ *  via UpdateSecret. Access by alias is only be supported on GetSecretVersion
+ *  and AccessSecretVersion.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c

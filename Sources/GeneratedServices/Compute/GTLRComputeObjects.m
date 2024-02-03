@@ -749,6 +749,7 @@ NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d = @"GENERAL_PURP
 NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimized = @"GRAPHICS_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3 = @"MEMORY_OPTIMIZED_M3";
+NSString * const kGTLRCompute_Commitment_Type_StorageOptimizedZ3 = @"STORAGE_OPTIMIZED_Z3";
 NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
 // GTLRCompute_CommitmentAggregatedList_Warning.code
@@ -4022,6 +4023,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus = @"COMMITTED_N
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus = @"COMMITTED_NVIDIA_V100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedT2aCpus    = @"COMMITTED_T2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedT2dCpus    = @"COMMITTED_T2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedZ3Cpus     = @"COMMITTED_Z3_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_Cpus                = @"CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
@@ -9860,8 +9862,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_FirewallPolicyRule
 @dynamic action, descriptionProperty, direction, disabled, enableLogging, kind,
-         match, priority, ruleName, ruleTupleCount, targetResources,
-         targetSecureTags, targetServiceAccounts;
+         match, priority, ruleName, ruleTupleCount, securityProfileGroup,
+         targetResources, targetSecureTags, targetServiceAccounts, tlsInspect;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

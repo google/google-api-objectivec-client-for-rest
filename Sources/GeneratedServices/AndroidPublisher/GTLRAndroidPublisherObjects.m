@@ -2522,6 +2522,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SafetyLabelsUpdateRequest
+//
+
+@implementation GTLRAndroidPublisher_SafetyLabelsUpdateRequest
+@dynamic safetyLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SafetyLabelsUpdateResponse
+//
+
+@implementation GTLRAndroidPublisher_SafetyLabelsUpdateResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ScreenDensity
 //
 

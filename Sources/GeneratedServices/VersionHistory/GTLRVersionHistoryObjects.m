@@ -21,6 +21,8 @@ NSString * const kGTLRVersionHistory_Channel_ChannelType_CanaryAsan = @"CANARY_A
 NSString * const kGTLRVersionHistory_Channel_ChannelType_ChannelTypeUnspecified = @"CHANNEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRVersionHistory_Channel_ChannelType_Dev   = @"DEV";
 NSString * const kGTLRVersionHistory_Channel_ChannelType_Extended = @"EXTENDED";
+NSString * const kGTLRVersionHistory_Channel_ChannelType_Ltc   = @"LTC";
+NSString * const kGTLRVersionHistory_Channel_ChannelType_Lts   = @"LTS";
 NSString * const kGTLRVersionHistory_Channel_ChannelType_Stable = @"STABLE";
 
 // GTLRVersionHistory_Platform.platformType

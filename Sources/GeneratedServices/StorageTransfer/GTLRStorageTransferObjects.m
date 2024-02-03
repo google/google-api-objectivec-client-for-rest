@@ -303,7 +303,7 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_GcsData
-@dynamic bucketName, path;
+@dynamic bucketName, managedFolderTransferEnabled, path;
 @end
 
 

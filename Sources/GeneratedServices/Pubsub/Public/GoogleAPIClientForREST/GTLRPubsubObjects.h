@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRPubsub_AvroConfig;
+@class GTLRPubsub_AwsKinesis;
 @class GTLRPubsub_BigQueryConfig;
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CloudStorageConfig;
@@ -23,6 +24,7 @@
 @class GTLRPubsub_DeadLetterPolicy;
 @class GTLRPubsub_ExpirationPolicy;
 @class GTLRPubsub_Expr;
+@class GTLRPubsub_IngestionDataSourceSettings;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
 @class GTLRPubsub_MessageStoragePolicy;
@@ -53,6 +55,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_AwsKinesis.state
+
+/**
+ *  Ingestion is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_Active;
+/**
+ *  The Kinesis consumer does not exist.
+ *
+ *  Value: "CONSUMER_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_ConsumerNotFound;
+/**
+ *  Permission denied encountered while consuming data from Kinesis. This can
+ *  happen if: - The provided `aws_role_arn` does not exist or does not have the
+ *  appropriate permissions attached. - The provided `aws_role_arn` is not set
+ *  up properly for Identity Federation using `gcp_service_account`. - The
+ *  Pub/Sub SA is not granted the `iam.serviceAccounts.getOpenIdToken`
+ *  permission on `gcp_service_account`.
+ *
+ *  Value: "KINESIS_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied;
+/**
+ *  Permission denied encountered while publishing to the topic. This can happen
+ *  due to Pub/Sub SA has not been granted the [appropriate publish
+ *  permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
+ *
+ *  Value: "PUBLISH_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_StateUnspecified;
+/**
+ *  The Kinesis stream does not exist.
+ *
+ *  Value: "STREAM_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_StreamNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_BigQueryConfig.state
@@ -206,6 +255,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_Subscription_State_ResourceError;
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_Subscription_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPubsub_Topic.state
+
+/**
+ *  The topic does not have any persistent errors.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Topic_State_Active;
+/**
+ *  Ingestion from the data source has encountered a permanent error. See the
+ *  more detailed error state in the corresponding ingestion source
+ *  configuration.
+ *
+ *  Value: "INGESTION_RESOURCE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Topic_State_IngestionResourceError;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Topic_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPubsub_ValidateMessageRequest.encoding
 
 /**
@@ -258,6 +331,67 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *writeMetadata;
+
+@end
+
+
+/**
+ *  Ingestion settings for Amazon Kinesis Data Streams.
+ */
+@interface GTLRPubsub_AwsKinesis : GTLRObject
+
+/**
+ *  Required. AWS role ARN to be used for Federated Identity authentication with
+ *  Kinesis. Check the Pub/Sub docs for how to set up this role and the required
+ *  permissions that need to be attached to it.
+ */
+@property(nonatomic, copy, nullable) NSString *awsRoleArn;
+
+/**
+ *  Required. The Kinesis consumer ARN to used for ingestion in Enhanced Fan-Out
+ *  mode. The consumer must be already created and ready to be used.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerArn;
+
+/**
+ *  Required. The GCP service account to be used for Federated Identity
+ *  authentication with Kinesis (via a `AssumeRoleWithWebIdentity` call for the
+ *  provided role). The `aws_role_arn` must be set up with
+ *  `accounts.google.com:sub` equals to this service account number.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccount;
+
+/**
+ *  Output only. An output-only field that indicates the state of the Kinesis
+ *  ingestion source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_Active Ingestion is active. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_ConsumerNotFound The Kinesis consumer
+ *        does not exist. (Value: "CONSUMER_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied Permission
+ *        denied encountered while consuming data from Kinesis. This can happen
+ *        if: - The provided `aws_role_arn` does not exist or does not have the
+ *        appropriate permissions attached. - The provided `aws_role_arn` is not
+ *        set up properly for Identity Federation using `gcp_service_account`. -
+ *        The Pub/Sub SA is not granted the `iam.serviceAccounts.getOpenIdToken`
+ *        permission on `gcp_service_account`. (Value:
+ *        "KINESIS_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied Permission
+ *        denied encountered while publishing to the topic. This can happen due
+ *        to Pub/Sub SA has not been granted the [appropriate publish
+ *        permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
+ *        (Value: "PUBLISH_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_StateUnspecified Default value. This
+ *        value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_StreamNotFound The Kinesis stream
+ *        does not exist. (Value: "STREAM_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Required. The Kinesis stream ARN to ingest data from. */
+@property(nonatomic, copy, nullable) NSString *streamArn;
 
 @end
 
@@ -420,7 +554,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -677,6 +815,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
+ *  Settings for an ingestion data source on a topic.
+ */
+@interface GTLRPubsub_IngestionDataSourceSettings : GTLRObject
+
+/** Optional. Amazon Kinesis Data Streams. */
+@property(nonatomic, strong, nullable) GTLRPubsub_AwsKinesis *awsKinesis;
+
+@end
+
+
+/**
  *  Response for the `ListSchemaRevisions` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -880,9 +1029,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Optional. ID of this message, assigned by the server when the message is
- *  published. Guaranteed to be unique within the topic. This value may be read
- *  by a subscriber that receives a `PubsubMessage` via a `Pull` call or a push
+ *  ID of this message, assigned by the server when the message is published.
+ *  Guaranteed to be unique within the topic. This value may be read by a
+ *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
  *  delivery. It must not be populated by the publisher in a `Publish` call.
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
@@ -900,9 +1049,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
 /**
- *  Optional. The time at which the message was published, populated by the
- *  server when it receives the `Publish` call. It must not be populated by the
- *  publisher in a `Publish` call.
+ *  The time at which the message was published, populated by the server when it
+ *  receives the `Publish` call. It must not be populated by the publisher in a
+ *  `Publish` call.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
@@ -964,8 +1113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Specifying zero might immediately make the message available for delivery to
  *  another subscriber client. This typically results in an increase in the rate
  *  of message redeliveries (that is, duplicates). The minimum deadline you can
- *  specify is 0 seconds. The maximum deadline you can specify is 600 seconds
- *  (10 minutes).
+ *  specify is 0 seconds. The maximum deadline you can specify in a single
+ *  request is 600 seconds (10 minutes).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1779,6 +1928,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @interface GTLRPubsub_Topic : GTLRObject
 
 /**
+ *  Optional. Settings for managed ingestion from a data source into this topic.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_IngestionDataSourceSettings *ingestionDataSourceSettings;
+
+/**
  *  Optional. The resource name of the Cloud KMS CryptoKey to be used to protect
  *  access to messages published on this topic. The expected format is
  *  `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
@@ -1830,6 +1984,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /** Optional. Settings for validating messages published against a schema. */
 @property(nonatomic, strong, nullable) GTLRPubsub_SchemaSettings *schemaSettings;
+
+/**
+ *  Output only. An output-only field indicating the state of the topic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Topic_State_Active The topic does not have any
+ *        persistent errors. (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_Topic_State_IngestionResourceError Ingestion from the
+ *        data source has encountered a permanent error. See the more detailed
+ *        error state in the corresponding ingestion source configuration.
+ *        (Value: "INGESTION_RESOURCE_ERROR")
+ *    @arg @c kGTLRPubsub_Topic_State_StateUnspecified Default value. This value
+ *        is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

@@ -6,7 +6,7 @@
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
-//   https://cloud.google.com/bigquery/
+//   https://cloud.google.com/bigquery/docs/connections-api-intro
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 

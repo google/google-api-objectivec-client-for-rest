@@ -27,6 +27,36 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// datasetView
+
+/**
+ *  Includes ACL information for the dataset, which defines dataset access for
+ *  one or more entities.
+ *
+ *  Value: "ACL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewAcl;
+/**
+ *  The default value. Default to the FULL view.
+ *
+ *  Value: "DATASET_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified;
+/**
+ *  Includes both dataset metadata and ACL information.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewFull;
+/**
+ *  Includes metadata information for the dataset, such as location, etag,
+ *  lastModifiedTime, etc.
+ *
+ *  Value: "METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewMetadata;
+
+// ----------------------------------------------------------------------------
 // projection
 
 /**
@@ -126,7 +156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsDelete : GTLRBigqueryQuery
 
-/** Dataset ID of dataset being deleted */
+/** Required. Dataset ID of dataset being deleted */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
@@ -135,7 +165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @property(nonatomic, assign) BOOL deleteContents;
 
-/** Project ID of the dataset being deleted */
+/** Required. Project ID of the dataset being deleted */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -147,8 +177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  deleteContents. Immediately after deletion, you can create another dataset
  *  with the same name.
  *
- *  @param projectId Project ID of the dataset being deleted
- *  @param datasetId Dataset ID of dataset being deleted
+ *  @param projectId Required. Project ID of the dataset being deleted
+ *  @param datasetId Required. Dataset ID of dataset being deleted
  *
  *  @return GTLRBigqueryQuery_DatasetsDelete
  */
@@ -169,17 +199,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsGet : GTLRBigqueryQuery
 
-/** Dataset ID of the requested dataset */
+/** Required. Dataset ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  Specifies the view that determines which dataset information is returned. By
- *  default, metadata and ACL information are returned. Allowed values:
- *  METADATA, ACL, FULL.
+ *  Optional. Specifies the view that determines which dataset information is
+ *  returned. By default, metadata and ACL information are returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryDatasetViewDatasetViewUnspecified The default value.
+ *        Default to the FULL view. (Value: "DATASET_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryDatasetViewMetadata Includes metadata information for
+ *        the dataset, such as location, etag, lastModifiedTime, etc. (Value:
+ *        "METADATA")
+ *    @arg @c kGTLRBigqueryDatasetViewAcl Includes ACL information for the
+ *        dataset, which defines dataset access for one or more entities.
+ *        (Value: "ACL")
+ *    @arg @c kGTLRBigqueryDatasetViewFull Includes both dataset metadata and
+ *        ACL information. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *datasetView;
 
-/** Project ID of the requested dataset */
+/** Required. Project ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -187,8 +228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Returns the dataset specified by datasetID.
  *
- *  @param projectId Project ID of the requested dataset
- *  @param datasetId Dataset ID of the requested dataset
+ *  @param projectId Required. Project ID of the requested dataset
+ *  @param datasetId Required. Dataset ID of the requested dataset
  *
  *  @return GTLRBigqueryQuery_DatasetsGet
  */
@@ -208,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsInsert : GTLRBigqueryQuery
 
-/** Project ID of the new dataset */
+/** Required. Project ID of the new dataset */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -217,7 +258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Creates a new empty dataset.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
- *  @param projectId Project ID of the new dataset
+ *  @param projectId Required. Project ID of the new dataset
  *
  *  @return GTLRBigqueryQuery_DatasetsInsert
  */
@@ -227,8 +268,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Lists all datasets in the specified project to which you have been granted
- *  the READER dataset role.
+ *  Lists all datasets in the specified project to which the user has been
+ *  granted the READER dataset role.
  *
  *  Method: bigquery.datasets.list
  *
@@ -244,13 +285,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  An expression for filtering the results of the request by label. The syntax
- *  is "labels.<name>[:<value>]". Multiple filters can be ANDed together by
- *  connecting with a space. Example: "labels.department:receiving
- *  labels.active". See Filtering datasets using labels for details.
+ *  is \\"labels.<name>[:<value>]\\". Multiple filters can be ANDed together by
+ *  connecting with a space. Example: \\"labels.department:receiving
+ *  labels.active\\". See [Filtering datasets using
+ *  labels](/bigquery/docs/labeling-datasets#filtering_datasets_using_labels)
+ *  for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of results to return */
+/**
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -258,16 +304,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Project ID of the datasets to be listed */
+/** Required. Project ID of the datasets to be listed */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_DatasetList.
  *
- *  Lists all datasets in the specified project to which you have been granted
- *  the READER dataset role.
+ *  Lists all datasets in the specified project to which the user has been
+ *  granted the READER dataset role.
  *
- *  @param projectId Project ID of the datasets to be listed
+ *  @param projectId Required. Project ID of the datasets to be listed
  *
  *  @return GTLRBigqueryQuery_DatasetsList
  *
@@ -282,8 +328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
- *  are provided in the submitted dataset resource. This method supports patch
- *  semantics.
+ *  are provided in the submitted dataset resource. This method supports RFC5789
+ *  patch semantics.
  *
  *  Method: bigquery.datasets.patch
  *
@@ -293,10 +339,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsPatch : GTLRBigqueryQuery
 
-/** Dataset ID of the dataset being updated */
+/** Required. Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the dataset being updated */
+/** Required. Project ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -304,16 +350,55 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
- *  are provided in the submitted dataset resource. This method supports patch
- *  semantics.
+ *  are provided in the submitted dataset resource. This method supports RFC5789
+ *  patch semantics.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
- *  @param projectId Project ID of the dataset being updated
- *  @param datasetId Dataset ID of the dataset being updated
+ *  @param projectId Required. Project ID of the dataset being updated
+ *  @param datasetId Required. Dataset ID of the dataset being updated
  *
  *  @return GTLRBigqueryQuery_DatasetsPatch
  */
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId;
+
+@end
+
+/**
+ *  Undeletes a dataset which is within time travel window based on datasetId.
+ *  If a time is specified, the dataset version deleted at that time is
+ *  undeleted, else the last live version is undeleted.
+ *
+ *  Method: bigquery.datasets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_DatasetsUndelete : GTLRBigqueryQuery
+
+/** Required. Dataset ID of dataset being deleted */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the dataset to be undeleted */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Dataset.
+ *
+ *  Undeletes a dataset which is within time travel window based on datasetId.
+ *  If a time is specified, the dataset version deleted at that time is
+ *  undeleted, else the last live version is undeleted.
+ *
+ *  @param object The @c GTLRBigquery_UndeleteDatasetRequest to include in the
+ *    query.
+ *  @param projectId Required. Project ID of the dataset to be undeleted
+ *  @param datasetId Required. Dataset ID of dataset being deleted
+ *
+ *  @return GTLRBigqueryQuery_DatasetsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_UndeleteDatasetRequest *)object
                       projectId:(NSString *)projectId
                       datasetId:(NSString *)datasetId;
 
@@ -332,10 +417,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsUpdate : GTLRBigqueryQuery
 
-/** Dataset ID of the dataset being updated */
+/** Required. Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the dataset being updated */
+/** Required. Project ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -346,8 +431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  are provided in the submitted dataset resource.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
- *  @param projectId Project ID of the dataset being updated
- *  @param datasetId Dataset ID of the dataset being updated
+ *  @param projectId Required. Project ID of the dataset being updated
+ *  @param datasetId Required. Dataset ID of the dataset being updated
  *
  *  @return GTLRBigqueryQuery_DatasetsUpdate
  */
@@ -370,17 +455,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsCancel : GTLRBigqueryQuery
 
-/** [Required] Job ID of the job to cancel */
+/** Required. Job ID of the job to cancel */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. Required except for US and EU. See
- *  details at
+ *  The geographic location of the job. You must specify the location to run the
+ *  job for the following scenarios: - If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** [Required] Project ID of the job to cancel */
+/** Required. Project ID of the job to cancel */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -390,8 +477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  client will need to poll for the job status to see if the cancel completed
  *  successfully. Cancelled jobs may still incur costs.
  *
- *  @param projectId [Required] Project ID of the job to cancel
- *  @param jobId [Required] Job ID of the job to cancel
+ *  @param projectId Required. Project ID of the job to cancel
+ *  @param jobId Required. Job ID of the job to cancel
  *
  *  @return GTLRBigqueryQuery_JobsCancel
  */
@@ -464,17 +551,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsGet : GTLRBigqueryQuery
 
-/** [Required] Job ID of the requested job */
+/** Required. Job ID of the requested job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. Required except for US and EU. See
- *  details at
+ *  The geographic location of the job. You must specify the location to run the
+ *  job for the following scenarios: - If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** [Required] Project ID of the requested job */
+/** Required. Project ID of the requested job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -484,8 +573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  six month period after creation. Requires that you're the person who ran the
  *  job, or have the Is Owner project role.
  *
- *  @param projectId [Required] Project ID of the requested job
- *  @param jobId [Required] Job ID of the requested job
+ *  @param projectId Required. Project ID of the requested job.
+ *  @param jobId Required. Job ID of the requested job.
  *
  *  @return GTLRBigqueryQuery_JobsGet
  */
@@ -495,7 +584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Retrieves the results of a query job.
+ *  RPC to get the results of a query job.
  *
  *  Method: bigquery.jobs.getQueryResults
  *
@@ -506,44 +595,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsGetQueryResults : GTLRBigqueryQuery
 
-/** [Required] Job ID of the query job */
+/** Optional. Output timestamp as usec int64. Default is false. */
+@property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;
+
+/** Required. Job ID of the query job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location where the job should run. Required except for US and
- *  EU. See details at
+ *  The geographic location of the job. You must specify the location to run the
+ *  job for the following scenarios: - If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Maximum number of results to read */
+/** Maximum number of results to read. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Page token, returned by a previous call, to request the next page of results
+ *  Page token, returned by a previous call, to request the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** [Required] Project ID of the query job */
+/** Required. Project ID of the query job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Zero-based index of the starting row */
+/** Zero-based index of the starting row. */
 @property(nonatomic, assign) unsigned long long startIndex;
 
 /**
- *  How long to wait for the query to complete, in milliseconds, before
- *  returning. Default is 10 seconds. If the timeout passes before the job
- *  completes, the 'jobComplete' field in the response will be false
+ *  Optional: Specifies the maximum amount of time, in milliseconds, that the
+ *  client is willing to wait for the query to complete. By default, this limit
+ *  is 10 seconds (10,000 milliseconds). If the query is complete, the
+ *  jobComplete field in the response is true. If the query has not yet
+ *  completed, jobComplete is false. You can request a longer timeout period in
+ *  the timeoutMs field. However, the call is not guaranteed to wait for the
+ *  specified timeout; it typically returns after around 200 seconds (200,000
+ *  milliseconds), even if the query is not complete. If jobComplete is false,
+ *  you can continue to wait for the query to complete by calling the
+ *  getQueryResults method until the jobComplete field in the getQueryResults
+ *  response is true.
  */
 @property(nonatomic, assign) NSUInteger timeoutMs;
 
 /**
  *  Fetches a @c GTLRBigquery_GetQueryResultsResponse.
  *
- *  Retrieves the results of a query job.
+ *  RPC to get the results of a query job.
  *
- *  @param projectId [Required] Project ID of the query job
- *  @param jobId [Required] Job ID of the query job
+ *  @param projectId Required. Project ID of the query job.
+ *  @param jobId Required. Job ID of the query job.
  *
  *  @return GTLRBigqueryQuery_JobsGetQueryResults
  */
@@ -553,7 +656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Starts a new asynchronous job. Requires the Can View project role.
+ *  Starts a new asynchronous job. This API has two different kinds of endpoint
+ *  URIs, as this method supports a variety of use cases. * The *Metadata* URI
+ *  is used for most interactions, as it accepts the job configuration directly.
+ *  * The *Upload* URI is ONLY for the case when you're sending both a load job
+ *  configuration and a data stream together. In this case, the Upload URI
+ *  accepts the job configuration and the data as two distinct multipart MIME
+ *  parts.
  *
  *  Method: bigquery.jobs.insert
  *
@@ -566,16 +675,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsInsert : GTLRBigqueryQuery
 
-/** Project ID of the project that will be billed for the job */
+/** Project ID of project that will be billed for the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_Job.
  *
- *  Starts a new asynchronous job. Requires the Can View project role.
+ *  Starts a new asynchronous job. This API has two different kinds of endpoint
+ *  URIs, as this method supports a variety of use cases. * The *Metadata* URI
+ *  is used for most interactions, as it accepts the job configuration directly.
+ *  * The *Upload* URI is ONLY for the case when you're sending both a load job
+ *  configuration and a data stream together. In this case, the Upload URI
+ *  accepts the job configuration and the data as two distinct multipart MIME
+ *  parts.
  *
  *  @param object The @c GTLRBigquery_Job to include in the query.
- *  @param projectId Project ID of the project that will be billed for the job
+ *  @param projectId Project ID of project that will be billed for the job.
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
@@ -603,37 +718,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @interface GTLRBigqueryQuery_JobsList : GTLRBigqueryQuery
 
 /**
- *  Whether to display jobs owned by all users in the project. Default false
+ *  Whether to display jobs owned by all users in the project. Default False.
  */
 @property(nonatomic, assign) BOOL allUsers;
 
 /**
  *  Max value for job creation time, in milliseconds since the POSIX epoch. If
- *  set, only jobs created before or at this timestamp are returned
+ *  set, only jobs created before or at this timestamp are returned.
  */
 @property(nonatomic, assign) unsigned long long maxCreationTime;
 
-/** Maximum number of results to return */
+/**
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
  *  Min value for job creation time, in milliseconds since the POSIX epoch. If
- *  set, only jobs created after or at this timestamp are returned
+ *  set, only jobs created after or at this timestamp are returned.
  */
 @property(nonatomic, assign) unsigned long long minCreationTime;
 
 /**
- *  Page token, returned by a previous call, to request the next page of results
+ *  Page token, returned by a previous call, to request the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  If set, retrieves only jobs whose parent is this job. Otherwise, retrieves
- *  only jobs which have no parent
+ *  If set, show only child jobs of the specified parent. Otherwise, show all
+ *  top-level jobs.
  */
 @property(nonatomic, copy, nullable) NSString *parentJobId;
 
-/** Project ID of the jobs to list */
+/** Project ID of the jobs to list. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -664,7 +783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  reverse chronological order, by job creation time. Requires the Can View
  *  project role, or the Is Owner project role if you set the allUsers property.
  *
- *  @param projectId Project ID of the jobs to list
+ *  @param projectId Project ID of the jobs to list.
  *
  *  @return GTLRBigqueryQuery_JobsList
  *
@@ -689,7 +808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsQuery : GTLRBigqueryQuery
 
-/** Project ID of the project billed for the query */
+/** Required. Project ID of the query request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -699,7 +818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  query completes within a specified timeout.
  *
  *  @param object The @c GTLRBigquery_QueryRequest to include in the query.
- *  @param projectId Project ID of the project billed for the query
+ *  @param projectId Required. Project ID of the query request.
  *
  *  @return GTLRBigqueryQuery_JobsQuery
  */
@@ -876,8 +995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Returns the email address of the service account for your project used for
- *  interactions with Google Cloud KMS.
+ *  RPC to get the service account for a project used for interactions with
+ *  Google Cloud KMS
  *
  *  Method: bigquery.projects.getServiceAccount
  *
@@ -888,16 +1007,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_ProjectsGetServiceAccount : GTLRBigqueryQuery
 
-/** Project ID for which the service account is requested. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRBigquery_GetServiceAccountResponse.
  *
- *  Returns the email address of the service account for your project used for
- *  interactions with Google Cloud KMS.
+ *  RPC to get the service account for a project used for interactions with
+ *  Google Cloud KMS
  *
- *  @param projectId Project ID for which the service account is requested.
+ *  @param projectId Required. ID of the project.
  *
  *  @return GTLRBigqueryQuery_ProjectsGetServiceAccount
  */
@@ -906,7 +1025,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Lists all projects to which you have been granted any project role.
+ *  RPC to list projects to which the user has been granted any project role.
+ *  Users of this method are encouraged to consider the [Resource
+ *  Manager](https://cloud.google.com/resource-manager/docs/) API, which
+ *  provides the underlying data for this method and has more capabilities.
  *
  *  Method: bigquery.projects.list
  *
@@ -917,18 +1039,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_ProjectsList : GTLRBigqueryQuery
 
-/** Maximum number of results to return */
+/**
+ *  `maxResults` unset returns all results, up to 50 per page. Additionally, the
+ *  number of projects in a page may be fewer than `maxResults` because projects
+ *  are retrieved and then filtered to only projects with the BigQuery API
+ *  enabled.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Page token, returned by a previous call, to request the next page of results
+ *  Page token, returned by a previous call, to request the next page of
+ *  results. If not present, no further pages are present.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRBigquery_ProjectList.
  *
- *  Lists all projects to which you have been granted any project role.
+ *  RPC to list projects to which the user has been granted any project role.
+ *  Users of this method are encouraged to consider the [Resource
+ *  Manager](https://cloud.google.com/resource-manager/docs/) API, which
+ *  provides the underlying data for this method and has more capabilities.
  *
  *  @return GTLRBigqueryQuery_ProjectsList
  *
@@ -1309,7 +1440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Streams data into BigQuery one record at a time without needing to run a
- *  load job. Requires the WRITER dataset role.
+ *  load job.
  *
  *  Method: bigquery.tabledata.insertAll
  *
@@ -1320,26 +1451,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TabledataInsertAll : GTLRBigqueryQuery
 
-/** Dataset ID of the destination table. */
+/** Required. Dataset ID of the destination. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the destination table. */
+/** Required. Project ID of the destination. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Table ID of the destination table. */
+/** Required. Table ID of the destination. */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_TableDataInsertAllResponse.
  *
  *  Streams data into BigQuery one record at a time without needing to run a
- *  load job. Requires the WRITER dataset role.
+ *  load job.
  *
  *  @param object The @c GTLRBigquery_TableDataInsertAllRequest to include in
  *    the query.
- *  @param projectId Project ID of the destination table.
- *  @param datasetId Dataset ID of the destination table.
- *  @param tableId Table ID of the destination table.
+ *  @param projectId Required. Project ID of the destination.
+ *  @param datasetId Required. Dataset ID of the destination.
+ *  @param tableId Required. Table ID of the destination.
  *
  *  @return GTLRBigqueryQuery_TabledataInsertAll
  */
@@ -1351,8 +1482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Retrieves table data from a specified set of rows. Requires the READER
- *  dataset role.
+ *  List the content of a table in rows.
  *
  *  Method: bigquery.tabledata.list
  *
@@ -1363,39 +1493,45 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TabledataList : GTLRBigqueryQuery
 
-/** Dataset ID of the table to read */
+/** Required. Dataset id of the table to list. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Maximum number of results to return */
+/** Optional. Output timestamp as usec int64. Default is false. */
+@property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;
+
+/** Row limit of the table. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-/** Page token, returned by a previous call, identifying the result set */
+/**
+ *  To retrieve the next page of table data, set this field to the string
+ *  provided in the pageToken field of the response body from your previous call
+ *  to tabledata.list.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Project ID of the table to read */
+/** Required. Project id of the table to list. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  List of fields to return (comma-separated). If unspecified, all fields are
- *  returned
+ *  Subset of fields to return, supports select into sub fields. Example:
+ *  selected_fields = "a,e.d.f";
  */
 @property(nonatomic, copy, nullable) NSString *selectedFields;
 
-/** Zero-based index of the starting row to read */
+/** Start row index of the table. */
 @property(nonatomic, assign) unsigned long long startIndex;
 
-/** Table ID of the table to read */
+/** Required. Table id of the table to list. */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_TableDataList.
  *
- *  Retrieves table data from a specified set of rows. Requires the READER
- *  dataset role.
+ *  List the content of a table in rows.
  *
- *  @param projectId Project ID of the table to read
- *  @param datasetId Dataset ID of the table to read
- *  @param tableId Table ID of the table to read
+ *  @param projectId Required. Project id of the table to list.
+ *  @param datasetId Required. Dataset id of the table to list.
+ *  @param tableId Required. Table id of the table to list.
  *
  *  @return GTLRBigqueryQuery_TabledataList
  */
@@ -1417,13 +1553,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesDelete : GTLRBigqueryQuery
 
-/** Dataset ID of the table to delete */
+/** Required. Dataset ID of the table to delete */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the table to delete */
+/** Required. Project ID of the table to delete */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Table ID of the table to delete */
+/** Required. Table ID of the table to delete */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
@@ -1433,9 +1569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Deletes the table specified by tableId from the dataset. If the table
  *  contains data, all the data will be deleted.
  *
- *  @param projectId Project ID of the table to delete
- *  @param datasetId Dataset ID of the table to delete
- *  @param tableId Table ID of the table to delete
+ *  @param projectId Required. Project ID of the table to delete
+ *  @param datasetId Required. Dataset ID of the table to delete
+ *  @param tableId Required. Table ID of the table to delete
  *
  *  @return GTLRBigqueryQuery_TablesDelete
  */
@@ -1459,41 +1595,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesGet : GTLRBigqueryQuery
 
-/** Dataset ID of the requested table */
+/** Required. Dataset ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the requested table */
+/** Required. Project ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  List of fields to return (comma-separated). If unspecified, all fields are
- *  returned
+ *  List of table schema fields to return (comma-separated). If unspecified, all
+ *  fields are returned. A fieldMask cannot be used here because the fields will
+ *  automatically be converted from camelCase to snake_case and the conversion
+ *  will fail if there are underscores. Since these are fields in BigQuery table
+ *  schemas, underscores are allowed.
  */
 @property(nonatomic, copy, nullable) NSString *selectedFields;
 
-/** Table ID of the requested table */
+/** Required. Table ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
- *  Specifies the view that determines which table information is returned. By
- *  default, basic table information and storage statistics (STORAGE_STATS) are
- *  returned.
+ *  Optional. Specifies the view that determines which table information is
+ *  returned. By default, basic table information and storage statistics
+ *  (STORAGE_STATS) are returned.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigqueryViewTableMetadataViewUnspecified The default value.
+ *        Default to the STORAGE_STATS view. (Value:
+ *        "TABLE_METADATA_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRBigqueryViewBasic Includes basic table information including
  *        schema and partitioning specification. This view does not include
  *        storage statistics such as numRows or numBytes. This view is
  *        significantly more efficient and should be used to support high query
  *        rates. (Value: "BASIC")
- *    @arg @c kGTLRBigqueryViewFull Includes all table information, including
- *        storage statistics. It returns same information as STORAGE_STATS view,
- *        but may contain additional information in the future. (Value: "FULL")
  *    @arg @c kGTLRBigqueryViewStorageStats Includes all information in the
  *        BASIC view as well as storage statistics (numBytes, numLongTermBytes,
  *        numRows and lastModifiedTime). (Value: "STORAGE_STATS")
- *    @arg @c kGTLRBigqueryViewTableMetadataViewUnspecified The default value.
- *        Default to the STORAGE_STATS view. (Value:
- *        "TABLE_METADATA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryViewFull Includes all table information, including
+ *        storage statistics. It returns same information as STORAGE_STATS view,
+ *        but may contain additional information in the future. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1504,9 +1643,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  the data in the table, it only returns the table resource, which describes
  *  the structure of this table.
  *
- *  @param projectId Project ID of the requested table
- *  @param datasetId Dataset ID of the requested table
- *  @param tableId Table ID of the requested table
+ *  @param projectId Required. Project ID of the requested table
+ *  @param datasetId Required. Dataset ID of the requested table
+ *  @param tableId Required. Table ID of the requested table
  *
  *  @return GTLRBigqueryQuery_TablesGet
  */
@@ -1567,10 +1706,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesInsert : GTLRBigqueryQuery
 
-/** Dataset ID of the new table */
+/** Required. Dataset ID of the new table */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the new table */
+/** Required. Project ID of the new table */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -1579,8 +1718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Creates a new, empty table in the dataset.
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
- *  @param projectId Project ID of the new table
- *  @param datasetId Dataset ID of the new table
+ *  @param projectId Required. Project ID of the new table
+ *  @param datasetId Required. Dataset ID of the new table
  *
  *  @return GTLRBigqueryQuery_TablesInsert
  */
@@ -1602,10 +1741,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesList : GTLRBigqueryQuery
 
-/** Dataset ID of the tables to list */
+/** Required. Dataset ID of the tables to list */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Maximum number of results to return */
+/**
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -1613,7 +1755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Project ID of the tables to list */
+/** Required. Project ID of the tables to list */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -1621,8 +1763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Lists all tables in the specified dataset. Requires the READER dataset role.
  *
- *  @param projectId Project ID of the tables to list
- *  @param datasetId Dataset ID of the tables to list
+ *  @param projectId Required. Project ID of the tables to list
+ *  @param datasetId Required. Dataset ID of the tables to list
  *
  *  @return GTLRBigqueryQuery_TablesList
  *
@@ -1638,8 +1780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Updates information in an existing table. The update method replaces the
  *  entire table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted table resource. This method supports patch
- *  semantics.
+ *  are provided in the submitted table resource. This method supports RFC5789
+ *  patch semantics.
  *
  *  Method: bigquery.tables.patch
  *
@@ -1649,16 +1791,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesPatch : GTLRBigqueryQuery
 
-/** When true will autodetect schema, else will keep original schema */
+/**
+ *  Optional. When true will autodetect schema, else will keep original schema
+ */
 @property(nonatomic, assign) BOOL autodetectSchema;
 
-/** Dataset ID of the table to update */
+/** Required. Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the table to update */
+/** Required. Project ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Table ID of the table to update */
+/** Required. Table ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
@@ -1666,13 +1810,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Updates information in an existing table. The update method replaces the
  *  entire table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted table resource. This method supports patch
- *  semantics.
+ *  are provided in the submitted table resource. This method supports RFC5789
+ *  patch semantics.
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
- *  @param projectId Project ID of the table to update
- *  @param datasetId Dataset ID of the table to update
- *  @param tableId Table ID of the table to update
+ *  @param projectId Required. Project ID of the table to update
+ *  @param datasetId Required. Dataset ID of the table to update
+ *  @param tableId Required. Table ID of the table to update
  *
  *  @return GTLRBigqueryQuery_TablesPatch
  */
@@ -1772,8 +1916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Updates information in an existing table. The update method replaces the
- *  entire table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted table resource.
+ *  entire Table resource, whereas the patch method only replaces fields that
+ *  are provided in the submitted Table resource.
  *
  *  Method: bigquery.tables.update
  *
@@ -1783,29 +1927,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_TablesUpdate : GTLRBigqueryQuery
 
-/** When true will autodetect schema, else will keep original schema */
+/**
+ *  Optional. When true will autodetect schema, else will keep original schema
+ */
 @property(nonatomic, assign) BOOL autodetectSchema;
 
-/** Dataset ID of the table to update */
+/** Required. Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** Project ID of the table to update */
+/** Required. Project ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Table ID of the table to update */
+/** Required. Table ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.
  *
  *  Updates information in an existing table. The update method replaces the
- *  entire table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted table resource.
+ *  entire Table resource, whereas the patch method only replaces fields that
+ *  are provided in the submitted Table resource.
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
- *  @param projectId Project ID of the table to update
- *  @param datasetId Dataset ID of the table to update
- *  @param tableId Table ID of the table to update
+ *  @param projectId Required. Project ID of the table to update
+ *  @param datasetId Required. Dataset ID of the table to update
+ *  @param tableId Required. Table ID of the table to update
  *
  *  @return GTLRBigqueryQuery_TablesUpdate
  */

@@ -116,6 +116,7 @@ NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Execu
 NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified = @"CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Enrolled = @"ENROLLED";
 NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive = @"INACTIVE";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_OptOut = @"OPT_OUT";
 
 // GTLRShoppingContent_CheckoutSettings.effectiveReviewState
 NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_Approved = @"APPROVED";
@@ -127,6 +128,7 @@ NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveReviewState_InRe
 NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified = @"CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Enrolled = @"ENROLLED";
 NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive = @"INACTIVE";
+NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_OptOut = @"OPT_OUT";
 
 // GTLRShoppingContent_CheckoutSettings.reviewState
 NSString * const kGTLRShoppingContent_CheckoutSettings_ReviewState_Approved = @"APPROVED";
@@ -1429,16 +1431,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_BusinessMessagesLink
-//
-
-@implementation GTLRShoppingContent_BusinessMessagesLink
-@dynamic agentId, businessMessagesLinkId;
 @end
 
 
@@ -2780,28 +2772,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"accountReturnCarriers" : [GTLRShoppingContent_AccountReturnCarrier class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ListBusinessMessagesLinksResponse
-//
-
-@implementation GTLRShoppingContent_ListBusinessMessagesLinksResponse
-@dynamic businessMessagesLinks, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"businessMessagesLinks" : [GTLRShoppingContent_BusinessMessagesLink class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"businessMessagesLinks";
 }
 
 @end

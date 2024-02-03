@@ -60,6 +60,7 @@ NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified =
 // GTLRHangoutsChat_CommonEventObject.hostApp
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar = @"CALENDAR";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat = @"CHAT";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_ChatInGmail = @"CHAT_IN_GMAIL";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Demo = @"DEMO";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Docs = @"DOCS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings = @"DRAWINGS";

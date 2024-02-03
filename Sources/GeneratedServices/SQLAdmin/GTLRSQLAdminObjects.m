@@ -386,6 +386,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscri
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SubscriptionCalculationStatus = @"SUBSCRIPTION_CALCULATION_STATUS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote = @"TURN_ON_PITR_AFTER_PROMOTE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnableToVerifyDefiners = @"UNABLE_TO_VERIFY_DEFINERS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat = @"UNSUPPORTED_BINLOG_FORMAT";
@@ -935,7 +936,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext_SqlExportOptions
-@dynamic mysqlExportOptions, schemaOnly, tables;
+@dynamic mysqlExportOptions, parallel, schemaOnly, tables, threads;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

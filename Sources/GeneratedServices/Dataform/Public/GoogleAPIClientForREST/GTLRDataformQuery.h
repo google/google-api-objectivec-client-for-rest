@@ -342,6 +342,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList : GTLRDataformQuery
 
+/** Optional. Filter for the returned list. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /**
  *  Optional. Maximum number of compilation results to return. The server may
  *  return fewer items than requested. If unspecified, the server will pick an

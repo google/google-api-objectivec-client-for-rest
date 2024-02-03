@@ -133,7 +133,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataC
 @property(nonatomic, strong, nullable) NSNumber *adId;
 
 /**
- *  Ad user data consent for this conversion.
+ *  Represents consent for core platform services (CPS) preferences in settings.
+ *  No default value. Acceptable values are: GRANTED: The desired consent status
+ *  is to grant. Read the CPS preferences from GTE settings. DENIED: The desired
+ *  consent status is to deny; CPS list is empty.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleclicksearch_Conversion_AdUserDataConsent_Denied Denied.

@@ -46,11 +46,15 @@ NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataWrite = @"DAT
 NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRNetworkManagement_DeliverInfo.target
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_AppEngineVersion = @"APP_ENGINE_VERSION";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction = @"CLOUD_FUNCTION";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudRunRevision = @"CLOUD_RUN_REVISION";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster = @"GKE_MASTER";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi = @"GOOGLE_API";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance = @"INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet = @"INTERNET";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork = @"PRIVATE_NETWORK";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi = @"PSC_GOOGLE_API";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService = @"PSC_PUBLISHED_SERVICE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc = @"PSC_VPC_SC";
@@ -95,11 +99,17 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet 
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted = @"PSC_CONNECTION_NOT_ACCEPTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscEndpointAccessedFromPeeredNetwork = @"PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerEndpointNoGlobalAccess = @"PSC_NEG_PRODUCER_ENDPOINT_NO_GLOBAL_ACCESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts = @"PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination = @"PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination = @"PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole = @"ROUTE_BLACKHOLE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleIpMismatch = @"ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleTypeInvalid = @"ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceNonPrimaryIp = @"ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceWrongNetwork = @"ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopIpAddressNotResolved = @"ROUTE_NEXT_HOP_IP_ADDRESS_NOT_RESOLVED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopResourceNotFound = @"ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopVpnTunnelNotEstablished = @"ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork = @"ROUTE_WRONG_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked = @"TRAFFIC_TYPE_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress = @"UNKNOWN_EXTERNAL_ADDRESS";
@@ -276,6 +286,8 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromGoogleService = @"ST
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_FROM_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet = @"START_FROM_INTERNET";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork = @"START_FROM_PRIVATE_NETWORK";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService = @"START_FROM_PSC_PUBLISHED_SERVICE";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"START_FROM_STORAGE_BUCKET";
 NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing = @"VIEWER_PERMISSION_MISSING";
 
@@ -753,8 +765,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_LoadBalancerBackendInfo
-@dynamic backendServiceUri, healthCheckFirewallsConfigState, healthCheckUri,
-         instanceGroupUri, instanceUri, name, networkEndpointGroupUri;
+@dynamic backendBucketUri, backendServiceUri, healthCheckFirewallsConfigState,
+         healthCheckUri, instanceGroupUri, instanceUri, name,
+         networkEndpointGroupUri, pscGoogleApiTarget, pscServiceAttachmentUri;
 @end
 
 
@@ -1034,12 +1047,23 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
          cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
          firewall, forward, forwardingRule, gkeMaster, googleService, instance,
          loadBalancer, loadBalancerBackendInfo, nat, network, projectId,
-         proxyConnection, route, state, vpcConnector, vpnGateway, vpnTunnel;
+         proxyConnection, route, state, storageBucket, vpcConnector, vpnGateway,
+         vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_StorageBucketInfo
+//
+
+@implementation GTLRNetworkManagement_StorageBucketInfo
+@dynamic bucket;
 @end
 
 

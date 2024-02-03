@@ -1099,8 +1099,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlay : GTLRObject
 
 /**
- *  The OrgPolicy CustomConstraint changes to preview violations for. Any
- *  existing CustomConstraints with the same name will be overridden in the
+ *  Optional. The OrgPolicy CustomConstraint changes to preview violations for.
+ *  Any existing CustomConstraints with the same name will be overridden in the
  *  simulation. That is, violations will be determined as if all custom
  *  constraints in the overlay were instantiated. Only a single
  *  custom_constraint is supported in the overlay at a time. For evaluating
@@ -1110,10 +1110,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
 
 /**
- *  The OrgPolicy changes to preview violations for. Any existing OrgPolicies
- *  with the same name will be overridden in the simulation. That is, violations
- *  will be determined as if all policies in the overlay were created or
- *  updated.
+ *  Optional. The OrgPolicy changes to preview violations for. Any existing
+ *  OrgPolicies with the same name will be overridden in the simulation. That
+ *  is, violations will be determined as if all policies in the overlay were
+ *  created or updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayPolicyOverlay *> *policies;
 
@@ -1125,10 +1125,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay : GTLRObject
 
-/** The new or updated custom constraint. */
+/** Optional. The new or updated custom constraint. */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint *customConstraint;
 
-/** Resource the constraint is attached to. Example: "organization/987654" */
+/**
+ *  Optional. Resource the constraint is attached to. Example:
+ *  "organization/987654"
+ */
 @property(nonatomic, copy, nullable) NSString *customConstraintParent;
 
 @end
@@ -1139,11 +1142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayPolicyOverlay : GTLRObject
 
-/** The new or updated OrgPolicy. */
+/** Optional. The new or updated OrgPolicy. */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy *policy;
 
 /**
- *  The parent of the policy we are attaching to. Example: "projects/123456"
+ *  Optional. The parent of the policy we are attaching to. Example:
+ *  "projects/123456"
  */
 @property(nonatomic, copy, nullable) NSString *policyParent;
 
@@ -1235,37 +1239,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreviewResourceCounts : GTLRObject
 
 /**
- *  Number of scanned resources with zero violations.
+ *  Output only. Number of scanned resources with zero violations.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *compliant;
 
 /**
- *  Number of resources that returned an error when scanned.
+ *  Output only. Number of resources that returned an error when scanned.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *errors;
 
 /**
- *  Number of scanned resources with at least one violation.
+ *  Output only. Number of scanned resources with at least one violation.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *noncompliant;
 
 /**
- *  Number of resources checked for compliance. Must equal: unenforced +
- *  noncompliant + compliant + error
+ *  Output only. Number of resources checked for compliance. Must equal:
+ *  unenforced + noncompliant + compliant + error
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scanned;
 
 /**
- *  Number of resources where the constraint was not enforced, i.e. the Policy
- *  set `enforced: false` for that resource.
+ *  Output only. Number of resources where the constraint was not enforced, i.e.
+ *  the Policy set `enforced: false` for that resource.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1341,8 +1345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlay : GTLRObject
 
 /**
- *  The OrgPolicy CustomConstraint changes to preview violations for. Any
- *  existing CustomConstraints with the same name will be overridden in the
+ *  Optional. The OrgPolicy CustomConstraint changes to preview violations for.
+ *  Any existing CustomConstraints with the same name will be overridden in the
  *  simulation. That is, violations will be determined as if all custom
  *  constraints in the overlay were instantiated. Only a single
  *  custom_constraint is supported in the overlay at a time. For evaluating
@@ -1352,10 +1356,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
 
 /**
- *  The OrgPolicy changes to preview violations for. Any existing OrgPolicies
- *  with the same name will be overridden in the simulation. That is, violations
- *  will be determined as if all policies in the overlay were created or
- *  updated.
+ *  Optional. The OrgPolicy changes to preview violations for. Any existing
+ *  OrgPolicies with the same name will be overridden in the simulation. That
+ *  is, violations will be determined as if all policies in the overlay were
+ *  created or updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayPolicyOverlay *> *policies;
 
@@ -1367,10 +1371,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayCustomConstraintOverlay : GTLRObject
 
-/** The new or updated custom constraint. */
+/** Optional. The new or updated custom constraint. */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint *customConstraint;
 
-/** Resource the constraint is attached to. Example: "organization/987654" */
+/**
+ *  Optional. Resource the constraint is attached to. Example:
+ *  "organization/987654"
+ */
 @property(nonatomic, copy, nullable) NSString *customConstraintParent;
 
 @end
@@ -1381,11 +1388,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayPolicyOverlay : GTLRObject
 
-/** The new or updated OrgPolicy. */
+/** Optional. The new or updated OrgPolicy. */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy *policy;
 
 /**
- *  The parent of the policy we are attaching to. Example: "projects/123456"
+ *  Optional. The parent of the policy we are attaching to. Example:
+ *  "projects/123456"
  */
 @property(nonatomic, copy, nullable) NSString *policyParent;
 
@@ -1477,37 +1485,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyViolationsPreviewResourceCounts : GTLRObject
 
 /**
- *  Number of scanned resources with zero violations.
+ *  Output only. Number of scanned resources with zero violations.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *compliant;
 
 /**
- *  Number of resources that returned an error when scanned.
+ *  Output only. Number of resources that returned an error when scanned.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *errors;
 
 /**
- *  Number of scanned resources with at least one violation.
+ *  Output only. Number of scanned resources with at least one violation.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *noncompliant;
 
 /**
- *  Number of resources checked for compliance. Must equal: unenforced +
- *  noncompliant + compliant + error
+ *  Output only. Number of resources checked for compliance. Must equal:
+ *  unenforced + noncompliant + compliant + error
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scanned;
 
 /**
- *  Number of resources where the constraint was not enforced, i.e. the Policy
- *  set `enforced: false` for that resource.
+ *  Output only. Number of resources where the constraint was not enforced, i.e.
+ *  the Policy set `enforced: false` for that resource.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2222,7 +2230,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

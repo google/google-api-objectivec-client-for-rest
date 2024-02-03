@@ -541,6 +541,17 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_DeviceManagementRule
+//
+
+@implementation GTLRAlertCenter_DeviceManagementRule
+@dynamic deviceId, deviceModel, deviceType, email, iosVendorId, resourceId,
+         serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_DlpRuleViolation
 //
 

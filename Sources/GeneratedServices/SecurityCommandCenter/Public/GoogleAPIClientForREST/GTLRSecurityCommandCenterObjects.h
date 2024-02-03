@@ -83,6 +83,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamBinding;
@@ -1025,6 +1026,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "INHERITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule_EnablementState_Inherited;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping.highSensitivityMapping
+
+/**
+ *  High resource value
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_High;
+/**
+ *  Low resource value
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_Low;
+/**
+ *  Medium resource value
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_Medium;
+/**
+ *  No resource value, e.g. ignore these resources
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_None;
+/**
+ *  Unspecific value
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_ResourceValueUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping.mediumSensitivityMapping
+
+/**
+ *  High resource value
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_High;
+/**
+ *  Low resource value
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_Low;
+/**
+ *  Medium resource value
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_Medium;
+/**
+ *  No resource value, e.g. ignore these resources
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_None;
+/**
+ *  Unspecific value
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_IamBinding.action
@@ -2584,7 +2653,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2902,8 +2975,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
- *  CVE stands for Common Vulnerabilities and Exposures. More information:
- *  https://cve.mitre.org
+ *  CVE stands for Common Vulnerabilities and Exposures. Information from the
+ *  [CVE record](https://www.cve.org/ResourcesSupport/Glossary) that describes
+ *  this vulnerability.
  */
 @interface GTLRSecurityCommandCenter_Cve : GTLRObject
 
@@ -4795,6 +4869,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 @property(nonatomic, copy, nullable) NSString *scope;
 
 /**
+ *  A mapping of the sensitivity on Sensitive Data Protection finding to
+ *  resource values. This mapping can only be used in combination with a
+ *  resource_type that is related to BigQuery, e.g.
+ *  "bigquery.googleapis.com/Dataset".
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping *sensitiveDataProtectionMapping;
+
+/**
  *  Required. Tag values combined with AND to check against. Values in the form
  *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
@@ -4914,6 +4996,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** Output only. The time at which the custom module was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Resource value mapping for Sensitive Data Protection findings. If any of
+ *  these mappings have a resource value that is not unspecified, the
+ *  resource_value field will be ignored when reading this configuration.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping : GTLRObject
+
+/**
+ *  Resource value mapping for high-sensitivity Sensitive Data Protection
+ *  findings
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_High
+ *        High resource value (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_Low
+ *        Low resource value (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_Medium
+ *        Medium resource value (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_None
+ *        No resource value, e.g. ignore these resources (Value: "NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_HighSensitivityMapping_ResourceValueUnspecified
+ *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *highSensitivityMapping;
+
+/**
+ *  Resource value mapping for medium-sensitivity Sensitive Data Protection
+ *  findings
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_High
+ *        High resource value (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_Low
+ *        Low resource value (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_Medium
+ *        Medium resource value (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_None
+ *        No resource value, e.g. ignore these resources (Value: "NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified
+ *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mediumSensitivityMapping;
 
 @end
 

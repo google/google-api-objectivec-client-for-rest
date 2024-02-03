@@ -42,6 +42,42 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_AppsGet
+
+@dynamic appId;
+
++ (instancetype)queryWithAppId:(NSString *)appId {
+  NSArray *pathParams = @[ @"appId" ];
+  NSString *pathURITemplate = @"apps/{appId}";
+  GTLRDriveQuery_AppsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appId = appId;
+  query.expectedObjectClass = [GTLRDrive_App class];
+  query.loggingName = @"drive.apps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AppsList
+
+@dynamic appFilterExtensions, appFilterMimeTypes, languageCode;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"apps";
+  GTLRDriveQuery_AppsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRDrive_AppList class];
+  query.loggingName = @"drive.apps.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_ChangesGetStartPageToken
 
 @dynamic driveId, supportsAllDrives, supportsTeamDrives, teamDriveId;

@@ -18,6 +18,26 @@ NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConf
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified = @"CONFLICT_RESULT_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict = @"NO_CONFLICT";
 
+// GTLRCloudComposer_ComposerWorkload.type
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_CeleryWorker = @"CELERY_WORKER";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_ComposerWorkloadTypeUnspecified = @"COMPOSER_WORKLOAD_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_DagProcessor = @"DAG_PROCESSOR";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_KubernetesOperatorPod = @"KUBERNETES_OPERATOR_POD";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_KubernetesWorker = @"KUBERNETES_WORKER";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Redis = @"REDIS";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Scheduler = @"SCHEDULER";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Triggerer = @"TRIGGERER";
+NSString * const kGTLRCloudComposer_ComposerWorkload_Type_WebServer = @"WEB_SERVER";
+
+// GTLRCloudComposer_ComposerWorkloadStatus.state
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_ComposerWorkloadStateUnspecified = @"COMPOSER_WORKLOAD_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Error = @"ERROR";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Ok = @"OK";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Pending = @"PENDING";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Warning = @"WARNING";
+
 // GTLRCloudComposer_Environment.state
 NSString * const kGTLRCloudComposer_Environment_State_Creating = @"CREATING";
 NSString * const kGTLRCloudComposer_Environment_State_Deleting = @"DELETING";
@@ -58,6 +78,11 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Running = @"RUNNING"
 NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCESSFUL";
+
+// GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
+NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled = @"PLUGINS_DISABLED";
+NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsEnabled = @"PLUGINS_ENABLED";
+NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_WebServerPluginsModeUnspecified = @"WEB_SERVER_PLUGINS_MODE_UNSPECIFIED";
 
 // GTLRCloudComposer_TaskLogsRetentionConfig.storageMode
 NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingAndCloudStorage = @"CLOUD_LOGGING_AND_CLOUD_STORAGE";
@@ -121,6 +146,36 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_CloudDataLineageIntegration
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ComposerWorkload
+//
+
+@implementation GTLRCloudComposer_ComposerWorkload
+@dynamic name, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ComposerWorkloadStatus
+//
+
+@implementation GTLRCloudComposer_ComposerWorkloadStatus
+@dynamic detailedStatusMessage, state, statusMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_DagProcessorResource
+//
+
+@implementation GTLRCloudComposer_DagProcessorResource
+@dynamic count, cpu, memoryGb, storageGb;
 @end
 
 
@@ -392,6 +447,28 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_ListWorkloadsResponse
+//
+
+@implementation GTLRCloudComposer_ListWorkloadsResponse
+@dynamic nextPageToken, workloads;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloads" : [GTLRCloudComposer_ComposerWorkload class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_LoadSnapshotRequest
 //
 
@@ -454,8 +531,9 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_NodeConfig
-@dynamic diskSizeGb, enableIpMasqAgent, ipAllocationPolicy, location,
-         machineType, network, oauthScopes, serviceAccount, subnetwork, tags;
+@dynamic composerInternalIpv4CidrBlock, composerNetworkAttachment, diskSizeGb,
+         enableIpMasqAgent, ipAllocationPolicy, location, machineType, network,
+         oauthScopes, serviceAccount, subnetwork, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -562,9 +640,9 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 @implementation GTLRCloudComposer_PrivateEnvironmentConfig
 @dynamic cloudComposerConnectionSubnetwork, cloudComposerNetworkIpv4CidrBlock,
          cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
-         enablePrivateEnvironment, enablePrivatelyUsedPublicIps,
-         networkingConfig, privateClusterConfig, webServerIpv4CidrBlock,
-         webServerIpv4ReservedRange;
+         enablePrivateBuildsOnly, enablePrivateEnvironment,
+         enablePrivatelyUsedPublicIps, networkingConfig, privateClusterConfig,
+         webServerIpv4CidrBlock, webServerIpv4ReservedRange;
 @end
 
 
@@ -625,7 +703,8 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_SoftwareConfig
 @dynamic airflowConfigOverrides, cloudDataLineageIntegration, envVariables,
-         imageVersion, pypiPackages, pythonVersion, schedulerCount;
+         imageVersion, pypiPackages, pythonVersion, schedulerCount,
+         webServerPluginsMode;
 @end
 
 
@@ -815,5 +894,5 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_WorkloadsConfig
-@dynamic scheduler, triggerer, webServer, worker;
+@dynamic dagProcessor, scheduler, triggerer, webServer, worker;
 @end

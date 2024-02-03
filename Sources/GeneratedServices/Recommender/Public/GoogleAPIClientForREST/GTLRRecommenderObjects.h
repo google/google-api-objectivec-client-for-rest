@@ -1089,6 +1089,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 /** Information for state. Contains state and metadata. */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo *stateInfo;
 
+/** Fully qualified resource names that this recommendation is targeting. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetResources;
+
 /**
  *  Corresponds to a mutually exclusive group ID within a recommender. A
  *  non-empty ID indicates that the recommendation belongs to a mutually
